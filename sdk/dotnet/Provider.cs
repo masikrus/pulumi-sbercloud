@@ -7,17 +7,81 @@ using System.Collections.Immutable;
 using System.Threading.Tasks;
 using Pulumi.Serialization;
 
-namespace Pulumi.Xyz
+namespace Pulumi.Sbercloud
 {
     /// <summary>
-    /// The provider type for the xyz package. By default, resources use package-wide configuration
+    /// The provider type for the sbercloud package. By default, resources use package-wide configuration
     /// settings, however an explicit `Provider` instance may be created and passed during resource
     /// construction to achieve fine-grained programmatic control over provider settings. See the
     /// [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
     /// </summary>
-    [XyzResourceType("pulumi:providers:xyz")]
+    [SbercloudResourceType("pulumi:providers:sbercloud")]
     public partial class Provider : global::Pulumi.ProviderResource
     {
+        /// <summary>
+        /// The access key of the SberCloud to use.
+        /// </summary>
+        [Output("accessKey")]
+        public Output<string?> AccessKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Account to login with.
+        /// </summary>
+        [Output("accountName")]
+        public Output<string?> AccountName { get; private set; } = null!;
+
+        /// <summary>
+        /// The Identity authentication URL.
+        /// </summary>
+        [Output("authUrl")]
+        public Output<string?> AuthUrl { get; private set; } = null!;
+
+        [Output("domainId")]
+        public Output<string?> DomainId { get; private set; } = null!;
+
+        [Output("domainName")]
+        public Output<string?> DomainName { get; private set; } = null!;
+
+        [Output("enterpriseProjectId")]
+        public Output<string?> EnterpriseProjectId { get; private set; } = null!;
+
+        /// <summary>
+        /// Password to login with.
+        /// </summary>
+        [Output("password")]
+        public Output<string?> Password { get; private set; } = null!;
+
+        /// <summary>
+        /// The name of the Project to login with.
+        /// </summary>
+        [Output("projectName")]
+        public Output<string?> ProjectName { get; private set; } = null!;
+
+        /// <summary>
+        /// The SberCloud region to connect to.
+        /// </summary>
+        [Output("region")]
+        public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// The secret key of the SberCloud to use.
+        /// </summary>
+        [Output("secretKey")]
+        public Output<string?> SecretKey { get; private set; } = null!;
+
+        /// <summary>
+        /// The security token to authenticate with a temporary security credential.
+        /// </summary>
+        [Output("securityToken")]
+        public Output<string?> SecurityToken { get; private set; } = null!;
+
+        /// <summary>
+        /// Username to login with.
+        /// </summary>
+        [Output("userName")]
+        public Output<string?> UserName { get; private set; } = null!;
+
+
         /// <summary>
         /// Create a Provider resource with the given unique name, arguments, and options.
         /// </summary>
@@ -25,8 +89,8 @@ namespace Pulumi.Xyz
         /// <param name="name">The unique name of the resource</param>
         /// <param name="args">The arguments used to populate this resource's properties</param>
         /// <param name="options">A bag of options that control this resource's behavior</param>
-        public Provider(string name, ProviderArgs? args = null, CustomResourceOptions? options = null)
-            : base("xyz", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
+        public Provider(string name, ProviderArgs args, CustomResourceOptions? options = null)
+            : base("sbercloud", name, args ?? new ProviderArgs(), MakeResourceOptions(options, ""))
         {
         }
 
@@ -35,6 +99,10 @@ namespace Pulumi.Xyz
             var defaultOptions = new CustomResourceOptions
             {
                 Version = Utilities.Version,
+                AdditionalSecretOutputs =
+                {
+                    "password",
+                },
             };
             var merged = CustomResourceOptions.Merge(defaultOptions, options);
             // Override the ID if one was specified for consistency with other language SDKs.
@@ -46,10 +114,89 @@ namespace Pulumi.Xyz
     public sealed class ProviderArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// A region which should be used.
+        /// The access key of the SberCloud to use.
         /// </summary>
-        [Input("region", json: true)]
-        public Input<Pulumi.Xyz.Region.Region>? Region { get; set; }
+        [Input("accessKey")]
+        public Input<string>? AccessKey { get; set; }
+
+        /// <summary>
+        /// The name of the Account to login with.
+        /// </summary>
+        [Input("accountName")]
+        public Input<string>? AccountName { get; set; }
+
+        [Input("assumeRole", json: true)]
+        public Input<Inputs.ProviderAssumeRoleArgs>? AssumeRole { get; set; }
+
+        /// <summary>
+        /// The Identity authentication URL.
+        /// </summary>
+        [Input("authUrl")]
+        public Input<string>? AuthUrl { get; set; }
+
+        [Input("domainId")]
+        public Input<string>? DomainId { get; set; }
+
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
+
+        [Input("enterpriseProjectId")]
+        public Input<string>? EnterpriseProjectId { get; set; }
+
+        /// <summary>
+        /// Trust self-signed certificates.
+        /// </summary>
+        [Input("insecure", json: true)]
+        public Input<bool>? Insecure { get; set; }
+
+        [Input("maxRetries", json: true)]
+        public Input<int>? MaxRetries { get; set; }
+
+        [Input("password")]
+        private Input<string>? _password;
+
+        /// <summary>
+        /// Password to login with.
+        /// </summary>
+        public Input<string>? Password
+        {
+            get => _password;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _password = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
+
+        /// <summary>
+        /// The name of the Project to login with.
+        /// </summary>
+        [Input("projectName")]
+        public Input<string>? ProjectName { get; set; }
+
+        /// <summary>
+        /// The SberCloud region to connect to.
+        /// </summary>
+        [Input("region", required: true)]
+        public Input<string> Region { get; set; } = null!;
+
+        /// <summary>
+        /// The secret key of the SberCloud to use.
+        /// </summary>
+        [Input("secretKey")]
+        public Input<string>? SecretKey { get; set; }
+
+        /// <summary>
+        /// The security token to authenticate with a temporary security credential.
+        /// </summary>
+        [Input("securityToken")]
+        public Input<string>? SecurityToken { get; set; }
+
+        /// <summary>
+        /// Username to login with.
+        /// </summary>
+        [Input("userName")]
+        public Input<string>? UserName { get; set; }
 
         public ProviderArgs()
         {

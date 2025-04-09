@@ -4,7 +4,7 @@
 using System;
 using System.Collections.Immutable;
 
-namespace Pulumi.Xyz
+namespace Pulumi.Sbercloud
 {
     public static class Config
     {
@@ -30,17 +30,151 @@ namespace Pulumi.Xyz
             }
         }
 
-        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("xyz");
+        private static readonly global::Pulumi.Config __config = new global::Pulumi.Config("sbercloud");
 
-        private static readonly __Value<Pulumi.Xyz.Region.Region?> _region = new __Value<Pulumi.Xyz.Region.Region?>(() => __config.GetObject<Pulumi.Xyz.Region.Region>("region"));
+        private static readonly __Value<string?> _accessKey = new __Value<string?>(() => __config.Get("accessKey"));
         /// <summary>
-        /// A region which should be used.
+        /// The access key of the SberCloud to use.
         /// </summary>
-        public static Pulumi.Xyz.Region.Region? Region
+        public static string? AccessKey
+        {
+            get => _accessKey.Get();
+            set => _accessKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _accountName = new __Value<string?>(() => __config.Get("accountName"));
+        /// <summary>
+        /// The name of the Account to login with.
+        /// </summary>
+        public static string? AccountName
+        {
+            get => _accountName.Get();
+            set => _accountName.Set(value);
+        }
+
+        private static readonly __Value<Pulumi.Sbercloud.Config.Types.AssumeRole?> _assumeRole = new __Value<Pulumi.Sbercloud.Config.Types.AssumeRole?>(() => __config.GetObject<Pulumi.Sbercloud.Config.Types.AssumeRole>("assumeRole"));
+        public static Pulumi.Sbercloud.Config.Types.AssumeRole? AssumeRole
+        {
+            get => _assumeRole.Get();
+            set => _assumeRole.Set(value);
+        }
+
+        private static readonly __Value<string?> _authUrl = new __Value<string?>(() => __config.Get("authUrl"));
+        /// <summary>
+        /// The Identity authentication URL.
+        /// </summary>
+        public static string? AuthUrl
+        {
+            get => _authUrl.Get();
+            set => _authUrl.Set(value);
+        }
+
+        private static readonly __Value<string?> _domainId = new __Value<string?>(() => __config.Get("domainId"));
+        public static string? DomainId
+        {
+            get => _domainId.Get();
+            set => _domainId.Set(value);
+        }
+
+        private static readonly __Value<string?> _domainName = new __Value<string?>(() => __config.Get("domainName"));
+        public static string? DomainName
+        {
+            get => _domainName.Get();
+            set => _domainName.Set(value);
+        }
+
+        private static readonly __Value<string?> _enterpriseProjectId = new __Value<string?>(() => __config.Get("enterpriseProjectId"));
+        public static string? EnterpriseProjectId
+        {
+            get => _enterpriseProjectId.Get();
+            set => _enterpriseProjectId.Set(value);
+        }
+
+        private static readonly __Value<bool?> _insecure = new __Value<bool?>(() => __config.GetBoolean("insecure"));
+        /// <summary>
+        /// Trust self-signed certificates.
+        /// </summary>
+        public static bool? Insecure
+        {
+            get => _insecure.Get();
+            set => _insecure.Set(value);
+        }
+
+        private static readonly __Value<int?> _maxRetries = new __Value<int?>(() => __config.GetInt32("maxRetries"));
+        public static int? MaxRetries
+        {
+            get => _maxRetries.Get();
+            set => _maxRetries.Set(value);
+        }
+
+        private static readonly __Value<string?> _password = new __Value<string?>(() => __config.Get("password"));
+        /// <summary>
+        /// Password to login with.
+        /// </summary>
+        public static string? Password
+        {
+            get => _password.Get();
+            set => _password.Set(value);
+        }
+
+        private static readonly __Value<string?> _projectName = new __Value<string?>(() => __config.Get("projectName"));
+        /// <summary>
+        /// The name of the Project to login with.
+        /// </summary>
+        public static string? ProjectName
+        {
+            get => _projectName.Get();
+            set => _projectName.Set(value);
+        }
+
+        private static readonly __Value<string?> _region = new __Value<string?>(() => __config.Get("region"));
+        /// <summary>
+        /// The SberCloud region to connect to.
+        /// </summary>
+        public static string? Region
         {
             get => _region.Get();
             set => _region.Set(value);
         }
 
+        private static readonly __Value<string?> _secretKey = new __Value<string?>(() => __config.Get("secretKey"));
+        /// <summary>
+        /// The secret key of the SberCloud to use.
+        /// </summary>
+        public static string? SecretKey
+        {
+            get => _secretKey.Get();
+            set => _secretKey.Set(value);
+        }
+
+        private static readonly __Value<string?> _securityToken = new __Value<string?>(() => __config.Get("securityToken"));
+        /// <summary>
+        /// The security token to authenticate with a temporary security credential.
+        /// </summary>
+        public static string? SecurityToken
+        {
+            get => _securityToken.Get();
+            set => _securityToken.Set(value);
+        }
+
+        private static readonly __Value<string?> _userName = new __Value<string?>(() => __config.Get("userName"));
+        /// <summary>
+        /// Username to login with.
+        /// </summary>
+        public static string? UserName
+        {
+            get => _userName.Get();
+            set => _userName.Set(value);
+        }
+
+        public static class Types
+        {
+
+             public class AssumeRole
+             {
+                public string AgencyName { get; set; }
+                public string DomainName { get; set; }
+            }
+        }
     }
 }

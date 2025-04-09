@@ -4,18 +4,17 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "./types/input";
 import * as outputs from "./types/output";
-import * as enums from "./types/enums";
 import * as utilities from "./utilities";
 
 /**
- * The provider type for the xyz package. By default, resources use package-wide configuration
+ * The provider type for the sbercloud package. By default, resources use package-wide configuration
  * settings, however an explicit `Provider` instance may be created and passed during resource
  * construction to achieve fine-grained programmatic control over provider settings. See the
  * [documentation](https://www.pulumi.com/docs/reference/programming-model/#providers) for more information.
  */
 export class Provider extends pulumi.ProviderResource {
     /** @internal */
-    public static readonly __pulumiType = 'xyz';
+    public static readonly __pulumiType = 'sbercloud';
 
     /**
      * Returns true if the given object is an instance of Provider.  This is designed to work even
@@ -28,6 +27,45 @@ export class Provider extends pulumi.ProviderResource {
         return obj['__pulumiType'] === "pulumi:providers:" + Provider.__pulumiType;
     }
 
+    /**
+     * The access key of the SberCloud to use.
+     */
+    public readonly accessKey!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Account to login with.
+     */
+    public readonly accountName!: pulumi.Output<string | undefined>;
+    /**
+     * The Identity authentication URL.
+     */
+    public readonly authUrl!: pulumi.Output<string | undefined>;
+    public readonly domainId!: pulumi.Output<string | undefined>;
+    public readonly domainName!: pulumi.Output<string | undefined>;
+    public readonly enterpriseProjectId!: pulumi.Output<string | undefined>;
+    /**
+     * Password to login with.
+     */
+    public readonly password!: pulumi.Output<string | undefined>;
+    /**
+     * The name of the Project to login with.
+     */
+    public readonly projectName!: pulumi.Output<string | undefined>;
+    /**
+     * The SberCloud region to connect to.
+     */
+    public readonly region!: pulumi.Output<string>;
+    /**
+     * The secret key of the SberCloud to use.
+     */
+    public readonly secretKey!: pulumi.Output<string | undefined>;
+    /**
+     * The security token to authenticate with a temporary security credential.
+     */
+    public readonly securityToken!: pulumi.Output<string | undefined>;
+    /**
+     * Username to login with.
+     */
+    public readonly userName!: pulumi.Output<string | undefined>;
 
     /**
      * Create a Provider resource with the given unique name, arguments, and options.
@@ -36,13 +74,32 @@ export class Provider extends pulumi.ProviderResource {
      * @param args The arguments to use to populate this resource's properties.
      * @param opts A bag of options that control this resource's behavior.
      */
-    constructor(name: string, args?: ProviderArgs, opts?: pulumi.ResourceOptions) {
+    constructor(name: string, args: ProviderArgs, opts?: pulumi.ResourceOptions) {
         let resourceInputs: pulumi.Inputs = {};
         opts = opts || {};
         {
+            if ((!args || args.region === undefined) && !opts.urn) {
+                throw new Error("Missing required property 'region'");
+            }
+            resourceInputs["accessKey"] = args ? args.accessKey : undefined;
+            resourceInputs["accountName"] = args ? args.accountName : undefined;
+            resourceInputs["assumeRole"] = pulumi.output(args ? args.assumeRole : undefined).apply(JSON.stringify);
+            resourceInputs["authUrl"] = args ? args.authUrl : undefined;
+            resourceInputs["domainId"] = args ? args.domainId : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
+            resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
+            resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
+            resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["projectName"] = args ? args.projectName : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["secretKey"] = args ? args.secretKey : undefined;
+            resourceInputs["securityToken"] = args ? args.securityToken : undefined;
+            resourceInputs["userName"] = args ? args.userName : undefined;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
+        const secretOpts = { additionalSecretOutputs: ["password"] };
+        opts = pulumi.mergeOptions(opts, secretOpts);
         super(Provider.__pulumiType, name, resourceInputs, opts);
     }
 }
@@ -52,7 +109,48 @@ export class Provider extends pulumi.ProviderResource {
  */
 export interface ProviderArgs {
     /**
-     * A region which should be used.
+     * The access key of the SberCloud to use.
      */
-    region?: pulumi.Input<enums.region.Region>;
+    accessKey?: pulumi.Input<string>;
+    /**
+     * The name of the Account to login with.
+     */
+    accountName?: pulumi.Input<string>;
+    assumeRole?: pulumi.Input<inputs.ProviderAssumeRole>;
+    /**
+     * The Identity authentication URL.
+     */
+    authUrl?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string>;
+    domainName?: pulumi.Input<string>;
+    enterpriseProjectId?: pulumi.Input<string>;
+    /**
+     * Trust self-signed certificates.
+     */
+    insecure?: pulumi.Input<boolean>;
+    maxRetries?: pulumi.Input<number>;
+    /**
+     * Password to login with.
+     */
+    password?: pulumi.Input<string>;
+    /**
+     * The name of the Project to login with.
+     */
+    projectName?: pulumi.Input<string>;
+    /**
+     * The SberCloud region to connect to.
+     */
+    region: pulumi.Input<string>;
+    /**
+     * The secret key of the SberCloud to use.
+     */
+    secretKey?: pulumi.Input<string>;
+    /**
+     * The security token to authenticate with a temporary security credential.
+     */
+    securityToken?: pulumi.Input<string>;
+    /**
+     * Username to login with.
+     */
+    userName?: pulumi.Input<string>;
 }

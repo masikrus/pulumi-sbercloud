@@ -5,30 +5,1623 @@ import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "./utilities";
 
 // Export members:
-export { GetDataSourceArgs, GetDataSourceResult, GetDataSourceOutputArgs } from "./getDataSource";
-export const getDataSource: typeof import("./getDataSource").getDataSource = null as any;
-export const getDataSourceOutput: typeof import("./getDataSource").getDataSourceOutput = null as any;
-utilities.lazyLoad(exports, ["getDataSource","getDataSourceOutput"], () => require("./getDataSource"));
+export { AomServiceDiscoveryRuleArgs, AomServiceDiscoveryRuleState } from "./aomServiceDiscoveryRule";
+export type AomServiceDiscoveryRule = import("./aomServiceDiscoveryRule").AomServiceDiscoveryRule;
+export const AomServiceDiscoveryRule: typeof import("./aomServiceDiscoveryRule").AomServiceDiscoveryRule = null as any;
+utilities.lazyLoad(exports, ["AomServiceDiscoveryRule"], () => require("./aomServiceDiscoveryRule"));
+
+export { ApiGatewayApiArgs, ApiGatewayApiState } from "./apiGatewayApi";
+export type ApiGatewayApi = import("./apiGatewayApi").ApiGatewayApi;
+export const ApiGatewayApi: typeof import("./apiGatewayApi").ApiGatewayApi = null as any;
+utilities.lazyLoad(exports, ["ApiGatewayApi"], () => require("./apiGatewayApi"));
+
+export { ApiGatewayGroupArgs, ApiGatewayGroupState } from "./apiGatewayGroup";
+export type ApiGatewayGroup = import("./apiGatewayGroup").ApiGatewayGroup;
+export const ApiGatewayGroup: typeof import("./apiGatewayGroup").ApiGatewayGroup = null as any;
+utilities.lazyLoad(exports, ["ApiGatewayGroup"], () => require("./apiGatewayGroup"));
+
+export { ApigAclPolicyArgs, ApigAclPolicyState } from "./apigAclPolicy";
+export type ApigAclPolicy = import("./apigAclPolicy").ApigAclPolicy;
+export const ApigAclPolicy: typeof import("./apigAclPolicy").ApigAclPolicy = null as any;
+utilities.lazyLoad(exports, ["ApigAclPolicy"], () => require("./apigAclPolicy"));
+
+export { ApigAclPolicyAssociateArgs, ApigAclPolicyAssociateState } from "./apigAclPolicyAssociate";
+export type ApigAclPolicyAssociate = import("./apigAclPolicyAssociate").ApigAclPolicyAssociate;
+export const ApigAclPolicyAssociate: typeof import("./apigAclPolicyAssociate").ApigAclPolicyAssociate = null as any;
+utilities.lazyLoad(exports, ["ApigAclPolicyAssociate"], () => require("./apigAclPolicyAssociate"));
+
+export { ApigApiArgs, ApigApiState } from "./apigApi";
+export type ApigApi = import("./apigApi").ApigApi;
+export const ApigApi: typeof import("./apigApi").ApigApi = null as any;
+utilities.lazyLoad(exports, ["ApigApi"], () => require("./apigApi"));
+
+export { ApigApiPublishmentArgs, ApigApiPublishmentState } from "./apigApiPublishment";
+export type ApigApiPublishment = import("./apigApiPublishment").ApigApiPublishment;
+export const ApigApiPublishment: typeof import("./apigApiPublishment").ApigApiPublishment = null as any;
+utilities.lazyLoad(exports, ["ApigApiPublishment"], () => require("./apigApiPublishment"));
+
+export { ApigAppcodeArgs, ApigAppcodeState } from "./apigAppcode";
+export type ApigAppcode = import("./apigAppcode").ApigAppcode;
+export const ApigAppcode: typeof import("./apigAppcode").ApigAppcode = null as any;
+utilities.lazyLoad(exports, ["ApigAppcode"], () => require("./apigAppcode"));
+
+export { ApigApplicationArgs, ApigApplicationState } from "./apigApplication";
+export type ApigApplication = import("./apigApplication").ApigApplication;
+export const ApigApplication: typeof import("./apigApplication").ApigApplication = null as any;
+utilities.lazyLoad(exports, ["ApigApplication"], () => require("./apigApplication"));
+
+export { ApigApplicationAclArgs, ApigApplicationAclState } from "./apigApplicationAcl";
+export type ApigApplicationAcl = import("./apigApplicationAcl").ApigApplicationAcl;
+export const ApigApplicationAcl: typeof import("./apigApplicationAcl").ApigApplicationAcl = null as any;
+utilities.lazyLoad(exports, ["ApigApplicationAcl"], () => require("./apigApplicationAcl"));
+
+export { ApigApplicationAuthorizationArgs, ApigApplicationAuthorizationState } from "./apigApplicationAuthorization";
+export type ApigApplicationAuthorization = import("./apigApplicationAuthorization").ApigApplicationAuthorization;
+export const ApigApplicationAuthorization: typeof import("./apigApplicationAuthorization").ApigApplicationAuthorization = null as any;
+utilities.lazyLoad(exports, ["ApigApplicationAuthorization"], () => require("./apigApplicationAuthorization"));
+
+export { ApigApplicationQuotaArgs, ApigApplicationQuotaState } from "./apigApplicationQuota";
+export type ApigApplicationQuota = import("./apigApplicationQuota").ApigApplicationQuota;
+export const ApigApplicationQuota: typeof import("./apigApplicationQuota").ApigApplicationQuota = null as any;
+utilities.lazyLoad(exports, ["ApigApplicationQuota"], () => require("./apigApplicationQuota"));
+
+export { ApigApplicationQuotaAssociateArgs, ApigApplicationQuotaAssociateState } from "./apigApplicationQuotaAssociate";
+export type ApigApplicationQuotaAssociate = import("./apigApplicationQuotaAssociate").ApigApplicationQuotaAssociate;
+export const ApigApplicationQuotaAssociate: typeof import("./apigApplicationQuotaAssociate").ApigApplicationQuotaAssociate = null as any;
+utilities.lazyLoad(exports, ["ApigApplicationQuotaAssociate"], () => require("./apigApplicationQuotaAssociate"));
+
+export { ApigCertificateArgs, ApigCertificateState } from "./apigCertificate";
+export type ApigCertificate = import("./apigCertificate").ApigCertificate;
+export const ApigCertificate: typeof import("./apigCertificate").ApigCertificate = null as any;
+utilities.lazyLoad(exports, ["ApigCertificate"], () => require("./apigCertificate"));
+
+export { ApigChannelArgs, ApigChannelState } from "./apigChannel";
+export type ApigChannel = import("./apigChannel").ApigChannel;
+export const ApigChannel: typeof import("./apigChannel").ApigChannel = null as any;
+utilities.lazyLoad(exports, ["ApigChannel"], () => require("./apigChannel"));
+
+export { ApigCustomAuthorizerArgs, ApigCustomAuthorizerState } from "./apigCustomAuthorizer";
+export type ApigCustomAuthorizer = import("./apigCustomAuthorizer").ApigCustomAuthorizer;
+export const ApigCustomAuthorizer: typeof import("./apigCustomAuthorizer").ApigCustomAuthorizer = null as any;
+utilities.lazyLoad(exports, ["ApigCustomAuthorizer"], () => require("./apigCustomAuthorizer"));
+
+export { ApigEndpointConnectionManagementArgs, ApigEndpointConnectionManagementState } from "./apigEndpointConnectionManagement";
+export type ApigEndpointConnectionManagement = import("./apigEndpointConnectionManagement").ApigEndpointConnectionManagement;
+export const ApigEndpointConnectionManagement: typeof import("./apigEndpointConnectionManagement").ApigEndpointConnectionManagement = null as any;
+utilities.lazyLoad(exports, ["ApigEndpointConnectionManagement"], () => require("./apigEndpointConnectionManagement"));
+
+export { ApigEndpointWhitelistArgs, ApigEndpointWhitelistState } from "./apigEndpointWhitelist";
+export type ApigEndpointWhitelist = import("./apigEndpointWhitelist").ApigEndpointWhitelist;
+export const ApigEndpointWhitelist: typeof import("./apigEndpointWhitelist").ApigEndpointWhitelist = null as any;
+utilities.lazyLoad(exports, ["ApigEndpointWhitelist"], () => require("./apigEndpointWhitelist"));
+
+export { ApigEnvironmentArgs, ApigEnvironmentState } from "./apigEnvironment";
+export type ApigEnvironment = import("./apigEnvironment").ApigEnvironment;
+export const ApigEnvironment: typeof import("./apigEnvironment").ApigEnvironment = null as any;
+utilities.lazyLoad(exports, ["ApigEnvironment"], () => require("./apigEnvironment"));
+
+export { ApigEnvironmentVariableArgs, ApigEnvironmentVariableState } from "./apigEnvironmentVariable";
+export type ApigEnvironmentVariable = import("./apigEnvironmentVariable").ApigEnvironmentVariable;
+export const ApigEnvironmentVariable: typeof import("./apigEnvironmentVariable").ApigEnvironmentVariable = null as any;
+utilities.lazyLoad(exports, ["ApigEnvironmentVariable"], () => require("./apigEnvironmentVariable"));
+
+export { ApigGroupArgs, ApigGroupState } from "./apigGroup";
+export type ApigGroup = import("./apigGroup").ApigGroup;
+export const ApigGroup: typeof import("./apigGroup").ApigGroup = null as any;
+utilities.lazyLoad(exports, ["ApigGroup"], () => require("./apigGroup"));
+
+export { ApigInstanceArgs, ApigInstanceState } from "./apigInstance";
+export type ApigInstance = import("./apigInstance").ApigInstance;
+export const ApigInstance: typeof import("./apigInstance").ApigInstance = null as any;
+utilities.lazyLoad(exports, ["ApigInstance"], () => require("./apigInstance"));
+
+export { ApigInstanceFeatureArgs, ApigInstanceFeatureState } from "./apigInstanceFeature";
+export type ApigInstanceFeature = import("./apigInstanceFeature").ApigInstanceFeature;
+export const ApigInstanceFeature: typeof import("./apigInstanceFeature").ApigInstanceFeature = null as any;
+utilities.lazyLoad(exports, ["ApigInstanceFeature"], () => require("./apigInstanceFeature"));
+
+export { ApigInstanceRoutesArgs, ApigInstanceRoutesState } from "./apigInstanceRoutes";
+export type ApigInstanceRoutes = import("./apigInstanceRoutes").ApigInstanceRoutes;
+export const ApigInstanceRoutes: typeof import("./apigInstanceRoutes").ApigInstanceRoutes = null as any;
+utilities.lazyLoad(exports, ["ApigInstanceRoutes"], () => require("./apigInstanceRoutes"));
+
+export { ApigPluginArgs, ApigPluginState } from "./apigPlugin";
+export type ApigPlugin = import("./apigPlugin").ApigPlugin;
+export const ApigPlugin: typeof import("./apigPlugin").ApigPlugin = null as any;
+utilities.lazyLoad(exports, ["ApigPlugin"], () => require("./apigPlugin"));
+
+export { ApigPluginAssociateArgs, ApigPluginAssociateState } from "./apigPluginAssociate";
+export type ApigPluginAssociate = import("./apigPluginAssociate").ApigPluginAssociate;
+export const ApigPluginAssociate: typeof import("./apigPluginAssociate").ApigPluginAssociate = null as any;
+utilities.lazyLoad(exports, ["ApigPluginAssociate"], () => require("./apigPluginAssociate"));
+
+export { ApigResponseArgs, ApigResponseState } from "./apigResponse";
+export type ApigResponse = import("./apigResponse").ApigResponse;
+export const ApigResponse: typeof import("./apigResponse").ApigResponse = null as any;
+utilities.lazyLoad(exports, ["ApigResponse"], () => require("./apigResponse"));
+
+export { ApigSignatureArgs, ApigSignatureState } from "./apigSignature";
+export type ApigSignature = import("./apigSignature").ApigSignature;
+export const ApigSignature: typeof import("./apigSignature").ApigSignature = null as any;
+utilities.lazyLoad(exports, ["ApigSignature"], () => require("./apigSignature"));
+
+export { ApigSignatureAssociateArgs, ApigSignatureAssociateState } from "./apigSignatureAssociate";
+export type ApigSignatureAssociate = import("./apigSignatureAssociate").ApigSignatureAssociate;
+export const ApigSignatureAssociate: typeof import("./apigSignatureAssociate").ApigSignatureAssociate = null as any;
+utilities.lazyLoad(exports, ["ApigSignatureAssociate"], () => require("./apigSignatureAssociate"));
+
+export { ApigThrottlingPolicyArgs, ApigThrottlingPolicyState } from "./apigThrottlingPolicy";
+export type ApigThrottlingPolicy = import("./apigThrottlingPolicy").ApigThrottlingPolicy;
+export const ApigThrottlingPolicy: typeof import("./apigThrottlingPolicy").ApigThrottlingPolicy = null as any;
+utilities.lazyLoad(exports, ["ApigThrottlingPolicy"], () => require("./apigThrottlingPolicy"));
+
+export { ApigThrottlingPolicyAssociateArgs, ApigThrottlingPolicyAssociateState } from "./apigThrottlingPolicyAssociate";
+export type ApigThrottlingPolicyAssociate = import("./apigThrottlingPolicyAssociate").ApigThrottlingPolicyAssociate;
+export const ApigThrottlingPolicyAssociate: typeof import("./apigThrottlingPolicyAssociate").ApigThrottlingPolicyAssociate = null as any;
+utilities.lazyLoad(exports, ["ApigThrottlingPolicyAssociate"], () => require("./apigThrottlingPolicyAssociate"));
+
+export { AsBandwidthPolicyArgs, AsBandwidthPolicyState } from "./asBandwidthPolicy";
+export type AsBandwidthPolicy = import("./asBandwidthPolicy").AsBandwidthPolicy;
+export const AsBandwidthPolicy: typeof import("./asBandwidthPolicy").AsBandwidthPolicy = null as any;
+utilities.lazyLoad(exports, ["AsBandwidthPolicy"], () => require("./asBandwidthPolicy"));
+
+export { AsConfigurationArgs, AsConfigurationState } from "./asConfiguration";
+export type AsConfiguration = import("./asConfiguration").AsConfiguration;
+export const AsConfiguration: typeof import("./asConfiguration").AsConfiguration = null as any;
+utilities.lazyLoad(exports, ["AsConfiguration"], () => require("./asConfiguration"));
+
+export { AsGroupArgs, AsGroupState } from "./asGroup";
+export type AsGroup = import("./asGroup").AsGroup;
+export const AsGroup: typeof import("./asGroup").AsGroup = null as any;
+utilities.lazyLoad(exports, ["AsGroup"], () => require("./asGroup"));
+
+export { AsPolicyArgs, AsPolicyState } from "./asPolicy";
+export type AsPolicy = import("./asPolicy").AsPolicy;
+export const AsPolicy: typeof import("./asPolicy").AsPolicy = null as any;
+utilities.lazyLoad(exports, ["AsPolicy"], () => require("./asPolicy"));
+
+export { CbhAssetAgencyAuthorizationArgs, CbhAssetAgencyAuthorizationState } from "./cbhAssetAgencyAuthorization";
+export type CbhAssetAgencyAuthorization = import("./cbhAssetAgencyAuthorization").CbhAssetAgencyAuthorization;
+export const CbhAssetAgencyAuthorization: typeof import("./cbhAssetAgencyAuthorization").CbhAssetAgencyAuthorization = null as any;
+utilities.lazyLoad(exports, ["CbhAssetAgencyAuthorization"], () => require("./cbhAssetAgencyAuthorization"));
+
+export { CbhHaInstanceArgs, CbhHaInstanceState } from "./cbhHaInstance";
+export type CbhHaInstance = import("./cbhHaInstance").CbhHaInstance;
+export const CbhHaInstance: typeof import("./cbhHaInstance").CbhHaInstance = null as any;
+utilities.lazyLoad(exports, ["CbhHaInstance"], () => require("./cbhHaInstance"));
+
+export { CbhInstanceArgs, CbhInstanceState } from "./cbhInstance";
+export type CbhInstance = import("./cbhInstance").CbhInstance;
+export const CbhInstance: typeof import("./cbhInstance").CbhInstance = null as any;
+utilities.lazyLoad(exports, ["CbhInstance"], () => require("./cbhInstance"));
+
+export { CbrBackupShareArgs, CbrBackupShareState } from "./cbrBackupShare";
+export type CbrBackupShare = import("./cbrBackupShare").CbrBackupShare;
+export const CbrBackupShare: typeof import("./cbrBackupShare").CbrBackupShare = null as any;
+utilities.lazyLoad(exports, ["CbrBackupShare"], () => require("./cbrBackupShare"));
+
+export { CbrBackupShareAccepterArgs, CbrBackupShareAccepterState } from "./cbrBackupShareAccepter";
+export type CbrBackupShareAccepter = import("./cbrBackupShareAccepter").CbrBackupShareAccepter;
+export const CbrBackupShareAccepter: typeof import("./cbrBackupShareAccepter").CbrBackupShareAccepter = null as any;
+utilities.lazyLoad(exports, ["CbrBackupShareAccepter"], () => require("./cbrBackupShareAccepter"));
+
+export { CbrCheckpointArgs, CbrCheckpointState } from "./cbrCheckpoint";
+export type CbrCheckpoint = import("./cbrCheckpoint").CbrCheckpoint;
+export const CbrCheckpoint: typeof import("./cbrCheckpoint").CbrCheckpoint = null as any;
+utilities.lazyLoad(exports, ["CbrCheckpoint"], () => require("./cbrCheckpoint"));
+
+export { CbrPolicyArgs, CbrPolicyState } from "./cbrPolicy";
+export type CbrPolicy = import("./cbrPolicy").CbrPolicy;
+export const CbrPolicy: typeof import("./cbrPolicy").CbrPolicy = null as any;
+utilities.lazyLoad(exports, ["CbrPolicy"], () => require("./cbrPolicy"));
+
+export { CbrVaultArgs, CbrVaultState } from "./cbrVault";
+export type CbrVault = import("./cbrVault").CbrVault;
+export const CbrVault: typeof import("./cbrVault").CbrVault = null as any;
+utilities.lazyLoad(exports, ["CbrVault"], () => require("./cbrVault"));
+
+export { CceAddonArgs, CceAddonState } from "./cceAddon";
+export type CceAddon = import("./cceAddon").CceAddon;
+export const CceAddon: typeof import("./cceAddon").CceAddon = null as any;
+utilities.lazyLoad(exports, ["CceAddon"], () => require("./cceAddon"));
+
+export { CceClusterArgs, CceClusterState } from "./cceCluster";
+export type CceCluster = import("./cceCluster").CceCluster;
+export const CceCluster: typeof import("./cceCluster").CceCluster = null as any;
+utilities.lazyLoad(exports, ["CceCluster"], () => require("./cceCluster"));
+
+export { CceNamespaceArgs, CceNamespaceState } from "./cceNamespace";
+export type CceNamespace = import("./cceNamespace").CceNamespace;
+export const CceNamespace: typeof import("./cceNamespace").CceNamespace = null as any;
+utilities.lazyLoad(exports, ["CceNamespace"], () => require("./cceNamespace"));
+
+export { CceNodeArgs, CceNodeState } from "./cceNode";
+export type CceNode = import("./cceNode").CceNode;
+export const CceNode: typeof import("./cceNode").CceNode = null as any;
+utilities.lazyLoad(exports, ["CceNode"], () => require("./cceNode"));
+
+export { CceNodeAttachArgs, CceNodeAttachState } from "./cceNodeAttach";
+export type CceNodeAttach = import("./cceNodeAttach").CceNodeAttach;
+export const CceNodeAttach: typeof import("./cceNodeAttach").CceNodeAttach = null as any;
+utilities.lazyLoad(exports, ["CceNodeAttach"], () => require("./cceNodeAttach"));
+
+export { CceNodePoolArgs, CceNodePoolState } from "./cceNodePool";
+export type CceNodePool = import("./cceNodePool").CceNodePool;
+export const CceNodePool: typeof import("./cceNodePool").CceNodePool = null as any;
+utilities.lazyLoad(exports, ["CceNodePool"], () => require("./cceNodePool"));
+
+export { CcePvcArgs, CcePvcState } from "./ccePvc";
+export type CcePvc = import("./ccePvc").CcePvc;
+export const CcePvc: typeof import("./ccePvc").CcePvc = null as any;
+utilities.lazyLoad(exports, ["CcePvc"], () => require("./ccePvc"));
+
+export { CdmClusterArgs, CdmClusterState } from "./cdmCluster";
+export type CdmCluster = import("./cdmCluster").CdmCluster;
+export const CdmCluster: typeof import("./cdmCluster").CdmCluster = null as any;
+utilities.lazyLoad(exports, ["CdmCluster"], () => require("./cdmCluster"));
+
+export { CesAlarmruleArgs, CesAlarmruleState } from "./cesAlarmrule";
+export type CesAlarmrule = import("./cesAlarmrule").CesAlarmrule;
+export const CesAlarmrule: typeof import("./cesAlarmrule").CesAlarmrule = null as any;
+utilities.lazyLoad(exports, ["CesAlarmrule"], () => require("./cesAlarmrule"));
+
+export { ComputeEipAssociateArgs, ComputeEipAssociateState } from "./computeEipAssociate";
+export type ComputeEipAssociate = import("./computeEipAssociate").ComputeEipAssociate;
+export const ComputeEipAssociate: typeof import("./computeEipAssociate").ComputeEipAssociate = null as any;
+utilities.lazyLoad(exports, ["ComputeEipAssociate"], () => require("./computeEipAssociate"));
+
+export { ComputeInstanceArgs, ComputeInstanceState } from "./computeInstance";
+export type ComputeInstance = import("./computeInstance").ComputeInstance;
+export const ComputeInstance: typeof import("./computeInstance").ComputeInstance = null as any;
+utilities.lazyLoad(exports, ["ComputeInstance"], () => require("./computeInstance"));
+
+export { ComputeInterfaceAttachArgs, ComputeInterfaceAttachState } from "./computeInterfaceAttach";
+export type ComputeInterfaceAttach = import("./computeInterfaceAttach").ComputeInterfaceAttach;
+export const ComputeInterfaceAttach: typeof import("./computeInterfaceAttach").ComputeInterfaceAttach = null as any;
+utilities.lazyLoad(exports, ["ComputeInterfaceAttach"], () => require("./computeInterfaceAttach"));
+
+export { ComputeKeypairArgs, ComputeKeypairState } from "./computeKeypair";
+export type ComputeKeypair = import("./computeKeypair").ComputeKeypair;
+export const ComputeKeypair: typeof import("./computeKeypair").ComputeKeypair = null as any;
+utilities.lazyLoad(exports, ["ComputeKeypair"], () => require("./computeKeypair"));
+
+export { ComputeServergroupArgs, ComputeServergroupState } from "./computeServergroup";
+export type ComputeServergroup = import("./computeServergroup").ComputeServergroup;
+export const ComputeServergroup: typeof import("./computeServergroup").ComputeServergroup = null as any;
+utilities.lazyLoad(exports, ["ComputeServergroup"], () => require("./computeServergroup"));
+
+export { ComputeVolumeAttachArgs, ComputeVolumeAttachState } from "./computeVolumeAttach";
+export type ComputeVolumeAttach = import("./computeVolumeAttach").ComputeVolumeAttach;
+export const ComputeVolumeAttach: typeof import("./computeVolumeAttach").ComputeVolumeAttach = null as any;
+utilities.lazyLoad(exports, ["ComputeVolumeAttach"], () => require("./computeVolumeAttach"));
+
+export { CssClusterArgs, CssClusterState } from "./cssCluster";
+export type CssCluster = import("./cssCluster").CssCluster;
+export const CssCluster: typeof import("./cssCluster").CssCluster = null as any;
+utilities.lazyLoad(exports, ["CssCluster"], () => require("./cssCluster"));
+
+export { CssConfigurationArgs, CssConfigurationState } from "./cssConfiguration";
+export type CssConfiguration = import("./cssConfiguration").CssConfiguration;
+export const CssConfiguration: typeof import("./cssConfiguration").CssConfiguration = null as any;
+utilities.lazyLoad(exports, ["CssConfiguration"], () => require("./cssConfiguration"));
+
+export { CtsDataTrackerArgs, CtsDataTrackerState } from "./ctsDataTracker";
+export type CtsDataTracker = import("./ctsDataTracker").CtsDataTracker;
+export const CtsDataTracker: typeof import("./ctsDataTracker").CtsDataTracker = null as any;
+utilities.lazyLoad(exports, ["CtsDataTracker"], () => require("./ctsDataTracker"));
+
+export { CtsNotificationArgs, CtsNotificationState } from "./ctsNotification";
+export type CtsNotification = import("./ctsNotification").CtsNotification;
+export const CtsNotification: typeof import("./ctsNotification").CtsNotification = null as any;
+utilities.lazyLoad(exports, ["CtsNotification"], () => require("./ctsNotification"));
+
+export { CtsTrackerArgs, CtsTrackerState } from "./ctsTracker";
+export type CtsTracker = import("./ctsTracker").CtsTracker;
+export const CtsTracker: typeof import("./ctsTracker").CtsTracker = null as any;
+utilities.lazyLoad(exports, ["CtsTracker"], () => require("./ctsTracker"));
+
+export { DcsAccountArgs, DcsAccountState } from "./dcsAccount";
+export type DcsAccount = import("./dcsAccount").DcsAccount;
+export const DcsAccount: typeof import("./dcsAccount").DcsAccount = null as any;
+utilities.lazyLoad(exports, ["DcsAccount"], () => require("./dcsAccount"));
+
+export { DcsBackupArgs, DcsBackupState } from "./dcsBackup";
+export type DcsBackup = import("./dcsBackup").DcsBackup;
+export const DcsBackup: typeof import("./dcsBackup").DcsBackup = null as any;
+utilities.lazyLoad(exports, ["DcsBackup"], () => require("./dcsBackup"));
+
+export { DcsInstanceArgs, DcsInstanceState } from "./dcsInstance";
+export type DcsInstance = import("./dcsInstance").DcsInstance;
+export const DcsInstance: typeof import("./dcsInstance").DcsInstance = null as any;
+utilities.lazyLoad(exports, ["DcsInstance"], () => require("./dcsInstance"));
+
+export { DcsParametersArgs, DcsParametersState } from "./dcsParameters";
+export type DcsParameters = import("./dcsParameters").DcsParameters;
+export const DcsParameters: typeof import("./dcsParameters").DcsParameters = null as any;
+utilities.lazyLoad(exports, ["DcsParameters"], () => require("./dcsParameters"));
+
+export { DcsRestoreArgs, DcsRestoreState } from "./dcsRestore";
+export type DcsRestore = import("./dcsRestore").DcsRestore;
+export const DcsRestore: typeof import("./dcsRestore").DcsRestore = null as any;
+utilities.lazyLoad(exports, ["DcsRestore"], () => require("./dcsRestore"));
+
+export { DdsInstanceArgs, DdsInstanceState } from "./ddsInstance";
+export type DdsInstance = import("./ddsInstance").DdsInstance;
+export const DdsInstance: typeof import("./ddsInstance").DdsInstance = null as any;
+utilities.lazyLoad(exports, ["DdsInstance"], () => require("./ddsInstance"));
+
+export { DisStreamArgs, DisStreamState } from "./disStream";
+export type DisStream = import("./disStream").DisStream;
+export const DisStream: typeof import("./disStream").DisStream = null as any;
+utilities.lazyLoad(exports, ["DisStream"], () => require("./disStream"));
+
+export { DliDatabaseArgs, DliDatabaseState } from "./dliDatabase";
+export type DliDatabase = import("./dliDatabase").DliDatabase;
+export const DliDatabase: typeof import("./dliDatabase").DliDatabase = null as any;
+utilities.lazyLoad(exports, ["DliDatabase"], () => require("./dliDatabase"));
+
+export { DliPackageArgs, DliPackageState } from "./dliPackage";
+export type DliPackage = import("./dliPackage").DliPackage;
+export const DliPackage: typeof import("./dliPackage").DliPackage = null as any;
+utilities.lazyLoad(exports, ["DliPackage"], () => require("./dliPackage"));
+
+export { DliQueueArgs, DliQueueState } from "./dliQueue";
+export type DliQueue = import("./dliQueue").DliQueue;
+export const DliQueue: typeof import("./dliQueue").DliQueue = null as any;
+utilities.lazyLoad(exports, ["DliQueue"], () => require("./dliQueue"));
+
+export { DliSparkJobArgs, DliSparkJobState } from "./dliSparkJob";
+export type DliSparkJob = import("./dliSparkJob").DliSparkJob;
+export const DliSparkJob: typeof import("./dliSparkJob").DliSparkJob = null as any;
+utilities.lazyLoad(exports, ["DliSparkJob"], () => require("./dliSparkJob"));
+
+export { DmsInstanceArgs, DmsInstanceState } from "./dmsInstance";
+export type DmsInstance = import("./dmsInstance").DmsInstance;
+export const DmsInstance: typeof import("./dmsInstance").DmsInstance = null as any;
+utilities.lazyLoad(exports, ["DmsInstance"], () => require("./dmsInstance"));
+
+export { DmsKafkaInstanceArgs, DmsKafkaInstanceState } from "./dmsKafkaInstance";
+export type DmsKafkaInstance = import("./dmsKafkaInstance").DmsKafkaInstance;
+export const DmsKafkaInstance: typeof import("./dmsKafkaInstance").DmsKafkaInstance = null as any;
+utilities.lazyLoad(exports, ["DmsKafkaInstance"], () => require("./dmsKafkaInstance"));
+
+export { DmsKafkaMessageProduceArgs, DmsKafkaMessageProduceState } from "./dmsKafkaMessageProduce";
+export type DmsKafkaMessageProduce = import("./dmsKafkaMessageProduce").DmsKafkaMessageProduce;
+export const DmsKafkaMessageProduce: typeof import("./dmsKafkaMessageProduce").DmsKafkaMessageProduce = null as any;
+utilities.lazyLoad(exports, ["DmsKafkaMessageProduce"], () => require("./dmsKafkaMessageProduce"));
+
+export { DmsKafkaPermissionsArgs, DmsKafkaPermissionsState } from "./dmsKafkaPermissions";
+export type DmsKafkaPermissions = import("./dmsKafkaPermissions").DmsKafkaPermissions;
+export const DmsKafkaPermissions: typeof import("./dmsKafkaPermissions").DmsKafkaPermissions = null as any;
+utilities.lazyLoad(exports, ["DmsKafkaPermissions"], () => require("./dmsKafkaPermissions"));
+
+export { DmsKafkaTopicArgs, DmsKafkaTopicState } from "./dmsKafkaTopic";
+export type DmsKafkaTopic = import("./dmsKafkaTopic").DmsKafkaTopic;
+export const DmsKafkaTopic: typeof import("./dmsKafkaTopic").DmsKafkaTopic = null as any;
+utilities.lazyLoad(exports, ["DmsKafkaTopic"], () => require("./dmsKafkaTopic"));
+
+export { DmsKafkaUserArgs, DmsKafkaUserState } from "./dmsKafkaUser";
+export type DmsKafkaUser = import("./dmsKafkaUser").DmsKafkaUser;
+export const DmsKafkaUser: typeof import("./dmsKafkaUser").DmsKafkaUser = null as any;
+utilities.lazyLoad(exports, ["DmsKafkaUser"], () => require("./dmsKafkaUser"));
+
+export { DmsRabbitmqInstanceArgs, DmsRabbitmqInstanceState } from "./dmsRabbitmqInstance";
+export type DmsRabbitmqInstance = import("./dmsRabbitmqInstance").DmsRabbitmqInstance;
+export const DmsRabbitmqInstance: typeof import("./dmsRabbitmqInstance").DmsRabbitmqInstance = null as any;
+utilities.lazyLoad(exports, ["DmsRabbitmqInstance"], () => require("./dmsRabbitmqInstance"));
+
+export { DnsRecordsetArgs, DnsRecordsetState } from "./dnsRecordset";
+export type DnsRecordset = import("./dnsRecordset").DnsRecordset;
+export const DnsRecordset: typeof import("./dnsRecordset").DnsRecordset = null as any;
+utilities.lazyLoad(exports, ["DnsRecordset"], () => require("./dnsRecordset"));
+
+export { DnsZoneArgs, DnsZoneState } from "./dnsZone";
+export type DnsZone = import("./dnsZone").DnsZone;
+export const DnsZone: typeof import("./dnsZone").DnsZone = null as any;
+utilities.lazyLoad(exports, ["DnsZone"], () => require("./dnsZone"));
+
+export { DrsJobArgs, DrsJobState } from "./drsJob";
+export type DrsJob = import("./drsJob").DrsJob;
+export const DrsJob: typeof import("./drsJob").DrsJob = null as any;
+utilities.lazyLoad(exports, ["DrsJob"], () => require("./drsJob"));
+
+export { DwsClusterArgs, DwsClusterState } from "./dwsCluster";
+export type DwsCluster = import("./dwsCluster").DwsCluster;
+export const DwsCluster: typeof import("./dwsCluster").DwsCluster = null as any;
+utilities.lazyLoad(exports, ["DwsCluster"], () => require("./dwsCluster"));
+
+export { ElbCertificateArgs, ElbCertificateState } from "./elbCertificate";
+export type ElbCertificate = import("./elbCertificate").ElbCertificate;
+export const ElbCertificate: typeof import("./elbCertificate").ElbCertificate = null as any;
+utilities.lazyLoad(exports, ["ElbCertificate"], () => require("./elbCertificate"));
+
+export { ElbIpgroupArgs, ElbIpgroupState } from "./elbIpgroup";
+export type ElbIpgroup = import("./elbIpgroup").ElbIpgroup;
+export const ElbIpgroup: typeof import("./elbIpgroup").ElbIpgroup = null as any;
+utilities.lazyLoad(exports, ["ElbIpgroup"], () => require("./elbIpgroup"));
+
+export { ElbL7policyArgs, ElbL7policyState } from "./elbL7policy";
+export type ElbL7policy = import("./elbL7policy").ElbL7policy;
+export const ElbL7policy: typeof import("./elbL7policy").ElbL7policy = null as any;
+utilities.lazyLoad(exports, ["ElbL7policy"], () => require("./elbL7policy"));
+
+export { ElbL7ruleArgs, ElbL7ruleState } from "./elbL7rule";
+export type ElbL7rule = import("./elbL7rule").ElbL7rule;
+export const ElbL7rule: typeof import("./elbL7rule").ElbL7rule = null as any;
+utilities.lazyLoad(exports, ["ElbL7rule"], () => require("./elbL7rule"));
+
+export { ElbListenerArgs, ElbListenerState } from "./elbListener";
+export type ElbListener = import("./elbListener").ElbListener;
+export const ElbListener: typeof import("./elbListener").ElbListener = null as any;
+utilities.lazyLoad(exports, ["ElbListener"], () => require("./elbListener"));
+
+export { ElbLoadbalancerArgs, ElbLoadbalancerState } from "./elbLoadbalancer";
+export type ElbLoadbalancer = import("./elbLoadbalancer").ElbLoadbalancer;
+export const ElbLoadbalancer: typeof import("./elbLoadbalancer").ElbLoadbalancer = null as any;
+utilities.lazyLoad(exports, ["ElbLoadbalancer"], () => require("./elbLoadbalancer"));
+
+export { ElbMemberArgs, ElbMemberState } from "./elbMember";
+export type ElbMember = import("./elbMember").ElbMember;
+export const ElbMember: typeof import("./elbMember").ElbMember = null as any;
+utilities.lazyLoad(exports, ["ElbMember"], () => require("./elbMember"));
+
+export { ElbMonitorArgs, ElbMonitorState } from "./elbMonitor";
+export type ElbMonitor = import("./elbMonitor").ElbMonitor;
+export const ElbMonitor: typeof import("./elbMonitor").ElbMonitor = null as any;
+utilities.lazyLoad(exports, ["ElbMonitor"], () => require("./elbMonitor"));
+
+export { ElbPoolArgs, ElbPoolState } from "./elbPool";
+export type ElbPool = import("./elbPool").ElbPool;
+export const ElbPool: typeof import("./elbPool").ElbPool = null as any;
+utilities.lazyLoad(exports, ["ElbPool"], () => require("./elbPool"));
+
+export { ElbSecurityPolicyArgs, ElbSecurityPolicyState } from "./elbSecurityPolicy";
+export type ElbSecurityPolicy = import("./elbSecurityPolicy").ElbSecurityPolicy;
+export const ElbSecurityPolicy: typeof import("./elbSecurityPolicy").ElbSecurityPolicy = null as any;
+utilities.lazyLoad(exports, ["ElbSecurityPolicy"], () => require("./elbSecurityPolicy"));
+
+export { EnterpriseProjectArgs, EnterpriseProjectState } from "./enterpriseProject";
+export type EnterpriseProject = import("./enterpriseProject").EnterpriseProject;
+export const EnterpriseProject: typeof import("./enterpriseProject").EnterpriseProject = null as any;
+utilities.lazyLoad(exports, ["EnterpriseProject"], () => require("./enterpriseProject"));
+
+export { EvsSnapshotArgs, EvsSnapshotState } from "./evsSnapshot";
+export type EvsSnapshot = import("./evsSnapshot").EvsSnapshot;
+export const EvsSnapshot: typeof import("./evsSnapshot").EvsSnapshot = null as any;
+utilities.lazyLoad(exports, ["EvsSnapshot"], () => require("./evsSnapshot"));
+
+export { EvsVolumeArgs, EvsVolumeState } from "./evsVolume";
+export type EvsVolume = import("./evsVolume").EvsVolume;
+export const EvsVolume: typeof import("./evsVolume").EvsVolume = null as any;
+utilities.lazyLoad(exports, ["EvsVolume"], () => require("./evsVolume"));
+
+export { FgsFunctionArgs, FgsFunctionState } from "./fgsFunction";
+export type FgsFunction = import("./fgsFunction").FgsFunction;
+export const FgsFunction: typeof import("./fgsFunction").FgsFunction = null as any;
+utilities.lazyLoad(exports, ["FgsFunction"], () => require("./fgsFunction"));
+
+export { GesGraphArgs, GesGraphState } from "./gesGraph";
+export type GesGraph = import("./gesGraph").GesGraph;
+export const GesGraph: typeof import("./gesGraph").GesGraph = null as any;
+utilities.lazyLoad(exports, ["GesGraph"], () => require("./gesGraph"));
+
+export { GetApigAclPoliciesArgs, GetApigAclPoliciesResult, GetApigAclPoliciesOutputArgs } from "./getApigAclPolicies";
+export const getApigAclPolicies: typeof import("./getApigAclPolicies").getApigAclPolicies = null as any;
+export const getApigAclPoliciesOutput: typeof import("./getApigAclPolicies").getApigAclPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigAclPolicies","getApigAclPoliciesOutput"], () => require("./getApigAclPolicies"));
+
+export { GetApigApiArgs, GetApigApiResult, GetApigApiOutputArgs } from "./getApigApi";
+export const getApigApi: typeof import("./getApigApi").getApigApi = null as any;
+export const getApigApiOutput: typeof import("./getApigApi").getApigApiOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApi","getApigApiOutput"], () => require("./getApigApi"));
+
+export { GetApigApiAssociatedAclPoliciesArgs, GetApigApiAssociatedAclPoliciesResult, GetApigApiAssociatedAclPoliciesOutputArgs } from "./getApigApiAssociatedAclPolicies";
+export const getApigApiAssociatedAclPolicies: typeof import("./getApigApiAssociatedAclPolicies").getApigApiAssociatedAclPolicies = null as any;
+export const getApigApiAssociatedAclPoliciesOutput: typeof import("./getApigApiAssociatedAclPolicies").getApigApiAssociatedAclPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApiAssociatedAclPolicies","getApigApiAssociatedAclPoliciesOutput"], () => require("./getApigApiAssociatedAclPolicies"));
+
+export { GetApigApiAssociatedApplicationsArgs, GetApigApiAssociatedApplicationsResult, GetApigApiAssociatedApplicationsOutputArgs } from "./getApigApiAssociatedApplications";
+export const getApigApiAssociatedApplications: typeof import("./getApigApiAssociatedApplications").getApigApiAssociatedApplications = null as any;
+export const getApigApiAssociatedApplicationsOutput: typeof import("./getApigApiAssociatedApplications").getApigApiAssociatedApplicationsOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApiAssociatedApplications","getApigApiAssociatedApplicationsOutput"], () => require("./getApigApiAssociatedApplications"));
+
+export { GetApigApiAssociatedPluginsArgs, GetApigApiAssociatedPluginsResult, GetApigApiAssociatedPluginsOutputArgs } from "./getApigApiAssociatedPlugins";
+export const getApigApiAssociatedPlugins: typeof import("./getApigApiAssociatedPlugins").getApigApiAssociatedPlugins = null as any;
+export const getApigApiAssociatedPluginsOutput: typeof import("./getApigApiAssociatedPlugins").getApigApiAssociatedPluginsOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApiAssociatedPlugins","getApigApiAssociatedPluginsOutput"], () => require("./getApigApiAssociatedPlugins"));
+
+export { GetApigApiAssociatedSignaturesArgs, GetApigApiAssociatedSignaturesResult, GetApigApiAssociatedSignaturesOutputArgs } from "./getApigApiAssociatedSignatures";
+export const getApigApiAssociatedSignatures: typeof import("./getApigApiAssociatedSignatures").getApigApiAssociatedSignatures = null as any;
+export const getApigApiAssociatedSignaturesOutput: typeof import("./getApigApiAssociatedSignatures").getApigApiAssociatedSignaturesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApiAssociatedSignatures","getApigApiAssociatedSignaturesOutput"], () => require("./getApigApiAssociatedSignatures"));
+
+export { GetApigApiAssociatedThrottlingPoliciesArgs, GetApigApiAssociatedThrottlingPoliciesResult, GetApigApiAssociatedThrottlingPoliciesOutputArgs } from "./getApigApiAssociatedThrottlingPolicies";
+export const getApigApiAssociatedThrottlingPolicies: typeof import("./getApigApiAssociatedThrottlingPolicies").getApigApiAssociatedThrottlingPolicies = null as any;
+export const getApigApiAssociatedThrottlingPoliciesOutput: typeof import("./getApigApiAssociatedThrottlingPolicies").getApigApiAssociatedThrottlingPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApiAssociatedThrottlingPolicies","getApigApiAssociatedThrottlingPoliciesOutput"], () => require("./getApigApiAssociatedThrottlingPolicies"));
+
+export { GetApigApiBasicConfigurationsArgs, GetApigApiBasicConfigurationsResult, GetApigApiBasicConfigurationsOutputArgs } from "./getApigApiBasicConfigurations";
+export const getApigApiBasicConfigurations: typeof import("./getApigApiBasicConfigurations").getApigApiBasicConfigurations = null as any;
+export const getApigApiBasicConfigurationsOutput: typeof import("./getApigApiBasicConfigurations").getApigApiBasicConfigurationsOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApiBasicConfigurations","getApigApiBasicConfigurationsOutput"], () => require("./getApigApiBasicConfigurations"));
+
+export { GetApigAppcodesArgs, GetApigAppcodesResult, GetApigAppcodesOutputArgs } from "./getApigAppcodes";
+export const getApigAppcodes: typeof import("./getApigAppcodes").getApigAppcodes = null as any;
+export const getApigAppcodesOutput: typeof import("./getApigAppcodes").getApigAppcodesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigAppcodes","getApigAppcodesOutput"], () => require("./getApigAppcodes"));
+
+export { GetApigApplicationAclArgs, GetApigApplicationAclResult, GetApigApplicationAclOutputArgs } from "./getApigApplicationAcl";
+export const getApigApplicationAcl: typeof import("./getApigApplicationAcl").getApigApplicationAcl = null as any;
+export const getApigApplicationAclOutput: typeof import("./getApigApplicationAcl").getApigApplicationAclOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApplicationAcl","getApigApplicationAclOutput"], () => require("./getApigApplicationAcl"));
+
+export { GetApigApplicationQuotasArgs, GetApigApplicationQuotasResult, GetApigApplicationQuotasOutputArgs } from "./getApigApplicationQuotas";
+export const getApigApplicationQuotas: typeof import("./getApigApplicationQuotas").getApigApplicationQuotas = null as any;
+export const getApigApplicationQuotasOutput: typeof import("./getApigApplicationQuotas").getApigApplicationQuotasOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApplicationQuotas","getApigApplicationQuotasOutput"], () => require("./getApigApplicationQuotas"));
+
+export { GetApigApplicationsArgs, GetApigApplicationsResult, GetApigApplicationsOutputArgs } from "./getApigApplications";
+export const getApigApplications: typeof import("./getApigApplications").getApigApplications = null as any;
+export const getApigApplicationsOutput: typeof import("./getApigApplications").getApigApplicationsOutput = null as any;
+utilities.lazyLoad(exports, ["getApigApplications","getApigApplicationsOutput"], () => require("./getApigApplications"));
+
+export { GetApigChannelsArgs, GetApigChannelsResult, GetApigChannelsOutputArgs } from "./getApigChannels";
+export const getApigChannels: typeof import("./getApigChannels").getApigChannels = null as any;
+export const getApigChannelsOutput: typeof import("./getApigChannels").getApigChannelsOutput = null as any;
+utilities.lazyLoad(exports, ["getApigChannels","getApigChannelsOutput"], () => require("./getApigChannels"));
+
+export { GetApigCustomAuthorizersArgs, GetApigCustomAuthorizersResult, GetApigCustomAuthorizersOutputArgs } from "./getApigCustomAuthorizers";
+export const getApigCustomAuthorizers: typeof import("./getApigCustomAuthorizers").getApigCustomAuthorizers = null as any;
+export const getApigCustomAuthorizersOutput: typeof import("./getApigCustomAuthorizers").getApigCustomAuthorizersOutput = null as any;
+utilities.lazyLoad(exports, ["getApigCustomAuthorizers","getApigCustomAuthorizersOutput"], () => require("./getApigCustomAuthorizers"));
+
+export { GetApigEndpointConnectionsArgs, GetApigEndpointConnectionsResult, GetApigEndpointConnectionsOutputArgs } from "./getApigEndpointConnections";
+export const getApigEndpointConnections: typeof import("./getApigEndpointConnections").getApigEndpointConnections = null as any;
+export const getApigEndpointConnectionsOutput: typeof import("./getApigEndpointConnections").getApigEndpointConnectionsOutput = null as any;
+utilities.lazyLoad(exports, ["getApigEndpointConnections","getApigEndpointConnectionsOutput"], () => require("./getApigEndpointConnections"));
+
+export { GetApigEnvironmentVariablesArgs, GetApigEnvironmentVariablesResult, GetApigEnvironmentVariablesOutputArgs } from "./getApigEnvironmentVariables";
+export const getApigEnvironmentVariables: typeof import("./getApigEnvironmentVariables").getApigEnvironmentVariables = null as any;
+export const getApigEnvironmentVariablesOutput: typeof import("./getApigEnvironmentVariables").getApigEnvironmentVariablesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigEnvironmentVariables","getApigEnvironmentVariablesOutput"], () => require("./getApigEnvironmentVariables"));
+
+export { GetApigEnvironmentsArgs, GetApigEnvironmentsResult, GetApigEnvironmentsOutputArgs } from "./getApigEnvironments";
+export const getApigEnvironments: typeof import("./getApigEnvironments").getApigEnvironments = null as any;
+export const getApigEnvironmentsOutput: typeof import("./getApigEnvironments").getApigEnvironmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getApigEnvironments","getApigEnvironmentsOutput"], () => require("./getApigEnvironments"));
+
+export { GetApigGroupsArgs, GetApigGroupsResult, GetApigGroupsOutputArgs } from "./getApigGroups";
+export const getApigGroups: typeof import("./getApigGroups").getApigGroups = null as any;
+export const getApigGroupsOutput: typeof import("./getApigGroups").getApigGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getApigGroups","getApigGroupsOutput"], () => require("./getApigGroups"));
+
+export { GetApigInstanceFeaturesArgs, GetApigInstanceFeaturesResult, GetApigInstanceFeaturesOutputArgs } from "./getApigInstanceFeatures";
+export const getApigInstanceFeatures: typeof import("./getApigInstanceFeatures").getApigInstanceFeatures = null as any;
+export const getApigInstanceFeaturesOutput: typeof import("./getApigInstanceFeatures").getApigInstanceFeaturesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigInstanceFeatures","getApigInstanceFeaturesOutput"], () => require("./getApigInstanceFeatures"));
+
+export { GetApigInstanceSupportedFeaturesArgs, GetApigInstanceSupportedFeaturesResult, GetApigInstanceSupportedFeaturesOutputArgs } from "./getApigInstanceSupportedFeatures";
+export const getApigInstanceSupportedFeatures: typeof import("./getApigInstanceSupportedFeatures").getApigInstanceSupportedFeatures = null as any;
+export const getApigInstanceSupportedFeaturesOutput: typeof import("./getApigInstanceSupportedFeatures").getApigInstanceSupportedFeaturesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigInstanceSupportedFeatures","getApigInstanceSupportedFeaturesOutput"], () => require("./getApigInstanceSupportedFeatures"));
+
+export { GetApigInstancesArgs, GetApigInstancesResult, GetApigInstancesOutputArgs } from "./getApigInstances";
+export const getApigInstances: typeof import("./getApigInstances").getApigInstances = null as any;
+export const getApigInstancesOutput: typeof import("./getApigInstances").getApigInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigInstances","getApigInstancesOutput"], () => require("./getApigInstances"));
+
+export { GetApigSignaturesArgs, GetApigSignaturesResult, GetApigSignaturesOutputArgs } from "./getApigSignatures";
+export const getApigSignatures: typeof import("./getApigSignatures").getApigSignatures = null as any;
+export const getApigSignaturesOutput: typeof import("./getApigSignatures").getApigSignaturesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigSignatures","getApigSignaturesOutput"], () => require("./getApigSignatures"));
+
+export { GetApigThrottlingPoliciesArgs, GetApigThrottlingPoliciesResult, GetApigThrottlingPoliciesOutputArgs } from "./getApigThrottlingPolicies";
+export const getApigThrottlingPolicies: typeof import("./getApigThrottlingPolicies").getApigThrottlingPolicies = null as any;
+export const getApigThrottlingPoliciesOutput: typeof import("./getApigThrottlingPolicies").getApigThrottlingPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getApigThrottlingPolicies","getApigThrottlingPoliciesOutput"], () => require("./getApigThrottlingPolicies"));
+
+export { GetAvailabilityZonesArgs, GetAvailabilityZonesResult, GetAvailabilityZonesOutputArgs } from "./getAvailabilityZones";
+export const getAvailabilityZones: typeof import("./getAvailabilityZones").getAvailabilityZones = null as any;
+export const getAvailabilityZonesOutput: typeof import("./getAvailabilityZones").getAvailabilityZonesOutput = null as any;
+utilities.lazyLoad(exports, ["getAvailabilityZones","getAvailabilityZonesOutput"], () => require("./getAvailabilityZones"));
+
+export { GetCbhAvailabilityZonesArgs, GetCbhAvailabilityZonesResult, GetCbhAvailabilityZonesOutputArgs } from "./getCbhAvailabilityZones";
+export const getCbhAvailabilityZones: typeof import("./getCbhAvailabilityZones").getCbhAvailabilityZones = null as any;
+export const getCbhAvailabilityZonesOutput: typeof import("./getCbhAvailabilityZones").getCbhAvailabilityZonesOutput = null as any;
+utilities.lazyLoad(exports, ["getCbhAvailabilityZones","getCbhAvailabilityZonesOutput"], () => require("./getCbhAvailabilityZones"));
+
+export { GetCbhFlavorsArgs, GetCbhFlavorsResult, GetCbhFlavorsOutputArgs } from "./getCbhFlavors";
+export const getCbhFlavors: typeof import("./getCbhFlavors").getCbhFlavors = null as any;
+export const getCbhFlavorsOutput: typeof import("./getCbhFlavors").getCbhFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getCbhFlavors","getCbhFlavorsOutput"], () => require("./getCbhFlavors"));
+
+export { GetCbhInstancesArgs, GetCbhInstancesResult, GetCbhInstancesOutputArgs } from "./getCbhInstances";
+export const getCbhInstances: typeof import("./getCbhInstances").getCbhInstances = null as any;
+export const getCbhInstancesOutput: typeof import("./getCbhInstances").getCbhInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getCbhInstances","getCbhInstancesOutput"], () => require("./getCbhInstances"));
+
+export { GetCbrBackupArgs, GetCbrBackupResult, GetCbrBackupOutputArgs } from "./getCbrBackup";
+export const getCbrBackup: typeof import("./getCbrBackup").getCbrBackup = null as any;
+export const getCbrBackupOutput: typeof import("./getCbrBackup").getCbrBackupOutput = null as any;
+utilities.lazyLoad(exports, ["getCbrBackup","getCbrBackupOutput"], () => require("./getCbrBackup"));
+
+export { GetCbrPoliciesArgs, GetCbrPoliciesResult, GetCbrPoliciesOutputArgs } from "./getCbrPolicies";
+export const getCbrPolicies: typeof import("./getCbrPolicies").getCbrPolicies = null as any;
+export const getCbrPoliciesOutput: typeof import("./getCbrPolicies").getCbrPoliciesOutput = null as any;
+utilities.lazyLoad(exports, ["getCbrPolicies","getCbrPoliciesOutput"], () => require("./getCbrPolicies"));
+
+export { GetCbrVaultsArgs, GetCbrVaultsResult, GetCbrVaultsOutputArgs } from "./getCbrVaults";
+export const getCbrVaults: typeof import("./getCbrVaults").getCbrVaults = null as any;
+export const getCbrVaultsOutput: typeof import("./getCbrVaults").getCbrVaultsOutput = null as any;
+utilities.lazyLoad(exports, ["getCbrVaults","getCbrVaultsOutput"], () => require("./getCbrVaults"));
+
+export { GetCceAddonTemplateArgs, GetCceAddonTemplateResult, GetCceAddonTemplateOutputArgs } from "./getCceAddonTemplate";
+export const getCceAddonTemplate: typeof import("./getCceAddonTemplate").getCceAddonTemplate = null as any;
+export const getCceAddonTemplateOutput: typeof import("./getCceAddonTemplate").getCceAddonTemplateOutput = null as any;
+utilities.lazyLoad(exports, ["getCceAddonTemplate","getCceAddonTemplateOutput"], () => require("./getCceAddonTemplate"));
+
+export { GetCceClusterArgs, GetCceClusterResult, GetCceClusterOutputArgs } from "./getCceCluster";
+export const getCceCluster: typeof import("./getCceCluster").getCceCluster = null as any;
+export const getCceClusterOutput: typeof import("./getCceCluster").getCceClusterOutput = null as any;
+utilities.lazyLoad(exports, ["getCceCluster","getCceClusterOutput"], () => require("./getCceCluster"));
+
+export { GetCceClusterCertificateArgs, GetCceClusterCertificateResult, GetCceClusterCertificateOutputArgs } from "./getCceClusterCertificate";
+export const getCceClusterCertificate: typeof import("./getCceClusterCertificate").getCceClusterCertificate = null as any;
+export const getCceClusterCertificateOutput: typeof import("./getCceClusterCertificate").getCceClusterCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getCceClusterCertificate","getCceClusterCertificateOutput"], () => require("./getCceClusterCertificate"));
+
+export { GetCceClustersArgs, GetCceClustersResult, GetCceClustersOutputArgs } from "./getCceClusters";
+export const getCceClusters: typeof import("./getCceClusters").getCceClusters = null as any;
+export const getCceClustersOutput: typeof import("./getCceClusters").getCceClustersOutput = null as any;
+utilities.lazyLoad(exports, ["getCceClusters","getCceClustersOutput"], () => require("./getCceClusters"));
+
+export { GetCceNodeArgs, GetCceNodeResult, GetCceNodeOutputArgs } from "./getCceNode";
+export const getCceNode: typeof import("./getCceNode").getCceNode = null as any;
+export const getCceNodeOutput: typeof import("./getCceNode").getCceNodeOutput = null as any;
+utilities.lazyLoad(exports, ["getCceNode","getCceNodeOutput"], () => require("./getCceNode"));
+
+export { GetCceNodePoolArgs, GetCceNodePoolResult, GetCceNodePoolOutputArgs } from "./getCceNodePool";
+export const getCceNodePool: typeof import("./getCceNodePool").getCceNodePool = null as any;
+export const getCceNodePoolOutput: typeof import("./getCceNodePool").getCceNodePoolOutput = null as any;
+utilities.lazyLoad(exports, ["getCceNodePool","getCceNodePoolOutput"], () => require("./getCceNodePool"));
+
+export { GetCceNodesArgs, GetCceNodesResult, GetCceNodesOutputArgs } from "./getCceNodes";
+export const getCceNodes: typeof import("./getCceNodes").getCceNodes = null as any;
+export const getCceNodesOutput: typeof import("./getCceNodes").getCceNodesOutput = null as any;
+utilities.lazyLoad(exports, ["getCceNodes","getCceNodesOutput"], () => require("./getCceNodes"));
+
+export { GetCdmFlavorsArgs, GetCdmFlavorsResult, GetCdmFlavorsOutputArgs } from "./getCdmFlavors";
+export const getCdmFlavors: typeof import("./getCdmFlavors").getCdmFlavors = null as any;
+export const getCdmFlavorsOutput: typeof import("./getCdmFlavors").getCdmFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getCdmFlavors","getCdmFlavorsOutput"], () => require("./getCdmFlavors"));
+
+export { GetComputeFlavorsArgs, GetComputeFlavorsResult, GetComputeFlavorsOutputArgs } from "./getComputeFlavors";
+export const getComputeFlavors: typeof import("./getComputeFlavors").getComputeFlavors = null as any;
+export const getComputeFlavorsOutput: typeof import("./getComputeFlavors").getComputeFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getComputeFlavors","getComputeFlavorsOutput"], () => require("./getComputeFlavors"));
+
+export { GetComputeInstanceArgs, GetComputeInstanceResult, GetComputeInstanceOutputArgs } from "./getComputeInstance";
+export const getComputeInstance: typeof import("./getComputeInstance").getComputeInstance = null as any;
+export const getComputeInstanceOutput: typeof import("./getComputeInstance").getComputeInstanceOutput = null as any;
+utilities.lazyLoad(exports, ["getComputeInstance","getComputeInstanceOutput"], () => require("./getComputeInstance"));
+
+export { GetComputeInstancesArgs, GetComputeInstancesResult, GetComputeInstancesOutputArgs } from "./getComputeInstances";
+export const getComputeInstances: typeof import("./getComputeInstances").getComputeInstances = null as any;
+export const getComputeInstancesOutput: typeof import("./getComputeInstances").getComputeInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getComputeInstances","getComputeInstancesOutput"], () => require("./getComputeInstances"));
+
+export { GetComputeServergroupsArgs, GetComputeServergroupsResult, GetComputeServergroupsOutputArgs } from "./getComputeServergroups";
+export const getComputeServergroups: typeof import("./getComputeServergroups").getComputeServergroups = null as any;
+export const getComputeServergroupsOutput: typeof import("./getComputeServergroups").getComputeServergroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getComputeServergroups","getComputeServergroupsOutput"], () => require("./getComputeServergroups"));
+
+export { GetCssFlavorsArgs, GetCssFlavorsResult, GetCssFlavorsOutputArgs } from "./getCssFlavors";
+export const getCssFlavors: typeof import("./getCssFlavors").getCssFlavors = null as any;
+export const getCssFlavorsOutput: typeof import("./getCssFlavors").getCssFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getCssFlavors","getCssFlavorsOutput"], () => require("./getCssFlavors"));
+
+export { GetDcsAccountsArgs, GetDcsAccountsResult, GetDcsAccountsOutputArgs } from "./getDcsAccounts";
+export const getDcsAccounts: typeof import("./getDcsAccounts").getDcsAccounts = null as any;
+export const getDcsAccountsOutput: typeof import("./getDcsAccounts").getDcsAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getDcsAccounts","getDcsAccountsOutput"], () => require("./getDcsAccounts"));
+
+export { GetDcsAzArgs, GetDcsAzResult, GetDcsAzOutputArgs } from "./getDcsAz";
+export const getDcsAz: typeof import("./getDcsAz").getDcsAz = null as any;
+export const getDcsAzOutput: typeof import("./getDcsAz").getDcsAzOutput = null as any;
+utilities.lazyLoad(exports, ["getDcsAz","getDcsAzOutput"], () => require("./getDcsAz"));
+
+export { GetDcsFlavorsArgs, GetDcsFlavorsResult, GetDcsFlavorsOutputArgs } from "./getDcsFlavors";
+export const getDcsFlavors: typeof import("./getDcsFlavors").getDcsFlavors = null as any;
+export const getDcsFlavorsOutput: typeof import("./getDcsFlavors").getDcsFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getDcsFlavors","getDcsFlavorsOutput"], () => require("./getDcsFlavors"));
+
+export { GetDcsMaintainwindowArgs, GetDcsMaintainwindowResult, GetDcsMaintainwindowOutputArgs } from "./getDcsMaintainwindow";
+export const getDcsMaintainwindow: typeof import("./getDcsMaintainwindow").getDcsMaintainwindow = null as any;
+export const getDcsMaintainwindowOutput: typeof import("./getDcsMaintainwindow").getDcsMaintainwindowOutput = null as any;
+utilities.lazyLoad(exports, ["getDcsMaintainwindow","getDcsMaintainwindowOutput"], () => require("./getDcsMaintainwindow"));
+
+export { GetDcsProductArgs, GetDcsProductResult, GetDcsProductOutputArgs } from "./getDcsProduct";
+export const getDcsProduct: typeof import("./getDcsProduct").getDcsProduct = null as any;
+export const getDcsProductOutput: typeof import("./getDcsProduct").getDcsProductOutput = null as any;
+utilities.lazyLoad(exports, ["getDcsProduct","getDcsProductOutput"], () => require("./getDcsProduct"));
+
+export { GetDdsFlavorsArgs, GetDdsFlavorsResult, GetDdsFlavorsOutputArgs } from "./getDdsFlavors";
+export const getDdsFlavors: typeof import("./getDdsFlavors").getDdsFlavors = null as any;
+export const getDdsFlavorsOutput: typeof import("./getDdsFlavors").getDdsFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getDdsFlavors","getDdsFlavorsOutput"], () => require("./getDdsFlavors"));
+
+export { GetDmsAzArgs, GetDmsAzResult, GetDmsAzOutputArgs } from "./getDmsAz";
+export const getDmsAz: typeof import("./getDmsAz").getDmsAz = null as any;
+export const getDmsAzOutput: typeof import("./getDmsAz").getDmsAzOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsAz","getDmsAzOutput"], () => require("./getDmsAz"));
+
+export { GetDmsKafkaFlavorsArgs, GetDmsKafkaFlavorsResult, GetDmsKafkaFlavorsOutputArgs } from "./getDmsKafkaFlavors";
+export const getDmsKafkaFlavors: typeof import("./getDmsKafkaFlavors").getDmsKafkaFlavors = null as any;
+export const getDmsKafkaFlavorsOutput: typeof import("./getDmsKafkaFlavors").getDmsKafkaFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsKafkaFlavors","getDmsKafkaFlavorsOutput"], () => require("./getDmsKafkaFlavors"));
+
+export { GetDmsKafkaInstancesArgs, GetDmsKafkaInstancesResult, GetDmsKafkaInstancesOutputArgs } from "./getDmsKafkaInstances";
+export const getDmsKafkaInstances: typeof import("./getDmsKafkaInstances").getDmsKafkaInstances = null as any;
+export const getDmsKafkaInstancesOutput: typeof import("./getDmsKafkaInstances").getDmsKafkaInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsKafkaInstances","getDmsKafkaInstancesOutput"], () => require("./getDmsKafkaInstances"));
+
+export { GetDmsKafkaMessagesArgs, GetDmsKafkaMessagesResult, GetDmsKafkaMessagesOutputArgs } from "./getDmsKafkaMessages";
+export const getDmsKafkaMessages: typeof import("./getDmsKafkaMessages").getDmsKafkaMessages = null as any;
+export const getDmsKafkaMessagesOutput: typeof import("./getDmsKafkaMessages").getDmsKafkaMessagesOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsKafkaMessages","getDmsKafkaMessagesOutput"], () => require("./getDmsKafkaMessages"));
+
+export { GetDmsKafkaUsersArgs, GetDmsKafkaUsersResult, GetDmsKafkaUsersOutputArgs } from "./getDmsKafkaUsers";
+export const getDmsKafkaUsers: typeof import("./getDmsKafkaUsers").getDmsKafkaUsers = null as any;
+export const getDmsKafkaUsersOutput: typeof import("./getDmsKafkaUsers").getDmsKafkaUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsKafkaUsers","getDmsKafkaUsersOutput"], () => require("./getDmsKafkaUsers"));
+
+export { GetDmsMaintainwindowArgs, GetDmsMaintainwindowResult, GetDmsMaintainwindowOutputArgs } from "./getDmsMaintainwindow";
+export const getDmsMaintainwindow: typeof import("./getDmsMaintainwindow").getDmsMaintainwindow = null as any;
+export const getDmsMaintainwindowOutput: typeof import("./getDmsMaintainwindow").getDmsMaintainwindowOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsMaintainwindow","getDmsMaintainwindowOutput"], () => require("./getDmsMaintainwindow"));
+
+export { GetDmsProductArgs, GetDmsProductResult, GetDmsProductOutputArgs } from "./getDmsProduct";
+export const getDmsProduct: typeof import("./getDmsProduct").getDmsProduct = null as any;
+export const getDmsProductOutput: typeof import("./getDmsProduct").getDmsProductOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsProduct","getDmsProductOutput"], () => require("./getDmsProduct"));
+
+export { GetDmsRabbitmqFlavorsArgs, GetDmsRabbitmqFlavorsResult, GetDmsRabbitmqFlavorsOutputArgs } from "./getDmsRabbitmqFlavors";
+export const getDmsRabbitmqFlavors: typeof import("./getDmsRabbitmqFlavors").getDmsRabbitmqFlavors = null as any;
+export const getDmsRabbitmqFlavorsOutput: typeof import("./getDmsRabbitmqFlavors").getDmsRabbitmqFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRabbitmqFlavors","getDmsRabbitmqFlavorsOutput"], () => require("./getDmsRabbitmqFlavors"));
+
+export { GetDwsFlavorsArgs, GetDwsFlavorsResult, GetDwsFlavorsOutputArgs } from "./getDwsFlavors";
+export const getDwsFlavors: typeof import("./getDwsFlavors").getDwsFlavors = null as any;
+export const getDwsFlavorsOutput: typeof import("./getDwsFlavors").getDwsFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getDwsFlavors","getDwsFlavorsOutput"], () => require("./getDwsFlavors"));
+
+export { GetElbCertificateArgs, GetElbCertificateResult, GetElbCertificateOutputArgs } from "./getElbCertificate";
+export const getElbCertificate: typeof import("./getElbCertificate").getElbCertificate = null as any;
+export const getElbCertificateOutput: typeof import("./getElbCertificate").getElbCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getElbCertificate","getElbCertificateOutput"], () => require("./getElbCertificate"));
+
+export { GetElbFlavorsArgs, GetElbFlavorsResult, GetElbFlavorsOutputArgs } from "./getElbFlavors";
+export const getElbFlavors: typeof import("./getElbFlavors").getElbFlavors = null as any;
+export const getElbFlavorsOutput: typeof import("./getElbFlavors").getElbFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getElbFlavors","getElbFlavorsOutput"], () => require("./getElbFlavors"));
+
+export { GetElbPoolsArgs, GetElbPoolsResult, GetElbPoolsOutputArgs } from "./getElbPools";
+export const getElbPools: typeof import("./getElbPools").getElbPools = null as any;
+export const getElbPoolsOutput: typeof import("./getElbPools").getElbPoolsOutput = null as any;
+utilities.lazyLoad(exports, ["getElbPools","getElbPoolsOutput"], () => require("./getElbPools"));
+
+export { GetEnterpriseProjectArgs, GetEnterpriseProjectResult, GetEnterpriseProjectOutputArgs } from "./getEnterpriseProject";
+export const getEnterpriseProject: typeof import("./getEnterpriseProject").getEnterpriseProject = null as any;
+export const getEnterpriseProjectOutput: typeof import("./getEnterpriseProject").getEnterpriseProjectOutput = null as any;
+utilities.lazyLoad(exports, ["getEnterpriseProject","getEnterpriseProjectOutput"], () => require("./getEnterpriseProject"));
+
+export { GetEvsVolumesArgs, GetEvsVolumesResult, GetEvsVolumesOutputArgs } from "./getEvsVolumes";
+export const getEvsVolumes: typeof import("./getEvsVolumes").getEvsVolumes = null as any;
+export const getEvsVolumesOutput: typeof import("./getEvsVolumes").getEvsVolumesOutput = null as any;
+utilities.lazyLoad(exports, ["getEvsVolumes","getEvsVolumesOutput"], () => require("./getEvsVolumes"));
+
+export { GetIdentityCustomRoleArgs, GetIdentityCustomRoleResult, GetIdentityCustomRoleOutputArgs } from "./getIdentityCustomRole";
+export const getIdentityCustomRole: typeof import("./getIdentityCustomRole").getIdentityCustomRole = null as any;
+export const getIdentityCustomRoleOutput: typeof import("./getIdentityCustomRole").getIdentityCustomRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityCustomRole","getIdentityCustomRoleOutput"], () => require("./getIdentityCustomRole"));
+
+export { GetIdentityGroupArgs, GetIdentityGroupResult, GetIdentityGroupOutputArgs } from "./getIdentityGroup";
+export const getIdentityGroup: typeof import("./getIdentityGroup").getIdentityGroup = null as any;
+export const getIdentityGroupOutput: typeof import("./getIdentityGroup").getIdentityGroupOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityGroup","getIdentityGroupOutput"], () => require("./getIdentityGroup"));
+
+export { GetIdentityProjectsArgs, GetIdentityProjectsResult, GetIdentityProjectsOutputArgs } from "./getIdentityProjects";
+export const getIdentityProjects: typeof import("./getIdentityProjects").getIdentityProjects = null as any;
+export const getIdentityProjectsOutput: typeof import("./getIdentityProjects").getIdentityProjectsOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityProjects","getIdentityProjectsOutput"], () => require("./getIdentityProjects"));
+
+export { GetIdentityRoleArgs, GetIdentityRoleResult, GetIdentityRoleOutputArgs } from "./getIdentityRole";
+export const getIdentityRole: typeof import("./getIdentityRole").getIdentityRole = null as any;
+export const getIdentityRoleOutput: typeof import("./getIdentityRole").getIdentityRoleOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityRole","getIdentityRoleOutput"], () => require("./getIdentityRole"));
+
+export { GetIdentityRoleV3Args, GetIdentityRoleV3Result, GetIdentityRoleV3OutputArgs } from "./getIdentityRoleV3";
+export const getIdentityRoleV3: typeof import("./getIdentityRoleV3").getIdentityRoleV3 = null as any;
+export const getIdentityRoleV3Output: typeof import("./getIdentityRoleV3").getIdentityRoleV3Output = null as any;
+utilities.lazyLoad(exports, ["getIdentityRoleV3","getIdentityRoleV3Output"], () => require("./getIdentityRoleV3"));
+
+export { GetIdentityUsersArgs, GetIdentityUsersResult, GetIdentityUsersOutputArgs } from "./getIdentityUsers";
+export const getIdentityUsers: typeof import("./getIdentityUsers").getIdentityUsers = null as any;
+export const getIdentityUsersOutput: typeof import("./getIdentityUsers").getIdentityUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getIdentityUsers","getIdentityUsersOutput"], () => require("./getIdentityUsers"));
+
+export { GetImagesImageArgs, GetImagesImageResult, GetImagesImageOutputArgs } from "./getImagesImage";
+export const getImagesImage: typeof import("./getImagesImage").getImagesImage = null as any;
+export const getImagesImageOutput: typeof import("./getImagesImage").getImagesImageOutput = null as any;
+utilities.lazyLoad(exports, ["getImagesImage","getImagesImageOutput"], () => require("./getImagesImage"));
+
+export { GetImagesImagesArgs, GetImagesImagesResult, GetImagesImagesOutputArgs } from "./getImagesImages";
+export const getImagesImages: typeof import("./getImagesImages").getImagesImages = null as any;
+export const getImagesImagesOutput: typeof import("./getImagesImages").getImagesImagesOutput = null as any;
+utilities.lazyLoad(exports, ["getImagesImages","getImagesImagesOutput"], () => require("./getImagesImages"));
+
+export { GetKmsDataKeyArgs, GetKmsDataKeyResult, GetKmsDataKeyOutputArgs } from "./getKmsDataKey";
+export const getKmsDataKey: typeof import("./getKmsDataKey").getKmsDataKey = null as any;
+export const getKmsDataKeyOutput: typeof import("./getKmsDataKey").getKmsDataKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getKmsDataKey","getKmsDataKeyOutput"], () => require("./getKmsDataKey"));
+
+export { GetKmsKeyArgs, GetKmsKeyResult, GetKmsKeyOutputArgs } from "./getKmsKey";
+export const getKmsKey: typeof import("./getKmsKey").getKmsKey = null as any;
+export const getKmsKeyOutput: typeof import("./getKmsKey").getKmsKeyOutput = null as any;
+utilities.lazyLoad(exports, ["getKmsKey","getKmsKeyOutput"], () => require("./getKmsKey"));
+
+export { GetKpsFailedTasksArgs, GetKpsFailedTasksResult, GetKpsFailedTasksOutputArgs } from "./getKpsFailedTasks";
+export const getKpsFailedTasks: typeof import("./getKpsFailedTasks").getKpsFailedTasks = null as any;
+export const getKpsFailedTasksOutput: typeof import("./getKpsFailedTasks").getKpsFailedTasksOutput = null as any;
+utilities.lazyLoad(exports, ["getKpsFailedTasks","getKpsFailedTasksOutput"], () => require("./getKpsFailedTasks"));
+
+export { GetKpsKeypairsArgs, GetKpsKeypairsResult, GetKpsKeypairsOutputArgs } from "./getKpsKeypairs";
+export const getKpsKeypairs: typeof import("./getKpsKeypairs").getKpsKeypairs = null as any;
+export const getKpsKeypairsOutput: typeof import("./getKpsKeypairs").getKpsKeypairsOutput = null as any;
+utilities.lazyLoad(exports, ["getKpsKeypairs","getKpsKeypairsOutput"], () => require("./getKpsKeypairs"));
+
+export { GetKpsRunningTasksArgs, GetKpsRunningTasksResult, GetKpsRunningTasksOutputArgs } from "./getKpsRunningTasks";
+export const getKpsRunningTasks: typeof import("./getKpsRunningTasks").getKpsRunningTasks = null as any;
+export const getKpsRunningTasksOutput: typeof import("./getKpsRunningTasks").getKpsRunningTasksOutput = null as any;
+utilities.lazyLoad(exports, ["getKpsRunningTasks","getKpsRunningTasksOutput"], () => require("./getKpsRunningTasks"));
+
+export { GetLbCertificateArgs, GetLbCertificateResult, GetLbCertificateOutputArgs } from "./getLbCertificate";
+export const getLbCertificate: typeof import("./getLbCertificate").getLbCertificate = null as any;
+export const getLbCertificateOutput: typeof import("./getLbCertificate").getLbCertificateOutput = null as any;
+utilities.lazyLoad(exports, ["getLbCertificate","getLbCertificateOutput"], () => require("./getLbCertificate"));
+
+export { GetLbListenersArgs, GetLbListenersResult, GetLbListenersOutputArgs } from "./getLbListeners";
+export const getLbListeners: typeof import("./getLbListeners").getLbListeners = null as any;
+export const getLbListenersOutput: typeof import("./getLbListeners").getLbListenersOutput = null as any;
+utilities.lazyLoad(exports, ["getLbListeners","getLbListenersOutput"], () => require("./getLbListeners"));
+
+export { GetLbLoadbalancerArgs, GetLbLoadbalancerResult, GetLbLoadbalancerOutputArgs } from "./getLbLoadbalancer";
+export const getLbLoadbalancer: typeof import("./getLbLoadbalancer").getLbLoadbalancer = null as any;
+export const getLbLoadbalancerOutput: typeof import("./getLbLoadbalancer").getLbLoadbalancerOutput = null as any;
+utilities.lazyLoad(exports, ["getLbLoadbalancer","getLbLoadbalancerOutput"], () => require("./getLbLoadbalancer"));
+
+export { GetLbPoolsArgs, GetLbPoolsResult, GetLbPoolsOutputArgs } from "./getLbPools";
+export const getLbPools: typeof import("./getLbPools").getLbPools = null as any;
+export const getLbPoolsOutput: typeof import("./getLbPools").getLbPoolsOutput = null as any;
+utilities.lazyLoad(exports, ["getLbPools","getLbPoolsOutput"], () => require("./getLbPools"));
+
+export { GetNatGatewayArgs, GetNatGatewayResult, GetNatGatewayOutputArgs } from "./getNatGateway";
+export const getNatGateway: typeof import("./getNatGateway").getNatGateway = null as any;
+export const getNatGatewayOutput: typeof import("./getNatGateway").getNatGatewayOutput = null as any;
+utilities.lazyLoad(exports, ["getNatGateway","getNatGatewayOutput"], () => require("./getNatGateway"));
+
+export { GetNetworkingPortArgs, GetNetworkingPortResult, GetNetworkingPortOutputArgs } from "./getNetworkingPort";
+export const getNetworkingPort: typeof import("./getNetworkingPort").getNetworkingPort = null as any;
+export const getNetworkingPortOutput: typeof import("./getNetworkingPort").getNetworkingPortOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkingPort","getNetworkingPortOutput"], () => require("./getNetworkingPort"));
+
+export { GetNetworkingSecgroupArgs, GetNetworkingSecgroupResult, GetNetworkingSecgroupOutputArgs } from "./getNetworkingSecgroup";
+export const getNetworkingSecgroup: typeof import("./getNetworkingSecgroup").getNetworkingSecgroup = null as any;
+export const getNetworkingSecgroupOutput: typeof import("./getNetworkingSecgroup").getNetworkingSecgroupOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkingSecgroup","getNetworkingSecgroupOutput"], () => require("./getNetworkingSecgroup"));
+
+export { GetNetworkingSecgroupsArgs, GetNetworkingSecgroupsResult, GetNetworkingSecgroupsOutputArgs } from "./getNetworkingSecgroups";
+export const getNetworkingSecgroups: typeof import("./getNetworkingSecgroups").getNetworkingSecgroups = null as any;
+export const getNetworkingSecgroupsOutput: typeof import("./getNetworkingSecgroups").getNetworkingSecgroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getNetworkingSecgroups","getNetworkingSecgroupsOutput"], () => require("./getNetworkingSecgroups"));
+
+export { GetObsBucketObjectArgs, GetObsBucketObjectResult, GetObsBucketObjectOutputArgs } from "./getObsBucketObject";
+export const getObsBucketObject: typeof import("./getObsBucketObject").getObsBucketObject = null as any;
+export const getObsBucketObjectOutput: typeof import("./getObsBucketObject").getObsBucketObjectOutput = null as any;
+utilities.lazyLoad(exports, ["getObsBucketObject","getObsBucketObjectOutput"], () => require("./getObsBucketObject"));
+
+export { GetObsBucketsArgs, GetObsBucketsResult, GetObsBucketsOutputArgs } from "./getObsBuckets";
+export const getObsBuckets: typeof import("./getObsBuckets").getObsBuckets = null as any;
+export const getObsBucketsOutput: typeof import("./getObsBuckets").getObsBucketsOutput = null as any;
+utilities.lazyLoad(exports, ["getObsBuckets","getObsBucketsOutput"], () => require("./getObsBuckets"));
+
+export { GetRdsBackupsArgs, GetRdsBackupsResult, GetRdsBackupsOutputArgs } from "./getRdsBackups";
+export const getRdsBackups: typeof import("./getRdsBackups").getRdsBackups = null as any;
+export const getRdsBackupsOutput: typeof import("./getRdsBackups").getRdsBackupsOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsBackups","getRdsBackupsOutput"], () => require("./getRdsBackups"));
+
+export { GetRdsEngineVersionsArgs, GetRdsEngineVersionsResult, GetRdsEngineVersionsOutputArgs } from "./getRdsEngineVersions";
+export const getRdsEngineVersions: typeof import("./getRdsEngineVersions").getRdsEngineVersions = null as any;
+export const getRdsEngineVersionsOutput: typeof import("./getRdsEngineVersions").getRdsEngineVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsEngineVersions","getRdsEngineVersionsOutput"], () => require("./getRdsEngineVersions"));
+
+export { GetRdsFlavorsArgs, GetRdsFlavorsResult, GetRdsFlavorsOutputArgs } from "./getRdsFlavors";
+export const getRdsFlavors: typeof import("./getRdsFlavors").getRdsFlavors = null as any;
+export const getRdsFlavorsOutput: typeof import("./getRdsFlavors").getRdsFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsFlavors","getRdsFlavorsOutput"], () => require("./getRdsFlavors"));
+
+export { GetRdsInstancesArgs, GetRdsInstancesResult, GetRdsInstancesOutputArgs } from "./getRdsInstances";
+export const getRdsInstances: typeof import("./getRdsInstances").getRdsInstances = null as any;
+export const getRdsInstancesOutput: typeof import("./getRdsInstances").getRdsInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsInstances","getRdsInstancesOutput"], () => require("./getRdsInstances"));
+
+export { GetRdsPgAccountsArgs, GetRdsPgAccountsResult, GetRdsPgAccountsOutputArgs } from "./getRdsPgAccounts";
+export const getRdsPgAccounts: typeof import("./getRdsPgAccounts").getRdsPgAccounts = null as any;
+export const getRdsPgAccountsOutput: typeof import("./getRdsPgAccounts").getRdsPgAccountsOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsPgAccounts","getRdsPgAccountsOutput"], () => require("./getRdsPgAccounts"));
+
+export { GetRdsPgDatabasesArgs, GetRdsPgDatabasesResult, GetRdsPgDatabasesOutputArgs } from "./getRdsPgDatabases";
+export const getRdsPgDatabases: typeof import("./getRdsPgDatabases").getRdsPgDatabases = null as any;
+export const getRdsPgDatabasesOutput: typeof import("./getRdsPgDatabases").getRdsPgDatabasesOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsPgDatabases","getRdsPgDatabasesOutput"], () => require("./getRdsPgDatabases"));
+
+export { GetRdsPgPluginParameterValueRangeArgs, GetRdsPgPluginParameterValueRangeResult, GetRdsPgPluginParameterValueRangeOutputArgs } from "./getRdsPgPluginParameterValueRange";
+export const getRdsPgPluginParameterValueRange: typeof import("./getRdsPgPluginParameterValueRange").getRdsPgPluginParameterValueRange = null as any;
+export const getRdsPgPluginParameterValueRangeOutput: typeof import("./getRdsPgPluginParameterValueRange").getRdsPgPluginParameterValueRangeOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsPgPluginParameterValueRange","getRdsPgPluginParameterValueRangeOutput"], () => require("./getRdsPgPluginParameterValueRange"));
+
+export { GetRdsPgPluginParameterValuesArgs, GetRdsPgPluginParameterValuesResult, GetRdsPgPluginParameterValuesOutputArgs } from "./getRdsPgPluginParameterValues";
+export const getRdsPgPluginParameterValues: typeof import("./getRdsPgPluginParameterValues").getRdsPgPluginParameterValues = null as any;
+export const getRdsPgPluginParameterValuesOutput: typeof import("./getRdsPgPluginParameterValues").getRdsPgPluginParameterValuesOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsPgPluginParameterValues","getRdsPgPluginParameterValuesOutput"], () => require("./getRdsPgPluginParameterValues"));
+
+export { GetRdsPgPluginsArgs, GetRdsPgPluginsResult, GetRdsPgPluginsOutputArgs } from "./getRdsPgPlugins";
+export const getRdsPgPlugins: typeof import("./getRdsPgPlugins").getRdsPgPlugins = null as any;
+export const getRdsPgPluginsOutput: typeof import("./getRdsPgPlugins").getRdsPgPluginsOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsPgPlugins","getRdsPgPluginsOutput"], () => require("./getRdsPgPlugins"));
+
+export { GetRdsPgRolesArgs, GetRdsPgRolesResult, GetRdsPgRolesOutputArgs } from "./getRdsPgRoles";
+export const getRdsPgRoles: typeof import("./getRdsPgRoles").getRdsPgRoles = null as any;
+export const getRdsPgRolesOutput: typeof import("./getRdsPgRoles").getRdsPgRolesOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsPgRoles","getRdsPgRolesOutput"], () => require("./getRdsPgRoles"));
+
+export { GetRdsPgSqlLimitsArgs, GetRdsPgSqlLimitsResult, GetRdsPgSqlLimitsOutputArgs } from "./getRdsPgSqlLimits";
+export const getRdsPgSqlLimits: typeof import("./getRdsPgSqlLimits").getRdsPgSqlLimits = null as any;
+export const getRdsPgSqlLimitsOutput: typeof import("./getRdsPgSqlLimits").getRdsPgSqlLimitsOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsPgSqlLimits","getRdsPgSqlLimitsOutput"], () => require("./getRdsPgSqlLimits"));
+
+export { GetRdsStorageTypesArgs, GetRdsStorageTypesResult, GetRdsStorageTypesOutputArgs } from "./getRdsStorageTypes";
+export const getRdsStorageTypes: typeof import("./getRdsStorageTypes").getRdsStorageTypes = null as any;
+export const getRdsStorageTypesOutput: typeof import("./getRdsStorageTypes").getRdsStorageTypesOutput = null as any;
+utilities.lazyLoad(exports, ["getRdsStorageTypes","getRdsStorageTypesOutput"], () => require("./getRdsStorageTypes"));
+
+export { GetSfsFileSystemArgs, GetSfsFileSystemResult, GetSfsFileSystemOutputArgs } from "./getSfsFileSystem";
+export const getSfsFileSystem: typeof import("./getSfsFileSystem").getSfsFileSystem = null as any;
+export const getSfsFileSystemOutput: typeof import("./getSfsFileSystem").getSfsFileSystemOutput = null as any;
+utilities.lazyLoad(exports, ["getSfsFileSystem","getSfsFileSystemOutput"], () => require("./getSfsFileSystem"));
+
+export { GetSfsFileSystemV2Args, GetSfsFileSystemV2Result, GetSfsFileSystemV2OutputArgs } from "./getSfsFileSystemV2";
+export const getSfsFileSystemV2: typeof import("./getSfsFileSystemV2").getSfsFileSystemV2 = null as any;
+export const getSfsFileSystemV2Output: typeof import("./getSfsFileSystemV2").getSfsFileSystemV2Output = null as any;
+utilities.lazyLoad(exports, ["getSfsFileSystemV2","getSfsFileSystemV2Output"], () => require("./getSfsFileSystemV2"));
+
+export { GetSfsTurboDataTasksArgs, GetSfsTurboDataTasksResult, GetSfsTurboDataTasksOutputArgs } from "./getSfsTurboDataTasks";
+export const getSfsTurboDataTasks: typeof import("./getSfsTurboDataTasks").getSfsTurboDataTasks = null as any;
+export const getSfsTurboDataTasksOutput: typeof import("./getSfsTurboDataTasks").getSfsTurboDataTasksOutput = null as any;
+utilities.lazyLoad(exports, ["getSfsTurboDataTasks","getSfsTurboDataTasksOutput"], () => require("./getSfsTurboDataTasks"));
+
+export { GetSfsTurboDuTasksArgs, GetSfsTurboDuTasksResult, GetSfsTurboDuTasksOutputArgs } from "./getSfsTurboDuTasks";
+export const getSfsTurboDuTasks: typeof import("./getSfsTurboDuTasks").getSfsTurboDuTasks = null as any;
+export const getSfsTurboDuTasksOutput: typeof import("./getSfsTurboDuTasks").getSfsTurboDuTasksOutput = null as any;
+utilities.lazyLoad(exports, ["getSfsTurboDuTasks","getSfsTurboDuTasksOutput"], () => require("./getSfsTurboDuTasks"));
+
+export { GetSfsTurboObsTargetsArgs, GetSfsTurboObsTargetsResult, GetSfsTurboObsTargetsOutputArgs } from "./getSfsTurboObsTargets";
+export const getSfsTurboObsTargets: typeof import("./getSfsTurboObsTargets").getSfsTurboObsTargets = null as any;
+export const getSfsTurboObsTargetsOutput: typeof import("./getSfsTurboObsTargets").getSfsTurboObsTargetsOutput = null as any;
+utilities.lazyLoad(exports, ["getSfsTurboObsTargets","getSfsTurboObsTargetsOutput"], () => require("./getSfsTurboObsTargets"));
+
+export { GetSfsTurboPermRulesArgs, GetSfsTurboPermRulesResult, GetSfsTurboPermRulesOutputArgs } from "./getSfsTurboPermRules";
+export const getSfsTurboPermRules: typeof import("./getSfsTurboPermRules").getSfsTurboPermRules = null as any;
+export const getSfsTurboPermRulesOutput: typeof import("./getSfsTurboPermRules").getSfsTurboPermRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getSfsTurboPermRules","getSfsTurboPermRulesOutput"], () => require("./getSfsTurboPermRules"));
+
+export { GetSfsTurbosArgs, GetSfsTurbosResult, GetSfsTurbosOutputArgs } from "./getSfsTurbos";
+export const getSfsTurbos: typeof import("./getSfsTurbos").getSfsTurbos = null as any;
+export const getSfsTurbosOutput: typeof import("./getSfsTurbos").getSfsTurbosOutput = null as any;
+utilities.lazyLoad(exports, ["getSfsTurbos","getSfsTurbosOutput"], () => require("./getSfsTurbos"));
+
+export { GetVpcArgs, GetVpcResult, GetVpcOutputArgs } from "./getVpc";
+export const getVpc: typeof import("./getVpc").getVpc = null as any;
+export const getVpcOutput: typeof import("./getVpc").getVpcOutput = null as any;
+utilities.lazyLoad(exports, ["getVpc","getVpcOutput"], () => require("./getVpc"));
+
+export { GetVpcAddressGroupsArgs, GetVpcAddressGroupsResult, GetVpcAddressGroupsOutputArgs } from "./getVpcAddressGroups";
+export const getVpcAddressGroups: typeof import("./getVpcAddressGroups").getVpcAddressGroups = null as any;
+export const getVpcAddressGroupsOutput: typeof import("./getVpcAddressGroups").getVpcAddressGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcAddressGroups","getVpcAddressGroupsOutput"], () => require("./getVpcAddressGroups"));
+
+export { GetVpcBandwidthArgs, GetVpcBandwidthResult, GetVpcBandwidthOutputArgs } from "./getVpcBandwidth";
+export const getVpcBandwidth: typeof import("./getVpcBandwidth").getVpcBandwidth = null as any;
+export const getVpcBandwidthOutput: typeof import("./getVpcBandwidth").getVpcBandwidthOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcBandwidth","getVpcBandwidthOutput"], () => require("./getVpcBandwidth"));
+
+export { GetVpcEipArgs, GetVpcEipResult, GetVpcEipOutputArgs } from "./getVpcEip";
+export const getVpcEip: typeof import("./getVpcEip").getVpcEip = null as any;
+export const getVpcEipOutput: typeof import("./getVpcEip").getVpcEipOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcEip","getVpcEipOutput"], () => require("./getVpcEip"));
+
+export { GetVpcEipsArgs, GetVpcEipsResult, GetVpcEipsOutputArgs } from "./getVpcEips";
+export const getVpcEips: typeof import("./getVpcEips").getVpcEips = null as any;
+export const getVpcEipsOutput: typeof import("./getVpcEips").getVpcEipsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcEips","getVpcEipsOutput"], () => require("./getVpcEips"));
+
+export { GetVpcIdsArgs, GetVpcIdsResult, GetVpcIdsOutputArgs } from "./getVpcIds";
+export const getVpcIds: typeof import("./getVpcIds").getVpcIds = null as any;
+export const getVpcIdsOutput: typeof import("./getVpcIds").getVpcIdsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcIds","getVpcIdsOutput"], () => require("./getVpcIds"));
+
+export { GetVpcPeeringConnectionArgs, GetVpcPeeringConnectionResult, GetVpcPeeringConnectionOutputArgs } from "./getVpcPeeringConnection";
+export const getVpcPeeringConnection: typeof import("./getVpcPeeringConnection").getVpcPeeringConnection = null as any;
+export const getVpcPeeringConnectionOutput: typeof import("./getVpcPeeringConnection").getVpcPeeringConnectionOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcPeeringConnection","getVpcPeeringConnectionOutput"], () => require("./getVpcPeeringConnection"));
+
+export { GetVpcRouteArgs, GetVpcRouteResult, GetVpcRouteOutputArgs } from "./getVpcRoute";
+export const getVpcRoute: typeof import("./getVpcRoute").getVpcRoute = null as any;
+export const getVpcRouteOutput: typeof import("./getVpcRoute").getVpcRouteOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcRoute","getVpcRouteOutput"], () => require("./getVpcRoute"));
+
+export { GetVpcRouteTableArgs, GetVpcRouteTableResult, GetVpcRouteTableOutputArgs } from "./getVpcRouteTable";
+export const getVpcRouteTable: typeof import("./getVpcRouteTable").getVpcRouteTable = null as any;
+export const getVpcRouteTableOutput: typeof import("./getVpcRouteTable").getVpcRouteTableOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcRouteTable","getVpcRouteTableOutput"], () => require("./getVpcRouteTable"));
+
+export { GetVpcRoutesArgs, GetVpcRoutesResult, GetVpcRoutesOutputArgs } from "./getVpcRoutes";
+export const getVpcRoutes: typeof import("./getVpcRoutes").getVpcRoutes = null as any;
+export const getVpcRoutesOutput: typeof import("./getVpcRoutes").getVpcRoutesOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcRoutes","getVpcRoutesOutput"], () => require("./getVpcRoutes"));
+
+export { GetVpcSubnetArgs, GetVpcSubnetResult, GetVpcSubnetOutputArgs } from "./getVpcSubnet";
+export const getVpcSubnet: typeof import("./getVpcSubnet").getVpcSubnet = null as any;
+export const getVpcSubnetOutput: typeof import("./getVpcSubnet").getVpcSubnetOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcSubnet","getVpcSubnetOutput"], () => require("./getVpcSubnet"));
+
+export { GetVpcSubnetIdsArgs, GetVpcSubnetIdsResult, GetVpcSubnetIdsOutputArgs } from "./getVpcSubnetIds";
+export const getVpcSubnetIds: typeof import("./getVpcSubnetIds").getVpcSubnetIds = null as any;
+export const getVpcSubnetIdsOutput: typeof import("./getVpcSubnetIds").getVpcSubnetIdsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcSubnetIds","getVpcSubnetIdsOutput"], () => require("./getVpcSubnetIds"));
+
+export { GetVpcSubnetsArgs, GetVpcSubnetsResult, GetVpcSubnetsOutputArgs } from "./getVpcSubnets";
+export const getVpcSubnets: typeof import("./getVpcSubnets").getVpcSubnets = null as any;
+export const getVpcSubnetsOutput: typeof import("./getVpcSubnets").getVpcSubnetsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcSubnets","getVpcSubnetsOutput"], () => require("./getVpcSubnets"));
+
+export { GetVpcepPublicServicesArgs, GetVpcepPublicServicesResult, GetVpcepPublicServicesOutputArgs } from "./getVpcepPublicServices";
+export const getVpcepPublicServices: typeof import("./getVpcepPublicServices").getVpcepPublicServices = null as any;
+export const getVpcepPublicServicesOutput: typeof import("./getVpcepPublicServices").getVpcepPublicServicesOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcepPublicServices","getVpcepPublicServicesOutput"], () => require("./getVpcepPublicServices"));
+
+export { GetVpcsArgs, GetVpcsResult, GetVpcsOutputArgs } from "./getVpcs";
+export const getVpcs: typeof import("./getVpcs").getVpcs = null as any;
+export const getVpcsOutput: typeof import("./getVpcs").getVpcsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpcs","getVpcsOutput"], () => require("./getVpcs"));
+
+export { GetVpnConnectionHealthChecksArgs, GetVpnConnectionHealthChecksResult, GetVpnConnectionHealthChecksOutputArgs } from "./getVpnConnectionHealthChecks";
+export const getVpnConnectionHealthChecks: typeof import("./getVpnConnectionHealthChecks").getVpnConnectionHealthChecks = null as any;
+export const getVpnConnectionHealthChecksOutput: typeof import("./getVpnConnectionHealthChecks").getVpnConnectionHealthChecksOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnConnectionHealthChecks","getVpnConnectionHealthChecksOutput"], () => require("./getVpnConnectionHealthChecks"));
+
+export { GetVpnConnectionsArgs, GetVpnConnectionsResult, GetVpnConnectionsOutputArgs } from "./getVpnConnections";
+export const getVpnConnections: typeof import("./getVpnConnections").getVpnConnections = null as any;
+export const getVpnConnectionsOutput: typeof import("./getVpnConnections").getVpnConnectionsOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnConnections","getVpnConnectionsOutput"], () => require("./getVpnConnections"));
+
+export { GetVpnCustomerGatewaysArgs, GetVpnCustomerGatewaysResult, GetVpnCustomerGatewaysOutputArgs } from "./getVpnCustomerGateways";
+export const getVpnCustomerGateways: typeof import("./getVpnCustomerGateways").getVpnCustomerGateways = null as any;
+export const getVpnCustomerGatewaysOutput: typeof import("./getVpnCustomerGateways").getVpnCustomerGatewaysOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnCustomerGateways","getVpnCustomerGatewaysOutput"], () => require("./getVpnCustomerGateways"));
+
+export { GetVpnGatewayAvailabilityZonesArgs, GetVpnGatewayAvailabilityZonesResult, GetVpnGatewayAvailabilityZonesOutputArgs } from "./getVpnGatewayAvailabilityZones";
+export const getVpnGatewayAvailabilityZones: typeof import("./getVpnGatewayAvailabilityZones").getVpnGatewayAvailabilityZones = null as any;
+export const getVpnGatewayAvailabilityZonesOutput: typeof import("./getVpnGatewayAvailabilityZones").getVpnGatewayAvailabilityZonesOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnGatewayAvailabilityZones","getVpnGatewayAvailabilityZonesOutput"], () => require("./getVpnGatewayAvailabilityZones"));
+
+export { GetVpnGatewaysArgs, GetVpnGatewaysResult, GetVpnGatewaysOutputArgs } from "./getVpnGateways";
+export const getVpnGateways: typeof import("./getVpnGateways").getVpnGateways = null as any;
+export const getVpnGatewaysOutput: typeof import("./getVpnGateways").getVpnGatewaysOutput = null as any;
+utilities.lazyLoad(exports, ["getVpnGateways","getVpnGatewaysOutput"], () => require("./getVpnGateways"));
+
+export { IdentityAccessKeyArgs, IdentityAccessKeyState } from "./identityAccessKey";
+export type IdentityAccessKey = import("./identityAccessKey").IdentityAccessKey;
+export const IdentityAccessKey: typeof import("./identityAccessKey").IdentityAccessKey = null as any;
+utilities.lazyLoad(exports, ["IdentityAccessKey"], () => require("./identityAccessKey"));
+
+export { IdentityAclArgs, IdentityAclState } from "./identityAcl";
+export type IdentityAcl = import("./identityAcl").IdentityAcl;
+export const IdentityAcl: typeof import("./identityAcl").IdentityAcl = null as any;
+utilities.lazyLoad(exports, ["IdentityAcl"], () => require("./identityAcl"));
+
+export { IdentityAgencyArgs, IdentityAgencyState } from "./identityAgency";
+export type IdentityAgency = import("./identityAgency").IdentityAgency;
+export const IdentityAgency: typeof import("./identityAgency").IdentityAgency = null as any;
+utilities.lazyLoad(exports, ["IdentityAgency"], () => require("./identityAgency"));
+
+export { IdentityGroupArgs, IdentityGroupState } from "./identityGroup";
+export type IdentityGroup = import("./identityGroup").IdentityGroup;
+export const IdentityGroup: typeof import("./identityGroup").IdentityGroup = null as any;
+utilities.lazyLoad(exports, ["IdentityGroup"], () => require("./identityGroup"));
+
+export { IdentityGroupMembershipArgs, IdentityGroupMembershipState } from "./identityGroupMembership";
+export type IdentityGroupMembership = import("./identityGroupMembership").IdentityGroupMembership;
+export const IdentityGroupMembership: typeof import("./identityGroupMembership").IdentityGroupMembership = null as any;
+utilities.lazyLoad(exports, ["IdentityGroupMembership"], () => require("./identityGroupMembership"));
+
+export { IdentityGroupMembershipV3Args, IdentityGroupMembershipV3State } from "./identityGroupMembershipV3";
+export type IdentityGroupMembershipV3 = import("./identityGroupMembershipV3").IdentityGroupMembershipV3;
+export const IdentityGroupMembershipV3: typeof import("./identityGroupMembershipV3").IdentityGroupMembershipV3 = null as any;
+utilities.lazyLoad(exports, ["IdentityGroupMembershipV3"], () => require("./identityGroupMembershipV3"));
+
+export { IdentityGroupRoleAssignmentArgs, IdentityGroupRoleAssignmentState } from "./identityGroupRoleAssignment";
+export type IdentityGroupRoleAssignment = import("./identityGroupRoleAssignment").IdentityGroupRoleAssignment;
+export const IdentityGroupRoleAssignment: typeof import("./identityGroupRoleAssignment").IdentityGroupRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["IdentityGroupRoleAssignment"], () => require("./identityGroupRoleAssignment"));
+
+export { IdentityGroupV3Args, IdentityGroupV3State } from "./identityGroupV3";
+export type IdentityGroupV3 = import("./identityGroupV3").IdentityGroupV3;
+export const IdentityGroupV3: typeof import("./identityGroupV3").IdentityGroupV3 = null as any;
+utilities.lazyLoad(exports, ["IdentityGroupV3"], () => require("./identityGroupV3"));
+
+export { IdentityProjectArgs, IdentityProjectState } from "./identityProject";
+export type IdentityProject = import("./identityProject").IdentityProject;
+export const IdentityProject: typeof import("./identityProject").IdentityProject = null as any;
+utilities.lazyLoad(exports, ["IdentityProject"], () => require("./identityProject"));
+
+export { IdentityProviderArgs, IdentityProviderState } from "./identityProvider";
+export type IdentityProvider = import("./identityProvider").IdentityProvider;
+export const IdentityProvider: typeof import("./identityProvider").IdentityProvider = null as any;
+utilities.lazyLoad(exports, ["IdentityProvider"], () => require("./identityProvider"));
+
+export { IdentityProviderConversionArgs, IdentityProviderConversionState } from "./identityProviderConversion";
+export type IdentityProviderConversion = import("./identityProviderConversion").IdentityProviderConversion;
+export const IdentityProviderConversion: typeof import("./identityProviderConversion").IdentityProviderConversion = null as any;
+utilities.lazyLoad(exports, ["IdentityProviderConversion"], () => require("./identityProviderConversion"));
+
+export { IdentityRoleArgs, IdentityRoleState } from "./identityRole";
+export type IdentityRole = import("./identityRole").IdentityRole;
+export const IdentityRole: typeof import("./identityRole").IdentityRole = null as any;
+utilities.lazyLoad(exports, ["IdentityRole"], () => require("./identityRole"));
+
+export { IdentityRoleAssignmentArgs, IdentityRoleAssignmentState } from "./identityRoleAssignment";
+export type IdentityRoleAssignment = import("./identityRoleAssignment").IdentityRoleAssignment;
+export const IdentityRoleAssignment: typeof import("./identityRoleAssignment").IdentityRoleAssignment = null as any;
+utilities.lazyLoad(exports, ["IdentityRoleAssignment"], () => require("./identityRoleAssignment"));
+
+export { IdentityRoleAssignmentV3Args, IdentityRoleAssignmentV3State } from "./identityRoleAssignmentV3";
+export type IdentityRoleAssignmentV3 = import("./identityRoleAssignmentV3").IdentityRoleAssignmentV3;
+export const IdentityRoleAssignmentV3: typeof import("./identityRoleAssignmentV3").IdentityRoleAssignmentV3 = null as any;
+utilities.lazyLoad(exports, ["IdentityRoleAssignmentV3"], () => require("./identityRoleAssignmentV3"));
+
+export { IdentityUserArgs, IdentityUserState } from "./identityUser";
+export type IdentityUser = import("./identityUser").IdentityUser;
+export const IdentityUser: typeof import("./identityUser").IdentityUser = null as any;
+utilities.lazyLoad(exports, ["IdentityUser"], () => require("./identityUser"));
+
+export { IdentityUserV3Args, IdentityUserV3State } from "./identityUserV3";
+export type IdentityUserV3 = import("./identityUserV3").IdentityUserV3;
+export const IdentityUserV3: typeof import("./identityUserV3").IdentityUserV3 = null as any;
+utilities.lazyLoad(exports, ["IdentityUserV3"], () => require("./identityUserV3"));
+
+export { ImagesImageArgs, ImagesImageState } from "./imagesImage";
+export type ImagesImage = import("./imagesImage").ImagesImage;
+export const ImagesImage: typeof import("./imagesImage").ImagesImage = null as any;
+utilities.lazyLoad(exports, ["ImagesImage"], () => require("./imagesImage"));
+
+export { KmsKeyArgs, KmsKeyState } from "./kmsKey";
+export type KmsKey = import("./kmsKey").KmsKey;
+export const KmsKey: typeof import("./kmsKey").KmsKey = null as any;
+utilities.lazyLoad(exports, ["KmsKey"], () => require("./kmsKey"));
+
+export { KpsKeypairArgs, KpsKeypairState } from "./kpsKeypair";
+export type KpsKeypair = import("./kpsKeypair").KpsKeypair;
+export const KpsKeypair: typeof import("./kpsKeypair").KpsKeypair = null as any;
+utilities.lazyLoad(exports, ["KpsKeypair"], () => require("./kpsKeypair"));
+
+export { LbCertificateArgs, LbCertificateState } from "./lbCertificate";
+export type LbCertificate = import("./lbCertificate").LbCertificate;
+export const LbCertificate: typeof import("./lbCertificate").LbCertificate = null as any;
+utilities.lazyLoad(exports, ["LbCertificate"], () => require("./lbCertificate"));
+
+export { LbL7policyArgs, LbL7policyState } from "./lbL7policy";
+export type LbL7policy = import("./lbL7policy").LbL7policy;
+export const LbL7policy: typeof import("./lbL7policy").LbL7policy = null as any;
+utilities.lazyLoad(exports, ["LbL7policy"], () => require("./lbL7policy"));
+
+export { LbL7ruleArgs, LbL7ruleState } from "./lbL7rule";
+export type LbL7rule = import("./lbL7rule").LbL7rule;
+export const LbL7rule: typeof import("./lbL7rule").LbL7rule = null as any;
+utilities.lazyLoad(exports, ["LbL7rule"], () => require("./lbL7rule"));
+
+export { LbListenerArgs, LbListenerState } from "./lbListener";
+export type LbListener = import("./lbListener").LbListener;
+export const LbListener: typeof import("./lbListener").LbListener = null as any;
+utilities.lazyLoad(exports, ["LbListener"], () => require("./lbListener"));
+
+export { LbLoadbalancerArgs, LbLoadbalancerState } from "./lbLoadbalancer";
+export type LbLoadbalancer = import("./lbLoadbalancer").LbLoadbalancer;
+export const LbLoadbalancer: typeof import("./lbLoadbalancer").LbLoadbalancer = null as any;
+utilities.lazyLoad(exports, ["LbLoadbalancer"], () => require("./lbLoadbalancer"));
+
+export { LbMemberArgs, LbMemberState } from "./lbMember";
+export type LbMember = import("./lbMember").LbMember;
+export const LbMember: typeof import("./lbMember").LbMember = null as any;
+utilities.lazyLoad(exports, ["LbMember"], () => require("./lbMember"));
+
+export { LbMonitorArgs, LbMonitorState } from "./lbMonitor";
+export type LbMonitor = import("./lbMonitor").LbMonitor;
+export const LbMonitor: typeof import("./lbMonitor").LbMonitor = null as any;
+utilities.lazyLoad(exports, ["LbMonitor"], () => require("./lbMonitor"));
+
+export { LbPoolArgs, LbPoolState } from "./lbPool";
+export type LbPool = import("./lbPool").LbPool;
+export const LbPool: typeof import("./lbPool").LbPool = null as any;
+utilities.lazyLoad(exports, ["LbPool"], () => require("./lbPool"));
+
+export { LbWhitelistArgs, LbWhitelistState } from "./lbWhitelist";
+export type LbWhitelist = import("./lbWhitelist").LbWhitelist;
+export const LbWhitelist: typeof import("./lbWhitelist").LbWhitelist = null as any;
+utilities.lazyLoad(exports, ["LbWhitelist"], () => require("./lbWhitelist"));
+
+export { LtsGroupArgs, LtsGroupState } from "./ltsGroup";
+export type LtsGroup = import("./ltsGroup").LtsGroup;
+export const LtsGroup: typeof import("./ltsGroup").LtsGroup = null as any;
+utilities.lazyLoad(exports, ["LtsGroup"], () => require("./ltsGroup"));
+
+export { LtsStreamArgs, LtsStreamState } from "./ltsStream";
+export type LtsStream = import("./ltsStream").LtsStream;
+export const LtsStream: typeof import("./ltsStream").LtsStream = null as any;
+utilities.lazyLoad(exports, ["LtsStream"], () => require("./ltsStream"));
+
+export { MapreduceClusterArgs, MapreduceClusterState } from "./mapreduceCluster";
+export type MapreduceCluster = import("./mapreduceCluster").MapreduceCluster;
+export const MapreduceCluster: typeof import("./mapreduceCluster").MapreduceCluster = null as any;
+utilities.lazyLoad(exports, ["MapreduceCluster"], () => require("./mapreduceCluster"));
+
+export { MapreduceJobArgs, MapreduceJobState } from "./mapreduceJob";
+export type MapreduceJob = import("./mapreduceJob").MapreduceJob;
+export const MapreduceJob: typeof import("./mapreduceJob").MapreduceJob = null as any;
+utilities.lazyLoad(exports, ["MapreduceJob"], () => require("./mapreduceJob"));
+
+export { NatDnatRuleArgs, NatDnatRuleState } from "./natDnatRule";
+export type NatDnatRule = import("./natDnatRule").NatDnatRule;
+export const NatDnatRule: typeof import("./natDnatRule").NatDnatRule = null as any;
+utilities.lazyLoad(exports, ["NatDnatRule"], () => require("./natDnatRule"));
+
+export { NatGatewayArgs, NatGatewayState } from "./natGateway";
+export type NatGateway = import("./natGateway").NatGateway;
+export const NatGateway: typeof import("./natGateway").NatGateway = null as any;
+utilities.lazyLoad(exports, ["NatGateway"], () => require("./natGateway"));
+
+export { NatSnatRuleArgs, NatSnatRuleState } from "./natSnatRule";
+export type NatSnatRule = import("./natSnatRule").NatSnatRule;
+export const NatSnatRule: typeof import("./natSnatRule").NatSnatRule = null as any;
+utilities.lazyLoad(exports, ["NatSnatRule"], () => require("./natSnatRule"));
+
+export { NetworkAclArgs, NetworkAclState } from "./networkAcl";
+export type NetworkAcl = import("./networkAcl").NetworkAcl;
+export const NetworkAcl: typeof import("./networkAcl").NetworkAcl = null as any;
+utilities.lazyLoad(exports, ["NetworkAcl"], () => require("./networkAcl"));
+
+export { NetworkAclRuleArgs, NetworkAclRuleState } from "./networkAclRule";
+export type NetworkAclRule = import("./networkAclRule").NetworkAclRule;
+export const NetworkAclRule: typeof import("./networkAclRule").NetworkAclRule = null as any;
+utilities.lazyLoad(exports, ["NetworkAclRule"], () => require("./networkAclRule"));
+
+export { NetworkingEipAssociateArgs, NetworkingEipAssociateState } from "./networkingEipAssociate";
+export type NetworkingEipAssociate = import("./networkingEipAssociate").NetworkingEipAssociate;
+export const NetworkingEipAssociate: typeof import("./networkingEipAssociate").NetworkingEipAssociate = null as any;
+utilities.lazyLoad(exports, ["NetworkingEipAssociate"], () => require("./networkingEipAssociate"));
+
+export { NetworkingSecgroupArgs, NetworkingSecgroupState } from "./networkingSecgroup";
+export type NetworkingSecgroup = import("./networkingSecgroup").NetworkingSecgroup;
+export const NetworkingSecgroup: typeof import("./networkingSecgroup").NetworkingSecgroup = null as any;
+utilities.lazyLoad(exports, ["NetworkingSecgroup"], () => require("./networkingSecgroup"));
+
+export { NetworkingSecgroupRuleArgs, NetworkingSecgroupRuleState } from "./networkingSecgroupRule";
+export type NetworkingSecgroupRule = import("./networkingSecgroupRule").NetworkingSecgroupRule;
+export const NetworkingSecgroupRule: typeof import("./networkingSecgroupRule").NetworkingSecgroupRule = null as any;
+utilities.lazyLoad(exports, ["NetworkingSecgroupRule"], () => require("./networkingSecgroupRule"));
+
+export { NetworkingVipArgs, NetworkingVipState } from "./networkingVip";
+export type NetworkingVip = import("./networkingVip").NetworkingVip;
+export const NetworkingVip: typeof import("./networkingVip").NetworkingVip = null as any;
+utilities.lazyLoad(exports, ["NetworkingVip"], () => require("./networkingVip"));
+
+export { NetworkingVipAssociateArgs, NetworkingVipAssociateState } from "./networkingVipAssociate";
+export type NetworkingVipAssociate = import("./networkingVipAssociate").NetworkingVipAssociate;
+export const NetworkingVipAssociate: typeof import("./networkingVipAssociate").NetworkingVipAssociate = null as any;
+utilities.lazyLoad(exports, ["NetworkingVipAssociate"], () => require("./networkingVipAssociate"));
+
+export { ObsBucketArgs, ObsBucketState } from "./obsBucket";
+export type ObsBucket = import("./obsBucket").ObsBucket;
+export const ObsBucket: typeof import("./obsBucket").ObsBucket = null as any;
+utilities.lazyLoad(exports, ["ObsBucket"], () => require("./obsBucket"));
+
+export { ObsBucketAclArgs, ObsBucketAclState } from "./obsBucketAcl";
+export type ObsBucketAcl = import("./obsBucketAcl").ObsBucketAcl;
+export const ObsBucketAcl: typeof import("./obsBucketAcl").ObsBucketAcl = null as any;
+utilities.lazyLoad(exports, ["ObsBucketAcl"], () => require("./obsBucketAcl"));
+
+export { ObsBucketObjectArgs, ObsBucketObjectState } from "./obsBucketObject";
+export type ObsBucketObject = import("./obsBucketObject").ObsBucketObject;
+export const ObsBucketObject: typeof import("./obsBucketObject").ObsBucketObject = null as any;
+utilities.lazyLoad(exports, ["ObsBucketObject"], () => require("./obsBucketObject"));
+
+export { ObsBucketPolicyArgs, ObsBucketPolicyState } from "./obsBucketPolicy";
+export type ObsBucketPolicy = import("./obsBucketPolicy").ObsBucketPolicy;
+export const ObsBucketPolicy: typeof import("./obsBucketPolicy").ObsBucketPolicy = null as any;
+utilities.lazyLoad(exports, ["ObsBucketPolicy"], () => require("./obsBucketPolicy"));
 
 export { ProviderArgs } from "./provider";
 export type Provider = import("./provider").Provider;
 export const Provider: typeof import("./provider").Provider = null as any;
 utilities.lazyLoad(exports, ["Provider"], () => require("./provider"));
 
-export { ResourceArgs, ResourceState } from "./resource";
-export type Resource = import("./resource").Resource;
-export const Resource: typeof import("./resource").Resource = null as any;
-utilities.lazyLoad(exports, ["Resource"], () => require("./resource"));
+export { RdsBackupArgs, RdsBackupState } from "./rdsBackup";
+export type RdsBackup = import("./rdsBackup").RdsBackup;
+export const RdsBackup: typeof import("./rdsBackup").RdsBackup = null as any;
+utilities.lazyLoad(exports, ["RdsBackup"], () => require("./rdsBackup"));
+
+export { RdsInstanceArgs, RdsInstanceState } from "./rdsInstance";
+export type RdsInstance = import("./rdsInstance").RdsInstance;
+export const RdsInstance: typeof import("./rdsInstance").RdsInstance = null as any;
+utilities.lazyLoad(exports, ["RdsInstance"], () => require("./rdsInstance"));
+
+export { RdsMysqlAccountArgs, RdsMysqlAccountState } from "./rdsMysqlAccount";
+export type RdsMysqlAccount = import("./rdsMysqlAccount").RdsMysqlAccount;
+export const RdsMysqlAccount: typeof import("./rdsMysqlAccount").RdsMysqlAccount = null as any;
+utilities.lazyLoad(exports, ["RdsMysqlAccount"], () => require("./rdsMysqlAccount"));
+
+export { RdsMysqlBinlogArgs, RdsMysqlBinlogState } from "./rdsMysqlBinlog";
+export type RdsMysqlBinlog = import("./rdsMysqlBinlog").RdsMysqlBinlog;
+export const RdsMysqlBinlog: typeof import("./rdsMysqlBinlog").RdsMysqlBinlog = null as any;
+utilities.lazyLoad(exports, ["RdsMysqlBinlog"], () => require("./rdsMysqlBinlog"));
+
+export { RdsMysqlDatabaseArgs, RdsMysqlDatabaseState } from "./rdsMysqlDatabase";
+export type RdsMysqlDatabase = import("./rdsMysqlDatabase").RdsMysqlDatabase;
+export const RdsMysqlDatabase: typeof import("./rdsMysqlDatabase").RdsMysqlDatabase = null as any;
+utilities.lazyLoad(exports, ["RdsMysqlDatabase"], () => require("./rdsMysqlDatabase"));
+
+export { RdsMysqlDatabasePrivilegeArgs, RdsMysqlDatabasePrivilegeState } from "./rdsMysqlDatabasePrivilege";
+export type RdsMysqlDatabasePrivilege = import("./rdsMysqlDatabasePrivilege").RdsMysqlDatabasePrivilege;
+export const RdsMysqlDatabasePrivilege: typeof import("./rdsMysqlDatabasePrivilege").RdsMysqlDatabasePrivilege = null as any;
+utilities.lazyLoad(exports, ["RdsMysqlDatabasePrivilege"], () => require("./rdsMysqlDatabasePrivilege"));
+
+export { RdsMysqlDatabaseTableRestoreArgs, RdsMysqlDatabaseTableRestoreState } from "./rdsMysqlDatabaseTableRestore";
+export type RdsMysqlDatabaseTableRestore = import("./rdsMysqlDatabaseTableRestore").RdsMysqlDatabaseTableRestore;
+export const RdsMysqlDatabaseTableRestore: typeof import("./rdsMysqlDatabaseTableRestore").RdsMysqlDatabaseTableRestore = null as any;
+utilities.lazyLoad(exports, ["RdsMysqlDatabaseTableRestore"], () => require("./rdsMysqlDatabaseTableRestore"));
+
+export { RdsParametergroupArgs, RdsParametergroupState } from "./rdsParametergroup";
+export type RdsParametergroup = import("./rdsParametergroup").RdsParametergroup;
+export const RdsParametergroup: typeof import("./rdsParametergroup").RdsParametergroup = null as any;
+utilities.lazyLoad(exports, ["RdsParametergroup"], () => require("./rdsParametergroup"));
+
+export { RdsPgAccountArgs, RdsPgAccountState } from "./rdsPgAccount";
+export type RdsPgAccount = import("./rdsPgAccount").RdsPgAccount;
+export const RdsPgAccount: typeof import("./rdsPgAccount").RdsPgAccount = null as any;
+utilities.lazyLoad(exports, ["RdsPgAccount"], () => require("./rdsPgAccount"));
+
+export { RdsPgAccountRolesArgs, RdsPgAccountRolesState } from "./rdsPgAccountRoles";
+export type RdsPgAccountRoles = import("./rdsPgAccountRoles").RdsPgAccountRoles;
+export const RdsPgAccountRoles: typeof import("./rdsPgAccountRoles").RdsPgAccountRoles = null as any;
+utilities.lazyLoad(exports, ["RdsPgAccountRoles"], () => require("./rdsPgAccountRoles"));
+
+export { RdsPgDatabaseArgs, RdsPgDatabaseState } from "./rdsPgDatabase";
+export type RdsPgDatabase = import("./rdsPgDatabase").RdsPgDatabase;
+export const RdsPgDatabase: typeof import("./rdsPgDatabase").RdsPgDatabase = null as any;
+utilities.lazyLoad(exports, ["RdsPgDatabase"], () => require("./rdsPgDatabase"));
+
+export { RdsPgHbaArgs, RdsPgHbaState } from "./rdsPgHba";
+export type RdsPgHba = import("./rdsPgHba").RdsPgHba;
+export const RdsPgHba: typeof import("./rdsPgHba").RdsPgHba = null as any;
+utilities.lazyLoad(exports, ["RdsPgHba"], () => require("./rdsPgHba"));
+
+export { RdsPgPluginArgs, RdsPgPluginState } from "./rdsPgPlugin";
+export type RdsPgPlugin = import("./rdsPgPlugin").RdsPgPlugin;
+export const RdsPgPlugin: typeof import("./rdsPgPlugin").RdsPgPlugin = null as any;
+utilities.lazyLoad(exports, ["RdsPgPlugin"], () => require("./rdsPgPlugin"));
+
+export { RdsPgPluginParameterArgs, RdsPgPluginParameterState } from "./rdsPgPluginParameter";
+export type RdsPgPluginParameter = import("./rdsPgPluginParameter").RdsPgPluginParameter;
+export const RdsPgPluginParameter: typeof import("./rdsPgPluginParameter").RdsPgPluginParameter = null as any;
+utilities.lazyLoad(exports, ["RdsPgPluginParameter"], () => require("./rdsPgPluginParameter"));
+
+export { RdsPgPluginUpdateArgs, RdsPgPluginUpdateState } from "./rdsPgPluginUpdate";
+export type RdsPgPluginUpdate = import("./rdsPgPluginUpdate").RdsPgPluginUpdate;
+export const RdsPgPluginUpdate: typeof import("./rdsPgPluginUpdate").RdsPgPluginUpdate = null as any;
+utilities.lazyLoad(exports, ["RdsPgPluginUpdate"], () => require("./rdsPgPluginUpdate"));
+
+export { RdsPgSqlLimitArgs, RdsPgSqlLimitState } from "./rdsPgSqlLimit";
+export type RdsPgSqlLimit = import("./rdsPgSqlLimit").RdsPgSqlLimit;
+export const RdsPgSqlLimit: typeof import("./rdsPgSqlLimit").RdsPgSqlLimit = null as any;
+utilities.lazyLoad(exports, ["RdsPgSqlLimit"], () => require("./rdsPgSqlLimit"));
+
+export { RdsReadReplicaInstanceArgs, RdsReadReplicaInstanceState } from "./rdsReadReplicaInstance";
+export type RdsReadReplicaInstance = import("./rdsReadReplicaInstance").RdsReadReplicaInstance;
+export const RdsReadReplicaInstance: typeof import("./rdsReadReplicaInstance").RdsReadReplicaInstance = null as any;
+utilities.lazyLoad(exports, ["RdsReadReplicaInstance"], () => require("./rdsReadReplicaInstance"));
+
+export { RdsSqlAuditArgs, RdsSqlAuditState } from "./rdsSqlAudit";
+export type RdsSqlAudit = import("./rdsSqlAudit").RdsSqlAudit;
+export const RdsSqlAudit: typeof import("./rdsSqlAudit").RdsSqlAudit = null as any;
+utilities.lazyLoad(exports, ["RdsSqlAudit"], () => require("./rdsSqlAudit"));
+
+export { RdsSqlserverAccountArgs, RdsSqlserverAccountState } from "./rdsSqlserverAccount";
+export type RdsSqlserverAccount = import("./rdsSqlserverAccount").RdsSqlserverAccount;
+export const RdsSqlserverAccount: typeof import("./rdsSqlserverAccount").RdsSqlserverAccount = null as any;
+utilities.lazyLoad(exports, ["RdsSqlserverAccount"], () => require("./rdsSqlserverAccount"));
+
+export { RdsSqlserverDatabaseArgs, RdsSqlserverDatabaseState } from "./rdsSqlserverDatabase";
+export type RdsSqlserverDatabase = import("./rdsSqlserverDatabase").RdsSqlserverDatabase;
+export const RdsSqlserverDatabase: typeof import("./rdsSqlserverDatabase").RdsSqlserverDatabase = null as any;
+utilities.lazyLoad(exports, ["RdsSqlserverDatabase"], () => require("./rdsSqlserverDatabase"));
+
+export { RdsSqlserverDatabasePrivilegeArgs, RdsSqlserverDatabasePrivilegeState } from "./rdsSqlserverDatabasePrivilege";
+export type RdsSqlserverDatabasePrivilege = import("./rdsSqlserverDatabasePrivilege").RdsSqlserverDatabasePrivilege;
+export const RdsSqlserverDatabasePrivilege: typeof import("./rdsSqlserverDatabasePrivilege").RdsSqlserverDatabasePrivilege = null as any;
+utilities.lazyLoad(exports, ["RdsSqlserverDatabasePrivilege"], () => require("./rdsSqlserverDatabasePrivilege"));
+
+export { SfsAccessRuleArgs, SfsAccessRuleState } from "./sfsAccessRule";
+export type SfsAccessRule = import("./sfsAccessRule").SfsAccessRule;
+export const SfsAccessRule: typeof import("./sfsAccessRule").SfsAccessRule = null as any;
+utilities.lazyLoad(exports, ["SfsAccessRule"], () => require("./sfsAccessRule"));
+
+export { SfsFileSystemArgs, SfsFileSystemState } from "./sfsFileSystem";
+export type SfsFileSystem = import("./sfsFileSystem").SfsFileSystem;
+export const SfsFileSystem: typeof import("./sfsFileSystem").SfsFileSystem = null as any;
+utilities.lazyLoad(exports, ["SfsFileSystem"], () => require("./sfsFileSystem"));
+
+export { SfsTurboArgs, SfsTurboState } from "./sfsTurbo";
+export type SfsTurbo = import("./sfsTurbo").SfsTurbo;
+export const SfsTurbo: typeof import("./sfsTurbo").SfsTurbo = null as any;
+utilities.lazyLoad(exports, ["SfsTurbo"], () => require("./sfsTurbo"));
+
+export { SfsTurboDataTaskArgs, SfsTurboDataTaskState } from "./sfsTurboDataTask";
+export type SfsTurboDataTask = import("./sfsTurboDataTask").SfsTurboDataTask;
+export const SfsTurboDataTask: typeof import("./sfsTurboDataTask").SfsTurboDataTask = null as any;
+utilities.lazyLoad(exports, ["SfsTurboDataTask"], () => require("./sfsTurboDataTask"));
+
+export { SfsTurboDirArgs, SfsTurboDirState } from "./sfsTurboDir";
+export type SfsTurboDir = import("./sfsTurboDir").SfsTurboDir;
+export const SfsTurboDir: typeof import("./sfsTurboDir").SfsTurboDir = null as any;
+utilities.lazyLoad(exports, ["SfsTurboDir"], () => require("./sfsTurboDir"));
+
+export { SfsTurboDirQuotaArgs, SfsTurboDirQuotaState } from "./sfsTurboDirQuota";
+export type SfsTurboDirQuota = import("./sfsTurboDirQuota").SfsTurboDirQuota;
+export const SfsTurboDirQuota: typeof import("./sfsTurboDirQuota").SfsTurboDirQuota = null as any;
+utilities.lazyLoad(exports, ["SfsTurboDirQuota"], () => require("./sfsTurboDirQuota"));
+
+export { SfsTurboDuTaskArgs, SfsTurboDuTaskState } from "./sfsTurboDuTask";
+export type SfsTurboDuTask = import("./sfsTurboDuTask").SfsTurboDuTask;
+export const SfsTurboDuTask: typeof import("./sfsTurboDuTask").SfsTurboDuTask = null as any;
+utilities.lazyLoad(exports, ["SfsTurboDuTask"], () => require("./sfsTurboDuTask"));
+
+export { SfsTurboObsTargetArgs, SfsTurboObsTargetState } from "./sfsTurboObsTarget";
+export type SfsTurboObsTarget = import("./sfsTurboObsTarget").SfsTurboObsTarget;
+export const SfsTurboObsTarget: typeof import("./sfsTurboObsTarget").SfsTurboObsTarget = null as any;
+utilities.lazyLoad(exports, ["SfsTurboObsTarget"], () => require("./sfsTurboObsTarget"));
+
+export { SfsTurboPermRuleArgs, SfsTurboPermRuleState } from "./sfsTurboPermRule";
+export type SfsTurboPermRule = import("./sfsTurboPermRule").SfsTurboPermRule;
+export const SfsTurboPermRule: typeof import("./sfsTurboPermRule").SfsTurboPermRule = null as any;
+utilities.lazyLoad(exports, ["SfsTurboPermRule"], () => require("./sfsTurboPermRule"));
+
+export { SmnSubscriptionArgs, SmnSubscriptionState } from "./smnSubscription";
+export type SmnSubscription = import("./smnSubscription").SmnSubscription;
+export const SmnSubscription: typeof import("./smnSubscription").SmnSubscription = null as any;
+utilities.lazyLoad(exports, ["SmnSubscription"], () => require("./smnSubscription"));
+
+export { SmnTopicArgs, SmnTopicState } from "./smnTopic";
+export type SmnTopic = import("./smnTopic").SmnTopic;
+export const SmnTopic: typeof import("./smnTopic").SmnTopic = null as any;
+utilities.lazyLoad(exports, ["SmnTopic"], () => require("./smnTopic"));
+
+export { SwrOrganizationArgs, SwrOrganizationState } from "./swrOrganization";
+export type SwrOrganization = import("./swrOrganization").SwrOrganization;
+export const SwrOrganization: typeof import("./swrOrganization").SwrOrganization = null as any;
+utilities.lazyLoad(exports, ["SwrOrganization"], () => require("./swrOrganization"));
+
+export { SwrOrganizationPermissionsArgs, SwrOrganizationPermissionsState } from "./swrOrganizationPermissions";
+export type SwrOrganizationPermissions = import("./swrOrganizationPermissions").SwrOrganizationPermissions;
+export const SwrOrganizationPermissions: typeof import("./swrOrganizationPermissions").SwrOrganizationPermissions = null as any;
+utilities.lazyLoad(exports, ["SwrOrganizationPermissions"], () => require("./swrOrganizationPermissions"));
+
+export { SwrRepositoryArgs, SwrRepositoryState } from "./swrRepository";
+export type SwrRepository = import("./swrRepository").SwrRepository;
+export const SwrRepository: typeof import("./swrRepository").SwrRepository = null as any;
+utilities.lazyLoad(exports, ["SwrRepository"], () => require("./swrRepository"));
+
+export { VpcArgs, VpcState } from "./vpc";
+export type Vpc = import("./vpc").Vpc;
+export const Vpc: typeof import("./vpc").Vpc = null as any;
+utilities.lazyLoad(exports, ["Vpc"], () => require("./vpc"));
+
+export { VpcAddressGroupArgs, VpcAddressGroupState } from "./vpcAddressGroup";
+export type VpcAddressGroup = import("./vpcAddressGroup").VpcAddressGroup;
+export const VpcAddressGroup: typeof import("./vpcAddressGroup").VpcAddressGroup = null as any;
+utilities.lazyLoad(exports, ["VpcAddressGroup"], () => require("./vpcAddressGroup"));
+
+export { VpcBandwidthArgs, VpcBandwidthState } from "./vpcBandwidth";
+export type VpcBandwidth = import("./vpcBandwidth").VpcBandwidth;
+export const VpcBandwidth: typeof import("./vpcBandwidth").VpcBandwidth = null as any;
+utilities.lazyLoad(exports, ["VpcBandwidth"], () => require("./vpcBandwidth"));
+
+export { VpcEipArgs, VpcEipState } from "./vpcEip";
+export type VpcEip = import("./vpcEip").VpcEip;
+export const VpcEip: typeof import("./vpcEip").VpcEip = null as any;
+utilities.lazyLoad(exports, ["VpcEip"], () => require("./vpcEip"));
+
+export { VpcPeeringConnectionArgs, VpcPeeringConnectionState } from "./vpcPeeringConnection";
+export type VpcPeeringConnection = import("./vpcPeeringConnection").VpcPeeringConnection;
+export const VpcPeeringConnection: typeof import("./vpcPeeringConnection").VpcPeeringConnection = null as any;
+utilities.lazyLoad(exports, ["VpcPeeringConnection"], () => require("./vpcPeeringConnection"));
+
+export { VpcPeeringConnectionAccepterArgs, VpcPeeringConnectionAccepterState } from "./vpcPeeringConnectionAccepter";
+export type VpcPeeringConnectionAccepter = import("./vpcPeeringConnectionAccepter").VpcPeeringConnectionAccepter;
+export const VpcPeeringConnectionAccepter: typeof import("./vpcPeeringConnectionAccepter").VpcPeeringConnectionAccepter = null as any;
+utilities.lazyLoad(exports, ["VpcPeeringConnectionAccepter"], () => require("./vpcPeeringConnectionAccepter"));
+
+export { VpcRouteArgs, VpcRouteState } from "./vpcRoute";
+export type VpcRoute = import("./vpcRoute").VpcRoute;
+export const VpcRoute: typeof import("./vpcRoute").VpcRoute = null as any;
+utilities.lazyLoad(exports, ["VpcRoute"], () => require("./vpcRoute"));
+
+export { VpcRouteTableArgs, VpcRouteTableState } from "./vpcRouteTable";
+export type VpcRouteTable = import("./vpcRouteTable").VpcRouteTable;
+export const VpcRouteTable: typeof import("./vpcRouteTable").VpcRouteTable = null as any;
+utilities.lazyLoad(exports, ["VpcRouteTable"], () => require("./vpcRouteTable"));
+
+export { VpcSubnetArgs, VpcSubnetState } from "./vpcSubnet";
+export type VpcSubnet = import("./vpcSubnet").VpcSubnet;
+export const VpcSubnet: typeof import("./vpcSubnet").VpcSubnet = null as any;
+utilities.lazyLoad(exports, ["VpcSubnet"], () => require("./vpcSubnet"));
+
+export { VpcepEndpointArgs, VpcepEndpointState } from "./vpcepEndpoint";
+export type VpcepEndpoint = import("./vpcepEndpoint").VpcepEndpoint;
+export const VpcepEndpoint: typeof import("./vpcepEndpoint").VpcepEndpoint = null as any;
+utilities.lazyLoad(exports, ["VpcepEndpoint"], () => require("./vpcepEndpoint"));
+
+export { VpcepServiceArgs, VpcepServiceState } from "./vpcepService";
+export type VpcepService = import("./vpcepService").VpcepService;
+export const VpcepService: typeof import("./vpcepService").VpcepService = null as any;
+utilities.lazyLoad(exports, ["VpcepService"], () => require("./vpcepService"));
+
+export { VpnConnectionArgs, VpnConnectionState } from "./vpnConnection";
+export type VpnConnection = import("./vpnConnection").VpnConnection;
+export const VpnConnection: typeof import("./vpnConnection").VpnConnection = null as any;
+utilities.lazyLoad(exports, ["VpnConnection"], () => require("./vpnConnection"));
+
+export { VpnConnectionHealthCheckArgs, VpnConnectionHealthCheckState } from "./vpnConnectionHealthCheck";
+export type VpnConnectionHealthCheck = import("./vpnConnectionHealthCheck").VpnConnectionHealthCheck;
+export const VpnConnectionHealthCheck: typeof import("./vpnConnectionHealthCheck").VpnConnectionHealthCheck = null as any;
+utilities.lazyLoad(exports, ["VpnConnectionHealthCheck"], () => require("./vpnConnectionHealthCheck"));
+
+export { VpnCustomerGatewayArgs, VpnCustomerGatewayState } from "./vpnCustomerGateway";
+export type VpnCustomerGateway = import("./vpnCustomerGateway").VpnCustomerGateway;
+export const VpnCustomerGateway: typeof import("./vpnCustomerGateway").VpnCustomerGateway = null as any;
+utilities.lazyLoad(exports, ["VpnCustomerGateway"], () => require("./vpnCustomerGateway"));
+
+export { VpnGatewayArgs, VpnGatewayState } from "./vpnGateway";
+export type VpnGateway = import("./vpnGateway").VpnGateway;
+export const VpnGateway: typeof import("./vpnGateway").VpnGateway = null as any;
+utilities.lazyLoad(exports, ["VpnGateway"], () => require("./vpnGateway"));
 
 
 // Export sub-modules:
 import * as config from "./config";
-import * as region from "./region";
 import * as types from "./types";
 
 export {
     config,
-    region,
     types,
 };
 
@@ -36,18 +1629,603 @@ const _module = {
     version: utilities.getVersion(),
     construct: (name: string, type: string, urn: string): pulumi.Resource => {
         switch (type) {
-            case "xyz:index/resource:Resource":
-                return new Resource(name, <any>undefined, { urn })
+            case "sbercloud:index/aomServiceDiscoveryRule:AomServiceDiscoveryRule":
+                return new AomServiceDiscoveryRule(name, <any>undefined, { urn })
+            case "sbercloud:index/apiGatewayApi:ApiGatewayApi":
+                return new ApiGatewayApi(name, <any>undefined, { urn })
+            case "sbercloud:index/apiGatewayGroup:ApiGatewayGroup":
+                return new ApiGatewayGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/apigAclPolicy:ApigAclPolicy":
+                return new ApigAclPolicy(name, <any>undefined, { urn })
+            case "sbercloud:index/apigAclPolicyAssociate:ApigAclPolicyAssociate":
+                return new ApigAclPolicyAssociate(name, <any>undefined, { urn })
+            case "sbercloud:index/apigApi:ApigApi":
+                return new ApigApi(name, <any>undefined, { urn })
+            case "sbercloud:index/apigApiPublishment:ApigApiPublishment":
+                return new ApigApiPublishment(name, <any>undefined, { urn })
+            case "sbercloud:index/apigAppcode:ApigAppcode":
+                return new ApigAppcode(name, <any>undefined, { urn })
+            case "sbercloud:index/apigApplication:ApigApplication":
+                return new ApigApplication(name, <any>undefined, { urn })
+            case "sbercloud:index/apigApplicationAcl:ApigApplicationAcl":
+                return new ApigApplicationAcl(name, <any>undefined, { urn })
+            case "sbercloud:index/apigApplicationAuthorization:ApigApplicationAuthorization":
+                return new ApigApplicationAuthorization(name, <any>undefined, { urn })
+            case "sbercloud:index/apigApplicationQuota:ApigApplicationQuota":
+                return new ApigApplicationQuota(name, <any>undefined, { urn })
+            case "sbercloud:index/apigApplicationQuotaAssociate:ApigApplicationQuotaAssociate":
+                return new ApigApplicationQuotaAssociate(name, <any>undefined, { urn })
+            case "sbercloud:index/apigCertificate:ApigCertificate":
+                return new ApigCertificate(name, <any>undefined, { urn })
+            case "sbercloud:index/apigChannel:ApigChannel":
+                return new ApigChannel(name, <any>undefined, { urn })
+            case "sbercloud:index/apigCustomAuthorizer:ApigCustomAuthorizer":
+                return new ApigCustomAuthorizer(name, <any>undefined, { urn })
+            case "sbercloud:index/apigEndpointConnectionManagement:ApigEndpointConnectionManagement":
+                return new ApigEndpointConnectionManagement(name, <any>undefined, { urn })
+            case "sbercloud:index/apigEndpointWhitelist:ApigEndpointWhitelist":
+                return new ApigEndpointWhitelist(name, <any>undefined, { urn })
+            case "sbercloud:index/apigEnvironment:ApigEnvironment":
+                return new ApigEnvironment(name, <any>undefined, { urn })
+            case "sbercloud:index/apigEnvironmentVariable:ApigEnvironmentVariable":
+                return new ApigEnvironmentVariable(name, <any>undefined, { urn })
+            case "sbercloud:index/apigGroup:ApigGroup":
+                return new ApigGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/apigInstance:ApigInstance":
+                return new ApigInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/apigInstanceFeature:ApigInstanceFeature":
+                return new ApigInstanceFeature(name, <any>undefined, { urn })
+            case "sbercloud:index/apigInstanceRoutes:ApigInstanceRoutes":
+                return new ApigInstanceRoutes(name, <any>undefined, { urn })
+            case "sbercloud:index/apigPlugin:ApigPlugin":
+                return new ApigPlugin(name, <any>undefined, { urn })
+            case "sbercloud:index/apigPluginAssociate:ApigPluginAssociate":
+                return new ApigPluginAssociate(name, <any>undefined, { urn })
+            case "sbercloud:index/apigResponse:ApigResponse":
+                return new ApigResponse(name, <any>undefined, { urn })
+            case "sbercloud:index/apigSignature:ApigSignature":
+                return new ApigSignature(name, <any>undefined, { urn })
+            case "sbercloud:index/apigSignatureAssociate:ApigSignatureAssociate":
+                return new ApigSignatureAssociate(name, <any>undefined, { urn })
+            case "sbercloud:index/apigThrottlingPolicy:ApigThrottlingPolicy":
+                return new ApigThrottlingPolicy(name, <any>undefined, { urn })
+            case "sbercloud:index/apigThrottlingPolicyAssociate:ApigThrottlingPolicyAssociate":
+                return new ApigThrottlingPolicyAssociate(name, <any>undefined, { urn })
+            case "sbercloud:index/asBandwidthPolicy:AsBandwidthPolicy":
+                return new AsBandwidthPolicy(name, <any>undefined, { urn })
+            case "sbercloud:index/asConfiguration:AsConfiguration":
+                return new AsConfiguration(name, <any>undefined, { urn })
+            case "sbercloud:index/asGroup:AsGroup":
+                return new AsGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/asPolicy:AsPolicy":
+                return new AsPolicy(name, <any>undefined, { urn })
+            case "sbercloud:index/cbhAssetAgencyAuthorization:CbhAssetAgencyAuthorization":
+                return new CbhAssetAgencyAuthorization(name, <any>undefined, { urn })
+            case "sbercloud:index/cbhHaInstance:CbhHaInstance":
+                return new CbhHaInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/cbhInstance:CbhInstance":
+                return new CbhInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/cbrBackupShare:CbrBackupShare":
+                return new CbrBackupShare(name, <any>undefined, { urn })
+            case "sbercloud:index/cbrBackupShareAccepter:CbrBackupShareAccepter":
+                return new CbrBackupShareAccepter(name, <any>undefined, { urn })
+            case "sbercloud:index/cbrCheckpoint:CbrCheckpoint":
+                return new CbrCheckpoint(name, <any>undefined, { urn })
+            case "sbercloud:index/cbrPolicy:CbrPolicy":
+                return new CbrPolicy(name, <any>undefined, { urn })
+            case "sbercloud:index/cbrVault:CbrVault":
+                return new CbrVault(name, <any>undefined, { urn })
+            case "sbercloud:index/cceAddon:CceAddon":
+                return new CceAddon(name, <any>undefined, { urn })
+            case "sbercloud:index/cceCluster:CceCluster":
+                return new CceCluster(name, <any>undefined, { urn })
+            case "sbercloud:index/cceNamespace:CceNamespace":
+                return new CceNamespace(name, <any>undefined, { urn })
+            case "sbercloud:index/cceNode:CceNode":
+                return new CceNode(name, <any>undefined, { urn })
+            case "sbercloud:index/cceNodeAttach:CceNodeAttach":
+                return new CceNodeAttach(name, <any>undefined, { urn })
+            case "sbercloud:index/cceNodePool:CceNodePool":
+                return new CceNodePool(name, <any>undefined, { urn })
+            case "sbercloud:index/ccePvc:CcePvc":
+                return new CcePvc(name, <any>undefined, { urn })
+            case "sbercloud:index/cdmCluster:CdmCluster":
+                return new CdmCluster(name, <any>undefined, { urn })
+            case "sbercloud:index/cesAlarmrule:CesAlarmrule":
+                return new CesAlarmrule(name, <any>undefined, { urn })
+            case "sbercloud:index/computeEipAssociate:ComputeEipAssociate":
+                return new ComputeEipAssociate(name, <any>undefined, { urn })
+            case "sbercloud:index/computeInstance:ComputeInstance":
+                return new ComputeInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/computeInterfaceAttach:ComputeInterfaceAttach":
+                return new ComputeInterfaceAttach(name, <any>undefined, { urn })
+            case "sbercloud:index/computeKeypair:ComputeKeypair":
+                return new ComputeKeypair(name, <any>undefined, { urn })
+            case "sbercloud:index/computeServergroup:ComputeServergroup":
+                return new ComputeServergroup(name, <any>undefined, { urn })
+            case "sbercloud:index/computeVolumeAttach:ComputeVolumeAttach":
+                return new ComputeVolumeAttach(name, <any>undefined, { urn })
+            case "sbercloud:index/cssCluster:CssCluster":
+                return new CssCluster(name, <any>undefined, { urn })
+            case "sbercloud:index/cssConfiguration:CssConfiguration":
+                return new CssConfiguration(name, <any>undefined, { urn })
+            case "sbercloud:index/ctsDataTracker:CtsDataTracker":
+                return new CtsDataTracker(name, <any>undefined, { urn })
+            case "sbercloud:index/ctsNotification:CtsNotification":
+                return new CtsNotification(name, <any>undefined, { urn })
+            case "sbercloud:index/ctsTracker:CtsTracker":
+                return new CtsTracker(name, <any>undefined, { urn })
+            case "sbercloud:index/dcsAccount:DcsAccount":
+                return new DcsAccount(name, <any>undefined, { urn })
+            case "sbercloud:index/dcsBackup:DcsBackup":
+                return new DcsBackup(name, <any>undefined, { urn })
+            case "sbercloud:index/dcsInstance:DcsInstance":
+                return new DcsInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/dcsParameters:DcsParameters":
+                return new DcsParameters(name, <any>undefined, { urn })
+            case "sbercloud:index/dcsRestore:DcsRestore":
+                return new DcsRestore(name, <any>undefined, { urn })
+            case "sbercloud:index/ddsInstance:DdsInstance":
+                return new DdsInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/disStream:DisStream":
+                return new DisStream(name, <any>undefined, { urn })
+            case "sbercloud:index/dliDatabase:DliDatabase":
+                return new DliDatabase(name, <any>undefined, { urn })
+            case "sbercloud:index/dliPackage:DliPackage":
+                return new DliPackage(name, <any>undefined, { urn })
+            case "sbercloud:index/dliQueue:DliQueue":
+                return new DliQueue(name, <any>undefined, { urn })
+            case "sbercloud:index/dliSparkJob:DliSparkJob":
+                return new DliSparkJob(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsInstance:DmsInstance":
+                return new DmsInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsKafkaInstance:DmsKafkaInstance":
+                return new DmsKafkaInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsKafkaMessageProduce:DmsKafkaMessageProduce":
+                return new DmsKafkaMessageProduce(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsKafkaPermissions:DmsKafkaPermissions":
+                return new DmsKafkaPermissions(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsKafkaTopic:DmsKafkaTopic":
+                return new DmsKafkaTopic(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsKafkaUser:DmsKafkaUser":
+                return new DmsKafkaUser(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsRabbitmqInstance:DmsRabbitmqInstance":
+                return new DmsRabbitmqInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/dnsRecordset:DnsRecordset":
+                return new DnsRecordset(name, <any>undefined, { urn })
+            case "sbercloud:index/dnsZone:DnsZone":
+                return new DnsZone(name, <any>undefined, { urn })
+            case "sbercloud:index/drsJob:DrsJob":
+                return new DrsJob(name, <any>undefined, { urn })
+            case "sbercloud:index/dwsCluster:DwsCluster":
+                return new DwsCluster(name, <any>undefined, { urn })
+            case "sbercloud:index/elbCertificate:ElbCertificate":
+                return new ElbCertificate(name, <any>undefined, { urn })
+            case "sbercloud:index/elbIpgroup:ElbIpgroup":
+                return new ElbIpgroup(name, <any>undefined, { urn })
+            case "sbercloud:index/elbL7policy:ElbL7policy":
+                return new ElbL7policy(name, <any>undefined, { urn })
+            case "sbercloud:index/elbL7rule:ElbL7rule":
+                return new ElbL7rule(name, <any>undefined, { urn })
+            case "sbercloud:index/elbListener:ElbListener":
+                return new ElbListener(name, <any>undefined, { urn })
+            case "sbercloud:index/elbLoadbalancer:ElbLoadbalancer":
+                return new ElbLoadbalancer(name, <any>undefined, { urn })
+            case "sbercloud:index/elbMember:ElbMember":
+                return new ElbMember(name, <any>undefined, { urn })
+            case "sbercloud:index/elbMonitor:ElbMonitor":
+                return new ElbMonitor(name, <any>undefined, { urn })
+            case "sbercloud:index/elbPool:ElbPool":
+                return new ElbPool(name, <any>undefined, { urn })
+            case "sbercloud:index/elbSecurityPolicy:ElbSecurityPolicy":
+                return new ElbSecurityPolicy(name, <any>undefined, { urn })
+            case "sbercloud:index/enterpriseProject:EnterpriseProject":
+                return new EnterpriseProject(name, <any>undefined, { urn })
+            case "sbercloud:index/evsSnapshot:EvsSnapshot":
+                return new EvsSnapshot(name, <any>undefined, { urn })
+            case "sbercloud:index/evsVolume:EvsVolume":
+                return new EvsVolume(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsFunction:FgsFunction":
+                return new FgsFunction(name, <any>undefined, { urn })
+            case "sbercloud:index/gesGraph:GesGraph":
+                return new GesGraph(name, <any>undefined, { urn })
+            case "sbercloud:index/identityAccessKey:IdentityAccessKey":
+                return new IdentityAccessKey(name, <any>undefined, { urn })
+            case "sbercloud:index/identityAcl:IdentityAcl":
+                return new IdentityAcl(name, <any>undefined, { urn })
+            case "sbercloud:index/identityAgency:IdentityAgency":
+                return new IdentityAgency(name, <any>undefined, { urn })
+            case "sbercloud:index/identityGroup:IdentityGroup":
+                return new IdentityGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/identityGroupMembership:IdentityGroupMembership":
+                return new IdentityGroupMembership(name, <any>undefined, { urn })
+            case "sbercloud:index/identityGroupMembershipV3:IdentityGroupMembershipV3":
+                return new IdentityGroupMembershipV3(name, <any>undefined, { urn })
+            case "sbercloud:index/identityGroupRoleAssignment:IdentityGroupRoleAssignment":
+                return new IdentityGroupRoleAssignment(name, <any>undefined, { urn })
+            case "sbercloud:index/identityGroupV3:IdentityGroupV3":
+                return new IdentityGroupV3(name, <any>undefined, { urn })
+            case "sbercloud:index/identityProject:IdentityProject":
+                return new IdentityProject(name, <any>undefined, { urn })
+            case "sbercloud:index/identityProvider:IdentityProvider":
+                return new IdentityProvider(name, <any>undefined, { urn })
+            case "sbercloud:index/identityProviderConversion:IdentityProviderConversion":
+                return new IdentityProviderConversion(name, <any>undefined, { urn })
+            case "sbercloud:index/identityRole:IdentityRole":
+                return new IdentityRole(name, <any>undefined, { urn })
+            case "sbercloud:index/identityRoleAssignment:IdentityRoleAssignment":
+                return new IdentityRoleAssignment(name, <any>undefined, { urn })
+            case "sbercloud:index/identityRoleAssignmentV3:IdentityRoleAssignmentV3":
+                return new IdentityRoleAssignmentV3(name, <any>undefined, { urn })
+            case "sbercloud:index/identityUser:IdentityUser":
+                return new IdentityUser(name, <any>undefined, { urn })
+            case "sbercloud:index/identityUserV3:IdentityUserV3":
+                return new IdentityUserV3(name, <any>undefined, { urn })
+            case "sbercloud:index/imagesImage:ImagesImage":
+                return new ImagesImage(name, <any>undefined, { urn })
+            case "sbercloud:index/kmsKey:KmsKey":
+                return new KmsKey(name, <any>undefined, { urn })
+            case "sbercloud:index/kpsKeypair:KpsKeypair":
+                return new KpsKeypair(name, <any>undefined, { urn })
+            case "sbercloud:index/lbCertificate:LbCertificate":
+                return new LbCertificate(name, <any>undefined, { urn })
+            case "sbercloud:index/lbL7policy:LbL7policy":
+                return new LbL7policy(name, <any>undefined, { urn })
+            case "sbercloud:index/lbL7rule:LbL7rule":
+                return new LbL7rule(name, <any>undefined, { urn })
+            case "sbercloud:index/lbListener:LbListener":
+                return new LbListener(name, <any>undefined, { urn })
+            case "sbercloud:index/lbLoadbalancer:LbLoadbalancer":
+                return new LbLoadbalancer(name, <any>undefined, { urn })
+            case "sbercloud:index/lbMember:LbMember":
+                return new LbMember(name, <any>undefined, { urn })
+            case "sbercloud:index/lbMonitor:LbMonitor":
+                return new LbMonitor(name, <any>undefined, { urn })
+            case "sbercloud:index/lbPool:LbPool":
+                return new LbPool(name, <any>undefined, { urn })
+            case "sbercloud:index/lbWhitelist:LbWhitelist":
+                return new LbWhitelist(name, <any>undefined, { urn })
+            case "sbercloud:index/ltsGroup:LtsGroup":
+                return new LtsGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/ltsStream:LtsStream":
+                return new LtsStream(name, <any>undefined, { urn })
+            case "sbercloud:index/mapreduceCluster:MapreduceCluster":
+                return new MapreduceCluster(name, <any>undefined, { urn })
+            case "sbercloud:index/mapreduceJob:MapreduceJob":
+                return new MapreduceJob(name, <any>undefined, { urn })
+            case "sbercloud:index/natDnatRule:NatDnatRule":
+                return new NatDnatRule(name, <any>undefined, { urn })
+            case "sbercloud:index/natGateway:NatGateway":
+                return new NatGateway(name, <any>undefined, { urn })
+            case "sbercloud:index/natSnatRule:NatSnatRule":
+                return new NatSnatRule(name, <any>undefined, { urn })
+            case "sbercloud:index/networkAcl:NetworkAcl":
+                return new NetworkAcl(name, <any>undefined, { urn })
+            case "sbercloud:index/networkAclRule:NetworkAclRule":
+                return new NetworkAclRule(name, <any>undefined, { urn })
+            case "sbercloud:index/networkingEipAssociate:NetworkingEipAssociate":
+                return new NetworkingEipAssociate(name, <any>undefined, { urn })
+            case "sbercloud:index/networkingSecgroup:NetworkingSecgroup":
+                return new NetworkingSecgroup(name, <any>undefined, { urn })
+            case "sbercloud:index/networkingSecgroupRule:NetworkingSecgroupRule":
+                return new NetworkingSecgroupRule(name, <any>undefined, { urn })
+            case "sbercloud:index/networkingVip:NetworkingVip":
+                return new NetworkingVip(name, <any>undefined, { urn })
+            case "sbercloud:index/networkingVipAssociate:NetworkingVipAssociate":
+                return new NetworkingVipAssociate(name, <any>undefined, { urn })
+            case "sbercloud:index/obsBucket:ObsBucket":
+                return new ObsBucket(name, <any>undefined, { urn })
+            case "sbercloud:index/obsBucketAcl:ObsBucketAcl":
+                return new ObsBucketAcl(name, <any>undefined, { urn })
+            case "sbercloud:index/obsBucketObject:ObsBucketObject":
+                return new ObsBucketObject(name, <any>undefined, { urn })
+            case "sbercloud:index/obsBucketPolicy:ObsBucketPolicy":
+                return new ObsBucketPolicy(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsBackup:RdsBackup":
+                return new RdsBackup(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsInstance:RdsInstance":
+                return new RdsInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsMysqlAccount:RdsMysqlAccount":
+                return new RdsMysqlAccount(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsMysqlBinlog:RdsMysqlBinlog":
+                return new RdsMysqlBinlog(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsMysqlDatabase:RdsMysqlDatabase":
+                return new RdsMysqlDatabase(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsMysqlDatabasePrivilege:RdsMysqlDatabasePrivilege":
+                return new RdsMysqlDatabasePrivilege(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsMysqlDatabaseTableRestore:RdsMysqlDatabaseTableRestore":
+                return new RdsMysqlDatabaseTableRestore(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsParametergroup:RdsParametergroup":
+                return new RdsParametergroup(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsPgAccount:RdsPgAccount":
+                return new RdsPgAccount(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsPgAccountRoles:RdsPgAccountRoles":
+                return new RdsPgAccountRoles(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsPgDatabase:RdsPgDatabase":
+                return new RdsPgDatabase(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsPgHba:RdsPgHba":
+                return new RdsPgHba(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsPgPlugin:RdsPgPlugin":
+                return new RdsPgPlugin(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsPgPluginParameter:RdsPgPluginParameter":
+                return new RdsPgPluginParameter(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsPgPluginUpdate:RdsPgPluginUpdate":
+                return new RdsPgPluginUpdate(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsPgSqlLimit:RdsPgSqlLimit":
+                return new RdsPgSqlLimit(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsReadReplicaInstance:RdsReadReplicaInstance":
+                return new RdsReadReplicaInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsSqlAudit:RdsSqlAudit":
+                return new RdsSqlAudit(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsSqlserverAccount:RdsSqlserverAccount":
+                return new RdsSqlserverAccount(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsSqlserverDatabase:RdsSqlserverDatabase":
+                return new RdsSqlserverDatabase(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsSqlserverDatabasePrivilege:RdsSqlserverDatabasePrivilege":
+                return new RdsSqlserverDatabasePrivilege(name, <any>undefined, { urn })
+            case "sbercloud:index/sfsAccessRule:SfsAccessRule":
+                return new SfsAccessRule(name, <any>undefined, { urn })
+            case "sbercloud:index/sfsFileSystem:SfsFileSystem":
+                return new SfsFileSystem(name, <any>undefined, { urn })
+            case "sbercloud:index/sfsTurbo:SfsTurbo":
+                return new SfsTurbo(name, <any>undefined, { urn })
+            case "sbercloud:index/sfsTurboDataTask:SfsTurboDataTask":
+                return new SfsTurboDataTask(name, <any>undefined, { urn })
+            case "sbercloud:index/sfsTurboDir:SfsTurboDir":
+                return new SfsTurboDir(name, <any>undefined, { urn })
+            case "sbercloud:index/sfsTurboDirQuota:SfsTurboDirQuota":
+                return new SfsTurboDirQuota(name, <any>undefined, { urn })
+            case "sbercloud:index/sfsTurboDuTask:SfsTurboDuTask":
+                return new SfsTurboDuTask(name, <any>undefined, { urn })
+            case "sbercloud:index/sfsTurboObsTarget:SfsTurboObsTarget":
+                return new SfsTurboObsTarget(name, <any>undefined, { urn })
+            case "sbercloud:index/sfsTurboPermRule:SfsTurboPermRule":
+                return new SfsTurboPermRule(name, <any>undefined, { urn })
+            case "sbercloud:index/smnSubscription:SmnSubscription":
+                return new SmnSubscription(name, <any>undefined, { urn })
+            case "sbercloud:index/smnTopic:SmnTopic":
+                return new SmnTopic(name, <any>undefined, { urn })
+            case "sbercloud:index/swrOrganization:SwrOrganization":
+                return new SwrOrganization(name, <any>undefined, { urn })
+            case "sbercloud:index/swrOrganizationPermissions:SwrOrganizationPermissions":
+                return new SwrOrganizationPermissions(name, <any>undefined, { urn })
+            case "sbercloud:index/swrRepository:SwrRepository":
+                return new SwrRepository(name, <any>undefined, { urn })
+            case "sbercloud:index/vpc:Vpc":
+                return new Vpc(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcAddressGroup:VpcAddressGroup":
+                return new VpcAddressGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcBandwidth:VpcBandwidth":
+                return new VpcBandwidth(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcEip:VpcEip":
+                return new VpcEip(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcPeeringConnection:VpcPeeringConnection":
+                return new VpcPeeringConnection(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcPeeringConnectionAccepter:VpcPeeringConnectionAccepter":
+                return new VpcPeeringConnectionAccepter(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcRoute:VpcRoute":
+                return new VpcRoute(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcRouteTable:VpcRouteTable":
+                return new VpcRouteTable(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcSubnet:VpcSubnet":
+                return new VpcSubnet(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcepEndpoint:VpcepEndpoint":
+                return new VpcepEndpoint(name, <any>undefined, { urn })
+            case "sbercloud:index/vpcepService:VpcepService":
+                return new VpcepService(name, <any>undefined, { urn })
+            case "sbercloud:index/vpnConnection:VpnConnection":
+                return new VpnConnection(name, <any>undefined, { urn })
+            case "sbercloud:index/vpnConnectionHealthCheck:VpnConnectionHealthCheck":
+                return new VpnConnectionHealthCheck(name, <any>undefined, { urn })
+            case "sbercloud:index/vpnCustomerGateway:VpnCustomerGateway":
+                return new VpnCustomerGateway(name, <any>undefined, { urn })
+            case "sbercloud:index/vpnGateway:VpnGateway":
+                return new VpnGateway(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
     },
 };
-pulumi.runtime.registerResourceModule("xyz", "index/resource", _module)
-pulumi.runtime.registerResourcePackage("xyz", {
+pulumi.runtime.registerResourceModule("sbercloud", "index/aomServiceDiscoveryRule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apiGatewayApi", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apiGatewayGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigAclPolicy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigAclPolicyAssociate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigApi", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigApiPublishment", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigAppcode", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigApplication", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigApplicationAcl", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigApplicationAuthorization", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigApplicationQuota", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigApplicationQuotaAssociate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigCertificate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigChannel", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigCustomAuthorizer", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigEndpointConnectionManagement", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigEndpointWhitelist", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigEnvironment", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigEnvironmentVariable", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigInstanceFeature", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigInstanceRoutes", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigPlugin", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigPluginAssociate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigResponse", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigSignature", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigSignatureAssociate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigThrottlingPolicy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/apigThrottlingPolicyAssociate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/asBandwidthPolicy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/asConfiguration", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/asGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/asPolicy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cbhAssetAgencyAuthorization", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cbhHaInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cbhInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cbrBackupShare", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cbrBackupShareAccepter", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cbrCheckpoint", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cbrPolicy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cbrVault", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cceAddon", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cceCluster", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cceNamespace", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cceNode", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cceNodeAttach", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cceNodePool", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ccePvc", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cdmCluster", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cesAlarmrule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/computeEipAssociate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/computeInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/computeInterfaceAttach", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/computeKeypair", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/computeServergroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/computeVolumeAttach", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cssCluster", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cssConfiguration", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ctsDataTracker", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ctsNotification", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ctsTracker", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dcsAccount", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dcsBackup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dcsInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dcsParameters", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dcsRestore", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ddsInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/disStream", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dliDatabase", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dliPackage", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dliQueue", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dliSparkJob", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaMessageProduce", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaPermissions", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaTopic", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaUser", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRabbitmqInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dnsRecordset", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dnsZone", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/drsJob", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dwsCluster", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbCertificate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbIpgroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbL7policy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbL7rule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbListener", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbLoadbalancer", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbMember", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbMonitor", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbPool", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/elbSecurityPolicy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/enterpriseProject", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/evsSnapshot", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/evsVolume", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsFunction", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/gesGraph", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityAccessKey", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityAcl", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityAgency", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityGroupMembership", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityGroupMembershipV3", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityGroupRoleAssignment", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityGroupV3", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityProject", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityProvider", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityProviderConversion", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityRole", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityRoleAssignment", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityRoleAssignmentV3", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityUser", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/identityUserV3", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/imagesImage", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/kmsKey", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/kpsKeypair", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/lbCertificate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/lbL7policy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/lbL7rule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/lbListener", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/lbLoadbalancer", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/lbMember", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/lbMonitor", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/lbPool", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/lbWhitelist", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ltsGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ltsStream", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/mapreduceCluster", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/mapreduceJob", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/natDnatRule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/natGateway", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/natSnatRule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/networkAcl", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/networkAclRule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/networkingEipAssociate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/networkingSecgroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/networkingSecgroupRule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/networkingVip", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/networkingVipAssociate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/obsBucket", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/obsBucketAcl", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/obsBucketObject", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/obsBucketPolicy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsBackup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsMysqlAccount", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsMysqlBinlog", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsMysqlDatabase", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsMysqlDatabasePrivilege", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsMysqlDatabaseTableRestore", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsParametergroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsPgAccount", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsPgAccountRoles", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsPgDatabase", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsPgHba", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsPgPlugin", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsPgPluginParameter", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsPgPluginUpdate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsPgSqlLimit", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsReadReplicaInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsSqlAudit", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsSqlserverAccount", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsSqlserverDatabase", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsSqlserverDatabasePrivilege", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/sfsAccessRule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/sfsFileSystem", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurbo", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboDataTask", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboDir", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboDirQuota", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboDuTask", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboObsTarget", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboPermRule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/smnSubscription", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/smnTopic", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/swrOrganization", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/swrOrganizationPermissions", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/swrRepository", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpc", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcAddressGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcBandwidth", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcEip", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcPeeringConnection", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcPeeringConnectionAccepter", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcRoute", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcRouteTable", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcSubnet", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcepEndpoint", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpcepService", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpnConnection", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpnConnectionHealthCheck", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpnCustomerGateway", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/vpnGateway", _module)
+pulumi.runtime.registerResourcePackage("sbercloud", {
     version: utilities.getVersion(),
     constructProvider: (name: string, type: string, urn: string): pulumi.ProviderResource => {
-        if (type !== "pulumi:providers:xyz") {
+        if (type !== "pulumi:providers:sbercloud") {
             throw new Error(`unknown provider type ${type}`);
         }
         return new Provider(name, <any>undefined, { urn });

@@ -4,19 +4,157 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 import * as utilities from "../utilities";
 
 declare var exports: any;
-const __config = new pulumi.Config("xyz");
+const __config = new pulumi.Config("sbercloud");
 
 /**
- * A region which should be used.
+ * The access key of the SberCloud to use.
  */
-export declare const region: enums.region.Region | undefined;
+export declare const accessKey: string | undefined;
+Object.defineProperty(exports, "accessKey", {
+    get() {
+        return __config.get("accessKey");
+    },
+    enumerable: true,
+});
+
+/**
+ * The name of the Account to login with.
+ */
+export declare const accountName: string | undefined;
+Object.defineProperty(exports, "accountName", {
+    get() {
+        return __config.get("accountName");
+    },
+    enumerable: true,
+});
+
+export declare const assumeRole: outputs.config.AssumeRole | undefined;
+Object.defineProperty(exports, "assumeRole", {
+    get() {
+        return __config.getObject<outputs.config.AssumeRole>("assumeRole");
+    },
+    enumerable: true,
+});
+
+/**
+ * The Identity authentication URL.
+ */
+export declare const authUrl: string | undefined;
+Object.defineProperty(exports, "authUrl", {
+    get() {
+        return __config.get("authUrl");
+    },
+    enumerable: true,
+});
+
+export declare const domainId: string | undefined;
+Object.defineProperty(exports, "domainId", {
+    get() {
+        return __config.get("domainId");
+    },
+    enumerable: true,
+});
+
+export declare const domainName: string | undefined;
+Object.defineProperty(exports, "domainName", {
+    get() {
+        return __config.get("domainName");
+    },
+    enumerable: true,
+});
+
+export declare const enterpriseProjectId: string | undefined;
+Object.defineProperty(exports, "enterpriseProjectId", {
+    get() {
+        return __config.get("enterpriseProjectId");
+    },
+    enumerable: true,
+});
+
+/**
+ * Trust self-signed certificates.
+ */
+export declare const insecure: boolean | undefined;
+Object.defineProperty(exports, "insecure", {
+    get() {
+        return __config.getObject<boolean>("insecure");
+    },
+    enumerable: true,
+});
+
+export declare const maxRetries: number | undefined;
+Object.defineProperty(exports, "maxRetries", {
+    get() {
+        return __config.getObject<number>("maxRetries");
+    },
+    enumerable: true,
+});
+
+/**
+ * Password to login with.
+ */
+export declare const password: string | undefined;
+Object.defineProperty(exports, "password", {
+    get() {
+        return __config.get("password");
+    },
+    enumerable: true,
+});
+
+/**
+ * The name of the Project to login with.
+ */
+export declare const projectName: string | undefined;
+Object.defineProperty(exports, "projectName", {
+    get() {
+        return __config.get("projectName");
+    },
+    enumerable: true,
+});
+
+/**
+ * The SberCloud region to connect to.
+ */
+export declare const region: string | undefined;
 Object.defineProperty(exports, "region", {
     get() {
-        return __config.getObject<enums.region.Region>("region");
+        return __config.get("region");
+    },
+    enumerable: true,
+});
+
+/**
+ * The secret key of the SberCloud to use.
+ */
+export declare const secretKey: string | undefined;
+Object.defineProperty(exports, "secretKey", {
+    get() {
+        return __config.get("secretKey");
+    },
+    enumerable: true,
+});
+
+/**
+ * The security token to authenticate with a temporary security credential.
+ */
+export declare const securityToken: string | undefined;
+Object.defineProperty(exports, "securityToken", {
+    get() {
+        return __config.get("securityToken");
+    },
+    enumerable: true,
+});
+
+/**
+ * Username to login with.
+ */
+export declare const userName: string | undefined;
+Object.defineProperty(exports, "userName", {
+    get() {
+        return __config.get("userName");
     },
     enumerable: true,
 });

@@ -4,5 +4,3876 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 
+export interface AomServiceDiscoveryRuleDiscoveryRule {
+    checkContents: pulumi.Input<pulumi.Input<string>[]>;
+    checkMode: pulumi.Input<string>;
+    checkType: pulumi.Input<string>;
+}
+
+export interface AomServiceDiscoveryRuleLogPathRule {
+    args: pulumi.Input<pulumi.Input<string>[]>;
+    nameType: pulumi.Input<string>;
+    values: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface AomServiceDiscoveryRuleNameRules {
+    applicationNameRules: pulumi.Input<pulumi.Input<inputs.AomServiceDiscoveryRuleNameRulesApplicationNameRule>[]>;
+    serviceNameRules: pulumi.Input<pulumi.Input<inputs.AomServiceDiscoveryRuleNameRulesServiceNameRule>[]>;
+}
+
+export interface AomServiceDiscoveryRuleNameRulesApplicationNameRule {
+    args: pulumi.Input<pulumi.Input<string>[]>;
+    nameType: pulumi.Input<string>;
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface AomServiceDiscoveryRuleNameRulesServiceNameRule {
+    args: pulumi.Input<pulumi.Input<string>[]>;
+    nameType: pulumi.Input<string>;
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ApiGatewayApiBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Where the parameter is located.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The parameter name.
+     */
+    name: pulumi.Input<string>;
+    systemParamType?: pulumi.Input<string>;
+    /**
+     * The parameter type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The value of the parameter
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiFuncGraph {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn?: pulumi.Input<string>;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: pulumi.Input<string>;
+    /**
+     * The invocation type.
+     */
+    invocationType?: pulumi.Input<string>;
+    /**
+     * The network architecture (framework) type of the FunctionGraph function.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol?: pulumi.Input<string>;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiFuncGraphPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The configaiton list of the backend parameters.
+     */
+    backendParams?: pulumi.Input<pulumi.Input<inputs.ApiGatewayApiFuncGraphPolicyBackendParam>[]>;
+    /**
+     * The policy conditions.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.ApiGatewayApiFuncGraphPolicyCondition>[]>;
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: pulumi.Input<string>;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn?: pulumi.Input<string>;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: pulumi.Input<string>;
+    /**
+     * The invocation mode of the FunctionGraph function.
+     */
+    invocationMode?: pulumi.Input<string>;
+    /**
+     * The invocation mode of the FunctionGraph function.
+     */
+    invocationType?: pulumi.Input<string>;
+    /**
+     * The name of the backend policy.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The network (framework) type of the FunctionGraph function.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol?: pulumi.Input<string>;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiFuncGraphPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Where the parameter is located.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The parameter name.
+     */
+    name: pulumi.Input<string>;
+    systemParamType?: pulumi.Input<string>;
+    /**
+     * The parameter type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The value of the parameter
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiFuncGraphPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: pulumi.Input<string>;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: pulumi.Input<string>;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: pulumi.Input<string>;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: pulumi.Input<string>;
+    /**
+     * The request parameter name.
+     */
+    paramName?: pulumi.Input<string>;
+    /**
+     * The type of the backend policy.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: pulumi.Input<string>;
+    /**
+     * The condition type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * The value of the backend policy.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiMock {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The response content of the mock.
+     */
+    response?: pulumi.Input<string>;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode?: pulumi.Input<number>;
+}
+
+export interface ApiGatewayApiMockPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The configuration list of backend parameters.
+     */
+    backendParams?: pulumi.Input<pulumi.Input<inputs.ApiGatewayApiMockPolicyBackendParam>[]>;
+    /**
+     * The policy conditions.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.ApiGatewayApiMockPolicyCondition>[]>;
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: pulumi.Input<string>;
+    /**
+     * The backend policy name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The response content of the mock.
+     */
+    response?: pulumi.Input<string>;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode?: pulumi.Input<number>;
+}
+
+export interface ApiGatewayApiMockPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Where the parameter is located.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The parameter name.
+     */
+    name: pulumi.Input<string>;
+    systemParamType?: pulumi.Input<string>;
+    /**
+     * The parameter type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The value of the parameter
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiMockPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: pulumi.Input<string>;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: pulumi.Input<string>;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: pulumi.Input<string>;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: pulumi.Input<string>;
+    /**
+     * The request parameter name.
+     */
+    paramName?: pulumi.Input<string>;
+    /**
+     * The type of the backend policy.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: pulumi.Input<string>;
+    /**
+     * The condition type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * The value of the backend policy.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiRequestParam {
+    /**
+     * The default value of the parameter.
+     */
+    default?: pulumi.Input<string>;
+    /**
+     * The parameter description.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The enumerated value.
+     */
+    enumeration?: pulumi.Input<string>;
+    /**
+     * The parameter example.
+     */
+    example?: pulumi.Input<string>;
+    /**
+     * Where this parameter is located.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * The maximum value or length (string parameter) for parameter.
+     */
+    maximum?: pulumi.Input<number>;
+    /**
+     * The minimum value or length (string parameter) for parameter.
+     */
+    minimum?: pulumi.Input<number>;
+    /**
+     * The name of the request parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The list of orchestration rules that parameter used.
+     */
+    orchestrations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether to transparently transfer the parameter.
+     */
+    passthrough?: pulumi.Input<boolean>;
+    /**
+     * Whether this parameter is required.
+     */
+    required?: pulumi.Input<boolean>;
+    /**
+     * The parameter type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Whether to enable the parameter validation.
+     */
+    validEnable?: pulumi.Input<number>;
+}
+
+export interface ApiGatewayApiWeb {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The backend service address, which consists of a domain name or IP address, and a port number.
+     */
+    backendAddress?: pulumi.Input<string>;
+    /**
+     * The proxy host header.
+     */
+    hostHeader?: pulumi.Input<string>;
+    /**
+     * The backend request path.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod?: pulumi.Input<string>;
+    /**
+     * The web protocol type of the API request.
+     */
+    requestProtocol?: pulumi.Input<string>;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount?: pulumi.Input<number>;
+    /**
+     * Whether to enable two-way authentication.
+     */
+    sslEnable?: pulumi.Input<boolean>;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId?: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiWebPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The backend service address
+     */
+    backendAddress?: pulumi.Input<string>;
+    /**
+     * The configuration list of the backend parameters.
+     */
+    backendParams?: pulumi.Input<pulumi.Input<inputs.ApiGatewayApiWebPolicyBackendParam>[]>;
+    /**
+     * The policy conditions.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.ApiGatewayApiWebPolicyCondition>[]>;
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: pulumi.Input<string>;
+    /**
+     * The proxy host header.
+     */
+    hostHeader?: pulumi.Input<string>;
+    /**
+     * The name of the web policy.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The backend request address.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod: pulumi.Input<string>;
+    /**
+     * The backend request protocol.
+     */
+    requestProtocol?: pulumi.Input<string>;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount?: pulumi.Input<number>;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId?: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiWebPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Where the parameter is located.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The parameter name.
+     */
+    name: pulumi.Input<string>;
+    systemParamType?: pulumi.Input<string>;
+    /**
+     * The parameter type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The value of the parameter
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApiGatewayApiWebPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: pulumi.Input<string>;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: pulumi.Input<string>;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: pulumi.Input<string>;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: pulumi.Input<string>;
+    /**
+     * The request parameter name.
+     */
+    paramName?: pulumi.Input<string>;
+    /**
+     * The type of the backend policy.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: pulumi.Input<string>;
+    /**
+     * The condition type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * The value of the backend policy.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApiGatewayGroupEnvironment {
+    /**
+     * The ID of the environment to which the variables belongs.
+     */
+    environmentId: pulumi.Input<string>;
+    /**
+     * The array of one or more environment variables.
+     */
+    variables: pulumi.Input<pulumi.Input<inputs.ApiGatewayGroupEnvironmentVariable>[]>;
+}
+
+export interface ApiGatewayGroupEnvironmentVariable {
+    /**
+     * The ID of the variable that the group has.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The variable name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The variable value.
+     */
+    value: pulumi.Input<string>;
+    /**
+     * schema: Deprecated; The ID of the variable that the group has.
+     *
+     * @deprecated Use 'id' instead
+     */
+    variableId?: pulumi.Input<string>;
+}
+
+export interface ApiGatewayGroupUrlDomain {
+    isHttpRedirectToHttps?: pulumi.Input<boolean>;
+    minSslVersion?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+}
+
+export interface ApigApiBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Where the parameter is located.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The parameter name.
+     */
+    name: pulumi.Input<string>;
+    systemParamType?: pulumi.Input<string>;
+    /**
+     * The parameter type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The value of the parameter
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApigApiFuncGraph {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn?: pulumi.Input<string>;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: pulumi.Input<string>;
+    /**
+     * The invocation type.
+     */
+    invocationType?: pulumi.Input<string>;
+    /**
+     * The network architecture (framework) type of the FunctionGraph function.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol?: pulumi.Input<string>;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApigApiFuncGraphPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The configaiton list of the backend parameters.
+     */
+    backendParams?: pulumi.Input<pulumi.Input<inputs.ApigApiFuncGraphPolicyBackendParam>[]>;
+    /**
+     * The policy conditions.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.ApigApiFuncGraphPolicyCondition>[]>;
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: pulumi.Input<string>;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn?: pulumi.Input<string>;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: pulumi.Input<string>;
+    /**
+     * The invocation mode of the FunctionGraph function.
+     */
+    invocationMode?: pulumi.Input<string>;
+    /**
+     * The invocation mode of the FunctionGraph function.
+     */
+    invocationType?: pulumi.Input<string>;
+    /**
+     * The name of the backend policy.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The network (framework) type of the FunctionGraph function.
+     */
+    networkType?: pulumi.Input<string>;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol?: pulumi.Input<string>;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version?: pulumi.Input<string>;
+}
+
+export interface ApigApiFuncGraphPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Where the parameter is located.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The parameter name.
+     */
+    name: pulumi.Input<string>;
+    systemParamType?: pulumi.Input<string>;
+    /**
+     * The parameter type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The value of the parameter
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApigApiFuncGraphPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: pulumi.Input<string>;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: pulumi.Input<string>;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: pulumi.Input<string>;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: pulumi.Input<string>;
+    /**
+     * The request parameter name.
+     */
+    paramName?: pulumi.Input<string>;
+    /**
+     * The type of the backend policy.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: pulumi.Input<string>;
+    /**
+     * The condition type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * The value of the backend policy.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApigApiMock {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The response content of the mock.
+     */
+    response?: pulumi.Input<string>;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode?: pulumi.Input<number>;
+}
+
+export interface ApigApiMockPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The configuration list of backend parameters.
+     */
+    backendParams?: pulumi.Input<pulumi.Input<inputs.ApigApiMockPolicyBackendParam>[]>;
+    /**
+     * The policy conditions.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.ApigApiMockPolicyCondition>[]>;
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: pulumi.Input<string>;
+    /**
+     * The backend policy name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The response content of the mock.
+     */
+    response?: pulumi.Input<string>;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode?: pulumi.Input<number>;
+}
+
+export interface ApigApiMockPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Where the parameter is located.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The parameter name.
+     */
+    name: pulumi.Input<string>;
+    systemParamType?: pulumi.Input<string>;
+    /**
+     * The parameter type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The value of the parameter
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApigApiMockPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: pulumi.Input<string>;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: pulumi.Input<string>;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: pulumi.Input<string>;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: pulumi.Input<string>;
+    /**
+     * The request parameter name.
+     */
+    paramName?: pulumi.Input<string>;
+    /**
+     * The type of the backend policy.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: pulumi.Input<string>;
+    /**
+     * The condition type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * The value of the backend policy.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApigApiPublishmentHistory {
+    /**
+     * The version description of the API publishment.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The version ID of the API publishment.
+     */
+    versionId?: pulumi.Input<string>;
+}
+
+export interface ApigApiRequestParam {
+    /**
+     * The default value of the parameter.
+     */
+    default?: pulumi.Input<string>;
+    /**
+     * The parameter description.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The enumerated value.
+     */
+    enumeration?: pulumi.Input<string>;
+    /**
+     * The parameter example.
+     */
+    example?: pulumi.Input<string>;
+    /**
+     * Where this parameter is located.
+     */
+    location?: pulumi.Input<string>;
+    /**
+     * The maximum value or length (string parameter) for parameter.
+     */
+    maximum?: pulumi.Input<number>;
+    /**
+     * The minimum value or length (string parameter) for parameter.
+     */
+    minimum?: pulumi.Input<number>;
+    /**
+     * The name of the request parameter.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The list of orchestration rules that parameter used.
+     */
+    orchestrations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Whether to transparently transfer the parameter.
+     */
+    passthrough?: pulumi.Input<boolean>;
+    /**
+     * Whether this parameter is required.
+     */
+    required?: pulumi.Input<boolean>;
+    /**
+     * The parameter type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Whether to enable the parameter validation.
+     */
+    validEnable?: pulumi.Input<number>;
+}
+
+export interface ApigApiWeb {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The backend service address, which consists of a domain name or IP address, and a port number.
+     */
+    backendAddress?: pulumi.Input<string>;
+    /**
+     * The proxy host header.
+     */
+    hostHeader?: pulumi.Input<string>;
+    /**
+     * The backend request path.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod?: pulumi.Input<string>;
+    /**
+     * The web protocol type of the API request.
+     */
+    requestProtocol?: pulumi.Input<string>;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount?: pulumi.Input<number>;
+    /**
+     * Whether to enable two-way authentication.
+     */
+    sslEnable?: pulumi.Input<boolean>;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId?: pulumi.Input<string>;
+}
+
+export interface ApigApiWebPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: pulumi.Input<string>;
+    /**
+     * The backend service address
+     */
+    backendAddress?: pulumi.Input<string>;
+    /**
+     * The configuration list of the backend parameters.
+     */
+    backendParams?: pulumi.Input<pulumi.Input<inputs.ApigApiWebPolicyBackendParam>[]>;
+    /**
+     * The policy conditions.
+     */
+    conditions: pulumi.Input<pulumi.Input<inputs.ApigApiWebPolicyCondition>[]>;
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: pulumi.Input<string>;
+    /**
+     * The proxy host header.
+     */
+    hostHeader?: pulumi.Input<string>;
+    /**
+     * The name of the web policy.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The backend request address.
+     */
+    path: pulumi.Input<string>;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod: pulumi.Input<string>;
+    /**
+     * The backend request protocol.
+     */
+    requestProtocol?: pulumi.Input<string>;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount?: pulumi.Input<number>;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: pulumi.Input<number>;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId?: pulumi.Input<string>;
+}
+
+export interface ApigApiWebPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Where the parameter is located.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The parameter name.
+     */
+    name: pulumi.Input<string>;
+    systemParamType?: pulumi.Input<string>;
+    /**
+     * The parameter type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The value of the parameter
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApigApiWebPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: pulumi.Input<string>;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: pulumi.Input<string>;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: pulumi.Input<string>;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: pulumi.Input<string>;
+    /**
+     * The request parameter name.
+     */
+    paramName?: pulumi.Input<string>;
+    /**
+     * The type of the backend policy.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: pulumi.Input<string>;
+    /**
+     * The condition type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * The value of the backend policy.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApigApplicationQuotaAssociateApplication {
+    /**
+     * The binding time, in RFC3339 format.
+     */
+    bindTime?: pulumi.Input<string>;
+    /**
+     * The application ID bound to the application quota.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface ApigChannelHealthCheck {
+    /**
+     * Whether to enable two-way authentication.
+     */
+    enableClientSsl?: pulumi.Input<boolean>;
+    /**
+     * The response codes for determining a successful HTTP response.
+     */
+    httpCodes?: pulumi.Input<string>;
+    /**
+     * The interval between consecutive check, in second.
+     */
+    interval: pulumi.Input<number>;
+    /**
+     * The request method for health check.
+     */
+    method?: pulumi.Input<string>;
+    /**
+     * The destination path for health check.
+     */
+    path?: pulumi.Input<string>;
+    /**
+     * The destination host port for health check.
+     */
+    port?: pulumi.Input<number>;
+    /**
+     * The rotocol for performing health check on backend servers.
+     */
+    protocol: pulumi.Input<string>;
+    /**
+     * The status of health check.
+     */
+    status?: pulumi.Input<number>;
+    /**
+     * The unhealthy threshold, which refers to the number of consecutive failed check required for a backend server to be considered unhealthy.
+     */
+    thresholdAbnormal: pulumi.Input<number>;
+    /**
+     * The the healthy threshold, which refers to the number of consecutive successful checks required for a backend server to be considered healthy.
+     */
+    thresholdNormal: pulumi.Input<number>;
+    /**
+     * The timeout for determining whether a health check fails, in second.
+     */
+    timeout: pulumi.Input<number>;
+}
+
+export interface ApigChannelMember {
+    /**
+     * The group name of the backend server.
+     */
+    groupName?: pulumi.Input<string>;
+    /**
+     * The IP address of the backend server.
+     */
+    host?: pulumi.Input<string>;
+    /**
+     * The ID of the backend server.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Whether this member is the backup member.
+     */
+    isBackup?: pulumi.Input<boolean>;
+    /**
+     * The name of the backend server.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The port of the backend server.
+     */
+    port?: pulumi.Input<number>;
+    /**
+     * The status of the backend server.
+     */
+    status?: pulumi.Input<number>;
+    /**
+     * The weight of current backend server.
+     */
+    weight?: pulumi.Input<number>;
+}
+
+export interface ApigChannelMemberGroup {
+    /**
+     * The description of the member group.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The microservice tags of the backend server group.
+     */
+    microserviceLabels?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The microservice port of the backend server group.
+     */
+    microservicePort?: pulumi.Input<number>;
+    /**
+     * The microservice version of the backend server group.
+     */
+    microserviceVersion?: pulumi.Input<string>;
+    /**
+     * The name of the member group.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The ID of the reference load balance channel.
+     */
+    referenceVpcChannelId?: pulumi.Input<string>;
+    /**
+     * The weight of the current member group.
+     */
+    weight?: pulumi.Input<number>;
+}
+
+export interface ApigChannelMicroservice {
+    /**
+     * The CCE microservice details.
+     */
+    cceConfig?: pulumi.Input<inputs.ApigChannelMicroserviceCceConfig>;
+    /**
+     * schema:Internal; The CSE microservice details.
+     */
+    cseConfig?: pulumi.Input<inputs.ApigChannelMicroserviceCseConfig>;
+}
+
+export interface ApigChannelMicroserviceCceConfig {
+    /**
+     * The ID of the CCE cluster.
+     */
+    clusterId: pulumi.Input<string>;
+    /**
+     * The service label key.
+     */
+    labelKey?: pulumi.Input<string>;
+    /**
+     * The service label value.
+     */
+    labelValue?: pulumi.Input<string>;
+    /**
+     * The name of the CCE namespace.
+     */
+    namespace: pulumi.Input<string>;
+    /**
+     * The workload name.
+     */
+    workloadName?: pulumi.Input<string>;
+    /**
+     * The workload type.
+     */
+    workloadType: pulumi.Input<string>;
+}
+
+export interface ApigChannelMicroserviceCseConfig {
+    /**
+     * schema:Internal; The microservice engine ID.
+     */
+    engineId: pulumi.Input<string>;
+    /**
+     * schema:Internal; The microservice ID.
+     */
+    serviceId: pulumi.Input<string>;
+}
+
+export interface ApigCustomAuthorizerIdentity {
+    /**
+     * The parameter location.
+     */
+    location: pulumi.Input<string>;
+    /**
+     * The name of the parameter to be verified.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The parameter verification expression.
+     */
+    validation?: pulumi.Input<string>;
+}
+
+export interface ApigGroupEnvironment {
+    /**
+     * The ID of the environment to which the variables belongs.
+     */
+    environmentId: pulumi.Input<string>;
+    /**
+     * The array of one or more environment variables.
+     */
+    variables: pulumi.Input<pulumi.Input<inputs.ApigGroupEnvironmentVariable>[]>;
+}
+
+export interface ApigGroupEnvironmentVariable {
+    /**
+     * The ID of the variable that the group has.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The variable name.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The variable value.
+     */
+    value: pulumi.Input<string>;
+    /**
+     * schema: Deprecated; The ID of the variable that the group has.
+     *
+     * @deprecated Use 'id' instead
+     */
+    variableId?: pulumi.Input<string>;
+}
+
+export interface ApigGroupUrlDomain {
+    isHttpRedirectToHttps?: pulumi.Input<boolean>;
+    minSslVersion?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+}
+
+export interface ApigInstanceCustomIngressPort {
+    /**
+     * The ID of the custom ingress port.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Specified port of the custom ingress port.
+     */
+    port: pulumi.Input<number>;
+    /**
+     * Specified protocol of the custom ingress port.
+     */
+    protocol: pulumi.Input<string>;
+    /**
+     * The current status of the custom ingress port.
+     */
+    status?: pulumi.Input<string>;
+}
+
+export interface ApigResponseRule {
+    /**
+     * The body template of the API custom response rule.
+     */
+    body: pulumi.Input<string>;
+    /**
+     * The error type of the API custom response rule.
+     */
+    errorType: pulumi.Input<string>;
+    /**
+     * The configuration of the custom response headers.
+     */
+    headers?: pulumi.Input<pulumi.Input<inputs.ApigResponseRuleHeader>[]>;
+    /**
+     * The HTTP status code of the API custom response rule.
+     */
+    statusCode?: pulumi.Input<number>;
+}
+
+export interface ApigResponseRuleHeader {
+    /**
+     * The key name of the response header.
+     */
+    key: pulumi.Input<string>;
+    /**
+     * The value for the specified response header key.
+     */
+    value: pulumi.Input<string>;
+}
+
+export interface ApigThrottlingPolicyAppThrottle {
+    /**
+     * The ID of the special user/application throttling policy.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: pulumi.Input<number>;
+    /**
+     * The object ID which the special throttling policy belongs.
+     */
+    throttlingObjectId: pulumi.Input<string>;
+    /**
+     * The object name which the special user/application throttling policy belongs.
+     */
+    throttlingObjectName?: pulumi.Input<string>;
+}
+
+export interface ApigThrottlingPolicyUserThrottle {
+    /**
+     * The ID of the special user/application throttling policy.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: pulumi.Input<number>;
+    /**
+     * The object ID which the special throttling policy belongs.
+     */
+    throttlingObjectId: pulumi.Input<string>;
+    /**
+     * The object name which the special user/application throttling policy belongs.
+     */
+    throttlingObjectName?: pulumi.Input<string>;
+}
+
+export interface AsBandwidthPolicyScalingPolicyAction {
+    /**
+     * Specifies the operation restrictions.
+     */
+    limits?: pulumi.Input<number>;
+    /**
+     * Specifies the operation to be performed. The default operation is ADD.
+     */
+    operation?: pulumi.Input<string>;
+    /**
+     * Specifies the bandwidth (Mbit/s).
+     */
+    size?: pulumi.Input<number>;
+}
+
+export interface AsBandwidthPolicyScheduledPolicy {
+    /**
+     * Specifies the end time of the scaling action triggered periodically.
+     */
+    endTime?: pulumi.Input<string>;
+    /**
+     * Specifies the time when the scaling action is triggered. The time format complies with UTC.
+     */
+    launchTime: pulumi.Input<string>;
+    /**
+     * Specifies the periodic triggering type.
+     */
+    recurrenceType?: pulumi.Input<string>;
+    /**
+     * Specifies the day when a periodic scaling action is triggered.
+     */
+    recurrenceValue?: pulumi.Input<string>;
+    /**
+     * Specifies the start time of the scaling action triggered periodically.
+     */
+    startTime?: pulumi.Input<string>;
+}
+
+export interface AsConfigurationInstanceConfig {
+    adminPass?: pulumi.Input<string>;
+    chargingMode?: pulumi.Input<string>;
+    dedicatedHostId?: pulumi.Input<string>;
+    disks?: pulumi.Input<pulumi.Input<inputs.AsConfigurationInstanceConfigDisk>[]>;
+    ecsGroupId?: pulumi.Input<string>;
+    flavor?: pulumi.Input<string>;
+    flavorPriorityPolicy?: pulumi.Input<string>;
+    image?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string>;
+    keyName?: pulumi.Input<string>;
+    metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    personalities?: pulumi.Input<pulumi.Input<inputs.AsConfigurationInstanceConfigPersonality>[]>;
+    publicIp?: pulumi.Input<inputs.AsConfigurationInstanceConfigPublicIp>;
+    /**
+     * schema: Required
+     */
+    securityGroupIds?: pulumi.Input<pulumi.Input<string>[]>;
+    tenancy?: pulumi.Input<string>;
+    userData?: pulumi.Input<string>;
+}
+
+export interface AsConfigurationInstanceConfigDisk {
+    dataDiskImageId?: pulumi.Input<string>;
+    dedicatedStorageId?: pulumi.Input<string>;
+    diskType: pulumi.Input<string>;
+    iops?: pulumi.Input<number>;
+    kmsId?: pulumi.Input<string>;
+    size: pulumi.Input<number>;
+    snapshotId?: pulumi.Input<string>;
+    throughput?: pulumi.Input<number>;
+    volumeType: pulumi.Input<string>;
+}
+
+export interface AsConfigurationInstanceConfigPersonality {
+    content: pulumi.Input<string>;
+    path: pulumi.Input<string>;
+}
+
+export interface AsConfigurationInstanceConfigPublicIp {
+    eip: pulumi.Input<inputs.AsConfigurationInstanceConfigPublicIpEip>;
+}
+
+export interface AsConfigurationInstanceConfigPublicIpEip {
+    bandwidth: pulumi.Input<inputs.AsConfigurationInstanceConfigPublicIpEipBandwidth>;
+    ipType: pulumi.Input<string>;
+}
+
+export interface AsConfigurationInstanceConfigPublicIpEipBandwidth {
+    chargingMode?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    shareType: pulumi.Input<string>;
+    size?: pulumi.Input<number>;
+}
+
+export interface AsGroupLbaasListener {
+    poolId: pulumi.Input<string>;
+    protocolPort: pulumi.Input<number>;
+    protocolVersion?: pulumi.Input<string>;
+    weight?: pulumi.Input<number>;
+}
+
+export interface AsGroupNetwork {
+    id: pulumi.Input<string>;
+    ipv6BandwidthId?: pulumi.Input<string>;
+    ipv6Enable?: pulumi.Input<boolean>;
+    sourceDestCheck?: pulumi.Input<boolean>;
+}
+
+export interface AsGroupSecurityGroup {
+    id: pulumi.Input<string>;
+}
+
+export interface AsPolicyScalingPolicyAction {
+    instanceNumber?: pulumi.Input<number>;
+    instancePercentage?: pulumi.Input<number>;
+    operation?: pulumi.Input<string>;
+}
+
+export interface AsPolicyScheduledPolicy {
+    endTime?: pulumi.Input<string>;
+    launchTime: pulumi.Input<string>;
+    recurrenceType?: pulumi.Input<string>;
+    recurrenceValue?: pulumi.Input<string>;
+    startTime?: pulumi.Input<string>;
+}
+
+export interface CbrBackupShareMember {
+    /**
+     * The creation time of the backup shared member.
+     */
+    createdAt?: pulumi.Input<string>;
+    /**
+     * The ID of the project with which the backup is shared.
+     */
+    destProjectId: pulumi.Input<string>;
+    /**
+     * The ID of the backup shared member record.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The ID of the image registered with the shared backup copy.
+     */
+    imageId?: pulumi.Input<string>;
+    /**
+     * The backup shared status.
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * The latest update time of the backup shared member.
+     */
+    updatedAt?: pulumi.Input<string>;
+    /**
+     * The ID of the vault where the shared backup is stored.
+     */
+    vaultId?: pulumi.Input<string>;
+}
+
+export interface CbrCheckpointBackup {
+    /**
+     * The backup ID.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The backup time.
+     */
+    protectedAt?: pulumi.Input<string>;
+    /**
+     * The ID of backup resource.
+     */
+    resourceId: pulumi.Input<string>;
+    /**
+     * The backup resource size.
+     */
+    resourceSize?: pulumi.Input<number>;
+    /**
+     * The backup status.
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * The type of the backup resource.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * The latest update time of the backup.
+     */
+    updatedAt?: pulumi.Input<string>;
+}
+
+export interface CbrPolicyBackupCycle {
+    /**
+     * The weekly backup time.
+     */
+    days?: pulumi.Input<string>;
+    /**
+     * The execution time of the policy.
+     */
+    executionTimes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The number of days between each backup.
+     */
+    interval?: pulumi.Input<number>;
+}
+
+export interface CbrPolicyLongTermRetention {
+    /**
+     * The latest backup of each day is saved in the long term.
+     */
+    daily?: pulumi.Input<number>;
+    /**
+     * How often (after how many incremental backups) a full backup is performed.
+     */
+    fullBackupInterval?: pulumi.Input<number>;
+    /**
+     * The latest backup of each month is saved in the long term.
+     */
+    monthly?: pulumi.Input<number>;
+    /**
+     * The latest backup of each week is saved in the long term.
+     */
+    weekly?: pulumi.Input<number>;
+    /**
+     * The latest backup of each year is saved in the long term.
+     */
+    yearly?: pulumi.Input<number>;
+}
+
+export interface CbrVaultPolicy {
+    /**
+     * The ID of destination vault to which the replication policy will associated.
+     */
+    destinationVaultId?: pulumi.Input<string>;
+    /**
+     * The policy ID.
+     */
+    id: pulumi.Input<string>;
+}
+
+export interface CbrVaultResource {
+    /**
+     * The array of disk IDs which will be excluded in the backup.
+     */
+    excludes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The array of disk or SFS file systems which will be included in the backup.
+     */
+    includes?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The ID of the ECS instance to be backed up.
+     */
+    serverId?: pulumi.Input<string>;
+}
+
+export interface CceAddonValues {
+    basic?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    basicJson?: pulumi.Input<string>;
+    custom?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    customJson?: pulumi.Input<string>;
+    flavor?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    flavorJson?: pulumi.Input<string>;
+}
+
+export interface CceClusterCertificateCluster {
+    certificateAuthorityData?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    server?: pulumi.Input<string>;
+}
+
+export interface CceClusterCertificateUser {
+    clientCertificateData?: pulumi.Input<string>;
+    clientKeyData?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+}
+
+export interface CceClusterComponentConfiguration {
+    configurations?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+}
+
+export interface CceClusterExtendParam {
+    clusterAz?: pulumi.Input<string>;
+    cpuManagerPolicy?: pulumi.Input<string>;
+    decMasterFlavor?: pulumi.Input<string>;
+    dockerUmaskMode?: pulumi.Input<string>;
+    dssMasterVolumes?: pulumi.Input<string>;
+    fixPoolMask?: pulumi.Input<string>;
+}
+
+export interface CceClusterMaster {
+    availabilityZone?: pulumi.Input<string>;
+}
+
+export interface CceNodeAttachDataVolume {
+    dssPoolId?: pulumi.Input<string>;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: pulumi.Input<string>;
+    extendParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * schema: Internal
+     */
+    hwPassthrough?: pulumi.Input<boolean>;
+    iops?: pulumi.Input<number>;
+    kmsKeyId?: pulumi.Input<string>;
+    size?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
+    volumetype?: pulumi.Input<string>;
+}
+
+export interface CceNodeAttachHostnameConfig {
+    type: pulumi.Input<string>;
+}
+
+export interface CceNodeAttachRootVolume {
+    dssPoolId?: pulumi.Input<string>;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: pulumi.Input<string>;
+    extendParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * schema: Internal
+     */
+    hwPassthrough?: pulumi.Input<boolean>;
+    iops?: pulumi.Input<number>;
+    kmsKeyId?: pulumi.Input<string>;
+    size?: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
+    volumetype?: pulumi.Input<string>;
+}
+
+export interface CceNodeAttachStorage {
+    groups: pulumi.Input<pulumi.Input<inputs.CceNodeAttachStorageGroup>[]>;
+    selectors: pulumi.Input<pulumi.Input<inputs.CceNodeAttachStorageSelector>[]>;
+}
+
+export interface CceNodeAttachStorageGroup {
+    cceManaged?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    selectorNames: pulumi.Input<pulumi.Input<string>[]>;
+    virtualSpaces: pulumi.Input<pulumi.Input<inputs.CceNodeAttachStorageGroupVirtualSpace>[]>;
+}
+
+export interface CceNodeAttachStorageGroupVirtualSpace {
+    lvmLvType?: pulumi.Input<string>;
+    lvmPath?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    runtimeLvType?: pulumi.Input<string>;
+    size: pulumi.Input<string>;
+}
+
+export interface CceNodeAttachStorageSelector {
+    matchLabelCount?: pulumi.Input<string>;
+    matchLabelMetadataCmkid?: pulumi.Input<string>;
+    matchLabelMetadataEncrypted?: pulumi.Input<string>;
+    matchLabelSize?: pulumi.Input<string>;
+    matchLabelVolumeType?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface CceNodeAttachTaint {
+    effect: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface CceNodeDataVolume {
+    dssPoolId?: pulumi.Input<string>;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: pulumi.Input<string>;
+    extendParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * schema: Internal
+     */
+    hwPassthrough?: pulumi.Input<boolean>;
+    iops?: pulumi.Input<number>;
+    kmsKeyId?: pulumi.Input<string>;
+    size: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
+    volumetype: pulumi.Input<string>;
+}
+
+export interface CceNodeExtendParams {
+    agencyName?: pulumi.Input<string>;
+    dockerBaseSize?: pulumi.Input<number>;
+    kubeReservedMem?: pulumi.Input<number>;
+    marketType?: pulumi.Input<string>;
+    maxPods?: pulumi.Input<number>;
+    nicThreshold?: pulumi.Input<string>;
+    nodeImageId?: pulumi.Input<string>;
+    nodeMultiQueue?: pulumi.Input<string>;
+    postinstall?: pulumi.Input<string>;
+    preinstall?: pulumi.Input<string>;
+    securityReinforcementType?: pulumi.Input<string>;
+    spotPrice?: pulumi.Input<string>;
+    systemReservedMem?: pulumi.Input<number>;
+}
+
+export interface CceNodeExtensionNic {
+    subnetId: pulumi.Input<string>;
+}
+
+export interface CceNodeHostnameConfig {
+    type: pulumi.Input<string>;
+}
+
+export interface CceNodePoolDataVolume {
+    dssPoolId?: pulumi.Input<string>;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: pulumi.Input<string>;
+    extendParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * schema: Internal
+     */
+    hwPassthrough?: pulumi.Input<boolean>;
+    iops?: pulumi.Input<number>;
+    kmsKeyId?: pulumi.Input<string>;
+    size: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
+    volumetype: pulumi.Input<string>;
+}
+
+export interface CceNodePoolExtendParams {
+    agencyName?: pulumi.Input<string>;
+    dockerBaseSize?: pulumi.Input<number>;
+    kubeReservedMem?: pulumi.Input<number>;
+    marketType?: pulumi.Input<string>;
+    maxPods?: pulumi.Input<number>;
+    nicThreshold?: pulumi.Input<string>;
+    nodeImageId?: pulumi.Input<string>;
+    nodeMultiQueue?: pulumi.Input<string>;
+    postinstall?: pulumi.Input<string>;
+    preinstall?: pulumi.Input<string>;
+    securityReinforcementType?: pulumi.Input<string>;
+    spotPrice?: pulumi.Input<string>;
+    systemReservedMem?: pulumi.Input<number>;
+}
+
+export interface CceNodePoolExtensionScaleGroup {
+    metadata?: pulumi.Input<inputs.CceNodePoolExtensionScaleGroupMetadata>;
+    spec?: pulumi.Input<inputs.CceNodePoolExtensionScaleGroupSpec>;
+}
+
+export interface CceNodePoolExtensionScaleGroupMetadata {
+    name?: pulumi.Input<string>;
+}
+
+export interface CceNodePoolExtensionScaleGroupSpec {
+    autoscaling?: pulumi.Input<inputs.CceNodePoolExtensionScaleGroupSpecAutoscaling>;
+    az?: pulumi.Input<string>;
+    capacityReservationSpecification?: pulumi.Input<inputs.CceNodePoolExtensionScaleGroupSpecCapacityReservationSpecification>;
+    flavor?: pulumi.Input<string>;
+}
+
+export interface CceNodePoolExtensionScaleGroupSpecAutoscaling {
+    enable?: pulumi.Input<boolean>;
+    extensionPriority?: pulumi.Input<number>;
+    maxNodeCount?: pulumi.Input<number>;
+    minNodeCount?: pulumi.Input<number>;
+}
+
+export interface CceNodePoolExtensionScaleGroupSpecCapacityReservationSpecification {
+    id?: pulumi.Input<string>;
+    preference?: pulumi.Input<string>;
+}
+
+export interface CceNodePoolHostnameConfig {
+    type: pulumi.Input<string>;
+}
+
+export interface CceNodePoolRootVolume {
+    dssPoolId?: pulumi.Input<string>;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: pulumi.Input<string>;
+    extendParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * schema: Internal
+     */
+    hwPassthrough?: pulumi.Input<boolean>;
+    iops?: pulumi.Input<number>;
+    kmsKeyId?: pulumi.Input<string>;
+    size: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
+    volumetype: pulumi.Input<string>;
+}
+
+export interface CceNodePoolStorage {
+    groups: pulumi.Input<pulumi.Input<inputs.CceNodePoolStorageGroup>[]>;
+    selectors: pulumi.Input<pulumi.Input<inputs.CceNodePoolStorageSelector>[]>;
+}
+
+export interface CceNodePoolStorageGroup {
+    cceManaged?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    selectorNames: pulumi.Input<pulumi.Input<string>[]>;
+    virtualSpaces: pulumi.Input<pulumi.Input<inputs.CceNodePoolStorageGroupVirtualSpace>[]>;
+}
+
+export interface CceNodePoolStorageGroupVirtualSpace {
+    lvmLvType?: pulumi.Input<string>;
+    lvmPath?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    runtimeLvType?: pulumi.Input<string>;
+    size: pulumi.Input<string>;
+}
+
+export interface CceNodePoolStorageSelector {
+    matchLabelCount?: pulumi.Input<string>;
+    matchLabelMetadataCmkid?: pulumi.Input<string>;
+    matchLabelMetadataEncrypted?: pulumi.Input<string>;
+    matchLabelSize?: pulumi.Input<string>;
+    matchLabelVolumeType?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface CceNodePoolTaint {
+    effect: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface CceNodeRootVolume {
+    dssPoolId?: pulumi.Input<string>;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: pulumi.Input<string>;
+    extendParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * schema: Internal
+     */
+    hwPassthrough?: pulumi.Input<boolean>;
+    iops?: pulumi.Input<number>;
+    kmsKeyId?: pulumi.Input<string>;
+    size: pulumi.Input<number>;
+    throughput?: pulumi.Input<number>;
+    volumetype: pulumi.Input<string>;
+}
+
+export interface CceNodeStorage {
+    groups: pulumi.Input<pulumi.Input<inputs.CceNodeStorageGroup>[]>;
+    selectors: pulumi.Input<pulumi.Input<inputs.CceNodeStorageSelector>[]>;
+}
+
+export interface CceNodeStorageGroup {
+    cceManaged?: pulumi.Input<boolean>;
+    name: pulumi.Input<string>;
+    selectorNames: pulumi.Input<pulumi.Input<string>[]>;
+    virtualSpaces: pulumi.Input<pulumi.Input<inputs.CceNodeStorageGroupVirtualSpace>[]>;
+}
+
+export interface CceNodeStorageGroupVirtualSpace {
+    lvmLvType?: pulumi.Input<string>;
+    lvmPath?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    runtimeLvType?: pulumi.Input<string>;
+    size: pulumi.Input<string>;
+}
+
+export interface CceNodeStorageSelector {
+    matchLabelCount?: pulumi.Input<string>;
+    matchLabelMetadataCmkid?: pulumi.Input<string>;
+    matchLabelMetadataEncrypted?: pulumi.Input<string>;
+    matchLabelSize?: pulumi.Input<string>;
+    matchLabelVolumeType?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface CceNodeTaint {
+    effect: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface CdmClusterInstance {
+    id?: pulumi.Input<string>;
+    manageIp?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    privateIp?: pulumi.Input<string>;
+    publicIp?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
+    trafficIp?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface CesAlarmruleAlarmAction {
+    notificationLists: pulumi.Input<pulumi.Input<string>[]>;
+    type: pulumi.Input<string>;
+}
+
+export interface CesAlarmruleCondition {
+    comparisonOperator: pulumi.Input<string>;
+    count: pulumi.Input<number>;
+    filter: pulumi.Input<string>;
+    period: pulumi.Input<number>;
+    suppressDuration?: pulumi.Input<number>;
+    unit?: pulumi.Input<string>;
+    value: pulumi.Input<number>;
+}
+
+export interface CesAlarmruleInsufficientdataAction {
+    notificationLists: pulumi.Input<pulumi.Input<string>[]>;
+    type: pulumi.Input<string>;
+}
+
+export interface CesAlarmruleMetric {
+    dimensions?: pulumi.Input<pulumi.Input<inputs.CesAlarmruleMetricDimension>[]>;
+    metricName: pulumi.Input<string>;
+    namespace: pulumi.Input<string>;
+}
+
+export interface CesAlarmruleMetricDimension {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface CesAlarmruleOkAction {
+    notificationLists: pulumi.Input<pulumi.Input<string>[]>;
+    type: pulumi.Input<string>;
+}
+
+export interface ComputeInstanceBandwidth {
+    chargeMode?: pulumi.Input<string>;
+    extendParam?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    id?: pulumi.Input<string>;
+    shareType: pulumi.Input<string>;
+    size?: pulumi.Input<number>;
+}
+
+export interface ComputeInstanceDataDisk {
+    dssPoolId?: pulumi.Input<string>;
+    iops?: pulumi.Input<number>;
+    kmsKeyId?: pulumi.Input<string>;
+    size: pulumi.Input<number>;
+    snapshotId?: pulumi.Input<string>;
+    throughput?: pulumi.Input<number>;
+    type: pulumi.Input<string>;
+}
+
+export interface ComputeInstanceNetwork {
+    accessNetwork?: pulumi.Input<boolean>;
+    fixedIpV4?: pulumi.Input<string>;
+    /**
+     * schema: Computed
+     */
+    fixedIpV6?: pulumi.Input<string>;
+    ipv6Enable?: pulumi.Input<boolean>;
+    mac?: pulumi.Input<string>;
+    /**
+     * schema: Computed
+     */
+    port?: pulumi.Input<string>;
+    sourceDestCheck?: pulumi.Input<boolean>;
+    /**
+     * schema: Required
+     */
+    uuid?: pulumi.Input<string>;
+}
+
+export interface ComputeInstanceSchedulerHint {
+    dehId?: pulumi.Input<string>;
+    /**
+     * schema: Internal
+     */
+    faultDomain?: pulumi.Input<string>;
+    group?: pulumi.Input<string>;
+    tenancy?: pulumi.Input<string>;
+}
+
+export interface ComputeInstanceVolumeAttached {
+    bootIndex?: pulumi.Input<number>;
+    kmsKeyId?: pulumi.Input<string>;
+    pciAddress?: pulumi.Input<string>;
+    size?: pulumi.Input<number>;
+    type?: pulumi.Input<string>;
+    volumeId?: pulumi.Input<string>;
+}
+
+export interface CssClusterBackupStrategy {
+    agency?: pulumi.Input<string>;
+    backupPath?: pulumi.Input<string>;
+    bucket?: pulumi.Input<string>;
+    keepDays?: pulumi.Input<number>;
+    prefix?: pulumi.Input<string>;
+    startTime: pulumi.Input<string>;
+}
+
+export interface CssClusterNode {
+    id?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+}
+
+export interface CssClusterNodeConfig {
+    availabilityZone?: pulumi.Input<string>;
+    flavor: pulumi.Input<string>;
+    networkInfo: pulumi.Input<inputs.CssClusterNodeConfigNetworkInfo>;
+    volume: pulumi.Input<inputs.CssClusterNodeConfigVolume>;
+}
+
+export interface CssClusterNodeConfigNetworkInfo {
+    securityGroupId: pulumi.Input<string>;
+    subnetId: pulumi.Input<string>;
+    vpcId: pulumi.Input<string>;
+}
+
+export interface CssClusterNodeConfigVolume {
+    size: pulumi.Input<number>;
+    volumeType: pulumi.Input<string>;
+}
+
+export interface CtsNotificationFilter {
+    condition: pulumi.Input<string>;
+    rules: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface CtsNotificationOperation {
+    resource: pulumi.Input<string>;
+    service: pulumi.Input<string>;
+    traceNames: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface CtsNotificationOperationUser {
+    group: pulumi.Input<string>;
+    users: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface DcsInstanceBackupPolicy {
+    backupAts: pulumi.Input<pulumi.Input<number>[]>;
+    backupType?: pulumi.Input<string>;
+    beginAt: pulumi.Input<string>;
+    periodType?: pulumi.Input<string>;
+    saveDays?: pulumi.Input<number>;
+}
+
+export interface DcsInstanceBandwidthInfo {
+    bandwidth?: pulumi.Input<number>;
+    beginTime?: pulumi.Input<string>;
+    currentTime?: pulumi.Input<string>;
+    endTime?: pulumi.Input<string>;
+    expandCount?: pulumi.Input<number>;
+    expandEffectTime?: pulumi.Input<number>;
+    expandIntervalTime?: pulumi.Input<number>;
+    maxExpandCount?: pulumi.Input<number>;
+    nextExpandTime?: pulumi.Input<string>;
+    taskRunning?: pulumi.Input<boolean>;
+}
+
+export interface DcsInstanceParameter {
+    id: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface DcsInstanceWhitelist {
+    groupName: pulumi.Input<string>;
+    ipAddresses: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface DcsParametersConfigurationParameter {
+    name?: pulumi.Input<string>;
+    needRestart?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    userPermission?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+}
+
+export interface DcsRestoreRestoreRecord {
+    backupId?: pulumi.Input<string>;
+    backupName?: pulumi.Input<string>;
+    backupRemark?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
+    errorCode?: pulumi.Input<string>;
+    progress?: pulumi.Input<string>;
+    restoreId?: pulumi.Input<string>;
+    restoreName?: pulumi.Input<string>;
+    restoreRemark?: pulumi.Input<string>;
+    sourceInstanceId?: pulumi.Input<string>;
+    sourceInstanceName?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string>;
+}
+
+export interface DdsInstanceBackupStrategy {
+    keepDays: pulumi.Input<number>;
+    period?: pulumi.Input<string>;
+    startTime: pulumi.Input<string>;
+}
+
+export interface DdsInstanceConfiguration {
+    id: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+}
+
+export interface DdsInstanceDatastore {
+    storageEngine?: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+    version: pulumi.Input<string>;
+}
+
+export interface DdsInstanceFlavor {
+    num: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
+    specCode: pulumi.Input<string>;
+    storage?: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+}
+
+export interface DdsInstanceGroup {
+    id?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    nodes?: pulumi.Input<pulumi.Input<inputs.DdsInstanceGroupNode>[]>;
+    size?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    type?: pulumi.Input<string>;
+    used?: pulumi.Input<string>;
+}
+
+export interface DdsInstanceGroupNode {
+    /**
+     * Indicates the node ID.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Indicates the node name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Indicates the private IP address of a node.
+     */
+    privateIp?: pulumi.Input<string>;
+    /**
+     * Indicates the EIP that has been bound on a node.
+     */
+    publicIp?: pulumi.Input<string>;
+    /**
+     * Indicates the node role.
+     */
+    role?: pulumi.Input<string>;
+    /**
+     * Indicates the node status.
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * Indicates the node type.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface DdsInstanceNode {
+    /**
+     * Indicates the node ID.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * Indicates the node name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Indicates the private IP address of a node.
+     */
+    privateIp?: pulumi.Input<string>;
+    /**
+     * Indicates the EIP that has been bound on a node.
+     */
+    publicIp?: pulumi.Input<string>;
+    /**
+     * Indicates the node role.
+     */
+    role?: pulumi.Input<string>;
+    /**
+     * Indicates the node status.
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * Indicates the node type.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface DisStreamPartition {
+    hashRange?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    sequenceNumberRange?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+}
+
+export interface DliQueueScalingPolicy {
+    impactStartTime: pulumi.Input<string>;
+    impactStopTime: pulumi.Input<string>;
+    maxCu: pulumi.Input<number>;
+    minCu: pulumi.Input<number>;
+    priority: pulumi.Input<number>;
+}
+
+export interface DliQueueSparkDriver {
+    maxConcurrent?: pulumi.Input<number>;
+    maxInstance?: pulumi.Input<number>;
+    maxPrefetchInstance?: pulumi.Input<string>;
+}
+
+export interface DliSparkJobDependentPackage {
+    groupName: pulumi.Input<string>;
+    packages: pulumi.Input<pulumi.Input<inputs.DliSparkJobDependentPackagePackage>[]>;
+}
+
+export interface DliSparkJobDependentPackagePackage {
+    packageName: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+}
+
+export interface DmsKafkaInstanceCrossVpcAccess {
+    advertisedIp?: pulumi.Input<string>;
+    /**
+     * @deprecated typo in lisenter_ip, please use "listenerIp" instead.
+     */
+    lisenterIp?: pulumi.Input<string>;
+    listenerIp?: pulumi.Input<string>;
+    port?: pulumi.Input<number>;
+    portId?: pulumi.Input<string>;
+}
+
+export interface DmsKafkaInstanceParameter {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface DmsKafkaInstancePortProtocol {
+    privatePlainAddress?: pulumi.Input<string>;
+    privatePlainDomainName?: pulumi.Input<string>;
+    privatePlainEnable?: pulumi.Input<boolean>;
+    privateSaslPlaintextAddress?: pulumi.Input<string>;
+    privateSaslPlaintextDomainName?: pulumi.Input<string>;
+    privateSaslPlaintextEnable?: pulumi.Input<boolean>;
+    privateSaslSslAddress?: pulumi.Input<string>;
+    privateSaslSslDomainName?: pulumi.Input<string>;
+    privateSaslSslEnable?: pulumi.Input<boolean>;
+    publicPlainAddress?: pulumi.Input<string>;
+    publicPlainDomainName?: pulumi.Input<string>;
+    publicPlainEnable?: pulumi.Input<boolean>;
+    publicSaslPlaintextAddress?: pulumi.Input<string>;
+    publicSaslPlaintextDomainName?: pulumi.Input<string>;
+    publicSaslPlaintextEnable?: pulumi.Input<boolean>;
+    publicSaslSslAddress?: pulumi.Input<string>;
+    publicSaslSslDomainName?: pulumi.Input<string>;
+    publicSaslSslEnable?: pulumi.Input<boolean>;
+}
+
+export interface DmsKafkaMessageProducePropertyList {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface DmsKafkaPermissionsPolicy {
+    accessPolicy: pulumi.Input<string>;
+    userName: pulumi.Input<string>;
+}
+
+export interface DmsKafkaTopicConfig {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface DnsZoneRouter {
+    /**
+     * The ID of the associated VPC.
+     */
+    routerId: pulumi.Input<string>;
+    /**
+     * The region of the VPC.
+     */
+    routerRegion?: pulumi.Input<string>;
+}
+
+export interface DrsJobDestinationDb {
+    engineType: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string>;
+    ip: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    password: pulumi.Input<string>;
+    port: pulumi.Input<number>;
+    region?: pulumi.Input<string>;
+    sslCertCheckSum?: pulumi.Input<string>;
+    sslCertKey?: pulumi.Input<string>;
+    sslCertName?: pulumi.Input<string>;
+    sslCertPassword?: pulumi.Input<string>;
+    sslEnabled?: pulumi.Input<boolean>;
+    subnetId?: pulumi.Input<string>;
+    user: pulumi.Input<string>;
+}
+
+export interface DrsJobLimitSpeed {
+    endTime: pulumi.Input<string>;
+    speed: pulumi.Input<string>;
+    startTime: pulumi.Input<string>;
+}
+
+export interface DrsJobSourceDb {
+    engineType: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string>;
+    ip: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    password: pulumi.Input<string>;
+    port: pulumi.Input<number>;
+    region?: pulumi.Input<string>;
+    sslCertCheckSum?: pulumi.Input<string>;
+    sslCertKey?: pulumi.Input<string>;
+    sslCertName?: pulumi.Input<string>;
+    sslCertPassword?: pulumi.Input<string>;
+    sslEnabled?: pulumi.Input<boolean>;
+    subnetId?: pulumi.Input<string>;
+    user: pulumi.Input<string>;
+}
+
+export interface DwsClusterElb {
+    /**
+     * The ID of the ELB load balancer.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The name of the ELB load balancer.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The private endpoint of the ELB load balancer.
+     */
+    privateEndpoint?: pulumi.Input<string>;
+    /**
+     * The private IP address of the ELB load balancer.
+     */
+    privateIp?: pulumi.Input<string>;
+    /**
+     * The IPv6 address of the ELB load balancer.
+     */
+    privateIpV6?: pulumi.Input<string>;
+    /**
+     * The public IP address of the ELB load balancer.
+     */
+    publicIp?: pulumi.Input<string>;
+    /**
+     * The ID of VPC to which the ELB load balancer belongs.
+     */
+    vpcId?: pulumi.Input<string>;
+}
+
+export interface DwsClusterEndpoint {
+    /**
+     * Private network connection information.
+     */
+    connectInfo?: pulumi.Input<string>;
+    /**
+     * JDBC URL. Format: jdbc:postgresql://<connect_info>/<YOUR_DATABASE_NAME>
+     */
+    jdbcUrl?: pulumi.Input<string>;
+}
+
+export interface DwsClusterMaintainWindow {
+    /**
+     * Maintenance time in each week in the unit of day.
+     */
+    day?: pulumi.Input<string>;
+    /**
+     * Maintenance end time in HH:mm format. The time zone is GMT+0.
+     */
+    endTime?: pulumi.Input<string>;
+    /**
+     * Maintenance start time in HH:mm format. The time zone is GMT+0.
+     */
+    startTime?: pulumi.Input<string>;
+}
+
+export interface DwsClusterPublicEndpoint {
+    /**
+     * JDBC URL. Format: jdbc:postgresql://<public_connect_info>/<YOUR_DATABASE_NAME>
+     */
+    jdbcUrl?: pulumi.Input<string>;
+    /**
+     * Public network connection information.
+     */
+    publicConnectInfo?: pulumi.Input<string>;
+}
+
+export interface DwsClusterPublicIp {
+    /**
+     * The EIP ID.
+     */
+    eipId?: pulumi.Input<string>;
+    /**
+     * The bind type of public IP.
+     */
+    publicBindType?: pulumi.Input<string>;
+}
+
+export interface DwsClusterVolume {
+    /**
+     * The capacity size, in GB.
+     */
+    capacity?: pulumi.Input<string>;
+    /**
+     * The volume type.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface ElbIpgroupIpList {
+    description?: pulumi.Input<string>;
+    ip: pulumi.Input<string>;
+}
+
+export interface ElbL7policyFixedResponseConfig {
+    contentType?: pulumi.Input<string>;
+    insertHeadersConfig?: pulumi.Input<inputs.ElbL7policyFixedResponseConfigInsertHeadersConfig>;
+    messageBody?: pulumi.Input<string>;
+    removeHeadersConfig?: pulumi.Input<inputs.ElbL7policyFixedResponseConfigRemoveHeadersConfig>;
+    statusCode: pulumi.Input<string>;
+    trafficLimitConfig?: pulumi.Input<inputs.ElbL7policyFixedResponseConfigTrafficLimitConfig>;
+}
+
+export interface ElbL7policyFixedResponseConfigInsertHeadersConfig {
+    configs: pulumi.Input<pulumi.Input<inputs.ElbL7policyFixedResponseConfigInsertHeadersConfigConfig>[]>;
+}
+
+export interface ElbL7policyFixedResponseConfigInsertHeadersConfigConfig {
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+    valueType: pulumi.Input<string>;
+}
+
+export interface ElbL7policyFixedResponseConfigRemoveHeadersConfig {
+    configs: pulumi.Input<pulumi.Input<inputs.ElbL7policyFixedResponseConfigRemoveHeadersConfigConfig>[]>;
+}
+
+export interface ElbL7policyFixedResponseConfigRemoveHeadersConfigConfig {
+    key: pulumi.Input<string>;
+}
+
+export interface ElbL7policyFixedResponseConfigTrafficLimitConfig {
+    burst?: pulumi.Input<number>;
+    perSourceIpQps?: pulumi.Input<number>;
+    qps?: pulumi.Input<number>;
+}
+
+export interface ElbL7policyRedirectPoolsConfig {
+    poolId: pulumi.Input<string>;
+    weight?: pulumi.Input<number>;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfig {
+    insertHeadersConfig?: pulumi.Input<inputs.ElbL7policyRedirectPoolsExtendConfigInsertHeadersConfig>;
+    removeHeadersConfig?: pulumi.Input<inputs.ElbL7policyRedirectPoolsExtendConfigRemoveHeadersConfig>;
+    rewriteUrlConfig?: pulumi.Input<inputs.ElbL7policyRedirectPoolsExtendConfigRewriteUrlConfig>;
+    rewriteUrlEnabled?: pulumi.Input<boolean>;
+    trafficLimitConfig?: pulumi.Input<inputs.ElbL7policyRedirectPoolsExtendConfigTrafficLimitConfig>;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigInsertHeadersConfig {
+    configs: pulumi.Input<pulumi.Input<inputs.ElbL7policyRedirectPoolsExtendConfigInsertHeadersConfigConfig>[]>;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigInsertHeadersConfigConfig {
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+    valueType: pulumi.Input<string>;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigRemoveHeadersConfig {
+    configs: pulumi.Input<pulumi.Input<inputs.ElbL7policyRedirectPoolsExtendConfigRemoveHeadersConfigConfig>[]>;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigRemoveHeadersConfigConfig {
+    key: pulumi.Input<string>;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigRewriteUrlConfig {
+    host?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
+    query?: pulumi.Input<string>;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigTrafficLimitConfig {
+    burst?: pulumi.Input<number>;
+    perSourceIpQps?: pulumi.Input<number>;
+    qps?: pulumi.Input<number>;
+}
+
+export interface ElbL7policyRedirectPoolsStickySessionConfig {
+    enable?: pulumi.Input<boolean>;
+    timeout?: pulumi.Input<number>;
+}
+
+export interface ElbL7policyRedirectUrlConfig {
+    host?: pulumi.Input<string>;
+    insertHeadersConfig?: pulumi.Input<inputs.ElbL7policyRedirectUrlConfigInsertHeadersConfig>;
+    path?: pulumi.Input<string>;
+    port?: pulumi.Input<string>;
+    protocol?: pulumi.Input<string>;
+    query?: pulumi.Input<string>;
+    removeHeadersConfig?: pulumi.Input<inputs.ElbL7policyRedirectUrlConfigRemoveHeadersConfig>;
+    statusCode: pulumi.Input<string>;
+}
+
+export interface ElbL7policyRedirectUrlConfigInsertHeadersConfig {
+    configs: pulumi.Input<pulumi.Input<inputs.ElbL7policyRedirectUrlConfigInsertHeadersConfigConfig>[]>;
+}
+
+export interface ElbL7policyRedirectUrlConfigInsertHeadersConfigConfig {
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+    valueType: pulumi.Input<string>;
+}
+
+export interface ElbL7policyRedirectUrlConfigRemoveHeadersConfig {
+    configs: pulumi.Input<pulumi.Input<inputs.ElbL7policyRedirectUrlConfigRemoveHeadersConfigConfig>[]>;
+}
+
+export interface ElbL7policyRedirectUrlConfigRemoveHeadersConfigConfig {
+    key: pulumi.Input<string>;
+}
+
+export interface ElbL7ruleCondition {
+    key?: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface ElbListenerPortRange {
+    endPort: pulumi.Input<number>;
+    startPort: pulumi.Input<number>;
+}
+
+export interface ElbPoolPersistence {
+    cookieName?: pulumi.Input<string>;
+    timeout?: pulumi.Input<number>;
+    type: pulumi.Input<string>;
+}
+
+export interface ElbSecurityPolicyListener {
+    id?: pulumi.Input<string>;
+}
+
+export interface EvsVolumeAttachment {
+    device?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string>;
+}
+
+export interface FgsFunctionCustomImage {
+    /**
+     * The command line arguments used to start the SWR image.
+     */
+    args?: pulumi.Input<string>;
+    /**
+     * The startup commands of the SWR image.
+     */
+    command?: pulumi.Input<string>;
+    /**
+     * The URL of SWR image.
+     */
+    url: pulumi.Input<string>;
+    /**
+     * The user group ID that used to run SWR image.
+     */
+    userGroupId?: pulumi.Input<string>;
+    /**
+     * The user ID that used to run SWR image.
+     */
+    userId?: pulumi.Input<string>;
+    /**
+     * The working directory of the SWR image.
+     */
+    workingDir?: pulumi.Input<string>;
+}
+
+export interface FgsFunctionFuncMount {
+    /**
+     * The function access path.
+     */
+    localMountPath: pulumi.Input<string>;
+    /**
+     * The ID of the mounted resource (corresponding cloud service).
+     */
+    mountResource: pulumi.Input<string>;
+    /**
+     * The remote mount path.
+     */
+    mountSharePath: pulumi.Input<string>;
+    /**
+     * The mount type.
+     */
+    mountType: pulumi.Input<string>;
+    /**
+     * The mount status.
+     */
+    status?: pulumi.Input<string>;
+}
+
+export interface FgsFunctionNetworkController {
+    /**
+     * Whether to disable the public network access.
+     */
+    disablePublicNetwork?: pulumi.Input<boolean>;
+    /**
+     * The configuration of the VPCs that can trigger the function.
+     */
+    triggerAccessVpcs: pulumi.Input<pulumi.Input<inputs.FgsFunctionNetworkControllerTriggerAccessVpc>[]>;
+}
+
+export interface FgsFunctionNetworkControllerTriggerAccessVpc {
+    /**
+     * The ID of the VPC that can trigger the function.
+     */
+    vpcId: pulumi.Input<string>;
+}
+
+export interface FgsFunctionReservedInstance {
+    /**
+     * The number of reserved instance.
+     */
+    count: pulumi.Input<number>;
+    /**
+     * Whether to enable the idle mode.
+     */
+    idleMode?: pulumi.Input<boolean>;
+    /**
+     * The version name or alias name.
+     */
+    qualifierName: pulumi.Input<string>;
+    /**
+     * The qualifier type of reserved instance.
+     */
+    qualifierType: pulumi.Input<string>;
+    /**
+     * The auto scaling policies for reserved instance.
+     */
+    tacticsConfig?: pulumi.Input<inputs.FgsFunctionReservedInstanceTacticsConfig>;
+}
+
+export interface FgsFunctionReservedInstanceTacticsConfig {
+    /**
+     * The list of scheduled policy configurations.
+     */
+    cronConfigs?: pulumi.Input<pulumi.Input<inputs.FgsFunctionReservedInstanceTacticsConfigCronConfig>[]>;
+    /**
+     * The list of metric policy configurations.
+     */
+    metricConfigs?: pulumi.Input<pulumi.Input<inputs.FgsFunctionReservedInstanceTacticsConfigMetricConfig>[]>;
+}
+
+export interface FgsFunctionReservedInstanceTacticsConfigCronConfig {
+    /**
+     * The number of reserved instance to which the policy belongs.
+     */
+    count: pulumi.Input<number>;
+    /**
+     * The cron expression.
+     */
+    cron: pulumi.Input<string>;
+    /**
+     * The expiration timestamp of the policy.
+     */
+    expiredTime: pulumi.Input<number>;
+    /**
+     * The name of scheduled policy configuration.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The effective timestamp of policy.
+     */
+    startTime: pulumi.Input<number>;
+}
+
+export interface FgsFunctionReservedInstanceTacticsConfigMetricConfig {
+    /**
+     * The minimun of traffic.
+     */
+    min: pulumi.Input<number>;
+    /**
+     * The name of metric policy.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * The metric policy threshold.
+     */
+    threshold: pulumi.Input<number>;
+    /**
+     * The type of metric policy.
+     */
+    type: pulumi.Input<string>;
+}
+
+export interface FgsFunctionVersion {
+    /**
+     * The aliases management for specified version.
+     */
+    aliases?: pulumi.Input<inputs.FgsFunctionVersionAliases>;
+    /**
+     * The description of the version.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The version name.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface FgsFunctionVersionAliases {
+    /**
+     * The description of the version alias.
+     */
+    additionalVersionStrategy?: pulumi.Input<string>;
+    /**
+     * The percentage grayscale configuration of the version alias.
+     */
+    additionalVersionWeights?: pulumi.Input<string>;
+    /**
+     * The description of the version alias.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The name of the version alias.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface GesGraphEncryption {
+    /**
+     * Whether to enable data encryption The value can be true or false. The default value is false.
+     */
+    enable?: pulumi.Input<boolean>;
+    /**
+     * ID of the customer master key created by DEW in the project corresponding to the graph creation.
+     */
+    masterKeyId?: pulumi.Input<string>;
+}
+
+export interface GesGraphLtsOperationTrace {
+    /**
+     * LTS log group name.
+     */
+    auditLogGroupName?: pulumi.Input<string>;
+    /**
+     * Whether to enable graph audit. The default value is false.
+     */
+    enableAudit?: pulumi.Input<boolean>;
+}
+
+export interface GesGraphPublicIp {
+    /**
+     * The EIP ID.
+     */
+    eipId?: pulumi.Input<string>;
+    /**
+     * The bind type of public IP.
+     */
+    publicBindType?: pulumi.Input<string>;
+}
+
+export interface GesGraphVertexIdType {
+    /**
+     * The length of ID.
+     */
+    idLength?: pulumi.Input<number>;
+    /**
+     * Vertex ID type.
+     */
+    idType?: pulumi.Input<string>;
+}
+
+export interface IdentityAclIpCidr {
+    cidr: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+}
+
+export interface IdentityAclIpRange {
+    description?: pulumi.Input<string>;
+    range: pulumi.Input<string>;
+}
+
+export interface IdentityAgencyProjectRole {
+    project: pulumi.Input<string>;
+    roles: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface IdentityProviderAccessConfig {
+    accessType: pulumi.Input<string>;
+    authorizationEndpoint?: pulumi.Input<string>;
+    clientId: pulumi.Input<string>;
+    providerUrl: pulumi.Input<string>;
+    responseMode?: pulumi.Input<string>;
+    responseType?: pulumi.Input<string>;
+    scopes?: pulumi.Input<pulumi.Input<string>[]>;
+    signingKey: pulumi.Input<string>;
+}
+
+export interface IdentityProviderConversionConversionRule {
+    locals: pulumi.Input<pulumi.Input<inputs.IdentityProviderConversionConversionRuleLocal>[]>;
+    remotes: pulumi.Input<pulumi.Input<inputs.IdentityProviderConversionConversionRuleRemote>[]>;
+}
+
+export interface IdentityProviderConversionConversionRuleLocal {
+    group?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+
+export interface IdentityProviderConversionConversionRuleRemote {
+    attribute: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface IdentityProviderConversionRule {
+    locals?: pulumi.Input<pulumi.Input<inputs.IdentityProviderConversionRuleLocal>[]>;
+    remotes?: pulumi.Input<pulumi.Input<inputs.IdentityProviderConversionRuleRemote>[]>;
+}
+
+export interface IdentityProviderConversionRuleLocal {
+    group?: pulumi.Input<string>;
+    username?: pulumi.Input<string>;
+}
+
+export interface IdentityProviderConversionRuleRemote {
+    attribute?: pulumi.Input<string>;
+    condition?: pulumi.Input<string>;
+    values?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface LbPoolPersistence {
+    cookieName?: pulumi.Input<string>;
+    timeout?: pulumi.Input<number>;
+    type: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterAnalysisCoreNodes {
+    assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    dataVolumeCount: pulumi.Input<number>;
+    dataVolumeSize?: pulumi.Input<number>;
+    dataVolumeType?: pulumi.Input<string>;
+    flavor: pulumi.Input<string>;
+    hostIps?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeNumber: pulumi.Input<number>;
+    rootVolumeSize: pulumi.Input<number>;
+    rootVolumeType: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterAnalysisTaskNodes {
+    assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    dataVolumeCount: pulumi.Input<number>;
+    dataVolumeSize?: pulumi.Input<number>;
+    dataVolumeType?: pulumi.Input<string>;
+    flavor: pulumi.Input<string>;
+    hostIps?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeNumber: pulumi.Input<number>;
+    rootVolumeSize: pulumi.Input<number>;
+    rootVolumeType: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterBootstrapScript {
+    /**
+     * Whether the bootstrap action script runs only on active master nodes.
+     */
+    activeMaster?: pulumi.Input<boolean>;
+    /**
+     * Whether the bootstrap action script is executed before component start.
+     */
+    beforeComponentStart?: pulumi.Input<boolean>;
+    /**
+     * Whether the bootstrap action script involves root user operations.
+     */
+    executeNeedSudoRoot?: pulumi.Input<boolean>;
+    /**
+     * The action after the bootstrap action script fails to be executed.
+     */
+    failAction: pulumi.Input<string>;
+    /**
+     * Name of a bootstrap action script.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Name of the node group where the bootstrap action script is executed.
+     */
+    nodes: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Bootstrap action script parameters.
+     */
+    parameters?: pulumi.Input<string>;
+    /**
+     * The execution time of one bootstrap action script, in RFC-3339 format.
+     */
+    startTime?: pulumi.Input<string>;
+    /**
+     * The status of one bootstrap action script.
+     */
+    state?: pulumi.Input<string>;
+    /**
+     * Path of a bootstrap action script. Set this parameter to an OBS bucket path or a local VM path.
+     */
+    uri: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterComponentConfig {
+    configs: pulumi.Input<pulumi.Input<inputs.MapreduceClusterComponentConfigConfig>[]>;
+    name: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterComponentConfigConfig {
+    configFileName: pulumi.Input<string>;
+    key: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterCustomNode {
+    assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    dataVolumeCount: pulumi.Input<number>;
+    dataVolumeSize?: pulumi.Input<number>;
+    dataVolumeType?: pulumi.Input<string>;
+    flavor: pulumi.Input<string>;
+    groupName: pulumi.Input<string>;
+    hostIps?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeNumber: pulumi.Input<number>;
+    rootVolumeSize: pulumi.Input<number>;
+    rootVolumeType: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterExternalDatasource {
+    componentName: pulumi.Input<string>;
+    dataConnectionId?: pulumi.Input<string>;
+    roleType: pulumi.Input<string>;
+    sourceType: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterMasterNodes {
+    assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    dataVolumeCount: pulumi.Input<number>;
+    dataVolumeSize?: pulumi.Input<number>;
+    dataVolumeType?: pulumi.Input<string>;
+    flavor: pulumi.Input<string>;
+    hostIps?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeNumber: pulumi.Input<number>;
+    rootVolumeSize: pulumi.Input<number>;
+    rootVolumeType: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterSmnNotify {
+    /**
+     * The subscription rule name.
+     */
+    subscriptionName: pulumi.Input<string>;
+    /**
+     * The Uniform Resource Name (URN) of the topic.
+     */
+    topicUrn: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterStreamingCoreNodes {
+    assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    dataVolumeCount: pulumi.Input<number>;
+    dataVolumeSize?: pulumi.Input<number>;
+    dataVolumeType?: pulumi.Input<string>;
+    flavor: pulumi.Input<string>;
+    hostIps?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeNumber: pulumi.Input<number>;
+    rootVolumeSize: pulumi.Input<number>;
+    rootVolumeType: pulumi.Input<string>;
+}
+
+export interface MapreduceClusterStreamingTaskNodes {
+    assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    dataVolumeCount: pulumi.Input<number>;
+    dataVolumeSize?: pulumi.Input<number>;
+    dataVolumeType?: pulumi.Input<string>;
+    flavor: pulumi.Input<string>;
+    hostIps?: pulumi.Input<pulumi.Input<string>[]>;
+    nodeNumber: pulumi.Input<number>;
+    rootVolumeSize: pulumi.Input<number>;
+    rootVolumeType: pulumi.Input<string>;
+}
+
+export interface NatGatewaySessionConf {
+    /**
+     * The ICMP session expiration time.
+     */
+    icmpSessionExpireTime?: pulumi.Input<number>;
+    /**
+     * The TCP session expiration time.
+     */
+    tcpSessionExpireTime?: pulumi.Input<number>;
+    /**
+     * The duration of TIME_WAIT state when TCP connection is closed.
+     */
+    tcpTimeWaitTime?: pulumi.Input<number>;
+    /**
+     * The UDP session expiration time.
+     */
+    udpSessionExpireTime?: pulumi.Input<number>;
+}
+
+export interface NetworkingSecgroupRule {
+    action?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    direction?: pulumi.Input<string>;
+    ethertype?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    /**
+     * schema: Deprecated
+     */
+    portRangeMax?: pulumi.Input<number>;
+    /**
+     * schema: Deprecated
+     */
+    portRangeMin?: pulumi.Input<number>;
+    ports?: pulumi.Input<string>;
+    priority?: pulumi.Input<number>;
+    protocol?: pulumi.Input<string>;
+    remoteAddressGroupId?: pulumi.Input<string>;
+    remoteGroupId?: pulumi.Input<string>;
+    remoteIpPrefix?: pulumi.Input<string>;
+}
+
+export interface ObsBucketAclAccountPermission {
+    /**
+     * Specifies the access to acl. Valid values are **READ_ACP** and **WRITE_ACP**.
+     */
+    accessToAcls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the access to bucket. Valid values are **READ** and **WRITE**.
+     */
+    accessToBuckets?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the account id to authorize. The account id cannot be the bucket owner, 
+     * and must be unique.
+     */
+    accountId: pulumi.Input<string>;
+}
+
+export interface ObsBucketAclLogDeliveryUserPermission {
+    /**
+     * Specifies the access to acl. Valid values are **READ_ACP** and **WRITE_ACP**.
+     */
+    accessToAcls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the access to bucket. Valid values are **READ** and **WRITE**.
+     */
+    accessToBuckets?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObsBucketAclOwnerPermission {
+    /**
+     * Specifies the access to acl. Valid values are **READ_ACP** and **WRITE_ACP**.
+     */
+    accessToAcls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the access to bucket. Valid values are **READ** and **WRITE**.
+     */
+    accessToBuckets?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObsBucketAclPublicPermission {
+    /**
+     * Specifies the access to acl. Valid values are **READ_ACP** and **WRITE_ACP**.
+     */
+    accessToAcls?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * Specifies the access to bucket. Valid values are **READ** and **WRITE**.
+     */
+    accessToBuckets?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface ObsBucketCorsRule {
+    allowedHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    allowedMethods: pulumi.Input<pulumi.Input<string>[]>;
+    allowedOrigins: pulumi.Input<pulumi.Input<string>[]>;
+    exposeHeaders?: pulumi.Input<pulumi.Input<string>[]>;
+    maxAgeSeconds?: pulumi.Input<number>;
+}
+
+export interface ObsBucketLifecycleRule {
+    abortIncompleteMultipartUploads?: pulumi.Input<pulumi.Input<inputs.ObsBucketLifecycleRuleAbortIncompleteMultipartUpload>[]>;
+    enabled: pulumi.Input<boolean>;
+    expirations?: pulumi.Input<pulumi.Input<inputs.ObsBucketLifecycleRuleExpiration>[]>;
+    name: pulumi.Input<string>;
+    noncurrentVersionExpirations?: pulumi.Input<pulumi.Input<inputs.ObsBucketLifecycleRuleNoncurrentVersionExpiration>[]>;
+    noncurrentVersionTransitions?: pulumi.Input<pulumi.Input<inputs.ObsBucketLifecycleRuleNoncurrentVersionTransition>[]>;
+    prefix?: pulumi.Input<string>;
+    transitions?: pulumi.Input<pulumi.Input<inputs.ObsBucketLifecycleRuleTransition>[]>;
+}
+
+export interface ObsBucketLifecycleRuleAbortIncompleteMultipartUpload {
+    days: pulumi.Input<number>;
+}
+
+export interface ObsBucketLifecycleRuleExpiration {
+    days: pulumi.Input<number>;
+}
+
+export interface ObsBucketLifecycleRuleNoncurrentVersionExpiration {
+    days: pulumi.Input<number>;
+}
+
+export interface ObsBucketLifecycleRuleNoncurrentVersionTransition {
+    days: pulumi.Input<number>;
+    storageClass: pulumi.Input<string>;
+}
+
+export interface ObsBucketLifecycleRuleTransition {
+    days: pulumi.Input<number>;
+    storageClass: pulumi.Input<string>;
+}
+
+export interface ObsBucketLogging {
+    /**
+     * schema: Required
+     */
+    agency?: pulumi.Input<string>;
+    targetBucket: pulumi.Input<string>;
+    targetPrefix?: pulumi.Input<string>;
+}
+
+export interface ObsBucketStorageInfo {
+    objectNumber?: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
+}
+
+export interface ObsBucketWebsite {
+    errorDocument?: pulumi.Input<string>;
+    indexDocument?: pulumi.Input<string>;
+    redirectAllRequestsTo?: pulumi.Input<string>;
+    routingRules?: pulumi.Input<string>;
+}
+
+export interface ProviderAssumeRole {
+    agencyName: pulumi.Input<string>;
+    domainName: pulumi.Input<string>;
+}
+
+export interface RdsBackupDatabase {
+    /**
+     * Database to be backed up for Microsoft SQL Server.
+     */
+    name: pulumi.Input<string>;
+}
+
+export interface RdsInstanceBackupStrategy {
+    /**
+     * schema: Required
+     */
+    keepDays?: pulumi.Input<number>;
+    period?: pulumi.Input<string>;
+    startTime: pulumi.Input<string>;
+}
+
+export interface RdsInstanceDb {
+    password?: pulumi.Input<string>;
+    port?: pulumi.Input<number>;
+    type: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
+    version: pulumi.Input<string>;
+}
+
+export interface RdsInstanceMsdtcHost {
+    hostName: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    ip: pulumi.Input<string>;
+}
+
+export interface RdsInstanceNode {
+    availabilityZone?: pulumi.Input<string>;
+    id?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    role?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+}
+
+export interface RdsInstanceParameter {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface RdsInstanceRestore {
+    backupId: pulumi.Input<string>;
+    databaseName?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    instanceId: pulumi.Input<string>;
+}
+
+export interface RdsInstanceVolume {
+    diskEncryptionId?: pulumi.Input<string>;
+    limitSize?: pulumi.Input<number>;
+    size: pulumi.Input<number>;
+    triggerThreshold?: pulumi.Input<number>;
+    type: pulumi.Input<string>;
+}
+
+export interface RdsMysqlDatabasePrivilegeUser {
+    /**
+     * Specifies the username of the database account.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the read-only permission.
+     */
+    readonly?: pulumi.Input<boolean>;
+}
+
+export interface RdsMysqlDatabaseTableRestoreDatabase {
+    /**
+     * Specifies the name of the database after restoration.
+     */
+    newName: pulumi.Input<string>;
+    /**
+     * Specifies the name of the database before restoration.
+     */
+    oldName: pulumi.Input<string>;
+}
+
+export interface RdsMysqlDatabaseTableRestoreRestoreTable {
+    /**
+     * Specifies the database name.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * Specifies the tables.
+     */
+    tables: pulumi.Input<pulumi.Input<inputs.RdsMysqlDatabaseTableRestoreRestoreTableTable>[]>;
+}
+
+export interface RdsMysqlDatabaseTableRestoreRestoreTableTable {
+    /**
+     * Specifies the name of the table after restoration.
+     */
+    newName: pulumi.Input<string>;
+    /**
+     * Specifies the name of the table before restoration.
+     */
+    oldName: pulumi.Input<string>;
+}
+
+export interface RdsParametergroupConfigurationParameter {
+    description?: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
+    readonly?: pulumi.Input<boolean>;
+    restartRequired?: pulumi.Input<boolean>;
+    type?: pulumi.Input<string>;
+    value?: pulumi.Input<string>;
+    valueRange?: pulumi.Input<string>;
+}
+
+export interface RdsParametergroupDatastore {
+    type: pulumi.Input<string>;
+    version: pulumi.Input<string>;
+}
+
+export interface RdsPgAccountAttribute {
+    /**
+     * Indicates whether a user bypasses each row-level security policy.
+     */
+    rolBypassRls?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether a user can log in to the database.
+     */
+    rolCanLogin?: pulumi.Input<boolean>;
+    /**
+     * Indicates the maximum number of concurrent connections to a DB instance.
+     */
+    rolConnLimit?: pulumi.Input<number>;
+    /**
+     * Indicates whether a user can create a database.
+     */
+    rolCreateDb?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether a user can create other sub-users.
+     */
+    rolCreateRole?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether a user automatically inherits the permissions of the role to which the
+     * user belongs.
+     */
+    rolInherit?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the user is a replication role.
+     */
+    rolReplication?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether a user has the super-user permission.
+     */
+    rolSuper?: pulumi.Input<boolean>;
+}
+
+export interface RdsPgHbaHostBasedAuthentication {
+    /**
+     * Specifies the client IP address.
+     */
+    address: pulumi.Input<string>;
+    /**
+     * Specifies the database name.
+     */
+    database: pulumi.Input<string>;
+    /**
+     * Specifies the subnet mask.
+     */
+    mask?: pulumi.Input<string>;
+    /**
+     * Specifies the authentication mode.
+     */
+    method: pulumi.Input<string>;
+    /**
+     * Specifies the connection type.
+     */
+    type: pulumi.Input<string>;
+    /**
+     * Specifies the Name of a user.
+     */
+    user: pulumi.Input<string>;
+}
+
+export interface RdsReadReplicaInstanceDb {
+    port?: pulumi.Input<number>;
+    type?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
+    version?: pulumi.Input<string>;
+}
+
+export interface RdsReadReplicaInstanceParameter {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface RdsReadReplicaInstanceVolume {
+    /**
+     * schema: Computed
+     */
+    diskEncryptionId?: pulumi.Input<string>;
+    limitSize?: pulumi.Input<number>;
+    size?: pulumi.Input<number>;
+    triggerThreshold?: pulumi.Input<number>;
+    type: pulumi.Input<string>;
+}
+
+export interface RdsSqlserverDatabasePrivilegeUser {
+    /**
+     * Specifies the username of the database account.
+     */
+    name: pulumi.Input<string>;
+    /**
+     * Specifies the read-only permission.
+     */
+    readonly?: pulumi.Input<boolean>;
+}
+
+export interface SfsFileSystemAccessRule {
+    accessLevel?: pulumi.Input<string>;
+    accessRuleId?: pulumi.Input<string>;
+    accessTo?: pulumi.Input<string>;
+    accessType?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+}
+
+export interface SfsTurboDuTaskDirUsage {
+    fileCounts?: pulumi.Input<pulumi.Input<inputs.SfsTurboDuTaskDirUsageFileCount>[]>;
+    message?: pulumi.Input<string>;
+    path?: pulumi.Input<string>;
+    usedCapacity?: pulumi.Input<number>;
+}
+
+export interface SfsTurboDuTaskDirUsageFileCount {
+    block?: pulumi.Input<number>;
+    char?: pulumi.Input<number>;
+    dir?: pulumi.Input<number>;
+    pipe?: pulumi.Input<number>;
+    regular?: pulumi.Input<number>;
+    socket?: pulumi.Input<number>;
+    symlink?: pulumi.Input<number>;
+}
+
+export interface SfsTurboObsTargetObs {
+    bucket: pulumi.Input<string>;
+    endpoint: pulumi.Input<string>;
+}
+
+export interface SmnSubscriptionExtension {
+    clientId?: pulumi.Input<string>;
+    clientSecret?: pulumi.Input<string>;
+    keyword?: pulumi.Input<string>;
+    signSecret?: pulumi.Input<string>;
+}
+
+export interface SmnSubscriptionFilterPolicy {
+    /**
+     * The filter policy name. The policy name must be unique.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * The string array for exact match.
+     */
+    stringEquals?: pulumi.Input<pulumi.Input<string>[]>;
+}
+
+export interface SwrOrganizationPermissionsSelfPermission {
+    permission?: pulumi.Input<string>;
+    userId?: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
+}
+
+export interface SwrOrganizationPermissionsUser {
+    permission: pulumi.Input<string>;
+    userId: pulumi.Input<string>;
+    userName?: pulumi.Input<string>;
+}
+
+export interface VpcAddressGroupIpExtraSet {
+    ip: pulumi.Input<string>;
+    remarks?: pulumi.Input<string>;
+}
+
+export interface VpcBandwidthPublicip {
+    id?: pulumi.Input<string>;
+    ipAddress?: pulumi.Input<string>;
+    ipVersion?: pulumi.Input<number>;
+    type?: pulumi.Input<string>;
+}
+
+export interface VpcEipBandwidth {
+    /**
+     * Whether the bandwidth is billed by traffic or by bandwidth size.
+     */
+    chargeMode?: pulumi.Input<string>;
+    /**
+     * The shared bandwidth ID.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The dedicated bandwidth name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Whether the bandwidth is dedicated or shared.
+     */
+    shareType: pulumi.Input<string>;
+    /**
+     * The dedicated bandwidth size.
+     */
+    size?: pulumi.Input<number>;
+}
+
+export interface VpcEipPublicip {
+    /**
+     * The EIP address to be assigned.
+     */
+    ipAddress?: pulumi.Input<string>;
+    /**
+     * The IP version.
+     */
+    ipVersion?: pulumi.Input<number>;
+    /**
+     * schema: Deprecated
+     */
+    portId?: pulumi.Input<string>;
+    /**
+     * The EIP type.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface VpcRoute {
+    destination?: pulumi.Input<string>;
+    nexthop?: pulumi.Input<string>;
+}
+
+export interface VpcRouteTableRoute {
+    description?: pulumi.Input<string>;
+    destination: pulumi.Input<string>;
+    nexthop: pulumi.Input<string>;
+    type: pulumi.Input<string>;
+}
+
+export interface VpcepServiceConnection {
+    description?: pulumi.Input<string>;
+    domainId?: pulumi.Input<string>;
+    endpointId?: pulumi.Input<string>;
+    packetId?: pulumi.Input<number>;
+    status?: pulumi.Input<string>;
+}
+
+export interface VpcepServicePortMapping {
+    protocol?: pulumi.Input<string>;
+    /**
+     * schema: Required
+     */
+    servicePort?: pulumi.Input<number>;
+    /**
+     * schema: Required
+     */
+    terminalPort?: pulumi.Input<number>;
+}
+
+export interface VpnConnectionIkepolicy {
+    /**
+     * The authentication algorithm, SHA1 and MD5 are less secure, please use them with caution.
+     */
+    authenticationAlgorithm?: pulumi.Input<string>;
+    /**
+     * The authentication method during IKE negotiation.
+     */
+    authenticationMethod?: pulumi.Input<string>;
+    /**
+     * Specifies the DH group used for key exchange in phase 1.
+     */
+    dhGroup?: pulumi.Input<string>;
+    /**
+     * Specifies the dead peer detection (DPD) object.
+     */
+    dpd?: pulumi.Input<inputs.VpnConnectionIkepolicyDpd>;
+    /**
+     * The encryption algorithm, 3DES is less secure, please use them with caution.
+     */
+    encryptionAlgorithm?: pulumi.Input<string>;
+    /**
+     * The IKE negotiation version.
+     */
+    ikeVersion?: pulumi.Input<string>;
+    /**
+     * The life cycle of SA in seconds, when the life cycle expires, IKE SA will be automatically updated.
+     */
+    lifetimeSeconds?: pulumi.Input<number>;
+    /**
+     * The local ID.
+     */
+    localId?: pulumi.Input<string>;
+    /**
+     * The local ID type.
+     */
+    localIdType?: pulumi.Input<string>;
+    /**
+     * The peer ID.
+     */
+    peerId?: pulumi.Input<string>;
+    /**
+     * The peer ID type.
+     */
+    peerIdType?: pulumi.Input<string>;
+    /**
+     * The DH key group used by PFS.
+     */
+    pfs?: pulumi.Input<string>;
+    /**
+     * The negotiation mode, only works when the ikeVersion is v1.
+     */
+    phase1NegotiationMode?: pulumi.Input<string>;
+}
+
+export interface VpnConnectionIkepolicyDpd {
+    /**
+     * Specifies the DPD idle timeout period.
+     */
+    interval?: pulumi.Input<number>;
+    /**
+     * Specifies the format of DPD packets.
+     */
+    msg?: pulumi.Input<string>;
+    /**
+     * Specifies the interval for retransmitting DPD packets.
+     */
+    timeout?: pulumi.Input<number>;
+}
+
+export interface VpnConnectionIpsecpolicy {
+    /**
+     * The authentication algorithm, SHA1 and MD5 are less secure, please use them with caution.
+     */
+    authenticationAlgorithm?: pulumi.Input<string>;
+    /**
+     * The encapsulation mode, only **tunnel** supported for now.
+     */
+    encapsulationMode?: pulumi.Input<string>;
+    /**
+     * The encryption algorithm, 3DES is less secure, please use them with caution.
+     */
+    encryptionAlgorithm?: pulumi.Input<string>;
+    /**
+     * The lifecycle time of Ipsec tunnel in seconds.
+     */
+    lifetimeSeconds?: pulumi.Input<number>;
+    /**
+     * The DH key group used by PFS.
+     */
+    pfs?: pulumi.Input<string>;
+    /**
+     * The transform protocol. Only **esp** supported for now.
+     */
+    transformProtocol?: pulumi.Input<string>;
+}
+
+export interface VpnConnectionPolicyRule {
+    /**
+     * The list of destination CIDRs.
+     */
+    destinations?: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The rule index.
+     */
+    ruleIndex?: pulumi.Input<number>;
+    /**
+     * The source CIDR.
+     */
+    source?: pulumi.Input<string>;
+}
+
+export interface VpnGatewayCertificate {
+    certificateChain: pulumi.Input<string>;
+    certificateChainExpireTime?: pulumi.Input<string>;
+    certificateChainSerialNumber?: pulumi.Input<string>;
+    certificateChainSubject?: pulumi.Input<string>;
+    certificateExpireTime?: pulumi.Input<string>;
+    certificateId?: pulumi.Input<string>;
+    certificateSerialNumber?: pulumi.Input<string>;
+    certificateSubject?: pulumi.Input<string>;
+    content: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
+    encCertificate: pulumi.Input<string>;
+    encCertificateExpireTime?: pulumi.Input<string>;
+    encCertificateSerialNumber?: pulumi.Input<string>;
+    encCertificateSubject?: pulumi.Input<string>;
+    encPrivateKey: pulumi.Input<string>;
+    issuer?: pulumi.Input<string>;
+    name: pulumi.Input<string>;
+    privateKey: pulumi.Input<string>;
+    signatureAlgorithm?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string>;
+}
+
+export interface VpnGatewayEip1 {
+    /**
+     * The bandwidth ID.
+     */
+    bandwidthId?: pulumi.Input<string>;
+    /**
+     * The bandwidth name.
+     */
+    bandwidthName?: pulumi.Input<string>;
+    /**
+     * Bandwidth size in Mbit/s. When the flavor is **V300**, the value cannot be greater than **300**.
+     */
+    bandwidthSize?: pulumi.Input<number>;
+    /**
+     * The charge mode of the bandwidth. The value can be **bandwidth** and **traffic**.
+     */
+    chargeMode?: pulumi.Input<string>;
+    /**
+     * The public IP ID.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The public IP address.
+     */
+    ipAddress?: pulumi.Input<string>;
+    /**
+     * The public IP version.
+     */
+    ipVersion?: pulumi.Input<number>;
+    /**
+     * The EIP type. The value can be **5_bgp** and **5_sbgp**.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface VpnGatewayEip2 {
+    /**
+     * The bandwidth ID.
+     */
+    bandwidthId?: pulumi.Input<string>;
+    /**
+     * The bandwidth name.
+     */
+    bandwidthName?: pulumi.Input<string>;
+    /**
+     * Bandwidth size in Mbit/s. When the flavor is **V300**, the value cannot be greater than **300**.
+     */
+    bandwidthSize?: pulumi.Input<number>;
+    /**
+     * The charge mode of the bandwidth. The value can be **bandwidth** and **traffic**.
+     */
+    chargeMode?: pulumi.Input<string>;
+    /**
+     * The public IP ID.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The public IP address.
+     */
+    ipAddress?: pulumi.Input<string>;
+    /**
+     * The public IP version.
+     */
+    ipVersion?: pulumi.Input<number>;
+    /**
+     * The EIP type. The value can be **5_bgp** and **5_sbgp**.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface VpnGatewayMasterEip {
+    /**
+     * The bandwidth ID.
+     */
+    bandwidthId?: pulumi.Input<string>;
+    /**
+     * The bandwidth name.
+     */
+    bandwidthName?: pulumi.Input<string>;
+    /**
+     * Bandwidth size in Mbit/s. When the flavor is **V300**, the value cannot be greater than **300**.
+     */
+    bandwidthSize?: pulumi.Input<number>;
+    /**
+     * The charge mode of the bandwidth. The value can be **bandwidth** and **traffic**.
+     */
+    chargeMode?: pulumi.Input<string>;
+    /**
+     * The public IP ID.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The public IP address.
+     */
+    ipAddress?: pulumi.Input<string>;
+    /**
+     * The public IP version.
+     */
+    ipVersion?: pulumi.Input<number>;
+    /**
+     * The EIP type. The value can be **5_bgp** and **5_sbgp**.
+     */
+    type?: pulumi.Input<string>;
+}
+
+export interface VpnGatewaySlaveEip {
+    /**
+     * The bandwidth ID.
+     */
+    bandwidthId?: pulumi.Input<string>;
+    /**
+     * The bandwidth name.
+     */
+    bandwidthName?: pulumi.Input<string>;
+    /**
+     * Bandwidth size in Mbit/s. When the flavor is **V300**, the value cannot be greater than **300**.
+     */
+    bandwidthSize?: pulumi.Input<number>;
+    /**
+     * The charge mode of the bandwidth. The value can be **bandwidth** and **traffic**.
+     */
+    chargeMode?: pulumi.Input<string>;
+    /**
+     * The public IP ID.
+     */
+    id?: pulumi.Input<string>;
+    /**
+     * The public IP address.
+     */
+    ipAddress?: pulumi.Input<string>;
+    /**
+     * The public IP version.
+     */
+    ipVersion?: pulumi.Input<number>;
+    /**
+     * The EIP type. The value can be **5_bgp** and **5_sbgp**.
+     */
+    type?: pulumi.Input<string>;
+}
+export namespace config {
+}

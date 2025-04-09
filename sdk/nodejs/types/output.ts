@@ -4,5 +4,7795 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as inputs from "../types/input";
 import * as outputs from "../types/output";
-import * as enums from "../types/enums";
 
+export interface AomServiceDiscoveryRuleDiscoveryRule {
+    checkContents: string[];
+    checkMode: string;
+    checkType: string;
+}
+
+export interface AomServiceDiscoveryRuleLogPathRule {
+    args: string[];
+    nameType: string;
+    values: string[];
+}
+
+export interface AomServiceDiscoveryRuleNameRules {
+    applicationNameRules: outputs.AomServiceDiscoveryRuleNameRulesApplicationNameRule[];
+    serviceNameRules: outputs.AomServiceDiscoveryRuleNameRulesServiceNameRule[];
+}
+
+export interface AomServiceDiscoveryRuleNameRulesApplicationNameRule {
+    args: string[];
+    nameType: string;
+    values?: string[];
+}
+
+export interface AomServiceDiscoveryRuleNameRulesServiceNameRule {
+    args: string[];
+    nameType: string;
+    values?: string[];
+}
+
+export interface ApiGatewayApiBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The parameter name.
+     */
+    name: string;
+    systemParamType?: string;
+    /**
+     * The parameter type.
+     */
+    type: string;
+    /**
+     * The value of the parameter
+     */
+    value: string;
+}
+
+export interface ApiGatewayApiFuncGraph {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn?: string;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: string;
+    /**
+     * The invocation type.
+     */
+    invocationType?: string;
+    /**
+     * The network architecture (framework) type of the FunctionGraph function.
+     */
+    networkType?: string;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol?: string;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: number;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version?: string;
+}
+
+export interface ApiGatewayApiFuncGraphPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The configaiton list of the backend parameters.
+     */
+    backendParams?: outputs.ApiGatewayApiFuncGraphPolicyBackendParam[];
+    /**
+     * The policy conditions.
+     */
+    conditions: outputs.ApiGatewayApiFuncGraphPolicyCondition[];
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: string;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn?: string;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: string;
+    /**
+     * The invocation mode of the FunctionGraph function.
+     */
+    invocationMode?: string;
+    /**
+     * The invocation mode of the FunctionGraph function.
+     */
+    invocationType?: string;
+    /**
+     * The name of the backend policy.
+     */
+    name: string;
+    /**
+     * The network (framework) type of the FunctionGraph function.
+     */
+    networkType?: string;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol?: string;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: number;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version?: string;
+}
+
+export interface ApiGatewayApiFuncGraphPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The parameter name.
+     */
+    name: string;
+    systemParamType?: string;
+    /**
+     * The parameter type.
+     */
+    type: string;
+    /**
+     * The value of the parameter
+     */
+    value: string;
+}
+
+export interface ApiGatewayApiFuncGraphPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: string;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: string;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: string;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: string;
+    /**
+     * The request parameter name.
+     */
+    paramName?: string;
+    /**
+     * The type of the backend policy.
+     */
+    source?: string;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: string;
+    /**
+     * The condition type.
+     */
+    type?: string;
+    /**
+     * The value of the backend policy.
+     */
+    value: string;
+}
+
+export interface ApiGatewayApiMock {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The response content of the mock.
+     */
+    response?: string;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode: number;
+}
+
+export interface ApiGatewayApiMockPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The configuration list of backend parameters.
+     */
+    backendParams?: outputs.ApiGatewayApiMockPolicyBackendParam[];
+    /**
+     * The policy conditions.
+     */
+    conditions: outputs.ApiGatewayApiMockPolicyCondition[];
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: string;
+    /**
+     * The backend policy name.
+     */
+    name: string;
+    /**
+     * The response content of the mock.
+     */
+    response?: string;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode: number;
+}
+
+export interface ApiGatewayApiMockPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The parameter name.
+     */
+    name: string;
+    systemParamType?: string;
+    /**
+     * The parameter type.
+     */
+    type: string;
+    /**
+     * The value of the parameter
+     */
+    value: string;
+}
+
+export interface ApiGatewayApiMockPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: string;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: string;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: string;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: string;
+    /**
+     * The request parameter name.
+     */
+    paramName?: string;
+    /**
+     * The type of the backend policy.
+     */
+    source?: string;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: string;
+    /**
+     * The condition type.
+     */
+    type?: string;
+    /**
+     * The value of the backend policy.
+     */
+    value: string;
+}
+
+export interface ApiGatewayApiRequestParam {
+    /**
+     * The default value of the parameter.
+     */
+    default: string;
+    /**
+     * The parameter description.
+     */
+    description: string;
+    /**
+     * The enumerated value.
+     */
+    enumeration: string;
+    /**
+     * The parameter example.
+     */
+    example: string;
+    /**
+     * Where this parameter is located.
+     */
+    location?: string;
+    /**
+     * The maximum value or length (string parameter) for parameter.
+     */
+    maximum: number;
+    /**
+     * The minimum value or length (string parameter) for parameter.
+     */
+    minimum: number;
+    /**
+     * The name of the request parameter.
+     */
+    name: string;
+    /**
+     * The list of orchestration rules that parameter used.
+     */
+    orchestrations?: string[];
+    /**
+     * Whether to transparently transfer the parameter.
+     */
+    passthrough: boolean;
+    /**
+     * Whether this parameter is required.
+     */
+    required: boolean;
+    /**
+     * The parameter type.
+     */
+    type?: string;
+    /**
+     * Whether to enable the parameter validation.
+     */
+    validEnable: number;
+}
+
+export interface ApiGatewayApiWeb {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The backend service address, which consists of a domain name or IP address, and a port number.
+     */
+    backendAddress?: string;
+    /**
+     * The proxy host header.
+     */
+    hostHeader?: string;
+    /**
+     * The backend request path.
+     */
+    path: string;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod?: string;
+    /**
+     * The web protocol type of the API request.
+     */
+    requestProtocol?: string;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount?: number;
+    /**
+     * Whether to enable two-way authentication.
+     */
+    sslEnable?: boolean;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: number;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId?: string;
+}
+
+export interface ApiGatewayApiWebPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The backend service address
+     */
+    backendAddress?: string;
+    /**
+     * The configuration list of the backend parameters.
+     */
+    backendParams?: outputs.ApiGatewayApiWebPolicyBackendParam[];
+    /**
+     * The policy conditions.
+     */
+    conditions: outputs.ApiGatewayApiWebPolicyCondition[];
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: string;
+    /**
+     * The proxy host header.
+     */
+    hostHeader?: string;
+    /**
+     * The name of the web policy.
+     */
+    name: string;
+    /**
+     * The backend request address.
+     */
+    path: string;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod: string;
+    /**
+     * The backend request protocol.
+     */
+    requestProtocol?: string;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount?: number;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: number;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId?: string;
+}
+
+export interface ApiGatewayApiWebPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The parameter name.
+     */
+    name: string;
+    systemParamType?: string;
+    /**
+     * The parameter type.
+     */
+    type: string;
+    /**
+     * The value of the parameter
+     */
+    value: string;
+}
+
+export interface ApiGatewayApiWebPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: string;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: string;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: string;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: string;
+    /**
+     * The request parameter name.
+     */
+    paramName?: string;
+    /**
+     * The type of the backend policy.
+     */
+    source?: string;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: string;
+    /**
+     * The condition type.
+     */
+    type?: string;
+    /**
+     * The value of the backend policy.
+     */
+    value: string;
+}
+
+export interface ApiGatewayGroupEnvironment {
+    /**
+     * The ID of the environment to which the variables belongs.
+     */
+    environmentId: string;
+    /**
+     * The array of one or more environment variables.
+     */
+    variables: outputs.ApiGatewayGroupEnvironmentVariable[];
+}
+
+export interface ApiGatewayGroupEnvironmentVariable {
+    /**
+     * The ID of the variable that the group has.
+     */
+    id: string;
+    /**
+     * The variable name.
+     */
+    name: string;
+    /**
+     * The variable value.
+     */
+    value: string;
+    /**
+     * schema: Deprecated; The ID of the variable that the group has.
+     *
+     * @deprecated Use 'id' instead
+     */
+    variableId: string;
+}
+
+export interface ApiGatewayGroupUrlDomain {
+    isHttpRedirectToHttps: boolean;
+    minSslVersion: string;
+    name: string;
+}
+
+export interface ApigApiBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The parameter name.
+     */
+    name: string;
+    systemParamType?: string;
+    /**
+     * The parameter type.
+     */
+    type: string;
+    /**
+     * The value of the parameter
+     */
+    value: string;
+}
+
+export interface ApigApiFuncGraph {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn?: string;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: string;
+    /**
+     * The invocation type.
+     */
+    invocationType?: string;
+    /**
+     * The network architecture (framework) type of the FunctionGraph function.
+     */
+    networkType?: string;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol?: string;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: number;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version?: string;
+}
+
+export interface ApigApiFuncGraphPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The configaiton list of the backend parameters.
+     */
+    backendParams?: outputs.ApigApiFuncGraphPolicyBackendParam[];
+    /**
+     * The policy conditions.
+     */
+    conditions: outputs.ApigApiFuncGraphPolicyCondition[];
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: string;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn?: string;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: string;
+    /**
+     * The invocation mode of the FunctionGraph function.
+     */
+    invocationMode?: string;
+    /**
+     * The invocation mode of the FunctionGraph function.
+     */
+    invocationType?: string;
+    /**
+     * The name of the backend policy.
+     */
+    name: string;
+    /**
+     * The network (framework) type of the FunctionGraph function.
+     */
+    networkType?: string;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol?: string;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: number;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version?: string;
+}
+
+export interface ApigApiFuncGraphPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The parameter name.
+     */
+    name: string;
+    systemParamType?: string;
+    /**
+     * The parameter type.
+     */
+    type: string;
+    /**
+     * The value of the parameter
+     */
+    value: string;
+}
+
+export interface ApigApiFuncGraphPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: string;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: string;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: string;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: string;
+    /**
+     * The request parameter name.
+     */
+    paramName?: string;
+    /**
+     * The type of the backend policy.
+     */
+    source?: string;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: string;
+    /**
+     * The condition type.
+     */
+    type?: string;
+    /**
+     * The value of the backend policy.
+     */
+    value: string;
+}
+
+export interface ApigApiMock {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The response content of the mock.
+     */
+    response?: string;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode: number;
+}
+
+export interface ApigApiMockPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The configuration list of backend parameters.
+     */
+    backendParams?: outputs.ApigApiMockPolicyBackendParam[];
+    /**
+     * The policy conditions.
+     */
+    conditions: outputs.ApigApiMockPolicyCondition[];
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: string;
+    /**
+     * The backend policy name.
+     */
+    name: string;
+    /**
+     * The response content of the mock.
+     */
+    response?: string;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode: number;
+}
+
+export interface ApigApiMockPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The parameter name.
+     */
+    name: string;
+    systemParamType?: string;
+    /**
+     * The parameter type.
+     */
+    type: string;
+    /**
+     * The value of the parameter
+     */
+    value: string;
+}
+
+export interface ApigApiMockPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: string;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: string;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: string;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: string;
+    /**
+     * The request parameter name.
+     */
+    paramName?: string;
+    /**
+     * The type of the backend policy.
+     */
+    source?: string;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: string;
+    /**
+     * The condition type.
+     */
+    type?: string;
+    /**
+     * The value of the backend policy.
+     */
+    value: string;
+}
+
+export interface ApigApiPublishmentHistory {
+    /**
+     * The version description of the API publishment.
+     */
+    description: string;
+    /**
+     * The version ID of the API publishment.
+     */
+    versionId: string;
+}
+
+export interface ApigApiRequestParam {
+    /**
+     * The default value of the parameter.
+     */
+    default: string;
+    /**
+     * The parameter description.
+     */
+    description: string;
+    /**
+     * The enumerated value.
+     */
+    enumeration: string;
+    /**
+     * The parameter example.
+     */
+    example: string;
+    /**
+     * Where this parameter is located.
+     */
+    location?: string;
+    /**
+     * The maximum value or length (string parameter) for parameter.
+     */
+    maximum: number;
+    /**
+     * The minimum value or length (string parameter) for parameter.
+     */
+    minimum: number;
+    /**
+     * The name of the request parameter.
+     */
+    name: string;
+    /**
+     * The list of orchestration rules that parameter used.
+     */
+    orchestrations?: string[];
+    /**
+     * Whether to transparently transfer the parameter.
+     */
+    passthrough: boolean;
+    /**
+     * Whether this parameter is required.
+     */
+    required: boolean;
+    /**
+     * The parameter type.
+     */
+    type?: string;
+    /**
+     * Whether to enable the parameter validation.
+     */
+    validEnable: number;
+}
+
+export interface ApigApiWeb {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The backend service address, which consists of a domain name or IP address, and a port number.
+     */
+    backendAddress?: string;
+    /**
+     * The proxy host header.
+     */
+    hostHeader?: string;
+    /**
+     * The backend request path.
+     */
+    path: string;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod?: string;
+    /**
+     * The web protocol type of the API request.
+     */
+    requestProtocol?: string;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount?: number;
+    /**
+     * Whether to enable two-way authentication.
+     */
+    sslEnable?: boolean;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: number;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId?: string;
+}
+
+export interface ApigApiWebPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId?: string;
+    /**
+     * The backend service address
+     */
+    backendAddress?: string;
+    /**
+     * The configuration list of the backend parameters.
+     */
+    backendParams?: outputs.ApigApiWebPolicyBackendParam[];
+    /**
+     * The policy conditions.
+     */
+    conditions: outputs.ApigApiWebPolicyCondition[];
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode?: string;
+    /**
+     * The proxy host header.
+     */
+    hostHeader?: string;
+    /**
+     * The name of the web policy.
+     */
+    name: string;
+    /**
+     * The backend request address.
+     */
+    path: string;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod: string;
+    /**
+     * The backend request protocol.
+     */
+    requestProtocol?: string;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount?: number;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout?: number;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId?: string;
+}
+
+export interface ApigApiWebPolicyBackendParam {
+    /**
+     * The description of the parameter.
+     */
+    description?: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The parameter name.
+     */
+    name: string;
+    systemParamType?: string;
+    /**
+     * The parameter type.
+     */
+    type: string;
+    /**
+     * The value of the parameter
+     */
+    value: string;
+}
+
+export interface ApigApiWebPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName?: string;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName?: string;
+    /**
+     * The location of a parameter generated after orchestration.
+     */
+    mappedParamLocation?: string;
+    /**
+     * The name of a parameter generated after orchestration.
+     */
+    mappedParamName?: string;
+    /**
+     * The request parameter name.
+     */
+    paramName?: string;
+    /**
+     * The type of the backend policy.
+     */
+    source?: string;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName?: string;
+    /**
+     * The condition type.
+     */
+    type?: string;
+    /**
+     * The value of the backend policy.
+     */
+    value: string;
+}
+
+export interface ApigApplicationQuotaAssociateApplication {
+    /**
+     * The binding time, in RFC3339 format.
+     */
+    bindTime: string;
+    /**
+     * The application ID bound to the application quota.
+     */
+    id: string;
+}
+
+export interface ApigChannelHealthCheck {
+    /**
+     * Whether to enable two-way authentication.
+     */
+    enableClientSsl: boolean;
+    /**
+     * The response codes for determining a successful HTTP response.
+     */
+    httpCodes: string;
+    /**
+     * The interval between consecutive check, in second.
+     */
+    interval: number;
+    /**
+     * The request method for health check.
+     */
+    method: string;
+    /**
+     * The destination path for health check.
+     */
+    path: string;
+    /**
+     * The destination host port for health check.
+     */
+    port: number;
+    /**
+     * The rotocol for performing health check on backend servers.
+     */
+    protocol: string;
+    /**
+     * The status of health check.
+     */
+    status: number;
+    /**
+     * The unhealthy threshold, which refers to the number of consecutive failed check required for a backend server to be considered unhealthy.
+     */
+    thresholdAbnormal: number;
+    /**
+     * The the healthy threshold, which refers to the number of consecutive successful checks required for a backend server to be considered healthy.
+     */
+    thresholdNormal: number;
+    /**
+     * The timeout for determining whether a health check fails, in second.
+     */
+    timeout: number;
+}
+
+export interface ApigChannelMember {
+    /**
+     * The group name of the backend server.
+     */
+    groupName: string;
+    /**
+     * The IP address of the backend server.
+     */
+    host: string;
+    /**
+     * The ID of the backend server.
+     */
+    id: string;
+    /**
+     * Whether this member is the backup member.
+     */
+    isBackup: boolean;
+    /**
+     * The name of the backend server.
+     */
+    name: string;
+    /**
+     * The port of the backend server.
+     */
+    port: number;
+    /**
+     * The status of the backend server.
+     */
+    status: number;
+    /**
+     * The weight of current backend server.
+     */
+    weight: number;
+}
+
+export interface ApigChannelMemberGroup {
+    /**
+     * The description of the member group.
+     */
+    description: string;
+    /**
+     * The microservice tags of the backend server group.
+     */
+    microserviceLabels: {[key: string]: string};
+    /**
+     * The microservice port of the backend server group.
+     */
+    microservicePort: number;
+    /**
+     * The microservice version of the backend server group.
+     */
+    microserviceVersion: string;
+    /**
+     * The name of the member group.
+     */
+    name: string;
+    /**
+     * The ID of the reference load balance channel.
+     */
+    referenceVpcChannelId: string;
+    /**
+     * The weight of the current member group.
+     */
+    weight: number;
+}
+
+export interface ApigChannelMicroservice {
+    /**
+     * The CCE microservice details.
+     */
+    cceConfig: outputs.ApigChannelMicroserviceCceConfig;
+    /**
+     * schema:Internal; The CSE microservice details.
+     */
+    cseConfig: outputs.ApigChannelMicroserviceCseConfig;
+}
+
+export interface ApigChannelMicroserviceCceConfig {
+    /**
+     * The ID of the CCE cluster.
+     */
+    clusterId: string;
+    /**
+     * The service label key.
+     */
+    labelKey?: string;
+    /**
+     * The service label value.
+     */
+    labelValue?: string;
+    /**
+     * The name of the CCE namespace.
+     */
+    namespace: string;
+    /**
+     * The workload name.
+     */
+    workloadName?: string;
+    /**
+     * The workload type.
+     */
+    workloadType: string;
+}
+
+export interface ApigChannelMicroserviceCseConfig {
+    /**
+     * schema:Internal; The microservice engine ID.
+     */
+    engineId: string;
+    /**
+     * schema:Internal; The microservice ID.
+     */
+    serviceId: string;
+}
+
+export interface ApigCustomAuthorizerIdentity {
+    /**
+     * The parameter location.
+     */
+    location: string;
+    /**
+     * The name of the parameter to be verified.
+     */
+    name: string;
+    /**
+     * The parameter verification expression.
+     */
+    validation?: string;
+}
+
+export interface ApigGroupEnvironment {
+    /**
+     * The ID of the environment to which the variables belongs.
+     */
+    environmentId: string;
+    /**
+     * The array of one or more environment variables.
+     */
+    variables: outputs.ApigGroupEnvironmentVariable[];
+}
+
+export interface ApigGroupEnvironmentVariable {
+    /**
+     * The ID of the variable that the group has.
+     */
+    id: string;
+    /**
+     * The variable name.
+     */
+    name: string;
+    /**
+     * The variable value.
+     */
+    value: string;
+    /**
+     * schema: Deprecated; The ID of the variable that the group has.
+     *
+     * @deprecated Use 'id' instead
+     */
+    variableId: string;
+}
+
+export interface ApigGroupUrlDomain {
+    isHttpRedirectToHttps: boolean;
+    minSslVersion: string;
+    name: string;
+}
+
+export interface ApigInstanceCustomIngressPort {
+    /**
+     * The ID of the custom ingress port.
+     */
+    id: string;
+    /**
+     * Specified port of the custom ingress port.
+     */
+    port: number;
+    /**
+     * Specified protocol of the custom ingress port.
+     */
+    protocol: string;
+    /**
+     * The current status of the custom ingress port.
+     */
+    status: string;
+}
+
+export interface ApigResponseRule {
+    /**
+     * The body template of the API custom response rule.
+     */
+    body: string;
+    /**
+     * The error type of the API custom response rule.
+     */
+    errorType: string;
+    /**
+     * The configuration of the custom response headers.
+     */
+    headers?: outputs.ApigResponseRuleHeader[];
+    /**
+     * The HTTP status code of the API custom response rule.
+     */
+    statusCode: number;
+}
+
+export interface ApigResponseRuleHeader {
+    /**
+     * The key name of the response header.
+     */
+    key: string;
+    /**
+     * The value for the specified response header key.
+     */
+    value: string;
+}
+
+export interface ApigThrottlingPolicyAppThrottle {
+    /**
+     * The ID of the special user/application throttling policy.
+     */
+    id: string;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: number;
+    /**
+     * The object ID which the special throttling policy belongs.
+     */
+    throttlingObjectId: string;
+    /**
+     * The object name which the special user/application throttling policy belongs.
+     */
+    throttlingObjectName: string;
+}
+
+export interface ApigThrottlingPolicyUserThrottle {
+    /**
+     * The ID of the special user/application throttling policy.
+     */
+    id: string;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: number;
+    /**
+     * The object ID which the special throttling policy belongs.
+     */
+    throttlingObjectId: string;
+    /**
+     * The object name which the special user/application throttling policy belongs.
+     */
+    throttlingObjectName: string;
+}
+
+export interface AsBandwidthPolicyScalingPolicyAction {
+    /**
+     * Specifies the operation restrictions.
+     */
+    limits: number;
+    /**
+     * Specifies the operation to be performed. The default operation is ADD.
+     */
+    operation: string;
+    /**
+     * Specifies the bandwidth (Mbit/s).
+     */
+    size: number;
+}
+
+export interface AsBandwidthPolicyScheduledPolicy {
+    /**
+     * Specifies the end time of the scaling action triggered periodically.
+     */
+    endTime: string;
+    /**
+     * Specifies the time when the scaling action is triggered. The time format complies with UTC.
+     */
+    launchTime: string;
+    /**
+     * Specifies the periodic triggering type.
+     */
+    recurrenceType: string;
+    /**
+     * Specifies the day when a periodic scaling action is triggered.
+     */
+    recurrenceValue: string;
+    /**
+     * Specifies the start time of the scaling action triggered periodically.
+     */
+    startTime: string;
+}
+
+export interface AsConfigurationInstanceConfig {
+    adminPass?: string;
+    chargingMode?: string;
+    dedicatedHostId: string;
+    disks: outputs.AsConfigurationInstanceConfigDisk[];
+    ecsGroupId: string;
+    flavor: string;
+    flavorPriorityPolicy: string;
+    image: string;
+    instanceId: string;
+    keyName: string;
+    metadata?: {[key: string]: string};
+    personalities: outputs.AsConfigurationInstanceConfigPersonality[];
+    publicIp: outputs.AsConfigurationInstanceConfigPublicIp;
+    /**
+     * schema: Required
+     */
+    securityGroupIds: string[];
+    tenancy: string;
+    userData?: string;
+}
+
+export interface AsConfigurationInstanceConfigDisk {
+    dataDiskImageId: string;
+    dedicatedStorageId: string;
+    diskType: string;
+    iops: number;
+    kmsId: string;
+    size: number;
+    snapshotId: string;
+    throughput: number;
+    volumeType: string;
+}
+
+export interface AsConfigurationInstanceConfigPersonality {
+    content: string;
+    path: string;
+}
+
+export interface AsConfigurationInstanceConfigPublicIp {
+    eip: outputs.AsConfigurationInstanceConfigPublicIpEip;
+}
+
+export interface AsConfigurationInstanceConfigPublicIpEip {
+    bandwidth: outputs.AsConfigurationInstanceConfigPublicIpEipBandwidth;
+    ipType: string;
+}
+
+export interface AsConfigurationInstanceConfigPublicIpEipBandwidth {
+    chargingMode: string;
+    id: string;
+    shareType: string;
+    size: number;
+}
+
+export interface AsGroupLbaasListener {
+    poolId: string;
+    protocolPort: number;
+    protocolVersion: string;
+    weight?: number;
+}
+
+export interface AsGroupNetwork {
+    id: string;
+    ipv6BandwidthId?: string;
+    ipv6Enable?: boolean;
+    sourceDestCheck?: boolean;
+}
+
+export interface AsGroupSecurityGroup {
+    id: string;
+}
+
+export interface AsPolicyScalingPolicyAction {
+    instanceNumber: number;
+    instancePercentage?: number;
+    operation: string;
+}
+
+export interface AsPolicyScheduledPolicy {
+    endTime: string;
+    launchTime: string;
+    recurrenceType: string;
+    recurrenceValue: string;
+    startTime: string;
+}
+
+export interface CbrBackupShareMember {
+    /**
+     * The creation time of the backup shared member.
+     */
+    createdAt: string;
+    /**
+     * The ID of the project with which the backup is shared.
+     */
+    destProjectId: string;
+    /**
+     * The ID of the backup shared member record.
+     */
+    id: string;
+    /**
+     * The ID of the image registered with the shared backup copy.
+     */
+    imageId: string;
+    /**
+     * The backup shared status.
+     */
+    status: string;
+    /**
+     * The latest update time of the backup shared member.
+     */
+    updatedAt: string;
+    /**
+     * The ID of the vault where the shared backup is stored.
+     */
+    vaultId: string;
+}
+
+export interface CbrCheckpointBackup {
+    /**
+     * The backup ID.
+     */
+    id: string;
+    /**
+     * The backup time.
+     */
+    protectedAt: string;
+    /**
+     * The ID of backup resource.
+     */
+    resourceId: string;
+    /**
+     * The backup resource size.
+     */
+    resourceSize: number;
+    /**
+     * The backup status.
+     */
+    status: string;
+    /**
+     * The type of the backup resource.
+     */
+    type: string;
+    /**
+     * The latest update time of the backup.
+     */
+    updatedAt: string;
+}
+
+export interface CbrPolicyBackupCycle {
+    /**
+     * The weekly backup time.
+     */
+    days?: string;
+    /**
+     * The execution time of the policy.
+     */
+    executionTimes: string[];
+    /**
+     * The number of days between each backup.
+     */
+    interval?: number;
+}
+
+export interface CbrPolicyLongTermRetention {
+    /**
+     * The latest backup of each day is saved in the long term.
+     */
+    daily?: number;
+    /**
+     * How often (after how many incremental backups) a full backup is performed.
+     */
+    fullBackupInterval?: number;
+    /**
+     * The latest backup of each month is saved in the long term.
+     */
+    monthly?: number;
+    /**
+     * The latest backup of each week is saved in the long term.
+     */
+    weekly?: number;
+    /**
+     * The latest backup of each year is saved in the long term.
+     */
+    yearly?: number;
+}
+
+export interface CbrVaultPolicy {
+    /**
+     * The ID of destination vault to which the replication policy will associated.
+     */
+    destinationVaultId?: string;
+    /**
+     * The policy ID.
+     */
+    id: string;
+}
+
+export interface CbrVaultResource {
+    /**
+     * The array of disk IDs which will be excluded in the backup.
+     */
+    excludes: string[];
+    /**
+     * The array of disk or SFS file systems which will be included in the backup.
+     */
+    includes: string[];
+    /**
+     * The ID of the ECS instance to be backed up.
+     */
+    serverId?: string;
+}
+
+export interface CceAddonValues {
+    basic?: {[key: string]: string};
+    basicJson?: string;
+    custom?: {[key: string]: string};
+    customJson?: string;
+    flavor?: {[key: string]: string};
+    flavorJson?: string;
+}
+
+export interface CceClusterCertificateCluster {
+    certificateAuthorityData: string;
+    name: string;
+    server: string;
+}
+
+export interface CceClusterCertificateUser {
+    clientCertificateData: string;
+    clientKeyData: string;
+    name: string;
+}
+
+export interface CceClusterComponentConfiguration {
+    configurations?: string;
+    name: string;
+}
+
+export interface CceClusterExtendParam {
+    clusterAz?: string;
+    cpuManagerPolicy?: string;
+    decMasterFlavor?: string;
+    dockerUmaskMode?: string;
+    dssMasterVolumes?: string;
+    fixPoolMask?: string;
+}
+
+export interface CceClusterMaster {
+    availabilityZone: string;
+}
+
+export interface CceNodeAttachDataVolume {
+    dssPoolId: string;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam: string;
+    extendParams: {[key: string]: string};
+    /**
+     * schema: Internal
+     */
+    hwPassthrough: boolean;
+    iops: number;
+    kmsKeyId: string;
+    size: number;
+    throughput: number;
+    volumetype: string;
+}
+
+export interface CceNodeAttachHostnameConfig {
+    type: string;
+}
+
+export interface CceNodeAttachRootVolume {
+    dssPoolId: string;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam: string;
+    extendParams: {[key: string]: string};
+    /**
+     * schema: Internal
+     */
+    hwPassthrough: boolean;
+    iops: number;
+    kmsKeyId: string;
+    size: number;
+    throughput: number;
+    volumetype: string;
+}
+
+export interface CceNodeAttachStorage {
+    groups: outputs.CceNodeAttachStorageGroup[];
+    selectors: outputs.CceNodeAttachStorageSelector[];
+}
+
+export interface CceNodeAttachStorageGroup {
+    cceManaged?: boolean;
+    name: string;
+    selectorNames: string[];
+    virtualSpaces: outputs.CceNodeAttachStorageGroupVirtualSpace[];
+}
+
+export interface CceNodeAttachStorageGroupVirtualSpace {
+    lvmLvType?: string;
+    lvmPath?: string;
+    name: string;
+    runtimeLvType?: string;
+    size: string;
+}
+
+export interface CceNodeAttachStorageSelector {
+    matchLabelCount?: string;
+    matchLabelMetadataCmkid?: string;
+    matchLabelMetadataEncrypted?: string;
+    matchLabelSize?: string;
+    matchLabelVolumeType?: string;
+    name: string;
+    type?: string;
+}
+
+export interface CceNodeAttachTaint {
+    effect: string;
+    key: string;
+    value: string;
+}
+
+export interface CceNodeDataVolume {
+    dssPoolId: string;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: string;
+    extendParams: {[key: string]: string};
+    /**
+     * schema: Internal
+     */
+    hwPassthrough: boolean;
+    iops: number;
+    kmsKeyId: string;
+    size: number;
+    throughput: number;
+    volumetype: string;
+}
+
+export interface CceNodeExtendParams {
+    agencyName?: string;
+    dockerBaseSize?: number;
+    kubeReservedMem?: number;
+    marketType?: string;
+    maxPods?: number;
+    nicThreshold?: string;
+    nodeImageId?: string;
+    nodeMultiQueue?: string;
+    postinstall?: string;
+    preinstall?: string;
+    securityReinforcementType?: string;
+    spotPrice?: string;
+    systemReservedMem?: number;
+}
+
+export interface CceNodeExtensionNic {
+    subnetId: string;
+}
+
+export interface CceNodeHostnameConfig {
+    type: string;
+}
+
+export interface CceNodePoolDataVolume {
+    dssPoolId: string;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: string;
+    extendParams: {[key: string]: string};
+    /**
+     * schema: Internal
+     */
+    hwPassthrough: boolean;
+    iops: number;
+    kmsKeyId: string;
+    size: number;
+    throughput: number;
+    volumetype: string;
+}
+
+export interface CceNodePoolExtendParams {
+    agencyName?: string;
+    dockerBaseSize?: number;
+    kubeReservedMem?: number;
+    marketType?: string;
+    maxPods?: number;
+    nicThreshold?: string;
+    nodeImageId?: string;
+    nodeMultiQueue?: string;
+    postinstall?: string;
+    preinstall?: string;
+    securityReinforcementType?: string;
+    spotPrice?: string;
+    systemReservedMem?: number;
+}
+
+export interface CceNodePoolExtensionScaleGroup {
+    metadata?: outputs.CceNodePoolExtensionScaleGroupMetadata;
+    spec?: outputs.CceNodePoolExtensionScaleGroupSpec;
+}
+
+export interface CceNodePoolExtensionScaleGroupMetadata {
+    name?: string;
+}
+
+export interface CceNodePoolExtensionScaleGroupSpec {
+    autoscaling?: outputs.CceNodePoolExtensionScaleGroupSpecAutoscaling;
+    az?: string;
+    capacityReservationSpecification?: outputs.CceNodePoolExtensionScaleGroupSpecCapacityReservationSpecification;
+    flavor?: string;
+}
+
+export interface CceNodePoolExtensionScaleGroupSpecAutoscaling {
+    enable?: boolean;
+    extensionPriority?: number;
+    maxNodeCount?: number;
+    minNodeCount?: number;
+}
+
+export interface CceNodePoolExtensionScaleGroupSpecCapacityReservationSpecification {
+    id?: string;
+    preference?: string;
+}
+
+export interface CceNodePoolHostnameConfig {
+    type: string;
+}
+
+export interface CceNodePoolRootVolume {
+    dssPoolId: string;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: string;
+    extendParams: {[key: string]: string};
+    /**
+     * schema: Internal
+     */
+    hwPassthrough: boolean;
+    iops: number;
+    kmsKeyId: string;
+    size: number;
+    throughput: number;
+    volumetype: string;
+}
+
+export interface CceNodePoolStorage {
+    groups: outputs.CceNodePoolStorageGroup[];
+    selectors: outputs.CceNodePoolStorageSelector[];
+}
+
+export interface CceNodePoolStorageGroup {
+    cceManaged?: boolean;
+    name: string;
+    selectorNames: string[];
+    virtualSpaces: outputs.CceNodePoolStorageGroupVirtualSpace[];
+}
+
+export interface CceNodePoolStorageGroupVirtualSpace {
+    lvmLvType?: string;
+    lvmPath?: string;
+    name: string;
+    runtimeLvType?: string;
+    size: string;
+}
+
+export interface CceNodePoolStorageSelector {
+    matchLabelCount?: string;
+    matchLabelMetadataCmkid?: string;
+    matchLabelMetadataEncrypted?: string;
+    matchLabelSize?: string;
+    matchLabelVolumeType?: string;
+    name: string;
+    type?: string;
+}
+
+export interface CceNodePoolTaint {
+    effect: string;
+    key: string;
+    value: string;
+}
+
+export interface CceNodeRootVolume {
+    dssPoolId: string;
+    /**
+     * @deprecated use extendParams instead
+     */
+    extendParam?: string;
+    extendParams: {[key: string]: string};
+    /**
+     * schema: Internal
+     */
+    hwPassthrough: boolean;
+    iops: number;
+    kmsKeyId: string;
+    size: number;
+    throughput: number;
+    volumetype: string;
+}
+
+export interface CceNodeStorage {
+    groups: outputs.CceNodeStorageGroup[];
+    selectors: outputs.CceNodeStorageSelector[];
+}
+
+export interface CceNodeStorageGroup {
+    cceManaged?: boolean;
+    name: string;
+    selectorNames: string[];
+    virtualSpaces: outputs.CceNodeStorageGroupVirtualSpace[];
+}
+
+export interface CceNodeStorageGroupVirtualSpace {
+    lvmLvType?: string;
+    lvmPath?: string;
+    name: string;
+    runtimeLvType?: string;
+    size: string;
+}
+
+export interface CceNodeStorageSelector {
+    matchLabelCount?: string;
+    matchLabelMetadataCmkid?: string;
+    matchLabelMetadataEncrypted?: string;
+    matchLabelSize?: string;
+    matchLabelVolumeType?: string;
+    name: string;
+    type?: string;
+}
+
+export interface CceNodeTaint {
+    effect: string;
+    key: string;
+    value?: string;
+}
+
+export interface CdmClusterInstance {
+    id: string;
+    manageIp: string;
+    name: string;
+    privateIp: string;
+    publicIp: string;
+    role: string;
+    trafficIp: string;
+    type: string;
+}
+
+export interface CesAlarmruleAlarmAction {
+    notificationLists: string[];
+    type: string;
+}
+
+export interface CesAlarmruleCondition {
+    comparisonOperator: string;
+    count: number;
+    filter: string;
+    period: number;
+    suppressDuration?: number;
+    unit?: string;
+    value: number;
+}
+
+export interface CesAlarmruleInsufficientdataAction {
+    notificationLists: string[];
+    type: string;
+}
+
+export interface CesAlarmruleMetric {
+    dimensions?: outputs.CesAlarmruleMetricDimension[];
+    metricName: string;
+    namespace: string;
+}
+
+export interface CesAlarmruleMetricDimension {
+    name: string;
+    value: string;
+}
+
+export interface CesAlarmruleOkAction {
+    notificationLists: string[];
+    type: string;
+}
+
+export interface ComputeInstanceBandwidth {
+    chargeMode?: string;
+    extendParam?: {[key: string]: string};
+    id?: string;
+    shareType: string;
+    size?: number;
+}
+
+export interface ComputeInstanceDataDisk {
+    dssPoolId?: string;
+    iops?: number;
+    kmsKeyId?: string;
+    size: number;
+    snapshotId?: string;
+    throughput?: number;
+    type: string;
+}
+
+export interface ComputeInstanceNetwork {
+    accessNetwork?: boolean;
+    fixedIpV4: string;
+    /**
+     * schema: Computed
+     */
+    fixedIpV6: string;
+    ipv6Enable?: boolean;
+    mac: string;
+    /**
+     * schema: Computed
+     */
+    port: string;
+    sourceDestCheck?: boolean;
+    /**
+     * schema: Required
+     */
+    uuid: string;
+}
+
+export interface ComputeInstanceSchedulerHint {
+    dehId?: string;
+    /**
+     * schema: Internal
+     */
+    faultDomain?: string;
+    group: string;
+    tenancy?: string;
+}
+
+export interface ComputeInstanceVolumeAttached {
+    bootIndex: number;
+    kmsKeyId: string;
+    pciAddress: string;
+    size: number;
+    type: string;
+    volumeId: string;
+}
+
+export interface CssClusterBackupStrategy {
+    agency: string;
+    backupPath: string;
+    bucket: string;
+    keepDays?: number;
+    prefix?: string;
+    startTime: string;
+}
+
+export interface CssClusterNode {
+    id: string;
+    name: string;
+    type: string;
+}
+
+export interface CssClusterNodeConfig {
+    availabilityZone?: string;
+    flavor: string;
+    networkInfo: outputs.CssClusterNodeConfigNetworkInfo;
+    volume: outputs.CssClusterNodeConfigVolume;
+}
+
+export interface CssClusterNodeConfigNetworkInfo {
+    securityGroupId: string;
+    subnetId: string;
+    vpcId: string;
+}
+
+export interface CssClusterNodeConfigVolume {
+    size: number;
+    volumeType: string;
+}
+
+export interface CtsNotificationFilter {
+    condition: string;
+    rules: string[];
+}
+
+export interface CtsNotificationOperation {
+    resource: string;
+    service: string;
+    traceNames: string[];
+}
+
+export interface CtsNotificationOperationUser {
+    group: string;
+    users: string[];
+}
+
+export interface DcsInstanceBackupPolicy {
+    backupAts: number[];
+    backupType?: string;
+    beginAt: string;
+    periodType?: string;
+    saveDays?: number;
+}
+
+export interface DcsInstanceBandwidthInfo {
+    bandwidth: number;
+    beginTime: string;
+    currentTime: string;
+    endTime: string;
+    expandCount: number;
+    expandEffectTime: number;
+    expandIntervalTime: number;
+    maxExpandCount: number;
+    nextExpandTime: string;
+    taskRunning: boolean;
+}
+
+export interface DcsInstanceParameter {
+    id: string;
+    name: string;
+    value: string;
+}
+
+export interface DcsInstanceWhitelist {
+    groupName: string;
+    ipAddresses: string[];
+}
+
+export interface DcsParametersConfigurationParameter {
+    name: string;
+    needRestart: boolean;
+    type: string;
+    userPermission: string;
+    value: string;
+}
+
+export interface DcsRestoreRestoreRecord {
+    backupId: string;
+    backupName: string;
+    backupRemark: string;
+    createdAt: string;
+    errorCode: string;
+    progress: string;
+    restoreId: string;
+    restoreName: string;
+    restoreRemark: string;
+    sourceInstanceId: string;
+    sourceInstanceName: string;
+    status: string;
+    updatedAt: string;
+}
+
+export interface DdsInstanceBackupStrategy {
+    keepDays: number;
+    period: string;
+    startTime: string;
+}
+
+export interface DdsInstanceConfiguration {
+    id: string;
+    type: string;
+}
+
+export interface DdsInstanceDatastore {
+    storageEngine?: string;
+    type: string;
+    version: string;
+}
+
+export interface DdsInstanceFlavor {
+    num: number;
+    size?: number;
+    specCode: string;
+    storage?: string;
+    type: string;
+}
+
+export interface DdsInstanceGroup {
+    id: string;
+    name: string;
+    nodes: outputs.DdsInstanceGroupNode[];
+    size: string;
+    status: string;
+    type: string;
+    used: string;
+}
+
+export interface DdsInstanceGroupNode {
+    /**
+     * Indicates the node ID.
+     */
+    id: string;
+    /**
+     * Indicates the node name.
+     */
+    name: string;
+    /**
+     * Indicates the private IP address of a node.
+     */
+    privateIp: string;
+    /**
+     * Indicates the EIP that has been bound on a node.
+     */
+    publicIp: string;
+    /**
+     * Indicates the node role.
+     */
+    role: string;
+    /**
+     * Indicates the node status.
+     */
+    status: string;
+    /**
+     * Indicates the node type.
+     */
+    type: string;
+}
+
+export interface DdsInstanceNode {
+    /**
+     * Indicates the node ID.
+     */
+    id: string;
+    /**
+     * Indicates the node name.
+     */
+    name: string;
+    /**
+     * Indicates the private IP address of a node.
+     */
+    privateIp: string;
+    /**
+     * Indicates the EIP that has been bound on a node.
+     */
+    publicIp: string;
+    /**
+     * Indicates the node role.
+     */
+    role: string;
+    /**
+     * Indicates the node status.
+     */
+    status: string;
+    /**
+     * Indicates the node type.
+     */
+    type: string;
+}
+
+export interface DisStreamPartition {
+    hashRange: string;
+    id: string;
+    sequenceNumberRange: string;
+    status: string;
+}
+
+export interface DliQueueScalingPolicy {
+    impactStartTime: string;
+    impactStopTime: string;
+    maxCu: number;
+    minCu: number;
+    priority: number;
+}
+
+export interface DliQueueSparkDriver {
+    maxConcurrent?: number;
+    maxInstance?: number;
+    maxPrefetchInstance?: string;
+}
+
+export interface DliSparkJobDependentPackage {
+    groupName: string;
+    packages: outputs.DliSparkJobDependentPackagePackage[];
+}
+
+export interface DliSparkJobDependentPackagePackage {
+    packageName: string;
+    type: string;
+}
+
+export interface DmsKafkaInstanceCrossVpcAccess {
+    advertisedIp: string;
+    /**
+     * @deprecated typo in lisenter_ip, please use "listenerIp" instead.
+     */
+    lisenterIp: string;
+    listenerIp: string;
+    port: number;
+    portId: string;
+}
+
+export interface DmsKafkaInstanceParameter {
+    name: string;
+    value: string;
+}
+
+export interface DmsKafkaInstancePortProtocol {
+    privatePlainAddress: string;
+    privatePlainDomainName: string;
+    privatePlainEnable: boolean;
+    privateSaslPlaintextAddress: string;
+    privateSaslPlaintextDomainName: string;
+    privateSaslPlaintextEnable: boolean;
+    privateSaslSslAddress: string;
+    privateSaslSslDomainName: string;
+    privateSaslSslEnable: boolean;
+    publicPlainAddress: string;
+    publicPlainDomainName: string;
+    publicPlainEnable: boolean;
+    publicSaslPlaintextAddress: string;
+    publicSaslPlaintextDomainName: string;
+    publicSaslPlaintextEnable: boolean;
+    publicSaslSslAddress: string;
+    publicSaslSslDomainName: string;
+    publicSaslSslEnable: boolean;
+}
+
+export interface DmsKafkaMessageProducePropertyList {
+    name: string;
+    value: string;
+}
+
+export interface DmsKafkaPermissionsPolicy {
+    accessPolicy: string;
+    userName: string;
+}
+
+export interface DmsKafkaTopicConfig {
+    name: string;
+    value: string;
+}
+
+export interface DnsZoneRouter {
+    /**
+     * The ID of the associated VPC.
+     */
+    routerId: string;
+    /**
+     * The region of the VPC.
+     */
+    routerRegion: string;
+}
+
+export interface DrsJobDestinationDb {
+    engineType: string;
+    instanceId?: string;
+    ip: string;
+    name: string;
+    password: string;
+    port: number;
+    region: string;
+    sslCertCheckSum?: string;
+    sslCertKey?: string;
+    sslCertName?: string;
+    sslCertPassword?: string;
+    sslEnabled?: boolean;
+    subnetId?: string;
+    user: string;
+}
+
+export interface DrsJobLimitSpeed {
+    endTime: string;
+    speed: string;
+    startTime: string;
+}
+
+export interface DrsJobSourceDb {
+    engineType: string;
+    instanceId?: string;
+    ip: string;
+    name: string;
+    password: string;
+    port: number;
+    region: string;
+    sslCertCheckSum?: string;
+    sslCertKey?: string;
+    sslCertName?: string;
+    sslCertPassword?: string;
+    sslEnabled?: boolean;
+    subnetId?: string;
+    user: string;
+}
+
+export interface DwsClusterElb {
+    /**
+     * The ID of the ELB load balancer.
+     */
+    id: string;
+    /**
+     * The name of the ELB load balancer.
+     */
+    name: string;
+    /**
+     * The private endpoint of the ELB load balancer.
+     */
+    privateEndpoint: string;
+    /**
+     * The private IP address of the ELB load balancer.
+     */
+    privateIp: string;
+    /**
+     * The IPv6 address of the ELB load balancer.
+     */
+    privateIpV6: string;
+    /**
+     * The public IP address of the ELB load balancer.
+     */
+    publicIp: string;
+    /**
+     * The ID of VPC to which the ELB load balancer belongs.
+     */
+    vpcId: string;
+}
+
+export interface DwsClusterEndpoint {
+    /**
+     * Private network connection information.
+     */
+    connectInfo: string;
+    /**
+     * JDBC URL. Format: jdbc:postgresql://<connect_info>/<YOUR_DATABASE_NAME>
+     */
+    jdbcUrl: string;
+}
+
+export interface DwsClusterMaintainWindow {
+    /**
+     * Maintenance time in each week in the unit of day.
+     */
+    day: string;
+    /**
+     * Maintenance end time in HH:mm format. The time zone is GMT+0.
+     */
+    endTime: string;
+    /**
+     * Maintenance start time in HH:mm format. The time zone is GMT+0.
+     */
+    startTime: string;
+}
+
+export interface DwsClusterPublicEndpoint {
+    /**
+     * JDBC URL. Format: jdbc:postgresql://<public_connect_info>/<YOUR_DATABASE_NAME>
+     */
+    jdbcUrl: string;
+    /**
+     * Public network connection information.
+     */
+    publicConnectInfo: string;
+}
+
+export interface DwsClusterPublicIp {
+    /**
+     * The EIP ID.
+     */
+    eipId?: string;
+    /**
+     * The bind type of public IP.
+     */
+    publicBindType: string;
+}
+
+export interface DwsClusterVolume {
+    /**
+     * The capacity size, in GB.
+     */
+    capacity: string;
+    /**
+     * The volume type.
+     */
+    type: string;
+}
+
+export interface ElbIpgroupIpList {
+    description?: string;
+    ip: string;
+}
+
+export interface ElbL7policyFixedResponseConfig {
+    contentType: string;
+    insertHeadersConfig?: outputs.ElbL7policyFixedResponseConfigInsertHeadersConfig;
+    messageBody?: string;
+    removeHeadersConfig?: outputs.ElbL7policyFixedResponseConfigRemoveHeadersConfig;
+    statusCode: string;
+    trafficLimitConfig?: outputs.ElbL7policyFixedResponseConfigTrafficLimitConfig;
+}
+
+export interface ElbL7policyFixedResponseConfigInsertHeadersConfig {
+    configs: outputs.ElbL7policyFixedResponseConfigInsertHeadersConfigConfig[];
+}
+
+export interface ElbL7policyFixedResponseConfigInsertHeadersConfigConfig {
+    key: string;
+    value: string;
+    valueType: string;
+}
+
+export interface ElbL7policyFixedResponseConfigRemoveHeadersConfig {
+    configs: outputs.ElbL7policyFixedResponseConfigRemoveHeadersConfigConfig[];
+}
+
+export interface ElbL7policyFixedResponseConfigRemoveHeadersConfigConfig {
+    key: string;
+}
+
+export interface ElbL7policyFixedResponseConfigTrafficLimitConfig {
+    burst?: number;
+    perSourceIpQps?: number;
+    qps?: number;
+}
+
+export interface ElbL7policyRedirectPoolsConfig {
+    poolId: string;
+    weight: number;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfig {
+    insertHeadersConfig?: outputs.ElbL7policyRedirectPoolsExtendConfigInsertHeadersConfig;
+    removeHeadersConfig?: outputs.ElbL7policyRedirectPoolsExtendConfigRemoveHeadersConfig;
+    rewriteUrlConfig: outputs.ElbL7policyRedirectPoolsExtendConfigRewriteUrlConfig;
+    rewriteUrlEnabled: boolean;
+    trafficLimitConfig?: outputs.ElbL7policyRedirectPoolsExtendConfigTrafficLimitConfig;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigInsertHeadersConfig {
+    configs: outputs.ElbL7policyRedirectPoolsExtendConfigInsertHeadersConfigConfig[];
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigInsertHeadersConfigConfig {
+    key: string;
+    value: string;
+    valueType: string;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigRemoveHeadersConfig {
+    configs: outputs.ElbL7policyRedirectPoolsExtendConfigRemoveHeadersConfigConfig[];
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigRemoveHeadersConfigConfig {
+    key: string;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigRewriteUrlConfig {
+    host: string;
+    path: string;
+    query?: string;
+}
+
+export interface ElbL7policyRedirectPoolsExtendConfigTrafficLimitConfig {
+    burst?: number;
+    perSourceIpQps?: number;
+    qps?: number;
+}
+
+export interface ElbL7policyRedirectPoolsStickySessionConfig {
+    enable: boolean;
+    timeout: number;
+}
+
+export interface ElbL7policyRedirectUrlConfig {
+    host: string;
+    insertHeadersConfig?: outputs.ElbL7policyRedirectUrlConfigInsertHeadersConfig;
+    path: string;
+    port: string;
+    protocol: string;
+    query?: string;
+    removeHeadersConfig?: outputs.ElbL7policyRedirectUrlConfigRemoveHeadersConfig;
+    statusCode: string;
+}
+
+export interface ElbL7policyRedirectUrlConfigInsertHeadersConfig {
+    configs: outputs.ElbL7policyRedirectUrlConfigInsertHeadersConfigConfig[];
+}
+
+export interface ElbL7policyRedirectUrlConfigInsertHeadersConfigConfig {
+    key: string;
+    value: string;
+    valueType: string;
+}
+
+export interface ElbL7policyRedirectUrlConfigRemoveHeadersConfig {
+    configs: outputs.ElbL7policyRedirectUrlConfigRemoveHeadersConfigConfig[];
+}
+
+export interface ElbL7policyRedirectUrlConfigRemoveHeadersConfigConfig {
+    key: string;
+}
+
+export interface ElbL7ruleCondition {
+    key?: string;
+    value: string;
+}
+
+export interface ElbListenerPortRange {
+    endPort: number;
+    startPort: number;
+}
+
+export interface ElbPoolPersistence {
+    cookieName?: string;
+    timeout: number;
+    type: string;
+}
+
+export interface ElbSecurityPolicyListener {
+    id: string;
+}
+
+export interface EvsVolumeAttachment {
+    device: string;
+    id: string;
+    instanceId: string;
+}
+
+export interface FgsFunctionCustomImage {
+    /**
+     * The command line arguments used to start the SWR image.
+     */
+    args?: string;
+    /**
+     * The startup commands of the SWR image.
+     */
+    command?: string;
+    /**
+     * The URL of SWR image.
+     */
+    url: string;
+    /**
+     * The user group ID that used to run SWR image.
+     */
+    userGroupId?: string;
+    /**
+     * The user ID that used to run SWR image.
+     */
+    userId?: string;
+    /**
+     * The working directory of the SWR image.
+     */
+    workingDir: string;
+}
+
+export interface FgsFunctionFuncMount {
+    /**
+     * The function access path.
+     */
+    localMountPath: string;
+    /**
+     * The ID of the mounted resource (corresponding cloud service).
+     */
+    mountResource: string;
+    /**
+     * The remote mount path.
+     */
+    mountSharePath: string;
+    /**
+     * The mount type.
+     */
+    mountType: string;
+    /**
+     * The mount status.
+     */
+    status: string;
+}
+
+export interface FgsFunctionNetworkController {
+    /**
+     * Whether to disable the public network access.
+     */
+    disablePublicNetwork?: boolean;
+    /**
+     * The configuration of the VPCs that can trigger the function.
+     */
+    triggerAccessVpcs: outputs.FgsFunctionNetworkControllerTriggerAccessVpc[];
+}
+
+export interface FgsFunctionNetworkControllerTriggerAccessVpc {
+    /**
+     * The ID of the VPC that can trigger the function.
+     */
+    vpcId: string;
+}
+
+export interface FgsFunctionReservedInstance {
+    /**
+     * The number of reserved instance.
+     */
+    count: number;
+    /**
+     * Whether to enable the idle mode.
+     */
+    idleMode?: boolean;
+    /**
+     * The version name or alias name.
+     */
+    qualifierName: string;
+    /**
+     * The qualifier type of reserved instance.
+     */
+    qualifierType: string;
+    /**
+     * The auto scaling policies for reserved instance.
+     */
+    tacticsConfig?: outputs.FgsFunctionReservedInstanceTacticsConfig;
+}
+
+export interface FgsFunctionReservedInstanceTacticsConfig {
+    /**
+     * The list of scheduled policy configurations.
+     */
+    cronConfigs?: outputs.FgsFunctionReservedInstanceTacticsConfigCronConfig[];
+    /**
+     * The list of metric policy configurations.
+     */
+    metricConfigs?: outputs.FgsFunctionReservedInstanceTacticsConfigMetricConfig[];
+}
+
+export interface FgsFunctionReservedInstanceTacticsConfigCronConfig {
+    /**
+     * The number of reserved instance to which the policy belongs.
+     */
+    count: number;
+    /**
+     * The cron expression.
+     */
+    cron: string;
+    /**
+     * The expiration timestamp of the policy.
+     */
+    expiredTime: number;
+    /**
+     * The name of scheduled policy configuration.
+     */
+    name: string;
+    /**
+     * The effective timestamp of policy.
+     */
+    startTime: number;
+}
+
+export interface FgsFunctionReservedInstanceTacticsConfigMetricConfig {
+    /**
+     * The minimun of traffic.
+     */
+    min: number;
+    /**
+     * The name of metric policy.
+     */
+    name: string;
+    /**
+     * The metric policy threshold.
+     */
+    threshold: number;
+    /**
+     * The type of metric policy.
+     */
+    type: string;
+}
+
+export interface FgsFunctionVersion {
+    /**
+     * The aliases management for specified version.
+     */
+    aliases?: outputs.FgsFunctionVersionAliases;
+    /**
+     * The description of the version.
+     */
+    description?: string;
+    /**
+     * The version name.
+     */
+    name: string;
+}
+
+export interface FgsFunctionVersionAliases {
+    /**
+     * The description of the version alias.
+     */
+    additionalVersionStrategy?: string;
+    /**
+     * The percentage grayscale configuration of the version alias.
+     */
+    additionalVersionWeights?: string;
+    /**
+     * The description of the version alias.
+     */
+    description?: string;
+    /**
+     * The name of the version alias.
+     */
+    name: string;
+}
+
+export interface GesGraphEncryption {
+    /**
+     * Whether to enable data encryption The value can be true or false. The default value is false.
+     */
+    enable: boolean;
+    /**
+     * ID of the customer master key created by DEW in the project corresponding to the graph creation.
+     */
+    masterKeyId: string;
+}
+
+export interface GesGraphLtsOperationTrace {
+    /**
+     * LTS log group name.
+     */
+    auditLogGroupName: string;
+    /**
+     * Whether to enable graph audit. The default value is false.
+     */
+    enableAudit: boolean;
+}
+
+export interface GesGraphPublicIp {
+    /**
+     * The EIP ID.
+     */
+    eipId: string;
+    /**
+     * The bind type of public IP.
+     */
+    publicBindType: string;
+}
+
+export interface GesGraphVertexIdType {
+    /**
+     * The length of ID.
+     */
+    idLength: number;
+    /**
+     * Vertex ID type.
+     */
+    idType: string;
+}
+
+export interface GetApigAclPoliciesPolicy {
+    /**
+     * The number of bound APIs.
+     */
+    bindNum: number;
+    /**
+     * The entity type of the ACL policy.
+     */
+    entityType: string;
+    /**
+     * The ID of the ACL policy.
+     */
+    id: string;
+    /**
+     * The name of the ACL policy.
+     */
+    name: string;
+    /**
+     * The type of the ACL policy.
+     */
+    type: string;
+    /**
+     * The latest update time of the policy.
+     */
+    updatedAt: string;
+    /**
+     * The value of the ACL policy.
+     */
+    value: string;
+}
+
+export interface GetApigApiAssociatedAclPoliciesPolicy {
+    /**
+     * The bind ID.
+     */
+    bindId: string;
+    /**
+     * The time that the ACL policy is bound to the API.
+     */
+    bindTime: string;
+    /**
+     * The entity type of the ACL policy.
+     */
+    entityType: string;
+    /**
+     * The ID of the environment where the API is published.
+     */
+    envId: string;
+    /**
+     * The name of the environment where the API is published.
+     */
+    envName: string;
+    /**
+     * The ID of the ACL policy.
+     */
+    id: string;
+    /**
+     * The name of the ACL policy.
+     */
+    name: string;
+    /**
+     * The type of the ACL policy.
+     */
+    type: string;
+    /**
+     * One or more objects from which the access will be controlled.
+     */
+    value: string;
+}
+
+export interface GetApigApiAssociatedApplicationsApplication {
+    /**
+     * The bind ID.
+     */
+    bindId: string;
+    /**
+     * The time that the application is bound to the API.
+     */
+    bindTime: string;
+    /**
+     * The description of the application.
+     */
+    description: string;
+    /**
+     * The ID of the environment where the API is published.
+     */
+    envId: string;
+    /**
+     * The name of the environment where the API is published.
+     */
+    envName: string;
+    /**
+     * The ID of the application.
+     */
+    id: string;
+    /**
+     * The name of the application.
+     */
+    name: string;
+}
+
+export interface GetApigApiAssociatedPluginsPlugin {
+    /**
+     * The bind ID.
+     */
+    bindId: string;
+    /**
+     * The time that the plugin is bound to the API.
+     */
+    bindTime: string;
+    /**
+     * The configuration details for the plugin.
+     */
+    content: string;
+    /**
+     * The description of the plugin.
+     */
+    description: string;
+    /**
+     * The ID of the environment where the API is published.
+     */
+    envId: string;
+    /**
+     * The name of the environment where the API is published.
+     */
+    envName: string;
+    /**
+     * The ID of the plugin.
+     */
+    id: string;
+    /**
+     * The name of the plugin.
+     */
+    name: string;
+    /**
+     * The type of the plugin.
+     */
+    type: string;
+}
+
+export interface GetApigApiAssociatedSignaturesSignature {
+    /**
+     * The bind ID.
+     */
+    bindId: string;
+    /**
+     * The time that the signature is bound to the API.
+     */
+    bindTime: string;
+    /**
+     * The ID of the environment where the API is published.
+     */
+    envId: string;
+    /**
+     * The name of the environment where the API is published.
+     */
+    envName: string;
+    /**
+     * The ID of the signature.
+     */
+    id: string;
+    /**
+     * The signature key.
+     */
+    key: string;
+    /**
+     * The name of the signature.
+     */
+    name: string;
+    /**
+     * The signature secret.
+     */
+    secret: string;
+    /**
+     * The type of the signature.
+     */
+    type: string;
+}
+
+export interface GetApigApiAssociatedThrottlingPoliciesPolicy {
+    /**
+     * The array of one or more special throttling policies for APP limit.
+     */
+    appThrottles: outputs.GetApigApiAssociatedThrottlingPoliciesPolicyAppThrottle[];
+    /**
+     * The bind ID.
+     */
+    bindId: string;
+    /**
+     * The time that the throttling policy is bound to the API, in RFC3339 format.
+     */
+    bindTime: string;
+    /**
+     * The creation time of the throttling policy, in RFC3339 format.
+     */
+    createdAt: string;
+    /**
+     * The description of the throttling policy.
+     */
+    description: string;
+    /**
+     * The name of the environment where the API is published.
+     */
+    envName: string;
+    /**
+     * The ID of the throttling policy.
+     */
+    id: string;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: number;
+    /**
+     * The maximum number of times the API can be accessed by an app within the same period.
+     */
+    maxAppRequests: number;
+    /**
+     * The maximum number of times the API can be accessed by an IP address within the same period.
+     */
+    maxIpRequests: number;
+    /**
+     * The maximum number of times the API can be accessed by a user within the same period.
+     */
+    maxUserRequests: number;
+    /**
+     * The name of the throttling policy.
+     */
+    name: string;
+    /**
+     * The period of time for limiting the number of API calls.
+     */
+    period: number;
+    /**
+     * The time unit for limiting the number of API calls.
+     */
+    periodUnit: string;
+    /**
+     * The type of the throttling policy.
+     */
+    type: string;
+    /**
+     * The array of one or more special throttling policies for IAM user limit.
+     */
+    userThrottles: outputs.GetApigApiAssociatedThrottlingPoliciesPolicyUserThrottle[];
+}
+
+export interface GetApigApiAssociatedThrottlingPoliciesPolicyAppThrottle {
+    /**
+     * The ID of the special user/application throttling policy.
+     */
+    id: string;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: number;
+    /**
+     * The object ID which the special user/application throttling policy belongs.
+     */
+    throttlingObjectId: string;
+    /**
+     * The object name which the special user/application throttling policy belongs.
+     */
+    throttlingObjectName: string;
+}
+
+export interface GetApigApiAssociatedThrottlingPoliciesPolicyUserThrottle {
+    /**
+     * The ID of the special user/application throttling policy.
+     */
+    id: string;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: number;
+    /**
+     * The object ID which the special user/application throttling policy belongs.
+     */
+    throttlingObjectId: string;
+    /**
+     * The object name which the special user/application throttling policy belongs.
+     */
+    throttlingObjectName: string;
+}
+
+export interface GetApigApiBackendParam {
+    /**
+     * The description of the constant or system parameter.
+     */
+    description: string;
+    /**
+     * The ID of the backend parameter.
+     */
+    id: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The name of parameter.
+     */
+    name: string;
+    /**
+     * The ID of the corresponding request parameter.
+     */
+    requestId: string;
+    /**
+     * The type of the system parameter.
+     */
+    systemParamType: string;
+    /**
+     * The name of parameter.
+     */
+    type: string;
+    /**
+     * The value of the parameter.
+     */
+    value: string;
+}
+
+export interface GetApigApiBasicConfigurationsConfiguration {
+    /**
+     * The ID of the authorizer to which the API request used.
+     */
+    authorizerId: string;
+    /**
+     * The backend type of the API.
+     */
+    backendType: string;
+    /**
+     * Whether CORS is supported.
+     */
+    cors: boolean;
+    /**
+     * The description of the API.
+     */
+    description: string;
+    /**
+     * The ID of the environment where the API is published.
+     */
+    envId: string;
+    /**
+     * The name of the environment where the API is published.
+     */
+    envName: string;
+    /**
+     * The ID of group corresponding to the API.
+     */
+    groupId: string;
+    /**
+     * The name of group corresponding to the API.
+     */
+    groupName: string;
+    /**
+     * The version of group corresponding to the API.
+     */
+    groupVersion: string;
+    /**
+     * The ID of the API.
+     */
+    id: string;
+    /**
+     * The matching mode of the API.
+     */
+    matching: string;
+    /**
+     * The name of the API.
+     */
+    name: string;
+    /**
+     * The ID of publish corresponding to the API.
+     */
+    publishId: string;
+    /**
+     * The published time of the API, in RFC3339 format.
+     */
+    publishedAt: string;
+    /**
+     * The registered time of the API, in RFC3339 format.
+     */
+    registeredAt: string;
+    /**
+     * The request method of the API.
+     */
+    requestMethod: string;
+    /**
+     * The request address of the API.
+     */
+    requestPath: string;
+    /**
+     * The request protocol of the API.
+     */
+    requestProtocol: string;
+    /**
+     * The security authentication mode of the API request.
+     */
+    securityAuthentication: string;
+    /**
+     * Whether the authentication of the application code is enabled.
+     */
+    simpleAuthentication: boolean;
+    /**
+     * The list of tags configuration.
+     */
+    tags: string[];
+    /**
+     * The type of the API.
+     */
+    type: string;
+    /**
+     * The latest update time of the API, in RFC3339 format.
+     */
+    updatedAt: string;
+}
+
+export interface GetApigApiFuncGraph {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId: string;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn: string;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: string;
+    /**
+     * The ID of the FunctionGraph backend configuration.
+     */
+    id: string;
+    /**
+     * The invocation type.
+     */
+    invocationType: string;
+    /**
+     * The network architecture (framework) type of the FunctionGraph function.
+     */
+    networkType: string;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol: string;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout: number;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version: string;
+}
+
+export interface GetApigApiFuncGraphPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId: string;
+    /**
+     * The configaiton list of the backend parameters.
+     */
+    backendParams: outputs.GetApigApiFuncGraphPolicyBackendParam[];
+    /**
+     * The policy conditions.
+     */
+    conditions: outputs.GetApigApiFuncGraphPolicyCondition[];
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode: string;
+    /**
+     * The alias URN of the FunctionGraph function.
+     */
+    functionAliasUrn: string;
+    /**
+     * The URN of the FunctionGraph function.
+     */
+    functionUrn: string;
+    /**
+     * The ID of the FunctionGraph backend policy.
+     */
+    id: string;
+    /**
+     * The invocation mode of the FunctionGraph function.
+     */
+    invocationType: string;
+    /**
+     * The name of the backend policy.
+     */
+    name: string;
+    /**
+     * The network (framework) type of the FunctionGraph function.
+     */
+    networkType: string;
+    /**
+     * The request protocol of the FunctionGraph function.
+     */
+    requestProtocol: string;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout: number;
+    /**
+     * The version of the FunctionGraph function.
+     */
+    version: string;
+}
+
+export interface GetApigApiFuncGraphPolicyBackendParam {
+    /**
+     * The description of the constant or system parameter.
+     */
+    description: string;
+    /**
+     * The ID of the backend parameter.
+     */
+    id: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The name of parameter.
+     */
+    name: string;
+    /**
+     * The ID of the corresponding request parameter.
+     */
+    requestId: string;
+    /**
+     * The type of the system parameter.
+     */
+    systemParamType: string;
+    /**
+     * The name of parameter.
+     */
+    type: string;
+    /**
+     * The value of the parameter.
+     */
+    value: string;
+}
+
+export interface GetApigApiFuncGraphPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName: string;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName: string;
+    /**
+     * The ID of the backend policy condition.
+     */
+    id: string;
+    /**
+     * The request parameter name.
+     */
+    paramName: string;
+    /**
+     * The ID of the corresponding request parameter.
+     */
+    requestId: string;
+    /**
+     * The location of the corresponding request parameter.
+     */
+    requestLocation: string;
+    /**
+     * The type of the backend policy.
+     */
+    source: string;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName: string;
+    /**
+     * The condition type of the backend policy.
+     */
+    type: string;
+    /**
+     * The value corresponding to the parameter name.
+     */
+    value: string;
+}
+
+export interface GetApigApiMock {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId: string;
+    /**
+     * The ID of the mock backend configuration.
+     */
+    id: string;
+    /**
+     * The response of the mock backend configuration.
+     */
+    response: string;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode: number;
+}
+
+export interface GetApigApiMockPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId: string;
+    /**
+     * The configuration list of backend parameters.
+     */
+    backendParams: outputs.GetApigApiMockPolicyBackendParam[];
+    /**
+     * The policy conditions.
+     */
+    conditions: outputs.GetApigApiMockPolicyCondition[];
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode: string;
+    /**
+     * The ID of the mock backend policy.
+     */
+    id: string;
+    /**
+     * The backend policy name.
+     */
+    name: string;
+    /**
+     * The response of the backend policy.
+     */
+    response: string;
+    /**
+     * The custom status code of the mock response.
+     */
+    statusCode: number;
+}
+
+export interface GetApigApiMockPolicyBackendParam {
+    /**
+     * The description of the constant or system parameter.
+     */
+    description: string;
+    /**
+     * The ID of the backend parameter.
+     */
+    id: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The name of parameter.
+     */
+    name: string;
+    /**
+     * The ID of the corresponding request parameter.
+     */
+    requestId: string;
+    /**
+     * The type of the system parameter.
+     */
+    systemParamType: string;
+    /**
+     * The name of parameter.
+     */
+    type: string;
+    /**
+     * The value of the parameter.
+     */
+    value: string;
+}
+
+export interface GetApigApiMockPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName: string;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName: string;
+    /**
+     * The ID of the backend policy condition.
+     */
+    id: string;
+    /**
+     * The request parameter name.
+     */
+    paramName: string;
+    /**
+     * The ID of the corresponding request parameter.
+     */
+    requestId: string;
+    /**
+     * The location of the corresponding request parameter.
+     */
+    requestLocation: string;
+    /**
+     * The type of the backend policy.
+     */
+    source: string;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName: string;
+    /**
+     * The condition type of the backend policy.
+     */
+    type: string;
+    /**
+     * The value corresponding to the parameter name.
+     */
+    value: string;
+}
+
+export interface GetApigApiRequestParam {
+    /**
+     * The default value of the parameter.
+     */
+    default: string;
+    /**
+     * The parameter description.
+     */
+    description: string;
+    /**
+     * The enumerated value.
+     */
+    enumeration: string;
+    /**
+     * The parameter example.
+     */
+    example: string;
+    /**
+     * The ID of the request parameter.
+     */
+    id: string;
+    /**
+     * Where this parameter is located.
+     */
+    location: string;
+    /**
+     * The maximum value or length (string parameter) for parameter.
+     */
+    maximum: number;
+    /**
+     * The minimum value or length (string parameter) for parameter.
+     */
+    minimum: number;
+    /**
+     * The name of the request parameter.
+     */
+    name: string;
+    /**
+     * Whether to transparently transfer the parameter.
+     */
+    passthrough: boolean;
+    /**
+     * Whether this parameter is required.
+     */
+    required: boolean;
+    /**
+     * The parameter type.
+     */
+    type: string;
+    /**
+     * Whether to enable the parameter validation.
+     */
+    validEnable: number;
+}
+
+export interface GetApigApiWeb {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId: string;
+    /**
+     * The backend service address.
+     */
+    backendAddress: string;
+    /**
+     * The proxy host header.
+     */
+    hostHeader: string;
+    /**
+     * The ID of the backend configuration.
+     */
+    id: string;
+    /**
+     * The backend request path.
+     */
+    path: string;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod: string;
+    /**
+     * The web protocol type of the API request.
+     */
+    requestProtocol: string;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount: number;
+    /**
+     * Whether to enable two-way authentication.
+     */
+    sslEnable: boolean;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout: number;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId: string;
+}
+
+export interface GetApigApiWebPolicy {
+    /**
+     * The ID of the backend custom authorization.
+     */
+    authorizerId: string;
+    /**
+     * The backend service address
+     */
+    backendAddress: string;
+    /**
+     * The configuration list of the backend parameters.
+     */
+    backendParams: outputs.GetApigApiWebPolicyBackendParam[];
+    /**
+     * The policy conditions.
+     */
+    conditions: outputs.GetApigApiWebPolicyCondition[];
+    /**
+     * The effective mode of the backend policy.
+     */
+    effectiveMode: string;
+    /**
+     * The proxy host header.
+     */
+    hostHeader: string;
+    /**
+     * The ID of the web policy.
+     */
+    id: string;
+    /**
+     * The name of the web policy.
+     */
+    name: string;
+    /**
+     * The backend request address.
+     */
+    path: string;
+    /**
+     * The backend request method of the API.
+     */
+    requestMethod: string;
+    /**
+     * The backend request protocol.
+     */
+    requestProtocol: string;
+    /**
+     * The number of retry attempts to request the backend service.
+     */
+    retryCount: number;
+    /**
+     * The timeout for API requests to backend service.
+     */
+    timeout: number;
+    /**
+     * The VPC channel ID.
+     */
+    vpcChannelId: string;
+}
+
+export interface GetApigApiWebPolicyBackendParam {
+    /**
+     * The description of the constant or system parameter.
+     */
+    description: string;
+    /**
+     * The ID of the backend parameter.
+     */
+    id: string;
+    /**
+     * Where the parameter is located.
+     */
+    location: string;
+    /**
+     * The name of parameter.
+     */
+    name: string;
+    /**
+     * The ID of the corresponding request parameter.
+     */
+    requestId: string;
+    /**
+     * The type of the system parameter.
+     */
+    systemParamType: string;
+    /**
+     * The name of parameter.
+     */
+    type: string;
+    /**
+     * The value of the parameter.
+     */
+    value: string;
+}
+
+export interface GetApigApiWebPolicyCondition {
+    /**
+     * The cookie parameter name.
+     */
+    cookieName: string;
+    /**
+     * The frontend authentication parameter name.
+     */
+    frontendAuthorizerName: string;
+    /**
+     * The ID of the backend policy condition.
+     */
+    id: string;
+    /**
+     * The request parameter name.
+     */
+    paramName: string;
+    /**
+     * The ID of the corresponding request parameter.
+     */
+    requestId: string;
+    /**
+     * The location of the corresponding request parameter.
+     */
+    requestLocation: string;
+    /**
+     * The type of the backend policy.
+     */
+    source: string;
+    /**
+     * The gateway built-in parameter name.
+     */
+    sysName: string;
+    /**
+     * The condition type of the backend policy.
+     */
+    type: string;
+    /**
+     * The value corresponding to the parameter name.
+     */
+    value: string;
+}
+
+export interface GetApigAppcodesAppcode {
+    /**
+     * The ID of the application.
+     */
+    applicationId: string;
+    /**
+     * The creation time of the APPCODE, in RFC3339 format.
+     */
+    createdAt: string;
+    /**
+     * The ID of the APPCODE.
+     */
+    id: string;
+    /**
+     * The APPCODE value (content).
+     */
+    value: string;
+}
+
+export interface GetApigApplicationQuotasQuota {
+    /**
+     * The number of applications bound to the quota policy.
+     */
+    boundAppNum: number;
+    /**
+     * The maximum number of times a application quota can be called.
+     */
+    callLimits: number;
+    /**
+     * The creation time of the application quota, in RFC3339 format.
+     */
+    createdAt: string;
+    /**
+     * The description of the application quota.
+     */
+    description: string;
+    /**
+     * The ID of the application quota.
+     */
+    id: string;
+    /**
+     * The name of the application quota.
+     */
+    name: string;
+    /**
+     * The time limit of a quota.
+     */
+    timeInterval: number;
+    /**
+     * The time unit.
+     */
+    timeUnit: string;
+}
+
+export interface GetApigApplicationsApplication {
+    /**
+     * The key of the application.
+     */
+    appKey: string;
+    /**
+     * The secret of the application.
+     */
+    appSecret: string;
+    /**
+     * The type of the application.
+     */
+    appType: string;
+    /**
+     * The number of bound APIs.
+     */
+    bindNum: number;
+    /**
+     * The creation time of the application.
+     */
+    createdAt: string;
+    /**
+     * The creator of the application.
+     */
+    createdBy: string;
+    /**
+     * The description of the application.
+     */
+    description: string;
+    /**
+     * The ID of the application.
+     */
+    id: string;
+    /**
+     * The name of the application.
+     */
+    name: string;
+    /**
+     * The status of the application.
+     */
+    status: number;
+    /**
+     * The latest update time of the application.
+     */
+    updatedAt: string;
+}
+
+export interface GetApigChannelsVpcChannel {
+    /**
+     * The distribution algorithm.
+     */
+    balanceStrategy: number;
+    /**
+     * The creation time of channel, in RFC3339 format.
+     */
+    createdAt: string;
+    /**
+     * The ID of the VPC channel.
+     */
+    id: string;
+    /**
+     * The parameter member groups of the VPC channels.
+     */
+    memberGroups: outputs.GetApigChannelsVpcChannelMemberGroup[];
+    /**
+     * The member type of the VPC channel.
+     */
+    memberType: string;
+    /**
+     * The name of the VPC channel.
+     */
+    name: string;
+    /**
+     * The port of the backend server.
+     */
+    port: number;
+    /**
+     * The type of the VPC channel.
+     */
+    type: number;
+}
+
+export interface GetApigChannelsVpcChannelMemberGroup {
+    /**
+     * The description of the member group.
+     */
+    description: string;
+    /**
+     * The ID of the member group.
+     */
+    id: string;
+    /**
+     * The microservice tags of the backend server group.
+     */
+    microserviceLabels: outputs.GetApigChannelsVpcChannelMemberGroupMicroserviceLabel[];
+    /**
+     * The microservice port of the backend server group.
+     */
+    microservicePort: number;
+    /**
+     * The microservice version of the backend server group.
+     */
+    microserviceVersion: string;
+    /**
+     * The name of the member group.
+     */
+    name: string;
+    /**
+     * The weight of the current member group.
+     */
+    weight: number;
+}
+
+export interface GetApigChannelsVpcChannelMemberGroupMicroserviceLabel {
+    /**
+     * The name of the microservice label.
+     */
+    name: string;
+    /**
+     * The value of the microservice label.
+     */
+    value: string;
+}
+
+export interface GetApigCustomAuthorizersAuthorizer {
+    /**
+     * The maximum cache age of custom authorizer.
+     */
+    cacheAge: number;
+    /**
+     * The creation time of custom authorizer.
+     */
+    createdAt: string;
+    /**
+     * The version alias URI of the FGS function.
+     */
+    functionAliasUri: string;
+    /**
+     * The type of the FGS function.
+     */
+    functionType: string;
+    /**
+     * The URN of the FGS function.
+     */
+    functionUrn: string;
+    /**
+     * The version of the FGS function.
+     */
+    functionVersion: string;
+    /**
+     * The ID of the custom authorizer.
+     */
+    id: string;
+    /**
+     * The parameter identities of the custom authorizer.
+     */
+    identities: outputs.GetApigCustomAuthorizersAuthorizerIdentity[];
+    /**
+     * Whether to send the body of custom authorizer.
+     */
+    isBodySend: boolean;
+    /**
+     * The name of the custom authorizer.
+     */
+    name: string;
+    /**
+     * The network architecture types of function.
+     */
+    networkType: string;
+    /**
+     * The type of the custom authorizer.
+     */
+    type: string;
+    /**
+     * The user data of custom authorizer.
+     */
+    userData: string;
+}
+
+export interface GetApigCustomAuthorizersAuthorizerIdentity {
+    /**
+     * The parameter location of identity.
+     */
+    location: string;
+    /**
+     * The name of the parameter to be verified.
+     */
+    name: string;
+    /**
+     * The parameter verification expression of identity.
+     */
+    validation: string;
+}
+
+export interface GetApigEndpointConnectionsConnection {
+    /**
+     * The creation time of the endpoint connection, in RFC3339 format.
+     */
+    createdAt: string;
+    /**
+     * The IAM account ID of the endpoint connection creator.
+     */
+    domainId: string;
+    /**
+     * The ID of the endpoint connection.
+     */
+    id: string;
+    /**
+     * The packet ID of the endpoint connection.
+     */
+    packetId: number;
+    /**
+     * The current status of the endpoint connection.
+     */
+    status: string;
+    /**
+     * The latest time of the endpoint connection, in RFC3339 format.
+     */
+    updatedAt: string;
+}
+
+export interface GetApigEnvironmentVariablesVariable {
+    /**
+     * The environment ID corresponding to the environment variable.
+     */
+    envId: string;
+    /**
+     * The group ID corresponding to the environment variable.
+     */
+    groupId: string;
+    /**
+     * The ID of the environment variable.
+     */
+    id: string;
+    /**
+     * The name of the environment variable.
+     */
+    name: string;
+    /**
+     * The value of the environment variable.
+     */
+    value: string;
+}
+
+export interface GetApigEnvironmentsEnvironment {
+    createTime: string;
+    description: string;
+    id: string;
+    name: string;
+}
+
+export interface GetApigGroupsGroup {
+    createdAt: string;
+    description: string;
+    /**
+     * The array of one or more environments of the associated group.
+     */
+    environments: outputs.GetApigGroupsGroupEnvironment[];
+    id: string;
+    isDefault: number;
+    name: string;
+    onSellStatus: number;
+    slDomain: string;
+    slDomains: string[];
+    status: number;
+    updatedAt: string;
+    urlDomains: outputs.GetApigGroupsGroupUrlDomain[];
+}
+
+export interface GetApigGroupsGroupEnvironment {
+    /**
+     * The ID of the environment to which the variables belongs.
+     */
+    environmentId: string;
+    /**
+     * The array of one or more environment variables.
+     */
+    variables: outputs.GetApigGroupsGroupEnvironmentVariable[];
+}
+
+export interface GetApigGroupsGroupEnvironmentVariable {
+    /**
+     * The ID of the variable that the group has.
+     */
+    id: string;
+    /**
+     * The variable name.
+     */
+    name: string;
+    /**
+     * The variable value.
+     */
+    value: string;
+}
+
+export interface GetApigGroupsGroupUrlDomain {
+    cnameStatus: number;
+    id: string;
+    isHasTrustedRootCa: boolean;
+    minSslVersion: string;
+    name: string;
+    sslId: string;
+    sslName: string;
+    verifiedClientCertificateEnabled: boolean;
+}
+
+export interface GetApigInstanceFeaturesFeature {
+    /**
+     * The detailed configuration of the instance feature.
+     */
+    config: string;
+    /**
+     * Whether the feature is enabled.
+     */
+    enabled: boolean;
+    /**
+     * The ID of the feature.
+     */
+    id: string;
+    /**
+     * The name of the feature.
+     */
+    name: string;
+    /**
+     * The latest update time of the feature, in RFC3339 format.
+     */
+    updatedAt: string;
+}
+
+export interface GetApigInstancesInstance {
+    /**
+     * The creation time of the instance, in RFC3339 format.
+     */
+    createdAt: string;
+    /**
+     * The edition of instance.
+     */
+    edition: string;
+    /**
+     * The elastic IP address of instance binding.
+     */
+    eipAddress: string;
+    /**
+     * The enterprise project ID of the instance.
+     */
+    enterpriseProjectId: string;
+    /**
+     * The ID of instance.
+     */
+    id: string;
+    /**
+     * The type of load balancer used by the instance.
+     */
+    loadbalancerProvider: string;
+    /**
+     * The name of instance.
+     */
+    name: string;
+    /**
+     * The status of instance.
+     */
+    status: string;
+    /**
+     * The type of instance.
+     */
+    type: string;
+}
+
+export interface GetApigSignaturesSignature {
+    /**
+     * The algorithm of the signature.
+     */
+    algorithm: string;
+    /**
+     * The number of bound APIs.
+     */
+    bindNum: number;
+    /**
+     * The creation time of the signature.
+     */
+    createdAt: string;
+    /**
+     * The ID of the signature.
+     */
+    id: string;
+    /**
+     * The key of the signature.
+     */
+    key: string;
+    /**
+     * The name of the signature.
+     */
+    name: string;
+    /**
+     * The secret of the signature.
+     */
+    secret: string;
+    /**
+     * The type of the signature.
+     */
+    type: string;
+    /**
+     * The latest update time of the signature.
+     */
+    updatedAt: string;
+}
+
+export interface GetApigThrottlingPoliciesPolicy {
+    /**
+     * The array of one or more special throttling policies for APP limit.
+     */
+    appThrottles: outputs.GetApigThrottlingPoliciesPolicyAppThrottle[];
+    /**
+     * The number of APIs bound to the throttling policy.
+     */
+    bindNum: number;
+    /**
+     * The creation time of the throttling policy, in RFC3339 format.
+     */
+    createdAt: string;
+    /**
+     * The description of throttling policy.
+     */
+    description: string;
+    /**
+     * The ID of the throttling policy.
+     */
+    id: string;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: number;
+    /**
+     * The maximum number of times the API can be accessed by an app within the same period.
+     */
+    maxAppRequests: number;
+    /**
+     * The maximum number of times the API can be accessed by an IP address within the same period.
+     */
+    maxIpRequests: number;
+    /**
+     * The maximum number of times the API can be accessed by a user within the same period.
+     */
+    maxUserRequests: number;
+    /**
+     * The name of the throttling policy.
+     */
+    name: string;
+    /**
+     * The period of time for limiting the number of API calls.
+     */
+    period: number;
+    /**
+     * The time unit for limiting the number of API calls.
+     */
+    periodUnit: string;
+    /**
+     * The type of the throttling policy.
+     */
+    type: string;
+    /**
+     * The array of one or more special throttling policies for IAM user limit.
+     */
+    userThrottles: outputs.GetApigThrottlingPoliciesPolicyUserThrottle[];
+}
+
+export interface GetApigThrottlingPoliciesPolicyAppThrottle {
+    /**
+     * The ID of the special user/application throttling policy.
+     */
+    id: string;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: number;
+    /**
+     * The object ID which the special user/application throttling policy belongs.
+     */
+    throttlingObjectId: string;
+    /**
+     * The object name which the special user/application throttling policy belongs.
+     */
+    throttlingObjectName: string;
+}
+
+export interface GetApigThrottlingPoliciesPolicyUserThrottle {
+    /**
+     * The ID of the special user/application throttling policy.
+     */
+    id: string;
+    /**
+     * The maximum number of times an API can be accessed within a specified period.
+     */
+    maxApiRequests: number;
+    /**
+     * The object ID which the special user/application throttling policy belongs.
+     */
+    throttlingObjectId: string;
+    /**
+     * The object name which the special user/application throttling policy belongs.
+     */
+    throttlingObjectName: string;
+}
+
+export interface GetCbhAvailabilityZonesAvailabilityZone {
+    displayName: string;
+    name: string;
+    regionId: string;
+    status: string;
+    type: string;
+}
+
+export interface GetCbhFlavorsFlavor {
+    asset: number;
+    dataDiskSize: number;
+    ecsSystemDataSize: number;
+    id: string;
+    maxConnection: number;
+    memory: number;
+    type: string;
+    vcpus: number;
+}
+
+export interface GetCbhInstancesInstance {
+    /**
+     * Indicates the availability zone name.
+     */
+    availabilityZone: string;
+    /**
+     * Indicates the specification of the instance.
+     */
+    flavorId: string;
+    /**
+     * Indicates the ID of the instance.
+     */
+    id: string;
+    /**
+     * Indicates the instance name.
+     */
+    name: string;
+    /**
+     * Indicates the private IP address of the instance.
+     */
+    privateIp: string;
+    /**
+     * Indicates the elastic IP address.
+     */
+    publicIp: string;
+    /**
+     * Indicates the ID of the elastic IP.
+     */
+    publicIpId: string;
+    /**
+     * Indicates the ID of a security group.
+     */
+    securityGroupId: string;
+    /**
+     * Indicates the status of the instance.
+     */
+    status: string;
+    /**
+     * Indicates the ID of a subnet.
+     */
+    subnetId: string;
+    /**
+     * Indicates the current version of the instance image.
+     */
+    version: string;
+    /**
+     * Indicates the ID of a VPC.
+     */
+    vpcId: string;
+}
+
+export interface GetCbrBackupChildren {
+    /**
+     * The restore point ID of the sub-backup resource.
+     */
+    checkpointId: string;
+    /**
+     * The creation time of the sub-backup.
+     */
+    createdAt: string;
+    /**
+     * The sub-backup description.
+     */
+    description: string;
+    /**
+     * The enterprise project to which the backup sub-backup resource belongs.
+     */
+    enterpriseProjectId: string;
+    /**
+     * The expiration time of the sub-backup.
+     */
+    expiredAt: string;
+    /**
+     * The extended information.
+     */
+    extendInfos: outputs.GetCbrBackupChildrenExtendInfo[];
+    /**
+     * The sub-backup ID.
+     */
+    id: string;
+    /**
+     * The sub-backup name.
+     */
+    name: string;
+    /**
+     * The replication records.
+     */
+    replicationRecords: outputs.GetCbrBackupChildrenReplicationRecord[];
+    /**
+     * The availability zone where the backup sub-backup resource is located.
+     */
+    resourceAz: string;
+    /**
+     * The sub-backup resource ID.
+     */
+    resourceId: string;
+    /**
+     * The sub-backup resource name.
+     */
+    resourceName: string;
+    /**
+     * The sub-backup resource size, in GB.
+     */
+    resourceSize: number;
+    /**
+     * The sub-backup resource type.
+     */
+    resourceType: string;
+    /**
+     * The sub-backup status.
+     */
+    status: string;
+    /**
+     * The sub-backup type.
+     */
+    type: string;
+    /**
+     * The latest update time of the sub-backup.
+     */
+    updatedAt: string;
+    /**
+     * The vault to which the backup sub-backup resource belongs.
+     */
+    vaultId: string;
+}
+
+export interface GetCbrBackupChildrenExtendInfo {
+    /**
+     * Whether the backup is automatically generated.
+     */
+    autoTrigger: boolean;
+    /**
+     * Whether the backup is a system disk backup.
+     */
+    bootable: boolean;
+    /**
+     * Whether the VM backup data contains system disk data.
+     */
+    containSystemDisk: boolean;
+    /**
+     * Whether the backup is encrypted.
+     */
+    encrypted: boolean;
+    /**
+     * Whether the backup is an incremental backup.
+     */
+    incremental: boolean;
+    /**
+     * Whether the disk is a system disk.
+     */
+    isSystemDisk: boolean;
+    /**
+     * The ID list of images created using backups.
+     */
+    osRegistryImages: string[];
+    /**
+     * Snapshot ID of the disk backup.
+     */
+    snapshotId: string;
+    /**
+     * Whether to allow lazyloading for fast restoration.
+     */
+    supportLld: boolean;
+    /**
+     * The restoration mode.
+     */
+    supportedRestoreMode: string;
+}
+
+export interface GetCbrBackupChildrenReplicationRecord {
+    /**
+     * The creation time of the replication.
+     */
+    createdAt: string;
+    /**
+     * The ID of the destination backup used for replication.
+     */
+    destinationBackupId: string;
+    /**
+     * The record ID of the destination backup used for replication.
+     */
+    destinationCheckpointId: string;
+    /**
+     * The ID of the replication destination project.
+     */
+    destinationProjectId: string;
+    /**
+     * The replication destination region.
+     */
+    destinationRegion: string;
+    /**
+     * The destination vault ID.
+     */
+    destinationVaultId: string;
+    /**
+     * The additional information of the replication.
+     */
+    extraInfos: outputs.GetCbrBackupChildrenReplicationRecordExtraInfo[];
+    /**
+     * The replication record ID.
+     */
+    id: string;
+    /**
+     * The ID of the source backup used for replication.
+     */
+    sourceBackupId: string;
+    /**
+     * The ID of the source backup record used for replication.
+     */
+    sourceCheckpointId: string;
+    /**
+     * The ID of the replication source project.
+     */
+    sourceProjectId: string;
+    /**
+     * The replication source region.
+     */
+    sourceRegion: string;
+    /**
+     * The replication status.
+     */
+    status: string;
+    /**
+     * The ID of the vault where the backup resides.
+     */
+    vaultId: string;
+}
+
+export interface GetCbrBackupChildrenReplicationRecordExtraInfo {
+    /**
+     * Whether replication is automatically scheduled.
+     */
+    autoTrigger: boolean;
+    /**
+     * The destination vault ID.
+     */
+    destinationVaultId: string;
+    /**
+     * The error code.
+     */
+    failCode: string;
+    /**
+     * The error cause.
+     */
+    failReason: string;
+    /**
+     * The replication progress.
+     */
+    progress: number;
+}
+
+export interface GetCbrBackupExtendInfo {
+    /**
+     * Whether the backup is automatically generated.
+     */
+    autoTrigger: boolean;
+    /**
+     * Whether the backup is a system disk backup.
+     */
+    bootable: boolean;
+    /**
+     * Whether the VM backup data contains system disk data.
+     */
+    containSystemDisk: boolean;
+    /**
+     * Whether the backup is encrypted.
+     */
+    encrypted: boolean;
+    /**
+     * Whether the backup is an incremental backup.
+     */
+    incremental: boolean;
+    /**
+     * Whether the disk is a system disk.
+     */
+    isSystemDisk: boolean;
+    /**
+     * The ID list of images created using backups.
+     */
+    osRegistryImages: string[];
+    /**
+     * Snapshot ID of the disk backup.
+     */
+    snapshotId: string;
+    /**
+     * Whether to allow lazyloading for fast restoration.
+     */
+    supportLld: boolean;
+    /**
+     * The restoration mode.
+     */
+    supportedRestoreMode: string;
+}
+
+export interface GetCbrBackupReplicationRecord {
+    /**
+     * The creation time of the replication.
+     */
+    createdAt: string;
+    /**
+     * The ID of the destination backup used for replication.
+     */
+    destinationBackupId: string;
+    /**
+     * The record ID of the destination backup used for replication.
+     */
+    destinationCheckpointId: string;
+    /**
+     * The ID of the replication destination project.
+     */
+    destinationProjectId: string;
+    /**
+     * The replication destination region.
+     */
+    destinationRegion: string;
+    /**
+     * The destination vault ID.
+     */
+    destinationVaultId: string;
+    /**
+     * The additional information of the replication.
+     */
+    extraInfos: outputs.GetCbrBackupReplicationRecordExtraInfo[];
+    /**
+     * The replication record ID.
+     */
+    id: string;
+    /**
+     * The ID of the source backup used for replication.
+     */
+    sourceBackupId: string;
+    /**
+     * The ID of the source backup record used for replication.
+     */
+    sourceCheckpointId: string;
+    /**
+     * The ID of the replication source project.
+     */
+    sourceProjectId: string;
+    /**
+     * The replication source region.
+     */
+    sourceRegion: string;
+    /**
+     * The replication status.
+     */
+    status: string;
+    /**
+     * The ID of the vault where the backup resides.
+     */
+    vaultId: string;
+}
+
+export interface GetCbrBackupReplicationRecordExtraInfo {
+    /**
+     * Whether replication is automatically scheduled.
+     */
+    autoTrigger: boolean;
+    /**
+     * The destination vault ID.
+     */
+    destinationVaultId: string;
+    /**
+     * The error code.
+     */
+    failCode: string;
+    /**
+     * The error cause.
+     */
+    failReason: string;
+    /**
+     * The replication progress.
+     */
+    progress: number;
+}
+
+export interface GetCbrPoliciesPolicy {
+    /**
+     * The vault associated with the CBR policy
+     */
+    associatedVaults: outputs.GetCbrPoliciesPolicyAssociatedVault[];
+    /**
+     * The scheduling rule for the CBR policy backup execution.
+     */
+    backupCycles: outputs.GetCbrPoliciesPolicyBackupCycle[];
+    /**
+     * The maximum number of retained backups.
+     */
+    backupQuantity: number;
+    /**
+     * The ID of the replication destination project.
+     */
+    destinationProjectId: string;
+    /**
+     * The name of the replication destination region.
+     */
+    destinationRegion: string;
+    /**
+     * Whether to enable the acceleration function to shorten the replication time for cross-region
+     */
+    enableAcceleration: boolean;
+    /**
+     * Whether to enable the CBR policy.
+     */
+    enabled: boolean;
+    /**
+     * The policy ID.
+     */
+    id: string;
+    /**
+     * The long-term retention rules.
+     */
+    longTermRetentions: outputs.GetCbrPoliciesPolicyLongTermRetention[];
+    /**
+     * The policy name.
+     */
+    name: string;
+    /**
+     * The duration (in days) for retained backups.
+     */
+    timePeriod: number;
+    /**
+     * The UTC time zone.
+     */
+    timeZone: string;
+    /**
+     * The protection type of the CBR policy.
+     */
+    type: string;
+}
+
+export interface GetCbrPoliciesPolicyAssociatedVault {
+    /**
+     * The destination vault ID associated with CBR policy
+     */
+    destinationVaultId: string;
+    /**
+     * The vault ID of the associated CBR policy
+     */
+    vaultId: string;
+}
+
+export interface GetCbrPoliciesPolicyBackupCycle {
+    /**
+     * The weekly backup time.
+     */
+    days: string;
+    /**
+     * The execution time of the policy.
+     */
+    executionTimes: string[];
+    /**
+     * The number of days between each backup.
+     */
+    interval: number;
+}
+
+export interface GetCbrPoliciesPolicyLongTermRetention {
+    /**
+     * The latest backup of each day is saved in the long term.
+     */
+    daily: number;
+    /**
+     * How often (after how many incremental backups) a full backup is performed.
+     */
+    fullBackupInterval: number;
+    /**
+     * The latest backup of each month is saved in the long term.
+     */
+    monthly: number;
+    /**
+     * The latest backup of each week is saved in the long term.
+     */
+    weekly: number;
+    /**
+     * The latest backup of each year is saved in the long term.
+     */
+    yearly: number;
+}
+
+export interface GetCbrVaultsVault {
+    /**
+     * The allocated capacity of the vault, in GB.
+     */
+    allocated: number;
+    /**
+     * Whether automatic association is supported.
+     */
+    autoBind: boolean;
+    /**
+     * Whether to enable automatic expansion of the backup protection type vault.
+     */
+    autoExpandEnabled: boolean;
+    /**
+     * The rules for automatic association.
+     */
+    bindRules: {[key: string]: string};
+    /**
+     * The consistent level (specification) of the vault.
+     */
+    consistentLevel: string;
+    /**
+     * The enterprise project ID.
+     */
+    enterpriseProjectId: string;
+    /**
+     * The vault ID in UUID format.
+     */
+    id: string;
+    /**
+     * The vault name.
+     */
+    name: string;
+    /**
+     * The ID of the policy associated with the vault.
+     */
+    policyId: string;
+    /**
+     * The protection type of the vault.
+     */
+    protectionType: string;
+    /**
+     * The array of one or more resources to attach to the vault.
+     */
+    resources: outputs.GetCbrVaultsVaultResource[];
+    /**
+     * The vault capacity, in GB.
+     */
+    size: number;
+    /**
+     * The specification code.
+     */
+    specCode: string;
+    /**
+     * The vault status.
+     */
+    status: string;
+    /**
+     * The name of the bucket for the vault.
+     */
+    storage: string;
+    /**
+     * The key/value pairs to associate with the vault.
+     */
+    tags: {[key: string]: string};
+    /**
+     * The object type of the vault.
+     */
+    type: string;
+    /**
+     * The used capacity, in GB.
+     */
+    used: number;
+}
+
+export interface GetCbrVaultsVaultResource {
+    /**
+     * The array of disk IDs which will be excluded in the backup.
+     */
+    excludes: string[];
+    /**
+     * The array of disk or SFS file system IDs which will be included in the backup.
+     */
+    includes: string[];
+    /**
+     * The ID of the ECS instance to be backed up.
+     */
+    serverId: string;
+}
+
+export interface GetCceAddonTemplateSupportVersion {
+    bareMetals: string[];
+    virtualMachines: string[];
+}
+
+export interface GetCceClusterCertificateCluster {
+    certificateAuthorityData: string;
+    insecureSkipTlsVerify: boolean;
+    name: string;
+    server: string;
+}
+
+export interface GetCceClusterCertificateContext {
+    cluster: string;
+    name: string;
+    user: string;
+}
+
+export interface GetCceClusterCertificateUser {
+    clientCertificateData: string;
+    clientKeyData: string;
+    name: string;
+}
+
+export interface GetCceClusterEndpoint {
+    type: string;
+    url: string;
+}
+
+export interface GetCceClusterMaster {
+    availabilityZone: string;
+}
+
+export interface GetCceClustersCluster {
+    authenticationMode: string;
+    billingMode: number;
+    certificateClusters: outputs.GetCceClustersClusterCertificateCluster[];
+    certificateUsers: outputs.GetCceClustersClusterCertificateUser[];
+    clusterType: string;
+    clusterVersion: string;
+    containerNetworkCidr: string;
+    containerNetworkType: string;
+    description: string;
+    endpoints: outputs.GetCceClustersClusterEndpoint[];
+    eniSubnetCidr: string;
+    eniSubnetId: string;
+    enterpriseProjectId: string;
+    flavorId: string;
+    id: string;
+    kubeConfigRaw: string;
+    masters: outputs.GetCceClustersClusterMaster[];
+    name: string;
+    securityGroupId: string;
+    serviceNetworkCidr: string;
+    status: string;
+    subnetId: string;
+    vpcId: string;
+}
+
+export interface GetCceClustersClusterCertificateCluster {
+    certificateAuthorityData: string;
+    name: string;
+    server: string;
+}
+
+export interface GetCceClustersClusterCertificateUser {
+    clientCertificateData: string;
+    clientKeyData: string;
+    name: string;
+}
+
+export interface GetCceClustersClusterEndpoint {
+    type: string;
+    url: string;
+}
+
+export interface GetCceClustersClusterMaster {
+    availabilityZone: string;
+}
+
+export interface GetCceNodeDataVolume {
+    extendParams: {[key: string]: string};
+    size: number;
+    volumetype: string;
+}
+
+export interface GetCceNodeHostnameConfig {
+    type: string;
+}
+
+export interface GetCceNodePoolDataVolume {
+    extendParams: {[key: string]: string};
+    size: number;
+    volumetype: string;
+}
+
+export interface GetCceNodePoolHostnameConfig {
+    type: string;
+}
+
+export interface GetCceNodePoolRootVolume {
+    extendParams: {[key: string]: string};
+    size: number;
+    volumetype: string;
+}
+
+export interface GetCceNodeRootVolume {
+    extendParams: {[key: string]: string};
+    size: number;
+    volumetype: string;
+}
+
+export interface GetCceNodesNode {
+    availabilityZone: string;
+    billingMode: number;
+    dataVolumes: outputs.GetCceNodesNodeDataVolume[];
+    ecsGroupId: string;
+    enterpriseProjectId: string;
+    flavorId: string;
+    hostnameConfigs: outputs.GetCceNodesNodeHostnameConfig[];
+    id: string;
+    keyPair: string;
+    name: string;
+    os: string;
+    privateIp: string;
+    publicIp: string;
+    rootVolumes: outputs.GetCceNodesNodeRootVolume[];
+    serverId: string;
+    status: string;
+    subnetId: string;
+    tags: {[key: string]: string};
+}
+
+export interface GetCceNodesNodeDataVolume {
+    extendParams: {[key: string]: string};
+    size: number;
+    volumetype: string;
+}
+
+export interface GetCceNodesNodeHostnameConfig {
+    type: string;
+}
+
+export interface GetCceNodesNodeRootVolume {
+    extendParams: {[key: string]: string};
+    size: number;
+    volumetype: string;
+}
+
+export interface GetCdmFlavorsFlavor {
+    cpu: string;
+    id: string;
+    memory: string;
+    name: string;
+}
+
+export interface GetComputeFlavorsFlavor {
+    cpuCoreCount: number;
+    generation: string;
+    id: string;
+    memorySize: number;
+    performanceType: string;
+    storageType: string;
+}
+
+export interface GetComputeInstanceNetwork {
+    fixedIpV4: string;
+    fixedIpV6: string;
+    mac: string;
+    port: string;
+    uuid: string;
+}
+
+export interface GetComputeInstanceSchedulerHint {
+    group: string;
+}
+
+export interface GetComputeInstanceVolumeAttached {
+    bootIndex: number;
+    isSysVolume: boolean;
+    pciAddress: string;
+    size: number;
+    type: string;
+    volumeId: string;
+}
+
+export interface GetComputeInstancesInstance {
+    availabilityZone: string;
+    chargingMode: string;
+    enterpriseProjectId: string;
+    expiredTime: string;
+    flavorId: string;
+    flavorName: string;
+    id: string;
+    imageId: string;
+    imageName: string;
+    keyPair: string;
+    name: string;
+    networks: outputs.GetComputeInstancesInstanceNetwork[];
+    publicIp: string;
+    schedulerHints: outputs.GetComputeInstancesInstanceSchedulerHint[];
+    securityGroupIds: string[];
+    status: string;
+    systemDiskId: string;
+    tags: {[key: string]: string};
+    userData: string;
+    volumeAttacheds: outputs.GetComputeInstancesInstanceVolumeAttached[];
+}
+
+export interface GetComputeInstancesInstanceNetwork {
+    fixedIpV4: string;
+    fixedIpV6: string;
+    mac: string;
+    port: string;
+    uuid: string;
+}
+
+export interface GetComputeInstancesInstanceSchedulerHint {
+    group: string;
+}
+
+export interface GetComputeInstancesInstanceVolumeAttached {
+    bootIndex: number;
+    isSysVolume: boolean;
+    pciAddress: string;
+    size: number;
+    type: string;
+    volumeId: string;
+}
+
+export interface GetComputeServergroupsServergroup {
+    id: string;
+    members: string[];
+    name: string;
+    policies: string[];
+}
+
+export interface GetCssFlavorsFlavor {
+    availabilityZones: string;
+    diskRange: string;
+    id: string;
+    memory: number;
+    name: string;
+    region: string;
+    type: string;
+    vcpus: number;
+    version: string;
+}
+
+export interface GetDcsAccountsAccount {
+    /**
+     * Account name.
+     */
+    accountName: string;
+    /**
+     * Account permissions.
+     */
+    accountRole: string;
+    /**
+     * Account type.
+     */
+    accountType: string;
+    /**
+     * Account description.
+     */
+    description: string;
+    /**
+     * Account ID.
+     */
+    id: string;
+    /**
+     * Account status.
+     */
+    status: string;
+}
+
+export interface GetDcsFlavorsFlavor {
+    availableZones: string[];
+    cacheMode: string;
+    capacity: number;
+    chargingModes: string[];
+    cpuArchitecture: string;
+    engine: string;
+    engineVersions: string;
+    ipCount: number;
+    name: string;
+}
+
+export interface GetDdsFlavorsFlavor {
+    memory: string;
+    specCode: string;
+    type: string;
+    vcpus: string;
+}
+
+export interface GetDmsKafkaFlavorsFlavor {
+    archTypes: string[];
+    chargingModes: string[];
+    id: string;
+    ios: outputs.GetDmsKafkaFlavorsFlavorIo[];
+    properties: outputs.GetDmsKafkaFlavorsFlavorProperty[];
+    supportFeatures: outputs.GetDmsKafkaFlavorsFlavorSupportFeature[];
+    type: string;
+    vmSpecification: string;
+}
+
+export interface GetDmsKafkaFlavorsFlavorIo {
+    availabilityZones: string[];
+    storageSpecCode: string;
+    type: string;
+    unavailabilityZones: string[];
+}
+
+export interface GetDmsKafkaFlavorsFlavorProperty {
+    flavorAlias: string;
+    maxBandwidthPerBroker: number;
+    maxBroker: number;
+    maxConsumerPerBroker: number;
+    maxPartitionPerBroker: number;
+    maxStoragePerNode: number;
+    maxTpsPerBroker: number;
+    minBroker: number;
+    minStoragePerNode: number;
+}
+
+export interface GetDmsKafkaFlavorsFlavorSupportFeature {
+    name: string;
+    properties: outputs.GetDmsKafkaFlavorsFlavorSupportFeatureProperty[];
+}
+
+export interface GetDmsKafkaFlavorsFlavorSupportFeatureProperty {
+    maxNode: number;
+    maxTask: number;
+    minNode: number;
+    minTask: number;
+}
+
+export interface GetDmsKafkaInstancesInstance {
+    accessUser: string;
+    availabilityZones: string[];
+    connectAddress: string;
+    crossVpcAccesses: outputs.GetDmsKafkaInstancesInstanceCrossVpcAccess[];
+    description: string;
+    dumping: boolean;
+    enableAutoTopic: boolean;
+    enablePublicIp: boolean;
+    enabledMechanisms: string[];
+    engineVersion: string;
+    enterpriseProjectId: string;
+    id: string;
+    maintainBegin: string;
+    maintainEnd: string;
+    managementConnectAddress: string;
+    managerUser: string;
+    /**
+     * @deprecated typo in manegement_connect_address, please use "managementConnectAddress" instead.
+     */
+    manegementConnectAddress: string;
+    name: string;
+    networkId: string;
+    partitionNum: number;
+    port: number;
+    productId: string;
+    publicConnAddresses: string;
+    publicIpIds: string[];
+    resourceSpecCode: string;
+    retentionPolicy: string;
+    securityGroupId: string;
+    securityProtocol: string;
+    sslEnable: boolean;
+    status: string;
+    storageSpace: number;
+    storageSpecCode: string;
+    tags: {[key: string]: string};
+    type: string;
+    usedStorageSpace: number;
+    userId: string;
+    userName: string;
+    vpcId: string;
+}
+
+export interface GetDmsKafkaInstancesInstanceCrossVpcAccess {
+    advertisedIp: string;
+    /**
+     * @deprecated typo in lisenter_ip, please use "listenerIp" instead.
+     */
+    lisenterIp: string;
+    listenerIp: string;
+    port: number;
+    portId: string;
+}
+
+export interface GetDmsKafkaMessagesMessage {
+    /**
+     * Indicates the application ID.
+     */
+    appId: string;
+    /**
+     * Indicates the big data flag.
+     */
+    hugeMessage: boolean;
+    /**
+     * Indicates the message key.
+     */
+    key: string;
+    /**
+     * Indicates the message ID.
+     */
+    messageId: string;
+    /**
+     * Indicates the message offset.
+     */
+    messageOffset: number;
+    /**
+     * Indicates the partition where the message is located.
+     */
+    partition: number;
+    /**
+     * Indicates the message size.
+     */
+    size: number;
+    /**
+     * Indicates the message label.
+     */
+    tag: string;
+    /**
+     * Indicates the message production time.
+     */
+    timestamp: string;
+    /**
+     * Indicates the message content.
+     */
+    value: string;
+}
+
+export interface GetDmsKafkaUsersUser {
+    /**
+     * Indicates the create time.
+     */
+    createdAt: string;
+    /**
+     * Indicates whether the application is the default application.
+     */
+    defaultApp: boolean;
+    /**
+     * Indicates the description.
+     */
+    description: string;
+    /**
+     * Indicates the username.
+     */
+    name: string;
+    /**
+     * Indicates the user role.
+     */
+    role: string;
+}
+
+export interface GetDmsRabbitmqFlavorsFlavor {
+    archTypes: string[];
+    chargingModes: string[];
+    id: string;
+    ios: outputs.GetDmsRabbitmqFlavorsFlavorIo[];
+    properties: outputs.GetDmsRabbitmqFlavorsFlavorProperty[];
+    supportFeatures: outputs.GetDmsRabbitmqFlavorsFlavorSupportFeature[];
+    type: string;
+    vmSpecification: string;
+}
+
+export interface GetDmsRabbitmqFlavorsFlavorIo {
+    availabilityZones: string[];
+    storageSpecCode: string;
+    type: string;
+    unavailabilityZones: string[];
+}
+
+export interface GetDmsRabbitmqFlavorsFlavorProperty {
+    flavorAlias: string;
+    maxBandwidthPerBroker: number;
+    maxBroker: number;
+    maxConsumerPerBroker: number;
+    maxPartitionPerBroker: number;
+    maxStoragePerNode: number;
+    maxTpsPerBroker: number;
+    minBroker: number;
+    minStoragePerNode: number;
+}
+
+export interface GetDmsRabbitmqFlavorsFlavorSupportFeature {
+    name: string;
+    properties: outputs.GetDmsRabbitmqFlavorsFlavorSupportFeatureProperty[];
+}
+
+export interface GetDmsRabbitmqFlavorsFlavorSupportFeatureProperty {
+    maxNode: number;
+    maxTask: number;
+    minNode: number;
+    minTask: number;
+}
+
+export interface GetDwsFlavorsFlavor {
+    /**
+     * The list of availability zones.
+     */
+    availabilityZones: string[];
+    /**
+     * The type of datastore.
+     */
+    datastoreType: string;
+    /**
+     * The version of datastore.
+     */
+    datastoreVersion: string;
+    /**
+     * The typical specification, If the volume specification is elastic.
+     */
+    elasticVolumeSpecs: outputs.GetDwsFlavorsFlavorElasticVolumeSpec[];
+    /**
+     * The name of the dws node flavor.
+     */
+    flavorId: string;
+    /**
+     * The ram of the dws node flavor in GB.
+     */
+    memory: number;
+    /**
+     * The default disk size in GB.
+     */
+    size: number;
+    /**
+     * The vcpus of the dws node flavor.
+     */
+    vcpus: number;
+    /**
+     * Disk type.
+     */
+    volumetype: string;
+}
+
+export interface GetDwsFlavorsFlavorElasticVolumeSpec {
+    /**
+     * Maximum disk size.
+     */
+    maxSize: number;
+    /**
+     * Minimum disk size.
+     */
+    minSize: number;
+    /**
+     * Disk size increment step.
+     */
+    step: number;
+}
+
+export interface GetElbFlavorsFlavor {
+    bandwidth: number;
+    cps: number;
+    id: string;
+    maxConnections: number;
+    name: string;
+    qps: number;
+    type: string;
+}
+
+export interface GetElbPoolsPool {
+    /**
+     * Whether to enable delayed logout.
+     */
+    connectionDrainEnabled: boolean;
+    /**
+     * The timeout of the delayed logout in seconds.
+     */
+    connectionDrainTimeout: number;
+    /**
+     * The description of pool.
+     */
+    description: string;
+    /**
+     * The health monitor ID of the ELB pool.
+     */
+    healthmonitorId: string;
+    /**
+     * The pool ID.
+     */
+    id: string;
+    /**
+     * The IP version of pool.
+     */
+    ipVersion: string;
+    /**
+     * The method of the ELB pool.
+     */
+    lbMethod: string;
+    /**
+     * Listener list. For details, see Data structure of the listener field.
+     */
+    listeners: outputs.GetElbPoolsPoolListener[];
+    /**
+     * Loadbalancer list. For details, see Data structure of the loadbalancer field.
+     */
+    loadbalancers: outputs.GetElbPoolsPoolLoadbalancer[];
+    /**
+     * Loadbalancer list. For details, see Data structure of the members field.
+     */
+    members: outputs.GetElbPoolsPoolMember[];
+    /**
+     * The timeout of the delayed logout in seconds.
+     */
+    minimumHealthyMemberCount: number;
+    /**
+     * The pool name.
+     */
+    name: string;
+    /**
+     * Whether connections in the same session will be processed by the same pool member or not.
+     */
+    persistences: outputs.GetElbPoolsPoolPersistence[];
+    /**
+     * The reason for update protection.
+     */
+    protectionReason: string;
+    /**
+     * The protection status for update.
+     */
+    protectionStatus: string;
+    /**
+     * The protocol of pool.
+     */
+    protocol: string;
+    /**
+     * The slow start duration, in seconds.
+     */
+    slowStartDuration: number;
+    /**
+     * Whether to enable slow start.
+     */
+    slowStartEnabled: boolean;
+    /**
+     * The type of the backend server group.
+     */
+    type: string;
+    /**
+     * The ID of the VPC where the backend server group works.
+     */
+    vpcId: string;
+}
+
+export interface GetElbPoolsPoolListener {
+    /**
+     * The listener ID.
+     */
+    id: string;
+}
+
+export interface GetElbPoolsPoolLoadbalancer {
+    /**
+     * The loadbalancer ID.
+     */
+    id: string;
+}
+
+export interface GetElbPoolsPoolMember {
+    /**
+     * The member ID.
+     */
+    id: string;
+}
+
+export interface GetElbPoolsPoolPersistence {
+    /**
+     * The name of the cookie if persistence mode is set appropriately.
+     */
+    cookieName: string;
+    /**
+     * The stickiness duration, in minutes.
+     */
+    timeout: number;
+    /**
+     * The type of persistence mode.
+     */
+    type: string;
+}
+
+export interface GetEvsVolumesVolume {
+    attachments: outputs.GetEvsVolumesVolumeAttachment[];
+    availabilityZone: string;
+    bootable: boolean;
+    createAt: string;
+    description: string;
+    enterpriseProjectId: string;
+    id: string;
+    iops: number;
+    name: string;
+    serviceType: string;
+    shareable: boolean;
+    size: number;
+    status: string;
+    tags: {[key: string]: string};
+    throughput: number;
+    updateAt: string;
+    volumeType: string;
+    wwn: string;
+}
+
+export interface GetEvsVolumesVolumeAttachment {
+    attachedAt: string;
+    attachedMode: string;
+    deviceName: string;
+    id: string;
+    serverId: string;
+}
+
+export interface GetIdentityGroupUser {
+    description: string;
+    enabled: boolean;
+    id: string;
+    name: string;
+    passwordExpiresAt: string;
+    passwordStatus: boolean;
+    passwordStrength: string;
+}
+
+export interface GetIdentityProjectsProject {
+    enabled: boolean;
+    id: string;
+    name: string;
+}
+
+export interface GetIdentityUsersUser {
+    description: string;
+    enabled: boolean;
+    groups: string[];
+    id: string;
+    name: string;
+    passwordExpiresAt: string;
+    passwordStatus: boolean;
+}
+
+export interface GetImagesImagesImage {
+    activeAt: string;
+    architecture: string;
+    backupId: string;
+    containerFormat: string;
+    createdAt: string;
+    dataOrigin: string;
+    description: string;
+    diskFormat: string;
+    enterpriseProjectId: string;
+    file: string;
+    id: string;
+    imageType: string;
+    maxRamMb: number;
+    minDiskGb: number;
+    minRamMb: number;
+    name: string;
+    os: string;
+    osVersion: string;
+    owner: string;
+    protected: boolean;
+    schema: string;
+    sizeBytes: number;
+    status: string;
+    updatedAt: string;
+    visibility: string;
+}
+
+export interface GetKpsFailedTasksTask {
+    /**
+     * The ID of the task.
+     */
+    id: string;
+    /**
+     * The name of the keypair associated with the task.
+     */
+    keypairName: string;
+    /**
+     * The operation type of the task.
+     */
+    operateType: string;
+    /**
+     * The ID of the instance associated with the task.
+     */
+    serverId: string;
+    /**
+     * The name of the instance associated with the task.
+     */
+    serverName: string;
+    /**
+     * The error code of the task execution failure.
+     */
+    taskErrorCode: string;
+    /**
+     * The error information of the task execution failure.
+     */
+    taskErrorMsg: string;
+    /**
+     * The start time of the task, in RFC3339 format.
+     */
+    taskTime: string;
+}
+
+export interface GetKpsKeypairsKeypair {
+    fingerprint: string;
+    isManaged: boolean;
+    name: string;
+    publicKey: string;
+    scope: string;
+}
+
+export interface GetKpsRunningTasksTask {
+    /**
+     * The ID of the task.
+     */
+    id: string;
+    /**
+     * The name of the keypair associated with the task.
+     */
+    keypairName: string;
+    /**
+     * The operation type of the task.
+     */
+    operateType: string;
+    /**
+     * The ID of the instance associated with the task.
+     */
+    serverId: string;
+    /**
+     * The name of the instance associated with the task.
+     */
+    serverName: string;
+    /**
+     * The start time of the task, in RFC3339 format.
+     */
+    taskTime: string;
+}
+
+export interface GetLbListenersListener {
+    /**
+     * The maximum number of connections allowed for the listener.
+     */
+    connectionLimit: number;
+    /**
+     * The ID of the default pool with which the ELB listener is associated.
+     */
+    defaultPoolId: string;
+    /**
+     * The ID of the server certificate used by the listener.
+     */
+    defaultTlsContainerRef: string;
+    /**
+     * The description of the ELB listener.
+     */
+    description: string;
+    /**
+     * Whether the ELB listener uses HTTP/2.
+     */
+    http2Enable: boolean;
+    /**
+     * The ELB listener ID.
+     */
+    id: string;
+    /**
+     * Loadbalancer list. For details, see Data structure of the loadbalancer field.
+     */
+    loadbalancers: outputs.GetLbListenersListenerLoadbalancer[];
+    /**
+     * The listener name.
+     */
+    name: string;
+    /**
+     * The listener protocol.
+     */
+    protocol: string;
+    /**
+     * The front-end listening port of the listener.
+     */
+    protocolPort: number;
+    /**
+     * List of the SNI certificate (server certificates with a domain name) IDs used by the listener.
+     */
+    sniContainerRefs: string[];
+}
+
+export interface GetLbListenersListenerLoadbalancer {
+    /**
+     * The loadbalancer ID.
+     */
+    id: string;
+}
+
+export interface GetLbPoolsPool {
+    /**
+     * The description of pool.
+     */
+    description: string;
+    /**
+     * Specifies the health monitor ID of the LB pool.
+     */
+    healthmonitorId: string;
+    /**
+     * The pool ID.
+     */
+    id: string;
+    /**
+     * The method of the LB pool.
+     */
+    lbMethod: string;
+    /**
+     * Listener list. For details, see Data structure of the listener field.
+     */
+    listeners: outputs.GetLbPoolsPoolListener[];
+    /**
+     * Loadbalancer list. For details, see Data structure of the loadbalancer field.
+     */
+    loadbalancers: outputs.GetLbPoolsPoolLoadbalancer[];
+    /**
+     * Loadbalancer list. For details, see Data structure of the members field.
+     */
+    members: outputs.GetLbPoolsPoolMember[];
+    /**
+     * The pool name.
+     */
+    name: string;
+    persistences: outputs.GetLbPoolsPoolPersistence[];
+    /**
+     * The protocol of pool.
+     */
+    protocol: string;
+}
+
+export interface GetLbPoolsPoolListener {
+    /**
+     * The listener ID.
+     */
+    id: string;
+}
+
+export interface GetLbPoolsPoolLoadbalancer {
+    /**
+     * The loadbalancer ID.
+     */
+    id: string;
+}
+
+export interface GetLbPoolsPoolMember {
+    /**
+     * The member ID.
+     */
+    id: string;
+}
+
+export interface GetLbPoolsPoolPersistence {
+    /**
+     * The name of the cookie if persistence mode is set appropriately.
+     */
+    cookieName: string;
+    /**
+     * The type of persistence mode.
+     */
+    type: string;
+}
+
+export interface GetNetworkingSecgroupRule {
+    action: string;
+    description: string;
+    direction: string;
+    ethertype: string;
+    id: string;
+    /**
+     * schema: Deprecated
+     */
+    portRangeMax: number;
+    /**
+     * schema: Deprecated
+     */
+    portRangeMin: number;
+    ports: string;
+    priority: number;
+    protocol: string;
+    remoteAddressGroupId: string;
+    remoteGroupId: string;
+    remoteIpPrefix: string;
+}
+
+export interface GetNetworkingSecgroupsSecurityGroup {
+    createdAt: string;
+    description: string;
+    enterpriseProjectId: string;
+    id: string;
+    name: string;
+    updatedAt: string;
+}
+
+export interface GetObsBucketsBucket {
+    bucket: string;
+    createdAt: string;
+    enterpriseProjectId: string;
+    region: string;
+    storageClass: string;
+}
+
+export interface GetRdsBackupsBackup {
+    /**
+     * Whether a DDM instance has been associated.
+     */
+    associatedWithDdm: boolean;
+    /**
+     * Backup start time in the "yyyy-mm-ddThh:mm:ssZ" format.
+     */
+    beginTime: string;
+    /**
+     * Database been backed up.
+     */
+    databases: outputs.GetRdsBackupsBackupDatabase[];
+    datastores: outputs.GetRdsBackupsBackupDatastore[];
+    /**
+     * Backup end time in the "yyyy-mm-ddThh:mm:ssZ" format.
+     */
+    endTime: string;
+    /**
+     * Backup ID.
+     */
+    id: string;
+    /**
+     * RDS instance ID.
+     */
+    instanceId: string;
+    /**
+     * Backup name.
+     */
+    name: string;
+    /**
+     * Backup size in KB.
+     */
+    size: number;
+    /**
+     * Backup status.
+     */
+    status: string;
+    /**
+     * Backup type.
+     */
+    type: string;
+}
+
+export interface GetRdsBackupsBackupDatabase {
+    /**
+     * Database to be backed up for Microsoft SQL Server.
+     */
+    name: string;
+}
+
+export interface GetRdsBackupsBackupDatastore {
+    /**
+     * DB engine.
+     */
+    type: string;
+    /**
+     * DB engine version.
+     */
+    version: string;
+}
+
+export interface GetRdsEngineVersionsVersion {
+    id: string;
+    name: string;
+}
+
+export interface GetRdsFlavorsFlavor {
+    availabilityZones: string[];
+    dbVersions: string[];
+    groupType: string;
+    id: string;
+    instanceMode: string;
+    memory: number;
+    /**
+     * @deprecated use instanceMode instead
+     */
+    mode: string;
+    name: string;
+    vcpus: number;
+}
+
+export interface GetRdsInstancesInstance {
+    availabilityZones: string[];
+    backupStrategies: outputs.GetRdsInstancesInstanceBackupStrategy[];
+    created: string;
+    dbs: outputs.GetRdsInstancesInstanceDb[];
+    enterpriseProjectId: string;
+    fixedIp: string;
+    flavor: string;
+    haReplicationMode: string;
+    id: string;
+    name: string;
+    nodes: outputs.GetRdsInstancesInstanceNode[];
+    paramGroupId: string;
+    privateIps: string[];
+    publicIps: string[];
+    region: string;
+    securityGroupId: string;
+    sslEnable: boolean;
+    status: string;
+    subnetId: string;
+    tags: {[key: string]: string};
+    timeZone: string;
+    volumes: outputs.GetRdsInstancesInstanceVolume[];
+    vpcId: string;
+}
+
+export interface GetRdsInstancesInstanceBackupStrategy {
+    keepDays: number;
+    startTime: string;
+}
+
+export interface GetRdsInstancesInstanceDb {
+    port: number;
+    type: string;
+    userName: string;
+    version: string;
+}
+
+export interface GetRdsInstancesInstanceNode {
+    availabilityZone: string;
+    id: string;
+    name: string;
+    role: string;
+    status: string;
+}
+
+export interface GetRdsInstancesInstanceVolume {
+    diskEncryptionId: string;
+    size: number;
+    type: string;
+}
+
+export interface GetRdsPgAccountsUser {
+    attributes: outputs.GetRdsPgAccountsUserAttribute[];
+    description: string;
+    memberofs: string[];
+    name: string;
+}
+
+export interface GetRdsPgAccountsUserAttribute {
+    rolbypassrls: boolean;
+    rolcanlogin: boolean;
+    rolconnlimit: number;
+    rolcreatedb: boolean;
+    rolcreaterole: boolean;
+    rolinherit: boolean;
+    rolreplication: boolean;
+    rolsuper: boolean;
+}
+
+export interface GetRdsPgDatabasesDatabase {
+    characterSet: string;
+    description: string;
+    lcCollate: string;
+    name: string;
+    owner: string;
+    size: number;
+}
+
+export interface GetRdsPgPluginsPlugin {
+    /**
+     * Indicates whether the plugin has been created.
+     */
+    created: boolean;
+    /**
+     * Indicates the plugin description.
+     */
+    description: string;
+    /**
+     * Indicates the plugin name.
+     */
+    name: string;
+    /**
+     * Indicates the dependent preloaded library.
+     */
+    sharedPreloadLibraries: string;
+    /**
+     * Indicates the plugin version.
+     */
+    version: string;
+}
+
+export interface GetRdsPgSqlLimitsSqlLimit {
+    /**
+     * Indicates the ID of SQL limit.
+     */
+    id: string;
+    /**
+     * Indicates whether the SQL limit is effective.
+     */
+    isEffective: boolean;
+    /**
+     * Indicates the number of SQL statements executed simultaneously.
+     */
+    maxConcurrency: number;
+    /**
+     * Indicates the max waiting time in seconds.
+     */
+    maxWaiting: number;
+    /**
+     * Indicates the query ID.
+     */
+    queryId: string;
+    /**
+     * Indicates the text form of SQL statement.
+     */
+    queryString: string;
+    /**
+     * Indicates the query order for names that are not schema qualified.
+     */
+    searchPath: string;
+}
+
+export interface GetRdsStorageTypesStorageType {
+    /**
+     * The status details of the AZs to which the specification belongs.
+     */
+    azStatus: {[key: string]: string};
+    /**
+     * Storage type.
+     */
+    name: string;
+    /**
+     * Performance specifications.
+     */
+    supportComputeGroupTypes: string[];
+}
+
+export interface GetSfsTurboDataTasksTask {
+    /**
+     * The destination path prefix of the data task.
+     */
+    destPrefix: string;
+    /**
+     * The target end information of the data task.
+     */
+    destTarget: string;
+    /**
+     * The end time of the data task, in RFC3339 format.
+     */
+    endTime: string;
+    /**
+     * The ID of the data task.
+     */
+    id: string;
+    /**
+     * The data task execution result information.
+     */
+    message: string;
+    /**
+     * The source path prefix of the data task.
+     */
+    srcPrefix: string;
+    /**
+     * The linkage directory name.
+     */
+    srcTarget: string;
+    /**
+     * The start time of the data task, in RFC3339 format.
+     */
+    startTime: string;
+    /**
+     * The status of the data task.
+     */
+    status: string;
+    /**
+     * The type of the data task.
+     */
+    type: string;
+}
+
+export interface GetSfsTurboDuTasksTask {
+    /**
+     * The start time of the DU task, in RFC3339 format.
+     */
+    beginTime: string;
+    /**
+     * The resource usages of a directory (including subdirectories).
+     */
+    dirUsages: outputs.GetSfsTurboDuTasksTaskDirUsage[];
+    /**
+     * The end time of the DU task, in RFC3339 format.
+     */
+    endTime: string;
+    /**
+     * The ID of the DU task.
+     */
+    id: string;
+    /**
+     * The status of the DU task.
+     */
+    status: string;
+}
+
+export interface GetSfsTurboDuTasksTaskDirUsage {
+    /**
+     * The total number of files in the directory.
+     */
+    fileCounts: outputs.GetSfsTurboDuTasksTaskDirUsageFileCount[];
+    /**
+     * The error message.
+     */
+    message: string;
+    /**
+     * The full path to a legal directory in the file system.
+     */
+    path: string;
+    /**
+     * The used capacity, in byte.
+     */
+    usedCapacity: number;
+}
+
+export interface GetSfsTurboDuTasksTaskDirUsageFileCount {
+    /**
+     * The number of block devices.
+     */
+    block: number;
+    /**
+     * The number of character devices.
+     */
+    char: number;
+    /**
+     * The number of directories.
+     */
+    dir: number;
+    /**
+     * The number of pipe files.
+     */
+    pipe: number;
+    /**
+     * The number of common files.
+     */
+    regular: number;
+    /**
+     * The number of sockets.
+     */
+    socket: number;
+    /**
+     * The number of symbolic links.
+     */
+    symlink: number;
+}
+
+export interface GetSfsTurboObsTargetsTarget {
+    /**
+     * The creation time of the OBS target.
+     */
+    createdAt: string;
+    /**
+     * The linkage directory name of the OBS target.
+     */
+    fileSystemPath: string;
+    /**
+     * The ID of the OBS target.
+     */
+    id: string;
+    /**
+     * The detail of the OBS bucket.
+     */
+    obs: outputs.GetSfsTurboObsTargetsTargetOb[];
+    /**
+     * The status of the OBS target.
+     */
+    status: string;
+}
+
+export interface GetSfsTurboObsTargetsTargetOb {
+    /**
+     * The name of the OBS bucket associated with the OBS target.
+     */
+    bucket: string;
+    /**
+     * The domain name of the region where the OBS bucket belongs.
+     */
+    endpoint: string;
+}
+
+export interface GetSfsTurboPermRulesRule {
+    /**
+     * The ID of the permission rule.
+     */
+    id: string;
+    /**
+     * The IP address or IP address range of the authorized object.
+     */
+    ipCidr: string;
+    /**
+     * The read and write permission of the authorized object.
+     */
+    rwType: string;
+    /**
+     * The file system access permission granted to the user of the authorized object.
+     */
+    userType: string;
+}
+
+export interface GetSfsTurbosTurbo {
+    availabilityZone: string;
+    availableCapacity: string;
+    cryptKeyId: string;
+    enhanced: boolean;
+    enterpriseProjectId: string;
+    exportLocation: string;
+    id: string;
+    name: string;
+    securityGroupId: string;
+    shareProto: string;
+    shareType: string;
+    size: number;
+    subnetId: string;
+    version: string;
+    vpcId: string;
+}
+
+export interface GetVpcAddressGroupsAddressGroup {
+    /**
+     * IP address sets in an IP address group.
+     */
+    addresses: string[];
+    /**
+     * Time when the IP address group is created.
+     */
+    createdAt: string;
+    /**
+     * The supplementary information about the IP address group.
+     */
+    description: string;
+    /**
+     * Enterprise project ID.
+     */
+    enterpriseProjectId: string;
+    /**
+     * IP address group ID, which uniquely identifies the IP address group.
+     */
+    id: string;
+    /**
+     * IP addresses and their remarks in an IP address group.
+     */
+    ipExtraSets: outputs.GetVpcAddressGroupsAddressGroupIpExtraSet[];
+    /**
+     * Whether it is an IPv4 or IPv6 address group.
+     */
+    ipVersion: number;
+    /**
+     * Maximum number of entries in an address group,
+     */
+    maxCapacity: number;
+    /**
+     * IP address group name.
+     */
+    name: string;
+    /**
+     * The status of IP address group.
+     */
+    status: string;
+    /**
+     * The status details of IP address group.
+     */
+    statusMessage: string;
+    /**
+     * Time when the IP address group was last updated.
+     */
+    updatedAt: string;
+}
+
+export interface GetVpcAddressGroupsAddressGroupIpExtraSet {
+    /**
+     * An IP address, IP address range, or CIDR block.
+     */
+    ip: string;
+    /**
+     * Provides supplementary information about the IP address, IP address range, or CIDR block.
+     */
+    remarks: string;
+}
+
+export interface GetVpcBandwidthPublicip {
+    id: string;
+    ipAddress: string;
+    ipVersion: number;
+    type: string;
+}
+
+export interface GetVpcEipsEip {
+    bandwidthId: string;
+    bandwidthName: string;
+    bandwidthShareType: string;
+    bandwidthSize: number;
+    createdAt: string;
+    enterpriseProjectId: string;
+    id: string;
+    ipVersion: number;
+    name: string;
+    portId: string;
+    privateIp: string;
+    publicIp: string;
+    publicIpv6: string;
+    status: string;
+    tags: {[key: string]: string};
+    type: string;
+}
+
+export interface GetVpcRoute {
+    destination: string;
+    nexthop: string;
+}
+
+export interface GetVpcRouteTableRoute {
+    description: string;
+    destination: string;
+    nexthop: string;
+    type: string;
+}
+
+export interface GetVpcRoutesRoute {
+    /**
+     * The route destination.
+     */
+    destination: string;
+    /**
+     * The route ID.
+     */
+    id: string;
+    /**
+     * The next hop of the route.
+     */
+    nexthop: string;
+    /**
+     * The route type.
+     */
+    type: string;
+    /**
+     * The ID of the VPC to which the route belongs.
+     */
+    vpcId: string;
+}
+
+export interface GetVpcSubnetsSubnet {
+    availabilityZone: string;
+    cidr: string;
+    description: string;
+    dhcpEnable: boolean;
+    dnsLists: string[];
+    gatewayIp: string;
+    id: string;
+    ipv4SubnetId: string;
+    ipv6Cidr: string;
+    ipv6Enable: boolean;
+    ipv6Gateway: string;
+    ipv6SubnetId: string;
+    name: string;
+    primaryDns: string;
+    secondaryDns: string;
+    status: string;
+    /**
+     * schema: Deprecated
+     */
+    subnetId: string;
+    tags: {[key: string]: string};
+    vpcId: string;
+}
+
+export interface GetVpcepPublicServicesService {
+    id: string;
+    isCharge: boolean;
+    owner: string;
+    serviceName: string;
+    serviceType: string;
+}
+
+export interface GetVpcsVpc {
+    cidr: string;
+    description: string;
+    enterpriseProjectId: string;
+    id: string;
+    name: string;
+    secondaryCidrs: string[];
+    status: string;
+    tags: {[key: string]: string};
+}
+
+export interface GetVpnConnectionHealthChecksConnectionHealthCheck {
+    connectionId: string;
+    destinationIp: string;
+    id: string;
+    protoType: string;
+    sourceIp: string;
+    status: string;
+    type: string;
+}
+
+export interface GetVpnConnectionsConnection {
+    connectionMonitorId: string;
+    createdAt: string;
+    customerGatewayId: string;
+    enableNqa: boolean;
+    enterpriseProjectId: string;
+    gatewayId: string;
+    gatewayIp: string;
+    haRole: string;
+    id: string;
+    ikepolicies: outputs.GetVpnConnectionsConnectionIkepolicy[];
+    ipsecpolicies: outputs.GetVpnConnectionsConnectionIpsecpolicy[];
+    name: string;
+    peerSubnets: string[];
+    policyRules: outputs.GetVpnConnectionsConnectionPolicyRule[];
+    status: string;
+    tunnelLocalAddress: string;
+    tunnelPeerAddress: string;
+    updatedAt: string;
+    vpnType: string;
+}
+
+export interface GetVpnConnectionsConnectionIkepolicy {
+    authenticationAlgorithm: string;
+    authenticationMethod: string;
+    dhGroup: string;
+    dpds: outputs.GetVpnConnectionsConnectionIkepolicyDpd[];
+    encryptionAlgorithm: string;
+    ikeVersion: string;
+    lifetimeSeconds: number;
+    localId: string;
+    localIdType: string;
+    peerId: string;
+    peerIdType: string;
+    phase1NegotiationMode: string;
+}
+
+export interface GetVpnConnectionsConnectionIkepolicyDpd {
+    interval: number;
+    msg: string;
+    timeout: number;
+}
+
+export interface GetVpnConnectionsConnectionIpsecpolicy {
+    authenticationAlgorithm: string;
+    encapsulationMode: string;
+    encryptionAlgorithm: string;
+    lifetimeSeconds: number;
+    pfs: string;
+    transformProtocol: string;
+}
+
+export interface GetVpnConnectionsConnectionPolicyRule {
+    destinations: string[];
+    ruleIndex: number;
+    source: string;
+}
+
+export interface GetVpnCustomerGatewaysCustomerGateway {
+    asn: number;
+    caCertificates: outputs.GetVpnCustomerGatewaysCustomerGatewayCaCertificate[];
+    createdAt: string;
+    id: string;
+    idType: string;
+    idValue: string;
+    ip: string;
+    name: string;
+    routeMode: string;
+    updatedAt: string;
+}
+
+export interface GetVpnCustomerGatewaysCustomerGatewayCaCertificate {
+    expireTime: string;
+    isUpdatable: boolean;
+    issuer: string;
+    serialNumber: string;
+    signatureAlgorithm: string;
+    subject: string;
+}
+
+export interface GetVpnGatewaysGateway {
+    /**
+     * The list of private access IPs.
+     */
+    accessPrivateIps: string[];
+    /**
+     * The ID of the access subnet.
+     */
+    accessSubnetId: string;
+    /**
+     * The ID of the access VPC.
+     */
+    accessVpcId: string;
+    /**
+     * The attachment type.
+     */
+    attachmentType: string;
+    /**
+     * The availability zone IDs.
+     */
+    availabilityZones: string[];
+    /**
+     * The ASN number of BGP
+     */
+    bgpAsn: number;
+    /**
+     * The VPC network segment used by the VPN gateway
+     */
+    connectSubnet: string;
+    /**
+     * The max number of connections.
+     */
+    connectionNumber: number;
+    /**
+     * The create time.
+     */
+    createdAt: string;
+    eips: outputs.GetVpnGatewaysGatewayEip[];
+    /**
+     * The enterprise project ID
+     */
+    enterpriseProjectId: string;
+    /**
+     * The ER attachment ID.
+     */
+    erAttachmentId: string;
+    /**
+     * The ID of the ER to which the VPN gateway is connected.
+     */
+    erId: string;
+    /**
+     * The flavor of the VPN gateway.
+     */
+    flavor: string;
+    /**
+     * The HA mode.
+     */
+    haMode: string;
+    /**
+     * The ID of the gateway
+     */
+    id: string;
+    /**
+     * The local subnets.
+     */
+    localSubnets: string[];
+    /**
+     * The name of the gateway.
+     */
+    name: string;
+    /**
+     * The network type of the gateway.
+     */
+    networkType: string;
+    /**
+     * The status of the gateway.
+     */
+    status: string;
+    /**
+     * The update time.
+     */
+    updatedAt: string;
+    /**
+     * The number of used connection groups.
+     */
+    usedConnectionGroup: number;
+    /**
+     * The number of used connections.
+     */
+    usedConnectionNumber: number;
+    /**
+     * The ID of the VPC to which the VPN gateway is connected.
+     */
+    vpcId: string;
+}
+
+export interface GetVpnGatewaysGatewayEip {
+    /**
+     * The bandwidth billing info.
+     */
+    bandwidthBillingInfo: string;
+    /**
+     * The bandwidth ID.
+     */
+    bandwidthId: string;
+    /**
+     * The bandwidth name.
+     */
+    bandwidthName: string;
+    /**
+     * Bandwidth size in Mbit/s.
+     */
+    bandwidthSize: number;
+    /**
+     * The billing info.
+     */
+    billingInfo: string;
+    /**
+     * The charge mode of the bandwidth. The value can be **bandwidth** and **traffic**.
+     */
+    chargeMode: string;
+    /**
+     * The public IP ID.
+     */
+    id: string;
+    /**
+     * The public IP address.
+     */
+    ipAddress: string;
+    /**
+     * The public IP version.
+     */
+    ipVersion: number;
+    /**
+     * The EIP type. The value can be **5_bgp** and **5_sbgp**.
+     */
+    type: string;
+}
+
+export interface IdentityAclIpCidr {
+    cidr: string;
+    description?: string;
+}
+
+export interface IdentityAclIpRange {
+    description?: string;
+    range: string;
+}
+
+export interface IdentityAgencyProjectRole {
+    project: string;
+    roles: string[];
+}
+
+export interface IdentityProviderAccessConfig {
+    accessType: string;
+    authorizationEndpoint: string;
+    clientId: string;
+    providerUrl: string;
+    responseMode?: string;
+    responseType?: string;
+    scopes: string[];
+    signingKey: string;
+}
+
+export interface IdentityProviderConversionConversionRule {
+    locals: outputs.IdentityProviderConversionConversionRuleLocal[];
+    remotes: outputs.IdentityProviderConversionConversionRuleRemote[];
+}
+
+export interface IdentityProviderConversionConversionRuleLocal {
+    group?: string;
+    username?: string;
+}
+
+export interface IdentityProviderConversionConversionRuleRemote {
+    attribute: string;
+    condition?: string;
+    values?: string[];
+}
+
+export interface IdentityProviderConversionRule {
+    locals: outputs.IdentityProviderConversionRuleLocal[];
+    remotes: outputs.IdentityProviderConversionRuleRemote[];
+}
+
+export interface IdentityProviderConversionRuleLocal {
+    group: string;
+    username: string;
+}
+
+export interface IdentityProviderConversionRuleRemote {
+    attribute: string;
+    condition: string;
+    values: string[];
+}
+
+export interface LbPoolPersistence {
+    cookieName?: string;
+    timeout: number;
+    type: string;
+}
+
+export interface MapreduceClusterAnalysisCoreNodes {
+    assignedRoles?: string[];
+    dataVolumeCount: number;
+    dataVolumeSize?: number;
+    dataVolumeType?: string;
+    flavor: string;
+    hostIps: string[];
+    nodeNumber: number;
+    rootVolumeSize: number;
+    rootVolumeType: string;
+}
+
+export interface MapreduceClusterAnalysisTaskNodes {
+    assignedRoles?: string[];
+    dataVolumeCount: number;
+    dataVolumeSize?: number;
+    dataVolumeType?: string;
+    flavor: string;
+    hostIps: string[];
+    nodeNumber: number;
+    rootVolumeSize: number;
+    rootVolumeType: string;
+}
+
+export interface MapreduceClusterBootstrapScript {
+    /**
+     * Whether the bootstrap action script runs only on active master nodes.
+     */
+    activeMaster: boolean;
+    /**
+     * Whether the bootstrap action script is executed before component start.
+     */
+    beforeComponentStart: boolean;
+    /**
+     * Whether the bootstrap action script involves root user operations.
+     */
+    executeNeedSudoRoot: boolean;
+    /**
+     * The action after the bootstrap action script fails to be executed.
+     */
+    failAction: string;
+    /**
+     * Name of a bootstrap action script.
+     */
+    name: string;
+    /**
+     * Name of the node group where the bootstrap action script is executed.
+     */
+    nodes: string[];
+    /**
+     * Bootstrap action script parameters.
+     */
+    parameters?: string;
+    /**
+     * The execution time of one bootstrap action script, in RFC-3339 format.
+     */
+    startTime: string;
+    /**
+     * The status of one bootstrap action script.
+     */
+    state: string;
+    /**
+     * Path of a bootstrap action script. Set this parameter to an OBS bucket path or a local VM path.
+     */
+    uri: string;
+}
+
+export interface MapreduceClusterComponentConfig {
+    configs: outputs.MapreduceClusterComponentConfigConfig[];
+    name: string;
+}
+
+export interface MapreduceClusterComponentConfigConfig {
+    configFileName: string;
+    key: string;
+    value: string;
+}
+
+export interface MapreduceClusterCustomNode {
+    assignedRoles?: string[];
+    dataVolumeCount: number;
+    dataVolumeSize?: number;
+    dataVolumeType?: string;
+    flavor: string;
+    groupName: string;
+    hostIps: string[];
+    nodeNumber: number;
+    rootVolumeSize: number;
+    rootVolumeType: string;
+}
+
+export interface MapreduceClusterExternalDatasource {
+    componentName: string;
+    dataConnectionId?: string;
+    roleType: string;
+    sourceType: string;
+}
+
+export interface MapreduceClusterMasterNodes {
+    assignedRoles?: string[];
+    dataVolumeCount: number;
+    dataVolumeSize?: number;
+    dataVolumeType?: string;
+    flavor: string;
+    hostIps: string[];
+    nodeNumber: number;
+    rootVolumeSize: number;
+    rootVolumeType: string;
+}
+
+export interface MapreduceClusterSmnNotify {
+    /**
+     * The subscription rule name.
+     */
+    subscriptionName: string;
+    /**
+     * The Uniform Resource Name (URN) of the topic.
+     */
+    topicUrn: string;
+}
+
+export interface MapreduceClusterStreamingCoreNodes {
+    assignedRoles?: string[];
+    dataVolumeCount: number;
+    dataVolumeSize?: number;
+    dataVolumeType?: string;
+    flavor: string;
+    hostIps: string[];
+    nodeNumber: number;
+    rootVolumeSize: number;
+    rootVolumeType: string;
+}
+
+export interface MapreduceClusterStreamingTaskNodes {
+    assignedRoles?: string[];
+    dataVolumeCount: number;
+    dataVolumeSize?: number;
+    dataVolumeType?: string;
+    flavor: string;
+    hostIps: string[];
+    nodeNumber: number;
+    rootVolumeSize: number;
+    rootVolumeType: string;
+}
+
+export interface NatGatewaySessionConf {
+    /**
+     * The ICMP session expiration time.
+     */
+    icmpSessionExpireTime: number;
+    /**
+     * The TCP session expiration time.
+     */
+    tcpSessionExpireTime: number;
+    /**
+     * The duration of TIME_WAIT state when TCP connection is closed.
+     */
+    tcpTimeWaitTime: number;
+    /**
+     * The UDP session expiration time.
+     */
+    udpSessionExpireTime: number;
+}
+
+export interface NetworkingSecgroupRule {
+    action: string;
+    description: string;
+    direction: string;
+    ethertype: string;
+    id: string;
+    /**
+     * schema: Deprecated
+     */
+    portRangeMax: number;
+    /**
+     * schema: Deprecated
+     */
+    portRangeMin: number;
+    ports: string;
+    priority: number;
+    protocol: string;
+    remoteAddressGroupId: string;
+    remoteGroupId: string;
+    remoteIpPrefix: string;
+}
+
+export interface ObsBucketAclAccountPermission {
+    /**
+     * Specifies the access to acl. Valid values are **READ_ACP** and **WRITE_ACP**.
+     */
+    accessToAcls?: string[];
+    /**
+     * Specifies the access to bucket. Valid values are **READ** and **WRITE**.
+     */
+    accessToBuckets?: string[];
+    /**
+     * Specifies the account id to authorize. The account id cannot be the bucket owner, 
+     * and must be unique.
+     */
+    accountId: string;
+}
+
+export interface ObsBucketAclLogDeliveryUserPermission {
+    /**
+     * Specifies the access to acl. Valid values are **READ_ACP** and **WRITE_ACP**.
+     */
+    accessToAcls?: string[];
+    /**
+     * Specifies the access to bucket. Valid values are **READ** and **WRITE**.
+     */
+    accessToBuckets?: string[];
+}
+
+export interface ObsBucketAclOwnerPermission {
+    /**
+     * Specifies the access to acl. Valid values are **READ_ACP** and **WRITE_ACP**.
+     */
+    accessToAcls?: string[];
+    /**
+     * Specifies the access to bucket. Valid values are **READ** and **WRITE**.
+     */
+    accessToBuckets?: string[];
+}
+
+export interface ObsBucketAclPublicPermission {
+    /**
+     * Specifies the access to acl. Valid values are **READ_ACP** and **WRITE_ACP**.
+     */
+    accessToAcls?: string[];
+    /**
+     * Specifies the access to bucket. Valid values are **READ** and **WRITE**.
+     */
+    accessToBuckets?: string[];
+}
+
+export interface ObsBucketCorsRule {
+    allowedHeaders?: string[];
+    allowedMethods: string[];
+    allowedOrigins: string[];
+    exposeHeaders?: string[];
+    maxAgeSeconds?: number;
+}
+
+export interface ObsBucketLifecycleRule {
+    abortIncompleteMultipartUploads?: outputs.ObsBucketLifecycleRuleAbortIncompleteMultipartUpload[];
+    enabled: boolean;
+    expirations?: outputs.ObsBucketLifecycleRuleExpiration[];
+    name: string;
+    noncurrentVersionExpirations?: outputs.ObsBucketLifecycleRuleNoncurrentVersionExpiration[];
+    noncurrentVersionTransitions?: outputs.ObsBucketLifecycleRuleNoncurrentVersionTransition[];
+    prefix?: string;
+    transitions?: outputs.ObsBucketLifecycleRuleTransition[];
+}
+
+export interface ObsBucketLifecycleRuleAbortIncompleteMultipartUpload {
+    days: number;
+}
+
+export interface ObsBucketLifecycleRuleExpiration {
+    days: number;
+}
+
+export interface ObsBucketLifecycleRuleNoncurrentVersionExpiration {
+    days: number;
+}
+
+export interface ObsBucketLifecycleRuleNoncurrentVersionTransition {
+    days: number;
+    storageClass: string;
+}
+
+export interface ObsBucketLifecycleRuleTransition {
+    days: number;
+    storageClass: string;
+}
+
+export interface ObsBucketLogging {
+    /**
+     * schema: Required
+     */
+    agency: string;
+    targetBucket: string;
+    targetPrefix?: string;
+}
+
+export interface ObsBucketStorageInfo {
+    objectNumber: number;
+    size: number;
+}
+
+export interface ObsBucketWebsite {
+    errorDocument?: string;
+    indexDocument?: string;
+    redirectAllRequestsTo?: string;
+    routingRules?: string;
+}
+
+export interface RdsBackupDatabase {
+    /**
+     * Database to be backed up for Microsoft SQL Server.
+     */
+    name: string;
+}
+
+export interface RdsInstanceBackupStrategy {
+    /**
+     * schema: Required
+     */
+    keepDays: number;
+    period: string;
+    startTime: string;
+}
+
+export interface RdsInstanceDb {
+    password?: string;
+    port: number;
+    type: string;
+    userName: string;
+    version: string;
+}
+
+export interface RdsInstanceMsdtcHost {
+    hostName: string;
+    id: string;
+    ip: string;
+}
+
+export interface RdsInstanceNode {
+    availabilityZone: string;
+    id: string;
+    name: string;
+    role: string;
+    status: string;
+}
+
+export interface RdsInstanceParameter {
+    name: string;
+    value: string;
+}
+
+export interface RdsInstanceRestore {
+    backupId: string;
+    databaseName?: {[key: string]: string};
+    instanceId: string;
+}
+
+export interface RdsInstanceVolume {
+    diskEncryptionId: string;
+    limitSize?: number;
+    size: number;
+    triggerThreshold?: number;
+    type: string;
+}
+
+export interface RdsMysqlDatabasePrivilegeUser {
+    /**
+     * Specifies the username of the database account.
+     */
+    name: string;
+    /**
+     * Specifies the read-only permission.
+     */
+    readonly: boolean;
+}
+
+export interface RdsMysqlDatabaseTableRestoreDatabase {
+    /**
+     * Specifies the name of the database after restoration.
+     */
+    newName: string;
+    /**
+     * Specifies the name of the database before restoration.
+     */
+    oldName: string;
+}
+
+export interface RdsMysqlDatabaseTableRestoreRestoreTable {
+    /**
+     * Specifies the database name.
+     */
+    database: string;
+    /**
+     * Specifies the tables.
+     */
+    tables: outputs.RdsMysqlDatabaseTableRestoreRestoreTableTable[];
+}
+
+export interface RdsMysqlDatabaseTableRestoreRestoreTableTable {
+    /**
+     * Specifies the name of the table after restoration.
+     */
+    newName: string;
+    /**
+     * Specifies the name of the table before restoration.
+     */
+    oldName: string;
+}
+
+export interface RdsParametergroupConfigurationParameter {
+    description: string;
+    name: string;
+    readonly: boolean;
+    restartRequired: boolean;
+    type: string;
+    value: string;
+    valueRange: string;
+}
+
+export interface RdsParametergroupDatastore {
+    type: string;
+    version: string;
+}
+
+export interface RdsPgAccountAttribute {
+    /**
+     * Indicates whether a user bypasses each row-level security policy.
+     */
+    rolBypassRls: boolean;
+    /**
+     * Indicates whether a user can log in to the database.
+     */
+    rolCanLogin: boolean;
+    /**
+     * Indicates the maximum number of concurrent connections to a DB instance.
+     */
+    rolConnLimit: number;
+    /**
+     * Indicates whether a user can create a database.
+     */
+    rolCreateDb: boolean;
+    /**
+     * Indicates whether a user can create other sub-users.
+     */
+    rolCreateRole: boolean;
+    /**
+     * Indicates whether a user automatically inherits the permissions of the role to which the
+     * user belongs.
+     */
+    rolInherit: boolean;
+    /**
+     * Indicates whether the user is a replication role.
+     */
+    rolReplication: boolean;
+    /**
+     * Indicates whether a user has the super-user permission.
+     */
+    rolSuper: boolean;
+}
+
+export interface RdsPgHbaHostBasedAuthentication {
+    /**
+     * Specifies the client IP address.
+     */
+    address: string;
+    /**
+     * Specifies the database name.
+     */
+    database: string;
+    /**
+     * Specifies the subnet mask.
+     */
+    mask: string;
+    /**
+     * Specifies the authentication mode.
+     */
+    method: string;
+    /**
+     * Specifies the connection type.
+     */
+    type: string;
+    /**
+     * Specifies the Name of a user.
+     */
+    user: string;
+}
+
+export interface RdsReadReplicaInstanceDb {
+    port: number;
+    type: string;
+    userName: string;
+    version: string;
+}
+
+export interface RdsReadReplicaInstanceParameter {
+    name: string;
+    value: string;
+}
+
+export interface RdsReadReplicaInstanceVolume {
+    /**
+     * schema: Computed
+     */
+    diskEncryptionId: string;
+    limitSize?: number;
+    size: number;
+    triggerThreshold?: number;
+    type: string;
+}
+
+export interface RdsSqlserverDatabasePrivilegeUser {
+    /**
+     * Specifies the username of the database account.
+     */
+    name: string;
+    /**
+     * Specifies the read-only permission.
+     */
+    readonly: boolean;
+}
+
+export interface SfsFileSystemAccessRule {
+    accessLevel: string;
+    accessRuleId: string;
+    accessTo: string;
+    accessType: string;
+    status: string;
+}
+
+export interface SfsTurboDuTaskDirUsage {
+    fileCounts: outputs.SfsTurboDuTaskDirUsageFileCount[];
+    message: string;
+    path: string;
+    usedCapacity: number;
+}
+
+export interface SfsTurboDuTaskDirUsageFileCount {
+    block: number;
+    char: number;
+    dir: number;
+    pipe: number;
+    regular: number;
+    socket: number;
+    symlink: number;
+}
+
+export interface SfsTurboObsTargetObs {
+    bucket: string;
+    endpoint: string;
+}
+
+export interface SmnSubscriptionExtension {
+    clientId?: string;
+    clientSecret?: string;
+    keyword?: string;
+    signSecret?: string;
+}
+
+export interface SmnSubscriptionFilterPolicy {
+    /**
+     * The filter policy name. The policy name must be unique.
+     */
+    name: string;
+    /**
+     * The string array for exact match.
+     */
+    stringEquals: string[];
+}
+
+export interface SwrOrganizationPermissionsSelfPermission {
+    permission: string;
+    userId: string;
+    userName: string;
+}
+
+export interface SwrOrganizationPermissionsUser {
+    permission: string;
+    userId: string;
+    userName: string;
+}
+
+export interface VpcAddressGroupIpExtraSet {
+    ip: string;
+    remarks?: string;
+}
+
+export interface VpcBandwidthPublicip {
+    id: string;
+    ipAddress: string;
+    ipVersion: number;
+    type: string;
+}
+
+export interface VpcEipBandwidth {
+    /**
+     * Whether the bandwidth is billed by traffic or by bandwidth size.
+     */
+    chargeMode: string;
+    /**
+     * The shared bandwidth ID.
+     */
+    id: string;
+    /**
+     * The dedicated bandwidth name.
+     */
+    name: string;
+    /**
+     * Whether the bandwidth is dedicated or shared.
+     */
+    shareType: string;
+    /**
+     * The dedicated bandwidth size.
+     */
+    size: number;
+}
+
+export interface VpcEipPublicip {
+    /**
+     * The EIP address to be assigned.
+     */
+    ipAddress: string;
+    /**
+     * The IP version.
+     */
+    ipVersion: number;
+    /**
+     * schema: Deprecated
+     */
+    portId: string;
+    /**
+     * The EIP type.
+     */
+    type?: string;
+}
+
+export interface VpcRoute {
+    destination: string;
+    nexthop: string;
+}
+
+export interface VpcRouteTableRoute {
+    description?: string;
+    destination: string;
+    nexthop: string;
+    type: string;
+}
+
+export interface VpcepServiceConnection {
+    description: string;
+    domainId: string;
+    endpointId: string;
+    packetId: number;
+    status: string;
+}
+
+export interface VpcepServicePortMapping {
+    protocol?: string;
+    /**
+     * schema: Required
+     */
+    servicePort?: number;
+    /**
+     * schema: Required
+     */
+    terminalPort?: number;
+}
+
+export interface VpnConnectionIkepolicy {
+    /**
+     * The authentication algorithm, SHA1 and MD5 are less secure, please use them with caution.
+     */
+    authenticationAlgorithm: string;
+    /**
+     * The authentication method during IKE negotiation.
+     */
+    authenticationMethod: string;
+    /**
+     * Specifies the DH group used for key exchange in phase 1.
+     */
+    dhGroup: string;
+    /**
+     * Specifies the dead peer detection (DPD) object.
+     */
+    dpd: outputs.VpnConnectionIkepolicyDpd;
+    /**
+     * The encryption algorithm, 3DES is less secure, please use them with caution.
+     */
+    encryptionAlgorithm: string;
+    /**
+     * The IKE negotiation version.
+     */
+    ikeVersion: string;
+    /**
+     * The life cycle of SA in seconds, when the life cycle expires, IKE SA will be automatically updated.
+     */
+    lifetimeSeconds: number;
+    /**
+     * The local ID.
+     */
+    localId: string;
+    /**
+     * The local ID type.
+     */
+    localIdType: string;
+    /**
+     * The peer ID.
+     */
+    peerId: string;
+    /**
+     * The peer ID type.
+     */
+    peerIdType: string;
+    /**
+     * The DH key group used by PFS.
+     */
+    pfs: string;
+    /**
+     * The negotiation mode, only works when the ikeVersion is v1.
+     */
+    phase1NegotiationMode: string;
+}
+
+export interface VpnConnectionIkepolicyDpd {
+    /**
+     * Specifies the DPD idle timeout period.
+     */
+    interval: number;
+    /**
+     * Specifies the format of DPD packets.
+     */
+    msg: string;
+    /**
+     * Specifies the interval for retransmitting DPD packets.
+     */
+    timeout: number;
+}
+
+export interface VpnConnectionIpsecpolicy {
+    /**
+     * The authentication algorithm, SHA1 and MD5 are less secure, please use them with caution.
+     */
+    authenticationAlgorithm: string;
+    /**
+     * The encapsulation mode, only **tunnel** supported for now.
+     */
+    encapsulationMode: string;
+    /**
+     * The encryption algorithm, 3DES is less secure, please use them with caution.
+     */
+    encryptionAlgorithm: string;
+    /**
+     * The lifecycle time of Ipsec tunnel in seconds.
+     */
+    lifetimeSeconds: number;
+    /**
+     * The DH key group used by PFS.
+     */
+    pfs: string;
+    /**
+     * The transform protocol. Only **esp** supported for now.
+     */
+    transformProtocol: string;
+}
+
+export interface VpnConnectionPolicyRule {
+    /**
+     * The list of destination CIDRs.
+     */
+    destinations: string[];
+    /**
+     * The rule index.
+     */
+    ruleIndex: number;
+    /**
+     * The source CIDR.
+     */
+    source: string;
+}
+
+export interface VpnGatewayCertificate {
+    certificateChain: string;
+    certificateChainExpireTime: string;
+    certificateChainSerialNumber: string;
+    certificateChainSubject: string;
+    certificateExpireTime: string;
+    certificateId: string;
+    certificateSerialNumber: string;
+    certificateSubject: string;
+    content: string;
+    createdAt: string;
+    encCertificate: string;
+    encCertificateExpireTime: string;
+    encCertificateSerialNumber: string;
+    encCertificateSubject: string;
+    encPrivateKey: string;
+    issuer: string;
+    name: string;
+    privateKey: string;
+    signatureAlgorithm: string;
+    status: string;
+    updatedAt: string;
+}
+
+export interface VpnGatewayEip1 {
+    /**
+     * The bandwidth ID.
+     */
+    bandwidthId: string;
+    /**
+     * The bandwidth name.
+     */
+    bandwidthName: string;
+    /**
+     * Bandwidth size in Mbit/s. When the flavor is **V300**, the value cannot be greater than **300**.
+     */
+    bandwidthSize: number;
+    /**
+     * The charge mode of the bandwidth. The value can be **bandwidth** and **traffic**.
+     */
+    chargeMode: string;
+    /**
+     * The public IP ID.
+     */
+    id: string;
+    /**
+     * The public IP address.
+     */
+    ipAddress: string;
+    /**
+     * The public IP version.
+     */
+    ipVersion: number;
+    /**
+     * The EIP type. The value can be **5_bgp** and **5_sbgp**.
+     */
+    type: string;
+}
+
+export interface VpnGatewayEip2 {
+    /**
+     * The bandwidth ID.
+     */
+    bandwidthId: string;
+    /**
+     * The bandwidth name.
+     */
+    bandwidthName: string;
+    /**
+     * Bandwidth size in Mbit/s. When the flavor is **V300**, the value cannot be greater than **300**.
+     */
+    bandwidthSize: number;
+    /**
+     * The charge mode of the bandwidth. The value can be **bandwidth** and **traffic**.
+     */
+    chargeMode: string;
+    /**
+     * The public IP ID.
+     */
+    id: string;
+    /**
+     * The public IP address.
+     */
+    ipAddress: string;
+    /**
+     * The public IP version.
+     */
+    ipVersion: number;
+    /**
+     * The EIP type. The value can be **5_bgp** and **5_sbgp**.
+     */
+    type: string;
+}
+
+export interface VpnGatewayMasterEip {
+    /**
+     * The bandwidth ID.
+     */
+    bandwidthId: string;
+    /**
+     * The bandwidth name.
+     */
+    bandwidthName: string;
+    /**
+     * Bandwidth size in Mbit/s. When the flavor is **V300**, the value cannot be greater than **300**.
+     */
+    bandwidthSize: number;
+    /**
+     * The charge mode of the bandwidth. The value can be **bandwidth** and **traffic**.
+     */
+    chargeMode: string;
+    /**
+     * The public IP ID.
+     */
+    id: string;
+    /**
+     * The public IP address.
+     */
+    ipAddress: string;
+    /**
+     * The public IP version.
+     */
+    ipVersion: number;
+    /**
+     * The EIP type. The value can be **5_bgp** and **5_sbgp**.
+     */
+    type: string;
+}
+
+export interface VpnGatewaySlaveEip {
+    /**
+     * The bandwidth ID.
+     */
+    bandwidthId: string;
+    /**
+     * The bandwidth name.
+     */
+    bandwidthName: string;
+    /**
+     * Bandwidth size in Mbit/s. When the flavor is **V300**, the value cannot be greater than **300**.
+     */
+    bandwidthSize: number;
+    /**
+     * The charge mode of the bandwidth. The value can be **bandwidth** and **traffic**.
+     */
+    chargeMode: string;
+    /**
+     * The public IP ID.
+     */
+    id: string;
+    /**
+     * The public IP address.
+     */
+    ipAddress: string;
+    /**
+     * The public IP version.
+     */
+    ipVersion: number;
+    /**
+     * The EIP type. The value can be **5_bgp** and **5_sbgp**.
+     */
+    type: string;
+}
+
+export namespace config {
+    export interface AssumeRole {
+        agencyName: string;
+        domainName: string;
+    }
+
+}
