@@ -140,7 +140,7 @@ func Provider() tfbridge.ProviderInfo {
 
 		JavaScript: &tfbridge.JavaScriptInfo{
 			// RespectSchemaVersion ensures the SDK is generated linking to the correct version of the provider.
-                        PackageName:          "pulumi-sbercloud",
+			PackageName:          "pulumi-sbercloud",
 			RespectSchemaVersion: true,
 		},
 		Python: &tfbridge.PythonInfo{
