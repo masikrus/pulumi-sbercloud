@@ -20,10 +20,11 @@ import (
 	// Allow embedding bridge-metadata.json in the provider.
 	_ "embed"
 
+	sbercloud "github.com/sbercloud-terraform/terraform-provider-sbercloud/sbercloud" // Import the upstream provider
+
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
 	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge/tokens"
 	shimv2 "github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfshim/sdk-v2"
-	sbercloud "github.com/sbercloud-terraform/terraform-provider-sbercloud/sbercloud" // Import the upstream provider
 
 	"github.com/masikrus/pulumi-sbercloud/provider/pkg/version"
 )
