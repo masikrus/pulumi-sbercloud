@@ -15,14 +15,16 @@ import (
 type LtsStream struct {
 	pulumi.CustomResourceState
 
-	CreatedAt           pulumi.StringOutput    `pulumi:"createdAt"`
-	EnterpriseProjectId pulumi.StringOutput    `pulumi:"enterpriseProjectId"`
-	FilterCount         pulumi.IntOutput       `pulumi:"filterCount"`
-	GroupId             pulumi.StringOutput    `pulumi:"groupId"`
-	Region              pulumi.StringOutput    `pulumi:"region"`
-	StreamName          pulumi.StringOutput    `pulumi:"streamName"`
-	Tags                pulumi.StringMapOutput `pulumi:"tags"`
-	TtlInDays           pulumi.IntOutput       `pulumi:"ttlInDays"`
+	CreatedAt           pulumi.StringOutput `pulumi:"createdAt"`
+	EnterpriseProjectId pulumi.StringOutput `pulumi:"enterpriseProjectId"`
+	FilterCount         pulumi.IntOutput    `pulumi:"filterCount"`
+	GroupId             pulumi.StringOutput `pulumi:"groupId"`
+	// Whether to favorite the log stream.
+	IsFavorite pulumi.BoolPtrOutput   `pulumi:"isFavorite"`
+	Region     pulumi.StringOutput    `pulumi:"region"`
+	StreamName pulumi.StringOutput    `pulumi:"streamName"`
+	Tags       pulumi.StringMapOutput `pulumi:"tags"`
+	TtlInDays  pulumi.IntOutput       `pulumi:"ttlInDays"`
 }
 
 // NewLtsStream registers a new resource with the given unique name, arguments, and options.
@@ -61,14 +63,16 @@ func GetLtsStream(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LtsStream resources.
 type ltsStreamState struct {
-	CreatedAt           *string           `pulumi:"createdAt"`
-	EnterpriseProjectId *string           `pulumi:"enterpriseProjectId"`
-	FilterCount         *int              `pulumi:"filterCount"`
-	GroupId             *string           `pulumi:"groupId"`
-	Region              *string           `pulumi:"region"`
-	StreamName          *string           `pulumi:"streamName"`
-	Tags                map[string]string `pulumi:"tags"`
-	TtlInDays           *int              `pulumi:"ttlInDays"`
+	CreatedAt           *string `pulumi:"createdAt"`
+	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
+	FilterCount         *int    `pulumi:"filterCount"`
+	GroupId             *string `pulumi:"groupId"`
+	// Whether to favorite the log stream.
+	IsFavorite *bool             `pulumi:"isFavorite"`
+	Region     *string           `pulumi:"region"`
+	StreamName *string           `pulumi:"streamName"`
+	Tags       map[string]string `pulumi:"tags"`
+	TtlInDays  *int              `pulumi:"ttlInDays"`
 }
 
 type LtsStreamState struct {
@@ -76,10 +80,12 @@ type LtsStreamState struct {
 	EnterpriseProjectId pulumi.StringPtrInput
 	FilterCount         pulumi.IntPtrInput
 	GroupId             pulumi.StringPtrInput
-	Region              pulumi.StringPtrInput
-	StreamName          pulumi.StringPtrInput
-	Tags                pulumi.StringMapInput
-	TtlInDays           pulumi.IntPtrInput
+	// Whether to favorite the log stream.
+	IsFavorite pulumi.BoolPtrInput
+	Region     pulumi.StringPtrInput
+	StreamName pulumi.StringPtrInput
+	Tags       pulumi.StringMapInput
+	TtlInDays  pulumi.IntPtrInput
 }
 
 func (LtsStreamState) ElementType() reflect.Type {
@@ -87,22 +93,26 @@ func (LtsStreamState) ElementType() reflect.Type {
 }
 
 type ltsStreamArgs struct {
-	EnterpriseProjectId *string           `pulumi:"enterpriseProjectId"`
-	GroupId             string            `pulumi:"groupId"`
-	Region              *string           `pulumi:"region"`
-	StreamName          string            `pulumi:"streamName"`
-	Tags                map[string]string `pulumi:"tags"`
-	TtlInDays           *int              `pulumi:"ttlInDays"`
+	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
+	GroupId             string  `pulumi:"groupId"`
+	// Whether to favorite the log stream.
+	IsFavorite *bool             `pulumi:"isFavorite"`
+	Region     *string           `pulumi:"region"`
+	StreamName string            `pulumi:"streamName"`
+	Tags       map[string]string `pulumi:"tags"`
+	TtlInDays  *int              `pulumi:"ttlInDays"`
 }
 
 // The set of arguments for constructing a LtsStream resource.
 type LtsStreamArgs struct {
 	EnterpriseProjectId pulumi.StringPtrInput
 	GroupId             pulumi.StringInput
-	Region              pulumi.StringPtrInput
-	StreamName          pulumi.StringInput
-	Tags                pulumi.StringMapInput
-	TtlInDays           pulumi.IntPtrInput
+	// Whether to favorite the log stream.
+	IsFavorite pulumi.BoolPtrInput
+	Region     pulumi.StringPtrInput
+	StreamName pulumi.StringInput
+	Tags       pulumi.StringMapInput
+	TtlInDays  pulumi.IntPtrInput
 }
 
 func (LtsStreamArgs) ElementType() reflect.Type {
@@ -206,6 +216,11 @@ func (o LtsStreamOutput) FilterCount() pulumi.IntOutput {
 
 func (o LtsStreamOutput) GroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LtsStream) pulumi.StringOutput { return v.GroupId }).(pulumi.StringOutput)
+}
+
+// Whether to favorite the log stream.
+func (o LtsStreamOutput) IsFavorite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *LtsStream) pulumi.BoolPtrOutput { return v.IsFavorite }).(pulumi.BoolPtrOutput)
 }
 
 func (o LtsStreamOutput) Region() pulumi.StringOutput {

@@ -43,13 +43,13 @@ type CceCluster struct {
 	DeleteEni pulumi.StringPtrOutput `pulumi:"deleteEni"`
 	DeleteEvs pulumi.StringPtrOutput `pulumi:"deleteEvs"`
 	// schema: Internal
-	DeleteNet   pulumi.StringPtrOutput `pulumi:"deleteNet"`
-	DeleteObs   pulumi.StringPtrOutput `pulumi:"deleteObs"`
-	DeleteSfs   pulumi.StringPtrOutput `pulumi:"deleteSfs"`
-	Description pulumi.StringOutput    `pulumi:"description"`
-	Eip         pulumi.StringPtrOutput `pulumi:"eip"`
-	// schema: Internal
-	EnableDistributeManagement pulumi.BoolPtrOutput `pulumi:"enableDistributeManagement"`
+	DeleteNet                  pulumi.StringPtrOutput           `pulumi:"deleteNet"`
+	DeleteObs                  pulumi.StringPtrOutput           `pulumi:"deleteObs"`
+	DeleteSfs                  pulumi.StringPtrOutput           `pulumi:"deleteSfs"`
+	Description                pulumi.StringOutput              `pulumi:"description"`
+	Eip                        pulumi.StringPtrOutput           `pulumi:"eip"`
+	EnableDistributeManagement pulumi.BoolOutput                `pulumi:"enableDistributeManagement"`
+	EncryptionConfig           CceClusterEncryptionConfigOutput `pulumi:"encryptionConfig"`
 	// schema: Computed
 	EniSubnetCidr pulumi.StringOutput `pulumi:"eniSubnetCidr"`
 	// the IPv4 subnet ID of the subnet where the ENI resides
@@ -80,6 +80,7 @@ type CceCluster struct {
 	SubnetId           pulumi.StringOutput         `pulumi:"subnetId"`
 	SupportIstio       pulumi.BoolOutput           `pulumi:"supportIstio"`
 	Tags               pulumi.StringMapOutput      `pulumi:"tags"`
+	Timezone           pulumi.StringOutput         `pulumi:"timezone"`
 	VpcId              pulumi.StringOutput         `pulumi:"vpcId"`
 }
 
@@ -153,13 +154,13 @@ type cceClusterState struct {
 	DeleteEni *string `pulumi:"deleteEni"`
 	DeleteEvs *string `pulumi:"deleteEvs"`
 	// schema: Internal
-	DeleteNet   *string `pulumi:"deleteNet"`
-	DeleteObs   *string `pulumi:"deleteObs"`
-	DeleteSfs   *string `pulumi:"deleteSfs"`
-	Description *string `pulumi:"description"`
-	Eip         *string `pulumi:"eip"`
-	// schema: Internal
-	EnableDistributeManagement *bool `pulumi:"enableDistributeManagement"`
+	DeleteNet                  *string                     `pulumi:"deleteNet"`
+	DeleteObs                  *string                     `pulumi:"deleteObs"`
+	DeleteSfs                  *string                     `pulumi:"deleteSfs"`
+	Description                *string                     `pulumi:"description"`
+	Eip                        *string                     `pulumi:"eip"`
+	EnableDistributeManagement *bool                       `pulumi:"enableDistributeManagement"`
+	EncryptionConfig           *CceClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// schema: Computed
 	EniSubnetCidr *string `pulumi:"eniSubnetCidr"`
 	// the IPv4 subnet ID of the subnet where the ENI resides
@@ -190,6 +191,7 @@ type cceClusterState struct {
 	SubnetId           *string            `pulumi:"subnetId"`
 	SupportIstio       *bool              `pulumi:"supportIstio"`
 	Tags               map[string]string  `pulumi:"tags"`
+	Timezone           *string            `pulumi:"timezone"`
 	VpcId              *string            `pulumi:"vpcId"`
 }
 
@@ -222,13 +224,13 @@ type CceClusterState struct {
 	DeleteEni pulumi.StringPtrInput
 	DeleteEvs pulumi.StringPtrInput
 	// schema: Internal
-	DeleteNet   pulumi.StringPtrInput
-	DeleteObs   pulumi.StringPtrInput
-	DeleteSfs   pulumi.StringPtrInput
-	Description pulumi.StringPtrInput
-	Eip         pulumi.StringPtrInput
-	// schema: Internal
+	DeleteNet                  pulumi.StringPtrInput
+	DeleteObs                  pulumi.StringPtrInput
+	DeleteSfs                  pulumi.StringPtrInput
+	Description                pulumi.StringPtrInput
+	Eip                        pulumi.StringPtrInput
 	EnableDistributeManagement pulumi.BoolPtrInput
+	EncryptionConfig           CceClusterEncryptionConfigPtrInput
 	// schema: Computed
 	EniSubnetCidr pulumi.StringPtrInput
 	// the IPv4 subnet ID of the subnet where the ENI resides
@@ -259,6 +261,7 @@ type CceClusterState struct {
 	SubnetId           pulumi.StringPtrInput
 	SupportIstio       pulumi.BoolPtrInput
 	Tags               pulumi.StringMapInput
+	Timezone           pulumi.StringPtrInput
 	VpcId              pulumi.StringPtrInput
 }
 
@@ -292,13 +295,13 @@ type cceClusterArgs struct {
 	DeleteEni *string `pulumi:"deleteEni"`
 	DeleteEvs *string `pulumi:"deleteEvs"`
 	// schema: Internal
-	DeleteNet   *string `pulumi:"deleteNet"`
-	DeleteObs   *string `pulumi:"deleteObs"`
-	DeleteSfs   *string `pulumi:"deleteSfs"`
-	Description *string `pulumi:"description"`
-	Eip         *string `pulumi:"eip"`
-	// schema: Internal
-	EnableDistributeManagement *bool `pulumi:"enableDistributeManagement"`
+	DeleteNet                  *string                     `pulumi:"deleteNet"`
+	DeleteObs                  *string                     `pulumi:"deleteObs"`
+	DeleteSfs                  *string                     `pulumi:"deleteSfs"`
+	Description                *string                     `pulumi:"description"`
+	Eip                        *string                     `pulumi:"eip"`
+	EnableDistributeManagement *bool                       `pulumi:"enableDistributeManagement"`
+	EncryptionConfig           *CceClusterEncryptionConfig `pulumi:"encryptionConfig"`
 	// schema: Computed
 	EniSubnetCidr *string `pulumi:"eniSubnetCidr"`
 	// the IPv4 subnet ID of the subnet where the ENI resides
@@ -327,6 +330,7 @@ type cceClusterArgs struct {
 	SubnetId           string             `pulumi:"subnetId"`
 	SupportIstio       *bool              `pulumi:"supportIstio"`
 	Tags               map[string]string  `pulumi:"tags"`
+	Timezone           *string            `pulumi:"timezone"`
 	VpcId              string             `pulumi:"vpcId"`
 }
 
@@ -357,13 +361,13 @@ type CceClusterArgs struct {
 	DeleteEni pulumi.StringPtrInput
 	DeleteEvs pulumi.StringPtrInput
 	// schema: Internal
-	DeleteNet   pulumi.StringPtrInput
-	DeleteObs   pulumi.StringPtrInput
-	DeleteSfs   pulumi.StringPtrInput
-	Description pulumi.StringPtrInput
-	Eip         pulumi.StringPtrInput
-	// schema: Internal
+	DeleteNet                  pulumi.StringPtrInput
+	DeleteObs                  pulumi.StringPtrInput
+	DeleteSfs                  pulumi.StringPtrInput
+	Description                pulumi.StringPtrInput
+	Eip                        pulumi.StringPtrInput
 	EnableDistributeManagement pulumi.BoolPtrInput
+	EncryptionConfig           CceClusterEncryptionConfigPtrInput
 	// schema: Computed
 	EniSubnetCidr pulumi.StringPtrInput
 	// the IPv4 subnet ID of the subnet where the ENI resides
@@ -392,6 +396,7 @@ type CceClusterArgs struct {
 	SubnetId           pulumi.StringInput
 	SupportIstio       pulumi.BoolPtrInput
 	Tags               pulumi.StringMapInput
+	Timezone           pulumi.StringPtrInput
 	VpcId              pulumi.StringInput
 }
 
@@ -599,9 +604,12 @@ func (o CceClusterOutput) Eip() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CceCluster) pulumi.StringPtrOutput { return v.Eip }).(pulumi.StringPtrOutput)
 }
 
-// schema: Internal
-func (o CceClusterOutput) EnableDistributeManagement() pulumi.BoolPtrOutput {
-	return o.ApplyT(func(v *CceCluster) pulumi.BoolPtrOutput { return v.EnableDistributeManagement }).(pulumi.BoolPtrOutput)
+func (o CceClusterOutput) EnableDistributeManagement() pulumi.BoolOutput {
+	return o.ApplyT(func(v *CceCluster) pulumi.BoolOutput { return v.EnableDistributeManagement }).(pulumi.BoolOutput)
+}
+
+func (o CceClusterOutput) EncryptionConfig() CceClusterEncryptionConfigOutput {
+	return o.ApplyT(func(v *CceCluster) CceClusterEncryptionConfigOutput { return v.EncryptionConfig }).(CceClusterEncryptionConfigOutput)
 }
 
 // schema: Computed
@@ -707,6 +715,10 @@ func (o CceClusterOutput) SupportIstio() pulumi.BoolOutput {
 
 func (o CceClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CceCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o CceClusterOutput) Timezone() pulumi.StringOutput {
+	return o.ApplyT(func(v *CceCluster) pulumi.StringOutput { return v.Timezone }).(pulumi.StringOutput)
 }
 
 func (o CceClusterOutput) VpcId() pulumi.StringOutput {

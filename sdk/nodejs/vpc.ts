@@ -34,6 +34,7 @@ export class Vpc extends pulumi.CustomResource {
         return obj['__pulumiType'] === Vpc.__pulumiType;
     }
 
+    public readonly blockServiceEndpointStates!: pulumi.Output<string | undefined>;
     public readonly cidr!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly enhancedLocalRoute!: pulumi.Output<string>;
@@ -65,6 +66,7 @@ export class Vpc extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as VpcState | undefined;
+            resourceInputs["blockServiceEndpointStates"] = state ? state.blockServiceEndpointStates : undefined;
             resourceInputs["cidr"] = state ? state.cidr : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enhancedLocalRoute"] = state ? state.enhancedLocalRoute : undefined;
@@ -81,6 +83,7 @@ export class Vpc extends pulumi.CustomResource {
             if ((!args || args.cidr === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'cidr'");
             }
+            resourceInputs["blockServiceEndpointStates"] = args ? args.blockServiceEndpointStates : undefined;
             resourceInputs["cidr"] = args ? args.cidr : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enhancedLocalRoute"] = args ? args.enhancedLocalRoute : undefined;
@@ -102,6 +105,7 @@ export class Vpc extends pulumi.CustomResource {
  * Input properties used for looking up and filtering Vpc resources.
  */
 export interface VpcState {
+    blockServiceEndpointStates?: pulumi.Input<string>;
     cidr?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     enhancedLocalRoute?: pulumi.Input<string>;
@@ -125,6 +129,7 @@ export interface VpcState {
  * The set of arguments for constructing a Vpc resource.
  */
 export interface VpcArgs {
+    blockServiceEndpointStates?: pulumi.Input<string>;
     cidr: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     enhancedLocalRoute?: pulumi.Input<string>;

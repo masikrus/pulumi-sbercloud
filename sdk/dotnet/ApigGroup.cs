@@ -78,6 +78,9 @@ namespace Pulumi.Sbercloud
         [Output("updatedAt")]
         public Output<string> UpdatedAt { get; private set; } = null!;
 
+        /// <summary>
+        /// The associated domain information of the group.
+        /// </summary>
         [Output("urlDomains")]
         public Output<ImmutableArray<Outputs.ApigGroupUrlDomain>> UrlDomains { get; private set; } = null!;
 
@@ -177,6 +180,10 @@ namespace Pulumi.Sbercloud
 
         [Input("urlDomains")]
         private InputList<Inputs.ApigGroupUrlDomainArgs>? _urlDomains;
+
+        /// <summary>
+        /// The associated domain information of the group.
+        /// </summary>
         public InputList<Inputs.ApigGroupUrlDomainArgs> UrlDomains
         {
             get => _urlDomains ?? (_urlDomains = new InputList<Inputs.ApigGroupUrlDomainArgs>());
@@ -265,6 +272,10 @@ namespace Pulumi.Sbercloud
 
         [Input("urlDomains")]
         private InputList<Inputs.ApigGroupUrlDomainGetArgs>? _urlDomains;
+
+        /// <summary>
+        /// The associated domain information of the group.
+        /// </summary>
         public InputList<Inputs.ApigGroupUrlDomainGetArgs> UrlDomains
         {
             get => _urlDomains ?? (_urlDomains = new InputList<Inputs.ApigGroupUrlDomainGetArgs>());

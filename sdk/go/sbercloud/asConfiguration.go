@@ -15,6 +15,7 @@ import (
 type AsConfiguration struct {
 	pulumi.CustomResourceState
 
+	CreateTime               pulumi.StringOutput                 `pulumi:"createTime"`
 	InstanceConfig           AsConfigurationInstanceConfigOutput `pulumi:"instanceConfig"`
 	Region                   pulumi.StringOutput                 `pulumi:"region"`
 	ScalingConfigurationName pulumi.StringOutput                 `pulumi:"scalingConfigurationName"`
@@ -57,6 +58,7 @@ func GetAsConfiguration(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AsConfiguration resources.
 type asConfigurationState struct {
+	CreateTime               *string                        `pulumi:"createTime"`
 	InstanceConfig           *AsConfigurationInstanceConfig `pulumi:"instanceConfig"`
 	Region                   *string                        `pulumi:"region"`
 	ScalingConfigurationName *string                        `pulumi:"scalingConfigurationName"`
@@ -64,6 +66,7 @@ type asConfigurationState struct {
 }
 
 type AsConfigurationState struct {
+	CreateTime               pulumi.StringPtrInput
 	InstanceConfig           AsConfigurationInstanceConfigPtrInput
 	Region                   pulumi.StringPtrInput
 	ScalingConfigurationName pulumi.StringPtrInput
@@ -172,6 +175,10 @@ func (o AsConfigurationOutput) ToAsConfigurationOutput() AsConfigurationOutput {
 
 func (o AsConfigurationOutput) ToAsConfigurationOutputWithContext(ctx context.Context) AsConfigurationOutput {
 	return o
+}
+
+func (o AsConfigurationOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AsConfiguration) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
 func (o AsConfigurationOutput) InstanceConfig() AsConfigurationInstanceConfigOutput {

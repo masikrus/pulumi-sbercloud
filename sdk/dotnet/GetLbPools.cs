@@ -27,6 +27,9 @@ namespace Pulumi.Sbercloud
         [Input("description")]
         public string? Description { get; set; }
 
+        [Input("enterpriseProjectId")]
+        public string? EnterpriseProjectId { get; set; }
+
         [Input("healthmonitorId")]
         public string? HealthmonitorId { get; set; }
 
@@ -35,6 +38,12 @@ namespace Pulumi.Sbercloud
 
         [Input("loadbalancerId")]
         public string? LoadbalancerId { get; set; }
+
+        [Input("memberAddress")]
+        public string? MemberAddress { get; set; }
+
+        [Input("memberDeviceId")]
+        public string? MemberDeviceId { get; set; }
 
         [Input("name")]
         public string? Name { get; set; }
@@ -59,6 +68,9 @@ namespace Pulumi.Sbercloud
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("enterpriseProjectId")]
+        public Input<string>? EnterpriseProjectId { get; set; }
+
         [Input("healthmonitorId")]
         public Input<string>? HealthmonitorId { get; set; }
 
@@ -67,6 +79,12 @@ namespace Pulumi.Sbercloud
 
         [Input("loadbalancerId")]
         public Input<string>? LoadbalancerId { get; set; }
+
+        [Input("memberAddress")]
+        public Input<string>? MemberAddress { get; set; }
+
+        [Input("memberDeviceId")]
+        public Input<string>? MemberDeviceId { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -91,6 +109,7 @@ namespace Pulumi.Sbercloud
     public sealed class GetLbPoolsResult
     {
         public readonly string? Description;
+        public readonly string? EnterpriseProjectId;
         public readonly string? HealthmonitorId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
@@ -98,6 +117,8 @@ namespace Pulumi.Sbercloud
         public readonly string Id;
         public readonly string? LbMethod;
         public readonly string? LoadbalancerId;
+        public readonly string? MemberAddress;
+        public readonly string? MemberDeviceId;
         public readonly string? Name;
         public readonly string? PoolId;
         public readonly ImmutableArray<Outputs.GetLbPoolsPoolResult> Pools;
@@ -108,6 +129,8 @@ namespace Pulumi.Sbercloud
         private GetLbPoolsResult(
             string? description,
 
+            string? enterpriseProjectId,
+
             string? healthmonitorId,
 
             string id,
@@ -115,6 +138,10 @@ namespace Pulumi.Sbercloud
             string? lbMethod,
 
             string? loadbalancerId,
+
+            string? memberAddress,
+
+            string? memberDeviceId,
 
             string? name,
 
@@ -127,10 +154,13 @@ namespace Pulumi.Sbercloud
             string region)
         {
             Description = description;
+            EnterpriseProjectId = enterpriseProjectId;
             HealthmonitorId = healthmonitorId;
             Id = id;
             LbMethod = lbMethod;
             LoadbalancerId = loadbalancerId;
+            MemberAddress = memberAddress;
+            MemberDeviceId = memberDeviceId;
             Name = name;
             PoolId = poolId;
             Pools = pools;

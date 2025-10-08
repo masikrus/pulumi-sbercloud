@@ -10,6 +10,7 @@ export function getImagesImages(args?: GetImagesImagesArgs, opts?: pulumi.Invoke
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("sbercloud:index/getImagesImages:getImagesImages", {
+        "__supportAgentList": args.__supportAgentList,
         "architecture": args.architecture,
         "enterpriseProjectId": args.enterpriseProjectId,
         "flavorId": args.flavorId,
@@ -33,6 +34,7 @@ export function getImagesImages(args?: GetImagesImagesArgs, opts?: pulumi.Invoke
  * A collection of arguments for invoking getImagesImages.
  */
 export interface GetImagesImagesArgs {
+    __supportAgentList?: string;
     architecture?: string;
     enterpriseProjectId?: string;
     flavorId?: string;
@@ -55,6 +57,7 @@ export interface GetImagesImagesArgs {
  * A collection of values returned by getImagesImages.
  */
 export interface GetImagesImagesResult {
+    readonly __supportAgentList?: string;
     readonly architecture?: string;
     readonly enterpriseProjectId?: string;
     readonly flavorId?: string;
@@ -81,6 +84,7 @@ export function getImagesImagesOutput(args?: GetImagesImagesOutputArgs, opts?: p
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("sbercloud:index/getImagesImages:getImagesImages", {
+        "__supportAgentList": args.__supportAgentList,
         "architecture": args.architecture,
         "enterpriseProjectId": args.enterpriseProjectId,
         "flavorId": args.flavorId,
@@ -104,6 +108,7 @@ export function getImagesImagesOutput(args?: GetImagesImagesOutputArgs, opts?: p
  * A collection of arguments for invoking getImagesImages.
  */
 export interface GetImagesImagesOutputArgs {
+    __supportAgentList?: pulumi.Input<string>;
     architecture?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
     flavorId?: pulumi.Input<string>;

@@ -36,16 +36,22 @@ class DdsInstanceArgs:
                  balancer_active_end: Optional[pulumi.Input[builtins.str]] = None,
                  balancer_status: Optional[pulumi.Input[builtins.str]] = None,
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 client_network_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DdsInstanceConfigurationArgs']]]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disk_encryption_id: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
+                 maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
+                 maintain_end: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 replica_set_name: Optional[pulumi.Input[builtins.str]] = None,
+                 second_level_monitoring_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 slow_log_desensitization: Optional[pulumi.Input[builtins.str]] = None,
                  ssl: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
         """
@@ -75,6 +81,8 @@ class DdsInstanceArgs:
             pulumi.set(__self__, "balancer_status", balancer_status)
         if charging_mode is not None:
             pulumi.set(__self__, "charging_mode", charging_mode)
+        if client_network_ranges is not None:
+            pulumi.set(__self__, "client_network_ranges", client_network_ranges)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
         if description is not None:
@@ -83,6 +91,10 @@ class DdsInstanceArgs:
             pulumi.set(__self__, "disk_encryption_id", disk_encryption_id)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
+        if maintain_begin is not None:
+            pulumi.set(__self__, "maintain_begin", maintain_begin)
+        if maintain_end is not None:
+            pulumi.set(__self__, "maintain_end", maintain_end)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if password is not None:
@@ -95,6 +107,12 @@ class DdsInstanceArgs:
             pulumi.set(__self__, "port", port)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if replica_set_name is not None:
+            pulumi.set(__self__, "replica_set_name", replica_set_name)
+        if second_level_monitoring_enabled is not None:
+            pulumi.set(__self__, "second_level_monitoring_enabled", second_level_monitoring_enabled)
+        if slow_log_desensitization is not None:
+            pulumi.set(__self__, "slow_log_desensitization", slow_log_desensitization)
         if ssl is not None:
             pulumi.set(__self__, "ssl", ssl)
         if tags is not None:
@@ -228,6 +246,15 @@ class DdsInstanceArgs:
         pulumi.set(self, "charging_mode", value)
 
     @property
+    @pulumi.getter(name="clientNetworkRanges")
+    def client_network_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "client_network_ranges")
+
+    @client_network_ranges.setter
+    def client_network_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "client_network_ranges", value)
+
+    @property
     @pulumi.getter
     def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DdsInstanceConfigurationArgs']]]]:
         return pulumi.get(self, "configurations")
@@ -262,6 +289,24 @@ class DdsInstanceArgs:
     @enterprise_project_id.setter
     def enterprise_project_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "enterprise_project_id", value)
+
+    @property
+    @pulumi.getter(name="maintainBegin")
+    def maintain_begin(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "maintain_begin")
+
+    @maintain_begin.setter
+    def maintain_begin(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "maintain_begin", value)
+
+    @property
+    @pulumi.getter(name="maintainEnd")
+    def maintain_end(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "maintain_end")
+
+    @maintain_end.setter
+    def maintain_end(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "maintain_end", value)
 
     @property
     @pulumi.getter
@@ -318,6 +363,33 @@ class DdsInstanceArgs:
         pulumi.set(self, "region", value)
 
     @property
+    @pulumi.getter(name="replicaSetName")
+    def replica_set_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "replica_set_name")
+
+    @replica_set_name.setter
+    def replica_set_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "replica_set_name", value)
+
+    @property
+    @pulumi.getter(name="secondLevelMonitoringEnabled")
+    def second_level_monitoring_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "second_level_monitoring_enabled")
+
+    @second_level_monitoring_enabled.setter
+    def second_level_monitoring_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "second_level_monitoring_enabled", value)
+
+    @property
+    @pulumi.getter(name="slowLogDesensitization")
+    def slow_log_desensitization(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "slow_log_desensitization")
+
+    @slow_log_desensitization.setter
+    def slow_log_desensitization(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "slow_log_desensitization", value)
+
+    @property
     @pulumi.getter
     def ssl(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "ssl")
@@ -347,6 +419,7 @@ class _DdsInstanceState:
                  balancer_active_end: Optional[pulumi.Input[builtins.str]] = None,
                  balancer_status: Optional[pulumi.Input[builtins.str]] = None,
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 client_network_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input['DdsInstanceConfigurationArgs']]]] = None,
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
                  datastore: Optional[pulumi.Input['DdsInstanceDatastoreArgs']] = None,
@@ -356,6 +429,8 @@ class _DdsInstanceState:
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  flavors: Optional[pulumi.Input[Sequence[pulumi.Input['DdsInstanceFlavorArgs']]]] = None,
                  groups: Optional[pulumi.Input[Sequence[pulumi.Input['DdsInstanceGroupArgs']]]] = None,
+                 maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
+                 maintain_end: Optional[pulumi.Input[builtins.str]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input['DdsInstanceNodeArgs']]]] = None,
@@ -364,7 +439,10 @@ class _DdsInstanceState:
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 replica_set_name: Optional[pulumi.Input[builtins.str]] = None,
+                 second_level_monitoring_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 slow_log_desensitization: Optional[pulumi.Input[builtins.str]] = None,
                  ssl: Optional[pulumi.Input[builtins.bool]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -395,6 +473,8 @@ class _DdsInstanceState:
             pulumi.set(__self__, "balancer_status", balancer_status)
         if charging_mode is not None:
             pulumi.set(__self__, "charging_mode", charging_mode)
+        if client_network_ranges is not None:
+            pulumi.set(__self__, "client_network_ranges", client_network_ranges)
         if configurations is not None:
             pulumi.set(__self__, "configurations", configurations)
         if created_at is not None:
@@ -413,6 +493,10 @@ class _DdsInstanceState:
             pulumi.set(__self__, "flavors", flavors)
         if groups is not None:
             pulumi.set(__self__, "groups", groups)
+        if maintain_begin is not None:
+            pulumi.set(__self__, "maintain_begin", maintain_begin)
+        if maintain_end is not None:
+            pulumi.set(__self__, "maintain_end", maintain_end)
         if mode is not None:
             pulumi.set(__self__, "mode", mode)
         if name is not None:
@@ -429,8 +513,14 @@ class _DdsInstanceState:
             pulumi.set(__self__, "port", port)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if replica_set_name is not None:
+            pulumi.set(__self__, "replica_set_name", replica_set_name)
+        if second_level_monitoring_enabled is not None:
+            pulumi.set(__self__, "second_level_monitoring_enabled", second_level_monitoring_enabled)
         if security_group_id is not None:
             pulumi.set(__self__, "security_group_id", security_group_id)
+        if slow_log_desensitization is not None:
+            pulumi.set(__self__, "slow_log_desensitization", slow_log_desensitization)
         if ssl is not None:
             pulumi.set(__self__, "ssl", ssl)
         if status is not None:
@@ -520,6 +610,15 @@ class _DdsInstanceState:
         pulumi.set(self, "charging_mode", value)
 
     @property
+    @pulumi.getter(name="clientNetworkRanges")
+    def client_network_ranges(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "client_network_ranges")
+
+    @client_network_ranges.setter
+    def client_network_ranges(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "client_network_ranges", value)
+
+    @property
     @pulumi.getter
     def configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DdsInstanceConfigurationArgs']]]]:
         return pulumi.get(self, "configurations")
@@ -601,6 +700,24 @@ class _DdsInstanceState:
         pulumi.set(self, "groups", value)
 
     @property
+    @pulumi.getter(name="maintainBegin")
+    def maintain_begin(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "maintain_begin")
+
+    @maintain_begin.setter
+    def maintain_begin(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "maintain_begin", value)
+
+    @property
+    @pulumi.getter(name="maintainEnd")
+    def maintain_end(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "maintain_end")
+
+    @maintain_end.setter
+    def maintain_end(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "maintain_end", value)
+
+    @property
     @pulumi.getter
     def mode(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "mode")
@@ -676,6 +793,24 @@ class _DdsInstanceState:
         pulumi.set(self, "region", value)
 
     @property
+    @pulumi.getter(name="replicaSetName")
+    def replica_set_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "replica_set_name")
+
+    @replica_set_name.setter
+    def replica_set_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "replica_set_name", value)
+
+    @property
+    @pulumi.getter(name="secondLevelMonitoringEnabled")
+    def second_level_monitoring_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "second_level_monitoring_enabled")
+
+    @second_level_monitoring_enabled.setter
+    def second_level_monitoring_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "second_level_monitoring_enabled", value)
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "security_group_id")
@@ -683,6 +818,15 @@ class _DdsInstanceState:
     @security_group_id.setter
     def security_group_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "security_group_id", value)
+
+    @property
+    @pulumi.getter(name="slowLogDesensitization")
+    def slow_log_desensitization(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "slow_log_desensitization")
+
+    @slow_log_desensitization.setter
+    def slow_log_desensitization(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "slow_log_desensitization", value)
 
     @property
     @pulumi.getter
@@ -761,12 +905,15 @@ class DdsInstance(pulumi.CustomResource):
                  balancer_active_end: Optional[pulumi.Input[builtins.str]] = None,
                  balancer_status: Optional[pulumi.Input[builtins.str]] = None,
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 client_network_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DdsInstanceConfigurationArgs', 'DdsInstanceConfigurationArgsDict']]]]] = None,
                  datastore: Optional[pulumi.Input[Union['DdsInstanceDatastoreArgs', 'DdsInstanceDatastoreArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disk_encryption_id: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  flavors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DdsInstanceFlavorArgs', 'DdsInstanceFlavorArgsDict']]]]] = None,
+                 maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
+                 maintain_end: Optional[pulumi.Input[builtins.str]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
@@ -774,7 +921,10 @@ class DdsInstance(pulumi.CustomResource):
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 replica_set_name: Optional[pulumi.Input[builtins.str]] = None,
+                 second_level_monitoring_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 slow_log_desensitization: Optional[pulumi.Input[builtins.str]] = None,
                  ssl: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -816,12 +966,15 @@ class DdsInstance(pulumi.CustomResource):
                  balancer_active_end: Optional[pulumi.Input[builtins.str]] = None,
                  balancer_status: Optional[pulumi.Input[builtins.str]] = None,
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 client_network_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DdsInstanceConfigurationArgs', 'DdsInstanceConfigurationArgsDict']]]]] = None,
                  datastore: Optional[pulumi.Input[Union['DdsInstanceDatastoreArgs', 'DdsInstanceDatastoreArgsDict']]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  disk_encryption_id: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  flavors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DdsInstanceFlavorArgs', 'DdsInstanceFlavorArgsDict']]]]] = None,
+                 maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
+                 maintain_end: Optional[pulumi.Input[builtins.str]] = None,
                  mode: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
@@ -829,7 +982,10 @@ class DdsInstance(pulumi.CustomResource):
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
                  port: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 replica_set_name: Optional[pulumi.Input[builtins.str]] = None,
+                 second_level_monitoring_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 slow_log_desensitization: Optional[pulumi.Input[builtins.str]] = None,
                  ssl: Optional[pulumi.Input[builtins.bool]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -853,6 +1009,7 @@ class DdsInstance(pulumi.CustomResource):
             __props__.__dict__["balancer_active_end"] = balancer_active_end
             __props__.__dict__["balancer_status"] = balancer_status
             __props__.__dict__["charging_mode"] = charging_mode
+            __props__.__dict__["client_network_ranges"] = client_network_ranges
             __props__.__dict__["configurations"] = configurations
             if datastore is None and not opts.urn:
                 raise TypeError("Missing required property 'datastore'")
@@ -863,6 +1020,8 @@ class DdsInstance(pulumi.CustomResource):
             if flavors is None and not opts.urn:
                 raise TypeError("Missing required property 'flavors'")
             __props__.__dict__["flavors"] = flavors
+            __props__.__dict__["maintain_begin"] = maintain_begin
+            __props__.__dict__["maintain_end"] = maintain_end
             if mode is None and not opts.urn:
                 raise TypeError("Missing required property 'mode'")
             __props__.__dict__["mode"] = mode
@@ -872,9 +1031,12 @@ class DdsInstance(pulumi.CustomResource):
             __props__.__dict__["period_unit"] = period_unit
             __props__.__dict__["port"] = port
             __props__.__dict__["region"] = region
+            __props__.__dict__["replica_set_name"] = replica_set_name
+            __props__.__dict__["second_level_monitoring_enabled"] = second_level_monitoring_enabled
             if security_group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'security_group_id'")
             __props__.__dict__["security_group_id"] = security_group_id
+            __props__.__dict__["slow_log_desensitization"] = slow_log_desensitization
             __props__.__dict__["ssl"] = ssl
             if subnet_id is None and not opts.urn:
                 raise TypeError("Missing required property 'subnet_id'")
@@ -910,6 +1072,7 @@ class DdsInstance(pulumi.CustomResource):
             balancer_active_end: Optional[pulumi.Input[builtins.str]] = None,
             balancer_status: Optional[pulumi.Input[builtins.str]] = None,
             charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+            client_network_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             configurations: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DdsInstanceConfigurationArgs', 'DdsInstanceConfigurationArgsDict']]]]] = None,
             created_at: Optional[pulumi.Input[builtins.str]] = None,
             datastore: Optional[pulumi.Input[Union['DdsInstanceDatastoreArgs', 'DdsInstanceDatastoreArgsDict']]] = None,
@@ -919,6 +1082,8 @@ class DdsInstance(pulumi.CustomResource):
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             flavors: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DdsInstanceFlavorArgs', 'DdsInstanceFlavorArgsDict']]]]] = None,
             groups: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DdsInstanceGroupArgs', 'DdsInstanceGroupArgsDict']]]]] = None,
+            maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
+            maintain_end: Optional[pulumi.Input[builtins.str]] = None,
             mode: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['DdsInstanceNodeArgs', 'DdsInstanceNodeArgsDict']]]]] = None,
@@ -927,7 +1092,10 @@ class DdsInstance(pulumi.CustomResource):
             period_unit: Optional[pulumi.Input[builtins.str]] = None,
             port: Optional[pulumi.Input[builtins.int]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
+            replica_set_name: Optional[pulumi.Input[builtins.str]] = None,
+            second_level_monitoring_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             security_group_id: Optional[pulumi.Input[builtins.str]] = None,
+            slow_log_desensitization: Optional[pulumi.Input[builtins.str]] = None,
             ssl: Optional[pulumi.Input[builtins.bool]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -956,6 +1124,7 @@ class DdsInstance(pulumi.CustomResource):
         __props__.__dict__["balancer_active_end"] = balancer_active_end
         __props__.__dict__["balancer_status"] = balancer_status
         __props__.__dict__["charging_mode"] = charging_mode
+        __props__.__dict__["client_network_ranges"] = client_network_ranges
         __props__.__dict__["configurations"] = configurations
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["datastore"] = datastore
@@ -965,6 +1134,8 @@ class DdsInstance(pulumi.CustomResource):
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["flavors"] = flavors
         __props__.__dict__["groups"] = groups
+        __props__.__dict__["maintain_begin"] = maintain_begin
+        __props__.__dict__["maintain_end"] = maintain_end
         __props__.__dict__["mode"] = mode
         __props__.__dict__["name"] = name
         __props__.__dict__["nodes"] = nodes
@@ -973,7 +1144,10 @@ class DdsInstance(pulumi.CustomResource):
         __props__.__dict__["period_unit"] = period_unit
         __props__.__dict__["port"] = port
         __props__.__dict__["region"] = region
+        __props__.__dict__["replica_set_name"] = replica_set_name
+        __props__.__dict__["second_level_monitoring_enabled"] = second_level_monitoring_enabled
         __props__.__dict__["security_group_id"] = security_group_id
+        __props__.__dict__["slow_log_desensitization"] = slow_log_desensitization
         __props__.__dict__["ssl"] = ssl
         __props__.__dict__["status"] = status
         __props__.__dict__["subnet_id"] = subnet_id
@@ -1025,6 +1199,11 @@ class DdsInstance(pulumi.CustomResource):
         return pulumi.get(self, "charging_mode")
 
     @property
+    @pulumi.getter(name="clientNetworkRanges")
+    def client_network_ranges(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+        return pulumi.get(self, "client_network_ranges")
+
+    @property
     @pulumi.getter
     def configurations(self) -> pulumi.Output[Optional[Sequence['outputs.DdsInstanceConfiguration']]]:
         return pulumi.get(self, "configurations")
@@ -1070,6 +1249,16 @@ class DdsInstance(pulumi.CustomResource):
         return pulumi.get(self, "groups")
 
     @property
+    @pulumi.getter(name="maintainBegin")
+    def maintain_begin(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "maintain_begin")
+
+    @property
+    @pulumi.getter(name="maintainEnd")
+    def maintain_end(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "maintain_end")
+
+    @property
     @pulumi.getter
     def mode(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "mode")
@@ -1113,9 +1302,24 @@ class DdsInstance(pulumi.CustomResource):
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter(name="replicaSetName")
+    def replica_set_name(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "replica_set_name")
+
+    @property
+    @pulumi.getter(name="secondLevelMonitoringEnabled")
+    def second_level_monitoring_enabled(self) -> pulumi.Output[builtins.bool]:
+        return pulumi.get(self, "second_level_monitoring_enabled")
+
+    @property
     @pulumi.getter(name="securityGroupId")
     def security_group_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "security_group_id")
+
+    @property
+    @pulumi.getter(name="slowLogDesensitization")
+    def slow_log_desensitization(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "slow_log_desensitization")
 
     @property
     @pulumi.getter

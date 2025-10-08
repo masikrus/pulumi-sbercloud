@@ -83,6 +83,16 @@ namespace Pulumi.Sbercloud
             set => _domainName.Set(value);
         }
 
+        private static readonly __Value<ImmutableDictionary<string, string>?> _endpoints = new __Value<ImmutableDictionary<string, string>?>(() => __config.GetObject<ImmutableDictionary<string, string>>("endpoints"));
+        /// <summary>
+        /// The custom endpoints used to override the default endpoint URL.
+        /// </summary>
+        public static ImmutableDictionary<string, string>? Endpoints
+        {
+            get => _endpoints.Get();
+            set => _endpoints.Set(value);
+        }
+
         private static readonly __Value<string?> _enterpriseProjectId = new __Value<string?>(() => __config.Get("enterpriseProjectId"));
         public static string? EnterpriseProjectId
         {

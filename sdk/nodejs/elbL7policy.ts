@@ -37,6 +37,7 @@ export class ElbL7policy extends pulumi.CustomResource {
     public readonly action!: pulumi.Output<string | undefined>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly enterpriseProjectId!: pulumi.Output<string>;
     public readonly fixedResponseConfig!: pulumi.Output<outputs.ElbL7policyFixedResponseConfig>;
     public readonly listenerId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
@@ -67,6 +68,7 @@ export class ElbL7policy extends pulumi.CustomResource {
             resourceInputs["action"] = state ? state.action : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["fixedResponseConfig"] = state ? state.fixedResponseConfig : undefined;
             resourceInputs["listenerId"] = state ? state.listenerId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
@@ -99,6 +101,7 @@ export class ElbL7policy extends pulumi.CustomResource {
             resourceInputs["redirectUrlConfig"] = args ? args.redirectUrlConfig : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["enterpriseProjectId"] = undefined /*out*/;
             resourceInputs["provisioningStatus"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
@@ -114,6 +117,7 @@ export interface ElbL7policyState {
     action?: pulumi.Input<string>;
     createdAt?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    enterpriseProjectId?: pulumi.Input<string>;
     fixedResponseConfig?: pulumi.Input<inputs.ElbL7policyFixedResponseConfig>;
     listenerId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;

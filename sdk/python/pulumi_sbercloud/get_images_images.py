@@ -28,7 +28,10 @@ class GetImagesImagesResult:
     """
     A collection of values returned by getImagesImages.
     """
-    def __init__(__self__, architecture=None, enterprise_project_id=None, flavor_id=None, id=None, image_id=None, image_type=None, images=None, is_whole_image=None, name=None, name_regex=None, os=None, os_version=None, owner=None, region=None, sort_direction=None, sort_key=None, tag=None, visibility=None):
+    def __init__(__self__, __support_agent_list=None, architecture=None, enterprise_project_id=None, flavor_id=None, id=None, image_id=None, image_type=None, images=None, is_whole_image=None, name=None, name_regex=None, os=None, os_version=None, owner=None, region=None, sort_direction=None, sort_key=None, tag=None, visibility=None):
+        if __support_agent_list and not isinstance(__support_agent_list, str):
+            raise TypeError("Expected argument '__support_agent_list' to be a str")
+        pulumi.set(__self__, "__support_agent_list", __support_agent_list)
         if architecture and not isinstance(architecture, str):
             raise TypeError("Expected argument 'architecture' to be a str")
         pulumi.set(__self__, "architecture", architecture)
@@ -83,6 +86,11 @@ class GetImagesImagesResult:
         if visibility and not isinstance(visibility, str):
             raise TypeError("Expected argument 'visibility' to be a str")
         pulumi.set(__self__, "visibility", visibility)
+
+    @property
+    @pulumi.getter(name="__supportAgentList")
+    def __support_agent_list(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "__support_agent_list")
 
     @property
     @pulumi.getter
@@ -184,6 +192,7 @@ class AwaitableGetImagesImagesResult(GetImagesImagesResult):
         if False:
             yield self
         return GetImagesImagesResult(
+            __support_agent_list=self.__support_agent_list,
             architecture=self.architecture,
             enterprise_project_id=self.enterprise_project_id,
             flavor_id=self.flavor_id,
@@ -204,7 +213,8 @@ class AwaitableGetImagesImagesResult(GetImagesImagesResult):
             visibility=self.visibility)
 
 
-def get_images_images(architecture: Optional[builtins.str] = None,
+def get_images_images(__support_agent_list: Optional[builtins.str] = None,
+                      architecture: Optional[builtins.str] = None,
                       enterprise_project_id: Optional[builtins.str] = None,
                       flavor_id: Optional[builtins.str] = None,
                       image_id: Optional[builtins.str] = None,
@@ -225,6 +235,7 @@ def get_images_images(architecture: Optional[builtins.str] = None,
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['__supportAgentList'] = __support_agent_list
     __args__['architecture'] = architecture
     __args__['enterpriseProjectId'] = enterprise_project_id
     __args__['flavorId'] = flavor_id
@@ -245,6 +256,7 @@ def get_images_images(architecture: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('sbercloud:index/getImagesImages:getImagesImages', __args__, opts=opts, typ=GetImagesImagesResult).value
 
     return AwaitableGetImagesImagesResult(
+        __support_agent_list=pulumi.get(__ret__, '__support_agent_list'),
         architecture=pulumi.get(__ret__, 'architecture'),
         enterprise_project_id=pulumi.get(__ret__, 'enterprise_project_id'),
         flavor_id=pulumi.get(__ret__, 'flavor_id'),
@@ -263,7 +275,8 @@ def get_images_images(architecture: Optional[builtins.str] = None,
         sort_key=pulumi.get(__ret__, 'sort_key'),
         tag=pulumi.get(__ret__, 'tag'),
         visibility=pulumi.get(__ret__, 'visibility'))
-def get_images_images_output(architecture: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+def get_images_images_output(__support_agent_list: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                             architecture: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              enterprise_project_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              flavor_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                              image_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -284,6 +297,7 @@ def get_images_images_output(architecture: Optional[pulumi.Input[Optional[builti
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['__supportAgentList'] = __support_agent_list
     __args__['architecture'] = architecture
     __args__['enterpriseProjectId'] = enterprise_project_id
     __args__['flavorId'] = flavor_id
@@ -303,6 +317,7 @@ def get_images_images_output(architecture: Optional[pulumi.Input[Optional[builti
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('sbercloud:index/getImagesImages:getImagesImages', __args__, opts=opts, typ=GetImagesImagesResult)
     return __ret__.apply(lambda __response__: GetImagesImagesResult(
+        __support_agent_list=pulumi.get(__response__, '__support_agent_list'),
         architecture=pulumi.get(__response__, 'architecture'),
         enterprise_project_id=pulumi.get(__response__, 'enterprise_project_id'),
         flavor_id=pulumi.get(__response__, 'flavor_id'),

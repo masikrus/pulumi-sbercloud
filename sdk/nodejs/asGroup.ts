@@ -34,6 +34,7 @@ export class AsGroup extends pulumi.CustomResource {
         return obj['__pulumiType'] === AsGroup.__pulumiType;
     }
 
+    public /*out*/ readonly activityType!: pulumi.Output<string>;
     public readonly agencyName!: pulumi.Output<string>;
     public readonly availabilityZones!: pulumi.Output<string[]>;
     /**
@@ -44,6 +45,7 @@ export class AsGroup extends pulumi.CustomResource {
      * The cooling duration, in seconds.
      */
     public readonly coolDownTime!: pulumi.Output<number | undefined>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     public /*out*/ readonly currentInstanceNumber!: pulumi.Output<number>;
     /**
      * Whether to delete instances when they are removed from the AS group.
@@ -53,6 +55,7 @@ export class AsGroup extends pulumi.CustomResource {
     public readonly deleteVolume!: pulumi.Output<boolean>;
     public readonly description!: pulumi.Output<string>;
     public readonly desireInstanceNumber!: pulumi.Output<number>;
+    public /*out*/ readonly detail!: pulumi.Output<string>;
     public readonly enable!: pulumi.Output<boolean | undefined>;
     public readonly enterpriseProjectId!: pulumi.Output<string>;
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
@@ -70,6 +73,7 @@ export class AsGroup extends pulumi.CustomResource {
      * The instances id list in the as group.
      */
     public /*out*/ readonly instances!: pulumi.Output<string[]>;
+    public /*out*/ readonly isScaling!: pulumi.Output<boolean>;
     /**
      * The system supports the binding of up to six ELB listeners, the IDs of which are separated using a comma.
      *
@@ -90,6 +94,7 @@ export class AsGroup extends pulumi.CustomResource {
      * schema: Required
      */
     public readonly scalingConfigurationId!: pulumi.Output<string>;
+    public /*out*/ readonly scalingConfigurationName!: pulumi.Output<string>;
     public readonly scalingGroupName!: pulumi.Output<string>;
     public readonly securityGroups!: pulumi.Output<outputs.AsGroupSecurityGroup[]>;
     public /*out*/ readonly status!: pulumi.Output<string>;
@@ -109,16 +114,19 @@ export class AsGroup extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AsGroupState | undefined;
+            resourceInputs["activityType"] = state ? state.activityType : undefined;
             resourceInputs["agencyName"] = state ? state.agencyName : undefined;
             resourceInputs["availabilityZones"] = state ? state.availabilityZones : undefined;
             resourceInputs["availableZones"] = state ? state.availableZones : undefined;
             resourceInputs["coolDownTime"] = state ? state.coolDownTime : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
             resourceInputs["currentInstanceNumber"] = state ? state.currentInstanceNumber : undefined;
             resourceInputs["deleteInstances"] = state ? state.deleteInstances : undefined;
             resourceInputs["deletePublicip"] = state ? state.deletePublicip : undefined;
             resourceInputs["deleteVolume"] = state ? state.deleteVolume : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["desireInstanceNumber"] = state ? state.desireInstanceNumber : undefined;
+            resourceInputs["detail"] = state ? state.detail : undefined;
             resourceInputs["enable"] = state ? state.enable : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
@@ -127,6 +135,7 @@ export class AsGroup extends pulumi.CustomResource {
             resourceInputs["healthPeriodicAuditTime"] = state ? state.healthPeriodicAuditTime : undefined;
             resourceInputs["instanceTerminatePolicy"] = state ? state.instanceTerminatePolicy : undefined;
             resourceInputs["instances"] = state ? state.instances : undefined;
+            resourceInputs["isScaling"] = state ? state.isScaling : undefined;
             resourceInputs["lbListenerId"] = state ? state.lbListenerId : undefined;
             resourceInputs["lbaasListeners"] = state ? state.lbaasListeners : undefined;
             resourceInputs["maxInstanceNumber"] = state ? state.maxInstanceNumber : undefined;
@@ -136,6 +145,7 @@ export class AsGroup extends pulumi.CustomResource {
             resourceInputs["notifications"] = state ? state.notifications : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingConfigurationId"] = state ? state.scalingConfigurationId : undefined;
+            resourceInputs["scalingConfigurationName"] = state ? state.scalingConfigurationName : undefined;
             resourceInputs["scalingGroupName"] = state ? state.scalingGroupName : undefined;
             resourceInputs["securityGroups"] = state ? state.securityGroups : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
@@ -181,8 +191,13 @@ export class AsGroup extends pulumi.CustomResource {
             resourceInputs["securityGroups"] = args ? args.securityGroups : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["activityType"] = undefined /*out*/;
+            resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["currentInstanceNumber"] = undefined /*out*/;
+            resourceInputs["detail"] = undefined /*out*/;
             resourceInputs["instances"] = undefined /*out*/;
+            resourceInputs["isScaling"] = undefined /*out*/;
+            resourceInputs["scalingConfigurationName"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -194,6 +209,7 @@ export class AsGroup extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AsGroup resources.
  */
 export interface AsGroupState {
+    activityType?: pulumi.Input<string>;
     agencyName?: pulumi.Input<string>;
     availabilityZones?: pulumi.Input<pulumi.Input<string>[]>;
     /**
@@ -204,6 +220,7 @@ export interface AsGroupState {
      * The cooling duration, in seconds.
      */
     coolDownTime?: pulumi.Input<number>;
+    createTime?: pulumi.Input<string>;
     currentInstanceNumber?: pulumi.Input<number>;
     /**
      * Whether to delete instances when they are removed from the AS group.
@@ -213,6 +230,7 @@ export interface AsGroupState {
     deleteVolume?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
     desireInstanceNumber?: pulumi.Input<number>;
+    detail?: pulumi.Input<string>;
     enable?: pulumi.Input<boolean>;
     enterpriseProjectId?: pulumi.Input<string>;
     forceDelete?: pulumi.Input<boolean>;
@@ -230,6 +248,7 @@ export interface AsGroupState {
      * The instances id list in the as group.
      */
     instances?: pulumi.Input<pulumi.Input<string>[]>;
+    isScaling?: pulumi.Input<boolean>;
     /**
      * The system supports the binding of up to six ELB listeners, the IDs of which are separated using a comma.
      *
@@ -250,6 +269,7 @@ export interface AsGroupState {
      * schema: Required
      */
     scalingConfigurationId?: pulumi.Input<string>;
+    scalingConfigurationName?: pulumi.Input<string>;
     scalingGroupName?: pulumi.Input<string>;
     securityGroups?: pulumi.Input<pulumi.Input<inputs.AsGroupSecurityGroup>[]>;
     status?: pulumi.Input<string>;

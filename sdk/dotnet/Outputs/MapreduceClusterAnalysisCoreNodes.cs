@@ -14,18 +14,26 @@ namespace Pulumi.Sbercloud.Outputs
     public sealed class MapreduceClusterAnalysisCoreNodes
     {
         public readonly ImmutableArray<string> AssignedRoles;
+        public readonly string? AutoRenew;
+        public readonly string? ChargingMode;
         public readonly int DataVolumeCount;
         public readonly int? DataVolumeSize;
         public readonly string? DataVolumeType;
         public readonly string Flavor;
         public readonly ImmutableArray<string> HostIps;
         public readonly int NodeNumber;
+        public readonly int? Period;
+        public readonly string? PeriodUnit;
         public readonly int RootVolumeSize;
         public readonly string RootVolumeType;
 
         [OutputConstructor]
         private MapreduceClusterAnalysisCoreNodes(
             ImmutableArray<string> assignedRoles,
+
+            string? autoRenew,
+
+            string? chargingMode,
 
             int dataVolumeCount,
 
@@ -39,17 +47,25 @@ namespace Pulumi.Sbercloud.Outputs
 
             int nodeNumber,
 
+            int? period,
+
+            string? periodUnit,
+
             int rootVolumeSize,
 
             string rootVolumeType)
         {
             AssignedRoles = assignedRoles;
+            AutoRenew = autoRenew;
+            ChargingMode = chargingMode;
             DataVolumeCount = dataVolumeCount;
             DataVolumeSize = dataVolumeSize;
             DataVolumeType = dataVolumeType;
             Flavor = flavor;
             HostIps = hostIps;
             NodeNumber = nodeNumber;
+            Period = period;
+            PeriodUnit = periodUnit;
             RootVolumeSize = rootVolumeSize;
             RootVolumeType = rootVolumeType;
         }

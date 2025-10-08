@@ -14,6 +14,8 @@ namespace Pulumi.Sbercloud.Outputs
     public sealed class MapreduceClusterCustomNode
     {
         public readonly ImmutableArray<string> AssignedRoles;
+        public readonly string? AutoRenew;
+        public readonly string? ChargingMode;
         public readonly int DataVolumeCount;
         public readonly int? DataVolumeSize;
         public readonly string? DataVolumeType;
@@ -21,12 +23,18 @@ namespace Pulumi.Sbercloud.Outputs
         public readonly string GroupName;
         public readonly ImmutableArray<string> HostIps;
         public readonly int NodeNumber;
+        public readonly int? Period;
+        public readonly string? PeriodUnit;
         public readonly int RootVolumeSize;
         public readonly string RootVolumeType;
 
         [OutputConstructor]
         private MapreduceClusterCustomNode(
             ImmutableArray<string> assignedRoles,
+
+            string? autoRenew,
+
+            string? chargingMode,
 
             int dataVolumeCount,
 
@@ -42,11 +50,17 @@ namespace Pulumi.Sbercloud.Outputs
 
             int nodeNumber,
 
+            int? period,
+
+            string? periodUnit,
+
             int rootVolumeSize,
 
             string rootVolumeType)
         {
             AssignedRoles = assignedRoles;
+            AutoRenew = autoRenew;
+            ChargingMode = chargingMode;
             DataVolumeCount = dataVolumeCount;
             DataVolumeSize = dataVolumeSize;
             DataVolumeType = dataVolumeType;
@@ -54,6 +68,8 @@ namespace Pulumi.Sbercloud.Outputs
             GroupName = groupName;
             HostIps = hostIps;
             NodeNumber = nodeNumber;
+            Period = period;
+            PeriodUnit = periodUnit;
             RootVolumeSize = rootVolumeSize;
             RootVolumeType = rootVolumeType;
         }

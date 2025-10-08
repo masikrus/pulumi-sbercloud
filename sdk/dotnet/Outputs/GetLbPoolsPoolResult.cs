@@ -13,42 +13,17 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class GetLbPoolsPoolResult
     {
-        /// <summary>
-        /// The description of pool.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Specifies the health monitor ID of the LB pool.
-        /// </summary>
         public readonly string HealthmonitorId;
-        /// <summary>
-        /// The pool ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// The method of the LB pool.
-        /// </summary>
         public readonly string LbMethod;
-        /// <summary>
-        /// Listener list. For details, see Data structure of the listener field.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLbPoolsPoolListenerResult> Listeners;
-        /// <summary>
-        /// Loadbalancer list. For details, see Data structure of the loadbalancer field.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLbPoolsPoolLoadbalancerResult> Loadbalancers;
-        /// <summary>
-        /// Loadbalancer list. For details, see Data structure of the members field.
-        /// </summary>
         public readonly ImmutableArray<Outputs.GetLbPoolsPoolMemberResult> Members;
-        /// <summary>
-        /// The pool name.
-        /// </summary>
         public readonly string Name;
         public readonly ImmutableArray<Outputs.GetLbPoolsPoolPersistenceResult> Persistences;
-        /// <summary>
-        /// The protocol of pool.
-        /// </summary>
+        public readonly string ProtectionReason;
+        public readonly string ProtectionStatus;
         public readonly string Protocol;
 
         [OutputConstructor]
@@ -71,6 +46,10 @@ namespace Pulumi.Sbercloud.Outputs
 
             ImmutableArray<Outputs.GetLbPoolsPoolPersistenceResult> persistences,
 
+            string protectionReason,
+
+            string protectionStatus,
+
             string protocol)
         {
             Description = description;
@@ -82,6 +61,8 @@ namespace Pulumi.Sbercloud.Outputs
             Members = members;
             Name = name;
             Persistences = persistences;
+            ProtectionReason = protectionReason;
+            ProtectionStatus = protectionStatus;
             Protocol = protocol;
         }
     }

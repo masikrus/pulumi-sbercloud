@@ -15,15 +15,16 @@ import (
 type CceNodeAttach struct {
 	pulumi.CustomResourceState
 
-	AvailabilityZone    pulumi.StringOutput                `pulumi:"availabilityZone"`
-	ChargingMode        pulumi.StringOutput                `pulumi:"chargingMode"`
-	ClusterId           pulumi.StringOutput                `pulumi:"clusterId"`
-	DataVolumes         CceNodeAttachDataVolumeArrayOutput `pulumi:"dataVolumes"`
-	DockerBaseSize      pulumi.IntPtrOutput                `pulumi:"dockerBaseSize"`
-	EcsGroupId          pulumi.StringOutput                `pulumi:"ecsGroupId"`
-	EnterpriseProjectId pulumi.StringOutput                `pulumi:"enterpriseProjectId"`
-	FlavorId            pulumi.StringOutput                `pulumi:"flavorId"`
-	HostnameConfig      CceNodeAttachHostnameConfigOutput  `pulumi:"hostnameConfig"`
+	AvailabilityZone    pulumi.StringOutput                  `pulumi:"availabilityZone"`
+	ChargingMode        pulumi.StringOutput                  `pulumi:"chargingMode"`
+	ClusterId           pulumi.StringOutput                  `pulumi:"clusterId"`
+	DataVolumes         CceNodeAttachDataVolumeArrayOutput   `pulumi:"dataVolumes"`
+	DockerBaseSize      pulumi.IntPtrOutput                  `pulumi:"dockerBaseSize"`
+	EcsGroupId          pulumi.StringOutput                  `pulumi:"ecsGroupId"`
+	EnterpriseProjectId pulumi.StringOutput                  `pulumi:"enterpriseProjectId"`
+	ExtensionNics       CceNodeAttachExtensionNicArrayOutput `pulumi:"extensionNics"`
+	FlavorId            pulumi.StringOutput                  `pulumi:"flavorId"`
+	HostnameConfig      CceNodeAttachHostnameConfigOutput    `pulumi:"hostnameConfig"`
 	// schema: Internal
 	ImageId               pulumi.StringPtrOutput   `pulumi:"imageId"`
 	InitializedConditions pulumi.StringArrayOutput `pulumi:"initializedConditions"`
@@ -112,6 +113,7 @@ type cceNodeAttachState struct {
 	DockerBaseSize      *int                         `pulumi:"dockerBaseSize"`
 	EcsGroupId          *string                      `pulumi:"ecsGroupId"`
 	EnterpriseProjectId *string                      `pulumi:"enterpriseProjectId"`
+	ExtensionNics       []CceNodeAttachExtensionNic  `pulumi:"extensionNics"`
 	FlavorId            *string                      `pulumi:"flavorId"`
 	HostnameConfig      *CceNodeAttachHostnameConfig `pulumi:"hostnameConfig"`
 	// schema: Internal
@@ -153,6 +155,7 @@ type CceNodeAttachState struct {
 	DockerBaseSize      pulumi.IntPtrInput
 	EcsGroupId          pulumi.StringPtrInput
 	EnterpriseProjectId pulumi.StringPtrInput
+	ExtensionNics       CceNodeAttachExtensionNicArrayInput
 	FlavorId            pulumi.StringPtrInput
 	HostnameConfig      CceNodeAttachHostnameConfigPtrInput
 	// schema: Internal
@@ -364,6 +367,10 @@ func (o CceNodeAttachOutput) EcsGroupId() pulumi.StringOutput {
 
 func (o CceNodeAttachOutput) EnterpriseProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CceNodeAttach) pulumi.StringOutput { return v.EnterpriseProjectId }).(pulumi.StringOutput)
+}
+
+func (o CceNodeAttachOutput) ExtensionNics() CceNodeAttachExtensionNicArrayOutput {
+	return o.ApplyT(func(v *CceNodeAttach) CceNodeAttachExtensionNicArrayOutput { return v.ExtensionNics }).(CceNodeAttachExtensionNicArrayOutput)
 }
 
 func (o CceNodeAttachOutput) FlavorId() pulumi.StringOutput {

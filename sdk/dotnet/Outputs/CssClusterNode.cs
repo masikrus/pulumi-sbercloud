@@ -13,20 +13,40 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class CssClusterNode
     {
+        public readonly string? AvailabilityZone;
         public readonly string? Id;
+        public readonly string? Ip;
         public readonly string? Name;
+        public readonly string? ResourceId;
+        public readonly string? SpecCode;
+        public readonly string? Status;
         public readonly string? Type;
 
         [OutputConstructor]
         private CssClusterNode(
+            string? availabilityZone,
+
             string? id,
+
+            string? ip,
 
             string? name,
 
+            string? resourceId,
+
+            string? specCode,
+
+            string? status,
+
             string? type)
         {
+            AvailabilityZone = availabilityZone;
             Id = id;
+            Ip = ip;
             Name = name;
+            ResourceId = resourceId;
+            SpecCode = specCode;
+            Status = status;
             Type = type;
         }
     }

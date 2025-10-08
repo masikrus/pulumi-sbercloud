@@ -34,6 +34,11 @@ func GetDomainId(ctx *pulumi.Context) string {
 func GetDomainName(ctx *pulumi.Context) string {
 	return config.Get(ctx, "sbercloud:domainName")
 }
+
+// The custom endpoints used to override the default endpoint URL.
+func GetEndpoints(ctx *pulumi.Context) string {
+	return config.Get(ctx, "sbercloud:endpoints")
+}
 func GetEnterpriseProjectId(ctx *pulumi.Context) string {
 	return config.Get(ctx, "sbercloud:enterpriseProjectId")
 }

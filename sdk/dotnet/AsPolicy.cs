@@ -21,6 +21,9 @@ namespace Pulumi.Sbercloud
         [Output("coolDownTime")]
         public Output<int> CoolDownTime { get; private set; } = null!;
 
+        [Output("createTime")]
+        public Output<string> CreateTime { get; private set; } = null!;
+
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -131,6 +134,9 @@ namespace Pulumi.Sbercloud
 
         [Input("coolDownTime")]
         public Input<int>? CoolDownTime { get; set; }
+
+        [Input("createTime")]
+        public Input<string>? CreateTime { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }

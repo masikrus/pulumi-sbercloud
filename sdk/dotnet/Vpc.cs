@@ -12,6 +12,9 @@ namespace Pulumi.Sbercloud
     [SbercloudResourceType("sbercloud:index/vpc:Vpc")]
     public partial class Vpc : global::Pulumi.CustomResource
     {
+        [Output("blockServiceEndpointStates")]
+        public Output<string?> BlockServiceEndpointStates { get; private set; } = null!;
+
         [Output("cidr")]
         public Output<string> Cidr { get; private set; } = null!;
 
@@ -94,6 +97,9 @@ namespace Pulumi.Sbercloud
 
     public sealed class VpcArgs : global::Pulumi.ResourceArgs
     {
+        [Input("blockServiceEndpointStates")]
+        public Input<string>? BlockServiceEndpointStates { get; set; }
+
         [Input("cidr", required: true)]
         public Input<string> Cidr { get; set; } = null!;
 
@@ -142,6 +148,9 @@ namespace Pulumi.Sbercloud
 
     public sealed class VpcState : global::Pulumi.ResourceArgs
     {
+        [Input("blockServiceEndpointStates")]
+        public Input<string>? BlockServiceEndpointStates { get; set; }
+
         [Input("cidr")]
         public Input<string>? Cidr { get; set; }
 

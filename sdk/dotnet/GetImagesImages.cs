@@ -24,6 +24,9 @@ namespace Pulumi.Sbercloud
 
     public sealed class GetImagesImagesArgs : global::Pulumi.InvokeArgs
     {
+        [Input("__supportAgentList")]
+        public string? __supportAgentList { get; set; }
+
         [Input("architecture")]
         public string? Architecture { get; set; }
 
@@ -80,6 +83,9 @@ namespace Pulumi.Sbercloud
 
     public sealed class GetImagesImagesInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("__supportAgentList")]
+        public Input<string>? __supportAgentList { get; set; }
+
         [Input("architecture")]
         public Input<string>? Architecture { get; set; }
 
@@ -138,6 +144,7 @@ namespace Pulumi.Sbercloud
     [OutputType]
     public sealed class GetImagesImagesResult
     {
+        public readonly string? __supportAgentList;
         public readonly string? Architecture;
         public readonly string? EnterpriseProjectId;
         public readonly string? FlavorId;
@@ -162,6 +169,8 @@ namespace Pulumi.Sbercloud
 
         [OutputConstructor]
         private GetImagesImagesResult(
+            string? __supportAgentList,
+
             string? architecture,
 
             string? enterpriseProjectId,
@@ -198,6 +207,7 @@ namespace Pulumi.Sbercloud
 
             string? visibility)
         {
+            this.__supportAgentList = __supportAgentList;
             Architecture = architecture;
             EnterpriseProjectId = enterpriseProjectId;
             FlavorId = flavorId;

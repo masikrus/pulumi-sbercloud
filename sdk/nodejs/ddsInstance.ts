@@ -45,6 +45,7 @@ export class DdsInstance extends pulumi.CustomResource {
     public readonly balancerActiveEnd!: pulumi.Output<string | undefined>;
     public readonly balancerStatus!: pulumi.Output<string>;
     public readonly chargingMode!: pulumi.Output<string>;
+    public readonly clientNetworkRanges!: pulumi.Output<string[] | undefined>;
     public readonly configurations!: pulumi.Output<outputs.DdsInstanceConfiguration[] | undefined>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly datastore!: pulumi.Output<outputs.DdsInstanceDatastore>;
@@ -54,6 +55,8 @@ export class DdsInstance extends pulumi.CustomResource {
     public readonly enterpriseProjectId!: pulumi.Output<string>;
     public readonly flavors!: pulumi.Output<outputs.DdsInstanceFlavor[]>;
     public /*out*/ readonly groups!: pulumi.Output<outputs.DdsInstanceGroup[]>;
+    public readonly maintainBegin!: pulumi.Output<string>;
+    public readonly maintainEnd!: pulumi.Output<string>;
     public readonly mode!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     /**
@@ -65,7 +68,10 @@ export class DdsInstance extends pulumi.CustomResource {
     public readonly periodUnit!: pulumi.Output<string | undefined>;
     public readonly port!: pulumi.Output<number>;
     public readonly region!: pulumi.Output<string>;
+    public readonly replicaSetName!: pulumi.Output<string>;
+    public readonly secondLevelMonitoringEnabled!: pulumi.Output<boolean>;
     public readonly securityGroupId!: pulumi.Output<string>;
+    public readonly slowLogDesensitization!: pulumi.Output<string>;
     public readonly ssl!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly subnetId!: pulumi.Output<string>;
@@ -95,6 +101,7 @@ export class DdsInstance extends pulumi.CustomResource {
             resourceInputs["balancerActiveEnd"] = state ? state.balancerActiveEnd : undefined;
             resourceInputs["balancerStatus"] = state ? state.balancerStatus : undefined;
             resourceInputs["chargingMode"] = state ? state.chargingMode : undefined;
+            resourceInputs["clientNetworkRanges"] = state ? state.clientNetworkRanges : undefined;
             resourceInputs["configurations"] = state ? state.configurations : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["datastore"] = state ? state.datastore : undefined;
@@ -104,6 +111,8 @@ export class DdsInstance extends pulumi.CustomResource {
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["flavors"] = state ? state.flavors : undefined;
             resourceInputs["groups"] = state ? state.groups : undefined;
+            resourceInputs["maintainBegin"] = state ? state.maintainBegin : undefined;
+            resourceInputs["maintainEnd"] = state ? state.maintainEnd : undefined;
             resourceInputs["mode"] = state ? state.mode : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodes"] = state ? state.nodes : undefined;
@@ -112,7 +121,10 @@ export class DdsInstance extends pulumi.CustomResource {
             resourceInputs["periodUnit"] = state ? state.periodUnit : undefined;
             resourceInputs["port"] = state ? state.port : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["replicaSetName"] = state ? state.replicaSetName : undefined;
+            resourceInputs["secondLevelMonitoringEnabled"] = state ? state.secondLevelMonitoringEnabled : undefined;
             resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
+            resourceInputs["slowLogDesensitization"] = state ? state.slowLogDesensitization : undefined;
             resourceInputs["ssl"] = state ? state.ssl : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
@@ -151,12 +163,15 @@ export class DdsInstance extends pulumi.CustomResource {
             resourceInputs["balancerActiveEnd"] = args ? args.balancerActiveEnd : undefined;
             resourceInputs["balancerStatus"] = args ? args.balancerStatus : undefined;
             resourceInputs["chargingMode"] = args ? args.chargingMode : undefined;
+            resourceInputs["clientNetworkRanges"] = args ? args.clientNetworkRanges : undefined;
             resourceInputs["configurations"] = args ? args.configurations : undefined;
             resourceInputs["datastore"] = args ? args.datastore : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["diskEncryptionId"] = args ? args.diskEncryptionId : undefined;
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
             resourceInputs["flavors"] = args ? args.flavors : undefined;
+            resourceInputs["maintainBegin"] = args ? args.maintainBegin : undefined;
+            resourceInputs["maintainEnd"] = args ? args.maintainEnd : undefined;
             resourceInputs["mode"] = args ? args.mode : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
@@ -164,7 +179,10 @@ export class DdsInstance extends pulumi.CustomResource {
             resourceInputs["periodUnit"] = args ? args.periodUnit : undefined;
             resourceInputs["port"] = args ? args.port : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["replicaSetName"] = args ? args.replicaSetName : undefined;
+            resourceInputs["secondLevelMonitoringEnabled"] = args ? args.secondLevelMonitoringEnabled : undefined;
             resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
+            resourceInputs["slowLogDesensitization"] = args ? args.slowLogDesensitization : undefined;
             resourceInputs["ssl"] = args ? args.ssl : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -199,6 +217,7 @@ export interface DdsInstanceState {
     balancerActiveEnd?: pulumi.Input<string>;
     balancerStatus?: pulumi.Input<string>;
     chargingMode?: pulumi.Input<string>;
+    clientNetworkRanges?: pulumi.Input<pulumi.Input<string>[]>;
     configurations?: pulumi.Input<pulumi.Input<inputs.DdsInstanceConfiguration>[]>;
     createdAt?: pulumi.Input<string>;
     datastore?: pulumi.Input<inputs.DdsInstanceDatastore>;
@@ -208,6 +227,8 @@ export interface DdsInstanceState {
     enterpriseProjectId?: pulumi.Input<string>;
     flavors?: pulumi.Input<pulumi.Input<inputs.DdsInstanceFlavor>[]>;
     groups?: pulumi.Input<pulumi.Input<inputs.DdsInstanceGroup>[]>;
+    maintainBegin?: pulumi.Input<string>;
+    maintainEnd?: pulumi.Input<string>;
     mode?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     /**
@@ -219,7 +240,10 @@ export interface DdsInstanceState {
     periodUnit?: pulumi.Input<string>;
     port?: pulumi.Input<number>;
     region?: pulumi.Input<string>;
+    replicaSetName?: pulumi.Input<string>;
+    secondLevelMonitoringEnabled?: pulumi.Input<boolean>;
     securityGroupId?: pulumi.Input<string>;
+    slowLogDesensitization?: pulumi.Input<string>;
     ssl?: pulumi.Input<boolean>;
     status?: pulumi.Input<string>;
     subnetId?: pulumi.Input<string>;
@@ -244,12 +268,15 @@ export interface DdsInstanceArgs {
     balancerActiveEnd?: pulumi.Input<string>;
     balancerStatus?: pulumi.Input<string>;
     chargingMode?: pulumi.Input<string>;
+    clientNetworkRanges?: pulumi.Input<pulumi.Input<string>[]>;
     configurations?: pulumi.Input<pulumi.Input<inputs.DdsInstanceConfiguration>[]>;
     datastore: pulumi.Input<inputs.DdsInstanceDatastore>;
     description?: pulumi.Input<string>;
     diskEncryptionId?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
     flavors: pulumi.Input<pulumi.Input<inputs.DdsInstanceFlavor>[]>;
+    maintainBegin?: pulumi.Input<string>;
+    maintainEnd?: pulumi.Input<string>;
     mode: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
@@ -257,7 +284,10 @@ export interface DdsInstanceArgs {
     periodUnit?: pulumi.Input<string>;
     port?: pulumi.Input<number>;
     region?: pulumi.Input<string>;
+    replicaSetName?: pulumi.Input<string>;
+    secondLevelMonitoringEnabled?: pulumi.Input<boolean>;
     securityGroupId: pulumi.Input<string>;
+    slowLogDesensitization?: pulumi.Input<string>;
     ssl?: pulumi.Input<boolean>;
     subnetId: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

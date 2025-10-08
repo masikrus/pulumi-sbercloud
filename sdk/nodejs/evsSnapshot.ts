@@ -32,13 +32,20 @@ export class EvsSnapshot extends pulumi.CustomResource {
         return obj['__pulumiType'] === EvsSnapshot.__pulumiType;
     }
 
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly force!: pulumi.Output<boolean | undefined>;
-    public readonly metadata!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly metadata!: pulumi.Output<{[key: string]: string}>;
+    /**
+     * The script configuration value of this change is also the original value used for comparison with the new value next
+     * time the change is made. The corresponding parameter name is 'metadata'.
+     */
+    public /*out*/ readonly metadataOrigin!: pulumi.Output<{[key: string]: string}>;
     public readonly name!: pulumi.Output<string>;
     public readonly region!: pulumi.Output<string>;
     public /*out*/ readonly size!: pulumi.Output<number>;
     public /*out*/ readonly status!: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     public readonly volumeId!: pulumi.Output<string>;
 
     /**
@@ -54,13 +61,16 @@ export class EvsSnapshot extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EvsSnapshotState | undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["force"] = state ? state.force : undefined;
             resourceInputs["metadata"] = state ? state.metadata : undefined;
+            resourceInputs["metadataOrigin"] = state ? state.metadataOrigin : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["size"] = state ? state.size : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
             resourceInputs["volumeId"] = state ? state.volumeId : undefined;
         } else {
             const args = argsOrState as EvsSnapshotArgs | undefined;
@@ -73,8 +83,11 @@ export class EvsSnapshot extends pulumi.CustomResource {
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["volumeId"] = args ? args.volumeId : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["metadataOrigin"] = undefined /*out*/;
             resourceInputs["size"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(EvsSnapshot.__pulumiType, name, resourceInputs, opts);
@@ -85,13 +98,20 @@ export class EvsSnapshot extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EvsSnapshot resources.
  */
 export interface EvsSnapshotState {
+    createdAt?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     force?: pulumi.Input<boolean>;
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The script configuration value of this change is also the original value used for comparison with the new value next
+     * time the change is made. The corresponding parameter name is 'metadata'.
+     */
+    metadataOrigin?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     name?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
     size?: pulumi.Input<number>;
     status?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string>;
     volumeId?: pulumi.Input<string>;
 }
 

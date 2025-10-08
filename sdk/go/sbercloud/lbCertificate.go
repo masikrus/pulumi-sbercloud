@@ -24,7 +24,7 @@ type LbCertificate struct {
 	Name                pulumi.StringOutput    `pulumi:"name"`
 	PrivateKey          pulumi.StringPtrOutput `pulumi:"privateKey"`
 	Region              pulumi.StringOutput    `pulumi:"region"`
-	Type                pulumi.StringPtrOutput `pulumi:"type"`
+	Type                pulumi.StringOutput    `pulumi:"type"`
 	UpdateTime          pulumi.StringOutput    `pulumi:"updateTime"`
 }
 
@@ -249,8 +249,8 @@ func (o LbCertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-func (o LbCertificateOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LbCertificate) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+func (o LbCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 func (o LbCertificateOutput) UpdateTime() pulumi.StringOutput {

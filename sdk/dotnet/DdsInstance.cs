@@ -36,6 +36,9 @@ namespace Pulumi.Sbercloud
         [Output("chargingMode")]
         public Output<string> ChargingMode { get; private set; } = null!;
 
+        [Output("clientNetworkRanges")]
+        public Output<ImmutableArray<string>> ClientNetworkRanges { get; private set; } = null!;
+
         [Output("configurations")]
         public Output<ImmutableArray<Outputs.DdsInstanceConfiguration>> Configurations { get; private set; } = null!;
 
@@ -62,6 +65,12 @@ namespace Pulumi.Sbercloud
 
         [Output("groups")]
         public Output<ImmutableArray<Outputs.DdsInstanceGroup>> Groups { get; private set; } = null!;
+
+        [Output("maintainBegin")]
+        public Output<string> MaintainBegin { get; private set; } = null!;
+
+        [Output("maintainEnd")]
+        public Output<string> MaintainEnd { get; private set; } = null!;
 
         [Output("mode")]
         public Output<string> Mode { get; private set; } = null!;
@@ -90,8 +99,17 @@ namespace Pulumi.Sbercloud
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        [Output("replicaSetName")]
+        public Output<string> ReplicaSetName { get; private set; } = null!;
+
+        [Output("secondLevelMonitoringEnabled")]
+        public Output<bool> SecondLevelMonitoringEnabled { get; private set; } = null!;
+
         [Output("securityGroupId")]
         public Output<string> SecurityGroupId { get; private set; } = null!;
+
+        [Output("slowLogDesensitization")]
+        public Output<string> SlowLogDesensitization { get; private set; } = null!;
 
         [Output("ssl")]
         public Output<bool?> Ssl { get; private set; } = null!;
@@ -188,6 +206,14 @@ namespace Pulumi.Sbercloud
         [Input("chargingMode")]
         public Input<string>? ChargingMode { get; set; }
 
+        [Input("clientNetworkRanges")]
+        private InputList<string>? _clientNetworkRanges;
+        public InputList<string> ClientNetworkRanges
+        {
+            get => _clientNetworkRanges ?? (_clientNetworkRanges = new InputList<string>());
+            set => _clientNetworkRanges = value;
+        }
+
         [Input("configurations")]
         private InputList<Inputs.DdsInstanceConfigurationArgs>? _configurations;
         public InputList<Inputs.DdsInstanceConfigurationArgs> Configurations
@@ -215,6 +241,12 @@ namespace Pulumi.Sbercloud
             get => _flavors ?? (_flavors = new InputList<Inputs.DdsInstanceFlavorArgs>());
             set => _flavors = value;
         }
+
+        [Input("maintainBegin")]
+        public Input<string>? MaintainBegin { get; set; }
+
+        [Input("maintainEnd")]
+        public Input<string>? MaintainEnd { get; set; }
 
         [Input("mode", required: true)]
         public Input<string> Mode { get; set; } = null!;
@@ -246,8 +278,17 @@ namespace Pulumi.Sbercloud
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("replicaSetName")]
+        public Input<string>? ReplicaSetName { get; set; }
+
+        [Input("secondLevelMonitoringEnabled")]
+        public Input<bool>? SecondLevelMonitoringEnabled { get; set; }
+
         [Input("securityGroupId", required: true)]
         public Input<string> SecurityGroupId { get; set; } = null!;
+
+        [Input("slowLogDesensitization")]
+        public Input<string>? SlowLogDesensitization { get; set; }
 
         [Input("ssl")]
         public Input<bool>? Ssl { get; set; }
@@ -298,6 +339,14 @@ namespace Pulumi.Sbercloud
         [Input("chargingMode")]
         public Input<string>? ChargingMode { get; set; }
 
+        [Input("clientNetworkRanges")]
+        private InputList<string>? _clientNetworkRanges;
+        public InputList<string> ClientNetworkRanges
+        {
+            get => _clientNetworkRanges ?? (_clientNetworkRanges = new InputList<string>());
+            set => _clientNetworkRanges = value;
+        }
+
         [Input("configurations")]
         private InputList<Inputs.DdsInstanceConfigurationGetArgs>? _configurations;
         public InputList<Inputs.DdsInstanceConfigurationGetArgs> Configurations
@@ -339,6 +388,12 @@ namespace Pulumi.Sbercloud
             get => _groups ?? (_groups = new InputList<Inputs.DdsInstanceGroupGetArgs>());
             set => _groups = value;
         }
+
+        [Input("maintainBegin")]
+        public Input<string>? MaintainBegin { get; set; }
+
+        [Input("maintainEnd")]
+        public Input<string>? MaintainEnd { get; set; }
 
         [Input("mode")]
         public Input<string>? Mode { get; set; }
@@ -382,8 +437,17 @@ namespace Pulumi.Sbercloud
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("replicaSetName")]
+        public Input<string>? ReplicaSetName { get; set; }
+
+        [Input("secondLevelMonitoringEnabled")]
+        public Input<bool>? SecondLevelMonitoringEnabled { get; set; }
+
         [Input("securityGroupId")]
         public Input<string>? SecurityGroupId { get; set; }
+
+        [Input("slowLogDesensitization")]
+        public Input<string>? SlowLogDesensitization { get; set; }
 
         [Input("ssl")]
         public Input<bool>? Ssl { get; set; }

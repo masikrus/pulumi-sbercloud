@@ -49,8 +49,10 @@ export class ElbLoadbalancer extends pulumi.CustomResource {
     public readonly crossVpcBackend!: pulumi.Output<boolean>;
     public readonly deletionProtectionEnable!: pulumi.Output<boolean | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly elbVirsubnetType!: pulumi.Output<string>;
     public readonly enterpriseProjectId!: pulumi.Output<string>;
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
+    public /*out*/ readonly frozenScene!: pulumi.Output<string>;
     public /*out*/ readonly guaranteed!: pulumi.Output<boolean>;
     public /*out*/ readonly gwFlavorId!: pulumi.Output<string>;
     public readonly iptype!: pulumi.Output<string>;
@@ -75,10 +77,12 @@ export class ElbLoadbalancer extends pulumi.CustomResource {
     public readonly loadbalancerType!: pulumi.Output<string>;
     public readonly minL7FlavorId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly operatingStatus!: pulumi.Output<string>;
     public readonly period!: pulumi.Output<number | undefined>;
     public readonly periodUnit!: pulumi.Output<string | undefined>;
     public readonly protectionReason!: pulumi.Output<string | undefined>;
     public readonly protectionStatus!: pulumi.Output<string>;
+    public /*out*/ readonly publicBorderGroup!: pulumi.Output<string>;
     public readonly region!: pulumi.Output<string>;
     public readonly sharetype!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -113,8 +117,10 @@ export class ElbLoadbalancer extends pulumi.CustomResource {
             resourceInputs["crossVpcBackend"] = state ? state.crossVpcBackend : undefined;
             resourceInputs["deletionProtectionEnable"] = state ? state.deletionProtectionEnable : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["elbVirsubnetType"] = state ? state.elbVirsubnetType : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
+            resourceInputs["frozenScene"] = state ? state.frozenScene : undefined;
             resourceInputs["guaranteed"] = state ? state.guaranteed : undefined;
             resourceInputs["gwFlavorId"] = state ? state.gwFlavorId : undefined;
             resourceInputs["iptype"] = state ? state.iptype : undefined;
@@ -133,10 +139,12 @@ export class ElbLoadbalancer extends pulumi.CustomResource {
             resourceInputs["loadbalancerType"] = state ? state.loadbalancerType : undefined;
             resourceInputs["minL7FlavorId"] = state ? state.minL7FlavorId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["operatingStatus"] = state ? state.operatingStatus : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
             resourceInputs["periodUnit"] = state ? state.periodUnit : undefined;
             resourceInputs["protectionReason"] = state ? state.protectionReason : undefined;
             resourceInputs["protectionStatus"] = state ? state.protectionStatus : undefined;
+            resourceInputs["publicBorderGroup"] = state ? state.publicBorderGroup : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sharetype"] = state ? state.sharetype : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -185,12 +193,16 @@ export class ElbLoadbalancer extends pulumi.CustomResource {
             resourceInputs["wafFailureAction"] = args ? args.wafFailureAction : undefined;
             resourceInputs["chargeMode"] = undefined /*out*/;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["elbVirsubnetType"] = undefined /*out*/;
+            resourceInputs["frozenScene"] = undefined /*out*/;
             resourceInputs["guaranteed"] = undefined /*out*/;
             resourceInputs["gwFlavorId"] = undefined /*out*/;
             resourceInputs["ipv4Eip"] = undefined /*out*/;
             resourceInputs["ipv4PortId"] = undefined /*out*/;
             resourceInputs["ipv6Eip"] = undefined /*out*/;
             resourceInputs["ipv6EipId"] = undefined /*out*/;
+            resourceInputs["operatingStatus"] = undefined /*out*/;
+            resourceInputs["publicBorderGroup"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -219,8 +231,10 @@ export interface ElbLoadbalancerState {
     crossVpcBackend?: pulumi.Input<boolean>;
     deletionProtectionEnable?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
+    elbVirsubnetType?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
     forceDelete?: pulumi.Input<boolean>;
+    frozenScene?: pulumi.Input<string>;
     guaranteed?: pulumi.Input<boolean>;
     gwFlavorId?: pulumi.Input<string>;
     iptype?: pulumi.Input<string>;
@@ -245,10 +259,12 @@ export interface ElbLoadbalancerState {
     loadbalancerType?: pulumi.Input<string>;
     minL7FlavorId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    operatingStatus?: pulumi.Input<string>;
     period?: pulumi.Input<number>;
     periodUnit?: pulumi.Input<string>;
     protectionReason?: pulumi.Input<string>;
     protectionStatus?: pulumi.Input<string>;
+    publicBorderGroup?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
     sharetype?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

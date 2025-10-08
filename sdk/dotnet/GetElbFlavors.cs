@@ -27,8 +27,20 @@ namespace Pulumi.Sbercloud
         [Input("bandwidth")]
         public int? Bandwidth { get; set; }
 
+        [Input("category")]
+        public int? Category { get; set; }
+
         [Input("cps")]
         public int? Cps { get; set; }
+
+        [Input("flavorId")]
+        public string? FlavorId { get; set; }
+
+        [Input("flavorSoldOut")]
+        public string? FlavorSoldOut { get; set; }
+
+        [Input("listAll")]
+        public string? ListAll { get; set; }
 
         [Input("maxConnections")]
         public int? MaxConnections { get; set; }
@@ -36,11 +48,17 @@ namespace Pulumi.Sbercloud
         [Input("name")]
         public string? Name { get; set; }
 
+        [Input("publicBorderGroup")]
+        public string? PublicBorderGroup { get; set; }
+
         [Input("qps")]
         public int? Qps { get; set; }
 
         [Input("region")]
         public string? Region { get; set; }
+
+        [Input("shared")]
+        public string? Shared { get; set; }
 
         [Input("type")]
         public string? Type { get; set; }
@@ -56,8 +74,20 @@ namespace Pulumi.Sbercloud
         [Input("bandwidth")]
         public Input<int>? Bandwidth { get; set; }
 
+        [Input("category")]
+        public Input<int>? Category { get; set; }
+
         [Input("cps")]
         public Input<int>? Cps { get; set; }
+
+        [Input("flavorId")]
+        public Input<string>? FlavorId { get; set; }
+
+        [Input("flavorSoldOut")]
+        public Input<string>? FlavorSoldOut { get; set; }
+
+        [Input("listAll")]
+        public Input<string>? ListAll { get; set; }
 
         [Input("maxConnections")]
         public Input<int>? MaxConnections { get; set; }
@@ -65,11 +95,17 @@ namespace Pulumi.Sbercloud
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("publicBorderGroup")]
+        public Input<string>? PublicBorderGroup { get; set; }
+
         [Input("qps")]
         public Input<int>? Qps { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        [Input("shared")]
+        public Input<string>? Shared { get; set; }
 
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -85,24 +121,36 @@ namespace Pulumi.Sbercloud
     public sealed class GetElbFlavorsResult
     {
         public readonly int? Bandwidth;
+        public readonly int? Category;
         public readonly int? Cps;
+        public readonly string? FlavorId;
+        public readonly string? FlavorSoldOut;
         public readonly ImmutableArray<Outputs.GetElbFlavorsFlavorResult> Flavors;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
         public readonly ImmutableArray<string> Ids;
+        public readonly string? ListAll;
         public readonly int? MaxConnections;
         public readonly string? Name;
+        public readonly string? PublicBorderGroup;
         public readonly int? Qps;
         public readonly string Region;
+        public readonly string? Shared;
         public readonly string? Type;
 
         [OutputConstructor]
         private GetElbFlavorsResult(
             int? bandwidth,
 
+            int? category,
+
             int? cps,
+
+            string? flavorId,
+
+            string? flavorSoldOut,
 
             ImmutableArray<Outputs.GetElbFlavorsFlavorResult> flavors,
 
@@ -110,25 +158,37 @@ namespace Pulumi.Sbercloud
 
             ImmutableArray<string> ids,
 
+            string? listAll,
+
             int? maxConnections,
 
             string? name,
+
+            string? publicBorderGroup,
 
             int? qps,
 
             string region,
 
+            string? shared,
+
             string? type)
         {
             Bandwidth = bandwidth;
+            Category = category;
             Cps = cps;
+            FlavorId = flavorId;
+            FlavorSoldOut = flavorSoldOut;
             Flavors = flavors;
             Id = id;
             Ids = ids;
+            ListAll = listAll;
             MaxConnections = maxConnections;
             Name = name;
+            PublicBorderGroup = publicBorderGroup;
             Qps = qps;
             Region = region;
+            Shared = shared;
             Type = type;
         }
     }

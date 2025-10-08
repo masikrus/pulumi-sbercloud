@@ -28,13 +28,22 @@ class GetElbFlavorsResult:
     """
     A collection of values returned by getElbFlavors.
     """
-    def __init__(__self__, bandwidth=None, cps=None, flavors=None, id=None, ids=None, max_connections=None, name=None, qps=None, region=None, type=None):
+    def __init__(__self__, bandwidth=None, category=None, cps=None, flavor_id=None, flavor_sold_out=None, flavors=None, id=None, ids=None, list_all=None, max_connections=None, name=None, public_border_group=None, qps=None, region=None, shared=None, type=None):
         if bandwidth and not isinstance(bandwidth, int):
             raise TypeError("Expected argument 'bandwidth' to be a int")
         pulumi.set(__self__, "bandwidth", bandwidth)
+        if category and not isinstance(category, int):
+            raise TypeError("Expected argument 'category' to be a int")
+        pulumi.set(__self__, "category", category)
         if cps and not isinstance(cps, int):
             raise TypeError("Expected argument 'cps' to be a int")
         pulumi.set(__self__, "cps", cps)
+        if flavor_id and not isinstance(flavor_id, str):
+            raise TypeError("Expected argument 'flavor_id' to be a str")
+        pulumi.set(__self__, "flavor_id", flavor_id)
+        if flavor_sold_out and not isinstance(flavor_sold_out, str):
+            raise TypeError("Expected argument 'flavor_sold_out' to be a str")
+        pulumi.set(__self__, "flavor_sold_out", flavor_sold_out)
         if flavors and not isinstance(flavors, list):
             raise TypeError("Expected argument 'flavors' to be a list")
         pulumi.set(__self__, "flavors", flavors)
@@ -44,18 +53,27 @@ class GetElbFlavorsResult:
         if ids and not isinstance(ids, list):
             raise TypeError("Expected argument 'ids' to be a list")
         pulumi.set(__self__, "ids", ids)
+        if list_all and not isinstance(list_all, str):
+            raise TypeError("Expected argument 'list_all' to be a str")
+        pulumi.set(__self__, "list_all", list_all)
         if max_connections and not isinstance(max_connections, int):
             raise TypeError("Expected argument 'max_connections' to be a int")
         pulumi.set(__self__, "max_connections", max_connections)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if public_border_group and not isinstance(public_border_group, str):
+            raise TypeError("Expected argument 'public_border_group' to be a str")
+        pulumi.set(__self__, "public_border_group", public_border_group)
         if qps and not isinstance(qps, int):
             raise TypeError("Expected argument 'qps' to be a int")
         pulumi.set(__self__, "qps", qps)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if shared and not isinstance(shared, str):
+            raise TypeError("Expected argument 'shared' to be a str")
+        pulumi.set(__self__, "shared", shared)
         if type and not isinstance(type, str):
             raise TypeError("Expected argument 'type' to be a str")
         pulumi.set(__self__, "type", type)
@@ -67,8 +85,23 @@ class GetElbFlavorsResult:
 
     @property
     @pulumi.getter
+    def category(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "category")
+
+    @property
+    @pulumi.getter
     def cps(self) -> Optional[builtins.int]:
         return pulumi.get(self, "cps")
+
+    @property
+    @pulumi.getter(name="flavorId")
+    def flavor_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "flavor_id")
+
+    @property
+    @pulumi.getter(name="flavorSoldOut")
+    def flavor_sold_out(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "flavor_sold_out")
 
     @property
     @pulumi.getter
@@ -89,6 +122,11 @@ class GetElbFlavorsResult:
         return pulumi.get(self, "ids")
 
     @property
+    @pulumi.getter(name="listAll")
+    def list_all(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "list_all")
+
+    @property
     @pulumi.getter(name="maxConnections")
     def max_connections(self) -> Optional[builtins.int]:
         return pulumi.get(self, "max_connections")
@@ -99,6 +137,11 @@ class GetElbFlavorsResult:
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="publicBorderGroup")
+    def public_border_group(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "public_border_group")
+
+    @property
     @pulumi.getter
     def qps(self) -> Optional[builtins.int]:
         return pulumi.get(self, "qps")
@@ -107,6 +150,11 @@ class GetElbFlavorsResult:
     @pulumi.getter
     def region(self) -> builtins.str:
         return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter
+    def shared(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "shared")
 
     @property
     @pulumi.getter
@@ -121,23 +169,35 @@ class AwaitableGetElbFlavorsResult(GetElbFlavorsResult):
             yield self
         return GetElbFlavorsResult(
             bandwidth=self.bandwidth,
+            category=self.category,
             cps=self.cps,
+            flavor_id=self.flavor_id,
+            flavor_sold_out=self.flavor_sold_out,
             flavors=self.flavors,
             id=self.id,
             ids=self.ids,
+            list_all=self.list_all,
             max_connections=self.max_connections,
             name=self.name,
+            public_border_group=self.public_border_group,
             qps=self.qps,
             region=self.region,
+            shared=self.shared,
             type=self.type)
 
 
 def get_elb_flavors(bandwidth: Optional[builtins.int] = None,
+                    category: Optional[builtins.int] = None,
                     cps: Optional[builtins.int] = None,
+                    flavor_id: Optional[builtins.str] = None,
+                    flavor_sold_out: Optional[builtins.str] = None,
+                    list_all: Optional[builtins.str] = None,
                     max_connections: Optional[builtins.int] = None,
                     name: Optional[builtins.str] = None,
+                    public_border_group: Optional[builtins.str] = None,
                     qps: Optional[builtins.int] = None,
                     region: Optional[builtins.str] = None,
+                    shared: Optional[builtins.str] = None,
                     type: Optional[builtins.str] = None,
                     opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetElbFlavorsResult:
     """
@@ -145,32 +205,50 @@ def get_elb_flavors(bandwidth: Optional[builtins.int] = None,
     """
     __args__ = dict()
     __args__['bandwidth'] = bandwidth
+    __args__['category'] = category
     __args__['cps'] = cps
+    __args__['flavorId'] = flavor_id
+    __args__['flavorSoldOut'] = flavor_sold_out
+    __args__['listAll'] = list_all
     __args__['maxConnections'] = max_connections
     __args__['name'] = name
+    __args__['publicBorderGroup'] = public_border_group
     __args__['qps'] = qps
     __args__['region'] = region
+    __args__['shared'] = shared
     __args__['type'] = type
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('sbercloud:index/getElbFlavors:getElbFlavors', __args__, opts=opts, typ=GetElbFlavorsResult).value
 
     return AwaitableGetElbFlavorsResult(
         bandwidth=pulumi.get(__ret__, 'bandwidth'),
+        category=pulumi.get(__ret__, 'category'),
         cps=pulumi.get(__ret__, 'cps'),
+        flavor_id=pulumi.get(__ret__, 'flavor_id'),
+        flavor_sold_out=pulumi.get(__ret__, 'flavor_sold_out'),
         flavors=pulumi.get(__ret__, 'flavors'),
         id=pulumi.get(__ret__, 'id'),
         ids=pulumi.get(__ret__, 'ids'),
+        list_all=pulumi.get(__ret__, 'list_all'),
         max_connections=pulumi.get(__ret__, 'max_connections'),
         name=pulumi.get(__ret__, 'name'),
+        public_border_group=pulumi.get(__ret__, 'public_border_group'),
         qps=pulumi.get(__ret__, 'qps'),
         region=pulumi.get(__ret__, 'region'),
+        shared=pulumi.get(__ret__, 'shared'),
         type=pulumi.get(__ret__, 'type'))
 def get_elb_flavors_output(bandwidth: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                           category: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                            cps: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                           flavor_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           flavor_sold_out: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           list_all: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            max_connections: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                            name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           public_border_group: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            qps: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           shared: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetElbFlavorsResult]:
     """
@@ -178,22 +256,34 @@ def get_elb_flavors_output(bandwidth: Optional[pulumi.Input[Optional[builtins.in
     """
     __args__ = dict()
     __args__['bandwidth'] = bandwidth
+    __args__['category'] = category
     __args__['cps'] = cps
+    __args__['flavorId'] = flavor_id
+    __args__['flavorSoldOut'] = flavor_sold_out
+    __args__['listAll'] = list_all
     __args__['maxConnections'] = max_connections
     __args__['name'] = name
+    __args__['publicBorderGroup'] = public_border_group
     __args__['qps'] = qps
     __args__['region'] = region
+    __args__['shared'] = shared
     __args__['type'] = type
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('sbercloud:index/getElbFlavors:getElbFlavors', __args__, opts=opts, typ=GetElbFlavorsResult)
     return __ret__.apply(lambda __response__: GetElbFlavorsResult(
         bandwidth=pulumi.get(__response__, 'bandwidth'),
+        category=pulumi.get(__response__, 'category'),
         cps=pulumi.get(__response__, 'cps'),
+        flavor_id=pulumi.get(__response__, 'flavor_id'),
+        flavor_sold_out=pulumi.get(__response__, 'flavor_sold_out'),
         flavors=pulumi.get(__response__, 'flavors'),
         id=pulumi.get(__response__, 'id'),
         ids=pulumi.get(__response__, 'ids'),
+        list_all=pulumi.get(__response__, 'list_all'),
         max_connections=pulumi.get(__response__, 'max_connections'),
         name=pulumi.get(__response__, 'name'),
+        public_border_group=pulumi.get(__response__, 'public_border_group'),
         qps=pulumi.get(__response__, 'qps'),
         region=pulumi.get(__response__, 'region'),
+        shared=pulumi.get(__response__, 'shared'),
         type=pulumi.get(__response__, 'type')))

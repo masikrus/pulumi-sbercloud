@@ -13,6 +13,7 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class GetElbPoolsPoolResult
     {
+        public readonly bool AnyPortEnable;
         /// <summary>
         /// Whether to enable delayed logout.
         /// </summary>
@@ -21,10 +22,12 @@ namespace Pulumi.Sbercloud.Outputs
         /// The timeout of the delayed logout in seconds.
         /// </summary>
         public readonly int ConnectionDrainTimeout;
+        public readonly string CreatedAt;
         /// <summary>
         /// The description of pool.
         /// </summary>
         public readonly string Description;
+        public readonly string EnterpriseProjectId;
         /// <summary>
         /// The health monitor ID of the ELB pool.
         /// </summary>
@@ -49,6 +52,7 @@ namespace Pulumi.Sbercloud.Outputs
         /// Loadbalancer list. For details, see Data structure of the loadbalancer field.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetElbPoolsPoolLoadbalancerResult> Loadbalancers;
+        public readonly bool MemberDeletionProtectionEnable;
         /// <summary>
         /// Loadbalancer list. For details, see Data structure of the members field.
         /// </summary>
@@ -77,6 +81,8 @@ namespace Pulumi.Sbercloud.Outputs
         /// The protocol of pool.
         /// </summary>
         public readonly string Protocol;
+        public readonly string PublicBorderGroup;
+        public readonly ImmutableArray<Outputs.GetElbPoolsPoolQuicCidHashStrategyResult> QuicCidHashStrategies;
         /// <summary>
         /// The slow start duration, in seconds.
         /// </summary>
@@ -89,6 +95,7 @@ namespace Pulumi.Sbercloud.Outputs
         /// The type of the backend server group.
         /// </summary>
         public readonly string Type;
+        public readonly string UpdatedAt;
         /// <summary>
         /// The ID of the VPC where the backend server group works.
         /// </summary>
@@ -96,11 +103,17 @@ namespace Pulumi.Sbercloud.Outputs
 
         [OutputConstructor]
         private GetElbPoolsPoolResult(
+            bool anyPortEnable,
+
             bool connectionDrainEnabled,
 
             int connectionDrainTimeout,
 
+            string createdAt,
+
             string description,
+
+            string enterpriseProjectId,
 
             string healthmonitorId,
 
@@ -113,6 +126,8 @@ namespace Pulumi.Sbercloud.Outputs
             ImmutableArray<Outputs.GetElbPoolsPoolListenerResult> listeners,
 
             ImmutableArray<Outputs.GetElbPoolsPoolLoadbalancerResult> loadbalancers,
+
+            bool memberDeletionProtectionEnable,
 
             ImmutableArray<Outputs.GetElbPoolsPoolMemberResult> members,
 
@@ -128,23 +143,33 @@ namespace Pulumi.Sbercloud.Outputs
 
             string protocol,
 
+            string publicBorderGroup,
+
+            ImmutableArray<Outputs.GetElbPoolsPoolQuicCidHashStrategyResult> quicCidHashStrategies,
+
             int slowStartDuration,
 
             bool slowStartEnabled,
 
             string type,
 
+            string updatedAt,
+
             string vpcId)
         {
+            AnyPortEnable = anyPortEnable;
             ConnectionDrainEnabled = connectionDrainEnabled;
             ConnectionDrainTimeout = connectionDrainTimeout;
+            CreatedAt = createdAt;
             Description = description;
+            EnterpriseProjectId = enterpriseProjectId;
             HealthmonitorId = healthmonitorId;
             Id = id;
             IpVersion = ipVersion;
             LbMethod = lbMethod;
             Listeners = listeners;
             Loadbalancers = loadbalancers;
+            MemberDeletionProtectionEnable = memberDeletionProtectionEnable;
             Members = members;
             MinimumHealthyMemberCount = minimumHealthyMemberCount;
             Name = name;
@@ -152,9 +177,12 @@ namespace Pulumi.Sbercloud.Outputs
             ProtectionReason = protectionReason;
             ProtectionStatus = protectionStatus;
             Protocol = protocol;
+            PublicBorderGroup = publicBorderGroup;
+            QuicCidHashStrategies = quicCidHashStrategies;
             SlowStartDuration = slowStartDuration;
             SlowStartEnabled = slowStartEnabled;
             Type = type;
+            UpdatedAt = updatedAt;
             VpcId = vpcId;
         }
     }

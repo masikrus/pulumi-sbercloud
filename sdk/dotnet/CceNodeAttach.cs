@@ -33,6 +33,9 @@ namespace Pulumi.Sbercloud
         [Output("enterpriseProjectId")]
         public Output<string> EnterpriseProjectId { get; private set; } = null!;
 
+        [Output("extensionNics")]
+        public Output<ImmutableArray<Outputs.CceNodeAttachExtensionNic>> ExtensionNics { get; private set; } = null!;
+
         [Output("flavorId")]
         public Output<string> FlavorId { get; private set; } = null!;
 
@@ -329,6 +332,14 @@ namespace Pulumi.Sbercloud
 
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
+
+        [Input("extensionNics")]
+        private InputList<Inputs.CceNodeAttachExtensionNicGetArgs>? _extensionNics;
+        public InputList<Inputs.CceNodeAttachExtensionNicGetArgs> ExtensionNics
+        {
+            get => _extensionNics ?? (_extensionNics = new InputList<Inputs.CceNodeAttachExtensionNicGetArgs>());
+            set => _extensionNics = value;
+        }
 
         [Input("flavorId")]
         public Input<string>? FlavorId { get; set; }

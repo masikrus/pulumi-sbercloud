@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['LbListenerArgs', 'LbListener']
 
@@ -24,16 +26,21 @@ class LbListenerArgs:
                  protocol: pulumi.Input[builtins.str],
                  protocol_port: pulumi.Input[builtins.int],
                  admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
+                 client_ca_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
                  connection_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  default_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
+                 insert_headers: Optional[pulumi.Input['LbListenerInsertHeadersArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 protection_reason: Optional[pulumi.Input[builtins.str]] = None,
+                 protection_status: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  sni_container_refs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[builtins.str]] = None):
+                 tenant_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tls_ciphers_policy: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a LbListener resource.
         """
@@ -41,7 +48,15 @@ class LbListenerArgs:
         pulumi.set(__self__, "protocol", protocol)
         pulumi.set(__self__, "protocol_port", protocol_port)
         if admin_state_up is not None:
+            warnings.warn("""admin_state_up is deprecated""", DeprecationWarning)
+            pulumi.log.warn("""admin_state_up is deprecated: admin_state_up is deprecated""")
+        if admin_state_up is not None:
             pulumi.set(__self__, "admin_state_up", admin_state_up)
+        if client_ca_tls_container_ref is not None:
+            pulumi.set(__self__, "client_ca_tls_container_ref", client_ca_tls_container_ref)
+        if connection_limit is not None:
+            warnings.warn("""connection_limit is deprecated""", DeprecationWarning)
+            pulumi.log.warn("""connection_limit is deprecated: connection_limit is deprecated""")
         if connection_limit is not None:
             pulumi.set(__self__, "connection_limit", connection_limit)
         if default_pool_id is not None:
@@ -52,8 +67,14 @@ class LbListenerArgs:
             pulumi.set(__self__, "description", description)
         if http2_enable is not None:
             pulumi.set(__self__, "http2_enable", http2_enable)
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if protection_reason is not None:
+            pulumi.set(__self__, "protection_reason", protection_reason)
+        if protection_status is not None:
+            pulumi.set(__self__, "protection_status", protection_status)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if sni_container_refs is not None:
@@ -65,6 +86,8 @@ class LbListenerArgs:
             pulumi.log.warn("""tenant_id is deprecated: tenant_id is deprecated""")
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if tls_ciphers_policy is not None:
+            pulumi.set(__self__, "tls_ciphers_policy", tls_ciphers_policy)
 
     @property
     @pulumi.getter(name="loadbalancerId")
@@ -95,6 +118,7 @@ class LbListenerArgs:
 
     @property
     @pulumi.getter(name="adminStateUp")
+    @_utilities.deprecated("""admin_state_up is deprecated""")
     def admin_state_up(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "admin_state_up")
 
@@ -103,7 +127,17 @@ class LbListenerArgs:
         pulumi.set(self, "admin_state_up", value)
 
     @property
+    @pulumi.getter(name="clientCaTlsContainerRef")
+    def client_ca_tls_container_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "client_ca_tls_container_ref")
+
+    @client_ca_tls_container_ref.setter
+    def client_ca_tls_container_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "client_ca_tls_container_ref", value)
+
+    @property
     @pulumi.getter(name="connectionLimit")
+    @_utilities.deprecated("""connection_limit is deprecated""")
     def connection_limit(self) -> Optional[pulumi.Input[builtins.int]]:
         return pulumi.get(self, "connection_limit")
 
@@ -148,6 +182,15 @@ class LbListenerArgs:
         pulumi.set(self, "http2_enable", value)
 
     @property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input['LbListenerInsertHeadersArgs']]:
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input['LbListenerInsertHeadersArgs']]):
+        pulumi.set(self, "insert_headers", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "name")
@@ -155,6 +198,24 @@ class LbListenerArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="protectionReason")
+    def protection_reason(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "protection_reason")
+
+    @protection_reason.setter
+    def protection_reason(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "protection_reason", value)
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "protection_status")
+
+    @protection_status.setter
+    def protection_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "protection_status", value)
 
     @property
     @pulumi.getter
@@ -193,31 +254,57 @@ class LbListenerArgs:
     def tenant_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
+    @property
+    @pulumi.getter(name="tlsCiphersPolicy")
+    def tls_ciphers_policy(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "tls_ciphers_policy")
+
+    @tls_ciphers_policy.setter
+    def tls_ciphers_policy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "tls_ciphers_policy", value)
+
 
 @pulumi.input_type
 class _LbListenerState:
     def __init__(__self__, *,
                  admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
+                 client_ca_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
                  connection_limit: Optional[pulumi.Input[builtins.int]] = None,
+                 created_at: Optional[pulumi.Input[builtins.str]] = None,
                  default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  default_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
+                 insert_headers: Optional[pulumi.Input['LbListenerInsertHeadersArgs']] = None,
                  loadbalancer_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 protection_reason: Optional[pulumi.Input[builtins.str]] = None,
+                 protection_status: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_port: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  sni_container_refs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-                 tenant_id: Optional[pulumi.Input[builtins.str]] = None):
+                 tenant_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tls_ciphers_policy: Optional[pulumi.Input[builtins.str]] = None,
+                 updated_at: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering LbListener resources.
         """
         if admin_state_up is not None:
+            warnings.warn("""admin_state_up is deprecated""", DeprecationWarning)
+            pulumi.log.warn("""admin_state_up is deprecated: admin_state_up is deprecated""")
+        if admin_state_up is not None:
             pulumi.set(__self__, "admin_state_up", admin_state_up)
+        if client_ca_tls_container_ref is not None:
+            pulumi.set(__self__, "client_ca_tls_container_ref", client_ca_tls_container_ref)
+        if connection_limit is not None:
+            warnings.warn("""connection_limit is deprecated""", DeprecationWarning)
+            pulumi.log.warn("""connection_limit is deprecated: connection_limit is deprecated""")
         if connection_limit is not None:
             pulumi.set(__self__, "connection_limit", connection_limit)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
         if default_pool_id is not None:
             pulumi.set(__self__, "default_pool_id", default_pool_id)
         if default_tls_container_ref is not None:
@@ -226,10 +313,16 @@ class _LbListenerState:
             pulumi.set(__self__, "description", description)
         if http2_enable is not None:
             pulumi.set(__self__, "http2_enable", http2_enable)
+        if insert_headers is not None:
+            pulumi.set(__self__, "insert_headers", insert_headers)
         if loadbalancer_id is not None:
             pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if protection_reason is not None:
+            pulumi.set(__self__, "protection_reason", protection_reason)
+        if protection_status is not None:
+            pulumi.set(__self__, "protection_status", protection_status)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
         if protocol_port is not None:
@@ -245,9 +338,14 @@ class _LbListenerState:
             pulumi.log.warn("""tenant_id is deprecated: tenant_id is deprecated""")
         if tenant_id is not None:
             pulumi.set(__self__, "tenant_id", tenant_id)
+        if tls_ciphers_policy is not None:
+            pulumi.set(__self__, "tls_ciphers_policy", tls_ciphers_policy)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
 
     @property
     @pulumi.getter(name="adminStateUp")
+    @_utilities.deprecated("""admin_state_up is deprecated""")
     def admin_state_up(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "admin_state_up")
 
@@ -256,13 +354,32 @@ class _LbListenerState:
         pulumi.set(self, "admin_state_up", value)
 
     @property
+    @pulumi.getter(name="clientCaTlsContainerRef")
+    def client_ca_tls_container_ref(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "client_ca_tls_container_ref")
+
+    @client_ca_tls_container_ref.setter
+    def client_ca_tls_container_ref(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "client_ca_tls_container_ref", value)
+
+    @property
     @pulumi.getter(name="connectionLimit")
+    @_utilities.deprecated("""connection_limit is deprecated""")
     def connection_limit(self) -> Optional[pulumi.Input[builtins.int]]:
         return pulumi.get(self, "connection_limit")
 
     @connection_limit.setter
     def connection_limit(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "connection_limit", value)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_at", value)
 
     @property
     @pulumi.getter(name="defaultPoolId")
@@ -301,6 +418,15 @@ class _LbListenerState:
         pulumi.set(self, "http2_enable", value)
 
     @property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> Optional[pulumi.Input['LbListenerInsertHeadersArgs']]:
+        return pulumi.get(self, "insert_headers")
+
+    @insert_headers.setter
+    def insert_headers(self, value: Optional[pulumi.Input['LbListenerInsertHeadersArgs']]):
+        pulumi.set(self, "insert_headers", value)
+
+    @property
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "loadbalancer_id")
@@ -317,6 +443,24 @@ class _LbListenerState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="protectionReason")
+    def protection_reason(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "protection_reason")
+
+    @protection_reason.setter
+    def protection_reason(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "protection_reason", value)
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "protection_status")
+
+    @protection_status.setter
+    def protection_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "protection_status", value)
 
     @property
     @pulumi.getter
@@ -373,6 +517,24 @@ class _LbListenerState:
     def tenant_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "tenant_id", value)
 
+    @property
+    @pulumi.getter(name="tlsCiphersPolicy")
+    def tls_ciphers_policy(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "tls_ciphers_policy")
+
+    @tls_ciphers_policy.setter
+    def tls_ciphers_policy(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "tls_ciphers_policy", value)
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_at", value)
+
 
 class LbListener(pulumi.CustomResource):
     @overload
@@ -380,19 +542,24 @@ class LbListener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
+                 client_ca_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
                  connection_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  default_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
+                 insert_headers: Optional[pulumi.Input[Union['LbListenerInsertHeadersArgs', 'LbListenerInsertHeadersArgsDict']]] = None,
                  loadbalancer_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 protection_reason: Optional[pulumi.Input[builtins.str]] = None,
+                 protection_status: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_port: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  sni_container_refs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tls_ciphers_policy: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
         Create a LbListener resource with the given unique name, props, and options.
@@ -423,19 +590,24 @@ class LbListener(pulumi.CustomResource):
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
+                 client_ca_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
                  connection_limit: Optional[pulumi.Input[builtins.int]] = None,
                  default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  default_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
+                 insert_headers: Optional[pulumi.Input[Union['LbListenerInsertHeadersArgs', 'LbListenerInsertHeadersArgsDict']]] = None,
                  loadbalancer_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 protection_reason: Optional[pulumi.Input[builtins.str]] = None,
+                 protection_status: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_port: Optional[pulumi.Input[builtins.int]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  sni_container_refs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  tenant_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tls_ciphers_policy: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -446,15 +618,19 @@ class LbListener(pulumi.CustomResource):
             __props__ = LbListenerArgs.__new__(LbListenerArgs)
 
             __props__.__dict__["admin_state_up"] = admin_state_up
+            __props__.__dict__["client_ca_tls_container_ref"] = client_ca_tls_container_ref
             __props__.__dict__["connection_limit"] = connection_limit
             __props__.__dict__["default_pool_id"] = default_pool_id
             __props__.__dict__["default_tls_container_ref"] = default_tls_container_ref
             __props__.__dict__["description"] = description
             __props__.__dict__["http2_enable"] = http2_enable
+            __props__.__dict__["insert_headers"] = insert_headers
             if loadbalancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__.__dict__["loadbalancer_id"] = loadbalancer_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["protection_reason"] = protection_reason
+            __props__.__dict__["protection_status"] = protection_status
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
@@ -465,6 +641,9 @@ class LbListener(pulumi.CustomResource):
             __props__.__dict__["sni_container_refs"] = sni_container_refs
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tenant_id"] = tenant_id
+            __props__.__dict__["tls_ciphers_policy"] = tls_ciphers_policy
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["updated_at"] = None
         super(LbListener, __self__).__init__(
             'sbercloud:index/lbListener:LbListener',
             resource_name,
@@ -476,19 +655,26 @@ class LbListener(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
+            client_ca_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
             connection_limit: Optional[pulumi.Input[builtins.int]] = None,
+            created_at: Optional[pulumi.Input[builtins.str]] = None,
             default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
             default_tls_container_ref: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
+            insert_headers: Optional[pulumi.Input[Union['LbListenerInsertHeadersArgs', 'LbListenerInsertHeadersArgsDict']]] = None,
             loadbalancer_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            protection_reason: Optional[pulumi.Input[builtins.str]] = None,
+            protection_status: Optional[pulumi.Input[builtins.str]] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
             protocol_port: Optional[pulumi.Input[builtins.int]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             sni_container_refs: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
-            tenant_id: Optional[pulumi.Input[builtins.str]] = None) -> 'LbListener':
+            tenant_id: Optional[pulumi.Input[builtins.str]] = None,
+            tls_ciphers_policy: Optional[pulumi.Input[builtins.str]] = None,
+            updated_at: Optional[pulumi.Input[builtins.str]] = None) -> 'LbListener':
         """
         Get an existing LbListener resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -502,30 +688,49 @@ class LbListener(pulumi.CustomResource):
         __props__ = _LbListenerState.__new__(_LbListenerState)
 
         __props__.__dict__["admin_state_up"] = admin_state_up
+        __props__.__dict__["client_ca_tls_container_ref"] = client_ca_tls_container_ref
         __props__.__dict__["connection_limit"] = connection_limit
+        __props__.__dict__["created_at"] = created_at
         __props__.__dict__["default_pool_id"] = default_pool_id
         __props__.__dict__["default_tls_container_ref"] = default_tls_container_ref
         __props__.__dict__["description"] = description
         __props__.__dict__["http2_enable"] = http2_enable
+        __props__.__dict__["insert_headers"] = insert_headers
         __props__.__dict__["loadbalancer_id"] = loadbalancer_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["protection_reason"] = protection_reason
+        __props__.__dict__["protection_status"] = protection_status
         __props__.__dict__["protocol"] = protocol
         __props__.__dict__["protocol_port"] = protocol_port
         __props__.__dict__["region"] = region
         __props__.__dict__["sni_container_refs"] = sni_container_refs
         __props__.__dict__["tags"] = tags
         __props__.__dict__["tenant_id"] = tenant_id
+        __props__.__dict__["tls_ciphers_policy"] = tls_ciphers_policy
+        __props__.__dict__["updated_at"] = updated_at
         return LbListener(resource_name, opts=opts, __props__=__props__)
 
     @property
     @pulumi.getter(name="adminStateUp")
+    @_utilities.deprecated("""admin_state_up is deprecated""")
     def admin_state_up(self) -> pulumi.Output[Optional[builtins.bool]]:
         return pulumi.get(self, "admin_state_up")
 
     @property
+    @pulumi.getter(name="clientCaTlsContainerRef")
+    def client_ca_tls_container_ref(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "client_ca_tls_container_ref")
+
+    @property
     @pulumi.getter(name="connectionLimit")
+    @_utilities.deprecated("""connection_limit is deprecated""")
     def connection_limit(self) -> pulumi.Output[builtins.int]:
         return pulumi.get(self, "connection_limit")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="defaultPoolId")
@@ -534,7 +739,7 @@ class LbListener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="defaultTlsContainerRef")
-    def default_tls_container_ref(self) -> pulumi.Output[Optional[builtins.str]]:
+    def default_tls_container_ref(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "default_tls_container_ref")
 
     @property
@@ -548,6 +753,11 @@ class LbListener(pulumi.CustomResource):
         return pulumi.get(self, "http2_enable")
 
     @property
+    @pulumi.getter(name="insertHeaders")
+    def insert_headers(self) -> pulumi.Output['outputs.LbListenerInsertHeaders']:
+        return pulumi.get(self, "insert_headers")
+
+    @property
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "loadbalancer_id")
@@ -556,6 +766,16 @@ class LbListener(pulumi.CustomResource):
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="protectionReason")
+    def protection_reason(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "protection_reason")
+
+    @property
+    @pulumi.getter(name="protectionStatus")
+    def protection_status(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "protection_status")
 
     @property
     @pulumi.getter
@@ -574,7 +794,7 @@ class LbListener(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="sniContainerRefs")
-    def sni_container_refs(self) -> pulumi.Output[Optional[Sequence[builtins.str]]]:
+    def sni_container_refs(self) -> pulumi.Output[Sequence[builtins.str]]:
         return pulumi.get(self, "sni_container_refs")
 
     @property
@@ -587,4 +807,14 @@ class LbListener(pulumi.CustomResource):
     @_utilities.deprecated("""tenant_id is deprecated""")
     def tenant_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "tenant_id")
+
+    @property
+    @pulumi.getter(name="tlsCiphersPolicy")
+    def tls_ciphers_policy(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "tls_ciphers_policy")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "updated_at")
 

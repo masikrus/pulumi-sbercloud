@@ -37,6 +37,7 @@ export class AsPolicy extends pulumi.CustomResource {
     public readonly action!: pulumi.Output<string>;
     public readonly alarmId!: pulumi.Output<string | undefined>;
     public readonly coolDownTime!: pulumi.Output<number>;
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly region!: pulumi.Output<string>;
     public readonly scalingGroupId!: pulumi.Output<string>;
     public readonly scalingPolicyAction!: pulumi.Output<outputs.AsPolicyScalingPolicyAction>;
@@ -61,6 +62,7 @@ export class AsPolicy extends pulumi.CustomResource {
             resourceInputs["action"] = state ? state.action : undefined;
             resourceInputs["alarmId"] = state ? state.alarmId : undefined;
             resourceInputs["coolDownTime"] = state ? state.coolDownTime : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingGroupId"] = state ? state.scalingGroupId : undefined;
             resourceInputs["scalingPolicyAction"] = state ? state.scalingPolicyAction : undefined;
@@ -88,6 +90,7 @@ export class AsPolicy extends pulumi.CustomResource {
             resourceInputs["scalingPolicyName"] = args ? args.scalingPolicyName : undefined;
             resourceInputs["scalingPolicyType"] = args ? args.scalingPolicyType : undefined;
             resourceInputs["scheduledPolicy"] = args ? args.scheduledPolicy : undefined;
+            resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -102,6 +105,7 @@ export interface AsPolicyState {
     action?: pulumi.Input<string>;
     alarmId?: pulumi.Input<string>;
     coolDownTime?: pulumi.Input<number>;
+    createTime?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
     scalingGroupId?: pulumi.Input<string>;
     scalingPolicyAction?: pulumi.Input<inputs.AsPolicyScalingPolicyAction>;

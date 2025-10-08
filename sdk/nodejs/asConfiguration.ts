@@ -34,6 +34,7 @@ export class AsConfiguration extends pulumi.CustomResource {
         return obj['__pulumiType'] === AsConfiguration.__pulumiType;
     }
 
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly instanceConfig!: pulumi.Output<outputs.AsConfigurationInstanceConfig>;
     public readonly region!: pulumi.Output<string>;
     public readonly scalingConfigurationName!: pulumi.Output<string>;
@@ -52,6 +53,7 @@ export class AsConfiguration extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AsConfigurationState | undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
             resourceInputs["instanceConfig"] = state ? state.instanceConfig : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingConfigurationName"] = state ? state.scalingConfigurationName : undefined;
@@ -67,6 +69,7 @@ export class AsConfiguration extends pulumi.CustomResource {
             resourceInputs["instanceConfig"] = args ? args.instanceConfig : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scalingConfigurationName"] = args ? args.scalingConfigurationName : undefined;
+            resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -78,6 +81,7 @@ export class AsConfiguration extends pulumi.CustomResource {
  * Input properties used for looking up and filtering AsConfiguration resources.
  */
 export interface AsConfigurationState {
+    createTime?: pulumi.Input<string>;
     instanceConfig?: pulumi.Input<inputs.AsConfigurationInstanceConfig>;
     region?: pulumi.Input<string>;
     scalingConfigurationName?: pulumi.Input<string>;

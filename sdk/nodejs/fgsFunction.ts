@@ -47,6 +47,10 @@ export class FgsFunction extends pulumi.CustomResource {
      */
     public readonly appAgency!: pulumi.Output<string>;
     /**
+     * The KMS key ID for encrypting the function code.
+     */
+    public readonly codeEncryptKmsKeyId!: pulumi.Output<string | undefined>;
+    /**
      * The name of the function file.
      */
     public readonly codeFilename!: pulumi.Output<string>;
@@ -90,6 +94,10 @@ export class FgsFunction extends pulumi.CustomResource {
      * Whether the dynamic memory configuration is enabled.
      */
     public readonly enableDynamicMemory!: pulumi.Output<boolean | undefined>;
+    /**
+     * Whether to enable the LTS log.
+     */
+    public readonly enableLtsLog!: pulumi.Output<boolean | undefined>;
     /**
      * The key/value information defined to be encrypted for the function.
      */
@@ -158,6 +166,15 @@ export class FgsFunction extends pulumi.CustomResource {
      * The LTS stream name for collecting logs.
      */
     public readonly logStreamName!: pulumi.Output<string>;
+    /**
+     * The custom tags configuration that used to filter the LTS logs.
+     */
+    public readonly ltsCustomTag!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * The script configuration value of this change is also the original value used for comparison with the new value next
+     * time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+     */
+    public /*out*/ readonly ltsCustomTagOrigin!: pulumi.Output<{[key: string]: string}>;
     /**
      * The maximum number of instances of the function.
      */
@@ -240,6 +257,10 @@ export class FgsFunction extends pulumi.CustomResource {
      */
     public readonly userData!: pulumi.Output<string | undefined>;
     /**
+     * The KMS key ID for encrypting the user data.
+     */
+    public readonly userDataEncryptKmsKeyId!: pulumi.Output<string | undefined>;
+    /**
      * The version of the function.
      */
     public /*out*/ readonly version!: pulumi.Output<string>;
@@ -272,6 +293,7 @@ export class FgsFunction extends pulumi.CustomResource {
             resourceInputs["agency"] = state ? state.agency : undefined;
             resourceInputs["app"] = state ? state.app : undefined;
             resourceInputs["appAgency"] = state ? state.appAgency : undefined;
+            resourceInputs["codeEncryptKmsKeyId"] = state ? state.codeEncryptKmsKeyId : undefined;
             resourceInputs["codeFilename"] = state ? state.codeFilename : undefined;
             resourceInputs["codeType"] = state ? state.codeType : undefined;
             resourceInputs["codeUrl"] = state ? state.codeUrl : undefined;
@@ -283,6 +305,7 @@ export class FgsFunction extends pulumi.CustomResource {
             resourceInputs["enableAuthInHeader"] = state ? state.enableAuthInHeader : undefined;
             resourceInputs["enableClassIsolation"] = state ? state.enableClassIsolation : undefined;
             resourceInputs["enableDynamicMemory"] = state ? state.enableDynamicMemory : undefined;
+            resourceInputs["enableLtsLog"] = state ? state.enableLtsLog : undefined;
             resourceInputs["encryptedUserData"] = state ? state.encryptedUserData : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["ephemeralStorage"] = state ? state.ephemeralStorage : undefined;
@@ -300,6 +323,8 @@ export class FgsFunction extends pulumi.CustomResource {
             resourceInputs["logGroupName"] = state ? state.logGroupName : undefined;
             resourceInputs["logStreamId"] = state ? state.logStreamId : undefined;
             resourceInputs["logStreamName"] = state ? state.logStreamName : undefined;
+            resourceInputs["ltsCustomTag"] = state ? state.ltsCustomTag : undefined;
+            resourceInputs["ltsCustomTagOrigin"] = state ? state.ltsCustomTagOrigin : undefined;
             resourceInputs["maxInstanceNum"] = state ? state.maxInstanceNum : undefined;
             resourceInputs["memorySize"] = state ? state.memorySize : undefined;
             resourceInputs["mountUserGroupId"] = state ? state.mountUserGroupId : undefined;
@@ -320,6 +345,7 @@ export class FgsFunction extends pulumi.CustomResource {
             resourceInputs["timeout"] = state ? state.timeout : undefined;
             resourceInputs["urn"] = state ? state.urn : undefined;
             resourceInputs["userData"] = state ? state.userData : undefined;
+            resourceInputs["userDataEncryptKmsKeyId"] = state ? state.userDataEncryptKmsKeyId : undefined;
             resourceInputs["version"] = state ? state.version : undefined;
             resourceInputs["versions"] = state ? state.versions : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
@@ -338,6 +364,7 @@ export class FgsFunction extends pulumi.CustomResource {
             resourceInputs["agency"] = args ? args.agency : undefined;
             resourceInputs["app"] = args ? args.app : undefined;
             resourceInputs["appAgency"] = args ? args.appAgency : undefined;
+            resourceInputs["codeEncryptKmsKeyId"] = args ? args.codeEncryptKmsKeyId : undefined;
             resourceInputs["codeFilename"] = args ? args.codeFilename : undefined;
             resourceInputs["codeType"] = args ? args.codeType : undefined;
             resourceInputs["codeUrl"] = args ? args.codeUrl : undefined;
@@ -349,6 +376,7 @@ export class FgsFunction extends pulumi.CustomResource {
             resourceInputs["enableAuthInHeader"] = args ? args.enableAuthInHeader : undefined;
             resourceInputs["enableClassIsolation"] = args ? args.enableClassIsolation : undefined;
             resourceInputs["enableDynamicMemory"] = args ? args.enableDynamicMemory : undefined;
+            resourceInputs["enableLtsLog"] = args ? args.enableLtsLog : undefined;
             resourceInputs["encryptedUserData"] = args?.encryptedUserData ? pulumi.secret(args.encryptedUserData) : undefined;
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
             resourceInputs["ephemeralStorage"] = args ? args.ephemeralStorage : undefined;
@@ -366,6 +394,7 @@ export class FgsFunction extends pulumi.CustomResource {
             resourceInputs["logGroupName"] = args ? args.logGroupName : undefined;
             resourceInputs["logStreamId"] = args ? args.logStreamId : undefined;
             resourceInputs["logStreamName"] = args ? args.logStreamName : undefined;
+            resourceInputs["ltsCustomTag"] = args ? args.ltsCustomTag : undefined;
             resourceInputs["maxInstanceNum"] = args ? args.maxInstanceNum : undefined;
             resourceInputs["memorySize"] = args ? args.memorySize : undefined;
             resourceInputs["mountUserGroupId"] = args ? args.mountUserGroupId : undefined;
@@ -385,9 +414,11 @@ export class FgsFunction extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["timeout"] = args ? args.timeout : undefined;
             resourceInputs["userData"] = args ? args.userData : undefined;
+            resourceInputs["userDataEncryptKmsKeyId"] = args ? args.userDataEncryptKmsKeyId : undefined;
             resourceInputs["versions"] = args ? args.versions : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["xrole"] = args ? args.xrole : undefined;
+            resourceInputs["ltsCustomTagOrigin"] = undefined /*out*/;
             resourceInputs["urn"] = undefined /*out*/;
             resourceInputs["version"] = undefined /*out*/;
         }
@@ -414,6 +445,10 @@ export interface FgsFunctionState {
      * The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
      */
     appAgency?: pulumi.Input<string>;
+    /**
+     * The KMS key ID for encrypting the function code.
+     */
+    codeEncryptKmsKeyId?: pulumi.Input<string>;
     /**
      * The name of the function file.
      */
@@ -458,6 +493,10 @@ export interface FgsFunctionState {
      * Whether the dynamic memory configuration is enabled.
      */
     enableDynamicMemory?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable the LTS log.
+     */
+    enableLtsLog?: pulumi.Input<boolean>;
     /**
      * The key/value information defined to be encrypted for the function.
      */
@@ -526,6 +565,15 @@ export interface FgsFunctionState {
      * The LTS stream name for collecting logs.
      */
     logStreamName?: pulumi.Input<string>;
+    /**
+     * The custom tags configuration that used to filter the LTS logs.
+     */
+    ltsCustomTag?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * The script configuration value of this change is also the original value used for comparison with the new value next
+     * time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+     */
+    ltsCustomTagOrigin?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The maximum number of instances of the function.
      */
@@ -608,6 +656,10 @@ export interface FgsFunctionState {
      */
     userData?: pulumi.Input<string>;
     /**
+     * The KMS key ID for encrypting the user data.
+     */
+    userDataEncryptKmsKeyId?: pulumi.Input<string>;
+    /**
      * The version of the function.
      */
     version?: pulumi.Input<string>;
@@ -641,6 +693,10 @@ export interface FgsFunctionArgs {
      * The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
      */
     appAgency?: pulumi.Input<string>;
+    /**
+     * The KMS key ID for encrypting the function code.
+     */
+    codeEncryptKmsKeyId?: pulumi.Input<string>;
     /**
      * The name of the function file.
      */
@@ -685,6 +741,10 @@ export interface FgsFunctionArgs {
      * Whether the dynamic memory configuration is enabled.
      */
     enableDynamicMemory?: pulumi.Input<boolean>;
+    /**
+     * Whether to enable the LTS log.
+     */
+    enableLtsLog?: pulumi.Input<boolean>;
     /**
      * The key/value information defined to be encrypted for the function.
      */
@@ -753,6 +813,10 @@ export interface FgsFunctionArgs {
      * The LTS stream name for collecting logs.
      */
     logStreamName?: pulumi.Input<string>;
+    /**
+     * The custom tags configuration that used to filter the LTS logs.
+     */
+    ltsCustomTag?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
      * The maximum number of instances of the function.
      */
@@ -830,6 +894,10 @@ export interface FgsFunctionArgs {
      * The key/value information defined for the function.
      */
     userData?: pulumi.Input<string>;
+    /**
+     * The KMS key ID for encrypting the user data.
+     */
+    userDataEncryptKmsKeyId?: pulumi.Input<string>;
     /**
      * The versions management of the function.
      */

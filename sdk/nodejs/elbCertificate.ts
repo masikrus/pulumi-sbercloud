@@ -33,15 +33,21 @@ export class ElbCertificate extends pulumi.CustomResource {
     }
 
     public readonly certificate!: pulumi.Output<string>;
+    public /*out*/ readonly commonName!: pulumi.Output<string>;
     public /*out*/ readonly createTime!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly domain!: pulumi.Output<string | undefined>;
+    public readonly encCertificate!: pulumi.Output<string | undefined>;
+    public readonly encPrivateKey!: pulumi.Output<string | undefined>;
     public readonly enterpriseProjectId!: pulumi.Output<string>;
     public /*out*/ readonly expireTime!: pulumi.Output<string>;
+    public /*out*/ readonly fingerprint!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
     public readonly privateKey!: pulumi.Output<string | undefined>;
     public readonly region!: pulumi.Output<string>;
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly scmCertificateId!: pulumi.Output<string>;
+    public /*out*/ readonly subjectAlternativeNames!: pulumi.Output<string[]>;
+    public readonly type!: pulumi.Output<string>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**
@@ -58,14 +64,20 @@ export class ElbCertificate extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ElbCertificateState | undefined;
             resourceInputs["certificate"] = state ? state.certificate : undefined;
+            resourceInputs["commonName"] = state ? state.commonName : undefined;
             resourceInputs["createTime"] = state ? state.createTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["domain"] = state ? state.domain : undefined;
+            resourceInputs["encCertificate"] = state ? state.encCertificate : undefined;
+            resourceInputs["encPrivateKey"] = state ? state.encPrivateKey : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["expireTime"] = state ? state.expireTime : undefined;
+            resourceInputs["fingerprint"] = state ? state.fingerprint : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["privateKey"] = state ? state.privateKey : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["scmCertificateId"] = state ? state.scmCertificateId : undefined;
+            resourceInputs["subjectAlternativeNames"] = state ? state.subjectAlternativeNames : undefined;
             resourceInputs["type"] = state ? state.type : undefined;
             resourceInputs["updateTime"] = state ? state.updateTime : undefined;
         } else {
@@ -76,13 +88,19 @@ export class ElbCertificate extends pulumi.CustomResource {
             resourceInputs["certificate"] = args ? args.certificate : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["domain"] = args ? args.domain : undefined;
+            resourceInputs["encCertificate"] = args ? args.encCertificate : undefined;
+            resourceInputs["encPrivateKey"] = args ? args.encPrivateKey : undefined;
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["privateKey"] = args ? args.privateKey : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["scmCertificateId"] = args ? args.scmCertificateId : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
+            resourceInputs["commonName"] = undefined /*out*/;
             resourceInputs["createTime"] = undefined /*out*/;
             resourceInputs["expireTime"] = undefined /*out*/;
+            resourceInputs["fingerprint"] = undefined /*out*/;
+            resourceInputs["subjectAlternativeNames"] = undefined /*out*/;
             resourceInputs["updateTime"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -95,14 +113,20 @@ export class ElbCertificate extends pulumi.CustomResource {
  */
 export interface ElbCertificateState {
     certificate?: pulumi.Input<string>;
+    commonName?: pulumi.Input<string>;
     createTime?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     domain?: pulumi.Input<string>;
+    encCertificate?: pulumi.Input<string>;
+    encPrivateKey?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
     expireTime?: pulumi.Input<string>;
+    fingerprint?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     privateKey?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
+    scmCertificateId?: pulumi.Input<string>;
+    subjectAlternativeNames?: pulumi.Input<pulumi.Input<string>[]>;
     type?: pulumi.Input<string>;
     updateTime?: pulumi.Input<string>;
 }
@@ -114,9 +138,12 @@ export interface ElbCertificateArgs {
     certificate: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     domain?: pulumi.Input<string>;
+    encCertificate?: pulumi.Input<string>;
+    encPrivateKey?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     privateKey?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
+    scmCertificateId?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
 }

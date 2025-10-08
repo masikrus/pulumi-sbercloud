@@ -63,6 +63,9 @@ namespace Pulumi.Sbercloud
         [Output("eipIds")]
         public Output<ImmutableArray<string>> EipIds { get; private set; } = null!;
 
+        [Output("enableForceNew")]
+        public Output<string?> EnableForceNew { get; private set; } = null!;
+
         [Output("enterpriseProjectId")]
         public Output<string> EnterpriseProjectId { get; private set; } = null!;
 
@@ -123,9 +126,6 @@ namespace Pulumi.Sbercloud
         [Output("os")]
         public Output<string> Os { get; private set; } = null!;
 
-        /// <summary>
-        /// schema: Internal
-        /// </summary>
         [Output("partition")]
         public Output<string?> Partition { get; private set; } = null!;
 
@@ -320,6 +320,9 @@ namespace Pulumi.Sbercloud
             set => _eipIds = value;
         }
 
+        [Input("enableForceNew")]
+        public Input<string>? EnableForceNew { get; set; }
+
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 
@@ -401,9 +404,6 @@ namespace Pulumi.Sbercloud
         [Input("os")]
         public Input<string>? Os { get; set; }
 
-        /// <summary>
-        /// schema: Internal
-        /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 
@@ -571,6 +571,9 @@ namespace Pulumi.Sbercloud
             set => _eipIds = value;
         }
 
+        [Input("enableForceNew")]
+        public Input<string>? EnableForceNew { get; set; }
+
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 
@@ -652,9 +655,6 @@ namespace Pulumi.Sbercloud
         [Input("os")]
         public Input<string>? Os { get; set; }
 
-        /// <summary>
-        /// schema: Internal
-        /// </summary>
         [Input("partition")]
         public Input<string>? Partition { get; set; }
 

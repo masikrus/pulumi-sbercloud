@@ -105,11 +105,11 @@ namespace Pulumi.Sbercloud
         [Output("eip")]
         public Output<string?> Eip { get; private set; } = null!;
 
-        /// <summary>
-        /// schema: Internal
-        /// </summary>
         [Output("enableDistributeManagement")]
-        public Output<bool?> EnableDistributeManagement { get; private set; } = null!;
+        public Output<bool> EnableDistributeManagement { get; private set; } = null!;
+
+        [Output("encryptionConfig")]
+        public Output<Outputs.CceClusterEncryptionConfig> EncryptionConfig { get; private set; } = null!;
 
         /// <summary>
         /// schema: Computed
@@ -200,6 +200,9 @@ namespace Pulumi.Sbercloud
 
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("timezone")]
+        public Output<string> Timezone { get; private set; } = null!;
 
         [Output("vpcId")]
         public Output<string> VpcId { get; private set; } = null!;
@@ -350,11 +353,11 @@ namespace Pulumi.Sbercloud
         [Input("eip")]
         public Input<string>? Eip { get; set; }
 
-        /// <summary>
-        /// schema: Internal
-        /// </summary>
         [Input("enableDistributeManagement")]
         public Input<bool>? EnableDistributeManagement { get; set; }
+
+        [Input("encryptionConfig")]
+        public Input<Inputs.CceClusterEncryptionConfigArgs>? EncryptionConfig { get; set; }
 
         /// <summary>
         /// schema: Computed
@@ -466,6 +469,9 @@ namespace Pulumi.Sbercloud
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("timezone")]
+        public Input<string>? Timezone { get; set; }
 
         [Input("vpcId", required: true)]
         public Input<string> VpcId { get; set; } = null!;
@@ -597,11 +603,11 @@ namespace Pulumi.Sbercloud
         [Input("eip")]
         public Input<string>? Eip { get; set; }
 
-        /// <summary>
-        /// schema: Internal
-        /// </summary>
         [Input("enableDistributeManagement")]
         public Input<bool>? EnableDistributeManagement { get; set; }
+
+        [Input("encryptionConfig")]
+        public Input<Inputs.CceClusterEncryptionConfigGetArgs>? EncryptionConfig { get; set; }
 
         /// <summary>
         /// schema: Computed
@@ -719,6 +725,9 @@ namespace Pulumi.Sbercloud
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("timezone")]
+        public Input<string>? Timezone { get; set; }
 
         [Input("vpcId")]
         public Input<string>? VpcId { get; set; }

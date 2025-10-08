@@ -23,24 +23,30 @@ func GetLbPools(ctx *pulumi.Context, args *GetLbPoolsArgs, opts ...pulumi.Invoke
 
 // A collection of arguments for invoking getLbPools.
 type GetLbPoolsArgs struct {
-	Description     *string `pulumi:"description"`
-	HealthmonitorId *string `pulumi:"healthmonitorId"`
-	LbMethod        *string `pulumi:"lbMethod"`
-	LoadbalancerId  *string `pulumi:"loadbalancerId"`
-	Name            *string `pulumi:"name"`
-	PoolId          *string `pulumi:"poolId"`
-	Protocol        *string `pulumi:"protocol"`
-	Region          *string `pulumi:"region"`
+	Description         *string `pulumi:"description"`
+	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
+	HealthmonitorId     *string `pulumi:"healthmonitorId"`
+	LbMethod            *string `pulumi:"lbMethod"`
+	LoadbalancerId      *string `pulumi:"loadbalancerId"`
+	MemberAddress       *string `pulumi:"memberAddress"`
+	MemberDeviceId      *string `pulumi:"memberDeviceId"`
+	Name                *string `pulumi:"name"`
+	PoolId              *string `pulumi:"poolId"`
+	Protocol            *string `pulumi:"protocol"`
+	Region              *string `pulumi:"region"`
 }
 
 // A collection of values returned by getLbPools.
 type GetLbPoolsResult struct {
-	Description     *string `pulumi:"description"`
-	HealthmonitorId *string `pulumi:"healthmonitorId"`
+	Description         *string `pulumi:"description"`
+	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
+	HealthmonitorId     *string `pulumi:"healthmonitorId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id             string           `pulumi:"id"`
 	LbMethod       *string          `pulumi:"lbMethod"`
 	LoadbalancerId *string          `pulumi:"loadbalancerId"`
+	MemberAddress  *string          `pulumi:"memberAddress"`
+	MemberDeviceId *string          `pulumi:"memberDeviceId"`
 	Name           *string          `pulumi:"name"`
 	PoolId         *string          `pulumi:"poolId"`
 	Pools          []GetLbPoolsPool `pulumi:"pools"`
@@ -59,14 +65,17 @@ func GetLbPoolsOutput(ctx *pulumi.Context, args GetLbPoolsOutputArgs, opts ...pu
 
 // A collection of arguments for invoking getLbPools.
 type GetLbPoolsOutputArgs struct {
-	Description     pulumi.StringPtrInput `pulumi:"description"`
-	HealthmonitorId pulumi.StringPtrInput `pulumi:"healthmonitorId"`
-	LbMethod        pulumi.StringPtrInput `pulumi:"lbMethod"`
-	LoadbalancerId  pulumi.StringPtrInput `pulumi:"loadbalancerId"`
-	Name            pulumi.StringPtrInput `pulumi:"name"`
-	PoolId          pulumi.StringPtrInput `pulumi:"poolId"`
-	Protocol        pulumi.StringPtrInput `pulumi:"protocol"`
-	Region          pulumi.StringPtrInput `pulumi:"region"`
+	Description         pulumi.StringPtrInput `pulumi:"description"`
+	EnterpriseProjectId pulumi.StringPtrInput `pulumi:"enterpriseProjectId"`
+	HealthmonitorId     pulumi.StringPtrInput `pulumi:"healthmonitorId"`
+	LbMethod            pulumi.StringPtrInput `pulumi:"lbMethod"`
+	LoadbalancerId      pulumi.StringPtrInput `pulumi:"loadbalancerId"`
+	MemberAddress       pulumi.StringPtrInput `pulumi:"memberAddress"`
+	MemberDeviceId      pulumi.StringPtrInput `pulumi:"memberDeviceId"`
+	Name                pulumi.StringPtrInput `pulumi:"name"`
+	PoolId              pulumi.StringPtrInput `pulumi:"poolId"`
+	Protocol            pulumi.StringPtrInput `pulumi:"protocol"`
+	Region              pulumi.StringPtrInput `pulumi:"region"`
 }
 
 func (GetLbPoolsOutputArgs) ElementType() reflect.Type {
@@ -92,6 +101,10 @@ func (o GetLbPoolsResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLbPoolsResult) *string { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o GetLbPoolsResultOutput) EnterpriseProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbPoolsResult) *string { return v.EnterpriseProjectId }).(pulumi.StringPtrOutput)
+}
+
 func (o GetLbPoolsResultOutput) HealthmonitorId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLbPoolsResult) *string { return v.HealthmonitorId }).(pulumi.StringPtrOutput)
 }
@@ -107,6 +120,14 @@ func (o GetLbPoolsResultOutput) LbMethod() pulumi.StringPtrOutput {
 
 func (o GetLbPoolsResultOutput) LoadbalancerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetLbPoolsResult) *string { return v.LoadbalancerId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetLbPoolsResultOutput) MemberAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbPoolsResult) *string { return v.MemberAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o GetLbPoolsResultOutput) MemberDeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbPoolsResult) *string { return v.MemberDeviceId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLbPoolsResultOutput) Name() pulumi.StringPtrOutput {

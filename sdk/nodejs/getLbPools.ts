@@ -11,9 +11,12 @@ export function getLbPools(args?: GetLbPoolsArgs, opts?: pulumi.InvokeOptions): 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("sbercloud:index/getLbPools:getLbPools", {
         "description": args.description,
+        "enterpriseProjectId": args.enterpriseProjectId,
         "healthmonitorId": args.healthmonitorId,
         "lbMethod": args.lbMethod,
         "loadbalancerId": args.loadbalancerId,
+        "memberAddress": args.memberAddress,
+        "memberDeviceId": args.memberDeviceId,
         "name": args.name,
         "poolId": args.poolId,
         "protocol": args.protocol,
@@ -26,9 +29,12 @@ export function getLbPools(args?: GetLbPoolsArgs, opts?: pulumi.InvokeOptions): 
  */
 export interface GetLbPoolsArgs {
     description?: string;
+    enterpriseProjectId?: string;
     healthmonitorId?: string;
     lbMethod?: string;
     loadbalancerId?: string;
+    memberAddress?: string;
+    memberDeviceId?: string;
     name?: string;
     poolId?: string;
     protocol?: string;
@@ -40,6 +46,7 @@ export interface GetLbPoolsArgs {
  */
 export interface GetLbPoolsResult {
     readonly description?: string;
+    readonly enterpriseProjectId?: string;
     readonly healthmonitorId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
@@ -47,6 +54,8 @@ export interface GetLbPoolsResult {
     readonly id: string;
     readonly lbMethod?: string;
     readonly loadbalancerId?: string;
+    readonly memberAddress?: string;
+    readonly memberDeviceId?: string;
     readonly name?: string;
     readonly poolId?: string;
     readonly pools: outputs.GetLbPoolsPool[];
@@ -58,9 +67,12 @@ export function getLbPoolsOutput(args?: GetLbPoolsOutputArgs, opts?: pulumi.Invo
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("sbercloud:index/getLbPools:getLbPools", {
         "description": args.description,
+        "enterpriseProjectId": args.enterpriseProjectId,
         "healthmonitorId": args.healthmonitorId,
         "lbMethod": args.lbMethod,
         "loadbalancerId": args.loadbalancerId,
+        "memberAddress": args.memberAddress,
+        "memberDeviceId": args.memberDeviceId,
         "name": args.name,
         "poolId": args.poolId,
         "protocol": args.protocol,
@@ -73,9 +85,12 @@ export function getLbPoolsOutput(args?: GetLbPoolsOutputArgs, opts?: pulumi.Invo
  */
 export interface GetLbPoolsOutputArgs {
     description?: pulumi.Input<string>;
+    enterpriseProjectId?: pulumi.Input<string>;
     healthmonitorId?: pulumi.Input<string>;
     lbMethod?: pulumi.Input<string>;
     loadbalancerId?: pulumi.Input<string>;
+    memberAddress?: pulumi.Input<string>;
+    memberDeviceId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     poolId?: pulumi.Input<string>;
     protocol?: pulumi.Input<string>;

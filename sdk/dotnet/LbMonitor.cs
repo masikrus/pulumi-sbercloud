@@ -18,6 +18,9 @@ namespace Pulumi.Sbercloud
         [Output("delay")]
         public Output<int> Delay { get; private set; } = null!;
 
+        [Output("domainName")]
+        public Output<string> DomainName { get; private set; } = null!;
+
         [Output("expectedCodes")]
         public Output<string> ExpectedCodes { get; private set; } = null!;
 
@@ -103,6 +106,9 @@ namespace Pulumi.Sbercloud
         [Input("delay", required: true)]
         public Input<int> Delay { get; set; } = null!;
 
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
+
         [Input("expectedCodes")]
         public Input<string>? ExpectedCodes { get; set; }
 
@@ -149,6 +155,9 @@ namespace Pulumi.Sbercloud
 
         [Input("delay")]
         public Input<int>? Delay { get; set; }
+
+        [Input("domainName")]
+        public Input<string>? DomainName { get; set; }
 
         [Input("expectedCodes")]
         public Input<string>? ExpectedCodes { get; set; }

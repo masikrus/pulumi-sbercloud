@@ -31,6 +31,7 @@ class CceNodePoolArgs:
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
                  data_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['CceNodePoolDataVolumeArgs']]]] = None,
                  ecs_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extend_params: Optional[pulumi.Input['CceNodePoolExtendParamsArgs']] = None,
@@ -45,6 +46,7 @@ class CceNodePoolArgs:
                  min_node_count: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  os: Optional[pulumi.Input[builtins.str]] = None,
+                 partition: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -86,6 +88,8 @@ class CceNodePoolArgs:
             pulumi.set(__self__, "data_volumes", data_volumes)
         if ecs_group_id is not None:
             pulumi.set(__self__, "ecs_group_id", ecs_group_id)
+        if enable_force_new is not None:
+            pulumi.set(__self__, "enable_force_new", enable_force_new)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if extend_param is not None:
@@ -114,6 +118,8 @@ class CceNodePoolArgs:
             pulumi.set(__self__, "name", name)
         if os is not None:
             pulumi.set(__self__, "os", os)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if period is not None:
@@ -235,6 +241,15 @@ class CceNodePoolArgs:
     @ecs_group_id.setter
     def ecs_group_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ecs_group_id", value)
+
+    @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @enable_force_new.setter
+    def enable_force_new(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_force_new", value)
 
     @property
     @pulumi.getter(name="enterpriseProjectId")
@@ -367,6 +382,15 @@ class CceNodePoolArgs:
     @os.setter
     def os(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "os", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "partition", value)
 
     @property
     @pulumi.getter
@@ -566,6 +590,7 @@ class _CceNodePoolState:
                  current_node_count: Optional[pulumi.Input[builtins.int]] = None,
                  data_volumes: Optional[pulumi.Input[Sequence[pulumi.Input['CceNodePoolDataVolumeArgs']]]] = None,
                  ecs_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extend_params: Optional[pulumi.Input['CceNodePoolExtendParamsArgs']] = None,
@@ -582,6 +607,7 @@ class _CceNodePoolState:
                  min_node_count: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  os: Optional[pulumi.Input[builtins.str]] = None,
+                 partition: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -627,6 +653,8 @@ class _CceNodePoolState:
             pulumi.set(__self__, "data_volumes", data_volumes)
         if ecs_group_id is not None:
             pulumi.set(__self__, "ecs_group_id", ecs_group_id)
+        if enable_force_new is not None:
+            pulumi.set(__self__, "enable_force_new", enable_force_new)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if extend_param is not None:
@@ -659,6 +687,8 @@ class _CceNodePoolState:
             pulumi.set(__self__, "name", name)
         if os is not None:
             pulumi.set(__self__, "os", os)
+        if partition is not None:
+            pulumi.set(__self__, "partition", partition)
         if password is not None:
             pulumi.set(__self__, "password", password)
         if period is not None:
@@ -775,6 +805,15 @@ class _CceNodePoolState:
     @ecs_group_id.setter
     def ecs_group_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ecs_group_id", value)
+
+    @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @enable_force_new.setter
+    def enable_force_new(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_force_new", value)
 
     @property
     @pulumi.getter(name="enterpriseProjectId")
@@ -925,6 +964,15 @@ class _CceNodePoolState:
     @os.setter
     def os(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "os", value)
+
+    @property
+    @pulumi.getter
+    def partition(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "partition")
+
+    @partition.setter
+    def partition(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "partition", value)
 
     @property
     @pulumi.getter
@@ -1142,6 +1190,7 @@ class CceNodePool(pulumi.CustomResource):
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  data_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CceNodePoolDataVolumeArgs', 'CceNodePoolDataVolumeArgsDict']]]]] = None,
                  ecs_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extend_params: Optional[pulumi.Input[Union['CceNodePoolExtendParamsArgs', 'CceNodePoolExtendParamsArgsDict']]] = None,
@@ -1158,6 +1207,7 @@ class CceNodePool(pulumi.CustomResource):
                  min_node_count: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  os: Optional[pulumi.Input[builtins.str]] = None,
+                 partition: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -1218,6 +1268,7 @@ class CceNodePool(pulumi.CustomResource):
                  cluster_id: Optional[pulumi.Input[builtins.str]] = None,
                  data_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CceNodePoolDataVolumeArgs', 'CceNodePoolDataVolumeArgsDict']]]]] = None,
                  ecs_group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extend_params: Optional[pulumi.Input[Union['CceNodePoolExtendParamsArgs', 'CceNodePoolExtendParamsArgsDict']]] = None,
@@ -1234,6 +1285,7 @@ class CceNodePool(pulumi.CustomResource):
                  min_node_count: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  os: Optional[pulumi.Input[builtins.str]] = None,
+                 partition: Optional[pulumi.Input[builtins.str]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -1272,6 +1324,7 @@ class CceNodePool(pulumi.CustomResource):
             __props__.__dict__["cluster_id"] = cluster_id
             __props__.__dict__["data_volumes"] = data_volumes
             __props__.__dict__["ecs_group_id"] = ecs_group_id
+            __props__.__dict__["enable_force_new"] = enable_force_new
             __props__.__dict__["enterprise_project_id"] = enterprise_project_id
             __props__.__dict__["extend_param"] = extend_param
             __props__.__dict__["extend_params"] = extend_params
@@ -1292,6 +1345,7 @@ class CceNodePool(pulumi.CustomResource):
             __props__.__dict__["min_node_count"] = min_node_count
             __props__.__dict__["name"] = name
             __props__.__dict__["os"] = os
+            __props__.__dict__["partition"] = partition
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
             __props__.__dict__["period"] = period
             __props__.__dict__["period_unit"] = period_unit
@@ -1338,6 +1392,7 @@ class CceNodePool(pulumi.CustomResource):
             current_node_count: Optional[pulumi.Input[builtins.int]] = None,
             data_volumes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CceNodePoolDataVolumeArgs', 'CceNodePoolDataVolumeArgsDict']]]]] = None,
             ecs_group_id: Optional[pulumi.Input[builtins.str]] = None,
+            enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             extend_params: Optional[pulumi.Input[Union['CceNodePoolExtendParamsArgs', 'CceNodePoolExtendParamsArgsDict']]] = None,
@@ -1354,6 +1409,7 @@ class CceNodePool(pulumi.CustomResource):
             min_node_count: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             os: Optional[pulumi.Input[builtins.str]] = None,
+            partition: Optional[pulumi.Input[builtins.str]] = None,
             password: Optional[pulumi.Input[builtins.str]] = None,
             period: Optional[pulumi.Input[builtins.int]] = None,
             period_unit: Optional[pulumi.Input[builtins.str]] = None,
@@ -1400,6 +1456,7 @@ class CceNodePool(pulumi.CustomResource):
         __props__.__dict__["current_node_count"] = current_node_count
         __props__.__dict__["data_volumes"] = data_volumes
         __props__.__dict__["ecs_group_id"] = ecs_group_id
+        __props__.__dict__["enable_force_new"] = enable_force_new
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["extend_param"] = extend_param
         __props__.__dict__["extend_params"] = extend_params
@@ -1416,6 +1473,7 @@ class CceNodePool(pulumi.CustomResource):
         __props__.__dict__["min_node_count"] = min_node_count
         __props__.__dict__["name"] = name
         __props__.__dict__["os"] = os
+        __props__.__dict__["partition"] = partition
         __props__.__dict__["password"] = password
         __props__.__dict__["period"] = period
         __props__.__dict__["period_unit"] = period_unit
@@ -1442,7 +1500,7 @@ class CceNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="autoRenew")
-    def auto_renew(self) -> pulumi.Output[Optional[builtins.str]]:
+    def auto_renew(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "auto_renew")
 
     @property
@@ -1481,6 +1539,11 @@ class CceNodePool(pulumi.CustomResource):
         return pulumi.get(self, "ecs_group_id")
 
     @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "enterprise_project_id")
@@ -1495,7 +1558,7 @@ class CceNodePool(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="extendParams")
-    def extend_params(self) -> pulumi.Output[Optional['outputs.CceNodePoolExtendParams']]:
+    def extend_params(self) -> pulumi.Output['outputs.CceNodePoolExtendParams']:
         return pulumi.get(self, "extend_params")
 
     @property
@@ -1565,6 +1628,11 @@ class CceNodePool(pulumi.CustomResource):
     @pulumi.getter
     def os(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "os")
+
+    @property
+    @pulumi.getter
+    def partition(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "partition")
 
     @property
     @pulumi.getter

@@ -99,23 +99,32 @@ class EvsSnapshotArgs:
 @pulumi.input_type
 class _EvsSnapshotState:
     def __init__(__self__, *,
+                 created_at: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  force: Optional[pulumi.Input[builtins.bool]] = None,
                  metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 metadata_origin: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.int]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
+                 updated_at: Optional[pulumi.Input[builtins.str]] = None,
                  volume_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EvsSnapshot resources.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata_origin: The script configuration value of this change is also the original value used for comparison with the new value next
+               time the change is made. The corresponding parameter name is 'metadata'.
         """
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if force is not None:
             pulumi.set(__self__, "force", force)
         if metadata is not None:
             pulumi.set(__self__, "metadata", metadata)
+        if metadata_origin is not None:
+            pulumi.set(__self__, "metadata_origin", metadata_origin)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if region is not None:
@@ -124,8 +133,19 @@ class _EvsSnapshotState:
             pulumi.set(__self__, "size", size)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
         if volume_id is not None:
             pulumi.set(__self__, "volume_id", volume_id)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_at", value)
 
     @property
     @pulumi.getter
@@ -153,6 +173,19 @@ class _EvsSnapshotState:
     @metadata.setter
     def metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "metadata", value)
+
+    @property
+    @pulumi.getter(name="metadataOrigin")
+    def metadata_origin(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The script configuration value of this change is also the original value used for comparison with the new value next
+        time the change is made. The corresponding parameter name is 'metadata'.
+        """
+        return pulumi.get(self, "metadata_origin")
+
+    @metadata_origin.setter
+    def metadata_origin(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "metadata_origin", value)
 
     @property
     @pulumi.getter
@@ -189,6 +222,15 @@ class _EvsSnapshotState:
     @status.setter
     def status(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "status", value)
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_at", value)
 
     @property
     @pulumi.getter(name="volumeId")
@@ -263,8 +305,11 @@ class EvsSnapshot(pulumi.CustomResource):
             if volume_id is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_id'")
             __props__.__dict__["volume_id"] = volume_id
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["metadata_origin"] = None
             __props__.__dict__["size"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["updated_at"] = None
         super(EvsSnapshot, __self__).__init__(
             'sbercloud:index/evsSnapshot:EvsSnapshot',
             resource_name,
@@ -275,13 +320,16 @@ class EvsSnapshot(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            created_at: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             force: Optional[pulumi.Input[builtins.bool]] = None,
             metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            metadata_origin: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             size: Optional[pulumi.Input[builtins.int]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
+            updated_at: Optional[pulumi.Input[builtins.str]] = None,
             volume_id: Optional[pulumi.Input[builtins.str]] = None) -> 'EvsSnapshot':
         """
         Get an existing EvsSnapshot resource's state with the given name, id, and optional extra
@@ -290,20 +338,30 @@ class EvsSnapshot(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] metadata_origin: The script configuration value of this change is also the original value used for comparison with the new value next
+               time the change is made. The corresponding parameter name is 'metadata'.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _EvsSnapshotState.__new__(_EvsSnapshotState)
 
+        __props__.__dict__["created_at"] = created_at
         __props__.__dict__["description"] = description
         __props__.__dict__["force"] = force
         __props__.__dict__["metadata"] = metadata
+        __props__.__dict__["metadata_origin"] = metadata_origin
         __props__.__dict__["name"] = name
         __props__.__dict__["region"] = region
         __props__.__dict__["size"] = size
         __props__.__dict__["status"] = status
+        __props__.__dict__["updated_at"] = updated_at
         __props__.__dict__["volume_id"] = volume_id
         return EvsSnapshot(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter
@@ -317,8 +375,17 @@ class EvsSnapshot(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def metadata(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+    def metadata(self) -> pulumi.Output[Mapping[str, builtins.str]]:
         return pulumi.get(self, "metadata")
+
+    @property
+    @pulumi.getter(name="metadataOrigin")
+    def metadata_origin(self) -> pulumi.Output[Mapping[str, builtins.str]]:
+        """
+        The script configuration value of this change is also the original value used for comparison with the new value next
+        time the change is made. The corresponding parameter name is 'metadata'.
+        """
+        return pulumi.get(self, "metadata_origin")
 
     @property
     @pulumi.getter
@@ -339,6 +406,11 @@ class EvsSnapshot(pulumi.CustomResource):
     @pulumi.getter
     def status(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "status")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="volumeId")

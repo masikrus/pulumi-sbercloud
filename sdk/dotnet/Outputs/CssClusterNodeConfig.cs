@@ -13,14 +13,14 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class CssClusterNodeConfig
     {
-        public readonly string? AvailabilityZone;
+        public readonly string AvailabilityZone;
         public readonly string Flavor;
         public readonly Outputs.CssClusterNodeConfigNetworkInfo NetworkInfo;
         public readonly Outputs.CssClusterNodeConfigVolume Volume;
 
         [OutputConstructor]
         private CssClusterNodeConfig(
-            string? availabilityZone,
+            string availabilityZone,
 
             string flavor,
 

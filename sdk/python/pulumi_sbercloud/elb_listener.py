@@ -27,9 +27,11 @@ class ElbListenerArgs:
                  access_policy: Optional[pulumi.Input[builtins.str]] = None,
                  advanced_forwarding_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ca_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 cps: Optional[pulumi.Input[builtins.int]] = None,
                  default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_member_retry: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_quic_upgrade: Optional[pulumi.Input[builtins.str]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  forward_eip: Optional[pulumi.Input[builtins.bool]] = None,
                  forward_elb: Optional[pulumi.Input[builtins.bool]] = None,
@@ -44,6 +46,8 @@ class ElbListenerArgs:
                  http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  ip_group: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_group_enable: Optional[pulumi.Input[builtins.str]] = None,
+                 max_connection: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['ElbListenerPortRangeArgs']]]] = None,
                  protection_reason: Optional[pulumi.Input[builtins.str]] = None,
@@ -73,12 +77,16 @@ class ElbListenerArgs:
             pulumi.set(__self__, "advanced_forwarding_enabled", advanced_forwarding_enabled)
         if ca_certificate is not None:
             pulumi.set(__self__, "ca_certificate", ca_certificate)
+        if cps is not None:
+            pulumi.set(__self__, "cps", cps)
         if default_pool_id is not None:
             pulumi.set(__self__, "default_pool_id", default_pool_id)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enable_member_retry is not None:
             pulumi.set(__self__, "enable_member_retry", enable_member_retry)
+        if enable_quic_upgrade is not None:
+            pulumi.set(__self__, "enable_quic_upgrade", enable_quic_upgrade)
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
         if forward_eip is not None:
@@ -107,6 +115,10 @@ class ElbListenerArgs:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if ip_group is not None:
             pulumi.set(__self__, "ip_group", ip_group)
+        if ip_group_enable is not None:
+            pulumi.set(__self__, "ip_group_enable", ip_group_enable)
+        if max_connection is not None:
+            pulumi.set(__self__, "max_connection", max_connection)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if port_ranges is not None:
@@ -190,6 +202,15 @@ class ElbListenerArgs:
         pulumi.set(self, "ca_certificate", value)
 
     @property
+    @pulumi.getter
+    def cps(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "cps")
+
+    @cps.setter
+    def cps(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "cps", value)
+
+    @property
     @pulumi.getter(name="defaultPoolId")
     def default_pool_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "default_pool_id")
@@ -215,6 +236,15 @@ class ElbListenerArgs:
     @enable_member_retry.setter
     def enable_member_retry(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_member_retry", value)
+
+    @property
+    @pulumi.getter(name="enableQuicUpgrade")
+    def enable_quic_upgrade(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_quic_upgrade")
+
+    @enable_quic_upgrade.setter
+    def enable_quic_upgrade(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_quic_upgrade", value)
 
     @property
     @pulumi.getter(name="forceDelete")
@@ -341,6 +371,24 @@ class ElbListenerArgs:
     @ip_group.setter
     def ip_group(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "ip_group", value)
+
+    @property
+    @pulumi.getter(name="ipGroupEnable")
+    def ip_group_enable(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "ip_group_enable")
+
+    @ip_group_enable.setter
+    def ip_group_enable(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_group_enable", value)
+
+    @property
+    @pulumi.getter(name="maxConnection")
+    def max_connection(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_connection")
+
+    @max_connection.setter
+    def max_connection(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_connection", value)
 
     @property
     @pulumi.getter
@@ -511,10 +559,13 @@ class _ElbListenerState:
                  access_policy: Optional[pulumi.Input[builtins.str]] = None,
                  advanced_forwarding_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ca_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 cps: Optional[pulumi.Input[builtins.int]] = None,
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
                  default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_member_retry: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_quic_upgrade: Optional[pulumi.Input[builtins.str]] = None,
+                 enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  forward_eip: Optional[pulumi.Input[builtins.bool]] = None,
                  forward_elb: Optional[pulumi.Input[builtins.bool]] = None,
@@ -529,7 +580,9 @@ class _ElbListenerState:
                  http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  ip_group: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_group_enable: Optional[pulumi.Input[builtins.str]] = None,
                  loadbalancer_id: Optional[pulumi.Input[builtins.str]] = None,
+                 max_connection: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input['ElbListenerPortRangeArgs']]]] = None,
                  protection_reason: Optional[pulumi.Input[builtins.str]] = None,
@@ -559,6 +612,8 @@ class _ElbListenerState:
             pulumi.set(__self__, "advanced_forwarding_enabled", advanced_forwarding_enabled)
         if ca_certificate is not None:
             pulumi.set(__self__, "ca_certificate", ca_certificate)
+        if cps is not None:
+            pulumi.set(__self__, "cps", cps)
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
         if default_pool_id is not None:
@@ -567,6 +622,10 @@ class _ElbListenerState:
             pulumi.set(__self__, "description", description)
         if enable_member_retry is not None:
             pulumi.set(__self__, "enable_member_retry", enable_member_retry)
+        if enable_quic_upgrade is not None:
+            pulumi.set(__self__, "enable_quic_upgrade", enable_quic_upgrade)
+        if enterprise_project_id is not None:
+            pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
         if forward_eip is not None:
@@ -595,8 +654,12 @@ class _ElbListenerState:
             pulumi.set(__self__, "idle_timeout", idle_timeout)
         if ip_group is not None:
             pulumi.set(__self__, "ip_group", ip_group)
+        if ip_group_enable is not None:
+            pulumi.set(__self__, "ip_group_enable", ip_group_enable)
         if loadbalancer_id is not None:
             pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+        if max_connection is not None:
+            pulumi.set(__self__, "max_connection", max_connection)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if port_ranges is not None:
@@ -666,6 +729,15 @@ class _ElbListenerState:
         pulumi.set(self, "ca_certificate", value)
 
     @property
+    @pulumi.getter
+    def cps(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "cps")
+
+    @cps.setter
+    def cps(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "cps", value)
+
+    @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "created_at")
@@ -700,6 +772,24 @@ class _ElbListenerState:
     @enable_member_retry.setter
     def enable_member_retry(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_member_retry", value)
+
+    @property
+    @pulumi.getter(name="enableQuicUpgrade")
+    def enable_quic_upgrade(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_quic_upgrade")
+
+    @enable_quic_upgrade.setter
+    def enable_quic_upgrade(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_quic_upgrade", value)
+
+    @property
+    @pulumi.getter(name="enterpriseProjectId")
+    def enterprise_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enterprise_project_id")
+
+    @enterprise_project_id.setter
+    def enterprise_project_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enterprise_project_id", value)
 
     @property
     @pulumi.getter(name="forceDelete")
@@ -828,6 +918,15 @@ class _ElbListenerState:
         pulumi.set(self, "ip_group", value)
 
     @property
+    @pulumi.getter(name="ipGroupEnable")
+    def ip_group_enable(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "ip_group_enable")
+
+    @ip_group_enable.setter
+    def ip_group_enable(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_group_enable", value)
+
+    @property
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "loadbalancer_id")
@@ -835,6 +934,15 @@ class _ElbListenerState:
     @loadbalancer_id.setter
     def loadbalancer_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "loadbalancer_id", value)
+
+    @property
+    @pulumi.getter(name="maxConnection")
+    def max_connection(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "max_connection")
+
+    @max_connection.setter
+    def max_connection(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "max_connection", value)
 
     @property
     @pulumi.getter
@@ -1025,9 +1133,11 @@ class ElbListener(pulumi.CustomResource):
                  access_policy: Optional[pulumi.Input[builtins.str]] = None,
                  advanced_forwarding_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ca_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 cps: Optional[pulumi.Input[builtins.int]] = None,
                  default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_member_retry: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_quic_upgrade: Optional[pulumi.Input[builtins.str]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  forward_eip: Optional[pulumi.Input[builtins.bool]] = None,
                  forward_elb: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1042,7 +1152,9 @@ class ElbListener(pulumi.CustomResource):
                  http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  ip_group: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_group_enable: Optional[pulumi.Input[builtins.str]] = None,
                  loadbalancer_id: Optional[pulumi.Input[builtins.str]] = None,
+                 max_connection: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ElbListenerPortRangeArgs', 'ElbListenerPortRangeArgsDict']]]]] = None,
                  protection_reason: Optional[pulumi.Input[builtins.str]] = None,
@@ -1094,9 +1206,11 @@ class ElbListener(pulumi.CustomResource):
                  access_policy: Optional[pulumi.Input[builtins.str]] = None,
                  advanced_forwarding_enabled: Optional[pulumi.Input[builtins.bool]] = None,
                  ca_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 cps: Optional[pulumi.Input[builtins.int]] = None,
                  default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enable_member_retry: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_quic_upgrade: Optional[pulumi.Input[builtins.str]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
                  forward_eip: Optional[pulumi.Input[builtins.bool]] = None,
                  forward_elb: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1111,7 +1225,9 @@ class ElbListener(pulumi.CustomResource):
                  http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  ip_group: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_group_enable: Optional[pulumi.Input[builtins.str]] = None,
                  loadbalancer_id: Optional[pulumi.Input[builtins.str]] = None,
+                 max_connection: Optional[pulumi.Input[builtins.int]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ElbListenerPortRangeArgs', 'ElbListenerPortRangeArgsDict']]]]] = None,
                  protection_reason: Optional[pulumi.Input[builtins.str]] = None,
@@ -1143,9 +1259,11 @@ class ElbListener(pulumi.CustomResource):
             __props__.__dict__["access_policy"] = access_policy
             __props__.__dict__["advanced_forwarding_enabled"] = advanced_forwarding_enabled
             __props__.__dict__["ca_certificate"] = ca_certificate
+            __props__.__dict__["cps"] = cps
             __props__.__dict__["default_pool_id"] = default_pool_id
             __props__.__dict__["description"] = description
             __props__.__dict__["enable_member_retry"] = enable_member_retry
+            __props__.__dict__["enable_quic_upgrade"] = enable_quic_upgrade
             __props__.__dict__["force_delete"] = force_delete
             __props__.__dict__["forward_eip"] = forward_eip
             __props__.__dict__["forward_elb"] = forward_elb
@@ -1160,9 +1278,11 @@ class ElbListener(pulumi.CustomResource):
             __props__.__dict__["http2_enable"] = http2_enable
             __props__.__dict__["idle_timeout"] = idle_timeout
             __props__.__dict__["ip_group"] = ip_group
+            __props__.__dict__["ip_group_enable"] = ip_group_enable
             if loadbalancer_id is None and not opts.urn:
                 raise TypeError("Missing required property 'loadbalancer_id'")
             __props__.__dict__["loadbalancer_id"] = loadbalancer_id
+            __props__.__dict__["max_connection"] = max_connection
             __props__.__dict__["name"] = name
             __props__.__dict__["port_ranges"] = port_ranges
             __props__.__dict__["protection_reason"] = protection_reason
@@ -1185,6 +1305,7 @@ class ElbListener(pulumi.CustomResource):
             __props__.__dict__["tags"] = tags
             __props__.__dict__["tls_ciphers_policy"] = tls_ciphers_policy
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["enterprise_project_id"] = None
             __props__.__dict__["updated_at"] = None
         super(ElbListener, __self__).__init__(
             'sbercloud:index/elbListener:ElbListener',
@@ -1199,10 +1320,13 @@ class ElbListener(pulumi.CustomResource):
             access_policy: Optional[pulumi.Input[builtins.str]] = None,
             advanced_forwarding_enabled: Optional[pulumi.Input[builtins.bool]] = None,
             ca_certificate: Optional[pulumi.Input[builtins.str]] = None,
+            cps: Optional[pulumi.Input[builtins.int]] = None,
             created_at: Optional[pulumi.Input[builtins.str]] = None,
             default_pool_id: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             enable_member_retry: Optional[pulumi.Input[builtins.bool]] = None,
+            enable_quic_upgrade: Optional[pulumi.Input[builtins.str]] = None,
+            enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             force_delete: Optional[pulumi.Input[builtins.bool]] = None,
             forward_eip: Optional[pulumi.Input[builtins.bool]] = None,
             forward_elb: Optional[pulumi.Input[builtins.bool]] = None,
@@ -1217,7 +1341,9 @@ class ElbListener(pulumi.CustomResource):
             http2_enable: Optional[pulumi.Input[builtins.bool]] = None,
             idle_timeout: Optional[pulumi.Input[builtins.int]] = None,
             ip_group: Optional[pulumi.Input[builtins.str]] = None,
+            ip_group_enable: Optional[pulumi.Input[builtins.str]] = None,
             loadbalancer_id: Optional[pulumi.Input[builtins.str]] = None,
+            max_connection: Optional[pulumi.Input[builtins.int]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             port_ranges: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ElbListenerPortRangeArgs', 'ElbListenerPortRangeArgsDict']]]]] = None,
             protection_reason: Optional[pulumi.Input[builtins.str]] = None,
@@ -1253,10 +1379,13 @@ class ElbListener(pulumi.CustomResource):
         __props__.__dict__["access_policy"] = access_policy
         __props__.__dict__["advanced_forwarding_enabled"] = advanced_forwarding_enabled
         __props__.__dict__["ca_certificate"] = ca_certificate
+        __props__.__dict__["cps"] = cps
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["default_pool_id"] = default_pool_id
         __props__.__dict__["description"] = description
         __props__.__dict__["enable_member_retry"] = enable_member_retry
+        __props__.__dict__["enable_quic_upgrade"] = enable_quic_upgrade
+        __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["force_delete"] = force_delete
         __props__.__dict__["forward_eip"] = forward_eip
         __props__.__dict__["forward_elb"] = forward_elb
@@ -1271,7 +1400,9 @@ class ElbListener(pulumi.CustomResource):
         __props__.__dict__["http2_enable"] = http2_enable
         __props__.__dict__["idle_timeout"] = idle_timeout
         __props__.__dict__["ip_group"] = ip_group
+        __props__.__dict__["ip_group_enable"] = ip_group_enable
         __props__.__dict__["loadbalancer_id"] = loadbalancer_id
+        __props__.__dict__["max_connection"] = max_connection
         __props__.__dict__["name"] = name
         __props__.__dict__["port_ranges"] = port_ranges
         __props__.__dict__["protection_reason"] = protection_reason
@@ -1310,6 +1441,11 @@ class ElbListener(pulumi.CustomResource):
         return pulumi.get(self, "ca_certificate")
 
     @property
+    @pulumi.getter
+    def cps(self) -> pulumi.Output[builtins.int]:
+        return pulumi.get(self, "cps")
+
+    @property
     @pulumi.getter(name="createdAt")
     def created_at(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "created_at")
@@ -1328,6 +1464,16 @@ class ElbListener(pulumi.CustomResource):
     @pulumi.getter(name="enableMemberRetry")
     def enable_member_retry(self) -> pulumi.Output[builtins.bool]:
         return pulumi.get(self, "enable_member_retry")
+
+    @property
+    @pulumi.getter(name="enableQuicUpgrade")
+    def enable_quic_upgrade(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "enable_quic_upgrade")
+
+    @property
+    @pulumi.getter(name="enterpriseProjectId")
+    def enterprise_project_id(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "enterprise_project_id")
 
     @property
     @pulumi.getter(name="forceDelete")
@@ -1400,9 +1546,19 @@ class ElbListener(pulumi.CustomResource):
         return pulumi.get(self, "ip_group")
 
     @property
+    @pulumi.getter(name="ipGroupEnable")
+    def ip_group_enable(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "ip_group_enable")
+
+    @property
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "loadbalancer_id")
+
+    @property
+    @pulumi.getter(name="maxConnection")
+    def max_connection(self) -> pulumi.Output[builtins.int]:
+        return pulumi.get(self, "max_connection")
 
     @property
     @pulumi.getter

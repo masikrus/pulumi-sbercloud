@@ -15,12 +15,13 @@ import (
 type Vpc struct {
 	pulumi.CustomResourceState
 
-	Cidr                pulumi.StringOutput    `pulumi:"cidr"`
-	Description         pulumi.StringPtrOutput `pulumi:"description"`
-	EnhancedLocalRoute  pulumi.StringOutput    `pulumi:"enhancedLocalRoute"`
-	EnterpriseProjectId pulumi.StringOutput    `pulumi:"enterpriseProjectId"`
-	Name                pulumi.StringOutput    `pulumi:"name"`
-	Region              pulumi.StringOutput    `pulumi:"region"`
+	BlockServiceEndpointStates pulumi.StringPtrOutput `pulumi:"blockServiceEndpointStates"`
+	Cidr                       pulumi.StringOutput    `pulumi:"cidr"`
+	Description                pulumi.StringPtrOutput `pulumi:"description"`
+	EnhancedLocalRoute         pulumi.StringOutput    `pulumi:"enhancedLocalRoute"`
+	EnterpriseProjectId        pulumi.StringOutput    `pulumi:"enterpriseProjectId"`
+	Name                       pulumi.StringOutput    `pulumi:"name"`
+	Region                     pulumi.StringOutput    `pulumi:"region"`
 	// Deprecated: use huaweicloudVpcRouteTable data source to get all routes
 	Routes VpcRouteTypeArrayOutput `pulumi:"routes"`
 	// schema: Deprecated; use secondaryCidrs instead
@@ -63,12 +64,13 @@ func GetVpc(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering Vpc resources.
 type vpcState struct {
-	Cidr                *string `pulumi:"cidr"`
-	Description         *string `pulumi:"description"`
-	EnhancedLocalRoute  *string `pulumi:"enhancedLocalRoute"`
-	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
-	Name                *string `pulumi:"name"`
-	Region              *string `pulumi:"region"`
+	BlockServiceEndpointStates *string `pulumi:"blockServiceEndpointStates"`
+	Cidr                       *string `pulumi:"cidr"`
+	Description                *string `pulumi:"description"`
+	EnhancedLocalRoute         *string `pulumi:"enhancedLocalRoute"`
+	EnterpriseProjectId        *string `pulumi:"enterpriseProjectId"`
+	Name                       *string `pulumi:"name"`
+	Region                     *string `pulumi:"region"`
 	// Deprecated: use huaweicloudVpcRouteTable data source to get all routes
 	Routes []VpcRouteType `pulumi:"routes"`
 	// schema: Deprecated; use secondaryCidrs instead
@@ -79,12 +81,13 @@ type vpcState struct {
 }
 
 type VpcState struct {
-	Cidr                pulumi.StringPtrInput
-	Description         pulumi.StringPtrInput
-	EnhancedLocalRoute  pulumi.StringPtrInput
-	EnterpriseProjectId pulumi.StringPtrInput
-	Name                pulumi.StringPtrInput
-	Region              pulumi.StringPtrInput
+	BlockServiceEndpointStates pulumi.StringPtrInput
+	Cidr                       pulumi.StringPtrInput
+	Description                pulumi.StringPtrInput
+	EnhancedLocalRoute         pulumi.StringPtrInput
+	EnterpriseProjectId        pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
 	// Deprecated: use huaweicloudVpcRouteTable data source to get all routes
 	Routes VpcRouteTypeArrayInput
 	// schema: Deprecated; use secondaryCidrs instead
@@ -99,12 +102,13 @@ func (VpcState) ElementType() reflect.Type {
 }
 
 type vpcArgs struct {
-	Cidr                string  `pulumi:"cidr"`
-	Description         *string `pulumi:"description"`
-	EnhancedLocalRoute  *string `pulumi:"enhancedLocalRoute"`
-	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
-	Name                *string `pulumi:"name"`
-	Region              *string `pulumi:"region"`
+	BlockServiceEndpointStates *string `pulumi:"blockServiceEndpointStates"`
+	Cidr                       string  `pulumi:"cidr"`
+	Description                *string `pulumi:"description"`
+	EnhancedLocalRoute         *string `pulumi:"enhancedLocalRoute"`
+	EnterpriseProjectId        *string `pulumi:"enterpriseProjectId"`
+	Name                       *string `pulumi:"name"`
+	Region                     *string `pulumi:"region"`
 	// schema: Deprecated; use secondaryCidrs instead
 	SecondaryCidr  *string           `pulumi:"secondaryCidr"`
 	SecondaryCidrs []string          `pulumi:"secondaryCidrs"`
@@ -113,12 +117,13 @@ type vpcArgs struct {
 
 // The set of arguments for constructing a Vpc resource.
 type VpcArgs struct {
-	Cidr                pulumi.StringInput
-	Description         pulumi.StringPtrInput
-	EnhancedLocalRoute  pulumi.StringPtrInput
-	EnterpriseProjectId pulumi.StringPtrInput
-	Name                pulumi.StringPtrInput
-	Region              pulumi.StringPtrInput
+	BlockServiceEndpointStates pulumi.StringPtrInput
+	Cidr                       pulumi.StringInput
+	Description                pulumi.StringPtrInput
+	EnhancedLocalRoute         pulumi.StringPtrInput
+	EnterpriseProjectId        pulumi.StringPtrInput
+	Name                       pulumi.StringPtrInput
+	Region                     pulumi.StringPtrInput
 	// schema: Deprecated; use secondaryCidrs instead
 	SecondaryCidr  pulumi.StringPtrInput
 	SecondaryCidrs pulumi.StringArrayInput
@@ -210,6 +215,10 @@ func (o VpcOutput) ToVpcOutput() VpcOutput {
 
 func (o VpcOutput) ToVpcOutputWithContext(ctx context.Context) VpcOutput {
 	return o
+}
+
+func (o VpcOutput) BlockServiceEndpointStates() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *Vpc) pulumi.StringPtrOutput { return v.BlockServiceEndpointStates }).(pulumi.StringPtrOutput)
 }
 
 func (o VpcOutput) Cidr() pulumi.StringOutput {

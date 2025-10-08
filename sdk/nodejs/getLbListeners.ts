@@ -10,10 +10,19 @@ export function getLbListeners(args?: GetLbListenersArgs, opts?: pulumi.InvokeOp
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("sbercloud:index/getLbListeners:getLbListeners", {
+        "clientCaTlsContainerRef": args.clientCaTlsContainerRef,
+        "defaultPoolId": args.defaultPoolId,
+        "defaultTlsContainerRef": args.defaultTlsContainerRef,
+        "description": args.description,
+        "enterpriseProjectId": args.enterpriseProjectId,
+        "http2Enable": args.http2Enable,
+        "listenerId": args.listenerId,
+        "loadbalancerId": args.loadbalancerId,
         "name": args.name,
         "protocol": args.protocol,
         "protocolPort": args.protocolPort,
         "region": args.region,
+        "tlsCiphersPolicy": args.tlsCiphersPolicy,
     }, opts);
 }
 
@@ -21,34 +30,61 @@ export function getLbListeners(args?: GetLbListenersArgs, opts?: pulumi.InvokeOp
  * A collection of arguments for invoking getLbListeners.
  */
 export interface GetLbListenersArgs {
+    clientCaTlsContainerRef?: string;
+    defaultPoolId?: string;
+    defaultTlsContainerRef?: string;
+    description?: string;
+    enterpriseProjectId?: string;
+    http2Enable?: string;
+    listenerId?: string;
+    loadbalancerId?: string;
     name?: string;
     protocol?: string;
     protocolPort?: string;
     region?: string;
+    tlsCiphersPolicy?: string;
 }
 
 /**
  * A collection of values returned by getLbListeners.
  */
 export interface GetLbListenersResult {
+    readonly clientCaTlsContainerRef?: string;
+    readonly defaultPoolId?: string;
+    readonly defaultTlsContainerRef?: string;
+    readonly description?: string;
+    readonly enterpriseProjectId?: string;
+    readonly http2Enable?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly listenerId?: string;
     readonly listeners: outputs.GetLbListenersListener[];
+    readonly loadbalancerId?: string;
     readonly name?: string;
     readonly protocol?: string;
     readonly protocolPort?: string;
     readonly region: string;
+    readonly tlsCiphersPolicy?: string;
 }
 export function getLbListenersOutput(args?: GetLbListenersOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetLbListenersResult> {
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("sbercloud:index/getLbListeners:getLbListeners", {
+        "clientCaTlsContainerRef": args.clientCaTlsContainerRef,
+        "defaultPoolId": args.defaultPoolId,
+        "defaultTlsContainerRef": args.defaultTlsContainerRef,
+        "description": args.description,
+        "enterpriseProjectId": args.enterpriseProjectId,
+        "http2Enable": args.http2Enable,
+        "listenerId": args.listenerId,
+        "loadbalancerId": args.loadbalancerId,
         "name": args.name,
         "protocol": args.protocol,
         "protocolPort": args.protocolPort,
         "region": args.region,
+        "tlsCiphersPolicy": args.tlsCiphersPolicy,
     }, opts);
 }
 
@@ -56,8 +92,17 @@ export function getLbListenersOutput(args?: GetLbListenersOutputArgs, opts?: pul
  * A collection of arguments for invoking getLbListeners.
  */
 export interface GetLbListenersOutputArgs {
+    clientCaTlsContainerRef?: pulumi.Input<string>;
+    defaultPoolId?: pulumi.Input<string>;
+    defaultTlsContainerRef?: pulumi.Input<string>;
+    description?: pulumi.Input<string>;
+    enterpriseProjectId?: pulumi.Input<string>;
+    http2Enable?: pulumi.Input<string>;
+    listenerId?: pulumi.Input<string>;
+    loadbalancerId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     protocol?: pulumi.Input<string>;
     protocolPort?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
+    tlsCiphersPolicy?: pulumi.Input<string>;
 }

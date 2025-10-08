@@ -78,7 +78,10 @@ export class ApigGroup extends pulumi.CustomResource {
      * The latest update time of the group, in RFC3339 format.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
-    public readonly urlDomains!: pulumi.Output<outputs.ApigGroupUrlDomain[] | undefined>;
+    /**
+     * The associated domain information of the group.
+     */
+    public readonly urlDomains!: pulumi.Output<outputs.ApigGroupUrlDomain[]>;
 
     /**
      * Create a ApigGroup resource with the given unique name, arguments, and options.
@@ -176,6 +179,9 @@ export interface ApigGroupState {
      * The latest update time of the group, in RFC3339 format.
      */
     updatedAt?: pulumi.Input<string>;
+    /**
+     * The associated domain information of the group.
+     */
     urlDomains?: pulumi.Input<pulumi.Input<inputs.ApigGroupUrlDomain>[]>;
 }
 
@@ -211,5 +217,8 @@ export interface ApigGroupArgs {
      * The region where the dedicated instance is located.
      */
     region?: pulumi.Input<string>;
+    /**
+     * The associated domain information of the group.
+     */
     urlDomains?: pulumi.Input<pulumi.Input<inputs.ApigGroupUrlDomain>[]>;
 }

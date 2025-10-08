@@ -41,7 +41,7 @@ export class LbCertificate extends pulumi.CustomResource {
     public readonly name!: pulumi.Output<string>;
     public readonly privateKey!: pulumi.Output<string | undefined>;
     public readonly region!: pulumi.Output<string>;
-    public readonly type!: pulumi.Output<string | undefined>;
+    public readonly type!: pulumi.Output<string>;
     public /*out*/ readonly updateTime!: pulumi.Output<string>;
 
     /**

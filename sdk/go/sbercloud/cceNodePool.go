@@ -15,7 +15,7 @@ import (
 type CceNodePool struct {
 	pulumi.CustomResourceState
 
-	AutoRenew           pulumi.StringPtrOutput           `pulumi:"autoRenew"`
+	AutoRenew           pulumi.StringOutput              `pulumi:"autoRenew"`
 	AvailabilityZone    pulumi.StringPtrOutput           `pulumi:"availabilityZone"`
 	BillingMode         pulumi.IntOutput                 `pulumi:"billingMode"`
 	ChargingMode        pulumi.StringOutput              `pulumi:"chargingMode"`
@@ -23,10 +23,11 @@ type CceNodePool struct {
 	CurrentNodeCount    pulumi.IntOutput                 `pulumi:"currentNodeCount"`
 	DataVolumes         CceNodePoolDataVolumeArrayOutput `pulumi:"dataVolumes"`
 	EcsGroupId          pulumi.StringPtrOutput           `pulumi:"ecsGroupId"`
+	EnableForceNew      pulumi.StringPtrOutput           `pulumi:"enableForceNew"`
 	EnterpriseProjectId pulumi.StringOutput              `pulumi:"enterpriseProjectId"`
 	// schema: Deprecated; This parameter has been replaced by the 'extend_params' parameter.
 	ExtendParam                pulumi.StringMapOutput                    `pulumi:"extendParam"`
-	ExtendParams               CceNodePoolExtendParamsPtrOutput          `pulumi:"extendParams"`
+	ExtendParams               CceNodePoolExtendParamsOutput             `pulumi:"extendParams"`
 	ExtensionScaleGroups       CceNodePoolExtensionScaleGroupArrayOutput `pulumi:"extensionScaleGroups"`
 	FlavorId                   pulumi.StringOutput                       `pulumi:"flavorId"`
 	HostnameConfig             CceNodePoolHostnameConfigOutput           `pulumi:"hostnameConfig"`
@@ -41,6 +42,7 @@ type CceNodePool struct {
 	MinNodeCount      pulumi.IntPtrOutput      `pulumi:"minNodeCount"`
 	Name              pulumi.StringOutput      `pulumi:"name"`
 	Os                pulumi.StringOutput      `pulumi:"os"`
+	Partition         pulumi.StringPtrOutput   `pulumi:"partition"`
 	Password          pulumi.StringPtrOutput   `pulumi:"password"`
 	Period            pulumi.IntPtrOutput      `pulumi:"period"`
 	PeriodUnit        pulumi.StringPtrOutput   `pulumi:"periodUnit"`
@@ -124,6 +126,7 @@ type cceNodePoolState struct {
 	CurrentNodeCount    *int                    `pulumi:"currentNodeCount"`
 	DataVolumes         []CceNodePoolDataVolume `pulumi:"dataVolumes"`
 	EcsGroupId          *string                 `pulumi:"ecsGroupId"`
+	EnableForceNew      *string                 `pulumi:"enableForceNew"`
 	EnterpriseProjectId *string                 `pulumi:"enterpriseProjectId"`
 	// schema: Deprecated; This parameter has been replaced by the 'extend_params' parameter.
 	ExtendParam                map[string]string                `pulumi:"extendParam"`
@@ -142,6 +145,7 @@ type cceNodePoolState struct {
 	MinNodeCount      *int     `pulumi:"minNodeCount"`
 	Name              *string  `pulumi:"name"`
 	Os                *string  `pulumi:"os"`
+	Partition         *string  `pulumi:"partition"`
 	Password          *string  `pulumi:"password"`
 	Period            *int     `pulumi:"period"`
 	PeriodUnit        *string  `pulumi:"periodUnit"`
@@ -177,6 +181,7 @@ type CceNodePoolState struct {
 	CurrentNodeCount    pulumi.IntPtrInput
 	DataVolumes         CceNodePoolDataVolumeArrayInput
 	EcsGroupId          pulumi.StringPtrInput
+	EnableForceNew      pulumi.StringPtrInput
 	EnterpriseProjectId pulumi.StringPtrInput
 	// schema: Deprecated; This parameter has been replaced by the 'extend_params' parameter.
 	ExtendParam                pulumi.StringMapInput
@@ -195,6 +200,7 @@ type CceNodePoolState struct {
 	MinNodeCount      pulumi.IntPtrInput
 	Name              pulumi.StringPtrInput
 	Os                pulumi.StringPtrInput
+	Partition         pulumi.StringPtrInput
 	Password          pulumi.StringPtrInput
 	Period            pulumi.IntPtrInput
 	PeriodUnit        pulumi.StringPtrInput
@@ -232,6 +238,7 @@ type cceNodePoolArgs struct {
 	ClusterId           string                  `pulumi:"clusterId"`
 	DataVolumes         []CceNodePoolDataVolume `pulumi:"dataVolumes"`
 	EcsGroupId          *string                 `pulumi:"ecsGroupId"`
+	EnableForceNew      *string                 `pulumi:"enableForceNew"`
 	EnterpriseProjectId *string                 `pulumi:"enterpriseProjectId"`
 	// schema: Deprecated; This parameter has been replaced by the 'extend_params' parameter.
 	ExtendParam                map[string]string                `pulumi:"extendParam"`
@@ -250,6 +257,7 @@ type cceNodePoolArgs struct {
 	MinNodeCount      *int     `pulumi:"minNodeCount"`
 	Name              *string  `pulumi:"name"`
 	Os                *string  `pulumi:"os"`
+	Partition         *string  `pulumi:"partition"`
 	Password          *string  `pulumi:"password"`
 	Period            *int     `pulumi:"period"`
 	PeriodUnit        *string  `pulumi:"periodUnit"`
@@ -283,6 +291,7 @@ type CceNodePoolArgs struct {
 	ClusterId           pulumi.StringInput
 	DataVolumes         CceNodePoolDataVolumeArrayInput
 	EcsGroupId          pulumi.StringPtrInput
+	EnableForceNew      pulumi.StringPtrInput
 	EnterpriseProjectId pulumi.StringPtrInput
 	// schema: Deprecated; This parameter has been replaced by the 'extend_params' parameter.
 	ExtendParam                pulumi.StringMapInput
@@ -301,6 +310,7 @@ type CceNodePoolArgs struct {
 	MinNodeCount      pulumi.IntPtrInput
 	Name              pulumi.StringPtrInput
 	Os                pulumi.StringPtrInput
+	Partition         pulumi.StringPtrInput
 	Password          pulumi.StringPtrInput
 	Period            pulumi.IntPtrInput
 	PeriodUnit        pulumi.StringPtrInput
@@ -413,8 +423,8 @@ func (o CceNodePoolOutput) ToCceNodePoolOutputWithContext(ctx context.Context) C
 	return o
 }
 
-func (o CceNodePoolOutput) AutoRenew() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *CceNodePool) pulumi.StringPtrOutput { return v.AutoRenew }).(pulumi.StringPtrOutput)
+func (o CceNodePoolOutput) AutoRenew() pulumi.StringOutput {
+	return o.ApplyT(func(v *CceNodePool) pulumi.StringOutput { return v.AutoRenew }).(pulumi.StringOutput)
 }
 
 func (o CceNodePoolOutput) AvailabilityZone() pulumi.StringPtrOutput {
@@ -445,6 +455,10 @@ func (o CceNodePoolOutput) EcsGroupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CceNodePool) pulumi.StringPtrOutput { return v.EcsGroupId }).(pulumi.StringPtrOutput)
 }
 
+func (o CceNodePoolOutput) EnableForceNew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CceNodePool) pulumi.StringPtrOutput { return v.EnableForceNew }).(pulumi.StringPtrOutput)
+}
+
 func (o CceNodePoolOutput) EnterpriseProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CceNodePool) pulumi.StringOutput { return v.EnterpriseProjectId }).(pulumi.StringOutput)
 }
@@ -454,8 +468,8 @@ func (o CceNodePoolOutput) ExtendParam() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CceNodePool) pulumi.StringMapOutput { return v.ExtendParam }).(pulumi.StringMapOutput)
 }
 
-func (o CceNodePoolOutput) ExtendParams() CceNodePoolExtendParamsPtrOutput {
-	return o.ApplyT(func(v *CceNodePool) CceNodePoolExtendParamsPtrOutput { return v.ExtendParams }).(CceNodePoolExtendParamsPtrOutput)
+func (o CceNodePoolOutput) ExtendParams() CceNodePoolExtendParamsOutput {
+	return o.ApplyT(func(v *CceNodePool) CceNodePoolExtendParamsOutput { return v.ExtendParams }).(CceNodePoolExtendParamsOutput)
 }
 
 func (o CceNodePoolOutput) ExtensionScaleGroups() CceNodePoolExtensionScaleGroupArrayOutput {
@@ -509,6 +523,10 @@ func (o CceNodePoolOutput) Name() pulumi.StringOutput {
 
 func (o CceNodePoolOutput) Os() pulumi.StringOutput {
 	return o.ApplyT(func(v *CceNodePool) pulumi.StringOutput { return v.Os }).(pulumi.StringOutput)
+}
+
+func (o CceNodePoolOutput) Partition() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CceNodePool) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
 }
 
 func (o CceNodePoolOutput) Password() pulumi.StringPtrOutput {

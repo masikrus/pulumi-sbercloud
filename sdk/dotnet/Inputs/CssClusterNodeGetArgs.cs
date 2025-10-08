@@ -12,11 +12,26 @@ namespace Pulumi.Sbercloud.Inputs
 
     public sealed class CssClusterNodeGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
         [Input("id")]
         public Input<string>? Id { get; set; }
 
+        [Input("ip")]
+        public Input<string>? Ip { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("resourceId")]
+        public Input<string>? ResourceId { get; set; }
+
+        [Input("specCode")]
+        public Input<string>? SpecCode { get; set; }
+
+        [Input("status")]
+        public Input<string>? Status { get; set; }
 
         [Input("type")]
         public Input<string>? Type { get; set; }

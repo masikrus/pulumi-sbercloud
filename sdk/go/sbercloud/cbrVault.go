@@ -37,6 +37,8 @@ type CbrVault struct {
 	EnterpriseProjectId pulumi.StringOutput `pulumi:"enterpriseProjectId"`
 	// Whether multiple availability zones are used for backing up.
 	IsMultiAz pulumi.BoolOutput `pulumi:"isMultiAz"`
+	// Locked status of the vault.
+	Locked pulumi.BoolOutput `pulumi:"locked"`
 	// The name of the vault.
 	Name       pulumi.StringOutput    `pulumi:"name"`
 	Period     pulumi.IntPtrOutput    `pulumi:"period"`
@@ -127,6 +129,8 @@ type cbrVaultState struct {
 	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
 	// Whether multiple availability zones are used for backing up.
 	IsMultiAz *bool `pulumi:"isMultiAz"`
+	// Locked status of the vault.
+	Locked *bool `pulumi:"locked"`
 	// The name of the vault.
 	Name       *string `pulumi:"name"`
 	Period     *int    `pulumi:"period"`
@@ -179,6 +183,8 @@ type CbrVaultState struct {
 	EnterpriseProjectId pulumi.StringPtrInput
 	// Whether multiple availability zones are used for backing up.
 	IsMultiAz pulumi.BoolPtrInput
+	// Locked status of the vault.
+	Locked pulumi.BoolPtrInput
 	// The name of the vault.
 	Name       pulumi.StringPtrInput
 	Period     pulumi.IntPtrInput
@@ -233,6 +239,8 @@ type cbrVaultArgs struct {
 	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
 	// Whether multiple availability zones are used for backing up.
 	IsMultiAz *bool `pulumi:"isMultiAz"`
+	// Locked status of the vault.
+	Locked *bool `pulumi:"locked"`
 	// The name of the vault.
 	Name       *string `pulumi:"name"`
 	Period     *int    `pulumi:"period"`
@@ -276,6 +284,8 @@ type CbrVaultArgs struct {
 	EnterpriseProjectId pulumi.StringPtrInput
 	// Whether multiple availability zones are used for backing up.
 	IsMultiAz pulumi.BoolPtrInput
+	// Locked status of the vault.
+	Locked pulumi.BoolPtrInput
 	// The name of the vault.
 	Name       pulumi.StringPtrInput
 	Period     pulumi.IntPtrInput
@@ -440,6 +450,11 @@ func (o CbrVaultOutput) EnterpriseProjectId() pulumi.StringOutput {
 // Whether multiple availability zones are used for backing up.
 func (o CbrVaultOutput) IsMultiAz() pulumi.BoolOutput {
 	return o.ApplyT(func(v *CbrVault) pulumi.BoolOutput { return v.IsMultiAz }).(pulumi.BoolOutput)
+}
+
+// Locked status of the vault.
+func (o CbrVaultOutput) Locked() pulumi.BoolOutput {
+	return o.ApplyT(func(v *CbrVault) pulumi.BoolOutput { return v.Locked }).(pulumi.BoolOutput)
 }
 
 // The name of the vault.

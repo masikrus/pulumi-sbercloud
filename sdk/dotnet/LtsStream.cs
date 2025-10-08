@@ -24,6 +24,12 @@ namespace Pulumi.Sbercloud
         [Output("groupId")]
         public Output<string> GroupId { get; private set; } = null!;
 
+        /// <summary>
+        /// Whether to favorite the log stream.
+        /// </summary>
+        [Output("isFavorite")]
+        public Output<bool?> IsFavorite { get; private set; } = null!;
+
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
@@ -88,6 +94,12 @@ namespace Pulumi.Sbercloud
         [Input("groupId", required: true)]
         public Input<string> GroupId { get; set; } = null!;
 
+        /// <summary>
+        /// Whether to favorite the log stream.
+        /// </summary>
+        [Input("isFavorite")]
+        public Input<bool>? IsFavorite { get; set; }
+
         [Input("region")]
         public Input<string>? Region { get; set; }
 
@@ -124,6 +136,12 @@ namespace Pulumi.Sbercloud
 
         [Input("groupId")]
         public Input<string>? GroupId { get; set; }
+
+        /// <summary>
+        /// Whether to favorite the log stream.
+        /// </summary>
+        [Input("isFavorite")]
+        public Input<bool>? IsFavorite { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }

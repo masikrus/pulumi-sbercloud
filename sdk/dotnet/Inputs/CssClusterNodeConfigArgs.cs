@@ -12,8 +12,8 @@ namespace Pulumi.Sbercloud.Inputs
 
     public sealed class CssClusterNodeConfigArgs : global::Pulumi.ResourceArgs
     {
-        [Input("availabilityZone")]
-        public Input<string>? AvailabilityZone { get; set; }
+        [Input("availabilityZone", required: true)]
+        public Input<string> AvailabilityZone { get; set; } = null!;
 
         [Input("flavor", required: true)]
         public Input<string> Flavor { get; set; } = null!;

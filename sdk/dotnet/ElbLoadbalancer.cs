@@ -54,11 +54,17 @@ namespace Pulumi.Sbercloud
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("elbVirsubnetType")]
+        public Output<string> ElbVirsubnetType { get; private set; } = null!;
+
         [Output("enterpriseProjectId")]
         public Output<string> EnterpriseProjectId { get; private set; } = null!;
 
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
+
+        [Output("frozenScene")]
+        public Output<string> FrozenScene { get; private set; } = null!;
 
         [Output("guaranteed")]
         public Output<bool> Guaranteed { get; private set; } = null!;
@@ -120,6 +126,9 @@ namespace Pulumi.Sbercloud
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
 
+        [Output("operatingStatus")]
+        public Output<string> OperatingStatus { get; private set; } = null!;
+
         [Output("period")]
         public Output<int?> Period { get; private set; } = null!;
 
@@ -131,6 +140,9 @@ namespace Pulumi.Sbercloud
 
         [Output("protectionStatus")]
         public Output<string> ProtectionStatus { get; private set; } = null!;
+
+        [Output("publicBorderGroup")]
+        public Output<string> PublicBorderGroup { get; private set; } = null!;
 
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -382,11 +394,17 @@ namespace Pulumi.Sbercloud
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("elbVirsubnetType")]
+        public Input<string>? ElbVirsubnetType { get; set; }
+
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
+
+        [Input("frozenScene")]
+        public Input<string>? FrozenScene { get; set; }
 
         [Input("guaranteed")]
         public Input<bool>? Guaranteed { get; set; }
@@ -448,6 +466,9 @@ namespace Pulumi.Sbercloud
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        [Input("operatingStatus")]
+        public Input<string>? OperatingStatus { get; set; }
+
         [Input("period")]
         public Input<int>? Period { get; set; }
 
@@ -459,6 +480,9 @@ namespace Pulumi.Sbercloud
 
         [Input("protectionStatus")]
         public Input<string>? ProtectionStatus { get; set; }
+
+        [Input("publicBorderGroup")]
+        public Input<string>? PublicBorderGroup { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }

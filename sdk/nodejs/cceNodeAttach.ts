@@ -41,6 +41,7 @@ export class CceNodeAttach extends pulumi.CustomResource {
     public readonly dockerBaseSize!: pulumi.Output<number | undefined>;
     public /*out*/ readonly ecsGroupId!: pulumi.Output<string>;
     public /*out*/ readonly enterpriseProjectId!: pulumi.Output<string>;
+    public /*out*/ readonly extensionNics!: pulumi.Output<outputs.CceNodeAttachExtensionNic[]>;
     public /*out*/ readonly flavorId!: pulumi.Output<string>;
     public readonly hostnameConfig!: pulumi.Output<outputs.CceNodeAttachHostnameConfig>;
     /**
@@ -99,6 +100,7 @@ export class CceNodeAttach extends pulumi.CustomResource {
             resourceInputs["dockerBaseSize"] = state ? state.dockerBaseSize : undefined;
             resourceInputs["ecsGroupId"] = state ? state.ecsGroupId : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
+            resourceInputs["extensionNics"] = state ? state.extensionNics : undefined;
             resourceInputs["flavorId"] = state ? state.flavorId : undefined;
             resourceInputs["hostnameConfig"] = state ? state.hostnameConfig : undefined;
             resourceInputs["imageId"] = state ? state.imageId : undefined;
@@ -167,6 +169,7 @@ export class CceNodeAttach extends pulumi.CustomResource {
             resourceInputs["dataVolumes"] = undefined /*out*/;
             resourceInputs["ecsGroupId"] = undefined /*out*/;
             resourceInputs["enterpriseProjectId"] = undefined /*out*/;
+            resourceInputs["extensionNics"] = undefined /*out*/;
             resourceInputs["flavorId"] = undefined /*out*/;
             resourceInputs["privateIp"] = undefined /*out*/;
             resourceInputs["publicIp"] = undefined /*out*/;
@@ -192,6 +195,7 @@ export interface CceNodeAttachState {
     dockerBaseSize?: pulumi.Input<number>;
     ecsGroupId?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
+    extensionNics?: pulumi.Input<pulumi.Input<inputs.CceNodeAttachExtensionNic>[]>;
     flavorId?: pulumi.Input<string>;
     hostnameConfig?: pulumi.Input<inputs.CceNodeAttachHostnameConfig>;
     /**

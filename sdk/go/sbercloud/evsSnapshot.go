@@ -15,14 +15,19 @@ import (
 type EvsSnapshot struct {
 	pulumi.CustomResourceState
 
+	CreatedAt   pulumi.StringOutput    `pulumi:"createdAt"`
 	Description pulumi.StringPtrOutput `pulumi:"description"`
 	Force       pulumi.BoolPtrOutput   `pulumi:"force"`
 	Metadata    pulumi.StringMapOutput `pulumi:"metadata"`
-	Name        pulumi.StringOutput    `pulumi:"name"`
-	Region      pulumi.StringOutput    `pulumi:"region"`
-	Size        pulumi.IntOutput       `pulumi:"size"`
-	Status      pulumi.StringOutput    `pulumi:"status"`
-	VolumeId    pulumi.StringOutput    `pulumi:"volumeId"`
+	// The script configuration value of this change is also the original value used for comparison with the new value next
+	// time the change is made. The corresponding parameter name is 'metadata'.
+	MetadataOrigin pulumi.StringMapOutput `pulumi:"metadataOrigin"`
+	Name           pulumi.StringOutput    `pulumi:"name"`
+	Region         pulumi.StringOutput    `pulumi:"region"`
+	Size           pulumi.IntOutput       `pulumi:"size"`
+	Status         pulumi.StringOutput    `pulumi:"status"`
+	UpdatedAt      pulumi.StringOutput    `pulumi:"updatedAt"`
+	VolumeId       pulumi.StringOutput    `pulumi:"volumeId"`
 }
 
 // NewEvsSnapshot registers a new resource with the given unique name, arguments, and options.
@@ -58,25 +63,35 @@ func GetEvsSnapshot(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EvsSnapshot resources.
 type evsSnapshotState struct {
+	CreatedAt   *string           `pulumi:"createdAt"`
 	Description *string           `pulumi:"description"`
 	Force       *bool             `pulumi:"force"`
 	Metadata    map[string]string `pulumi:"metadata"`
-	Name        *string           `pulumi:"name"`
-	Region      *string           `pulumi:"region"`
-	Size        *int              `pulumi:"size"`
-	Status      *string           `pulumi:"status"`
-	VolumeId    *string           `pulumi:"volumeId"`
+	// The script configuration value of this change is also the original value used for comparison with the new value next
+	// time the change is made. The corresponding parameter name is 'metadata'.
+	MetadataOrigin map[string]string `pulumi:"metadataOrigin"`
+	Name           *string           `pulumi:"name"`
+	Region         *string           `pulumi:"region"`
+	Size           *int              `pulumi:"size"`
+	Status         *string           `pulumi:"status"`
+	UpdatedAt      *string           `pulumi:"updatedAt"`
+	VolumeId       *string           `pulumi:"volumeId"`
 }
 
 type EvsSnapshotState struct {
+	CreatedAt   pulumi.StringPtrInput
 	Description pulumi.StringPtrInput
 	Force       pulumi.BoolPtrInput
 	Metadata    pulumi.StringMapInput
-	Name        pulumi.StringPtrInput
-	Region      pulumi.StringPtrInput
-	Size        pulumi.IntPtrInput
-	Status      pulumi.StringPtrInput
-	VolumeId    pulumi.StringPtrInput
+	// The script configuration value of this change is also the original value used for comparison with the new value next
+	// time the change is made. The corresponding parameter name is 'metadata'.
+	MetadataOrigin pulumi.StringMapInput
+	Name           pulumi.StringPtrInput
+	Region         pulumi.StringPtrInput
+	Size           pulumi.IntPtrInput
+	Status         pulumi.StringPtrInput
+	UpdatedAt      pulumi.StringPtrInput
+	VolumeId       pulumi.StringPtrInput
 }
 
 func (EvsSnapshotState) ElementType() reflect.Type {
@@ -189,6 +204,10 @@ func (o EvsSnapshotOutput) ToEvsSnapshotOutputWithContext(ctx context.Context) E
 	return o
 }
 
+func (o EvsSnapshotOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *EvsSnapshot) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
 func (o EvsSnapshotOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvsSnapshot) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
@@ -199,6 +218,12 @@ func (o EvsSnapshotOutput) Force() pulumi.BoolPtrOutput {
 
 func (o EvsSnapshotOutput) Metadata() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *EvsSnapshot) pulumi.StringMapOutput { return v.Metadata }).(pulumi.StringMapOutput)
+}
+
+// The script configuration value of this change is also the original value used for comparison with the new value next
+// time the change is made. The corresponding parameter name is 'metadata'.
+func (o EvsSnapshotOutput) MetadataOrigin() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EvsSnapshot) pulumi.StringMapOutput { return v.MetadataOrigin }).(pulumi.StringMapOutput)
 }
 
 func (o EvsSnapshotOutput) Name() pulumi.StringOutput {
@@ -215,6 +240,10 @@ func (o EvsSnapshotOutput) Size() pulumi.IntOutput {
 
 func (o EvsSnapshotOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *EvsSnapshot) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
+}
+
+func (o EvsSnapshotOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *EvsSnapshot) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 func (o EvsSnapshotOutput) VolumeId() pulumi.StringOutput {

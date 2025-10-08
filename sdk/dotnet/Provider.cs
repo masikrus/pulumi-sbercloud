@@ -140,6 +140,18 @@ namespace Pulumi.Sbercloud
         [Input("domainName")]
         public Input<string>? DomainName { get; set; }
 
+        [Input("endpoints", json: true)]
+        private InputMap<string>? _endpoints;
+
+        /// <summary>
+        /// The custom endpoints used to override the default endpoint URL.
+        /// </summary>
+        public InputMap<string> Endpoints
+        {
+            get => _endpoints ?? (_endpoints = new InputMap<string>());
+            set => _endpoints = value;
+        }
+
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 

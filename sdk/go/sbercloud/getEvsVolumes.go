@@ -23,28 +23,42 @@ func GetEvsVolumes(ctx *pulumi.Context, args *GetEvsVolumesArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getEvsVolumes.
 type GetEvsVolumesArgs struct {
-	AvailabilityZone    *string           `pulumi:"availabilityZone"`
-	EnterpriseProjectId *string           `pulumi:"enterpriseProjectId"`
-	Name                *string           `pulumi:"name"`
-	Region              *string           `pulumi:"region"`
-	ServerId            *string           `pulumi:"serverId"`
-	Shareable           *bool             `pulumi:"shareable"`
-	Status              *string           `pulumi:"status"`
-	Tags                map[string]string `pulumi:"tags"`
-	VolumeId            *string           `pulumi:"volumeId"`
-	VolumeTypeId        *string           `pulumi:"volumeTypeId"`
+	AvailabilityZone     *string           `pulumi:"availabilityZone"`
+	DedicatedStorageId   *string           `pulumi:"dedicatedStorageId"`
+	DedicatedStorageName *string           `pulumi:"dedicatedStorageName"`
+	EnterpriseProjectId  *string           `pulumi:"enterpriseProjectId"`
+	Ids                  *string           `pulumi:"ids"`
+	Metadata             *string           `pulumi:"metadata"`
+	Name                 *string           `pulumi:"name"`
+	Region               *string           `pulumi:"region"`
+	ServerId             *string           `pulumi:"serverId"`
+	ServiceType          *string           `pulumi:"serviceType"`
+	Shareable            *bool             `pulumi:"shareable"`
+	SortDir              *string           `pulumi:"sortDir"`
+	SortKey              *string           `pulumi:"sortKey"`
+	Status               *string           `pulumi:"status"`
+	Tags                 map[string]string `pulumi:"tags"`
+	VolumeId             *string           `pulumi:"volumeId"`
+	VolumeTypeId         *string           `pulumi:"volumeTypeId"`
 }
 
 // A collection of values returned by getEvsVolumes.
 type GetEvsVolumesResult struct {
-	AvailabilityZone    *string `pulumi:"availabilityZone"`
-	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
+	AvailabilityZone     *string `pulumi:"availabilityZone"`
+	DedicatedStorageId   *string `pulumi:"dedicatedStorageId"`
+	DedicatedStorageName *string `pulumi:"dedicatedStorageName"`
+	EnterpriseProjectId  *string `pulumi:"enterpriseProjectId"`
 	// The provider-assigned unique ID for this managed resource.
 	Id           string                `pulumi:"id"`
+	Ids          *string               `pulumi:"ids"`
+	Metadata     *string               `pulumi:"metadata"`
 	Name         *string               `pulumi:"name"`
 	Region       *string               `pulumi:"region"`
 	ServerId     *string               `pulumi:"serverId"`
+	ServiceType  *string               `pulumi:"serviceType"`
 	Shareable    *bool                 `pulumi:"shareable"`
+	SortDir      *string               `pulumi:"sortDir"`
+	SortKey      *string               `pulumi:"sortKey"`
 	Status       *string               `pulumi:"status"`
 	Tags         map[string]string     `pulumi:"tags"`
 	VolumeId     *string               `pulumi:"volumeId"`
@@ -63,16 +77,23 @@ func GetEvsVolumesOutput(ctx *pulumi.Context, args GetEvsVolumesOutputArgs, opts
 
 // A collection of arguments for invoking getEvsVolumes.
 type GetEvsVolumesOutputArgs struct {
-	AvailabilityZone    pulumi.StringPtrInput `pulumi:"availabilityZone"`
-	EnterpriseProjectId pulumi.StringPtrInput `pulumi:"enterpriseProjectId"`
-	Name                pulumi.StringPtrInput `pulumi:"name"`
-	Region              pulumi.StringPtrInput `pulumi:"region"`
-	ServerId            pulumi.StringPtrInput `pulumi:"serverId"`
-	Shareable           pulumi.BoolPtrInput   `pulumi:"shareable"`
-	Status              pulumi.StringPtrInput `pulumi:"status"`
-	Tags                pulumi.StringMapInput `pulumi:"tags"`
-	VolumeId            pulumi.StringPtrInput `pulumi:"volumeId"`
-	VolumeTypeId        pulumi.StringPtrInput `pulumi:"volumeTypeId"`
+	AvailabilityZone     pulumi.StringPtrInput `pulumi:"availabilityZone"`
+	DedicatedStorageId   pulumi.StringPtrInput `pulumi:"dedicatedStorageId"`
+	DedicatedStorageName pulumi.StringPtrInput `pulumi:"dedicatedStorageName"`
+	EnterpriseProjectId  pulumi.StringPtrInput `pulumi:"enterpriseProjectId"`
+	Ids                  pulumi.StringPtrInput `pulumi:"ids"`
+	Metadata             pulumi.StringPtrInput `pulumi:"metadata"`
+	Name                 pulumi.StringPtrInput `pulumi:"name"`
+	Region               pulumi.StringPtrInput `pulumi:"region"`
+	ServerId             pulumi.StringPtrInput `pulumi:"serverId"`
+	ServiceType          pulumi.StringPtrInput `pulumi:"serviceType"`
+	Shareable            pulumi.BoolPtrInput   `pulumi:"shareable"`
+	SortDir              pulumi.StringPtrInput `pulumi:"sortDir"`
+	SortKey              pulumi.StringPtrInput `pulumi:"sortKey"`
+	Status               pulumi.StringPtrInput `pulumi:"status"`
+	Tags                 pulumi.StringMapInput `pulumi:"tags"`
+	VolumeId             pulumi.StringPtrInput `pulumi:"volumeId"`
+	VolumeTypeId         pulumi.StringPtrInput `pulumi:"volumeTypeId"`
 }
 
 func (GetEvsVolumesOutputArgs) ElementType() reflect.Type {
@@ -98,6 +119,14 @@ func (o GetEvsVolumesResultOutput) AvailabilityZone() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.AvailabilityZone }).(pulumi.StringPtrOutput)
 }
 
+func (o GetEvsVolumesResultOutput) DedicatedStorageId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.DedicatedStorageId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetEvsVolumesResultOutput) DedicatedStorageName() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.DedicatedStorageName }).(pulumi.StringPtrOutput)
+}
+
 func (o GetEvsVolumesResultOutput) EnterpriseProjectId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.EnterpriseProjectId }).(pulumi.StringPtrOutput)
 }
@@ -105,6 +134,14 @@ func (o GetEvsVolumesResultOutput) EnterpriseProjectId() pulumi.StringPtrOutput 
 // The provider-assigned unique ID for this managed resource.
 func (o GetEvsVolumesResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetEvsVolumesResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetEvsVolumesResultOutput) Ids() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.Ids }).(pulumi.StringPtrOutput)
+}
+
+func (o GetEvsVolumesResultOutput) Metadata() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.Metadata }).(pulumi.StringPtrOutput)
 }
 
 func (o GetEvsVolumesResultOutput) Name() pulumi.StringPtrOutput {
@@ -119,8 +156,20 @@ func (o GetEvsVolumesResultOutput) ServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.ServerId }).(pulumi.StringPtrOutput)
 }
 
+func (o GetEvsVolumesResultOutput) ServiceType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.ServiceType }).(pulumi.StringPtrOutput)
+}
+
 func (o GetEvsVolumesResultOutput) Shareable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v GetEvsVolumesResult) *bool { return v.Shareable }).(pulumi.BoolPtrOutput)
+}
+
+func (o GetEvsVolumesResultOutput) SortDir() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.SortDir }).(pulumi.StringPtrOutput)
+}
+
+func (o GetEvsVolumesResultOutput) SortKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetEvsVolumesResult) *string { return v.SortKey }).(pulumi.StringPtrOutput)
 }
 
 func (o GetEvsVolumesResultOutput) Status() pulumi.StringPtrOutput {

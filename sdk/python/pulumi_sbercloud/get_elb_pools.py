@@ -28,16 +28,28 @@ class GetElbPoolsResult:
     """
     A collection of values returned by getElbPools.
     """
-    def __init__(__self__, description=None, healthmonitor_id=None, id=None, lb_method=None, listener_id=None, loadbalancer_id=None, name=None, pool_id=None, pools=None, protection_status=None, protocol=None, region=None, type=None, vpc_id=None):
+    def __init__(__self__, any_port_enable=None, connection_drain=None, description=None, enterprise_project_id=None, healthmonitor_id=None, id=None, ip_version=None, lb_method=None, listener_id=None, loadbalancer_id=None, member_address=None, member_deletion_protection_enable=None, member_device_id=None, member_instance_id=None, name=None, pool_health=None, pool_id=None, pools=None, protection_status=None, protocol=None, public_border_group=None, quic_cid_len=None, quic_cid_offset=None, region=None, type=None, vpc_id=None):
+        if any_port_enable and not isinstance(any_port_enable, str):
+            raise TypeError("Expected argument 'any_port_enable' to be a str")
+        pulumi.set(__self__, "any_port_enable", any_port_enable)
+        if connection_drain and not isinstance(connection_drain, str):
+            raise TypeError("Expected argument 'connection_drain' to be a str")
+        pulumi.set(__self__, "connection_drain", connection_drain)
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if enterprise_project_id and not isinstance(enterprise_project_id, str):
+            raise TypeError("Expected argument 'enterprise_project_id' to be a str")
+        pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if healthmonitor_id and not isinstance(healthmonitor_id, str):
             raise TypeError("Expected argument 'healthmonitor_id' to be a str")
         pulumi.set(__self__, "healthmonitor_id", healthmonitor_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ip_version and not isinstance(ip_version, str):
+            raise TypeError("Expected argument 'ip_version' to be a str")
+        pulumi.set(__self__, "ip_version", ip_version)
         if lb_method and not isinstance(lb_method, str):
             raise TypeError("Expected argument 'lb_method' to be a str")
         pulumi.set(__self__, "lb_method", lb_method)
@@ -47,9 +59,24 @@ class GetElbPoolsResult:
         if loadbalancer_id and not isinstance(loadbalancer_id, str):
             raise TypeError("Expected argument 'loadbalancer_id' to be a str")
         pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+        if member_address and not isinstance(member_address, str):
+            raise TypeError("Expected argument 'member_address' to be a str")
+        pulumi.set(__self__, "member_address", member_address)
+        if member_deletion_protection_enable and not isinstance(member_deletion_protection_enable, str):
+            raise TypeError("Expected argument 'member_deletion_protection_enable' to be a str")
+        pulumi.set(__self__, "member_deletion_protection_enable", member_deletion_protection_enable)
+        if member_device_id and not isinstance(member_device_id, str):
+            raise TypeError("Expected argument 'member_device_id' to be a str")
+        pulumi.set(__self__, "member_device_id", member_device_id)
+        if member_instance_id and not isinstance(member_instance_id, str):
+            raise TypeError("Expected argument 'member_instance_id' to be a str")
+        pulumi.set(__self__, "member_instance_id", member_instance_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
+        if pool_health and not isinstance(pool_health, str):
+            raise TypeError("Expected argument 'pool_health' to be a str")
+        pulumi.set(__self__, "pool_health", pool_health)
         if pool_id and not isinstance(pool_id, str):
             raise TypeError("Expected argument 'pool_id' to be a str")
         pulumi.set(__self__, "pool_id", pool_id)
@@ -62,6 +89,15 @@ class GetElbPoolsResult:
         if protocol and not isinstance(protocol, str):
             raise TypeError("Expected argument 'protocol' to be a str")
         pulumi.set(__self__, "protocol", protocol)
+        if public_border_group and not isinstance(public_border_group, str):
+            raise TypeError("Expected argument 'public_border_group' to be a str")
+        pulumi.set(__self__, "public_border_group", public_border_group)
+        if quic_cid_len and not isinstance(quic_cid_len, int):
+            raise TypeError("Expected argument 'quic_cid_len' to be a int")
+        pulumi.set(__self__, "quic_cid_len", quic_cid_len)
+        if quic_cid_offset and not isinstance(quic_cid_offset, int):
+            raise TypeError("Expected argument 'quic_cid_offset' to be a int")
+        pulumi.set(__self__, "quic_cid_offset", quic_cid_offset)
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
@@ -73,9 +109,24 @@ class GetElbPoolsResult:
         pulumi.set(__self__, "vpc_id", vpc_id)
 
     @property
+    @pulumi.getter(name="anyPortEnable")
+    def any_port_enable(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "any_port_enable")
+
+    @property
+    @pulumi.getter(name="connectionDrain")
+    def connection_drain(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "connection_drain")
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[builtins.str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enterpriseProjectId")
+    def enterprise_project_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "enterprise_project_id")
 
     @property
     @pulumi.getter(name="healthmonitorId")
@@ -89,6 +140,11 @@ class GetElbPoolsResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "ip_version")
 
     @property
     @pulumi.getter(name="lbMethod")
@@ -106,9 +162,34 @@ class GetElbPoolsResult:
         return pulumi.get(self, "loadbalancer_id")
 
     @property
+    @pulumi.getter(name="memberAddress")
+    def member_address(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "member_address")
+
+    @property
+    @pulumi.getter(name="memberDeletionProtectionEnable")
+    def member_deletion_protection_enable(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "member_deletion_protection_enable")
+
+    @property
+    @pulumi.getter(name="memberDeviceId")
+    def member_device_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "member_device_id")
+
+    @property
+    @pulumi.getter(name="memberInstanceId")
+    def member_instance_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "member_instance_id")
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[builtins.str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="poolHealth")
+    def pool_health(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "pool_health")
 
     @property
     @pulumi.getter(name="poolId")
@@ -129,6 +210,21 @@ class GetElbPoolsResult:
     @pulumi.getter
     def protocol(self) -> Optional[builtins.str]:
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="publicBorderGroup")
+    def public_border_group(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "public_border_group")
+
+    @property
+    @pulumi.getter(name="quicCidLen")
+    def quic_cid_len(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "quic_cid_len")
+
+    @property
+    @pulumi.getter(name="quicCidOffset")
+    def quic_cid_offset(self) -> Optional[builtins.int]:
+        return pulumi.get(self, "quic_cid_offset")
 
     @property
     @pulumi.getter
@@ -152,31 +248,55 @@ class AwaitableGetElbPoolsResult(GetElbPoolsResult):
         if False:
             yield self
         return GetElbPoolsResult(
+            any_port_enable=self.any_port_enable,
+            connection_drain=self.connection_drain,
             description=self.description,
+            enterprise_project_id=self.enterprise_project_id,
             healthmonitor_id=self.healthmonitor_id,
             id=self.id,
+            ip_version=self.ip_version,
             lb_method=self.lb_method,
             listener_id=self.listener_id,
             loadbalancer_id=self.loadbalancer_id,
+            member_address=self.member_address,
+            member_deletion_protection_enable=self.member_deletion_protection_enable,
+            member_device_id=self.member_device_id,
+            member_instance_id=self.member_instance_id,
             name=self.name,
+            pool_health=self.pool_health,
             pool_id=self.pool_id,
             pools=self.pools,
             protection_status=self.protection_status,
             protocol=self.protocol,
+            public_border_group=self.public_border_group,
+            quic_cid_len=self.quic_cid_len,
+            quic_cid_offset=self.quic_cid_offset,
             region=self.region,
             type=self.type,
             vpc_id=self.vpc_id)
 
 
-def get_elb_pools(description: Optional[builtins.str] = None,
+def get_elb_pools(any_port_enable: Optional[builtins.str] = None,
+                  connection_drain: Optional[builtins.str] = None,
+                  description: Optional[builtins.str] = None,
+                  enterprise_project_id: Optional[builtins.str] = None,
                   healthmonitor_id: Optional[builtins.str] = None,
+                  ip_version: Optional[builtins.str] = None,
                   lb_method: Optional[builtins.str] = None,
                   listener_id: Optional[builtins.str] = None,
                   loadbalancer_id: Optional[builtins.str] = None,
+                  member_address: Optional[builtins.str] = None,
+                  member_deletion_protection_enable: Optional[builtins.str] = None,
+                  member_device_id: Optional[builtins.str] = None,
+                  member_instance_id: Optional[builtins.str] = None,
                   name: Optional[builtins.str] = None,
+                  pool_health: Optional[builtins.str] = None,
                   pool_id: Optional[builtins.str] = None,
                   protection_status: Optional[builtins.str] = None,
                   protocol: Optional[builtins.str] = None,
+                  public_border_group: Optional[builtins.str] = None,
+                  quic_cid_len: Optional[builtins.int] = None,
+                  quic_cid_offset: Optional[builtins.int] = None,
                   region: Optional[builtins.str] = None,
                   type: Optional[builtins.str] = None,
                   vpc_id: Optional[builtins.str] = None,
@@ -185,15 +305,27 @@ def get_elb_pools(description: Optional[builtins.str] = None,
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['anyPortEnable'] = any_port_enable
+    __args__['connectionDrain'] = connection_drain
     __args__['description'] = description
+    __args__['enterpriseProjectId'] = enterprise_project_id
     __args__['healthmonitorId'] = healthmonitor_id
+    __args__['ipVersion'] = ip_version
     __args__['lbMethod'] = lb_method
     __args__['listenerId'] = listener_id
     __args__['loadbalancerId'] = loadbalancer_id
+    __args__['memberAddress'] = member_address
+    __args__['memberDeletionProtectionEnable'] = member_deletion_protection_enable
+    __args__['memberDeviceId'] = member_device_id
+    __args__['memberInstanceId'] = member_instance_id
     __args__['name'] = name
+    __args__['poolHealth'] = pool_health
     __args__['poolId'] = pool_id
     __args__['protectionStatus'] = protection_status
     __args__['protocol'] = protocol
+    __args__['publicBorderGroup'] = public_border_group
+    __args__['quicCidLen'] = quic_cid_len
+    __args__['quicCidOffset'] = quic_cid_offset
     __args__['region'] = region
     __args__['type'] = type
     __args__['vpcId'] = vpc_id
@@ -201,29 +333,53 @@ def get_elb_pools(description: Optional[builtins.str] = None,
     __ret__ = pulumi.runtime.invoke('sbercloud:index/getElbPools:getElbPools', __args__, opts=opts, typ=GetElbPoolsResult).value
 
     return AwaitableGetElbPoolsResult(
+        any_port_enable=pulumi.get(__ret__, 'any_port_enable'),
+        connection_drain=pulumi.get(__ret__, 'connection_drain'),
         description=pulumi.get(__ret__, 'description'),
+        enterprise_project_id=pulumi.get(__ret__, 'enterprise_project_id'),
         healthmonitor_id=pulumi.get(__ret__, 'healthmonitor_id'),
         id=pulumi.get(__ret__, 'id'),
+        ip_version=pulumi.get(__ret__, 'ip_version'),
         lb_method=pulumi.get(__ret__, 'lb_method'),
         listener_id=pulumi.get(__ret__, 'listener_id'),
         loadbalancer_id=pulumi.get(__ret__, 'loadbalancer_id'),
+        member_address=pulumi.get(__ret__, 'member_address'),
+        member_deletion_protection_enable=pulumi.get(__ret__, 'member_deletion_protection_enable'),
+        member_device_id=pulumi.get(__ret__, 'member_device_id'),
+        member_instance_id=pulumi.get(__ret__, 'member_instance_id'),
         name=pulumi.get(__ret__, 'name'),
+        pool_health=pulumi.get(__ret__, 'pool_health'),
         pool_id=pulumi.get(__ret__, 'pool_id'),
         pools=pulumi.get(__ret__, 'pools'),
         protection_status=pulumi.get(__ret__, 'protection_status'),
         protocol=pulumi.get(__ret__, 'protocol'),
+        public_border_group=pulumi.get(__ret__, 'public_border_group'),
+        quic_cid_len=pulumi.get(__ret__, 'quic_cid_len'),
+        quic_cid_offset=pulumi.get(__ret__, 'quic_cid_offset'),
         region=pulumi.get(__ret__, 'region'),
         type=pulumi.get(__ret__, 'type'),
         vpc_id=pulumi.get(__ret__, 'vpc_id'))
-def get_elb_pools_output(description: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+def get_elb_pools_output(any_port_enable: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         connection_drain: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         description: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         enterprise_project_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          healthmonitor_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         ip_version: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          lb_method: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          listener_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          loadbalancer_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         member_address: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         member_deletion_protection_enable: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         member_device_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         member_instance_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         pool_health: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          pool_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          protection_status: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          protocol: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         public_border_group: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                         quic_cid_len: Optional[pulumi.Input[Optional[builtins.int]]] = None,
+                         quic_cid_offset: Optional[pulumi.Input[Optional[builtins.int]]] = None,
                          region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                          vpc_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -232,32 +388,56 @@ def get_elb_pools_output(description: Optional[pulumi.Input[Optional[builtins.st
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['anyPortEnable'] = any_port_enable
+    __args__['connectionDrain'] = connection_drain
     __args__['description'] = description
+    __args__['enterpriseProjectId'] = enterprise_project_id
     __args__['healthmonitorId'] = healthmonitor_id
+    __args__['ipVersion'] = ip_version
     __args__['lbMethod'] = lb_method
     __args__['listenerId'] = listener_id
     __args__['loadbalancerId'] = loadbalancer_id
+    __args__['memberAddress'] = member_address
+    __args__['memberDeletionProtectionEnable'] = member_deletion_protection_enable
+    __args__['memberDeviceId'] = member_device_id
+    __args__['memberInstanceId'] = member_instance_id
     __args__['name'] = name
+    __args__['poolHealth'] = pool_health
     __args__['poolId'] = pool_id
     __args__['protectionStatus'] = protection_status
     __args__['protocol'] = protocol
+    __args__['publicBorderGroup'] = public_border_group
+    __args__['quicCidLen'] = quic_cid_len
+    __args__['quicCidOffset'] = quic_cid_offset
     __args__['region'] = region
     __args__['type'] = type
     __args__['vpcId'] = vpc_id
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('sbercloud:index/getElbPools:getElbPools', __args__, opts=opts, typ=GetElbPoolsResult)
     return __ret__.apply(lambda __response__: GetElbPoolsResult(
+        any_port_enable=pulumi.get(__response__, 'any_port_enable'),
+        connection_drain=pulumi.get(__response__, 'connection_drain'),
         description=pulumi.get(__response__, 'description'),
+        enterprise_project_id=pulumi.get(__response__, 'enterprise_project_id'),
         healthmonitor_id=pulumi.get(__response__, 'healthmonitor_id'),
         id=pulumi.get(__response__, 'id'),
+        ip_version=pulumi.get(__response__, 'ip_version'),
         lb_method=pulumi.get(__response__, 'lb_method'),
         listener_id=pulumi.get(__response__, 'listener_id'),
         loadbalancer_id=pulumi.get(__response__, 'loadbalancer_id'),
+        member_address=pulumi.get(__response__, 'member_address'),
+        member_deletion_protection_enable=pulumi.get(__response__, 'member_deletion_protection_enable'),
+        member_device_id=pulumi.get(__response__, 'member_device_id'),
+        member_instance_id=pulumi.get(__response__, 'member_instance_id'),
         name=pulumi.get(__response__, 'name'),
+        pool_health=pulumi.get(__response__, 'pool_health'),
         pool_id=pulumi.get(__response__, 'pool_id'),
         pools=pulumi.get(__response__, 'pools'),
         protection_status=pulumi.get(__response__, 'protection_status'),
         protocol=pulumi.get(__response__, 'protocol'),
+        public_border_group=pulumi.get(__response__, 'public_border_group'),
+        quic_cid_len=pulumi.get(__response__, 'quic_cid_len'),
+        quic_cid_offset=pulumi.get(__response__, 'quic_cid_offset'),
         region=pulumi.get(__response__, 'region'),
         type=pulumi.get(__response__, 'type'),
         vpc_id=pulumi.get(__response__, 'vpc_id')))

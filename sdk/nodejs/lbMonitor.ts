@@ -32,8 +32,12 @@ export class LbMonitor extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbMonitor.__pulumiType;
     }
 
+    /**
+     * @deprecated tenant_id is deprecated
+     */
     public readonly adminStateUp!: pulumi.Output<boolean | undefined>;
     public readonly delay!: pulumi.Output<number>;
+    public readonly domainName!: pulumi.Output<string>;
     public readonly expectedCodes!: pulumi.Output<string>;
     public readonly httpMethod!: pulumi.Output<string>;
     public readonly maxRetries!: pulumi.Output<number>;
@@ -64,6 +68,7 @@ export class LbMonitor extends pulumi.CustomResource {
             const state = argsOrState as LbMonitorState | undefined;
             resourceInputs["adminStateUp"] = state ? state.adminStateUp : undefined;
             resourceInputs["delay"] = state ? state.delay : undefined;
+            resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["expectedCodes"] = state ? state.expectedCodes : undefined;
             resourceInputs["httpMethod"] = state ? state.httpMethod : undefined;
             resourceInputs["maxRetries"] = state ? state.maxRetries : undefined;
@@ -94,6 +99,7 @@ export class LbMonitor extends pulumi.CustomResource {
             }
             resourceInputs["adminStateUp"] = args ? args.adminStateUp : undefined;
             resourceInputs["delay"] = args ? args.delay : undefined;
+            resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["expectedCodes"] = args ? args.expectedCodes : undefined;
             resourceInputs["httpMethod"] = args ? args.httpMethod : undefined;
             resourceInputs["maxRetries"] = args ? args.maxRetries : undefined;
@@ -115,8 +121,12 @@ export class LbMonitor extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbMonitor resources.
  */
 export interface LbMonitorState {
+    /**
+     * @deprecated tenant_id is deprecated
+     */
     adminStateUp?: pulumi.Input<boolean>;
     delay?: pulumi.Input<number>;
+    domainName?: pulumi.Input<string>;
     expectedCodes?: pulumi.Input<string>;
     httpMethod?: pulumi.Input<string>;
     maxRetries?: pulumi.Input<number>;
@@ -137,8 +147,12 @@ export interface LbMonitorState {
  * The set of arguments for constructing a LbMonitor resource.
  */
 export interface LbMonitorArgs {
+    /**
+     * @deprecated tenant_id is deprecated
+     */
     adminStateUp?: pulumi.Input<boolean>;
     delay: pulumi.Input<number>;
+    domainName?: pulumi.Input<string>;
     expectedCodes?: pulumi.Input<string>;
     httpMethod?: pulumi.Input<string>;
     maxRetries: pulumi.Input<number>;

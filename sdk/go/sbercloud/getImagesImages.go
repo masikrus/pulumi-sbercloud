@@ -23,6 +23,7 @@ func GetImagesImages(ctx *pulumi.Context, args *GetImagesImagesArgs, opts ...pul
 
 // A collection of arguments for invoking getImagesImages.
 type GetImagesImagesArgs struct {
+	__supportAgentList  *string `pulumi:"__supportAgentList"`
 	Architecture        *string `pulumi:"architecture"`
 	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
 	FlavorId            *string `pulumi:"flavorId"`
@@ -43,6 +44,7 @@ type GetImagesImagesArgs struct {
 
 // A collection of values returned by getImagesImages.
 type GetImagesImagesResult struct {
+	__supportAgentList  *string `pulumi:"__supportAgentList"`
 	Architecture        *string `pulumi:"architecture"`
 	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
 	FlavorId            *string `pulumi:"flavorId"`
@@ -75,6 +77,7 @@ func GetImagesImagesOutput(ctx *pulumi.Context, args GetImagesImagesOutputArgs, 
 
 // A collection of arguments for invoking getImagesImages.
 type GetImagesImagesOutputArgs struct {
+	__supportAgentList  pulumi.StringPtrInput `pulumi:"__supportAgentList"`
 	Architecture        pulumi.StringPtrInput `pulumi:"architecture"`
 	EnterpriseProjectId pulumi.StringPtrInput `pulumi:"enterpriseProjectId"`
 	FlavorId            pulumi.StringPtrInput `pulumi:"flavorId"`
@@ -110,6 +113,10 @@ func (o GetImagesImagesResultOutput) ToGetImagesImagesResultOutput() GetImagesIm
 
 func (o GetImagesImagesResultOutput) ToGetImagesImagesResultOutputWithContext(ctx context.Context) GetImagesImagesResultOutput {
 	return o
+}
+
+func (o GetImagesImagesResultOutput) __supportAgentList() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetImagesImagesResult) *string { return v.__supportAgentList }).(pulumi.StringPtrOutput)
 }
 
 func (o GetImagesImagesResultOutput) Architecture() pulumi.StringPtrOutput {

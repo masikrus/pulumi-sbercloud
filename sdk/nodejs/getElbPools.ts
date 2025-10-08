@@ -10,15 +10,27 @@ export function getElbPools(args?: GetElbPoolsArgs, opts?: pulumi.InvokeOptions)
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("sbercloud:index/getElbPools:getElbPools", {
+        "anyPortEnable": args.anyPortEnable,
+        "connectionDrain": args.connectionDrain,
         "description": args.description,
+        "enterpriseProjectId": args.enterpriseProjectId,
         "healthmonitorId": args.healthmonitorId,
+        "ipVersion": args.ipVersion,
         "lbMethod": args.lbMethod,
         "listenerId": args.listenerId,
         "loadbalancerId": args.loadbalancerId,
+        "memberAddress": args.memberAddress,
+        "memberDeletionProtectionEnable": args.memberDeletionProtectionEnable,
+        "memberDeviceId": args.memberDeviceId,
+        "memberInstanceId": args.memberInstanceId,
         "name": args.name,
+        "poolHealth": args.poolHealth,
         "poolId": args.poolId,
         "protectionStatus": args.protectionStatus,
         "protocol": args.protocol,
+        "publicBorderGroup": args.publicBorderGroup,
+        "quicCidLen": args.quicCidLen,
+        "quicCidOffset": args.quicCidOffset,
         "region": args.region,
         "type": args.type,
         "vpcId": args.vpcId,
@@ -29,15 +41,27 @@ export function getElbPools(args?: GetElbPoolsArgs, opts?: pulumi.InvokeOptions)
  * A collection of arguments for invoking getElbPools.
  */
 export interface GetElbPoolsArgs {
+    anyPortEnable?: string;
+    connectionDrain?: string;
     description?: string;
+    enterpriseProjectId?: string;
     healthmonitorId?: string;
+    ipVersion?: string;
     lbMethod?: string;
     listenerId?: string;
     loadbalancerId?: string;
+    memberAddress?: string;
+    memberDeletionProtectionEnable?: string;
+    memberDeviceId?: string;
+    memberInstanceId?: string;
     name?: string;
+    poolHealth?: string;
     poolId?: string;
     protectionStatus?: string;
     protocol?: string;
+    publicBorderGroup?: string;
+    quicCidLen?: number;
+    quicCidOffset?: number;
     region?: string;
     type?: string;
     vpcId?: string;
@@ -47,20 +71,32 @@ export interface GetElbPoolsArgs {
  * A collection of values returned by getElbPools.
  */
 export interface GetElbPoolsResult {
+    readonly anyPortEnable?: string;
+    readonly connectionDrain?: string;
     readonly description?: string;
+    readonly enterpriseProjectId?: string;
     readonly healthmonitorId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ipVersion?: string;
     readonly lbMethod?: string;
     readonly listenerId?: string;
     readonly loadbalancerId?: string;
+    readonly memberAddress?: string;
+    readonly memberDeletionProtectionEnable?: string;
+    readonly memberDeviceId?: string;
+    readonly memberInstanceId?: string;
     readonly name?: string;
+    readonly poolHealth?: string;
     readonly poolId?: string;
     readonly pools: outputs.GetElbPoolsPool[];
     readonly protectionStatus?: string;
     readonly protocol?: string;
+    readonly publicBorderGroup?: string;
+    readonly quicCidLen?: number;
+    readonly quicCidOffset?: number;
     readonly region: string;
     readonly type?: string;
     readonly vpcId?: string;
@@ -69,15 +105,27 @@ export function getElbPoolsOutput(args?: GetElbPoolsOutputArgs, opts?: pulumi.In
     args = args || {};
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("sbercloud:index/getElbPools:getElbPools", {
+        "anyPortEnable": args.anyPortEnable,
+        "connectionDrain": args.connectionDrain,
         "description": args.description,
+        "enterpriseProjectId": args.enterpriseProjectId,
         "healthmonitorId": args.healthmonitorId,
+        "ipVersion": args.ipVersion,
         "lbMethod": args.lbMethod,
         "listenerId": args.listenerId,
         "loadbalancerId": args.loadbalancerId,
+        "memberAddress": args.memberAddress,
+        "memberDeletionProtectionEnable": args.memberDeletionProtectionEnable,
+        "memberDeviceId": args.memberDeviceId,
+        "memberInstanceId": args.memberInstanceId,
         "name": args.name,
+        "poolHealth": args.poolHealth,
         "poolId": args.poolId,
         "protectionStatus": args.protectionStatus,
         "protocol": args.protocol,
+        "publicBorderGroup": args.publicBorderGroup,
+        "quicCidLen": args.quicCidLen,
+        "quicCidOffset": args.quicCidOffset,
         "region": args.region,
         "type": args.type,
         "vpcId": args.vpcId,
@@ -88,15 +136,27 @@ export function getElbPoolsOutput(args?: GetElbPoolsOutputArgs, opts?: pulumi.In
  * A collection of arguments for invoking getElbPools.
  */
 export interface GetElbPoolsOutputArgs {
+    anyPortEnable?: pulumi.Input<string>;
+    connectionDrain?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
+    enterpriseProjectId?: pulumi.Input<string>;
     healthmonitorId?: pulumi.Input<string>;
+    ipVersion?: pulumi.Input<string>;
     lbMethod?: pulumi.Input<string>;
     listenerId?: pulumi.Input<string>;
     loadbalancerId?: pulumi.Input<string>;
+    memberAddress?: pulumi.Input<string>;
+    memberDeletionProtectionEnable?: pulumi.Input<string>;
+    memberDeviceId?: pulumi.Input<string>;
+    memberInstanceId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    poolHealth?: pulumi.Input<string>;
     poolId?: pulumi.Input<string>;
     protectionStatus?: pulumi.Input<string>;
     protocol?: pulumi.Input<string>;
+    publicBorderGroup?: pulumi.Input<string>;
+    quicCidLen?: pulumi.Input<number>;
+    quicCidOffset?: pulumi.Input<number>;
     region?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
     vpcId?: pulumi.Input<string>;

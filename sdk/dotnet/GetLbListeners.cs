@@ -24,6 +24,30 @@ namespace Pulumi.Sbercloud
 
     public sealed class GetLbListenersArgs : global::Pulumi.InvokeArgs
     {
+        [Input("clientCaTlsContainerRef")]
+        public string? ClientCaTlsContainerRef { get; set; }
+
+        [Input("defaultPoolId")]
+        public string? DefaultPoolId { get; set; }
+
+        [Input("defaultTlsContainerRef")]
+        public string? DefaultTlsContainerRef { get; set; }
+
+        [Input("description")]
+        public string? Description { get; set; }
+
+        [Input("enterpriseProjectId")]
+        public string? EnterpriseProjectId { get; set; }
+
+        [Input("http2Enable")]
+        public string? Http2Enable { get; set; }
+
+        [Input("listenerId")]
+        public string? ListenerId { get; set; }
+
+        [Input("loadbalancerId")]
+        public string? LoadbalancerId { get; set; }
+
         [Input("name")]
         public string? Name { get; set; }
 
@@ -36,6 +60,9 @@ namespace Pulumi.Sbercloud
         [Input("region")]
         public string? Region { get; set; }
 
+        [Input("tlsCiphersPolicy")]
+        public string? TlsCiphersPolicy { get; set; }
+
         public GetLbListenersArgs()
         {
         }
@@ -44,6 +71,30 @@ namespace Pulumi.Sbercloud
 
     public sealed class GetLbListenersInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("clientCaTlsContainerRef")]
+        public Input<string>? ClientCaTlsContainerRef { get; set; }
+
+        [Input("defaultPoolId")]
+        public Input<string>? DefaultPoolId { get; set; }
+
+        [Input("defaultTlsContainerRef")]
+        public Input<string>? DefaultTlsContainerRef { get; set; }
+
+        [Input("description")]
+        public Input<string>? Description { get; set; }
+
+        [Input("enterpriseProjectId")]
+        public Input<string>? EnterpriseProjectId { get; set; }
+
+        [Input("http2Enable")]
+        public Input<string>? Http2Enable { get; set; }
+
+        [Input("listenerId")]
+        public Input<string>? ListenerId { get; set; }
+
+        [Input("loadbalancerId")]
+        public Input<string>? LoadbalancerId { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -56,6 +107,9 @@ namespace Pulumi.Sbercloud
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("tlsCiphersPolicy")]
+        public Input<string>? TlsCiphersPolicy { get; set; }
+
         public GetLbListenersInvokeArgs()
         {
         }
@@ -66,21 +120,46 @@ namespace Pulumi.Sbercloud
     [OutputType]
     public sealed class GetLbListenersResult
     {
+        public readonly string? ClientCaTlsContainerRef;
+        public readonly string? DefaultPoolId;
+        public readonly string? DefaultTlsContainerRef;
+        public readonly string? Description;
+        public readonly string? EnterpriseProjectId;
+        public readonly string? Http2Enable;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? ListenerId;
         public readonly ImmutableArray<Outputs.GetLbListenersListenerResult> Listeners;
+        public readonly string? LoadbalancerId;
         public readonly string? Name;
         public readonly string? Protocol;
         public readonly string? ProtocolPort;
         public readonly string Region;
+        public readonly string? TlsCiphersPolicy;
 
         [OutputConstructor]
         private GetLbListenersResult(
+            string? clientCaTlsContainerRef,
+
+            string? defaultPoolId,
+
+            string? defaultTlsContainerRef,
+
+            string? description,
+
+            string? enterpriseProjectId,
+
+            string? http2Enable,
+
             string id,
 
+            string? listenerId,
+
             ImmutableArray<Outputs.GetLbListenersListenerResult> listeners,
+
+            string? loadbalancerId,
 
             string? name,
 
@@ -88,14 +167,25 @@ namespace Pulumi.Sbercloud
 
             string? protocolPort,
 
-            string region)
+            string region,
+
+            string? tlsCiphersPolicy)
         {
+            ClientCaTlsContainerRef = clientCaTlsContainerRef;
+            DefaultPoolId = defaultPoolId;
+            DefaultTlsContainerRef = defaultTlsContainerRef;
+            Description = description;
+            EnterpriseProjectId = enterpriseProjectId;
+            Http2Enable = http2Enable;
             Id = id;
+            ListenerId = listenerId;
             Listeners = listeners;
+            LoadbalancerId = loadbalancerId;
             Name = name;
             Protocol = protocol;
             ProtocolPort = protocolPort;
             Region = region;
+            TlsCiphersPolicy = tlsCiphersPolicy;
         }
     }
 }

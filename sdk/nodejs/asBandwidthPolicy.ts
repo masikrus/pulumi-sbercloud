@@ -35,6 +35,10 @@ export class AsBandwidthPolicy extends pulumi.CustomResource {
     }
 
     /**
+     * Specifies identification of operation the AS bandwidth policy.
+     */
+    public readonly action!: pulumi.Output<string | undefined>;
+    /**
      * Specifies the alarm rule ID.
      */
     public readonly alarmId!: pulumi.Output<string>;
@@ -47,9 +51,21 @@ export class AsBandwidthPolicy extends pulumi.CustomResource {
      */
     public readonly coolDownTime!: pulumi.Output<number>;
     /**
+     * The creation time of the bandwidth policy.
+     */
+    public /*out*/ readonly createTime!: pulumi.Output<string>;
+    /**
      * Specifies the description of the AS policy.
      */
     public readonly description!: pulumi.Output<string>;
+    /**
+     * Specifies the alarm interval of the bandwidth policy.
+     */
+    public readonly intervalAlarmActions!: pulumi.Output<outputs.AsBandwidthPolicyIntervalAlarmAction[]>;
+    /**
+     * The bandwidth policy additional information.
+     */
+    public /*out*/ readonly metaDatas!: pulumi.Output<outputs.AsBandwidthPolicyMetaData[]>;
     public readonly region!: pulumi.Output<string>;
     public readonly scalingPolicyAction!: pulumi.Output<outputs.AsBandwidthPolicyScalingPolicyAction>;
     /**
@@ -83,10 +99,14 @@ export class AsBandwidthPolicy extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as AsBandwidthPolicyState | undefined;
+            resourceInputs["action"] = state ? state.action : undefined;
             resourceInputs["alarmId"] = state ? state.alarmId : undefined;
             resourceInputs["bandwidthId"] = state ? state.bandwidthId : undefined;
             resourceInputs["coolDownTime"] = state ? state.coolDownTime : undefined;
+            resourceInputs["createTime"] = state ? state.createTime : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["intervalAlarmActions"] = state ? state.intervalAlarmActions : undefined;
+            resourceInputs["metaDatas"] = state ? state.metaDatas : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["scalingPolicyAction"] = state ? state.scalingPolicyAction : undefined;
             resourceInputs["scalingPolicyName"] = state ? state.scalingPolicyName : undefined;
@@ -105,15 +125,19 @@ export class AsBandwidthPolicy extends pulumi.CustomResource {
             if ((!args || args.scalingPolicyType === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'scalingPolicyType'");
             }
+            resourceInputs["action"] = args ? args.action : undefined;
             resourceInputs["alarmId"] = args ? args.alarmId : undefined;
             resourceInputs["bandwidthId"] = args ? args.bandwidthId : undefined;
             resourceInputs["coolDownTime"] = args ? args.coolDownTime : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["intervalAlarmActions"] = args ? args.intervalAlarmActions : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["scalingPolicyAction"] = args ? args.scalingPolicyAction : undefined;
             resourceInputs["scalingPolicyName"] = args ? args.scalingPolicyName : undefined;
             resourceInputs["scalingPolicyType"] = args ? args.scalingPolicyType : undefined;
             resourceInputs["scheduledPolicy"] = args ? args.scheduledPolicy : undefined;
+            resourceInputs["createTime"] = undefined /*out*/;
+            resourceInputs["metaDatas"] = undefined /*out*/;
             resourceInputs["scalingResourceType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
         }
@@ -127,6 +151,10 @@ export class AsBandwidthPolicy extends pulumi.CustomResource {
  */
 export interface AsBandwidthPolicyState {
     /**
+     * Specifies identification of operation the AS bandwidth policy.
+     */
+    action?: pulumi.Input<string>;
+    /**
      * Specifies the alarm rule ID.
      */
     alarmId?: pulumi.Input<string>;
@@ -139,9 +167,21 @@ export interface AsBandwidthPolicyState {
      */
     coolDownTime?: pulumi.Input<number>;
     /**
+     * The creation time of the bandwidth policy.
+     */
+    createTime?: pulumi.Input<string>;
+    /**
      * Specifies the description of the AS policy.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies the alarm interval of the bandwidth policy.
+     */
+    intervalAlarmActions?: pulumi.Input<pulumi.Input<inputs.AsBandwidthPolicyIntervalAlarmAction>[]>;
+    /**
+     * The bandwidth policy additional information.
+     */
+    metaDatas?: pulumi.Input<pulumi.Input<inputs.AsBandwidthPolicyMetaData>[]>;
     region?: pulumi.Input<string>;
     scalingPolicyAction?: pulumi.Input<inputs.AsBandwidthPolicyScalingPolicyAction>;
     /**
@@ -168,6 +208,10 @@ export interface AsBandwidthPolicyState {
  */
 export interface AsBandwidthPolicyArgs {
     /**
+     * Specifies identification of operation the AS bandwidth policy.
+     */
+    action?: pulumi.Input<string>;
+    /**
      * Specifies the alarm rule ID.
      */
     alarmId?: pulumi.Input<string>;
@@ -183,6 +227,10 @@ export interface AsBandwidthPolicyArgs {
      * Specifies the description of the AS policy.
      */
     description?: pulumi.Input<string>;
+    /**
+     * Specifies the alarm interval of the bandwidth policy.
+     */
+    intervalAlarmActions?: pulumi.Input<pulumi.Input<inputs.AsBandwidthPolicyIntervalAlarmAction>[]>;
     region?: pulumi.Input<string>;
     scalingPolicyAction?: pulumi.Input<inputs.AsBandwidthPolicyScalingPolicyAction>;
     /**

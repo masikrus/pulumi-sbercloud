@@ -15,6 +15,7 @@ namespace Pulumi.Sbercloud.Outputs
     {
         public readonly string? ClientId;
         public readonly string? ClientSecret;
+        public readonly ImmutableDictionary<string, string>? Header;
         public readonly string? Keyword;
         public readonly string? SignSecret;
 
@@ -24,12 +25,15 @@ namespace Pulumi.Sbercloud.Outputs
 
             string? clientSecret,
 
+            ImmutableDictionary<string, string>? header,
+
             string? keyword,
 
             string? signSecret)
         {
             ClientId = clientId;
             ClientSecret = clientSecret;
+            Header = header;
             Keyword = keyword;
             SignSecret = signSecret;
         }

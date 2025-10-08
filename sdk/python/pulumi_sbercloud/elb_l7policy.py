@@ -188,6 +188,7 @@ class _ElbL7policyState:
                  action: Optional[pulumi.Input[builtins.str]] = None,
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  fixed_response_config: Optional[pulumi.Input['ElbL7policyFixedResponseConfigArgs']] = None,
                  listener_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -210,6 +211,8 @@ class _ElbL7policyState:
             pulumi.set(__self__, "created_at", created_at)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enterprise_project_id is not None:
+            pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if fixed_response_config is not None:
             pulumi.set(__self__, "fixed_response_config", fixed_response_config)
         if listener_id is not None:
@@ -263,6 +266,15 @@ class _ElbL7policyState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="enterpriseProjectId")
+    def enterprise_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enterprise_project_id")
+
+    @enterprise_project_id.setter
+    def enterprise_project_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enterprise_project_id", value)
 
     @property
     @pulumi.getter(name="fixedResponseConfig")
@@ -467,6 +479,7 @@ class ElbL7policy(pulumi.CustomResource):
             __props__.__dict__["redirect_url_config"] = redirect_url_config
             __props__.__dict__["region"] = region
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["enterprise_project_id"] = None
             __props__.__dict__["provisioning_status"] = None
             __props__.__dict__["updated_at"] = None
         super(ElbL7policy, __self__).__init__(
@@ -482,6 +495,7 @@ class ElbL7policy(pulumi.CustomResource):
             action: Optional[pulumi.Input[builtins.str]] = None,
             created_at: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             fixed_response_config: Optional[pulumi.Input[Union['ElbL7policyFixedResponseConfigArgs', 'ElbL7policyFixedResponseConfigArgsDict']]] = None,
             listener_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
@@ -510,6 +524,7 @@ class ElbL7policy(pulumi.CustomResource):
         __props__.__dict__["action"] = action
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["description"] = description
+        __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["fixed_response_config"] = fixed_response_config
         __props__.__dict__["listener_id"] = listener_id
         __props__.__dict__["name"] = name
@@ -539,6 +554,11 @@ class ElbL7policy(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enterpriseProjectId")
+    def enterprise_project_id(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "enterprise_project_id")
 
     @property
     @pulumi.getter(name="fixedResponseConfig")

@@ -18,6 +18,9 @@ namespace Pulumi.Sbercloud
         [Output("analysisTaskNodes")]
         public Output<Outputs.MapreduceClusterAnalysisTaskNodes?> AnalysisTaskNodes { get; private set; } = null!;
 
+        [Output("autoRenew")]
+        public Output<string?> AutoRenew { get; private set; } = null!;
+
         [Output("availabilityZone")]
         public Output<string> AvailabilityZone { get; private set; } = null!;
 
@@ -186,6 +189,9 @@ namespace Pulumi.Sbercloud
         [Input("analysisTaskNodes")]
         public Input<Inputs.MapreduceClusterAnalysisTaskNodesArgs>? AnalysisTaskNodes { get; set; }
 
+        [Input("autoRenew")]
+        public Input<string>? AutoRenew { get; set; }
+
         [Input("availabilityZone", required: true)]
         public Input<string> AvailabilityZone { get; set; } = null!;
 
@@ -342,6 +348,9 @@ namespace Pulumi.Sbercloud
 
         [Input("analysisTaskNodes")]
         public Input<Inputs.MapreduceClusterAnalysisTaskNodesGetArgs>? AnalysisTaskNodes { get; set; }
+
+        [Input("autoRenew")]
+        public Input<string>? AutoRenew { get; set; }
 
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }

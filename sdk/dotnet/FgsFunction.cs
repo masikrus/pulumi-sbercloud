@@ -31,6 +31,12 @@ namespace Pulumi.Sbercloud
         public Output<string> AppAgency { get; private set; } = null!;
 
         /// <summary>
+        /// The KMS key ID for encrypting the function code.
+        /// </summary>
+        [Output("codeEncryptKmsKeyId")]
+        public Output<string?> CodeEncryptKmsKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the function file.
         /// </summary>
         [Output("codeFilename")]
@@ -95,6 +101,12 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Output("enableDynamicMemory")]
         public Output<bool?> EnableDynamicMemory { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether to enable the LTS log.
+        /// </summary>
+        [Output("enableLtsLog")]
+        public Output<bool?> EnableLtsLog { get; private set; } = null!;
 
         /// <summary>
         /// The key/value information defined to be encrypted for the function.
@@ -197,6 +209,19 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Output("logStreamName")]
         public Output<string> LogStreamName { get; private set; } = null!;
+
+        /// <summary>
+        /// The custom tags configuration that used to filter the LTS logs.
+        /// </summary>
+        [Output("ltsCustomTag")]
+        public Output<ImmutableDictionary<string, string>?> LtsCustomTag { get; private set; } = null!;
+
+        /// <summary>
+        /// The script configuration value of this change is also the original value used for comparison with the new value next
+        /// time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+        /// </summary>
+        [Output("ltsCustomTagOrigin")]
+        public Output<ImmutableDictionary<string, string>> LtsCustomTagOrigin { get; private set; } = null!;
 
         /// <summary>
         /// The maximum number of instances of the function.
@@ -317,6 +342,12 @@ namespace Pulumi.Sbercloud
         public Output<string?> UserData { get; private set; } = null!;
 
         /// <summary>
+        /// The KMS key ID for encrypting the user data.
+        /// </summary>
+        [Output("userDataEncryptKmsKeyId")]
+        public Output<string?> UserDataEncryptKmsKeyId { get; private set; } = null!;
+
+        /// <summary>
         /// The version of the function.
         /// </summary>
         [Output("version")]
@@ -406,6 +437,12 @@ namespace Pulumi.Sbercloud
         public Input<string>? AppAgency { get; set; }
 
         /// <summary>
+        /// The KMS key ID for encrypting the function code.
+        /// </summary>
+        [Input("codeEncryptKmsKeyId")]
+        public Input<string>? CodeEncryptKmsKeyId { get; set; }
+
+        /// <summary>
         /// The name of the function file.
         /// </summary>
         [Input("codeFilename")]
@@ -476,6 +513,12 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Input("enableDynamicMemory")]
         public Input<bool>? EnableDynamicMemory { get; set; }
+
+        /// <summary>
+        /// Whether to enable the LTS log.
+        /// </summary>
+        [Input("enableLtsLog")]
+        public Input<bool>? EnableLtsLog { get; set; }
 
         [Input("encryptedUserData")]
         private Input<string>? _encryptedUserData;
@@ -594,6 +637,18 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Input("logStreamName")]
         public Input<string>? LogStreamName { get; set; }
+
+        [Input("ltsCustomTag")]
+        private InputMap<string>? _ltsCustomTag;
+
+        /// <summary>
+        /// The custom tags configuration that used to filter the LTS logs.
+        /// </summary>
+        public InputMap<string> LtsCustomTag
+        {
+            get => _ltsCustomTag ?? (_ltsCustomTag = new InputMap<string>());
+            set => _ltsCustomTag = value;
+        }
 
         /// <summary>
         /// The maximum number of instances of the function.
@@ -719,6 +774,12 @@ namespace Pulumi.Sbercloud
         [Input("userData")]
         public Input<string>? UserData { get; set; }
 
+        /// <summary>
+        /// The KMS key ID for encrypting the user data.
+        /// </summary>
+        [Input("userDataEncryptKmsKeyId")]
+        public Input<string>? UserDataEncryptKmsKeyId { get; set; }
+
         [Input("versions")]
         private InputList<Inputs.FgsFunctionVersionArgs>? _versions;
 
@@ -765,6 +826,12 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Input("appAgency")]
         public Input<string>? AppAgency { get; set; }
+
+        /// <summary>
+        /// The KMS key ID for encrypting the function code.
+        /// </summary>
+        [Input("codeEncryptKmsKeyId")]
+        public Input<string>? CodeEncryptKmsKeyId { get; set; }
 
         /// <summary>
         /// The name of the function file.
@@ -837,6 +904,12 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Input("enableDynamicMemory")]
         public Input<bool>? EnableDynamicMemory { get; set; }
+
+        /// <summary>
+        /// Whether to enable the LTS log.
+        /// </summary>
+        [Input("enableLtsLog")]
+        public Input<bool>? EnableLtsLog { get; set; }
 
         [Input("encryptedUserData")]
         private Input<string>? _encryptedUserData;
@@ -955,6 +1028,31 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Input("logStreamName")]
         public Input<string>? LogStreamName { get; set; }
+
+        [Input("ltsCustomTag")]
+        private InputMap<string>? _ltsCustomTag;
+
+        /// <summary>
+        /// The custom tags configuration that used to filter the LTS logs.
+        /// </summary>
+        public InputMap<string> LtsCustomTag
+        {
+            get => _ltsCustomTag ?? (_ltsCustomTag = new InputMap<string>());
+            set => _ltsCustomTag = value;
+        }
+
+        [Input("ltsCustomTagOrigin")]
+        private InputMap<string>? _ltsCustomTagOrigin;
+
+        /// <summary>
+        /// The script configuration value of this change is also the original value used for comparison with the new value next
+        /// time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+        /// </summary>
+        public InputMap<string> LtsCustomTagOrigin
+        {
+            get => _ltsCustomTagOrigin ?? (_ltsCustomTagOrigin = new InputMap<string>());
+            set => _ltsCustomTagOrigin = value;
+        }
 
         /// <summary>
         /// The maximum number of instances of the function.
@@ -1085,6 +1183,12 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Input("userData")]
         public Input<string>? UserData { get; set; }
+
+        /// <summary>
+        /// The KMS key ID for encrypting the user data.
+        /// </summary>
+        [Input("userDataEncryptKmsKeyId")]
+        public Input<string>? UserDataEncryptKmsKeyId { get; set; }
 
         /// <summary>
         /// The version of the function.

@@ -18,6 +18,7 @@ type AsPolicy struct {
 	Action              pulumi.StringOutput               `pulumi:"action"`
 	AlarmId             pulumi.StringPtrOutput            `pulumi:"alarmId"`
 	CoolDownTime        pulumi.IntOutput                  `pulumi:"coolDownTime"`
+	CreateTime          pulumi.StringOutput               `pulumi:"createTime"`
 	Region              pulumi.StringOutput               `pulumi:"region"`
 	ScalingGroupId      pulumi.StringOutput               `pulumi:"scalingGroupId"`
 	ScalingPolicyAction AsPolicyScalingPolicyActionOutput `pulumi:"scalingPolicyAction"`
@@ -69,6 +70,7 @@ type asPolicyState struct {
 	Action              *string                      `pulumi:"action"`
 	AlarmId             *string                      `pulumi:"alarmId"`
 	CoolDownTime        *int                         `pulumi:"coolDownTime"`
+	CreateTime          *string                      `pulumi:"createTime"`
 	Region              *string                      `pulumi:"region"`
 	ScalingGroupId      *string                      `pulumi:"scalingGroupId"`
 	ScalingPolicyAction *AsPolicyScalingPolicyAction `pulumi:"scalingPolicyAction"`
@@ -82,6 +84,7 @@ type AsPolicyState struct {
 	Action              pulumi.StringPtrInput
 	AlarmId             pulumi.StringPtrInput
 	CoolDownTime        pulumi.IntPtrInput
+	CreateTime          pulumi.StringPtrInput
 	Region              pulumi.StringPtrInput
 	ScalingGroupId      pulumi.StringPtrInput
 	ScalingPolicyAction AsPolicyScalingPolicyActionPtrInput
@@ -217,6 +220,10 @@ func (o AsPolicyOutput) AlarmId() pulumi.StringPtrOutput {
 
 func (o AsPolicyOutput) CoolDownTime() pulumi.IntOutput {
 	return o.ApplyT(func(v *AsPolicy) pulumi.IntOutput { return v.CoolDownTime }).(pulumi.IntOutput)
+}
+
+func (o AsPolicyOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AsPolicy) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
 func (o AsPolicyOutput) Region() pulumi.StringOutput {

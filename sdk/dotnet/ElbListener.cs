@@ -21,6 +21,9 @@ namespace Pulumi.Sbercloud
         [Output("caCertificate")]
         public Output<string?> CaCertificate { get; private set; } = null!;
 
+        [Output("cps")]
+        public Output<int> Cps { get; private set; } = null!;
+
         [Output("createdAt")]
         public Output<string> CreatedAt { get; private set; } = null!;
 
@@ -32,6 +35,12 @@ namespace Pulumi.Sbercloud
 
         [Output("enableMemberRetry")]
         public Output<bool> EnableMemberRetry { get; private set; } = null!;
+
+        [Output("enableQuicUpgrade")]
+        public Output<string?> EnableQuicUpgrade { get; private set; } = null!;
+
+        [Output("enterpriseProjectId")]
+        public Output<string> EnterpriseProjectId { get; private set; } = null!;
 
         [Output("forceDelete")]
         public Output<bool?> ForceDelete { get; private set; } = null!;
@@ -75,8 +84,14 @@ namespace Pulumi.Sbercloud
         [Output("ipGroup")]
         public Output<string?> IpGroup { get; private set; } = null!;
 
+        [Output("ipGroupEnable")]
+        public Output<string> IpGroupEnable { get; private set; } = null!;
+
         [Output("loadbalancerId")]
         public Output<string> LoadbalancerId { get; private set; } = null!;
+
+        [Output("maxConnection")]
+        public Output<int> MaxConnection { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -193,6 +208,9 @@ namespace Pulumi.Sbercloud
         [Input("caCertificate")]
         public Input<string>? CaCertificate { get; set; }
 
+        [Input("cps")]
+        public Input<int>? Cps { get; set; }
+
         [Input("defaultPoolId")]
         public Input<string>? DefaultPoolId { get; set; }
 
@@ -201,6 +219,9 @@ namespace Pulumi.Sbercloud
 
         [Input("enableMemberRetry")]
         public Input<bool>? EnableMemberRetry { get; set; }
+
+        [Input("enableQuicUpgrade")]
+        public Input<string>? EnableQuicUpgrade { get; set; }
 
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -244,8 +265,14 @@ namespace Pulumi.Sbercloud
         [Input("ipGroup")]
         public Input<string>? IpGroup { get; set; }
 
+        [Input("ipGroupEnable")]
+        public Input<string>? IpGroupEnable { get; set; }
+
         [Input("loadbalancerId", required: true)]
         public Input<string> LoadbalancerId { get; set; } = null!;
+
+        [Input("maxConnection")]
+        public Input<int>? MaxConnection { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -336,6 +363,9 @@ namespace Pulumi.Sbercloud
         [Input("caCertificate")]
         public Input<string>? CaCertificate { get; set; }
 
+        [Input("cps")]
+        public Input<int>? Cps { get; set; }
+
         [Input("createdAt")]
         public Input<string>? CreatedAt { get; set; }
 
@@ -347,6 +377,12 @@ namespace Pulumi.Sbercloud
 
         [Input("enableMemberRetry")]
         public Input<bool>? EnableMemberRetry { get; set; }
+
+        [Input("enableQuicUpgrade")]
+        public Input<string>? EnableQuicUpgrade { get; set; }
+
+        [Input("enterpriseProjectId")]
+        public Input<string>? EnterpriseProjectId { get; set; }
 
         [Input("forceDelete")]
         public Input<bool>? ForceDelete { get; set; }
@@ -390,8 +426,14 @@ namespace Pulumi.Sbercloud
         [Input("ipGroup")]
         public Input<string>? IpGroup { get; set; }
 
+        [Input("ipGroupEnable")]
+        public Input<string>? IpGroupEnable { get; set; }
+
         [Input("loadbalancerId")]
         public Input<string>? LoadbalancerId { get; set; }
+
+        [Input("maxConnection")]
+        public Input<int>? MaxConnection { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }

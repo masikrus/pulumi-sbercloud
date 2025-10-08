@@ -30,6 +30,12 @@ namespace Pulumi.Sbercloud
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("enableForceNew")]
+        public Output<string?> EnableForceNew { get; private set; } = null!;
+
+        [Output("enterpriseProjectId")]
+        public Output<string> EnterpriseProjectId { get; private set; } = null!;
+
         [Output("ipVersion")]
         public Output<string> IpVersion { get; private set; } = null!;
 
@@ -62,6 +68,9 @@ namespace Pulumi.Sbercloud
 
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
+
+        [Output("publicBorderGroup")]
+        public Output<string> PublicBorderGroup { get; private set; } = null!;
 
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -142,6 +151,9 @@ namespace Pulumi.Sbercloud
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("enableForceNew")]
+        public Input<string>? EnableForceNew { get; set; }
+
         [Input("ipVersion")]
         public Input<string>? IpVersion { get; set; }
 
@@ -171,6 +183,9 @@ namespace Pulumi.Sbercloud
 
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
+
+        [Input("publicBorderGroup")]
+        public Input<string>? PublicBorderGroup { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -213,6 +228,12 @@ namespace Pulumi.Sbercloud
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("enableForceNew")]
+        public Input<string>? EnableForceNew { get; set; }
+
+        [Input("enterpriseProjectId")]
+        public Input<string>? EnterpriseProjectId { get; set; }
+
         [Input("ipVersion")]
         public Input<string>? IpVersion { get; set; }
 
@@ -245,6 +266,9 @@ namespace Pulumi.Sbercloud
 
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        [Input("publicBorderGroup")]
+        public Input<string>? PublicBorderGroup { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }

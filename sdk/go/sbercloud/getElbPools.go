@@ -23,37 +23,61 @@ func GetElbPools(ctx *pulumi.Context, args *GetElbPoolsArgs, opts ...pulumi.Invo
 
 // A collection of arguments for invoking getElbPools.
 type GetElbPoolsArgs struct {
-	Description      *string `pulumi:"description"`
-	HealthmonitorId  *string `pulumi:"healthmonitorId"`
-	LbMethod         *string `pulumi:"lbMethod"`
-	ListenerId       *string `pulumi:"listenerId"`
-	LoadbalancerId   *string `pulumi:"loadbalancerId"`
-	Name             *string `pulumi:"name"`
-	PoolId           *string `pulumi:"poolId"`
-	ProtectionStatus *string `pulumi:"protectionStatus"`
-	Protocol         *string `pulumi:"protocol"`
-	Region           *string `pulumi:"region"`
-	Type             *string `pulumi:"type"`
-	VpcId            *string `pulumi:"vpcId"`
+	AnyPortEnable                  *string `pulumi:"anyPortEnable"`
+	ConnectionDrain                *string `pulumi:"connectionDrain"`
+	Description                    *string `pulumi:"description"`
+	EnterpriseProjectId            *string `pulumi:"enterpriseProjectId"`
+	HealthmonitorId                *string `pulumi:"healthmonitorId"`
+	IpVersion                      *string `pulumi:"ipVersion"`
+	LbMethod                       *string `pulumi:"lbMethod"`
+	ListenerId                     *string `pulumi:"listenerId"`
+	LoadbalancerId                 *string `pulumi:"loadbalancerId"`
+	MemberAddress                  *string `pulumi:"memberAddress"`
+	MemberDeletionProtectionEnable *string `pulumi:"memberDeletionProtectionEnable"`
+	MemberDeviceId                 *string `pulumi:"memberDeviceId"`
+	MemberInstanceId               *string `pulumi:"memberInstanceId"`
+	Name                           *string `pulumi:"name"`
+	PoolHealth                     *string `pulumi:"poolHealth"`
+	PoolId                         *string `pulumi:"poolId"`
+	ProtectionStatus               *string `pulumi:"protectionStatus"`
+	Protocol                       *string `pulumi:"protocol"`
+	PublicBorderGroup              *string `pulumi:"publicBorderGroup"`
+	QuicCidLen                     *int    `pulumi:"quicCidLen"`
+	QuicCidOffset                  *int    `pulumi:"quicCidOffset"`
+	Region                         *string `pulumi:"region"`
+	Type                           *string `pulumi:"type"`
+	VpcId                          *string `pulumi:"vpcId"`
 }
 
 // A collection of values returned by getElbPools.
 type GetElbPoolsResult struct {
-	Description     *string `pulumi:"description"`
-	HealthmonitorId *string `pulumi:"healthmonitorId"`
+	AnyPortEnable       *string `pulumi:"anyPortEnable"`
+	ConnectionDrain     *string `pulumi:"connectionDrain"`
+	Description         *string `pulumi:"description"`
+	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
+	HealthmonitorId     *string `pulumi:"healthmonitorId"`
 	// The provider-assigned unique ID for this managed resource.
-	Id               string            `pulumi:"id"`
-	LbMethod         *string           `pulumi:"lbMethod"`
-	ListenerId       *string           `pulumi:"listenerId"`
-	LoadbalancerId   *string           `pulumi:"loadbalancerId"`
-	Name             *string           `pulumi:"name"`
-	PoolId           *string           `pulumi:"poolId"`
-	Pools            []GetElbPoolsPool `pulumi:"pools"`
-	ProtectionStatus *string           `pulumi:"protectionStatus"`
-	Protocol         *string           `pulumi:"protocol"`
-	Region           string            `pulumi:"region"`
-	Type             *string           `pulumi:"type"`
-	VpcId            *string           `pulumi:"vpcId"`
+	Id                             string            `pulumi:"id"`
+	IpVersion                      *string           `pulumi:"ipVersion"`
+	LbMethod                       *string           `pulumi:"lbMethod"`
+	ListenerId                     *string           `pulumi:"listenerId"`
+	LoadbalancerId                 *string           `pulumi:"loadbalancerId"`
+	MemberAddress                  *string           `pulumi:"memberAddress"`
+	MemberDeletionProtectionEnable *string           `pulumi:"memberDeletionProtectionEnable"`
+	MemberDeviceId                 *string           `pulumi:"memberDeviceId"`
+	MemberInstanceId               *string           `pulumi:"memberInstanceId"`
+	Name                           *string           `pulumi:"name"`
+	PoolHealth                     *string           `pulumi:"poolHealth"`
+	PoolId                         *string           `pulumi:"poolId"`
+	Pools                          []GetElbPoolsPool `pulumi:"pools"`
+	ProtectionStatus               *string           `pulumi:"protectionStatus"`
+	Protocol                       *string           `pulumi:"protocol"`
+	PublicBorderGroup              *string           `pulumi:"publicBorderGroup"`
+	QuicCidLen                     *int              `pulumi:"quicCidLen"`
+	QuicCidOffset                  *int              `pulumi:"quicCidOffset"`
+	Region                         string            `pulumi:"region"`
+	Type                           *string           `pulumi:"type"`
+	VpcId                          *string           `pulumi:"vpcId"`
 }
 
 func GetElbPoolsOutput(ctx *pulumi.Context, args GetElbPoolsOutputArgs, opts ...pulumi.InvokeOption) GetElbPoolsResultOutput {
@@ -67,18 +91,30 @@ func GetElbPoolsOutput(ctx *pulumi.Context, args GetElbPoolsOutputArgs, opts ...
 
 // A collection of arguments for invoking getElbPools.
 type GetElbPoolsOutputArgs struct {
-	Description      pulumi.StringPtrInput `pulumi:"description"`
-	HealthmonitorId  pulumi.StringPtrInput `pulumi:"healthmonitorId"`
-	LbMethod         pulumi.StringPtrInput `pulumi:"lbMethod"`
-	ListenerId       pulumi.StringPtrInput `pulumi:"listenerId"`
-	LoadbalancerId   pulumi.StringPtrInput `pulumi:"loadbalancerId"`
-	Name             pulumi.StringPtrInput `pulumi:"name"`
-	PoolId           pulumi.StringPtrInput `pulumi:"poolId"`
-	ProtectionStatus pulumi.StringPtrInput `pulumi:"protectionStatus"`
-	Protocol         pulumi.StringPtrInput `pulumi:"protocol"`
-	Region           pulumi.StringPtrInput `pulumi:"region"`
-	Type             pulumi.StringPtrInput `pulumi:"type"`
-	VpcId            pulumi.StringPtrInput `pulumi:"vpcId"`
+	AnyPortEnable                  pulumi.StringPtrInput `pulumi:"anyPortEnable"`
+	ConnectionDrain                pulumi.StringPtrInput `pulumi:"connectionDrain"`
+	Description                    pulumi.StringPtrInput `pulumi:"description"`
+	EnterpriseProjectId            pulumi.StringPtrInput `pulumi:"enterpriseProjectId"`
+	HealthmonitorId                pulumi.StringPtrInput `pulumi:"healthmonitorId"`
+	IpVersion                      pulumi.StringPtrInput `pulumi:"ipVersion"`
+	LbMethod                       pulumi.StringPtrInput `pulumi:"lbMethod"`
+	ListenerId                     pulumi.StringPtrInput `pulumi:"listenerId"`
+	LoadbalancerId                 pulumi.StringPtrInput `pulumi:"loadbalancerId"`
+	MemberAddress                  pulumi.StringPtrInput `pulumi:"memberAddress"`
+	MemberDeletionProtectionEnable pulumi.StringPtrInput `pulumi:"memberDeletionProtectionEnable"`
+	MemberDeviceId                 pulumi.StringPtrInput `pulumi:"memberDeviceId"`
+	MemberInstanceId               pulumi.StringPtrInput `pulumi:"memberInstanceId"`
+	Name                           pulumi.StringPtrInput `pulumi:"name"`
+	PoolHealth                     pulumi.StringPtrInput `pulumi:"poolHealth"`
+	PoolId                         pulumi.StringPtrInput `pulumi:"poolId"`
+	ProtectionStatus               pulumi.StringPtrInput `pulumi:"protectionStatus"`
+	Protocol                       pulumi.StringPtrInput `pulumi:"protocol"`
+	PublicBorderGroup              pulumi.StringPtrInput `pulumi:"publicBorderGroup"`
+	QuicCidLen                     pulumi.IntPtrInput    `pulumi:"quicCidLen"`
+	QuicCidOffset                  pulumi.IntPtrInput    `pulumi:"quicCidOffset"`
+	Region                         pulumi.StringPtrInput `pulumi:"region"`
+	Type                           pulumi.StringPtrInput `pulumi:"type"`
+	VpcId                          pulumi.StringPtrInput `pulumi:"vpcId"`
 }
 
 func (GetElbPoolsOutputArgs) ElementType() reflect.Type {
@@ -100,8 +136,20 @@ func (o GetElbPoolsResultOutput) ToGetElbPoolsResultOutputWithContext(ctx contex
 	return o
 }
 
+func (o GetElbPoolsResultOutput) AnyPortEnable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.AnyPortEnable }).(pulumi.StringPtrOutput)
+}
+
+func (o GetElbPoolsResultOutput) ConnectionDrain() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.ConnectionDrain }).(pulumi.StringPtrOutput)
+}
+
 func (o GetElbPoolsResultOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GetElbPoolsResultOutput) EnterpriseProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.EnterpriseProjectId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetElbPoolsResultOutput) HealthmonitorId() pulumi.StringPtrOutput {
@@ -111,6 +159,10 @@ func (o GetElbPoolsResultOutput) HealthmonitorId() pulumi.StringPtrOutput {
 // The provider-assigned unique ID for this managed resource.
 func (o GetElbPoolsResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElbPoolsResult) string { return v.Id }).(pulumi.StringOutput)
+}
+
+func (o GetElbPoolsResultOutput) IpVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.IpVersion }).(pulumi.StringPtrOutput)
 }
 
 func (o GetElbPoolsResultOutput) LbMethod() pulumi.StringPtrOutput {
@@ -125,8 +177,28 @@ func (o GetElbPoolsResultOutput) LoadbalancerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.LoadbalancerId }).(pulumi.StringPtrOutput)
 }
 
+func (o GetElbPoolsResultOutput) MemberAddress() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.MemberAddress }).(pulumi.StringPtrOutput)
+}
+
+func (o GetElbPoolsResultOutput) MemberDeletionProtectionEnable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.MemberDeletionProtectionEnable }).(pulumi.StringPtrOutput)
+}
+
+func (o GetElbPoolsResultOutput) MemberDeviceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.MemberDeviceId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetElbPoolsResultOutput) MemberInstanceId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.MemberInstanceId }).(pulumi.StringPtrOutput)
+}
+
 func (o GetElbPoolsResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
+}
+
+func (o GetElbPoolsResultOutput) PoolHealth() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.PoolHealth }).(pulumi.StringPtrOutput)
 }
 
 func (o GetElbPoolsResultOutput) PoolId() pulumi.StringPtrOutput {
@@ -143,6 +215,18 @@ func (o GetElbPoolsResultOutput) ProtectionStatus() pulumi.StringPtrOutput {
 
 func (o GetElbPoolsResultOutput) Protocol() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.Protocol }).(pulumi.StringPtrOutput)
+}
+
+func (o GetElbPoolsResultOutput) PublicBorderGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *string { return v.PublicBorderGroup }).(pulumi.StringPtrOutput)
+}
+
+func (o GetElbPoolsResultOutput) QuicCidLen() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *int { return v.QuicCidLen }).(pulumi.IntPtrOutput)
+}
+
+func (o GetElbPoolsResultOutput) QuicCidOffset() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetElbPoolsResult) *int { return v.QuicCidOffset }).(pulumi.IntPtrOutput)
 }
 
 func (o GetElbPoolsResultOutput) Region() pulumi.StringOutput {

@@ -15,21 +15,54 @@ import (
 type CssCluster struct {
 	pulumi.CustomResourceState
 
-	BackupStrategy      CssClusterBackupStrategyPtrOutput `pulumi:"backupStrategy"`
-	Created             pulumi.StringOutput               `pulumi:"created"`
-	Endpoint            pulumi.StringOutput               `pulumi:"endpoint"`
-	EngineType          pulumi.StringPtrOutput            `pulumi:"engineType"`
-	EngineVersion       pulumi.StringOutput               `pulumi:"engineVersion"`
-	EnterpriseProjectId pulumi.StringOutput               `pulumi:"enterpriseProjectId"`
-	ExpectNodeNum       pulumi.IntPtrOutput               `pulumi:"expectNodeNum"`
-	Name                pulumi.StringOutput               `pulumi:"name"`
-	NodeConfig          CssClusterNodeConfigOutput        `pulumi:"nodeConfig"`
-	Nodes               CssClusterNodeArrayOutput         `pulumi:"nodes"`
-	Password            pulumi.StringPtrOutput            `pulumi:"password"`
-	Region              pulumi.StringOutput               `pulumi:"region"`
-	SecurityMode        pulumi.BoolPtrOutput              `pulumi:"securityMode"`
-	Status              pulumi.StringOutput               `pulumi:"status"`
-	Tags                pulumi.StringMapOutput            `pulumi:"tags"`
+	AutoRenew pulumi.StringPtrOutput `pulumi:"autoRenew"`
+	// schema: Required
+	AvailabilityZone    pulumi.StringOutput                 `pulumi:"availabilityZone"`
+	BackupAvailable     pulumi.BoolOutput                   `pulumi:"backupAvailable"`
+	BackupStrategy      CssClusterBackupStrategyPtrOutput   `pulumi:"backupStrategy"`
+	BandwidthResourceId pulumi.StringOutput                 `pulumi:"bandwidthResourceId"`
+	ChargingMode        pulumi.StringOutput                 `pulumi:"chargingMode"`
+	ClientNodeConfig    CssClusterClientNodeConfigPtrOutput `pulumi:"clientNodeConfig"`
+	ColdNodeConfig      CssClusterColdNodeConfigPtrOutput   `pulumi:"coldNodeConfig"`
+	// schema: Deprecated; use createdAt instead
+	Created             pulumi.StringOutput    `pulumi:"created"`
+	CreatedAt           pulumi.StringOutput    `pulumi:"createdAt"`
+	DiskEncrypted       pulumi.BoolOutput      `pulumi:"diskEncrypted"`
+	EnableForceNew      pulumi.StringPtrOutput `pulumi:"enableForceNew"`
+	Endpoint            pulumi.StringOutput    `pulumi:"endpoint"`
+	EngineType          pulumi.StringPtrOutput `pulumi:"engineType"`
+	EngineVersion       pulumi.StringOutput    `pulumi:"engineVersion"`
+	EnterpriseProjectId pulumi.StringOutput    `pulumi:"enterpriseProjectId"`
+	// schema: Required
+	EssNodeConfig CssClusterEssNodeConfigOutput `pulumi:"essNodeConfig"`
+	// Deprecated: please use ess_node_config.instance_number instead
+	ExpectNodeNum      pulumi.IntOutput                      `pulumi:"expectNodeNum"`
+	HttpsEnabled       pulumi.BoolOutput                     `pulumi:"httpsEnabled"`
+	IsPeriod           pulumi.BoolOutput                     `pulumi:"isPeriod"`
+	KibanaPublicAccess CssClusterKibanaPublicAccessPtrOutput `pulumi:"kibanaPublicAccess"`
+	MasterNodeConfig   CssClusterMasterNodeConfigPtrOutput   `pulumi:"masterNodeConfig"`
+	Name               pulumi.StringOutput                   `pulumi:"name"`
+	// Deprecated: please use essNodeConfig instead
+	NodeConfig   CssClusterNodeConfigOutput      `pulumi:"nodeConfig"`
+	Nodes        CssClusterNodeArrayOutput       `pulumi:"nodes"`
+	Password     pulumi.StringPtrOutput          `pulumi:"password"`
+	Period       pulumi.IntPtrOutput             `pulumi:"period"`
+	PeriodUnit   pulumi.StringPtrOutput          `pulumi:"periodUnit"`
+	PublicAccess CssClusterPublicAccessPtrOutput `pulumi:"publicAccess"`
+	Region       pulumi.StringOutput             `pulumi:"region"`
+	// schema: Required
+	SecurityGroupId pulumi.StringOutput  `pulumi:"securityGroupId"`
+	SecurityMode    pulumi.BoolPtrOutput `pulumi:"securityMode"`
+	Status          pulumi.StringOutput  `pulumi:"status"`
+	// schema: Required
+	SubnetId  pulumi.StringOutput    `pulumi:"subnetId"`
+	Tags      pulumi.StringMapOutput `pulumi:"tags"`
+	UpdatedAt pulumi.StringOutput    `pulumi:"updatedAt"`
+	// schema: Required
+	VpcId           pulumi.StringOutput              `pulumi:"vpcId"`
+	VpcepEndpoint   CssClusterVpcepEndpointPtrOutput `pulumi:"vpcepEndpoint"`
+	VpcepEndpointId pulumi.StringOutput              `pulumi:"vpcepEndpointId"`
+	VpcepIp         pulumi.StringOutput              `pulumi:"vpcepIp"`
 }
 
 // NewCssCluster registers a new resource with the given unique name, arguments, and options.
@@ -41,9 +74,6 @@ func NewCssCluster(ctx *pulumi.Context,
 
 	if args.EngineVersion == nil {
 		return nil, errors.New("invalid value for required argument 'EngineVersion'")
-	}
-	if args.NodeConfig == nil {
-		return nil, errors.New("invalid value for required argument 'NodeConfig'")
 	}
 	if args.Password != nil {
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
@@ -75,39 +105,105 @@ func GetCssCluster(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering CssCluster resources.
 type cssClusterState struct {
-	BackupStrategy      *CssClusterBackupStrategy `pulumi:"backupStrategy"`
-	Created             *string                   `pulumi:"created"`
-	Endpoint            *string                   `pulumi:"endpoint"`
-	EngineType          *string                   `pulumi:"engineType"`
-	EngineVersion       *string                   `pulumi:"engineVersion"`
-	EnterpriseProjectId *string                   `pulumi:"enterpriseProjectId"`
-	ExpectNodeNum       *int                      `pulumi:"expectNodeNum"`
-	Name                *string                   `pulumi:"name"`
-	NodeConfig          *CssClusterNodeConfig     `pulumi:"nodeConfig"`
-	Nodes               []CssClusterNode          `pulumi:"nodes"`
-	Password            *string                   `pulumi:"password"`
-	Region              *string                   `pulumi:"region"`
-	SecurityMode        *bool                     `pulumi:"securityMode"`
-	Status              *string                   `pulumi:"status"`
-	Tags                map[string]string         `pulumi:"tags"`
+	AutoRenew *string `pulumi:"autoRenew"`
+	// schema: Required
+	AvailabilityZone    *string                     `pulumi:"availabilityZone"`
+	BackupAvailable     *bool                       `pulumi:"backupAvailable"`
+	BackupStrategy      *CssClusterBackupStrategy   `pulumi:"backupStrategy"`
+	BandwidthResourceId *string                     `pulumi:"bandwidthResourceId"`
+	ChargingMode        *string                     `pulumi:"chargingMode"`
+	ClientNodeConfig    *CssClusterClientNodeConfig `pulumi:"clientNodeConfig"`
+	ColdNodeConfig      *CssClusterColdNodeConfig   `pulumi:"coldNodeConfig"`
+	// schema: Deprecated; use createdAt instead
+	Created             *string `pulumi:"created"`
+	CreatedAt           *string `pulumi:"createdAt"`
+	DiskEncrypted       *bool   `pulumi:"diskEncrypted"`
+	EnableForceNew      *string `pulumi:"enableForceNew"`
+	Endpoint            *string `pulumi:"endpoint"`
+	EngineType          *string `pulumi:"engineType"`
+	EngineVersion       *string `pulumi:"engineVersion"`
+	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
+	// schema: Required
+	EssNodeConfig *CssClusterEssNodeConfig `pulumi:"essNodeConfig"`
+	// Deprecated: please use ess_node_config.instance_number instead
+	ExpectNodeNum      *int                          `pulumi:"expectNodeNum"`
+	HttpsEnabled       *bool                         `pulumi:"httpsEnabled"`
+	IsPeriod           *bool                         `pulumi:"isPeriod"`
+	KibanaPublicAccess *CssClusterKibanaPublicAccess `pulumi:"kibanaPublicAccess"`
+	MasterNodeConfig   *CssClusterMasterNodeConfig   `pulumi:"masterNodeConfig"`
+	Name               *string                       `pulumi:"name"`
+	// Deprecated: please use essNodeConfig instead
+	NodeConfig   *CssClusterNodeConfig   `pulumi:"nodeConfig"`
+	Nodes        []CssClusterNode        `pulumi:"nodes"`
+	Password     *string                 `pulumi:"password"`
+	Period       *int                    `pulumi:"period"`
+	PeriodUnit   *string                 `pulumi:"periodUnit"`
+	PublicAccess *CssClusterPublicAccess `pulumi:"publicAccess"`
+	Region       *string                 `pulumi:"region"`
+	// schema: Required
+	SecurityGroupId *string `pulumi:"securityGroupId"`
+	SecurityMode    *bool   `pulumi:"securityMode"`
+	Status          *string `pulumi:"status"`
+	// schema: Required
+	SubnetId  *string           `pulumi:"subnetId"`
+	Tags      map[string]string `pulumi:"tags"`
+	UpdatedAt *string           `pulumi:"updatedAt"`
+	// schema: Required
+	VpcId           *string                  `pulumi:"vpcId"`
+	VpcepEndpoint   *CssClusterVpcepEndpoint `pulumi:"vpcepEndpoint"`
+	VpcepEndpointId *string                  `pulumi:"vpcepEndpointId"`
+	VpcepIp         *string                  `pulumi:"vpcepIp"`
 }
 
 type CssClusterState struct {
+	AutoRenew pulumi.StringPtrInput
+	// schema: Required
+	AvailabilityZone    pulumi.StringPtrInput
+	BackupAvailable     pulumi.BoolPtrInput
 	BackupStrategy      CssClusterBackupStrategyPtrInput
+	BandwidthResourceId pulumi.StringPtrInput
+	ChargingMode        pulumi.StringPtrInput
+	ClientNodeConfig    CssClusterClientNodeConfigPtrInput
+	ColdNodeConfig      CssClusterColdNodeConfigPtrInput
+	// schema: Deprecated; use createdAt instead
 	Created             pulumi.StringPtrInput
+	CreatedAt           pulumi.StringPtrInput
+	DiskEncrypted       pulumi.BoolPtrInput
+	EnableForceNew      pulumi.StringPtrInput
 	Endpoint            pulumi.StringPtrInput
 	EngineType          pulumi.StringPtrInput
 	EngineVersion       pulumi.StringPtrInput
 	EnterpriseProjectId pulumi.StringPtrInput
-	ExpectNodeNum       pulumi.IntPtrInput
-	Name                pulumi.StringPtrInput
-	NodeConfig          CssClusterNodeConfigPtrInput
-	Nodes               CssClusterNodeArrayInput
-	Password            pulumi.StringPtrInput
-	Region              pulumi.StringPtrInput
-	SecurityMode        pulumi.BoolPtrInput
-	Status              pulumi.StringPtrInput
-	Tags                pulumi.StringMapInput
+	// schema: Required
+	EssNodeConfig CssClusterEssNodeConfigPtrInput
+	// Deprecated: please use ess_node_config.instance_number instead
+	ExpectNodeNum      pulumi.IntPtrInput
+	HttpsEnabled       pulumi.BoolPtrInput
+	IsPeriod           pulumi.BoolPtrInput
+	KibanaPublicAccess CssClusterKibanaPublicAccessPtrInput
+	MasterNodeConfig   CssClusterMasterNodeConfigPtrInput
+	Name               pulumi.StringPtrInput
+	// Deprecated: please use essNodeConfig instead
+	NodeConfig   CssClusterNodeConfigPtrInput
+	Nodes        CssClusterNodeArrayInput
+	Password     pulumi.StringPtrInput
+	Period       pulumi.IntPtrInput
+	PeriodUnit   pulumi.StringPtrInput
+	PublicAccess CssClusterPublicAccessPtrInput
+	Region       pulumi.StringPtrInput
+	// schema: Required
+	SecurityGroupId pulumi.StringPtrInput
+	SecurityMode    pulumi.BoolPtrInput
+	Status          pulumi.StringPtrInput
+	// schema: Required
+	SubnetId  pulumi.StringPtrInput
+	Tags      pulumi.StringMapInput
+	UpdatedAt pulumi.StringPtrInput
+	// schema: Required
+	VpcId           pulumi.StringPtrInput
+	VpcepEndpoint   CssClusterVpcepEndpointPtrInput
+	VpcepEndpointId pulumi.StringPtrInput
+	VpcepIp         pulumi.StringPtrInput
 }
 
 func (CssClusterState) ElementType() reflect.Type {
@@ -115,32 +211,80 @@ func (CssClusterState) ElementType() reflect.Type {
 }
 
 type cssClusterArgs struct {
-	BackupStrategy      *CssClusterBackupStrategy `pulumi:"backupStrategy"`
-	EngineType          *string                   `pulumi:"engineType"`
-	EngineVersion       string                    `pulumi:"engineVersion"`
-	EnterpriseProjectId *string                   `pulumi:"enterpriseProjectId"`
-	ExpectNodeNum       *int                      `pulumi:"expectNodeNum"`
-	Name                *string                   `pulumi:"name"`
-	NodeConfig          CssClusterNodeConfig      `pulumi:"nodeConfig"`
-	Password            *string                   `pulumi:"password"`
-	Region              *string                   `pulumi:"region"`
-	SecurityMode        *bool                     `pulumi:"securityMode"`
-	Tags                map[string]string         `pulumi:"tags"`
+	AutoRenew *string `pulumi:"autoRenew"`
+	// schema: Required
+	AvailabilityZone    *string                     `pulumi:"availabilityZone"`
+	BackupStrategy      *CssClusterBackupStrategy   `pulumi:"backupStrategy"`
+	ChargingMode        *string                     `pulumi:"chargingMode"`
+	ClientNodeConfig    *CssClusterClientNodeConfig `pulumi:"clientNodeConfig"`
+	ColdNodeConfig      *CssClusterColdNodeConfig   `pulumi:"coldNodeConfig"`
+	EnableForceNew      *string                     `pulumi:"enableForceNew"`
+	EngineType          *string                     `pulumi:"engineType"`
+	EngineVersion       string                      `pulumi:"engineVersion"`
+	EnterpriseProjectId *string                     `pulumi:"enterpriseProjectId"`
+	// schema: Required
+	EssNodeConfig *CssClusterEssNodeConfig `pulumi:"essNodeConfig"`
+	// Deprecated: please use ess_node_config.instance_number instead
+	ExpectNodeNum      *int                          `pulumi:"expectNodeNum"`
+	HttpsEnabled       *bool                         `pulumi:"httpsEnabled"`
+	KibanaPublicAccess *CssClusterKibanaPublicAccess `pulumi:"kibanaPublicAccess"`
+	MasterNodeConfig   *CssClusterMasterNodeConfig   `pulumi:"masterNodeConfig"`
+	Name               *string                       `pulumi:"name"`
+	// Deprecated: please use essNodeConfig instead
+	NodeConfig   *CssClusterNodeConfig   `pulumi:"nodeConfig"`
+	Password     *string                 `pulumi:"password"`
+	Period       *int                    `pulumi:"period"`
+	PeriodUnit   *string                 `pulumi:"periodUnit"`
+	PublicAccess *CssClusterPublicAccess `pulumi:"publicAccess"`
+	Region       *string                 `pulumi:"region"`
+	// schema: Required
+	SecurityGroupId *string `pulumi:"securityGroupId"`
+	SecurityMode    *bool   `pulumi:"securityMode"`
+	// schema: Required
+	SubnetId *string           `pulumi:"subnetId"`
+	Tags     map[string]string `pulumi:"tags"`
+	// schema: Required
+	VpcId         *string                  `pulumi:"vpcId"`
+	VpcepEndpoint *CssClusterVpcepEndpoint `pulumi:"vpcepEndpoint"`
 }
 
 // The set of arguments for constructing a CssCluster resource.
 type CssClusterArgs struct {
+	AutoRenew pulumi.StringPtrInput
+	// schema: Required
+	AvailabilityZone    pulumi.StringPtrInput
 	BackupStrategy      CssClusterBackupStrategyPtrInput
+	ChargingMode        pulumi.StringPtrInput
+	ClientNodeConfig    CssClusterClientNodeConfigPtrInput
+	ColdNodeConfig      CssClusterColdNodeConfigPtrInput
+	EnableForceNew      pulumi.StringPtrInput
 	EngineType          pulumi.StringPtrInput
 	EngineVersion       pulumi.StringInput
 	EnterpriseProjectId pulumi.StringPtrInput
-	ExpectNodeNum       pulumi.IntPtrInput
-	Name                pulumi.StringPtrInput
-	NodeConfig          CssClusterNodeConfigInput
-	Password            pulumi.StringPtrInput
-	Region              pulumi.StringPtrInput
-	SecurityMode        pulumi.BoolPtrInput
-	Tags                pulumi.StringMapInput
+	// schema: Required
+	EssNodeConfig CssClusterEssNodeConfigPtrInput
+	// Deprecated: please use ess_node_config.instance_number instead
+	ExpectNodeNum      pulumi.IntPtrInput
+	HttpsEnabled       pulumi.BoolPtrInput
+	KibanaPublicAccess CssClusterKibanaPublicAccessPtrInput
+	MasterNodeConfig   CssClusterMasterNodeConfigPtrInput
+	Name               pulumi.StringPtrInput
+	// Deprecated: please use essNodeConfig instead
+	NodeConfig   CssClusterNodeConfigPtrInput
+	Password     pulumi.StringPtrInput
+	Period       pulumi.IntPtrInput
+	PeriodUnit   pulumi.StringPtrInput
+	PublicAccess CssClusterPublicAccessPtrInput
+	Region       pulumi.StringPtrInput
+	// schema: Required
+	SecurityGroupId pulumi.StringPtrInput
+	SecurityMode    pulumi.BoolPtrInput
+	// schema: Required
+	SubnetId pulumi.StringPtrInput
+	Tags     pulumi.StringMapInput
+	// schema: Required
+	VpcId         pulumi.StringPtrInput
+	VpcepEndpoint CssClusterVpcepEndpointPtrInput
 }
 
 func (CssClusterArgs) ElementType() reflect.Type {
@@ -230,12 +374,54 @@ func (o CssClusterOutput) ToCssClusterOutputWithContext(ctx context.Context) Css
 	return o
 }
 
+func (o CssClusterOutput) AutoRenew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringPtrOutput { return v.AutoRenew }).(pulumi.StringPtrOutput)
+}
+
+// schema: Required
+func (o CssClusterOutput) AvailabilityZone() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.AvailabilityZone }).(pulumi.StringOutput)
+}
+
+func (o CssClusterOutput) BackupAvailable() pulumi.BoolOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.BoolOutput { return v.BackupAvailable }).(pulumi.BoolOutput)
+}
+
 func (o CssClusterOutput) BackupStrategy() CssClusterBackupStrategyPtrOutput {
 	return o.ApplyT(func(v *CssCluster) CssClusterBackupStrategyPtrOutput { return v.BackupStrategy }).(CssClusterBackupStrategyPtrOutput)
 }
 
+func (o CssClusterOutput) BandwidthResourceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.BandwidthResourceId }).(pulumi.StringOutput)
+}
+
+func (o CssClusterOutput) ChargingMode() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.ChargingMode }).(pulumi.StringOutput)
+}
+
+func (o CssClusterOutput) ClientNodeConfig() CssClusterClientNodeConfigPtrOutput {
+	return o.ApplyT(func(v *CssCluster) CssClusterClientNodeConfigPtrOutput { return v.ClientNodeConfig }).(CssClusterClientNodeConfigPtrOutput)
+}
+
+func (o CssClusterOutput) ColdNodeConfig() CssClusterColdNodeConfigPtrOutput {
+	return o.ApplyT(func(v *CssCluster) CssClusterColdNodeConfigPtrOutput { return v.ColdNodeConfig }).(CssClusterColdNodeConfigPtrOutput)
+}
+
+// schema: Deprecated; use createdAt instead
 func (o CssClusterOutput) Created() pulumi.StringOutput {
 	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.Created }).(pulumi.StringOutput)
+}
+
+func (o CssClusterOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o CssClusterOutput) DiskEncrypted() pulumi.BoolOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.BoolOutput { return v.DiskEncrypted }).(pulumi.BoolOutput)
+}
+
+func (o CssClusterOutput) EnableForceNew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringPtrOutput { return v.EnableForceNew }).(pulumi.StringPtrOutput)
 }
 
 func (o CssClusterOutput) Endpoint() pulumi.StringOutput {
@@ -254,14 +440,37 @@ func (o CssClusterOutput) EnterpriseProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.EnterpriseProjectId }).(pulumi.StringOutput)
 }
 
-func (o CssClusterOutput) ExpectNodeNum() pulumi.IntPtrOutput {
-	return o.ApplyT(func(v *CssCluster) pulumi.IntPtrOutput { return v.ExpectNodeNum }).(pulumi.IntPtrOutput)
+// schema: Required
+func (o CssClusterOutput) EssNodeConfig() CssClusterEssNodeConfigOutput {
+	return o.ApplyT(func(v *CssCluster) CssClusterEssNodeConfigOutput { return v.EssNodeConfig }).(CssClusterEssNodeConfigOutput)
+}
+
+// Deprecated: please use ess_node_config.instance_number instead
+func (o CssClusterOutput) ExpectNodeNum() pulumi.IntOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.IntOutput { return v.ExpectNodeNum }).(pulumi.IntOutput)
+}
+
+func (o CssClusterOutput) HttpsEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.BoolOutput { return v.HttpsEnabled }).(pulumi.BoolOutput)
+}
+
+func (o CssClusterOutput) IsPeriod() pulumi.BoolOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.BoolOutput { return v.IsPeriod }).(pulumi.BoolOutput)
+}
+
+func (o CssClusterOutput) KibanaPublicAccess() CssClusterKibanaPublicAccessPtrOutput {
+	return o.ApplyT(func(v *CssCluster) CssClusterKibanaPublicAccessPtrOutput { return v.KibanaPublicAccess }).(CssClusterKibanaPublicAccessPtrOutput)
+}
+
+func (o CssClusterOutput) MasterNodeConfig() CssClusterMasterNodeConfigPtrOutput {
+	return o.ApplyT(func(v *CssCluster) CssClusterMasterNodeConfigPtrOutput { return v.MasterNodeConfig }).(CssClusterMasterNodeConfigPtrOutput)
 }
 
 func (o CssClusterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+// Deprecated: please use essNodeConfig instead
 func (o CssClusterOutput) NodeConfig() CssClusterNodeConfigOutput {
 	return o.ApplyT(func(v *CssCluster) CssClusterNodeConfigOutput { return v.NodeConfig }).(CssClusterNodeConfigOutput)
 }
@@ -274,8 +483,25 @@ func (o CssClusterOutput) Password() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CssCluster) pulumi.StringPtrOutput { return v.Password }).(pulumi.StringPtrOutput)
 }
 
+func (o CssClusterOutput) Period() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
+}
+
+func (o CssClusterOutput) PeriodUnit() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringPtrOutput { return v.PeriodUnit }).(pulumi.StringPtrOutput)
+}
+
+func (o CssClusterOutput) PublicAccess() CssClusterPublicAccessPtrOutput {
+	return o.ApplyT(func(v *CssCluster) CssClusterPublicAccessPtrOutput { return v.PublicAccess }).(CssClusterPublicAccessPtrOutput)
+}
+
 func (o CssClusterOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
+}
+
+// schema: Required
+func (o CssClusterOutput) SecurityGroupId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
 }
 
 func (o CssClusterOutput) SecurityMode() pulumi.BoolPtrOutput {
@@ -286,8 +512,34 @@ func (o CssClusterOutput) Status() pulumi.StringOutput {
 	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.Status }).(pulumi.StringOutput)
 }
 
+// schema: Required
+func (o CssClusterOutput) SubnetId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.SubnetId }).(pulumi.StringOutput)
+}
+
 func (o CssClusterOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *CssCluster) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
+}
+
+func (o CssClusterOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
+}
+
+// schema: Required
+func (o CssClusterOutput) VpcId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.VpcId }).(pulumi.StringOutput)
+}
+
+func (o CssClusterOutput) VpcepEndpoint() CssClusterVpcepEndpointPtrOutput {
+	return o.ApplyT(func(v *CssCluster) CssClusterVpcepEndpointPtrOutput { return v.VpcepEndpoint }).(CssClusterVpcepEndpointPtrOutput)
+}
+
+func (o CssClusterOutput) VpcepEndpointId() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.VpcepEndpointId }).(pulumi.StringOutput)
+}
+
+func (o CssClusterOutput) VpcepIp() pulumi.StringOutput {
+	return o.ApplyT(func(v *CssCluster) pulumi.StringOutput { return v.VpcepIp }).(pulumi.StringOutput)
 }
 
 type CssClusterArrayOutput struct{ *pulumi.OutputState }

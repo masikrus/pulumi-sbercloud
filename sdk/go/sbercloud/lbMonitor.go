@@ -15,8 +15,10 @@ import (
 type LbMonitor struct {
 	pulumi.CustomResourceState
 
+	// Deprecated: tenant_id is deprecated
 	AdminStateUp  pulumi.BoolPtrOutput `pulumi:"adminStateUp"`
 	Delay         pulumi.IntOutput     `pulumi:"delay"`
+	DomainName    pulumi.StringOutput  `pulumi:"domainName"`
 	ExpectedCodes pulumi.StringOutput  `pulumi:"expectedCodes"`
 	HttpMethod    pulumi.StringOutput  `pulumi:"httpMethod"`
 	MaxRetries    pulumi.IntOutput     `pulumi:"maxRetries"`
@@ -76,8 +78,10 @@ func GetLbMonitor(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbMonitor resources.
 type lbMonitorState struct {
+	// Deprecated: tenant_id is deprecated
 	AdminStateUp  *bool   `pulumi:"adminStateUp"`
 	Delay         *int    `pulumi:"delay"`
+	DomainName    *string `pulumi:"domainName"`
 	ExpectedCodes *string `pulumi:"expectedCodes"`
 	HttpMethod    *string `pulumi:"httpMethod"`
 	MaxRetries    *int    `pulumi:"maxRetries"`
@@ -93,8 +97,10 @@ type lbMonitorState struct {
 }
 
 type LbMonitorState struct {
+	// Deprecated: tenant_id is deprecated
 	AdminStateUp  pulumi.BoolPtrInput
 	Delay         pulumi.IntPtrInput
+	DomainName    pulumi.StringPtrInput
 	ExpectedCodes pulumi.StringPtrInput
 	HttpMethod    pulumi.StringPtrInput
 	MaxRetries    pulumi.IntPtrInput
@@ -114,8 +120,10 @@ func (LbMonitorState) ElementType() reflect.Type {
 }
 
 type lbMonitorArgs struct {
+	// Deprecated: tenant_id is deprecated
 	AdminStateUp  *bool   `pulumi:"adminStateUp"`
 	Delay         int     `pulumi:"delay"`
+	DomainName    *string `pulumi:"domainName"`
 	ExpectedCodes *string `pulumi:"expectedCodes"`
 	HttpMethod    *string `pulumi:"httpMethod"`
 	MaxRetries    int     `pulumi:"maxRetries"`
@@ -132,8 +140,10 @@ type lbMonitorArgs struct {
 
 // The set of arguments for constructing a LbMonitor resource.
 type LbMonitorArgs struct {
+	// Deprecated: tenant_id is deprecated
 	AdminStateUp  pulumi.BoolPtrInput
 	Delay         pulumi.IntInput
+	DomainName    pulumi.StringPtrInput
 	ExpectedCodes pulumi.StringPtrInput
 	HttpMethod    pulumi.StringPtrInput
 	MaxRetries    pulumi.IntInput
@@ -235,12 +245,17 @@ func (o LbMonitorOutput) ToLbMonitorOutputWithContext(ctx context.Context) LbMon
 	return o
 }
 
+// Deprecated: tenant_id is deprecated
 func (o LbMonitorOutput) AdminStateUp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LbMonitor) pulumi.BoolPtrOutput { return v.AdminStateUp }).(pulumi.BoolPtrOutput)
 }
 
 func (o LbMonitorOutput) Delay() pulumi.IntOutput {
 	return o.ApplyT(func(v *LbMonitor) pulumi.IntOutput { return v.Delay }).(pulumi.IntOutput)
+}
+
+func (o LbMonitorOutput) DomainName() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbMonitor) pulumi.StringOutput { return v.DomainName }).(pulumi.StringOutput)
 }
 
 func (o LbMonitorOutput) ExpectedCodes() pulumi.StringOutput {

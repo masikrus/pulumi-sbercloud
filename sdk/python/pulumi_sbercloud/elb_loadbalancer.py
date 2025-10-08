@@ -473,8 +473,10 @@ class _ElbLoadbalancerState:
                  cross_vpc_backend: Optional[pulumi.Input[builtins.bool]] = None,
                  deletion_protection_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 elb_virsubnet_type: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  force_delete: Optional[pulumi.Input[builtins.bool]] = None,
+                 frozen_scene: Optional[pulumi.Input[builtins.str]] = None,
                  guaranteed: Optional[pulumi.Input[builtins.bool]] = None,
                  gw_flavor_id: Optional[pulumi.Input[builtins.str]] = None,
                  iptype: Optional[pulumi.Input[builtins.str]] = None,
@@ -493,10 +495,12 @@ class _ElbLoadbalancerState:
                  loadbalancer_type: Optional[pulumi.Input[builtins.str]] = None,
                  min_l7_flavor_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 operating_status: Optional[pulumi.Input[builtins.str]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
                  protection_reason: Optional[pulumi.Input[builtins.str]] = None,
                  protection_status: Optional[pulumi.Input[builtins.str]] = None,
+                 public_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  sharetype: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -539,10 +543,14 @@ class _ElbLoadbalancerState:
             pulumi.set(__self__, "deletion_protection_enable", deletion_protection_enable)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if elb_virsubnet_type is not None:
+            pulumi.set(__self__, "elb_virsubnet_type", elb_virsubnet_type)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if force_delete is not None:
             pulumi.set(__self__, "force_delete", force_delete)
+        if frozen_scene is not None:
+            pulumi.set(__self__, "frozen_scene", frozen_scene)
         if guaranteed is not None:
             pulumi.set(__self__, "guaranteed", guaranteed)
         if gw_flavor_id is not None:
@@ -579,6 +587,8 @@ class _ElbLoadbalancerState:
             pulumi.set(__self__, "min_l7_flavor_id", min_l7_flavor_id)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if operating_status is not None:
+            pulumi.set(__self__, "operating_status", operating_status)
         if period is not None:
             pulumi.set(__self__, "period", period)
         if period_unit is not None:
@@ -587,6 +597,8 @@ class _ElbLoadbalancerState:
             pulumi.set(__self__, "protection_reason", protection_reason)
         if protection_status is not None:
             pulumi.set(__self__, "protection_status", protection_status)
+        if public_border_group is not None:
+            pulumi.set(__self__, "public_border_group", public_border_group)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if sharetype is not None:
@@ -728,6 +740,15 @@ class _ElbLoadbalancerState:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="elbVirsubnetType")
+    def elb_virsubnet_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "elb_virsubnet_type")
+
+    @elb_virsubnet_type.setter
+    def elb_virsubnet_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "elb_virsubnet_type", value)
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "enterprise_project_id")
@@ -744,6 +765,15 @@ class _ElbLoadbalancerState:
     @force_delete.setter
     def force_delete(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "force_delete", value)
+
+    @property
+    @pulumi.getter(name="frozenScene")
+    def frozen_scene(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "frozen_scene")
+
+    @frozen_scene.setter
+    def frozen_scene(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "frozen_scene", value)
 
     @property
     @pulumi.getter
@@ -914,6 +944,15 @@ class _ElbLoadbalancerState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="operatingStatus")
+    def operating_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "operating_status")
+
+    @operating_status.setter
+    def operating_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "operating_status", value)
+
+    @property
     @pulumi.getter
     def period(self) -> Optional[pulumi.Input[builtins.int]]:
         return pulumi.get(self, "period")
@@ -948,6 +987,15 @@ class _ElbLoadbalancerState:
     @protection_status.setter
     def protection_status(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "protection_status", value)
+
+    @property
+    @pulumi.getter(name="publicBorderGroup")
+    def public_border_group(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "public_border_group")
+
+    @public_border_group.setter
+    def public_border_group(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "public_border_group", value)
 
     @property
     @pulumi.getter
@@ -1158,12 +1206,16 @@ class ElbLoadbalancer(pulumi.CustomResource):
             __props__.__dict__["waf_failure_action"] = waf_failure_action
             __props__.__dict__["charge_mode"] = None
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["elb_virsubnet_type"] = None
+            __props__.__dict__["frozen_scene"] = None
             __props__.__dict__["guaranteed"] = None
             __props__.__dict__["gw_flavor_id"] = None
             __props__.__dict__["ipv4_eip"] = None
             __props__.__dict__["ipv4_port_id"] = None
             __props__.__dict__["ipv6_eip"] = None
             __props__.__dict__["ipv6_eip_id"] = None
+            __props__.__dict__["operating_status"] = None
+            __props__.__dict__["public_border_group"] = None
             __props__.__dict__["updated_at"] = None
         super(ElbLoadbalancer, __self__).__init__(
             'sbercloud:index/elbLoadbalancer:ElbLoadbalancer',
@@ -1189,8 +1241,10 @@ class ElbLoadbalancer(pulumi.CustomResource):
             cross_vpc_backend: Optional[pulumi.Input[builtins.bool]] = None,
             deletion_protection_enable: Optional[pulumi.Input[builtins.bool]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            elb_virsubnet_type: Optional[pulumi.Input[builtins.str]] = None,
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             force_delete: Optional[pulumi.Input[builtins.bool]] = None,
+            frozen_scene: Optional[pulumi.Input[builtins.str]] = None,
             guaranteed: Optional[pulumi.Input[builtins.bool]] = None,
             gw_flavor_id: Optional[pulumi.Input[builtins.str]] = None,
             iptype: Optional[pulumi.Input[builtins.str]] = None,
@@ -1209,10 +1263,12 @@ class ElbLoadbalancer(pulumi.CustomResource):
             loadbalancer_type: Optional[pulumi.Input[builtins.str]] = None,
             min_l7_flavor_id: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            operating_status: Optional[pulumi.Input[builtins.str]] = None,
             period: Optional[pulumi.Input[builtins.int]] = None,
             period_unit: Optional[pulumi.Input[builtins.str]] = None,
             protection_reason: Optional[pulumi.Input[builtins.str]] = None,
             protection_status: Optional[pulumi.Input[builtins.str]] = None,
+            public_border_group: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             sharetype: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -1247,8 +1303,10 @@ class ElbLoadbalancer(pulumi.CustomResource):
         __props__.__dict__["cross_vpc_backend"] = cross_vpc_backend
         __props__.__dict__["deletion_protection_enable"] = deletion_protection_enable
         __props__.__dict__["description"] = description
+        __props__.__dict__["elb_virsubnet_type"] = elb_virsubnet_type
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["force_delete"] = force_delete
+        __props__.__dict__["frozen_scene"] = frozen_scene
         __props__.__dict__["guaranteed"] = guaranteed
         __props__.__dict__["gw_flavor_id"] = gw_flavor_id
         __props__.__dict__["iptype"] = iptype
@@ -1267,10 +1325,12 @@ class ElbLoadbalancer(pulumi.CustomResource):
         __props__.__dict__["loadbalancer_type"] = loadbalancer_type
         __props__.__dict__["min_l7_flavor_id"] = min_l7_flavor_id
         __props__.__dict__["name"] = name
+        __props__.__dict__["operating_status"] = operating_status
         __props__.__dict__["period"] = period
         __props__.__dict__["period_unit"] = period_unit
         __props__.__dict__["protection_reason"] = protection_reason
         __props__.__dict__["protection_status"] = protection_status
+        __props__.__dict__["public_border_group"] = public_border_group
         __props__.__dict__["region"] = region
         __props__.__dict__["sharetype"] = sharetype
         __props__.__dict__["tags"] = tags
@@ -1351,6 +1411,11 @@ class ElbLoadbalancer(pulumi.CustomResource):
         return pulumi.get(self, "description")
 
     @property
+    @pulumi.getter(name="elbVirsubnetType")
+    def elb_virsubnet_type(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "elb_virsubnet_type")
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "enterprise_project_id")
@@ -1359,6 +1424,11 @@ class ElbLoadbalancer(pulumi.CustomResource):
     @pulumi.getter(name="forceDelete")
     def force_delete(self) -> pulumi.Output[Optional[builtins.bool]]:
         return pulumi.get(self, "force_delete")
+
+    @property
+    @pulumi.getter(name="frozenScene")
+    def frozen_scene(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "frozen_scene")
 
     @property
     @pulumi.getter
@@ -1457,6 +1527,11 @@ class ElbLoadbalancer(pulumi.CustomResource):
         return pulumi.get(self, "name")
 
     @property
+    @pulumi.getter(name="operatingStatus")
+    def operating_status(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "operating_status")
+
+    @property
     @pulumi.getter
     def period(self) -> pulumi.Output[Optional[builtins.int]]:
         return pulumi.get(self, "period")
@@ -1475,6 +1550,11 @@ class ElbLoadbalancer(pulumi.CustomResource):
     @pulumi.getter(name="protectionStatus")
     def protection_status(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "protection_status")
+
+    @property
+    @pulumi.getter(name="publicBorderGroup")
+    def public_border_group(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "public_border_group")
 
     @property
     @pulumi.getter

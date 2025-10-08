@@ -12,6 +12,9 @@ namespace Pulumi.Sbercloud
     [SbercloudResourceType("sbercloud:index/asGroup:AsGroup")]
     public partial class AsGroup : global::Pulumi.CustomResource
     {
+        [Output("activityType")]
+        public Output<string> ActivityType { get; private set; } = null!;
+
         [Output("agencyName")]
         public Output<string> AgencyName { get; private set; } = null!;
 
@@ -29,6 +32,9 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Output("coolDownTime")]
         public Output<int?> CoolDownTime { get; private set; } = null!;
+
+        [Output("createTime")]
+        public Output<string> CreateTime { get; private set; } = null!;
 
         [Output("currentInstanceNumber")]
         public Output<int> CurrentInstanceNumber { get; private set; } = null!;
@@ -50,6 +56,9 @@ namespace Pulumi.Sbercloud
 
         [Output("desireInstanceNumber")]
         public Output<int> DesireInstanceNumber { get; private set; } = null!;
+
+        [Output("detail")]
+        public Output<string> Detail { get; private set; } = null!;
 
         [Output("enable")]
         public Output<bool?> Enable { get; private set; } = null!;
@@ -83,6 +92,9 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Output("instances")]
         public Output<ImmutableArray<string>> Instances { get; private set; } = null!;
+
+        [Output("isScaling")]
+        public Output<bool> IsScaling { get; private set; } = null!;
 
         /// <summary>
         /// The system supports the binding of up to six ELB listeners, the IDs of which are separated using a comma.
@@ -119,6 +131,9 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Output("scalingConfigurationId")]
         public Output<string> ScalingConfigurationId { get; private set; } = null!;
+
+        [Output("scalingConfigurationName")]
+        public Output<string> ScalingConfigurationName { get; private set; } = null!;
 
         [Output("scalingGroupName")]
         public Output<string> ScalingGroupName { get; private set; } = null!;
@@ -337,6 +352,9 @@ namespace Pulumi.Sbercloud
 
     public sealed class AsGroupState : global::Pulumi.ResourceArgs
     {
+        [Input("activityType")]
+        public Input<string>? ActivityType { get; set; }
+
         [Input("agencyName")]
         public Input<string>? AgencyName { get; set; }
 
@@ -366,6 +384,9 @@ namespace Pulumi.Sbercloud
         [Input("coolDownTime")]
         public Input<int>? CoolDownTime { get; set; }
 
+        [Input("createTime")]
+        public Input<string>? CreateTime { get; set; }
+
         [Input("currentInstanceNumber")]
         public Input<int>? CurrentInstanceNumber { get; set; }
 
@@ -386,6 +407,9 @@ namespace Pulumi.Sbercloud
 
         [Input("desireInstanceNumber")]
         public Input<int>? DesireInstanceNumber { get; set; }
+
+        [Input("detail")]
+        public Input<string>? Detail { get; set; }
 
         [Input("enable")]
         public Input<bool>? Enable { get; set; }
@@ -425,6 +449,9 @@ namespace Pulumi.Sbercloud
             get => _instances ?? (_instances = new InputList<string>());
             set => _instances = value;
         }
+
+        [Input("isScaling")]
+        public Input<bool>? IsScaling { get; set; }
 
         /// <summary>
         /// The system supports the binding of up to six ELB listeners, the IDs of which are separated using a comma.
@@ -477,6 +504,9 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Input("scalingConfigurationId")]
         public Input<string>? ScalingConfigurationId { get; set; }
+
+        [Input("scalingConfigurationName")]
+        public Input<string>? ScalingConfigurationName { get; set; }
 
         [Input("scalingGroupName")]
         public Input<string>? ScalingGroupName { get; set; }

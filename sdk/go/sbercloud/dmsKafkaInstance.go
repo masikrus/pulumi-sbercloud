@@ -45,8 +45,10 @@ type DmsKafkaInstance struct {
 	Ipv6ConnectAddresses pulumi.StringArrayOutput                  `pulumi:"ipv6ConnectAddresses"`
 	Ipv6Enable           pulumi.BoolOutput                         `pulumi:"ipv6Enable"`
 	IsLogicalVolume      pulumi.BoolOutput                         `pulumi:"isLogicalVolume"`
-	MaintainBegin        pulumi.StringOutput                       `pulumi:"maintainBegin"`
-	MaintainEnd          pulumi.StringOutput                       `pulumi:"maintainEnd"`
+	// schema: Internal
+	KmsEncryptedPassword pulumi.StringPtrOutput `pulumi:"kmsEncryptedPassword"`
+	MaintainBegin        pulumi.StringOutput    `pulumi:"maintainBegin"`
+	MaintainEnd          pulumi.StringOutput    `pulumi:"maintainEnd"`
 	// Deprecated: Deprecated
 	ManagementConnectAddress pulumi.StringOutput `pulumi:"managementConnectAddress"`
 	// Deprecated: Deprecated
@@ -115,6 +117,9 @@ func NewDmsKafkaInstance(ctx *pulumi.Context,
 	if args.VpcId == nil {
 		return nil, errors.New("invalid value for required argument 'VpcId'")
 	}
+	if args.KmsEncryptedPassword != nil {
+		args.KmsEncryptedPassword = pulumi.ToSecret(args.KmsEncryptedPassword).(pulumi.StringPtrInput)
+	}
 	if args.ManagerPassword != nil {
 		args.ManagerPassword = pulumi.ToSecret(args.ManagerPassword).(pulumi.StringPtrInput)
 	}
@@ -122,6 +127,7 @@ func NewDmsKafkaInstance(ctx *pulumi.Context,
 		args.Password = pulumi.ToSecret(args.Password).(pulumi.StringPtrInput)
 	}
 	secrets := pulumi.AdditionalSecretOutputs([]string{
+		"kmsEncryptedPassword",
 		"managerPassword",
 		"password",
 	})
@@ -179,8 +185,10 @@ type dmsKafkaInstanceState struct {
 	Ipv6ConnectAddresses []string                         `pulumi:"ipv6ConnectAddresses"`
 	Ipv6Enable           *bool                            `pulumi:"ipv6Enable"`
 	IsLogicalVolume      *bool                            `pulumi:"isLogicalVolume"`
-	MaintainBegin        *string                          `pulumi:"maintainBegin"`
-	MaintainEnd          *string                          `pulumi:"maintainEnd"`
+	// schema: Internal
+	KmsEncryptedPassword *string `pulumi:"kmsEncryptedPassword"`
+	MaintainBegin        *string `pulumi:"maintainBegin"`
+	MaintainEnd          *string `pulumi:"maintainEnd"`
 	// Deprecated: Deprecated
 	ManagementConnectAddress *string `pulumi:"managementConnectAddress"`
 	// Deprecated: Deprecated
@@ -258,6 +266,8 @@ type DmsKafkaInstanceState struct {
 	Ipv6ConnectAddresses pulumi.StringArrayInput
 	Ipv6Enable           pulumi.BoolPtrInput
 	IsLogicalVolume      pulumi.BoolPtrInput
+	// schema: Internal
+	KmsEncryptedPassword pulumi.StringPtrInput
 	MaintainBegin        pulumi.StringPtrInput
 	MaintainEnd          pulumi.StringPtrInput
 	// Deprecated: Deprecated
@@ -331,8 +341,10 @@ type dmsKafkaInstanceArgs struct {
 	EnterpriseProjectId *string                          `pulumi:"enterpriseProjectId"`
 	FlavorId            *string                          `pulumi:"flavorId"`
 	Ipv6Enable          *bool                            `pulumi:"ipv6Enable"`
-	MaintainBegin       *string                          `pulumi:"maintainBegin"`
-	MaintainEnd         *string                          `pulumi:"maintainEnd"`
+	// schema: Internal
+	KmsEncryptedPassword *string `pulumi:"kmsEncryptedPassword"`
+	MaintainBegin        *string `pulumi:"maintainBegin"`
+	MaintainEnd          *string `pulumi:"maintainEnd"`
 	// Deprecated: Deprecated
 	ManagerPassword *string `pulumi:"managerPassword"`
 	// Deprecated: Deprecated
@@ -380,8 +392,10 @@ type DmsKafkaInstanceArgs struct {
 	EnterpriseProjectId pulumi.StringPtrInput
 	FlavorId            pulumi.StringPtrInput
 	Ipv6Enable          pulumi.BoolPtrInput
-	MaintainBegin       pulumi.StringPtrInput
-	MaintainEnd         pulumi.StringPtrInput
+	// schema: Internal
+	KmsEncryptedPassword pulumi.StringPtrInput
+	MaintainBegin        pulumi.StringPtrInput
+	MaintainEnd          pulumi.StringPtrInput
 	// Deprecated: Deprecated
 	ManagerPassword pulumi.StringPtrInput
 	// Deprecated: Deprecated
@@ -603,6 +617,11 @@ func (o DmsKafkaInstanceOutput) Ipv6Enable() pulumi.BoolOutput {
 
 func (o DmsKafkaInstanceOutput) IsLogicalVolume() pulumi.BoolOutput {
 	return o.ApplyT(func(v *DmsKafkaInstance) pulumi.BoolOutput { return v.IsLogicalVolume }).(pulumi.BoolOutput)
+}
+
+// schema: Internal
+func (o DmsKafkaInstanceOutput) KmsEncryptedPassword() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *DmsKafkaInstance) pulumi.StringPtrOutput { return v.KmsEncryptedPassword }).(pulumi.StringPtrOutput)
 }
 
 func (o DmsKafkaInstanceOutput) MaintainBegin() pulumi.StringOutput {

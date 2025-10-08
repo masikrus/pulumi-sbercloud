@@ -427,7 +427,7 @@ class LbCertificate(pulumi.CustomResource):
 
     @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[builtins.str]]:
+    def type(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "type")
 
     @property

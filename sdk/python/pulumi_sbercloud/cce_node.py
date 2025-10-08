@@ -39,6 +39,7 @@ class CceNodeArgs:
                  ecs_performance_type: Optional[pulumi.Input[builtins.str]] = None,
                  eip_id: Optional[pulumi.Input[builtins.str]] = None,
                  eip_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extend_param_charging_mode: Optional[pulumi.Input[builtins.int]] = None,
@@ -78,7 +79,6 @@ class CceNodeArgs:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] extend_param: schema: Deprecated
         :param pulumi.Input[builtins.bool] keep_ecs: schema: Internal
         :param pulumi.Input[builtins.int] max_pods: schema: Deprecated
-        :param pulumi.Input[builtins.str] partition: schema: Internal
         :param pulumi.Input[builtins.str] postinstall: schema: Deprecated
         :param pulumi.Input[builtins.str] preinstall: schema: Deprecated
         :param pulumi.Input[builtins.str] product_id: schema: Deprecated
@@ -123,6 +123,8 @@ class CceNodeArgs:
             pulumi.log.warn("""eip_ids is deprecated: use eip_id instead""")
         if eip_ids is not None:
             pulumi.set(__self__, "eip_ids", eip_ids)
+        if enable_force_new is not None:
+            pulumi.set(__self__, "enable_force_new", enable_force_new)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if extend_param is not None:
@@ -357,6 +359,15 @@ class CceNodeArgs:
         pulumi.set(self, "eip_ids", value)
 
     @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @enable_force_new.setter
+    def enable_force_new(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_force_new", value)
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "enterprise_project_id")
@@ -514,9 +525,6 @@ class CceNodeArgs:
     @property
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        schema: Internal
-        """
         return pulumi.get(self, "partition")
 
     @partition.setter
@@ -689,6 +697,7 @@ class _CceNodeState:
                  ecs_performance_type: Optional[pulumi.Input[builtins.str]] = None,
                  eip_id: Optional[pulumi.Input[builtins.str]] = None,
                  eip_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extend_param_charging_mode: Optional[pulumi.Input[builtins.int]] = None,
@@ -734,7 +743,6 @@ class _CceNodeState:
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] extend_param: schema: Deprecated
         :param pulumi.Input[builtins.bool] keep_ecs: schema: Internal
         :param pulumi.Input[builtins.int] max_pods: schema: Deprecated
-        :param pulumi.Input[builtins.str] partition: schema: Internal
         :param pulumi.Input[builtins.str] postinstall: schema: Deprecated
         :param pulumi.Input[builtins.str] preinstall: schema: Deprecated
         :param pulumi.Input[builtins.str] product_id: schema: Deprecated
@@ -779,6 +787,8 @@ class _CceNodeState:
             pulumi.log.warn("""eip_ids is deprecated: use eip_id instead""")
         if eip_ids is not None:
             pulumi.set(__self__, "eip_ids", eip_ids)
+        if enable_force_new is not None:
+            pulumi.set(__self__, "enable_force_new", enable_force_new)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if extend_param is not None:
@@ -1007,6 +1017,15 @@ class _CceNodeState:
         pulumi.set(self, "eip_ids", value)
 
     @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @enable_force_new.setter
+    def enable_force_new(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_force_new", value)
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "enterprise_project_id")
@@ -1173,9 +1192,6 @@ class _CceNodeState:
     @property
     @pulumi.getter
     def partition(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        schema: Internal
-        """
         return pulumi.get(self, "partition")
 
     @partition.setter
@@ -1395,6 +1411,7 @@ class CceNode(pulumi.CustomResource):
                  ecs_performance_type: Optional[pulumi.Input[builtins.str]] = None,
                  eip_id: Optional[pulumi.Input[builtins.str]] = None,
                  eip_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extend_param_charging_mode: Optional[pulumi.Input[builtins.int]] = None,
@@ -1439,7 +1456,6 @@ class CceNode(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] extend_param: schema: Deprecated
         :param pulumi.Input[builtins.bool] keep_ecs: schema: Internal
         :param pulumi.Input[builtins.int] max_pods: schema: Deprecated
-        :param pulumi.Input[builtins.str] partition: schema: Internal
         :param pulumi.Input[builtins.str] postinstall: schema: Deprecated
         :param pulumi.Input[builtins.str] preinstall: schema: Deprecated
         :param pulumi.Input[builtins.str] product_id: schema: Deprecated
@@ -1483,6 +1499,7 @@ class CceNode(pulumi.CustomResource):
                  ecs_performance_type: Optional[pulumi.Input[builtins.str]] = None,
                  eip_id: Optional[pulumi.Input[builtins.str]] = None,
                  eip_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  extend_param_charging_mode: Optional[pulumi.Input[builtins.int]] = None,
@@ -1545,6 +1562,7 @@ class CceNode(pulumi.CustomResource):
             __props__.__dict__["ecs_performance_type"] = ecs_performance_type
             __props__.__dict__["eip_id"] = eip_id
             __props__.__dict__["eip_ids"] = eip_ids
+            __props__.__dict__["enable_force_new"] = enable_force_new
             __props__.__dict__["enterprise_project_id"] = enterprise_project_id
             __props__.__dict__["extend_param"] = extend_param
             __props__.__dict__["extend_param_charging_mode"] = extend_param_charging_mode
@@ -1614,6 +1632,7 @@ class CceNode(pulumi.CustomResource):
             ecs_performance_type: Optional[pulumi.Input[builtins.str]] = None,
             eip_id: Optional[pulumi.Input[builtins.str]] = None,
             eip_ids: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
+            enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             extend_param: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             extend_param_charging_mode: Optional[pulumi.Input[builtins.int]] = None,
@@ -1664,7 +1683,6 @@ class CceNode(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] extend_param: schema: Deprecated
         :param pulumi.Input[builtins.bool] keep_ecs: schema: Internal
         :param pulumi.Input[builtins.int] max_pods: schema: Deprecated
-        :param pulumi.Input[builtins.str] partition: schema: Internal
         :param pulumi.Input[builtins.str] postinstall: schema: Deprecated
         :param pulumi.Input[builtins.str] preinstall: schema: Deprecated
         :param pulumi.Input[builtins.str] product_id: schema: Deprecated
@@ -1689,6 +1707,7 @@ class CceNode(pulumi.CustomResource):
         __props__.__dict__["ecs_performance_type"] = ecs_performance_type
         __props__.__dict__["eip_id"] = eip_id
         __props__.__dict__["eip_ids"] = eip_ids
+        __props__.__dict__["enable_force_new"] = enable_force_new
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["extend_param"] = extend_param
         __props__.__dict__["extend_param_charging_mode"] = extend_param_charging_mode
@@ -1814,6 +1833,11 @@ class CceNode(pulumi.CustomResource):
         return pulumi.get(self, "eip_ids")
 
     @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "enterprise_project_id")
@@ -1912,9 +1936,6 @@ class CceNode(pulumi.CustomResource):
     @property
     @pulumi.getter
     def partition(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        schema: Internal
-        """
         return pulumi.get(self, "partition")
 
     @property

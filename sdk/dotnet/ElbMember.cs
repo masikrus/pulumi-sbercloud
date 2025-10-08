@@ -15,8 +15,23 @@ namespace Pulumi.Sbercloud
         [Output("address")]
         public Output<string> Address { get; private set; } = null!;
 
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        [Output("instanceId")]
+        public Output<string> InstanceId { get; private set; } = null!;
+
+        [Output("ipVersion")]
+        public Output<string> IpVersion { get; private set; } = null!;
+
+        [Output("memberType")]
+        public Output<string> MemberType { get; private set; } = null!;
+
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("operatingStatus")]
+        public Output<string> OperatingStatus { get; private set; } = null!;
 
         [Output("poolId")]
         public Output<string> PoolId { get; private set; } = null!;
@@ -24,14 +39,20 @@ namespace Pulumi.Sbercloud
         [Output("protocolPort")]
         public Output<int> ProtocolPort { get; private set; } = null!;
 
+        [Output("reasons")]
+        public Output<ImmutableArray<Outputs.ElbMemberReason>> Reasons { get; private set; } = null!;
+
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
-        /// <summary>
-        /// The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-        /// </summary>
+        [Output("statuses")]
+        public Output<ImmutableArray<Outputs.ElbMemberStatus>> Statuses { get; private set; } = null!;
+
         [Output("subnetId")]
         public Output<string?> SubnetId { get; private set; } = null!;
+
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
         [Output("weight")]
         public Output<int> Weight { get; private set; } = null!;
@@ -97,9 +118,6 @@ namespace Pulumi.Sbercloud
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-        /// </summary>
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
 
@@ -117,8 +135,23 @@ namespace Pulumi.Sbercloud
         [Input("address")]
         public Input<string>? Address { get; set; }
 
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        [Input("instanceId")]
+        public Input<string>? InstanceId { get; set; }
+
+        [Input("ipVersion")]
+        public Input<string>? IpVersion { get; set; }
+
+        [Input("memberType")]
+        public Input<string>? MemberType { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("operatingStatus")]
+        public Input<string>? OperatingStatus { get; set; }
 
         [Input("poolId")]
         public Input<string>? PoolId { get; set; }
@@ -126,14 +159,30 @@ namespace Pulumi.Sbercloud
         [Input("protocolPort")]
         public Input<int>? ProtocolPort { get; set; }
 
+        [Input("reasons")]
+        private InputList<Inputs.ElbMemberReasonGetArgs>? _reasons;
+        public InputList<Inputs.ElbMemberReasonGetArgs> Reasons
+        {
+            get => _reasons ?? (_reasons = new InputList<Inputs.ElbMemberReasonGetArgs>());
+            set => _reasons = value;
+        }
+
         [Input("region")]
         public Input<string>? Region { get; set; }
 
-        /// <summary>
-        /// The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-        /// </summary>
+        [Input("statuses")]
+        private InputList<Inputs.ElbMemberStatusGetArgs>? _statuses;
+        public InputList<Inputs.ElbMemberStatusGetArgs> Statuses
+        {
+            get => _statuses ?? (_statuses = new InputList<Inputs.ElbMemberStatusGetArgs>());
+            set => _statuses = value;
+        }
+
         [Input("subnetId")]
         public Input<string>? SubnetId { get; set; }
+
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
 
         [Input("weight")]
         public Input<int>? Weight { get; set; }

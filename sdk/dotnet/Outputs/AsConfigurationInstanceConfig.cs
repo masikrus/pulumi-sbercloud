@@ -22,6 +22,7 @@ namespace Pulumi.Sbercloud.Outputs
         public readonly string? FlavorPriorityPolicy;
         public readonly string? Image;
         public readonly string? InstanceId;
+        public readonly string? KeyFingerprint;
         public readonly string? KeyName;
         public readonly ImmutableDictionary<string, string>? Metadata;
         public readonly ImmutableArray<Outputs.AsConfigurationInstanceConfigPersonality> Personalities;
@@ -53,6 +54,8 @@ namespace Pulumi.Sbercloud.Outputs
 
             string? instanceId,
 
+            string? keyFingerprint,
+
             string? keyName,
 
             ImmutableDictionary<string, string>? metadata,
@@ -76,6 +79,7 @@ namespace Pulumi.Sbercloud.Outputs
             FlavorPriorityPolicy = flavorPriorityPolicy;
             Image = image;
             InstanceId = instanceId;
+            KeyFingerprint = keyFingerprint;
             KeyName = keyName;
             Metadata = metadata;
             Personalities = personalities;

@@ -27,8 +27,20 @@ namespace Pulumi.Sbercloud
         [Input("availabilityZone")]
         public string? AvailabilityZone { get; set; }
 
+        [Input("dedicatedStorageId")]
+        public string? DedicatedStorageId { get; set; }
+
+        [Input("dedicatedStorageName")]
+        public string? DedicatedStorageName { get; set; }
+
         [Input("enterpriseProjectId")]
         public string? EnterpriseProjectId { get; set; }
+
+        [Input("ids")]
+        public string? Ids { get; set; }
+
+        [Input("metadata")]
+        public string? Metadata { get; set; }
 
         [Input("name")]
         public string? Name { get; set; }
@@ -39,8 +51,17 @@ namespace Pulumi.Sbercloud
         [Input("serverId")]
         public string? ServerId { get; set; }
 
+        [Input("serviceType")]
+        public string? ServiceType { get; set; }
+
         [Input("shareable")]
         public bool? Shareable { get; set; }
+
+        [Input("sortDir")]
+        public string? SortDir { get; set; }
+
+        [Input("sortKey")]
+        public string? SortKey { get; set; }
 
         [Input("status")]
         public string? Status { get; set; }
@@ -70,8 +91,20 @@ namespace Pulumi.Sbercloud
         [Input("availabilityZone")]
         public Input<string>? AvailabilityZone { get; set; }
 
+        [Input("dedicatedStorageId")]
+        public Input<string>? DedicatedStorageId { get; set; }
+
+        [Input("dedicatedStorageName")]
+        public Input<string>? DedicatedStorageName { get; set; }
+
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
+
+        [Input("ids")]
+        public Input<string>? Ids { get; set; }
+
+        [Input("metadata")]
+        public Input<string>? Metadata { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -82,8 +115,17 @@ namespace Pulumi.Sbercloud
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
 
+        [Input("serviceType")]
+        public Input<string>? ServiceType { get; set; }
+
         [Input("shareable")]
         public Input<bool>? Shareable { get; set; }
+
+        [Input("sortDir")]
+        public Input<string>? SortDir { get; set; }
+
+        [Input("sortKey")]
+        public Input<string>? SortKey { get; set; }
 
         [Input("status")]
         public Input<string>? Status { get; set; }
@@ -113,15 +155,22 @@ namespace Pulumi.Sbercloud
     public sealed class GetEvsVolumesResult
     {
         public readonly string? AvailabilityZone;
+        public readonly string? DedicatedStorageId;
+        public readonly string? DedicatedStorageName;
         public readonly string? EnterpriseProjectId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? Ids;
+        public readonly string? Metadata;
         public readonly string? Name;
         public readonly string? Region;
         public readonly string? ServerId;
+        public readonly string? ServiceType;
         public readonly bool? Shareable;
+        public readonly string? SortDir;
+        public readonly string? SortKey;
         public readonly string? Status;
         public readonly ImmutableDictionary<string, string>? Tags;
         public readonly string? VolumeId;
@@ -132,9 +181,17 @@ namespace Pulumi.Sbercloud
         private GetEvsVolumesResult(
             string? availabilityZone,
 
+            string? dedicatedStorageId,
+
+            string? dedicatedStorageName,
+
             string? enterpriseProjectId,
 
             string id,
+
+            string? ids,
+
+            string? metadata,
 
             string? name,
 
@@ -142,7 +199,13 @@ namespace Pulumi.Sbercloud
 
             string? serverId,
 
+            string? serviceType,
+
             bool? shareable,
+
+            string? sortDir,
+
+            string? sortKey,
 
             string? status,
 
@@ -155,12 +218,19 @@ namespace Pulumi.Sbercloud
             ImmutableArray<Outputs.GetEvsVolumesVolumeResult> volumes)
         {
             AvailabilityZone = availabilityZone;
+            DedicatedStorageId = dedicatedStorageId;
+            DedicatedStorageName = dedicatedStorageName;
             EnterpriseProjectId = enterpriseProjectId;
             Id = id;
+            Ids = ids;
+            Metadata = metadata;
             Name = name;
             Region = region;
             ServerId = serverId;
+            ServiceType = serviceType;
             Shareable = shareable;
+            SortDir = sortDir;
+            SortKey = sortKey;
             Status = status;
             Tags = tags;
             VolumeId = volumeId;

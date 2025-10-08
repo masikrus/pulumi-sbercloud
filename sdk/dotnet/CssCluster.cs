@@ -12,11 +12,47 @@ namespace Pulumi.Sbercloud
     [SbercloudResourceType("sbercloud:index/cssCluster:CssCluster")]
     public partial class CssCluster : global::Pulumi.CustomResource
     {
+        [Output("autoRenew")]
+        public Output<string?> AutoRenew { get; private set; } = null!;
+
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Output("availabilityZone")]
+        public Output<string> AvailabilityZone { get; private set; } = null!;
+
+        [Output("backupAvailable")]
+        public Output<bool> BackupAvailable { get; private set; } = null!;
+
         [Output("backupStrategy")]
         public Output<Outputs.CssClusterBackupStrategy?> BackupStrategy { get; private set; } = null!;
 
+        [Output("bandwidthResourceId")]
+        public Output<string> BandwidthResourceId { get; private set; } = null!;
+
+        [Output("chargingMode")]
+        public Output<string> ChargingMode { get; private set; } = null!;
+
+        [Output("clientNodeConfig")]
+        public Output<Outputs.CssClusterClientNodeConfig?> ClientNodeConfig { get; private set; } = null!;
+
+        [Output("coldNodeConfig")]
+        public Output<Outputs.CssClusterColdNodeConfig?> ColdNodeConfig { get; private set; } = null!;
+
+        /// <summary>
+        /// schema: Deprecated; use created_at instead
+        /// </summary>
         [Output("created")]
         public Output<string> Created { get; private set; } = null!;
+
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
+        [Output("diskEncrypted")]
+        public Output<bool> DiskEncrypted { get; private set; } = null!;
+
+        [Output("enableForceNew")]
+        public Output<string?> EnableForceNew { get; private set; } = null!;
 
         [Output("endpoint")]
         public Output<string> Endpoint { get; private set; } = null!;
@@ -30,8 +66,26 @@ namespace Pulumi.Sbercloud
         [Output("enterpriseProjectId")]
         public Output<string> EnterpriseProjectId { get; private set; } = null!;
 
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Output("essNodeConfig")]
+        public Output<Outputs.CssClusterEssNodeConfig> EssNodeConfig { get; private set; } = null!;
+
         [Output("expectNodeNum")]
-        public Output<int?> ExpectNodeNum { get; private set; } = null!;
+        public Output<int> ExpectNodeNum { get; private set; } = null!;
+
+        [Output("httpsEnabled")]
+        public Output<bool> HttpsEnabled { get; private set; } = null!;
+
+        [Output("isPeriod")]
+        public Output<bool> IsPeriod { get; private set; } = null!;
+
+        [Output("kibanaPublicAccess")]
+        public Output<Outputs.CssClusterKibanaPublicAccess?> KibanaPublicAccess { get; private set; } = null!;
+
+        [Output("masterNodeConfig")]
+        public Output<Outputs.CssClusterMasterNodeConfig?> MasterNodeConfig { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -45,8 +99,23 @@ namespace Pulumi.Sbercloud
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
 
+        [Output("period")]
+        public Output<int?> Period { get; private set; } = null!;
+
+        [Output("periodUnit")]
+        public Output<string?> PeriodUnit { get; private set; } = null!;
+
+        [Output("publicAccess")]
+        public Output<Outputs.CssClusterPublicAccess?> PublicAccess { get; private set; } = null!;
+
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
+
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Output("securityGroupId")]
+        public Output<string> SecurityGroupId { get; private set; } = null!;
 
         [Output("securityMode")]
         public Output<bool?> SecurityMode { get; private set; } = null!;
@@ -54,8 +123,32 @@ namespace Pulumi.Sbercloud
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
 
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Output("subnetId")]
+        public Output<string> SubnetId { get; private set; } = null!;
+
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
+
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
+
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Output("vpcId")]
+        public Output<string> VpcId { get; private set; } = null!;
+
+        [Output("vpcepEndpoint")]
+        public Output<Outputs.CssClusterVpcepEndpoint?> VpcepEndpoint { get; private set; } = null!;
+
+        [Output("vpcepEndpointId")]
+        public Output<string> VpcepEndpointId { get; private set; } = null!;
+
+        [Output("vpcepIp")]
+        public Output<string> VpcepIp { get; private set; } = null!;
 
 
         /// <summary>
@@ -107,8 +200,29 @@ namespace Pulumi.Sbercloud
 
     public sealed class CssClusterArgs : global::Pulumi.ResourceArgs
     {
+        [Input("autoRenew")]
+        public Input<string>? AutoRenew { get; set; }
+
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
         [Input("backupStrategy")]
         public Input<Inputs.CssClusterBackupStrategyArgs>? BackupStrategy { get; set; }
+
+        [Input("chargingMode")]
+        public Input<string>? ChargingMode { get; set; }
+
+        [Input("clientNodeConfig")]
+        public Input<Inputs.CssClusterClientNodeConfigArgs>? ClientNodeConfig { get; set; }
+
+        [Input("coldNodeConfig")]
+        public Input<Inputs.CssClusterColdNodeConfigArgs>? ColdNodeConfig { get; set; }
+
+        [Input("enableForceNew")]
+        public Input<string>? EnableForceNew { get; set; }
 
         [Input("engineType")]
         public Input<string>? EngineType { get; set; }
@@ -119,14 +233,29 @@ namespace Pulumi.Sbercloud
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("essNodeConfig")]
+        public Input<Inputs.CssClusterEssNodeConfigArgs>? EssNodeConfig { get; set; }
+
         [Input("expectNodeNum")]
         public Input<int>? ExpectNodeNum { get; set; }
+
+        [Input("httpsEnabled")]
+        public Input<bool>? HttpsEnabled { get; set; }
+
+        [Input("kibanaPublicAccess")]
+        public Input<Inputs.CssClusterKibanaPublicAccessArgs>? KibanaPublicAccess { get; set; }
+
+        [Input("masterNodeConfig")]
+        public Input<Inputs.CssClusterMasterNodeConfigArgs>? MasterNodeConfig { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
 
-        [Input("nodeConfig", required: true)]
-        public Input<Inputs.CssClusterNodeConfigArgs> NodeConfig { get; set; } = null!;
+        [Input("nodeConfig")]
+        public Input<Inputs.CssClusterNodeConfigArgs>? NodeConfig { get; set; }
 
         [Input("password")]
         private Input<string>? _password;
@@ -140,11 +269,32 @@ namespace Pulumi.Sbercloud
             }
         }
 
+        [Input("period")]
+        public Input<int>? Period { get; set; }
+
+        [Input("periodUnit")]
+        public Input<string>? PeriodUnit { get; set; }
+
+        [Input("publicAccess")]
+        public Input<Inputs.CssClusterPublicAccessArgs>? PublicAccess { get; set; }
+
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("securityGroupId")]
+        public Input<string>? SecurityGroupId { get; set; }
+
         [Input("securityMode")]
         public Input<bool>? SecurityMode { get; set; }
+
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -154,6 +304,15 @@ namespace Pulumi.Sbercloud
             set => _tags = value;
         }
 
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        [Input("vpcepEndpoint")]
+        public Input<Inputs.CssClusterVpcepEndpointArgs>? VpcepEndpoint { get; set; }
+
         public CssClusterArgs()
         {
         }
@@ -162,11 +321,47 @@ namespace Pulumi.Sbercloud
 
     public sealed class CssClusterState : global::Pulumi.ResourceArgs
     {
+        [Input("autoRenew")]
+        public Input<string>? AutoRenew { get; set; }
+
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("availabilityZone")]
+        public Input<string>? AvailabilityZone { get; set; }
+
+        [Input("backupAvailable")]
+        public Input<bool>? BackupAvailable { get; set; }
+
         [Input("backupStrategy")]
         public Input<Inputs.CssClusterBackupStrategyGetArgs>? BackupStrategy { get; set; }
 
+        [Input("bandwidthResourceId")]
+        public Input<string>? BandwidthResourceId { get; set; }
+
+        [Input("chargingMode")]
+        public Input<string>? ChargingMode { get; set; }
+
+        [Input("clientNodeConfig")]
+        public Input<Inputs.CssClusterClientNodeConfigGetArgs>? ClientNodeConfig { get; set; }
+
+        [Input("coldNodeConfig")]
+        public Input<Inputs.CssClusterColdNodeConfigGetArgs>? ColdNodeConfig { get; set; }
+
+        /// <summary>
+        /// schema: Deprecated; use created_at instead
+        /// </summary>
         [Input("created")]
         public Input<string>? Created { get; set; }
+
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
+        [Input("diskEncrypted")]
+        public Input<bool>? DiskEncrypted { get; set; }
+
+        [Input("enableForceNew")]
+        public Input<string>? EnableForceNew { get; set; }
 
         [Input("endpoint")]
         public Input<string>? Endpoint { get; set; }
@@ -180,8 +375,26 @@ namespace Pulumi.Sbercloud
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("essNodeConfig")]
+        public Input<Inputs.CssClusterEssNodeConfigGetArgs>? EssNodeConfig { get; set; }
+
         [Input("expectNodeNum")]
         public Input<int>? ExpectNodeNum { get; set; }
+
+        [Input("httpsEnabled")]
+        public Input<bool>? HttpsEnabled { get; set; }
+
+        [Input("isPeriod")]
+        public Input<bool>? IsPeriod { get; set; }
+
+        [Input("kibanaPublicAccess")]
+        public Input<Inputs.CssClusterKibanaPublicAccessGetArgs>? KibanaPublicAccess { get; set; }
+
+        [Input("masterNodeConfig")]
+        public Input<Inputs.CssClusterMasterNodeConfigGetArgs>? MasterNodeConfig { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -209,14 +422,35 @@ namespace Pulumi.Sbercloud
             }
         }
 
+        [Input("period")]
+        public Input<int>? Period { get; set; }
+
+        [Input("periodUnit")]
+        public Input<string>? PeriodUnit { get; set; }
+
+        [Input("publicAccess")]
+        public Input<Inputs.CssClusterPublicAccessGetArgs>? PublicAccess { get; set; }
+
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("securityGroupId")]
+        public Input<string>? SecurityGroupId { get; set; }
 
         [Input("securityMode")]
         public Input<bool>? SecurityMode { get; set; }
 
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("subnetId")]
+        public Input<string>? SubnetId { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;
@@ -225,6 +459,24 @@ namespace Pulumi.Sbercloud
             get => _tags ?? (_tags = new InputMap<string>());
             set => _tags = value;
         }
+
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
+
+        /// <summary>
+        /// schema: Required
+        /// </summary>
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        [Input("vpcepEndpoint")]
+        public Input<Inputs.CssClusterVpcepEndpointGetArgs>? VpcepEndpoint { get; set; }
+
+        [Input("vpcepEndpointId")]
+        public Input<string>? VpcepEndpointId { get; set; }
+
+        [Input("vpcepIp")]
+        public Input<string>? VpcepIp { get; set; }
 
         public CssClusterState()
         {

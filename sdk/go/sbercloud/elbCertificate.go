@@ -15,17 +15,23 @@ import (
 type ElbCertificate struct {
 	pulumi.CustomResourceState
 
-	Certificate         pulumi.StringOutput    `pulumi:"certificate"`
-	CreateTime          pulumi.StringOutput    `pulumi:"createTime"`
-	Description         pulumi.StringPtrOutput `pulumi:"description"`
-	Domain              pulumi.StringPtrOutput `pulumi:"domain"`
-	EnterpriseProjectId pulumi.StringOutput    `pulumi:"enterpriseProjectId"`
-	ExpireTime          pulumi.StringOutput    `pulumi:"expireTime"`
-	Name                pulumi.StringOutput    `pulumi:"name"`
-	PrivateKey          pulumi.StringPtrOutput `pulumi:"privateKey"`
-	Region              pulumi.StringOutput    `pulumi:"region"`
-	Type                pulumi.StringPtrOutput `pulumi:"type"`
-	UpdateTime          pulumi.StringOutput    `pulumi:"updateTime"`
+	Certificate             pulumi.StringOutput      `pulumi:"certificate"`
+	CommonName              pulumi.StringOutput      `pulumi:"commonName"`
+	CreateTime              pulumi.StringOutput      `pulumi:"createTime"`
+	Description             pulumi.StringPtrOutput   `pulumi:"description"`
+	Domain                  pulumi.StringPtrOutput   `pulumi:"domain"`
+	EncCertificate          pulumi.StringPtrOutput   `pulumi:"encCertificate"`
+	EncPrivateKey           pulumi.StringPtrOutput   `pulumi:"encPrivateKey"`
+	EnterpriseProjectId     pulumi.StringOutput      `pulumi:"enterpriseProjectId"`
+	ExpireTime              pulumi.StringOutput      `pulumi:"expireTime"`
+	Fingerprint             pulumi.StringOutput      `pulumi:"fingerprint"`
+	Name                    pulumi.StringOutput      `pulumi:"name"`
+	PrivateKey              pulumi.StringPtrOutput   `pulumi:"privateKey"`
+	Region                  pulumi.StringOutput      `pulumi:"region"`
+	ScmCertificateId        pulumi.StringOutput      `pulumi:"scmCertificateId"`
+	SubjectAlternativeNames pulumi.StringArrayOutput `pulumi:"subjectAlternativeNames"`
+	Type                    pulumi.StringOutput      `pulumi:"type"`
+	UpdateTime              pulumi.StringOutput      `pulumi:"updateTime"`
 }
 
 // NewElbCertificate registers a new resource with the given unique name, arguments, and options.
@@ -61,31 +67,43 @@ func GetElbCertificate(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ElbCertificate resources.
 type elbCertificateState struct {
-	Certificate         *string `pulumi:"certificate"`
-	CreateTime          *string `pulumi:"createTime"`
-	Description         *string `pulumi:"description"`
-	Domain              *string `pulumi:"domain"`
-	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
-	ExpireTime          *string `pulumi:"expireTime"`
-	Name                *string `pulumi:"name"`
-	PrivateKey          *string `pulumi:"privateKey"`
-	Region              *string `pulumi:"region"`
-	Type                *string `pulumi:"type"`
-	UpdateTime          *string `pulumi:"updateTime"`
+	Certificate             *string  `pulumi:"certificate"`
+	CommonName              *string  `pulumi:"commonName"`
+	CreateTime              *string  `pulumi:"createTime"`
+	Description             *string  `pulumi:"description"`
+	Domain                  *string  `pulumi:"domain"`
+	EncCertificate          *string  `pulumi:"encCertificate"`
+	EncPrivateKey           *string  `pulumi:"encPrivateKey"`
+	EnterpriseProjectId     *string  `pulumi:"enterpriseProjectId"`
+	ExpireTime              *string  `pulumi:"expireTime"`
+	Fingerprint             *string  `pulumi:"fingerprint"`
+	Name                    *string  `pulumi:"name"`
+	PrivateKey              *string  `pulumi:"privateKey"`
+	Region                  *string  `pulumi:"region"`
+	ScmCertificateId        *string  `pulumi:"scmCertificateId"`
+	SubjectAlternativeNames []string `pulumi:"subjectAlternativeNames"`
+	Type                    *string  `pulumi:"type"`
+	UpdateTime              *string  `pulumi:"updateTime"`
 }
 
 type ElbCertificateState struct {
-	Certificate         pulumi.StringPtrInput
-	CreateTime          pulumi.StringPtrInput
-	Description         pulumi.StringPtrInput
-	Domain              pulumi.StringPtrInput
-	EnterpriseProjectId pulumi.StringPtrInput
-	ExpireTime          pulumi.StringPtrInput
-	Name                pulumi.StringPtrInput
-	PrivateKey          pulumi.StringPtrInput
-	Region              pulumi.StringPtrInput
-	Type                pulumi.StringPtrInput
-	UpdateTime          pulumi.StringPtrInput
+	Certificate             pulumi.StringPtrInput
+	CommonName              pulumi.StringPtrInput
+	CreateTime              pulumi.StringPtrInput
+	Description             pulumi.StringPtrInput
+	Domain                  pulumi.StringPtrInput
+	EncCertificate          pulumi.StringPtrInput
+	EncPrivateKey           pulumi.StringPtrInput
+	EnterpriseProjectId     pulumi.StringPtrInput
+	ExpireTime              pulumi.StringPtrInput
+	Fingerprint             pulumi.StringPtrInput
+	Name                    pulumi.StringPtrInput
+	PrivateKey              pulumi.StringPtrInput
+	Region                  pulumi.StringPtrInput
+	ScmCertificateId        pulumi.StringPtrInput
+	SubjectAlternativeNames pulumi.StringArrayInput
+	Type                    pulumi.StringPtrInput
+	UpdateTime              pulumi.StringPtrInput
 }
 
 func (ElbCertificateState) ElementType() reflect.Type {
@@ -96,10 +114,13 @@ type elbCertificateArgs struct {
 	Certificate         string  `pulumi:"certificate"`
 	Description         *string `pulumi:"description"`
 	Domain              *string `pulumi:"domain"`
+	EncCertificate      *string `pulumi:"encCertificate"`
+	EncPrivateKey       *string `pulumi:"encPrivateKey"`
 	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
 	Name                *string `pulumi:"name"`
 	PrivateKey          *string `pulumi:"privateKey"`
 	Region              *string `pulumi:"region"`
+	ScmCertificateId    *string `pulumi:"scmCertificateId"`
 	Type                *string `pulumi:"type"`
 }
 
@@ -108,10 +129,13 @@ type ElbCertificateArgs struct {
 	Certificate         pulumi.StringInput
 	Description         pulumi.StringPtrInput
 	Domain              pulumi.StringPtrInput
+	EncCertificate      pulumi.StringPtrInput
+	EncPrivateKey       pulumi.StringPtrInput
 	EnterpriseProjectId pulumi.StringPtrInput
 	Name                pulumi.StringPtrInput
 	PrivateKey          pulumi.StringPtrInput
 	Region              pulumi.StringPtrInput
+	ScmCertificateId    pulumi.StringPtrInput
 	Type                pulumi.StringPtrInput
 }
 
@@ -206,6 +230,10 @@ func (o ElbCertificateOutput) Certificate() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbCertificate) pulumi.StringOutput { return v.Certificate }).(pulumi.StringOutput)
 }
 
+func (o ElbCertificateOutput) CommonName() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbCertificate) pulumi.StringOutput { return v.CommonName }).(pulumi.StringOutput)
+}
+
 func (o ElbCertificateOutput) CreateTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbCertificate) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
@@ -218,12 +246,24 @@ func (o ElbCertificateOutput) Domain() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElbCertificate) pulumi.StringPtrOutput { return v.Domain }).(pulumi.StringPtrOutput)
 }
 
+func (o ElbCertificateOutput) EncCertificate() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElbCertificate) pulumi.StringPtrOutput { return v.EncCertificate }).(pulumi.StringPtrOutput)
+}
+
+func (o ElbCertificateOutput) EncPrivateKey() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElbCertificate) pulumi.StringPtrOutput { return v.EncPrivateKey }).(pulumi.StringPtrOutput)
+}
+
 func (o ElbCertificateOutput) EnterpriseProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbCertificate) pulumi.StringOutput { return v.EnterpriseProjectId }).(pulumi.StringOutput)
 }
 
 func (o ElbCertificateOutput) ExpireTime() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbCertificate) pulumi.StringOutput { return v.ExpireTime }).(pulumi.StringOutput)
+}
+
+func (o ElbCertificateOutput) Fingerprint() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbCertificate) pulumi.StringOutput { return v.Fingerprint }).(pulumi.StringOutput)
 }
 
 func (o ElbCertificateOutput) Name() pulumi.StringOutput {
@@ -238,8 +278,16 @@ func (o ElbCertificateOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbCertificate) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-func (o ElbCertificateOutput) Type() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *ElbCertificate) pulumi.StringPtrOutput { return v.Type }).(pulumi.StringPtrOutput)
+func (o ElbCertificateOutput) ScmCertificateId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbCertificate) pulumi.StringOutput { return v.ScmCertificateId }).(pulumi.StringOutput)
+}
+
+func (o ElbCertificateOutput) SubjectAlternativeNames() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ElbCertificate) pulumi.StringArrayOutput { return v.SubjectAlternativeNames }).(pulumi.StringArrayOutput)
+}
+
+func (o ElbCertificateOutput) Type() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbCertificate) pulumi.StringOutput { return v.Type }).(pulumi.StringOutput)
 }
 
 func (o ElbCertificateOutput) UpdateTime() pulumi.StringOutput {

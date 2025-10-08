@@ -23,39 +23,102 @@ __all__ = ['CssClusterArgs', 'CssCluster']
 class CssClusterArgs:
     def __init__(__self__, *,
                  engine_version: pulumi.Input[builtins.str],
-                 node_config: pulumi.Input['CssClusterNodeConfigArgs'],
+                 auto_renew: Optional[pulumi.Input[builtins.str]] = None,
+                 availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  backup_strategy: Optional[pulumi.Input['CssClusterBackupStrategyArgs']] = None,
+                 charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 client_node_config: Optional[pulumi.Input['CssClusterClientNodeConfigArgs']] = None,
+                 cold_node_config: Optional[pulumi.Input['CssClusterColdNodeConfigArgs']] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  engine_type: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
+                 ess_node_config: Optional[pulumi.Input['CssClusterEssNodeConfigArgs']] = None,
                  expect_node_num: Optional[pulumi.Input[builtins.int]] = None,
+                 https_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 kibana_public_access: Optional[pulumi.Input['CssClusterKibanaPublicAccessArgs']] = None,
+                 master_node_config: Optional[pulumi.Input['CssClusterMasterNodeConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 node_config: Optional[pulumi.Input['CssClusterNodeConfigArgs']] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 period: Optional[pulumi.Input[builtins.int]] = None,
+                 period_unit: Optional[pulumi.Input[builtins.str]] = None,
+                 public_access: Optional[pulumi.Input['CssClusterPublicAccessArgs']] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_mode: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[builtins.str]] = None,
+                 vpcep_endpoint: Optional[pulumi.Input['CssClusterVpcepEndpointArgs']] = None):
         """
         The set of arguments for constructing a CssCluster resource.
+        :param pulumi.Input[builtins.str] availability_zone: schema: Required
+        :param pulumi.Input['CssClusterEssNodeConfigArgs'] ess_node_config: schema: Required
+        :param pulumi.Input[builtins.str] security_group_id: schema: Required
+        :param pulumi.Input[builtins.str] subnet_id: schema: Required
+        :param pulumi.Input[builtins.str] vpc_id: schema: Required
         """
         pulumi.set(__self__, "engine_version", engine_version)
-        pulumi.set(__self__, "node_config", node_config)
+        if auto_renew is not None:
+            pulumi.set(__self__, "auto_renew", auto_renew)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_strategy is not None:
             pulumi.set(__self__, "backup_strategy", backup_strategy)
+        if charging_mode is not None:
+            pulumi.set(__self__, "charging_mode", charging_mode)
+        if client_node_config is not None:
+            pulumi.set(__self__, "client_node_config", client_node_config)
+        if cold_node_config is not None:
+            pulumi.set(__self__, "cold_node_config", cold_node_config)
+        if enable_force_new is not None:
+            pulumi.set(__self__, "enable_force_new", enable_force_new)
         if engine_type is not None:
             pulumi.set(__self__, "engine_type", engine_type)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
+        if ess_node_config is not None:
+            pulumi.set(__self__, "ess_node_config", ess_node_config)
+        if expect_node_num is not None:
+            warnings.warn("""please use ess_node_config.instance_number instead""", DeprecationWarning)
+            pulumi.log.warn("""expect_node_num is deprecated: please use ess_node_config.instance_number instead""")
         if expect_node_num is not None:
             pulumi.set(__self__, "expect_node_num", expect_node_num)
+        if https_enabled is not None:
+            pulumi.set(__self__, "https_enabled", https_enabled)
+        if kibana_public_access is not None:
+            pulumi.set(__self__, "kibana_public_access", kibana_public_access)
+        if master_node_config is not None:
+            pulumi.set(__self__, "master_node_config", master_node_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if node_config is not None:
+            warnings.warn("""please use ess_node_config instead""", DeprecationWarning)
+            pulumi.log.warn("""node_config is deprecated: please use ess_node_config instead""")
+        if node_config is not None:
+            pulumi.set(__self__, "node_config", node_config)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
+        if period_unit is not None:
+            pulumi.set(__self__, "period_unit", period_unit)
+        if public_access is not None:
+            pulumi.set(__self__, "public_access", public_access)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
         if security_mode is not None:
             pulumi.set(__self__, "security_mode", security_mode)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+        if vpcep_endpoint is not None:
+            pulumi.set(__self__, "vpcep_endpoint", vpcep_endpoint)
 
     @property
     @pulumi.getter(name="engineVersion")
@@ -67,13 +130,25 @@ class CssClusterArgs:
         pulumi.set(self, "engine_version", value)
 
     @property
-    @pulumi.getter(name="nodeConfig")
-    def node_config(self) -> pulumi.Input['CssClusterNodeConfigArgs']:
-        return pulumi.get(self, "node_config")
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "auto_renew")
 
-    @node_config.setter
-    def node_config(self, value: pulumi.Input['CssClusterNodeConfigArgs']):
-        pulumi.set(self, "node_config", value)
+    @auto_renew.setter
+    def auto_renew(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "auto_renew", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "availability_zone", value)
 
     @property
     @pulumi.getter(name="backupStrategy")
@@ -83,6 +158,42 @@ class CssClusterArgs:
     @backup_strategy.setter
     def backup_strategy(self, value: Optional[pulumi.Input['CssClusterBackupStrategyArgs']]):
         pulumi.set(self, "backup_strategy", value)
+
+    @property
+    @pulumi.getter(name="chargingMode")
+    def charging_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "charging_mode")
+
+    @charging_mode.setter
+    def charging_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "charging_mode", value)
+
+    @property
+    @pulumi.getter(name="clientNodeConfig")
+    def client_node_config(self) -> Optional[pulumi.Input['CssClusterClientNodeConfigArgs']]:
+        return pulumi.get(self, "client_node_config")
+
+    @client_node_config.setter
+    def client_node_config(self, value: Optional[pulumi.Input['CssClusterClientNodeConfigArgs']]):
+        pulumi.set(self, "client_node_config", value)
+
+    @property
+    @pulumi.getter(name="coldNodeConfig")
+    def cold_node_config(self) -> Optional[pulumi.Input['CssClusterColdNodeConfigArgs']]:
+        return pulumi.get(self, "cold_node_config")
+
+    @cold_node_config.setter
+    def cold_node_config(self, value: Optional[pulumi.Input['CssClusterColdNodeConfigArgs']]):
+        pulumi.set(self, "cold_node_config", value)
+
+    @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @enable_force_new.setter
+    def enable_force_new(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_force_new", value)
 
     @property
     @pulumi.getter(name="engineType")
@@ -103,13 +214,53 @@ class CssClusterArgs:
         pulumi.set(self, "enterprise_project_id", value)
 
     @property
+    @pulumi.getter(name="essNodeConfig")
+    def ess_node_config(self) -> Optional[pulumi.Input['CssClusterEssNodeConfigArgs']]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "ess_node_config")
+
+    @ess_node_config.setter
+    def ess_node_config(self, value: Optional[pulumi.Input['CssClusterEssNodeConfigArgs']]):
+        pulumi.set(self, "ess_node_config", value)
+
+    @property
     @pulumi.getter(name="expectNodeNum")
+    @_utilities.deprecated("""please use ess_node_config.instance_number instead""")
     def expect_node_num(self) -> Optional[pulumi.Input[builtins.int]]:
         return pulumi.get(self, "expect_node_num")
 
     @expect_node_num.setter
     def expect_node_num(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "expect_node_num", value)
+
+    @property
+    @pulumi.getter(name="httpsEnabled")
+    def https_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "https_enabled")
+
+    @https_enabled.setter
+    def https_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "https_enabled", value)
+
+    @property
+    @pulumi.getter(name="kibanaPublicAccess")
+    def kibana_public_access(self) -> Optional[pulumi.Input['CssClusterKibanaPublicAccessArgs']]:
+        return pulumi.get(self, "kibana_public_access")
+
+    @kibana_public_access.setter
+    def kibana_public_access(self, value: Optional[pulumi.Input['CssClusterKibanaPublicAccessArgs']]):
+        pulumi.set(self, "kibana_public_access", value)
+
+    @property
+    @pulumi.getter(name="masterNodeConfig")
+    def master_node_config(self) -> Optional[pulumi.Input['CssClusterMasterNodeConfigArgs']]:
+        return pulumi.get(self, "master_node_config")
+
+    @master_node_config.setter
+    def master_node_config(self, value: Optional[pulumi.Input['CssClusterMasterNodeConfigArgs']]):
+        pulumi.set(self, "master_node_config", value)
 
     @property
     @pulumi.getter
@@ -119,6 +270,16 @@ class CssClusterArgs:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="nodeConfig")
+    @_utilities.deprecated("""please use ess_node_config instead""")
+    def node_config(self) -> Optional[pulumi.Input['CssClusterNodeConfigArgs']]:
+        return pulumi.get(self, "node_config")
+
+    @node_config.setter
+    def node_config(self, value: Optional[pulumi.Input['CssClusterNodeConfigArgs']]):
+        pulumi.set(self, "node_config", value)
 
     @property
     @pulumi.getter
@@ -131,12 +292,51 @@ class CssClusterArgs:
 
     @property
     @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "period", value)
+
+    @property
+    @pulumi.getter(name="periodUnit")
+    def period_unit(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "period_unit")
+
+    @period_unit.setter
+    def period_unit(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "period_unit", value)
+
+    @property
+    @pulumi.getter(name="publicAccess")
+    def public_access(self) -> Optional[pulumi.Input['CssClusterPublicAccessArgs']]:
+        return pulumi.get(self, "public_access")
+
+    @public_access.setter
+    def public_access(self, value: Optional[pulumi.Input['CssClusterPublicAccessArgs']]):
+        pulumi.set(self, "public_access", value)
+
+    @property
+    @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "region")
 
     @region.setter
     def region(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "security_group_id", value)
 
     @property
     @pulumi.getter(name="securityMode")
@@ -148,6 +348,18 @@ class CssClusterArgs:
         pulumi.set(self, "security_mode", value)
 
     @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
@@ -156,32 +368,104 @@ class CssClusterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="vpcepEndpoint")
+    def vpcep_endpoint(self) -> Optional[pulumi.Input['CssClusterVpcepEndpointArgs']]:
+        return pulumi.get(self, "vpcep_endpoint")
+
+    @vpcep_endpoint.setter
+    def vpcep_endpoint(self, value: Optional[pulumi.Input['CssClusterVpcepEndpointArgs']]):
+        pulumi.set(self, "vpcep_endpoint", value)
+
 
 @pulumi.input_type
 class _CssClusterState:
     def __init__(__self__, *,
+                 auto_renew: Optional[pulumi.Input[builtins.str]] = None,
+                 availability_zone: Optional[pulumi.Input[builtins.str]] = None,
+                 backup_available: Optional[pulumi.Input[builtins.bool]] = None,
                  backup_strategy: Optional[pulumi.Input['CssClusterBackupStrategyArgs']] = None,
+                 bandwidth_resource_id: Optional[pulumi.Input[builtins.str]] = None,
+                 charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 client_node_config: Optional[pulumi.Input['CssClusterClientNodeConfigArgs']] = None,
+                 cold_node_config: Optional[pulumi.Input['CssClusterColdNodeConfigArgs']] = None,
                  created: Optional[pulumi.Input[builtins.str]] = None,
+                 created_at: Optional[pulumi.Input[builtins.str]] = None,
+                 disk_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  endpoint: Optional[pulumi.Input[builtins.str]] = None,
                  engine_type: Optional[pulumi.Input[builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
+                 ess_node_config: Optional[pulumi.Input['CssClusterEssNodeConfigArgs']] = None,
                  expect_node_num: Optional[pulumi.Input[builtins.int]] = None,
+                 https_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 is_period: Optional[pulumi.Input[builtins.bool]] = None,
+                 kibana_public_access: Optional[pulumi.Input['CssClusterKibanaPublicAccessArgs']] = None,
+                 master_node_config: Optional[pulumi.Input['CssClusterMasterNodeConfigArgs']] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  node_config: Optional[pulumi.Input['CssClusterNodeConfigArgs']] = None,
                  nodes: Optional[pulumi.Input[Sequence[pulumi.Input['CssClusterNodeArgs']]]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 period: Optional[pulumi.Input[builtins.int]] = None,
+                 period_unit: Optional[pulumi.Input[builtins.str]] = None,
+                 public_access: Optional[pulumi.Input['CssClusterPublicAccessArgs']] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_mode: Optional[pulumi.Input[builtins.bool]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 updated_at: Optional[pulumi.Input[builtins.str]] = None,
+                 vpc_id: Optional[pulumi.Input[builtins.str]] = None,
+                 vpcep_endpoint: Optional[pulumi.Input['CssClusterVpcepEndpointArgs']] = None,
+                 vpcep_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+                 vpcep_ip: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering CssCluster resources.
+        :param pulumi.Input[builtins.str] availability_zone: schema: Required
+        :param pulumi.Input[builtins.str] created: schema: Deprecated; use created_at instead
+        :param pulumi.Input['CssClusterEssNodeConfigArgs'] ess_node_config: schema: Required
+        :param pulumi.Input[builtins.str] security_group_id: schema: Required
+        :param pulumi.Input[builtins.str] subnet_id: schema: Required
+        :param pulumi.Input[builtins.str] vpc_id: schema: Required
         """
+        if auto_renew is not None:
+            pulumi.set(__self__, "auto_renew", auto_renew)
+        if availability_zone is not None:
+            pulumi.set(__self__, "availability_zone", availability_zone)
+        if backup_available is not None:
+            pulumi.set(__self__, "backup_available", backup_available)
         if backup_strategy is not None:
             pulumi.set(__self__, "backup_strategy", backup_strategy)
+        if bandwidth_resource_id is not None:
+            pulumi.set(__self__, "bandwidth_resource_id", bandwidth_resource_id)
+        if charging_mode is not None:
+            pulumi.set(__self__, "charging_mode", charging_mode)
+        if client_node_config is not None:
+            pulumi.set(__self__, "client_node_config", client_node_config)
+        if cold_node_config is not None:
+            pulumi.set(__self__, "cold_node_config", cold_node_config)
         if created is not None:
             pulumi.set(__self__, "created", created)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if disk_encrypted is not None:
+            pulumi.set(__self__, "disk_encrypted", disk_encrypted)
+        if enable_force_new is not None:
+            pulumi.set(__self__, "enable_force_new", enable_force_new)
         if endpoint is not None:
             pulumi.set(__self__, "endpoint", endpoint)
         if engine_type is not None:
@@ -190,24 +474,90 @@ class _CssClusterState:
             pulumi.set(__self__, "engine_version", engine_version)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
+        if ess_node_config is not None:
+            pulumi.set(__self__, "ess_node_config", ess_node_config)
+        if expect_node_num is not None:
+            warnings.warn("""please use ess_node_config.instance_number instead""", DeprecationWarning)
+            pulumi.log.warn("""expect_node_num is deprecated: please use ess_node_config.instance_number instead""")
         if expect_node_num is not None:
             pulumi.set(__self__, "expect_node_num", expect_node_num)
+        if https_enabled is not None:
+            pulumi.set(__self__, "https_enabled", https_enabled)
+        if is_period is not None:
+            pulumi.set(__self__, "is_period", is_period)
+        if kibana_public_access is not None:
+            pulumi.set(__self__, "kibana_public_access", kibana_public_access)
+        if master_node_config is not None:
+            pulumi.set(__self__, "master_node_config", master_node_config)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if node_config is not None:
+            warnings.warn("""please use ess_node_config instead""", DeprecationWarning)
+            pulumi.log.warn("""node_config is deprecated: please use ess_node_config instead""")
         if node_config is not None:
             pulumi.set(__self__, "node_config", node_config)
         if nodes is not None:
             pulumi.set(__self__, "nodes", nodes)
         if password is not None:
             pulumi.set(__self__, "password", password)
+        if period is not None:
+            pulumi.set(__self__, "period", period)
+        if period_unit is not None:
+            pulumi.set(__self__, "period_unit", period_unit)
+        if public_access is not None:
+            pulumi.set(__self__, "public_access", public_access)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if security_group_id is not None:
+            pulumi.set(__self__, "security_group_id", security_group_id)
         if security_mode is not None:
             pulumi.set(__self__, "security_mode", security_mode)
         if status is not None:
             pulumi.set(__self__, "status", status)
+        if subnet_id is not None:
+            pulumi.set(__self__, "subnet_id", subnet_id)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
+        if vpc_id is not None:
+            pulumi.set(__self__, "vpc_id", vpc_id)
+        if vpcep_endpoint is not None:
+            pulumi.set(__self__, "vpcep_endpoint", vpcep_endpoint)
+        if vpcep_endpoint_id is not None:
+            pulumi.set(__self__, "vpcep_endpoint_id", vpcep_endpoint_id)
+        if vpcep_ip is not None:
+            pulumi.set(__self__, "vpcep_ip", vpcep_ip)
+
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "auto_renew")
+
+    @auto_renew.setter
+    def auto_renew(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "auto_renew", value)
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @availability_zone.setter
+    def availability_zone(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "availability_zone", value)
+
+    @property
+    @pulumi.getter(name="backupAvailable")
+    def backup_available(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "backup_available")
+
+    @backup_available.setter
+    def backup_available(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "backup_available", value)
 
     @property
     @pulumi.getter(name="backupStrategy")
@@ -219,13 +569,79 @@ class _CssClusterState:
         pulumi.set(self, "backup_strategy", value)
 
     @property
+    @pulumi.getter(name="bandwidthResourceId")
+    def bandwidth_resource_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "bandwidth_resource_id")
+
+    @bandwidth_resource_id.setter
+    def bandwidth_resource_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bandwidth_resource_id", value)
+
+    @property
+    @pulumi.getter(name="chargingMode")
+    def charging_mode(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "charging_mode")
+
+    @charging_mode.setter
+    def charging_mode(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "charging_mode", value)
+
+    @property
+    @pulumi.getter(name="clientNodeConfig")
+    def client_node_config(self) -> Optional[pulumi.Input['CssClusterClientNodeConfigArgs']]:
+        return pulumi.get(self, "client_node_config")
+
+    @client_node_config.setter
+    def client_node_config(self, value: Optional[pulumi.Input['CssClusterClientNodeConfigArgs']]):
+        pulumi.set(self, "client_node_config", value)
+
+    @property
+    @pulumi.getter(name="coldNodeConfig")
+    def cold_node_config(self) -> Optional[pulumi.Input['CssClusterColdNodeConfigArgs']]:
+        return pulumi.get(self, "cold_node_config")
+
+    @cold_node_config.setter
+    def cold_node_config(self, value: Optional[pulumi.Input['CssClusterColdNodeConfigArgs']]):
+        pulumi.set(self, "cold_node_config", value)
+
+    @property
     @pulumi.getter
     def created(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Deprecated; use created_at instead
+        """
         return pulumi.get(self, "created")
 
     @created.setter
     def created(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "created", value)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="diskEncrypted")
+    def disk_encrypted(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "disk_encrypted")
+
+    @disk_encrypted.setter
+    def disk_encrypted(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "disk_encrypted", value)
+
+    @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @enable_force_new.setter
+    def enable_force_new(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_force_new", value)
 
     @property
     @pulumi.getter
@@ -264,13 +680,62 @@ class _CssClusterState:
         pulumi.set(self, "enterprise_project_id", value)
 
     @property
+    @pulumi.getter(name="essNodeConfig")
+    def ess_node_config(self) -> Optional[pulumi.Input['CssClusterEssNodeConfigArgs']]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "ess_node_config")
+
+    @ess_node_config.setter
+    def ess_node_config(self, value: Optional[pulumi.Input['CssClusterEssNodeConfigArgs']]):
+        pulumi.set(self, "ess_node_config", value)
+
+    @property
     @pulumi.getter(name="expectNodeNum")
+    @_utilities.deprecated("""please use ess_node_config.instance_number instead""")
     def expect_node_num(self) -> Optional[pulumi.Input[builtins.int]]:
         return pulumi.get(self, "expect_node_num")
 
     @expect_node_num.setter
     def expect_node_num(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "expect_node_num", value)
+
+    @property
+    @pulumi.getter(name="httpsEnabled")
+    def https_enabled(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "https_enabled")
+
+    @https_enabled.setter
+    def https_enabled(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "https_enabled", value)
+
+    @property
+    @pulumi.getter(name="isPeriod")
+    def is_period(self) -> Optional[pulumi.Input[builtins.bool]]:
+        return pulumi.get(self, "is_period")
+
+    @is_period.setter
+    def is_period(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_period", value)
+
+    @property
+    @pulumi.getter(name="kibanaPublicAccess")
+    def kibana_public_access(self) -> Optional[pulumi.Input['CssClusterKibanaPublicAccessArgs']]:
+        return pulumi.get(self, "kibana_public_access")
+
+    @kibana_public_access.setter
+    def kibana_public_access(self, value: Optional[pulumi.Input['CssClusterKibanaPublicAccessArgs']]):
+        pulumi.set(self, "kibana_public_access", value)
+
+    @property
+    @pulumi.getter(name="masterNodeConfig")
+    def master_node_config(self) -> Optional[pulumi.Input['CssClusterMasterNodeConfigArgs']]:
+        return pulumi.get(self, "master_node_config")
+
+    @master_node_config.setter
+    def master_node_config(self, value: Optional[pulumi.Input['CssClusterMasterNodeConfigArgs']]):
+        pulumi.set(self, "master_node_config", value)
 
     @property
     @pulumi.getter
@@ -283,6 +748,7 @@ class _CssClusterState:
 
     @property
     @pulumi.getter(name="nodeConfig")
+    @_utilities.deprecated("""please use ess_node_config instead""")
     def node_config(self) -> Optional[pulumi.Input['CssClusterNodeConfigArgs']]:
         return pulumi.get(self, "node_config")
 
@@ -310,12 +776,51 @@ class _CssClusterState:
 
     @property
     @pulumi.getter
+    def period(self) -> Optional[pulumi.Input[builtins.int]]:
+        return pulumi.get(self, "period")
+
+    @period.setter
+    def period(self, value: Optional[pulumi.Input[builtins.int]]):
+        pulumi.set(self, "period", value)
+
+    @property
+    @pulumi.getter(name="periodUnit")
+    def period_unit(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "period_unit")
+
+    @period_unit.setter
+    def period_unit(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "period_unit", value)
+
+    @property
+    @pulumi.getter(name="publicAccess")
+    def public_access(self) -> Optional[pulumi.Input['CssClusterPublicAccessArgs']]:
+        return pulumi.get(self, "public_access")
+
+    @public_access.setter
+    def public_access(self, value: Optional[pulumi.Input['CssClusterPublicAccessArgs']]):
+        pulumi.set(self, "public_access", value)
+
+    @property
+    @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "region")
 
     @region.setter
     def region(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "region", value)
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "security_group_id")
+
+    @security_group_id.setter
+    def security_group_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "security_group_id", value)
 
     @property
     @pulumi.getter(name="securityMode")
@@ -336,6 +841,18 @@ class _CssClusterState:
         pulumi.set(self, "status", value)
 
     @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @subnet_id.setter
+    def subnet_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "subnet_id", value)
+
+    @property
     @pulumi.getter
     def tags(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
         return pulumi.get(self, "tags")
@@ -344,28 +861,98 @@ class _CssClusterState:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_at", value)
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @vpc_id.setter
+    def vpc_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpc_id", value)
+
+    @property
+    @pulumi.getter(name="vpcepEndpoint")
+    def vpcep_endpoint(self) -> Optional[pulumi.Input['CssClusterVpcepEndpointArgs']]:
+        return pulumi.get(self, "vpcep_endpoint")
+
+    @vpcep_endpoint.setter
+    def vpcep_endpoint(self, value: Optional[pulumi.Input['CssClusterVpcepEndpointArgs']]):
+        pulumi.set(self, "vpcep_endpoint", value)
+
+    @property
+    @pulumi.getter(name="vpcepEndpointId")
+    def vpcep_endpoint_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "vpcep_endpoint_id")
+
+    @vpcep_endpoint_id.setter
+    def vpcep_endpoint_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpcep_endpoint_id", value)
+
+    @property
+    @pulumi.getter(name="vpcepIp")
+    def vpcep_ip(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "vpcep_ip")
+
+    @vpcep_ip.setter
+    def vpcep_ip(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "vpcep_ip", value)
+
 
 class CssCluster(pulumi.CustomResource):
     @overload
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_renew: Optional[pulumi.Input[builtins.str]] = None,
+                 availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  backup_strategy: Optional[pulumi.Input[Union['CssClusterBackupStrategyArgs', 'CssClusterBackupStrategyArgsDict']]] = None,
+                 charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 client_node_config: Optional[pulumi.Input[Union['CssClusterClientNodeConfigArgs', 'CssClusterClientNodeConfigArgsDict']]] = None,
+                 cold_node_config: Optional[pulumi.Input[Union['CssClusterColdNodeConfigArgs', 'CssClusterColdNodeConfigArgsDict']]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  engine_type: Optional[pulumi.Input[builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
+                 ess_node_config: Optional[pulumi.Input[Union['CssClusterEssNodeConfigArgs', 'CssClusterEssNodeConfigArgsDict']]] = None,
                  expect_node_num: Optional[pulumi.Input[builtins.int]] = None,
+                 https_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 kibana_public_access: Optional[pulumi.Input[Union['CssClusterKibanaPublicAccessArgs', 'CssClusterKibanaPublicAccessArgsDict']]] = None,
+                 master_node_config: Optional[pulumi.Input[Union['CssClusterMasterNodeConfigArgs', 'CssClusterMasterNodeConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  node_config: Optional[pulumi.Input[Union['CssClusterNodeConfigArgs', 'CssClusterNodeConfigArgsDict']]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 period: Optional[pulumi.Input[builtins.int]] = None,
+                 period_unit: Optional[pulumi.Input[builtins.str]] = None,
+                 public_access: Optional[pulumi.Input[Union['CssClusterPublicAccessArgs', 'CssClusterPublicAccessArgsDict']]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_mode: Optional[pulumi.Input[builtins.bool]] = None,
+                 subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[builtins.str]] = None,
+                 vpcep_endpoint: Optional[pulumi.Input[Union['CssClusterVpcepEndpointArgs', 'CssClusterVpcepEndpointArgsDict']]] = None,
                  __props__=None):
         """
         Create a CssCluster resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] availability_zone: schema: Required
+        :param pulumi.Input[Union['CssClusterEssNodeConfigArgs', 'CssClusterEssNodeConfigArgsDict']] ess_node_config: schema: Required
+        :param pulumi.Input[builtins.str] security_group_id: schema: Required
+        :param pulumi.Input[builtins.str] subnet_id: schema: Required
+        :param pulumi.Input[builtins.str] vpc_id: schema: Required
         """
         ...
     @overload
@@ -390,17 +977,34 @@ class CssCluster(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 auto_renew: Optional[pulumi.Input[builtins.str]] = None,
+                 availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  backup_strategy: Optional[pulumi.Input[Union['CssClusterBackupStrategyArgs', 'CssClusterBackupStrategyArgsDict']]] = None,
+                 charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 client_node_config: Optional[pulumi.Input[Union['CssClusterClientNodeConfigArgs', 'CssClusterClientNodeConfigArgsDict']]] = None,
+                 cold_node_config: Optional[pulumi.Input[Union['CssClusterColdNodeConfigArgs', 'CssClusterColdNodeConfigArgsDict']]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  engine_type: Optional[pulumi.Input[builtins.str]] = None,
                  engine_version: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
+                 ess_node_config: Optional[pulumi.Input[Union['CssClusterEssNodeConfigArgs', 'CssClusterEssNodeConfigArgsDict']]] = None,
                  expect_node_num: Optional[pulumi.Input[builtins.int]] = None,
+                 https_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+                 kibana_public_access: Optional[pulumi.Input[Union['CssClusterKibanaPublicAccessArgs', 'CssClusterKibanaPublicAccessArgsDict']]] = None,
+                 master_node_config: Optional[pulumi.Input[Union['CssClusterMasterNodeConfigArgs', 'CssClusterMasterNodeConfigArgsDict']]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  node_config: Optional[pulumi.Input[Union['CssClusterNodeConfigArgs', 'CssClusterNodeConfigArgsDict']]] = None,
                  password: Optional[pulumi.Input[builtins.str]] = None,
+                 period: Optional[pulumi.Input[builtins.int]] = None,
+                 period_unit: Optional[pulumi.Input[builtins.str]] = None,
+                 public_access: Optional[pulumi.Input[Union['CssClusterPublicAccessArgs', 'CssClusterPublicAccessArgsDict']]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  security_mode: Optional[pulumi.Input[builtins.bool]] = None,
+                 subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 vpc_id: Optional[pulumi.Input[builtins.str]] = None,
+                 vpcep_endpoint: Optional[pulumi.Input[Union['CssClusterVpcepEndpointArgs', 'CssClusterVpcepEndpointArgsDict']]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
         if not isinstance(opts, pulumi.ResourceOptions):
@@ -410,25 +1014,48 @@ class CssCluster(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = CssClusterArgs.__new__(CssClusterArgs)
 
+            __props__.__dict__["auto_renew"] = auto_renew
+            __props__.__dict__["availability_zone"] = availability_zone
             __props__.__dict__["backup_strategy"] = backup_strategy
+            __props__.__dict__["charging_mode"] = charging_mode
+            __props__.__dict__["client_node_config"] = client_node_config
+            __props__.__dict__["cold_node_config"] = cold_node_config
+            __props__.__dict__["enable_force_new"] = enable_force_new
             __props__.__dict__["engine_type"] = engine_type
             if engine_version is None and not opts.urn:
                 raise TypeError("Missing required property 'engine_version'")
             __props__.__dict__["engine_version"] = engine_version
             __props__.__dict__["enterprise_project_id"] = enterprise_project_id
+            __props__.__dict__["ess_node_config"] = ess_node_config
             __props__.__dict__["expect_node_num"] = expect_node_num
+            __props__.__dict__["https_enabled"] = https_enabled
+            __props__.__dict__["kibana_public_access"] = kibana_public_access
+            __props__.__dict__["master_node_config"] = master_node_config
             __props__.__dict__["name"] = name
-            if node_config is None and not opts.urn:
-                raise TypeError("Missing required property 'node_config'")
             __props__.__dict__["node_config"] = node_config
             __props__.__dict__["password"] = None if password is None else pulumi.Output.secret(password)
+            __props__.__dict__["period"] = period
+            __props__.__dict__["period_unit"] = period_unit
+            __props__.__dict__["public_access"] = public_access
             __props__.__dict__["region"] = region
+            __props__.__dict__["security_group_id"] = security_group_id
             __props__.__dict__["security_mode"] = security_mode
+            __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["vpc_id"] = vpc_id
+            __props__.__dict__["vpcep_endpoint"] = vpcep_endpoint
+            __props__.__dict__["backup_available"] = None
+            __props__.__dict__["bandwidth_resource_id"] = None
             __props__.__dict__["created"] = None
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["disk_encrypted"] = None
             __props__.__dict__["endpoint"] = None
+            __props__.__dict__["is_period"] = None
             __props__.__dict__["nodes"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["updated_at"] = None
+            __props__.__dict__["vpcep_endpoint_id"] = None
+            __props__.__dict__["vpcep_ip"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(CssCluster, __self__).__init__(
@@ -441,21 +1068,46 @@ class CssCluster(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            auto_renew: Optional[pulumi.Input[builtins.str]] = None,
+            availability_zone: Optional[pulumi.Input[builtins.str]] = None,
+            backup_available: Optional[pulumi.Input[builtins.bool]] = None,
             backup_strategy: Optional[pulumi.Input[Union['CssClusterBackupStrategyArgs', 'CssClusterBackupStrategyArgsDict']]] = None,
+            bandwidth_resource_id: Optional[pulumi.Input[builtins.str]] = None,
+            charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+            client_node_config: Optional[pulumi.Input[Union['CssClusterClientNodeConfigArgs', 'CssClusterClientNodeConfigArgsDict']]] = None,
+            cold_node_config: Optional[pulumi.Input[Union['CssClusterColdNodeConfigArgs', 'CssClusterColdNodeConfigArgsDict']]] = None,
             created: Optional[pulumi.Input[builtins.str]] = None,
+            created_at: Optional[pulumi.Input[builtins.str]] = None,
+            disk_encrypted: Optional[pulumi.Input[builtins.bool]] = None,
+            enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
             endpoint: Optional[pulumi.Input[builtins.str]] = None,
             engine_type: Optional[pulumi.Input[builtins.str]] = None,
             engine_version: Optional[pulumi.Input[builtins.str]] = None,
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
+            ess_node_config: Optional[pulumi.Input[Union['CssClusterEssNodeConfigArgs', 'CssClusterEssNodeConfigArgsDict']]] = None,
             expect_node_num: Optional[pulumi.Input[builtins.int]] = None,
+            https_enabled: Optional[pulumi.Input[builtins.bool]] = None,
+            is_period: Optional[pulumi.Input[builtins.bool]] = None,
+            kibana_public_access: Optional[pulumi.Input[Union['CssClusterKibanaPublicAccessArgs', 'CssClusterKibanaPublicAccessArgsDict']]] = None,
+            master_node_config: Optional[pulumi.Input[Union['CssClusterMasterNodeConfigArgs', 'CssClusterMasterNodeConfigArgsDict']]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             node_config: Optional[pulumi.Input[Union['CssClusterNodeConfigArgs', 'CssClusterNodeConfigArgsDict']]] = None,
             nodes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CssClusterNodeArgs', 'CssClusterNodeArgsDict']]]]] = None,
             password: Optional[pulumi.Input[builtins.str]] = None,
+            period: Optional[pulumi.Input[builtins.int]] = None,
+            period_unit: Optional[pulumi.Input[builtins.str]] = None,
+            public_access: Optional[pulumi.Input[Union['CssClusterPublicAccessArgs', 'CssClusterPublicAccessArgsDict']]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
+            security_group_id: Optional[pulumi.Input[builtins.str]] = None,
             security_mode: Optional[pulumi.Input[builtins.bool]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
-            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None) -> 'CssCluster':
+            subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+            tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            updated_at: Optional[pulumi.Input[builtins.str]] = None,
+            vpc_id: Optional[pulumi.Input[builtins.str]] = None,
+            vpcep_endpoint: Optional[pulumi.Input[Union['CssClusterVpcepEndpointArgs', 'CssClusterVpcepEndpointArgsDict']]] = None,
+            vpcep_endpoint_id: Optional[pulumi.Input[builtins.str]] = None,
+            vpcep_ip: Optional[pulumi.Input[builtins.str]] = None) -> 'CssCluster':
         """
         Get an existing CssCluster resource's state with the given name, id, and optional extra
         properties used to qualify the lookup.
@@ -463,27 +1115,76 @@ class CssCluster(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] availability_zone: schema: Required
+        :param pulumi.Input[builtins.str] created: schema: Deprecated; use created_at instead
+        :param pulumi.Input[Union['CssClusterEssNodeConfigArgs', 'CssClusterEssNodeConfigArgsDict']] ess_node_config: schema: Required
+        :param pulumi.Input[builtins.str] security_group_id: schema: Required
+        :param pulumi.Input[builtins.str] subnet_id: schema: Required
+        :param pulumi.Input[builtins.str] vpc_id: schema: Required
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _CssClusterState.__new__(_CssClusterState)
 
+        __props__.__dict__["auto_renew"] = auto_renew
+        __props__.__dict__["availability_zone"] = availability_zone
+        __props__.__dict__["backup_available"] = backup_available
         __props__.__dict__["backup_strategy"] = backup_strategy
+        __props__.__dict__["bandwidth_resource_id"] = bandwidth_resource_id
+        __props__.__dict__["charging_mode"] = charging_mode
+        __props__.__dict__["client_node_config"] = client_node_config
+        __props__.__dict__["cold_node_config"] = cold_node_config
         __props__.__dict__["created"] = created
+        __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["disk_encrypted"] = disk_encrypted
+        __props__.__dict__["enable_force_new"] = enable_force_new
         __props__.__dict__["endpoint"] = endpoint
         __props__.__dict__["engine_type"] = engine_type
         __props__.__dict__["engine_version"] = engine_version
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
+        __props__.__dict__["ess_node_config"] = ess_node_config
         __props__.__dict__["expect_node_num"] = expect_node_num
+        __props__.__dict__["https_enabled"] = https_enabled
+        __props__.__dict__["is_period"] = is_period
+        __props__.__dict__["kibana_public_access"] = kibana_public_access
+        __props__.__dict__["master_node_config"] = master_node_config
         __props__.__dict__["name"] = name
         __props__.__dict__["node_config"] = node_config
         __props__.__dict__["nodes"] = nodes
         __props__.__dict__["password"] = password
+        __props__.__dict__["period"] = period
+        __props__.__dict__["period_unit"] = period_unit
+        __props__.__dict__["public_access"] = public_access
         __props__.__dict__["region"] = region
+        __props__.__dict__["security_group_id"] = security_group_id
         __props__.__dict__["security_mode"] = security_mode
         __props__.__dict__["status"] = status
+        __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["updated_at"] = updated_at
+        __props__.__dict__["vpc_id"] = vpc_id
+        __props__.__dict__["vpcep_endpoint"] = vpcep_endpoint
+        __props__.__dict__["vpcep_endpoint_id"] = vpcep_endpoint_id
+        __props__.__dict__["vpcep_ip"] = vpcep_ip
         return CssCluster(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "auto_renew")
+
+    @property
+    @pulumi.getter(name="availabilityZone")
+    def availability_zone(self) -> pulumi.Output[builtins.str]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "availability_zone")
+
+    @property
+    @pulumi.getter(name="backupAvailable")
+    def backup_available(self) -> pulumi.Output[builtins.bool]:
+        return pulumi.get(self, "backup_available")
 
     @property
     @pulumi.getter(name="backupStrategy")
@@ -491,9 +1192,47 @@ class CssCluster(pulumi.CustomResource):
         return pulumi.get(self, "backup_strategy")
 
     @property
+    @pulumi.getter(name="bandwidthResourceId")
+    def bandwidth_resource_id(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "bandwidth_resource_id")
+
+    @property
+    @pulumi.getter(name="chargingMode")
+    def charging_mode(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "charging_mode")
+
+    @property
+    @pulumi.getter(name="clientNodeConfig")
+    def client_node_config(self) -> pulumi.Output[Optional['outputs.CssClusterClientNodeConfig']]:
+        return pulumi.get(self, "client_node_config")
+
+    @property
+    @pulumi.getter(name="coldNodeConfig")
+    def cold_node_config(self) -> pulumi.Output[Optional['outputs.CssClusterColdNodeConfig']]:
+        return pulumi.get(self, "cold_node_config")
+
+    @property
     @pulumi.getter
     def created(self) -> pulumi.Output[builtins.str]:
+        """
+        schema: Deprecated; use created_at instead
+        """
         return pulumi.get(self, "created")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="diskEncrypted")
+    def disk_encrypted(self) -> pulumi.Output[builtins.bool]:
+        return pulumi.get(self, "disk_encrypted")
+
+    @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
 
     @property
     @pulumi.getter
@@ -516,9 +1255,38 @@ class CssCluster(pulumi.CustomResource):
         return pulumi.get(self, "enterprise_project_id")
 
     @property
+    @pulumi.getter(name="essNodeConfig")
+    def ess_node_config(self) -> pulumi.Output['outputs.CssClusterEssNodeConfig']:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "ess_node_config")
+
+    @property
     @pulumi.getter(name="expectNodeNum")
-    def expect_node_num(self) -> pulumi.Output[Optional[builtins.int]]:
+    @_utilities.deprecated("""please use ess_node_config.instance_number instead""")
+    def expect_node_num(self) -> pulumi.Output[builtins.int]:
         return pulumi.get(self, "expect_node_num")
+
+    @property
+    @pulumi.getter(name="httpsEnabled")
+    def https_enabled(self) -> pulumi.Output[builtins.bool]:
+        return pulumi.get(self, "https_enabled")
+
+    @property
+    @pulumi.getter(name="isPeriod")
+    def is_period(self) -> pulumi.Output[builtins.bool]:
+        return pulumi.get(self, "is_period")
+
+    @property
+    @pulumi.getter(name="kibanaPublicAccess")
+    def kibana_public_access(self) -> pulumi.Output[Optional['outputs.CssClusterKibanaPublicAccess']]:
+        return pulumi.get(self, "kibana_public_access")
+
+    @property
+    @pulumi.getter(name="masterNodeConfig")
+    def master_node_config(self) -> pulumi.Output[Optional['outputs.CssClusterMasterNodeConfig']]:
+        return pulumi.get(self, "master_node_config")
 
     @property
     @pulumi.getter
@@ -527,6 +1295,7 @@ class CssCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="nodeConfig")
+    @_utilities.deprecated("""please use ess_node_config instead""")
     def node_config(self) -> pulumi.Output['outputs.CssClusterNodeConfig']:
         return pulumi.get(self, "node_config")
 
@@ -542,8 +1311,31 @@ class CssCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def period(self) -> pulumi.Output[Optional[builtins.int]]:
+        return pulumi.get(self, "period")
+
+    @property
+    @pulumi.getter(name="periodUnit")
+    def period_unit(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "period_unit")
+
+    @property
+    @pulumi.getter(name="publicAccess")
+    def public_access(self) -> pulumi.Output[Optional['outputs.CssClusterPublicAccess']]:
+        return pulumi.get(self, "public_access")
+
+    @property
+    @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "region")
+
+    @property
+    @pulumi.getter(name="securityGroupId")
+    def security_group_id(self) -> pulumi.Output[builtins.str]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "security_group_id")
 
     @property
     @pulumi.getter(name="securityMode")
@@ -556,7 +1348,43 @@ class CssCluster(pulumi.CustomResource):
         return pulumi.get(self, "status")
 
     @property
+    @pulumi.getter(name="subnetId")
+    def subnet_id(self) -> pulumi.Output[builtins.str]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "subnet_id")
+
+    @property
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "updated_at")
+
+    @property
+    @pulumi.getter(name="vpcId")
+    def vpc_id(self) -> pulumi.Output[builtins.str]:
+        """
+        schema: Required
+        """
+        return pulumi.get(self, "vpc_id")
+
+    @property
+    @pulumi.getter(name="vpcepEndpoint")
+    def vpcep_endpoint(self) -> pulumi.Output[Optional['outputs.CssClusterVpcepEndpoint']]:
+        return pulumi.get(self, "vpcep_endpoint")
+
+    @property
+    @pulumi.getter(name="vpcepEndpointId")
+    def vpcep_endpoint_id(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "vpcep_endpoint_id")
+
+    @property
+    @pulumi.getter(name="vpcepIp")
+    def vpcep_ip(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "vpcep_ip")
 

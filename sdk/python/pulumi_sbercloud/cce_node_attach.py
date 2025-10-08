@@ -334,6 +334,7 @@ class _CceNodeAttachState:
                  docker_base_size: Optional[pulumi.Input[builtins.int]] = None,
                  ecs_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
+                 extension_nics: Optional[pulumi.Input[Sequence[pulumi.Input['CceNodeAttachExtensionNicArgs']]]] = None,
                  flavor_id: Optional[pulumi.Input[builtins.str]] = None,
                  hostname_config: Optional[pulumi.Input['CceNodeAttachHostnameConfigArgs']] = None,
                  image_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -382,6 +383,8 @@ class _CceNodeAttachState:
             pulumi.set(__self__, "ecs_group_id", ecs_group_id)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
+        if extension_nics is not None:
+            pulumi.set(__self__, "extension_nics", extension_nics)
         if flavor_id is not None:
             pulumi.set(__self__, "flavor_id", flavor_id)
         if hostname_config is not None:
@@ -501,6 +504,15 @@ class _CceNodeAttachState:
     @enterprise_project_id.setter
     def enterprise_project_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "enterprise_project_id", value)
+
+    @property
+    @pulumi.getter(name="extensionNics")
+    def extension_nics(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['CceNodeAttachExtensionNicArgs']]]]:
+        return pulumi.get(self, "extension_nics")
+
+    @extension_nics.setter
+    def extension_nics(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['CceNodeAttachExtensionNicArgs']]]]):
+        pulumi.set(self, "extension_nics", value)
 
     @property
     @pulumi.getter(name="flavorId")
@@ -893,6 +905,7 @@ class CceNodeAttach(pulumi.CustomResource):
             __props__.__dict__["data_volumes"] = None
             __props__.__dict__["ecs_group_id"] = None
             __props__.__dict__["enterprise_project_id"] = None
+            __props__.__dict__["extension_nics"] = None
             __props__.__dict__["flavor_id"] = None
             __props__.__dict__["private_ip"] = None
             __props__.__dict__["public_ip"] = None
@@ -918,6 +931,7 @@ class CceNodeAttach(pulumi.CustomResource):
             docker_base_size: Optional[pulumi.Input[builtins.int]] = None,
             ecs_group_id: Optional[pulumi.Input[builtins.str]] = None,
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
+            extension_nics: Optional[pulumi.Input[Sequence[pulumi.Input[Union['CceNodeAttachExtensionNicArgs', 'CceNodeAttachExtensionNicArgsDict']]]]] = None,
             flavor_id: Optional[pulumi.Input[builtins.str]] = None,
             hostname_config: Optional[pulumi.Input[Union['CceNodeAttachHostnameConfigArgs', 'CceNodeAttachHostnameConfigArgsDict']]] = None,
             image_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -968,6 +982,7 @@ class CceNodeAttach(pulumi.CustomResource):
         __props__.__dict__["docker_base_size"] = docker_base_size
         __props__.__dict__["ecs_group_id"] = ecs_group_id
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
+        __props__.__dict__["extension_nics"] = extension_nics
         __props__.__dict__["flavor_id"] = flavor_id
         __props__.__dict__["hostname_config"] = hostname_config
         __props__.__dict__["image_id"] = image_id
@@ -1032,6 +1047,11 @@ class CceNodeAttach(pulumi.CustomResource):
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "enterprise_project_id")
+
+    @property
+    @pulumi.getter(name="extensionNics")
+    def extension_nics(self) -> pulumi.Output[Sequence['outputs.CceNodeAttachExtensionNic']]:
+        return pulumi.get(self, "extension_nics")
 
     @property
     @pulumi.getter(name="flavorId")

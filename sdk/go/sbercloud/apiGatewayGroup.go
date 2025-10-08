@@ -36,7 +36,8 @@ type ApiGatewayGroup struct {
 	// The latest update time of the group.
 	UpdateTime pulumi.StringOutput `pulumi:"updateTime"`
 	// The latest update time of the group, in RFC3339 format.
-	UpdatedAt  pulumi.StringOutput                 `pulumi:"updatedAt"`
+	UpdatedAt pulumi.StringOutput `pulumi:"updatedAt"`
+	// The associated domain information of the group.
 	UrlDomains ApiGatewayGroupUrlDomainArrayOutput `pulumi:"urlDomains"`
 }
 
@@ -94,7 +95,8 @@ type apiGatewayGroupState struct {
 	// The latest update time of the group.
 	UpdateTime *string `pulumi:"updateTime"`
 	// The latest update time of the group, in RFC3339 format.
-	UpdatedAt  *string                    `pulumi:"updatedAt"`
+	UpdatedAt *string `pulumi:"updatedAt"`
+	// The associated domain information of the group.
 	UrlDomains []ApiGatewayGroupUrlDomain `pulumi:"urlDomains"`
 }
 
@@ -120,7 +122,8 @@ type ApiGatewayGroupState struct {
 	// The latest update time of the group.
 	UpdateTime pulumi.StringPtrInput
 	// The latest update time of the group, in RFC3339 format.
-	UpdatedAt  pulumi.StringPtrInput
+	UpdatedAt pulumi.StringPtrInput
+	// The associated domain information of the group.
 	UrlDomains ApiGatewayGroupUrlDomainArrayInput
 }
 
@@ -142,7 +145,8 @@ type apiGatewayGroupArgs struct {
 	// The group name.
 	Name *string `pulumi:"name"`
 	// The region where the dedicated instance is located.
-	Region     *string                    `pulumi:"region"`
+	Region *string `pulumi:"region"`
+	// The associated domain information of the group.
 	UrlDomains []ApiGatewayGroupUrlDomain `pulumi:"urlDomains"`
 }
 
@@ -161,7 +165,8 @@ type ApiGatewayGroupArgs struct {
 	// The group name.
 	Name pulumi.StringPtrInput
 	// The region where the dedicated instance is located.
-	Region     pulumi.StringPtrInput
+	Region pulumi.StringPtrInput
+	// The associated domain information of the group.
 	UrlDomains ApiGatewayGroupUrlDomainArrayInput
 }
 
@@ -307,6 +312,7 @@ func (o ApiGatewayGroupOutput) UpdatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ApiGatewayGroup) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
+// The associated domain information of the group.
 func (o ApiGatewayGroupOutput) UrlDomains() ApiGatewayGroupUrlDomainArrayOutput {
 	return o.ApplyT(func(v *ApiGatewayGroup) ApiGatewayGroupUrlDomainArrayOutput { return v.UrlDomains }).(ApiGatewayGroupUrlDomainArrayOutput)
 }

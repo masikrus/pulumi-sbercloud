@@ -12,6 +12,9 @@ namespace Pulumi.Sbercloud.Inputs
 
     public sealed class AsGroupLbaasListenerGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("listenerId")]
+        public Input<string>? ListenerId { get; set; }
+
         [Input("poolId", required: true)]
         public Input<string> PoolId { get; set; } = null!;
 

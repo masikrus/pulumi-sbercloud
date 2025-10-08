@@ -40,6 +40,8 @@ export class ElbPool extends pulumi.CustomResource {
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly deletionProtectionEnable!: pulumi.Output<boolean | undefined>;
     public readonly description!: pulumi.Output<string | undefined>;
+    public readonly enableForceNew!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly enterpriseProjectId!: pulumi.Output<string>;
     public readonly ipVersion!: pulumi.Output<string>;
     public readonly lbMethod!: pulumi.Output<string>;
     public readonly listenerId!: pulumi.Output<string>;
@@ -51,6 +53,7 @@ export class ElbPool extends pulumi.CustomResource {
     public readonly protectionReason!: pulumi.Output<string | undefined>;
     public readonly protectionStatus!: pulumi.Output<string>;
     public readonly protocol!: pulumi.Output<string>;
+    public readonly publicBorderGroup!: pulumi.Output<string>;
     public readonly region!: pulumi.Output<string>;
     public readonly slowStartDuration!: pulumi.Output<number>;
     public readonly slowStartEnabled!: pulumi.Output<boolean>;
@@ -77,6 +80,8 @@ export class ElbPool extends pulumi.CustomResource {
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["deletionProtectionEnable"] = state ? state.deletionProtectionEnable : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
+            resourceInputs["enableForceNew"] = state ? state.enableForceNew : undefined;
+            resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["ipVersion"] = state ? state.ipVersion : undefined;
             resourceInputs["lbMethod"] = state ? state.lbMethod : undefined;
             resourceInputs["listenerId"] = state ? state.listenerId : undefined;
@@ -88,6 +93,7 @@ export class ElbPool extends pulumi.CustomResource {
             resourceInputs["protectionReason"] = state ? state.protectionReason : undefined;
             resourceInputs["protectionStatus"] = state ? state.protectionStatus : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
+            resourceInputs["publicBorderGroup"] = state ? state.publicBorderGroup : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["slowStartDuration"] = state ? state.slowStartDuration : undefined;
             resourceInputs["slowStartEnabled"] = state ? state.slowStartEnabled : undefined;
@@ -107,6 +113,7 @@ export class ElbPool extends pulumi.CustomResource {
             resourceInputs["connectionDrainTimeout"] = args ? args.connectionDrainTimeout : undefined;
             resourceInputs["deletionProtectionEnable"] = args ? args.deletionProtectionEnable : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
+            resourceInputs["enableForceNew"] = args ? args.enableForceNew : undefined;
             resourceInputs["ipVersion"] = args ? args.ipVersion : undefined;
             resourceInputs["lbMethod"] = args ? args.lbMethod : undefined;
             resourceInputs["listenerId"] = args ? args.listenerId : undefined;
@@ -117,12 +124,14 @@ export class ElbPool extends pulumi.CustomResource {
             resourceInputs["protectionReason"] = args ? args.protectionReason : undefined;
             resourceInputs["protectionStatus"] = args ? args.protectionStatus : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
+            resourceInputs["publicBorderGroup"] = args ? args.publicBorderGroup : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["slowStartDuration"] = args ? args.slowStartDuration : undefined;
             resourceInputs["slowStartEnabled"] = args ? args.slowStartEnabled : undefined;
             resourceInputs["type"] = args ? args.type : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["enterpriseProjectId"] = undefined /*out*/;
             resourceInputs["monitorId"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
@@ -141,6 +150,8 @@ export interface ElbPoolState {
     createdAt?: pulumi.Input<string>;
     deletionProtectionEnable?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
+    enableForceNew?: pulumi.Input<string>;
+    enterpriseProjectId?: pulumi.Input<string>;
     ipVersion?: pulumi.Input<string>;
     lbMethod?: pulumi.Input<string>;
     listenerId?: pulumi.Input<string>;
@@ -152,6 +163,7 @@ export interface ElbPoolState {
     protectionReason?: pulumi.Input<string>;
     protectionStatus?: pulumi.Input<string>;
     protocol?: pulumi.Input<string>;
+    publicBorderGroup?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
     slowStartDuration?: pulumi.Input<number>;
     slowStartEnabled?: pulumi.Input<boolean>;
@@ -169,6 +181,7 @@ export interface ElbPoolArgs {
     connectionDrainTimeout?: pulumi.Input<number>;
     deletionProtectionEnable?: pulumi.Input<boolean>;
     description?: pulumi.Input<string>;
+    enableForceNew?: pulumi.Input<string>;
     ipVersion?: pulumi.Input<string>;
     lbMethod: pulumi.Input<string>;
     listenerId?: pulumi.Input<string>;
@@ -179,6 +192,7 @@ export interface ElbPoolArgs {
     protectionReason?: pulumi.Input<string>;
     protectionStatus?: pulumi.Input<string>;
     protocol: pulumi.Input<string>;
+    publicBorderGroup?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
     slowStartDuration?: pulumi.Input<number>;
     slowStartEnabled?: pulumi.Input<boolean>;

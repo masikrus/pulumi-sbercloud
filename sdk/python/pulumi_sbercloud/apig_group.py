@@ -39,6 +39,7 @@ class ApigGroupArgs:
         :param pulumi.Input[builtins.bool] force_destroy: Whether to delete all sub-resources (for API) from this group.
         :param pulumi.Input[builtins.str] name: The group name.
         :param pulumi.Input[builtins.str] region: The region where the dedicated instance is located.
+        :param pulumi.Input[Sequence[pulumi.Input['ApigGroupUrlDomainArgs']]] url_domains: The associated domain information of the group.
         """
         pulumi.set(__self__, "instance_id", instance_id)
         if description is not None:
@@ -143,6 +144,9 @@ class ApigGroupArgs:
     @property
     @pulumi.getter(name="urlDomains")
     def url_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApigGroupUrlDomainArgs']]]]:
+        """
+        The associated domain information of the group.
+        """
         return pulumi.get(self, "url_domains")
 
     @url_domains.setter
@@ -178,6 +182,7 @@ class _ApigGroupState:
         :param pulumi.Input[builtins.str] registration_time: The registration time.
         :param pulumi.Input[builtins.str] update_time: The latest update time of the group.
         :param pulumi.Input[builtins.str] updated_at: The latest update time of the group, in RFC3339 format.
+        :param pulumi.Input[Sequence[pulumi.Input['ApigGroupUrlDomainArgs']]] url_domains: The associated domain information of the group.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -339,6 +344,9 @@ class _ApigGroupState:
     @property
     @pulumi.getter(name="urlDomains")
     def url_domains(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ApigGroupUrlDomainArgs']]]]:
+        """
+        The associated domain information of the group.
+        """
         return pulumi.get(self, "url_domains")
 
     @url_domains.setter
@@ -371,6 +379,7 @@ class ApigGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] instance_id: The ID of the dedicated instance to which the group belongs.
         :param pulumi.Input[builtins.str] name: The group name.
         :param pulumi.Input[builtins.str] region: The region where the dedicated instance is located.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApigGroupUrlDomainArgs', 'ApigGroupUrlDomainArgsDict']]]] url_domains: The associated domain information of the group.
         """
         ...
     @overload
@@ -466,6 +475,7 @@ class ApigGroup(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] registration_time: The registration time.
         :param pulumi.Input[builtins.str] update_time: The latest update time of the group.
         :param pulumi.Input[builtins.str] updated_at: The latest update time of the group, in RFC3339 format.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['ApigGroupUrlDomainArgs', 'ApigGroupUrlDomainArgsDict']]]] url_domains: The associated domain information of the group.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -575,6 +585,9 @@ class ApigGroup(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="urlDomains")
-    def url_domains(self) -> pulumi.Output[Optional[Sequence['outputs.ApigGroupUrlDomain']]]:
+    def url_domains(self) -> pulumi.Output[Sequence['outputs.ApigGroupUrlDomain']]:
+        """
+        The associated domain information of the group.
+        """
         return pulumi.get(self, "url_domains")
 

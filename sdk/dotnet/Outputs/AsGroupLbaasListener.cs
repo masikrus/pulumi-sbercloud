@@ -13,6 +13,7 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class AsGroupLbaasListener
     {
+        public readonly string? ListenerId;
         public readonly string PoolId;
         public readonly int ProtocolPort;
         public readonly string? ProtocolVersion;
@@ -20,6 +21,8 @@ namespace Pulumi.Sbercloud.Outputs
 
         [OutputConstructor]
         private AsGroupLbaasListener(
+            string? listenerId,
+
             string poolId,
 
             int protocolPort,
@@ -28,6 +31,7 @@ namespace Pulumi.Sbercloud.Outputs
 
             int? weight)
         {
+            ListenerId = listenerId;
             PoolId = poolId;
             ProtocolPort = protocolPort;
             ProtocolVersion = protocolVersion;

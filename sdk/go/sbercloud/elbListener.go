@@ -18,10 +18,13 @@ type ElbListener struct {
 	AccessPolicy              pulumi.StringPtrOutput          `pulumi:"accessPolicy"`
 	AdvancedForwardingEnabled pulumi.BoolOutput               `pulumi:"advancedForwardingEnabled"`
 	CaCertificate             pulumi.StringPtrOutput          `pulumi:"caCertificate"`
+	Cps                       pulumi.IntOutput                `pulumi:"cps"`
 	CreatedAt                 pulumi.StringOutput             `pulumi:"createdAt"`
 	DefaultPoolId             pulumi.StringOutput             `pulumi:"defaultPoolId"`
 	Description               pulumi.StringPtrOutput          `pulumi:"description"`
 	EnableMemberRetry         pulumi.BoolOutput               `pulumi:"enableMemberRetry"`
+	EnableQuicUpgrade         pulumi.StringPtrOutput          `pulumi:"enableQuicUpgrade"`
+	EnterpriseProjectId       pulumi.StringOutput             `pulumi:"enterpriseProjectId"`
 	ForceDelete               pulumi.BoolPtrOutput            `pulumi:"forceDelete"`
 	ForwardEip                pulumi.BoolOutput               `pulumi:"forwardEip"`
 	ForwardElb                pulumi.BoolOutput               `pulumi:"forwardElb"`
@@ -36,7 +39,9 @@ type ElbListener struct {
 	Http2Enable               pulumi.BoolOutput               `pulumi:"http2Enable"`
 	IdleTimeout               pulumi.IntOutput                `pulumi:"idleTimeout"`
 	IpGroup                   pulumi.StringPtrOutput          `pulumi:"ipGroup"`
+	IpGroupEnable             pulumi.StringOutput             `pulumi:"ipGroupEnable"`
 	LoadbalancerId            pulumi.StringOutput             `pulumi:"loadbalancerId"`
+	MaxConnection             pulumi.IntOutput                `pulumi:"maxConnection"`
 	Name                      pulumi.StringOutput             `pulumi:"name"`
 	PortRanges                ElbListenerPortRangeArrayOutput `pulumi:"portRanges"`
 	ProtectionReason          pulumi.StringPtrOutput          `pulumi:"protectionReason"`
@@ -98,10 +103,13 @@ type elbListenerState struct {
 	AccessPolicy              *string                `pulumi:"accessPolicy"`
 	AdvancedForwardingEnabled *bool                  `pulumi:"advancedForwardingEnabled"`
 	CaCertificate             *string                `pulumi:"caCertificate"`
+	Cps                       *int                   `pulumi:"cps"`
 	CreatedAt                 *string                `pulumi:"createdAt"`
 	DefaultPoolId             *string                `pulumi:"defaultPoolId"`
 	Description               *string                `pulumi:"description"`
 	EnableMemberRetry         *bool                  `pulumi:"enableMemberRetry"`
+	EnableQuicUpgrade         *string                `pulumi:"enableQuicUpgrade"`
+	EnterpriseProjectId       *string                `pulumi:"enterpriseProjectId"`
 	ForceDelete               *bool                  `pulumi:"forceDelete"`
 	ForwardEip                *bool                  `pulumi:"forwardEip"`
 	ForwardElb                *bool                  `pulumi:"forwardElb"`
@@ -116,7 +124,9 @@ type elbListenerState struct {
 	Http2Enable               *bool                  `pulumi:"http2Enable"`
 	IdleTimeout               *int                   `pulumi:"idleTimeout"`
 	IpGroup                   *string                `pulumi:"ipGroup"`
+	IpGroupEnable             *string                `pulumi:"ipGroupEnable"`
 	LoadbalancerId            *string                `pulumi:"loadbalancerId"`
+	MaxConnection             *int                   `pulumi:"maxConnection"`
 	Name                      *string                `pulumi:"name"`
 	PortRanges                []ElbListenerPortRange `pulumi:"portRanges"`
 	ProtectionReason          *string                `pulumi:"protectionReason"`
@@ -143,10 +153,13 @@ type ElbListenerState struct {
 	AccessPolicy              pulumi.StringPtrInput
 	AdvancedForwardingEnabled pulumi.BoolPtrInput
 	CaCertificate             pulumi.StringPtrInput
+	Cps                       pulumi.IntPtrInput
 	CreatedAt                 pulumi.StringPtrInput
 	DefaultPoolId             pulumi.StringPtrInput
 	Description               pulumi.StringPtrInput
 	EnableMemberRetry         pulumi.BoolPtrInput
+	EnableQuicUpgrade         pulumi.StringPtrInput
+	EnterpriseProjectId       pulumi.StringPtrInput
 	ForceDelete               pulumi.BoolPtrInput
 	ForwardEip                pulumi.BoolPtrInput
 	ForwardElb                pulumi.BoolPtrInput
@@ -161,7 +174,9 @@ type ElbListenerState struct {
 	Http2Enable               pulumi.BoolPtrInput
 	IdleTimeout               pulumi.IntPtrInput
 	IpGroup                   pulumi.StringPtrInput
+	IpGroupEnable             pulumi.StringPtrInput
 	LoadbalancerId            pulumi.StringPtrInput
+	MaxConnection             pulumi.IntPtrInput
 	Name                      pulumi.StringPtrInput
 	PortRanges                ElbListenerPortRangeArrayInput
 	ProtectionReason          pulumi.StringPtrInput
@@ -192,9 +207,11 @@ type elbListenerArgs struct {
 	AccessPolicy              *string                `pulumi:"accessPolicy"`
 	AdvancedForwardingEnabled *bool                  `pulumi:"advancedForwardingEnabled"`
 	CaCertificate             *string                `pulumi:"caCertificate"`
+	Cps                       *int                   `pulumi:"cps"`
 	DefaultPoolId             *string                `pulumi:"defaultPoolId"`
 	Description               *string                `pulumi:"description"`
 	EnableMemberRetry         *bool                  `pulumi:"enableMemberRetry"`
+	EnableQuicUpgrade         *string                `pulumi:"enableQuicUpgrade"`
 	ForceDelete               *bool                  `pulumi:"forceDelete"`
 	ForwardEip                *bool                  `pulumi:"forwardEip"`
 	ForwardElb                *bool                  `pulumi:"forwardElb"`
@@ -209,7 +226,9 @@ type elbListenerArgs struct {
 	Http2Enable               *bool                  `pulumi:"http2Enable"`
 	IdleTimeout               *int                   `pulumi:"idleTimeout"`
 	IpGroup                   *string                `pulumi:"ipGroup"`
+	IpGroupEnable             *string                `pulumi:"ipGroupEnable"`
 	LoadbalancerId            string                 `pulumi:"loadbalancerId"`
+	MaxConnection             *int                   `pulumi:"maxConnection"`
 	Name                      *string                `pulumi:"name"`
 	PortRanges                []ElbListenerPortRange `pulumi:"portRanges"`
 	ProtectionReason          *string                `pulumi:"protectionReason"`
@@ -236,9 +255,11 @@ type ElbListenerArgs struct {
 	AccessPolicy              pulumi.StringPtrInput
 	AdvancedForwardingEnabled pulumi.BoolPtrInput
 	CaCertificate             pulumi.StringPtrInput
+	Cps                       pulumi.IntPtrInput
 	DefaultPoolId             pulumi.StringPtrInput
 	Description               pulumi.StringPtrInput
 	EnableMemberRetry         pulumi.BoolPtrInput
+	EnableQuicUpgrade         pulumi.StringPtrInput
 	ForceDelete               pulumi.BoolPtrInput
 	ForwardEip                pulumi.BoolPtrInput
 	ForwardElb                pulumi.BoolPtrInput
@@ -253,7 +274,9 @@ type ElbListenerArgs struct {
 	Http2Enable               pulumi.BoolPtrInput
 	IdleTimeout               pulumi.IntPtrInput
 	IpGroup                   pulumi.StringPtrInput
+	IpGroupEnable             pulumi.StringPtrInput
 	LoadbalancerId            pulumi.StringInput
+	MaxConnection             pulumi.IntPtrInput
 	Name                      pulumi.StringPtrInput
 	PortRanges                ElbListenerPortRangeArrayInput
 	ProtectionReason          pulumi.StringPtrInput
@@ -374,6 +397,10 @@ func (o ElbListenerOutput) CaCertificate() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElbListener) pulumi.StringPtrOutput { return v.CaCertificate }).(pulumi.StringPtrOutput)
 }
 
+func (o ElbListenerOutput) Cps() pulumi.IntOutput {
+	return o.ApplyT(func(v *ElbListener) pulumi.IntOutput { return v.Cps }).(pulumi.IntOutput)
+}
+
 func (o ElbListenerOutput) CreatedAt() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbListener) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
@@ -388,6 +415,14 @@ func (o ElbListenerOutput) Description() pulumi.StringPtrOutput {
 
 func (o ElbListenerOutput) EnableMemberRetry() pulumi.BoolOutput {
 	return o.ApplyT(func(v *ElbListener) pulumi.BoolOutput { return v.EnableMemberRetry }).(pulumi.BoolOutput)
+}
+
+func (o ElbListenerOutput) EnableQuicUpgrade() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElbListener) pulumi.StringPtrOutput { return v.EnableQuicUpgrade }).(pulumi.StringPtrOutput)
+}
+
+func (o ElbListenerOutput) EnterpriseProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbListener) pulumi.StringOutput { return v.EnterpriseProjectId }).(pulumi.StringOutput)
 }
 
 func (o ElbListenerOutput) ForceDelete() pulumi.BoolPtrOutput {
@@ -446,8 +481,16 @@ func (o ElbListenerOutput) IpGroup() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElbListener) pulumi.StringPtrOutput { return v.IpGroup }).(pulumi.StringPtrOutput)
 }
 
+func (o ElbListenerOutput) IpGroupEnable() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbListener) pulumi.StringOutput { return v.IpGroupEnable }).(pulumi.StringOutput)
+}
+
 func (o ElbListenerOutput) LoadbalancerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbListener) pulumi.StringOutput { return v.LoadbalancerId }).(pulumi.StringOutput)
+}
+
+func (o ElbListenerOutput) MaxConnection() pulumi.IntOutput {
+	return o.ApplyT(func(v *ElbListener) pulumi.IntOutput { return v.MaxConnection }).(pulumi.IntOutput)
 }
 
 func (o ElbListenerOutput) Name() pulumi.StringOutput {

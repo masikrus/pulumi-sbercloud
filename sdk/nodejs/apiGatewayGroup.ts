@@ -78,7 +78,10 @@ export class ApiGatewayGroup extends pulumi.CustomResource {
      * The latest update time of the group, in RFC3339 format.
      */
     public /*out*/ readonly updatedAt!: pulumi.Output<string>;
-    public readonly urlDomains!: pulumi.Output<outputs.ApiGatewayGroupUrlDomain[] | undefined>;
+    /**
+     * The associated domain information of the group.
+     */
+    public readonly urlDomains!: pulumi.Output<outputs.ApiGatewayGroupUrlDomain[]>;
 
     /**
      * Create a ApiGatewayGroup resource with the given unique name, arguments, and options.
@@ -176,6 +179,9 @@ export interface ApiGatewayGroupState {
      * The latest update time of the group, in RFC3339 format.
      */
     updatedAt?: pulumi.Input<string>;
+    /**
+     * The associated domain information of the group.
+     */
     urlDomains?: pulumi.Input<pulumi.Input<inputs.ApiGatewayGroupUrlDomain>[]>;
 }
 
@@ -211,5 +217,8 @@ export interface ApiGatewayGroupArgs {
      * The region where the dedicated instance is located.
      */
     region?: pulumi.Input<string>;
+    /**
+     * The associated domain information of the group.
+     */
     urlDomains?: pulumi.Input<pulumi.Input<inputs.ApiGatewayGroupUrlDomain>[]>;
 }

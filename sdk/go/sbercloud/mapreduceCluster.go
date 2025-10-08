@@ -17,6 +17,7 @@ type MapreduceCluster struct {
 
 	AnalysisCoreNodes   MapreduceClusterAnalysisCoreNodesPtrOutput    `pulumi:"analysisCoreNodes"`
 	AnalysisTaskNodes   MapreduceClusterAnalysisTaskNodesPtrOutput    `pulumi:"analysisTaskNodes"`
+	AutoRenew           pulumi.StringPtrOutput                        `pulumi:"autoRenew"`
 	AvailabilityZone    pulumi.StringOutput                           `pulumi:"availabilityZone"`
 	BootstrapScripts    MapreduceClusterBootstrapScriptArrayOutput    `pulumi:"bootstrapScripts"`
 	ChargingMode        pulumi.StringOutput                           `pulumi:"chargingMode"`
@@ -120,6 +121,7 @@ func GetMapreduceCluster(ctx *pulumi.Context,
 type mapreduceClusterState struct {
 	AnalysisCoreNodes   *MapreduceClusterAnalysisCoreNodes   `pulumi:"analysisCoreNodes"`
 	AnalysisTaskNodes   *MapreduceClusterAnalysisTaskNodes   `pulumi:"analysisTaskNodes"`
+	AutoRenew           *string                              `pulumi:"autoRenew"`
 	AvailabilityZone    *string                              `pulumi:"availabilityZone"`
 	BootstrapScripts    []MapreduceClusterBootstrapScript    `pulumi:"bootstrapScripts"`
 	ChargingMode        *string                              `pulumi:"chargingMode"`
@@ -162,6 +164,7 @@ type mapreduceClusterState struct {
 type MapreduceClusterState struct {
 	AnalysisCoreNodes   MapreduceClusterAnalysisCoreNodesPtrInput
 	AnalysisTaskNodes   MapreduceClusterAnalysisTaskNodesPtrInput
+	AutoRenew           pulumi.StringPtrInput
 	AvailabilityZone    pulumi.StringPtrInput
 	BootstrapScripts    MapreduceClusterBootstrapScriptArrayInput
 	ChargingMode        pulumi.StringPtrInput
@@ -208,6 +211,7 @@ func (MapreduceClusterState) ElementType() reflect.Type {
 type mapreduceClusterArgs struct {
 	AnalysisCoreNodes   *MapreduceClusterAnalysisCoreNodes   `pulumi:"analysisCoreNodes"`
 	AnalysisTaskNodes   *MapreduceClusterAnalysisTaskNodes   `pulumi:"analysisTaskNodes"`
+	AutoRenew           *string                              `pulumi:"autoRenew"`
 	AvailabilityZone    string                               `pulumi:"availabilityZone"`
 	BootstrapScripts    []MapreduceClusterBootstrapScript    `pulumi:"bootstrapScripts"`
 	ChargingMode        *string                              `pulumi:"chargingMode"`
@@ -244,6 +248,7 @@ type mapreduceClusterArgs struct {
 type MapreduceClusterArgs struct {
 	AnalysisCoreNodes   MapreduceClusterAnalysisCoreNodesPtrInput
 	AnalysisTaskNodes   MapreduceClusterAnalysisTaskNodesPtrInput
+	AutoRenew           pulumi.StringPtrInput
 	AvailabilityZone    pulumi.StringInput
 	BootstrapScripts    MapreduceClusterBootstrapScriptArrayInput
 	ChargingMode        pulumi.StringPtrInput
@@ -369,6 +374,10 @@ func (o MapreduceClusterOutput) AnalysisCoreNodes() MapreduceClusterAnalysisCore
 
 func (o MapreduceClusterOutput) AnalysisTaskNodes() MapreduceClusterAnalysisTaskNodesPtrOutput {
 	return o.ApplyT(func(v *MapreduceCluster) MapreduceClusterAnalysisTaskNodesPtrOutput { return v.AnalysisTaskNodes }).(MapreduceClusterAnalysisTaskNodesPtrOutput)
+}
+
+func (o MapreduceClusterOutput) AutoRenew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *MapreduceCluster) pulumi.StringPtrOutput { return v.AutoRenew }).(pulumi.StringPtrOutput)
 }
 
 func (o MapreduceClusterOutput) AvailabilityZone() pulumi.StringOutput {

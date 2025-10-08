@@ -15,12 +15,14 @@ import (
 type AsGroup struct {
 	pulumi.CustomResourceState
 
+	ActivityType      pulumi.StringOutput      `pulumi:"activityType"`
 	AgencyName        pulumi.StringOutput      `pulumi:"agencyName"`
 	AvailabilityZones pulumi.StringArrayOutput `pulumi:"availabilityZones"`
 	// schema: Deprecated; use availabilityZones instead
 	AvailableZones pulumi.StringArrayOutput `pulumi:"availableZones"`
 	// The cooling duration, in seconds.
 	CoolDownTime          pulumi.IntPtrOutput `pulumi:"coolDownTime"`
+	CreateTime            pulumi.StringOutput `pulumi:"createTime"`
 	CurrentInstanceNumber pulumi.IntOutput    `pulumi:"currentInstanceNumber"`
 	// Whether to delete instances when they are removed from the AS group.
 	DeleteInstances      pulumi.StringPtrOutput `pulumi:"deleteInstances"`
@@ -28,6 +30,7 @@ type AsGroup struct {
 	DeleteVolume         pulumi.BoolOutput      `pulumi:"deleteVolume"`
 	Description          pulumi.StringOutput    `pulumi:"description"`
 	DesireInstanceNumber pulumi.IntOutput       `pulumi:"desireInstanceNumber"`
+	Detail               pulumi.StringOutput    `pulumi:"detail"`
 	Enable               pulumi.BoolPtrOutput   `pulumi:"enable"`
 	EnterpriseProjectId  pulumi.StringOutput    `pulumi:"enterpriseProjectId"`
 	ForceDelete          pulumi.BoolPtrOutput   `pulumi:"forceDelete"`
@@ -39,6 +42,7 @@ type AsGroup struct {
 	InstanceTerminatePolicy pulumi.StringPtrOutput `pulumi:"instanceTerminatePolicy"`
 	// The instances id list in the as group.
 	Instances pulumi.StringArrayOutput `pulumi:"instances"`
+	IsScaling pulumi.BoolOutput        `pulumi:"isScaling"`
 	// The system supports the binding of up to six ELB listeners, the IDs of which are separated using a comma.
 	//
 	// Deprecated: use lbaasListeners instead
@@ -52,12 +56,13 @@ type AsGroup struct {
 	Notifications pulumi.StringArrayOutput `pulumi:"notifications"`
 	Region        pulumi.StringOutput      `pulumi:"region"`
 	// schema: Required
-	ScalingConfigurationId pulumi.StringOutput             `pulumi:"scalingConfigurationId"`
-	ScalingGroupName       pulumi.StringOutput             `pulumi:"scalingGroupName"`
-	SecurityGroups         AsGroupSecurityGroupArrayOutput `pulumi:"securityGroups"`
-	Status                 pulumi.StringOutput             `pulumi:"status"`
-	Tags                   pulumi.StringMapOutput          `pulumi:"tags"`
-	VpcId                  pulumi.StringOutput             `pulumi:"vpcId"`
+	ScalingConfigurationId   pulumi.StringOutput             `pulumi:"scalingConfigurationId"`
+	ScalingConfigurationName pulumi.StringOutput             `pulumi:"scalingConfigurationName"`
+	ScalingGroupName         pulumi.StringOutput             `pulumi:"scalingGroupName"`
+	SecurityGroups           AsGroupSecurityGroupArrayOutput `pulumi:"securityGroups"`
+	Status                   pulumi.StringOutput             `pulumi:"status"`
+	Tags                     pulumi.StringMapOutput          `pulumi:"tags"`
+	VpcId                    pulumi.StringOutput             `pulumi:"vpcId"`
 }
 
 // NewAsGroup registers a new resource with the given unique name, arguments, and options.
@@ -99,19 +104,22 @@ func GetAsGroup(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AsGroup resources.
 type asGroupState struct {
+	ActivityType      *string  `pulumi:"activityType"`
 	AgencyName        *string  `pulumi:"agencyName"`
 	AvailabilityZones []string `pulumi:"availabilityZones"`
 	// schema: Deprecated; use availabilityZones instead
 	AvailableZones []string `pulumi:"availableZones"`
 	// The cooling duration, in seconds.
-	CoolDownTime          *int `pulumi:"coolDownTime"`
-	CurrentInstanceNumber *int `pulumi:"currentInstanceNumber"`
+	CoolDownTime          *int    `pulumi:"coolDownTime"`
+	CreateTime            *string `pulumi:"createTime"`
+	CurrentInstanceNumber *int    `pulumi:"currentInstanceNumber"`
 	// Whether to delete instances when they are removed from the AS group.
 	DeleteInstances      *string `pulumi:"deleteInstances"`
 	DeletePublicip       *bool   `pulumi:"deletePublicip"`
 	DeleteVolume         *bool   `pulumi:"deleteVolume"`
 	Description          *string `pulumi:"description"`
 	DesireInstanceNumber *int    `pulumi:"desireInstanceNumber"`
+	Detail               *string `pulumi:"detail"`
 	Enable               *bool   `pulumi:"enable"`
 	EnterpriseProjectId  *string `pulumi:"enterpriseProjectId"`
 	ForceDelete          *bool   `pulumi:"forceDelete"`
@@ -123,6 +131,7 @@ type asGroupState struct {
 	InstanceTerminatePolicy *string `pulumi:"instanceTerminatePolicy"`
 	// The instances id list in the as group.
 	Instances []string `pulumi:"instances"`
+	IsScaling *bool    `pulumi:"isScaling"`
 	// The system supports the binding of up to six ELB listeners, the IDs of which are separated using a comma.
 	//
 	// Deprecated: use lbaasListeners instead
@@ -136,21 +145,24 @@ type asGroupState struct {
 	Notifications []string `pulumi:"notifications"`
 	Region        *string  `pulumi:"region"`
 	// schema: Required
-	ScalingConfigurationId *string                `pulumi:"scalingConfigurationId"`
-	ScalingGroupName       *string                `pulumi:"scalingGroupName"`
-	SecurityGroups         []AsGroupSecurityGroup `pulumi:"securityGroups"`
-	Status                 *string                `pulumi:"status"`
-	Tags                   map[string]string      `pulumi:"tags"`
-	VpcId                  *string                `pulumi:"vpcId"`
+	ScalingConfigurationId   *string                `pulumi:"scalingConfigurationId"`
+	ScalingConfigurationName *string                `pulumi:"scalingConfigurationName"`
+	ScalingGroupName         *string                `pulumi:"scalingGroupName"`
+	SecurityGroups           []AsGroupSecurityGroup `pulumi:"securityGroups"`
+	Status                   *string                `pulumi:"status"`
+	Tags                     map[string]string      `pulumi:"tags"`
+	VpcId                    *string                `pulumi:"vpcId"`
 }
 
 type AsGroupState struct {
+	ActivityType      pulumi.StringPtrInput
 	AgencyName        pulumi.StringPtrInput
 	AvailabilityZones pulumi.StringArrayInput
 	// schema: Deprecated; use availabilityZones instead
 	AvailableZones pulumi.StringArrayInput
 	// The cooling duration, in seconds.
 	CoolDownTime          pulumi.IntPtrInput
+	CreateTime            pulumi.StringPtrInput
 	CurrentInstanceNumber pulumi.IntPtrInput
 	// Whether to delete instances when they are removed from the AS group.
 	DeleteInstances      pulumi.StringPtrInput
@@ -158,6 +170,7 @@ type AsGroupState struct {
 	DeleteVolume         pulumi.BoolPtrInput
 	Description          pulumi.StringPtrInput
 	DesireInstanceNumber pulumi.IntPtrInput
+	Detail               pulumi.StringPtrInput
 	Enable               pulumi.BoolPtrInput
 	EnterpriseProjectId  pulumi.StringPtrInput
 	ForceDelete          pulumi.BoolPtrInput
@@ -169,6 +182,7 @@ type AsGroupState struct {
 	InstanceTerminatePolicy pulumi.StringPtrInput
 	// The instances id list in the as group.
 	Instances pulumi.StringArrayInput
+	IsScaling pulumi.BoolPtrInput
 	// The system supports the binding of up to six ELB listeners, the IDs of which are separated using a comma.
 	//
 	// Deprecated: use lbaasListeners instead
@@ -182,12 +196,13 @@ type AsGroupState struct {
 	Notifications pulumi.StringArrayInput
 	Region        pulumi.StringPtrInput
 	// schema: Required
-	ScalingConfigurationId pulumi.StringPtrInput
-	ScalingGroupName       pulumi.StringPtrInput
-	SecurityGroups         AsGroupSecurityGroupArrayInput
-	Status                 pulumi.StringPtrInput
-	Tags                   pulumi.StringMapInput
-	VpcId                  pulumi.StringPtrInput
+	ScalingConfigurationId   pulumi.StringPtrInput
+	ScalingConfigurationName pulumi.StringPtrInput
+	ScalingGroupName         pulumi.StringPtrInput
+	SecurityGroups           AsGroupSecurityGroupArrayInput
+	Status                   pulumi.StringPtrInput
+	Tags                     pulumi.StringMapInput
+	VpcId                    pulumi.StringPtrInput
 }
 
 func (AsGroupState) ElementType() reflect.Type {
@@ -366,6 +381,10 @@ func (o AsGroupOutput) ToAsGroupOutputWithContext(ctx context.Context) AsGroupOu
 	return o
 }
 
+func (o AsGroupOutput) ActivityType() pulumi.StringOutput {
+	return o.ApplyT(func(v *AsGroup) pulumi.StringOutput { return v.ActivityType }).(pulumi.StringOutput)
+}
+
 func (o AsGroupOutput) AgencyName() pulumi.StringOutput {
 	return o.ApplyT(func(v *AsGroup) pulumi.StringOutput { return v.AgencyName }).(pulumi.StringOutput)
 }
@@ -382,6 +401,10 @@ func (o AsGroupOutput) AvailableZones() pulumi.StringArrayOutput {
 // The cooling duration, in seconds.
 func (o AsGroupOutput) CoolDownTime() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *AsGroup) pulumi.IntPtrOutput { return v.CoolDownTime }).(pulumi.IntPtrOutput)
+}
+
+func (o AsGroupOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AsGroup) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
 }
 
 func (o AsGroupOutput) CurrentInstanceNumber() pulumi.IntOutput {
@@ -407,6 +430,10 @@ func (o AsGroupOutput) Description() pulumi.StringOutput {
 
 func (o AsGroupOutput) DesireInstanceNumber() pulumi.IntOutput {
 	return o.ApplyT(func(v *AsGroup) pulumi.IntOutput { return v.DesireInstanceNumber }).(pulumi.IntOutput)
+}
+
+func (o AsGroupOutput) Detail() pulumi.StringOutput {
+	return o.ApplyT(func(v *AsGroup) pulumi.StringOutput { return v.Detail }).(pulumi.StringOutput)
 }
 
 func (o AsGroupOutput) Enable() pulumi.BoolPtrOutput {
@@ -442,6 +469,10 @@ func (o AsGroupOutput) InstanceTerminatePolicy() pulumi.StringPtrOutput {
 // The instances id list in the as group.
 func (o AsGroupOutput) Instances() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *AsGroup) pulumi.StringArrayOutput { return v.Instances }).(pulumi.StringArrayOutput)
+}
+
+func (o AsGroupOutput) IsScaling() pulumi.BoolOutput {
+	return o.ApplyT(func(v *AsGroup) pulumi.BoolOutput { return v.IsScaling }).(pulumi.BoolOutput)
 }
 
 // The system supports the binding of up to six ELB listeners, the IDs of which are separated using a comma.
@@ -483,6 +514,10 @@ func (o AsGroupOutput) Region() pulumi.StringOutput {
 // schema: Required
 func (o AsGroupOutput) ScalingConfigurationId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AsGroup) pulumi.StringOutput { return v.ScalingConfigurationId }).(pulumi.StringOutput)
+}
+
+func (o AsGroupOutput) ScalingConfigurationName() pulumi.StringOutput {
+	return o.ApplyT(func(v *AsGroup) pulumi.StringOutput { return v.ScalingConfigurationName }).(pulumi.StringOutput)
 }
 
 func (o AsGroupOutput) ScalingGroupName() pulumi.StringOutput {

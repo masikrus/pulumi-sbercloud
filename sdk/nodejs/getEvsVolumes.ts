@@ -11,11 +11,18 @@ export function getEvsVolumes(args?: GetEvsVolumesArgs, opts?: pulumi.InvokeOpti
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("sbercloud:index/getEvsVolumes:getEvsVolumes", {
         "availabilityZone": args.availabilityZone,
+        "dedicatedStorageId": args.dedicatedStorageId,
+        "dedicatedStorageName": args.dedicatedStorageName,
         "enterpriseProjectId": args.enterpriseProjectId,
+        "ids": args.ids,
+        "metadata": args.metadata,
         "name": args.name,
         "region": args.region,
         "serverId": args.serverId,
+        "serviceType": args.serviceType,
         "shareable": args.shareable,
+        "sortDir": args.sortDir,
+        "sortKey": args.sortKey,
         "status": args.status,
         "tags": args.tags,
         "volumeId": args.volumeId,
@@ -28,11 +35,18 @@ export function getEvsVolumes(args?: GetEvsVolumesArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetEvsVolumesArgs {
     availabilityZone?: string;
+    dedicatedStorageId?: string;
+    dedicatedStorageName?: string;
     enterpriseProjectId?: string;
+    ids?: string;
+    metadata?: string;
     name?: string;
     region?: string;
     serverId?: string;
+    serviceType?: string;
     shareable?: boolean;
+    sortDir?: string;
+    sortKey?: string;
     status?: string;
     tags?: {[key: string]: string};
     volumeId?: string;
@@ -44,15 +58,22 @@ export interface GetEvsVolumesArgs {
  */
 export interface GetEvsVolumesResult {
     readonly availabilityZone?: string;
+    readonly dedicatedStorageId?: string;
+    readonly dedicatedStorageName?: string;
     readonly enterpriseProjectId?: string;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
+    readonly ids?: string;
+    readonly metadata?: string;
     readonly name?: string;
     readonly region?: string;
     readonly serverId?: string;
+    readonly serviceType?: string;
     readonly shareable?: boolean;
+    readonly sortDir?: string;
+    readonly sortKey?: string;
     readonly status?: string;
     readonly tags?: {[key: string]: string};
     readonly volumeId?: string;
@@ -64,11 +85,18 @@ export function getEvsVolumesOutput(args?: GetEvsVolumesOutputArgs, opts?: pulum
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("sbercloud:index/getEvsVolumes:getEvsVolumes", {
         "availabilityZone": args.availabilityZone,
+        "dedicatedStorageId": args.dedicatedStorageId,
+        "dedicatedStorageName": args.dedicatedStorageName,
         "enterpriseProjectId": args.enterpriseProjectId,
+        "ids": args.ids,
+        "metadata": args.metadata,
         "name": args.name,
         "region": args.region,
         "serverId": args.serverId,
+        "serviceType": args.serviceType,
         "shareable": args.shareable,
+        "sortDir": args.sortDir,
+        "sortKey": args.sortKey,
         "status": args.status,
         "tags": args.tags,
         "volumeId": args.volumeId,
@@ -81,11 +109,18 @@ export function getEvsVolumesOutput(args?: GetEvsVolumesOutputArgs, opts?: pulum
  */
 export interface GetEvsVolumesOutputArgs {
     availabilityZone?: pulumi.Input<string>;
+    dedicatedStorageId?: pulumi.Input<string>;
+    dedicatedStorageName?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
+    ids?: pulumi.Input<string>;
+    metadata?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
     serverId?: pulumi.Input<string>;
+    serviceType?: pulumi.Input<string>;
     shareable?: pulumi.Input<boolean>;
+    sortDir?: pulumi.Input<string>;
+    sortKey?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     volumeId?: pulumi.Input<string>;

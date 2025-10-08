@@ -15,6 +15,9 @@ namespace Pulumi.Sbercloud
         [Output("certificate")]
         public Output<string> Certificate { get; private set; } = null!;
 
+        [Output("commonName")]
+        public Output<string> CommonName { get; private set; } = null!;
+
         [Output("createTime")]
         public Output<string> CreateTime { get; private set; } = null!;
 
@@ -24,11 +27,20 @@ namespace Pulumi.Sbercloud
         [Output("domain")]
         public Output<string?> Domain { get; private set; } = null!;
 
+        [Output("encCertificate")]
+        public Output<string?> EncCertificate { get; private set; } = null!;
+
+        [Output("encPrivateKey")]
+        public Output<string?> EncPrivateKey { get; private set; } = null!;
+
         [Output("enterpriseProjectId")]
         public Output<string> EnterpriseProjectId { get; private set; } = null!;
 
         [Output("expireTime")]
         public Output<string> ExpireTime { get; private set; } = null!;
+
+        [Output("fingerprint")]
+        public Output<string> Fingerprint { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -39,8 +51,14 @@ namespace Pulumi.Sbercloud
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        [Output("scmCertificateId")]
+        public Output<string> ScmCertificateId { get; private set; } = null!;
+
+        [Output("subjectAlternativeNames")]
+        public Output<ImmutableArray<string>> SubjectAlternativeNames { get; private set; } = null!;
+
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;
@@ -100,6 +118,12 @@ namespace Pulumi.Sbercloud
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
+        [Input("encCertificate")]
+        public Input<string>? EncCertificate { get; set; }
+
+        [Input("encPrivateKey")]
+        public Input<string>? EncPrivateKey { get; set; }
+
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 
@@ -111,6 +135,9 @@ namespace Pulumi.Sbercloud
 
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        [Input("scmCertificateId")]
+        public Input<string>? ScmCertificateId { get; set; }
 
         [Input("type")]
         public Input<string>? Type { get; set; }
@@ -126,6 +153,9 @@ namespace Pulumi.Sbercloud
         [Input("certificate")]
         public Input<string>? Certificate { get; set; }
 
+        [Input("commonName")]
+        public Input<string>? CommonName { get; set; }
+
         [Input("createTime")]
         public Input<string>? CreateTime { get; set; }
 
@@ -135,11 +165,20 @@ namespace Pulumi.Sbercloud
         [Input("domain")]
         public Input<string>? Domain { get; set; }
 
+        [Input("encCertificate")]
+        public Input<string>? EncCertificate { get; set; }
+
+        [Input("encPrivateKey")]
+        public Input<string>? EncPrivateKey { get; set; }
+
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 
         [Input("expireTime")]
         public Input<string>? ExpireTime { get; set; }
+
+        [Input("fingerprint")]
+        public Input<string>? Fingerprint { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
@@ -149,6 +188,17 @@ namespace Pulumi.Sbercloud
 
         [Input("region")]
         public Input<string>? Region { get; set; }
+
+        [Input("scmCertificateId")]
+        public Input<string>? ScmCertificateId { get; set; }
+
+        [Input("subjectAlternativeNames")]
+        private InputList<string>? _subjectAlternativeNames;
+        public InputList<string> SubjectAlternativeNames
+        {
+            get => _subjectAlternativeNames ?? (_subjectAlternativeNames = new InputList<string>());
+            set => _subjectAlternativeNames = value;
+        }
 
         [Input("type")]
         public Input<string>? Type { get; set; }

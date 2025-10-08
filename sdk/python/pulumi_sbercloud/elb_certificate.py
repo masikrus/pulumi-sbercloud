@@ -23,10 +23,13 @@ class ElbCertificateArgs:
                  certificate: pulumi.Input[builtins.str],
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
+                 enc_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 enc_private_key: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 scm_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a ElbCertificate resource.
@@ -36,6 +39,10 @@ class ElbCertificateArgs:
             pulumi.set(__self__, "description", description)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if enc_certificate is not None:
+            pulumi.set(__self__, "enc_certificate", enc_certificate)
+        if enc_private_key is not None:
+            pulumi.set(__self__, "enc_private_key", enc_private_key)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if name is not None:
@@ -44,6 +51,8 @@ class ElbCertificateArgs:
             pulumi.set(__self__, "private_key", private_key)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if scm_certificate_id is not None:
+            pulumi.set(__self__, "scm_certificate_id", scm_certificate_id)
         if type is not None:
             pulumi.set(__self__, "type", type)
 
@@ -75,6 +84,24 @@ class ElbCertificateArgs:
         pulumi.set(self, "domain", value)
 
     @property
+    @pulumi.getter(name="encCertificate")
+    def enc_certificate(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enc_certificate")
+
+    @enc_certificate.setter
+    def enc_certificate(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enc_certificate", value)
+
+    @property
+    @pulumi.getter(name="encPrivateKey")
+    def enc_private_key(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enc_private_key")
+
+    @enc_private_key.setter
+    def enc_private_key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enc_private_key", value)
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "enterprise_project_id")
@@ -111,6 +138,15 @@ class ElbCertificateArgs:
         pulumi.set(self, "region", value)
 
     @property
+    @pulumi.getter(name="scmCertificateId")
+    def scm_certificate_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "scm_certificate_id")
+
+    @scm_certificate_id.setter
+    def scm_certificate_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "scm_certificate_id", value)
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "type")
@@ -124,14 +160,20 @@ class ElbCertificateArgs:
 class _ElbCertificateState:
     def __init__(__self__, *,
                  certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 common_name: Optional[pulumi.Input[builtins.str]] = None,
                  create_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
+                 enc_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 enc_private_key: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  expire_time: Optional[pulumi.Input[builtins.str]] = None,
+                 fingerprint: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 scm_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
+                 subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  update_time: Optional[pulumi.Input[builtins.str]] = None):
         """
@@ -139,22 +181,34 @@ class _ElbCertificateState:
         """
         if certificate is not None:
             pulumi.set(__self__, "certificate", certificate)
+        if common_name is not None:
+            pulumi.set(__self__, "common_name", common_name)
         if create_time is not None:
             pulumi.set(__self__, "create_time", create_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if domain is not None:
             pulumi.set(__self__, "domain", domain)
+        if enc_certificate is not None:
+            pulumi.set(__self__, "enc_certificate", enc_certificate)
+        if enc_private_key is not None:
+            pulumi.set(__self__, "enc_private_key", enc_private_key)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if expire_time is not None:
             pulumi.set(__self__, "expire_time", expire_time)
+        if fingerprint is not None:
+            pulumi.set(__self__, "fingerprint", fingerprint)
         if name is not None:
             pulumi.set(__self__, "name", name)
         if private_key is not None:
             pulumi.set(__self__, "private_key", private_key)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if scm_certificate_id is not None:
+            pulumi.set(__self__, "scm_certificate_id", scm_certificate_id)
+        if subject_alternative_names is not None:
+            pulumi.set(__self__, "subject_alternative_names", subject_alternative_names)
         if type is not None:
             pulumi.set(__self__, "type", type)
         if update_time is not None:
@@ -168,6 +222,15 @@ class _ElbCertificateState:
     @certificate.setter
     def certificate(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "certificate", value)
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "common_name")
+
+    @common_name.setter
+    def common_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "common_name", value)
 
     @property
     @pulumi.getter(name="createTime")
@@ -197,6 +260,24 @@ class _ElbCertificateState:
         pulumi.set(self, "domain", value)
 
     @property
+    @pulumi.getter(name="encCertificate")
+    def enc_certificate(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enc_certificate")
+
+    @enc_certificate.setter
+    def enc_certificate(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enc_certificate", value)
+
+    @property
+    @pulumi.getter(name="encPrivateKey")
+    def enc_private_key(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enc_private_key")
+
+    @enc_private_key.setter
+    def enc_private_key(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enc_private_key", value)
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "enterprise_project_id")
@@ -213,6 +294,15 @@ class _ElbCertificateState:
     @expire_time.setter
     def expire_time(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "expire_time", value)
+
+    @property
+    @pulumi.getter
+    def fingerprint(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "fingerprint")
+
+    @fingerprint.setter
+    def fingerprint(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "fingerprint", value)
 
     @property
     @pulumi.getter
@@ -242,6 +332,24 @@ class _ElbCertificateState:
         pulumi.set(self, "region", value)
 
     @property
+    @pulumi.getter(name="scmCertificateId")
+    def scm_certificate_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "scm_certificate_id")
+
+    @scm_certificate_id.setter
+    def scm_certificate_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "scm_certificate_id", value)
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "subject_alternative_names")
+
+    @subject_alternative_names.setter
+    def subject_alternative_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "subject_alternative_names", value)
+
+    @property
     @pulumi.getter
     def type(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "type")
@@ -268,10 +376,13 @@ class ElbCertificate(pulumi.CustomResource):
                  certificate: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
+                 enc_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 enc_private_key: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 scm_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -305,10 +416,13 @@ class ElbCertificate(pulumi.CustomResource):
                  certificate: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  domain: Optional[pulumi.Input[builtins.str]] = None,
+                 enc_certificate: Optional[pulumi.Input[builtins.str]] = None,
+                 enc_private_key: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  private_key: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 scm_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
                  type: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -324,13 +438,19 @@ class ElbCertificate(pulumi.CustomResource):
             __props__.__dict__["certificate"] = certificate
             __props__.__dict__["description"] = description
             __props__.__dict__["domain"] = domain
+            __props__.__dict__["enc_certificate"] = enc_certificate
+            __props__.__dict__["enc_private_key"] = enc_private_key
             __props__.__dict__["enterprise_project_id"] = enterprise_project_id
             __props__.__dict__["name"] = name
             __props__.__dict__["private_key"] = private_key
             __props__.__dict__["region"] = region
+            __props__.__dict__["scm_certificate_id"] = scm_certificate_id
             __props__.__dict__["type"] = type
+            __props__.__dict__["common_name"] = None
             __props__.__dict__["create_time"] = None
             __props__.__dict__["expire_time"] = None
+            __props__.__dict__["fingerprint"] = None
+            __props__.__dict__["subject_alternative_names"] = None
             __props__.__dict__["update_time"] = None
         super(ElbCertificate, __self__).__init__(
             'sbercloud:index/elbCertificate:ElbCertificate',
@@ -343,14 +463,20 @@ class ElbCertificate(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             certificate: Optional[pulumi.Input[builtins.str]] = None,
+            common_name: Optional[pulumi.Input[builtins.str]] = None,
             create_time: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             domain: Optional[pulumi.Input[builtins.str]] = None,
+            enc_certificate: Optional[pulumi.Input[builtins.str]] = None,
+            enc_private_key: Optional[pulumi.Input[builtins.str]] = None,
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             expire_time: Optional[pulumi.Input[builtins.str]] = None,
+            fingerprint: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             private_key: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
+            scm_certificate_id: Optional[pulumi.Input[builtins.str]] = None,
+            subject_alternative_names: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             type: Optional[pulumi.Input[builtins.str]] = None,
             update_time: Optional[pulumi.Input[builtins.str]] = None) -> 'ElbCertificate':
         """
@@ -366,14 +492,20 @@ class ElbCertificate(pulumi.CustomResource):
         __props__ = _ElbCertificateState.__new__(_ElbCertificateState)
 
         __props__.__dict__["certificate"] = certificate
+        __props__.__dict__["common_name"] = common_name
         __props__.__dict__["create_time"] = create_time
         __props__.__dict__["description"] = description
         __props__.__dict__["domain"] = domain
+        __props__.__dict__["enc_certificate"] = enc_certificate
+        __props__.__dict__["enc_private_key"] = enc_private_key
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["expire_time"] = expire_time
+        __props__.__dict__["fingerprint"] = fingerprint
         __props__.__dict__["name"] = name
         __props__.__dict__["private_key"] = private_key
         __props__.__dict__["region"] = region
+        __props__.__dict__["scm_certificate_id"] = scm_certificate_id
+        __props__.__dict__["subject_alternative_names"] = subject_alternative_names
         __props__.__dict__["type"] = type
         __props__.__dict__["update_time"] = update_time
         return ElbCertificate(resource_name, opts=opts, __props__=__props__)
@@ -382,6 +514,11 @@ class ElbCertificate(pulumi.CustomResource):
     @pulumi.getter
     def certificate(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "certificate")
+
+    @property
+    @pulumi.getter(name="commonName")
+    def common_name(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "common_name")
 
     @property
     @pulumi.getter(name="createTime")
@@ -399,6 +536,16 @@ class ElbCertificate(pulumi.CustomResource):
         return pulumi.get(self, "domain")
 
     @property
+    @pulumi.getter(name="encCertificate")
+    def enc_certificate(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "enc_certificate")
+
+    @property
+    @pulumi.getter(name="encPrivateKey")
+    def enc_private_key(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "enc_private_key")
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "enterprise_project_id")
@@ -407,6 +554,11 @@ class ElbCertificate(pulumi.CustomResource):
     @pulumi.getter(name="expireTime")
     def expire_time(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "expire_time")
+
+    @property
+    @pulumi.getter
+    def fingerprint(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "fingerprint")
 
     @property
     @pulumi.getter
@@ -424,8 +576,18 @@ class ElbCertificate(pulumi.CustomResource):
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter(name="scmCertificateId")
+    def scm_certificate_id(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "scm_certificate_id")
+
+    @property
+    @pulumi.getter(name="subjectAlternativeNames")
+    def subject_alternative_names(self) -> pulumi.Output[Sequence[builtins.str]]:
+        return pulumi.get(self, "subject_alternative_names")
+
+    @property
     @pulumi.getter
-    def type(self) -> pulumi.Output[Optional[builtins.str]]:
+    def type(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "type")
 
     @property

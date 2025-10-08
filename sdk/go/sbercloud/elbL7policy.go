@@ -18,6 +18,7 @@ type ElbL7policy struct {
 	Action                           pulumi.StringPtrOutput                            `pulumi:"action"`
 	CreatedAt                        pulumi.StringOutput                               `pulumi:"createdAt"`
 	Description                      pulumi.StringPtrOutput                            `pulumi:"description"`
+	EnterpriseProjectId              pulumi.StringOutput                               `pulumi:"enterpriseProjectId"`
 	FixedResponseConfig              ElbL7policyFixedResponseConfigOutput              `pulumi:"fixedResponseConfig"`
 	ListenerId                       pulumi.StringOutput                               `pulumi:"listenerId"`
 	Name                             pulumi.StringOutput                               `pulumi:"name"`
@@ -69,6 +70,7 @@ type elbL7policyState struct {
 	Action                           *string                                      `pulumi:"action"`
 	CreatedAt                        *string                                      `pulumi:"createdAt"`
 	Description                      *string                                      `pulumi:"description"`
+	EnterpriseProjectId              *string                                      `pulumi:"enterpriseProjectId"`
 	FixedResponseConfig              *ElbL7policyFixedResponseConfig              `pulumi:"fixedResponseConfig"`
 	ListenerId                       *string                                      `pulumi:"listenerId"`
 	Name                             *string                                      `pulumi:"name"`
@@ -88,6 +90,7 @@ type ElbL7policyState struct {
 	Action                           pulumi.StringPtrInput
 	CreatedAt                        pulumi.StringPtrInput
 	Description                      pulumi.StringPtrInput
+	EnterpriseProjectId              pulumi.StringPtrInput
 	FixedResponseConfig              ElbL7policyFixedResponseConfigPtrInput
 	ListenerId                       pulumi.StringPtrInput
 	Name                             pulumi.StringPtrInput
@@ -237,6 +240,10 @@ func (o ElbL7policyOutput) CreatedAt() pulumi.StringOutput {
 
 func (o ElbL7policyOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElbL7policy) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o ElbL7policyOutput) EnterpriseProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbL7policy) pulumi.StringOutput { return v.EnterpriseProjectId }).(pulumi.StringOutput)
 }
 
 func (o ElbL7policyOutput) FixedResponseConfig() ElbL7policyFixedResponseConfigOutput {

@@ -66,6 +66,17 @@ Object.defineProperty(exports, "domainName", {
     enumerable: true,
 });
 
+/**
+ * The custom endpoints used to override the default endpoint URL.
+ */
+export declare const endpoints: {[key: string]: string} | undefined;
+Object.defineProperty(exports, "endpoints", {
+    get() {
+        return __config.getObject<{[key: string]: string}>("endpoints");
+    },
+    enumerable: true,
+});
+
 export declare const enterpriseProjectId: string | undefined;
 Object.defineProperty(exports, "enterpriseProjectId", {
     get() {

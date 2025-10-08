@@ -12,6 +12,9 @@ namespace Pulumi.Sbercloud
     [SbercloudResourceType("sbercloud:index/asConfiguration:AsConfiguration")]
     public partial class AsConfiguration : global::Pulumi.CustomResource
     {
+        [Output("createTime")]
+        public Output<string> CreateTime { get; private set; } = null!;
+
         [Output("instanceConfig")]
         public Output<Outputs.AsConfigurationInstanceConfig> InstanceConfig { get; private set; } = null!;
 
@@ -87,6 +90,9 @@ namespace Pulumi.Sbercloud
 
     public sealed class AsConfigurationState : global::Pulumi.ResourceArgs
     {
+        [Input("createTime")]
+        public Input<string>? CreateTime { get; set; }
+
         [Input("instanceConfig")]
         public Input<Inputs.AsConfigurationInstanceConfigGetArgs>? InstanceConfig { get; set; }
 

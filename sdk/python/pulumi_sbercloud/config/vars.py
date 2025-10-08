@@ -56,6 +56,13 @@ class _ExportableConfig(types.ModuleType):
         return __config__.get('domainName')
 
     @property
+    def endpoints(self) -> Optional[str]:
+        """
+        The custom endpoints used to override the default endpoint URL.
+        """
+        return __config__.get('endpoints')
+
+    @property
     def enterprise_project_id(self) -> Optional[str]:
         return __config__.get('enterpriseProjectId')
 

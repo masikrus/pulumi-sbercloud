@@ -14,6 +14,8 @@ if sys.version_info >= (3, 11):
 else:
     from typing_extensions import NotRequired, TypedDict, TypeAlias
 from . import _utilities
+from . import outputs
+from ._inputs import *
 
 __all__ = ['ElbMemberArgs', 'ElbMember']
 
@@ -29,7 +31,6 @@ class ElbMemberArgs:
                  weight: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a ElbMember resource.
-        :param pulumi.Input[builtins.str] subnet_id: The IPv4 or IPv6 subnet ID of the subnet in which to access the member
         """
         pulumi.set(__self__, "address", address)
         pulumi.set(__self__, "pool_id", pool_id)
@@ -92,9 +93,6 @@ class ElbMemberArgs:
     @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
@@ -115,28 +113,51 @@ class ElbMemberArgs:
 class _ElbMemberState:
     def __init__(__self__, *,
                  address: Optional[pulumi.Input[builtins.str]] = None,
+                 created_at: Optional[pulumi.Input[builtins.str]] = None,
+                 instance_id: Optional[pulumi.Input[builtins.str]] = None,
+                 ip_version: Optional[pulumi.Input[builtins.str]] = None,
+                 member_type: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
+                 operating_status: Optional[pulumi.Input[builtins.str]] = None,
                  pool_id: Optional[pulumi.Input[builtins.str]] = None,
                  protocol_port: Optional[pulumi.Input[builtins.int]] = None,
+                 reasons: Optional[pulumi.Input[Sequence[pulumi.Input['ElbMemberReasonArgs']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 statuses: Optional[pulumi.Input[Sequence[pulumi.Input['ElbMemberStatusArgs']]]] = None,
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+                 updated_at: Optional[pulumi.Input[builtins.str]] = None,
                  weight: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering ElbMember resources.
-        :param pulumi.Input[builtins.str] subnet_id: The IPv4 or IPv6 subnet ID of the subnet in which to access the member
         """
         if address is not None:
             pulumi.set(__self__, "address", address)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
+        if instance_id is not None:
+            pulumi.set(__self__, "instance_id", instance_id)
+        if ip_version is not None:
+            pulumi.set(__self__, "ip_version", ip_version)
+        if member_type is not None:
+            pulumi.set(__self__, "member_type", member_type)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if operating_status is not None:
+            pulumi.set(__self__, "operating_status", operating_status)
         if pool_id is not None:
             pulumi.set(__self__, "pool_id", pool_id)
         if protocol_port is not None:
             pulumi.set(__self__, "protocol_port", protocol_port)
+        if reasons is not None:
+            pulumi.set(__self__, "reasons", reasons)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if statuses is not None:
+            pulumi.set(__self__, "statuses", statuses)
         if subnet_id is not None:
             pulumi.set(__self__, "subnet_id", subnet_id)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
         if weight is not None:
             pulumi.set(__self__, "weight", weight)
 
@@ -150,6 +171,42 @@ class _ElbMemberState:
         pulumi.set(self, "address", value)
 
     @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_at", value)
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "instance_id")
+
+    @instance_id.setter
+    def instance_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "instance_id", value)
+
+    @property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "ip_version")
+
+    @ip_version.setter
+    def ip_version(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "ip_version", value)
+
+    @property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "member_type")
+
+    @member_type.setter
+    def member_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "member_type", value)
+
+    @property
     @pulumi.getter
     def name(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "name")
@@ -157,6 +214,15 @@ class _ElbMemberState:
     @name.setter
     def name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="operatingStatus")
+    def operating_status(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "operating_status")
+
+    @operating_status.setter
+    def operating_status(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "operating_status", value)
 
     @property
     @pulumi.getter(name="poolId")
@@ -178,6 +244,15 @@ class _ElbMemberState:
 
     @property
     @pulumi.getter
+    def reasons(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ElbMemberReasonArgs']]]]:
+        return pulumi.get(self, "reasons")
+
+    @reasons.setter
+    def reasons(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ElbMemberReasonArgs']]]]):
+        pulumi.set(self, "reasons", value)
+
+    @property
+    @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "region")
 
@@ -186,16 +261,31 @@ class _ElbMemberState:
         pulumi.set(self, "region", value)
 
     @property
+    @pulumi.getter
+    def statuses(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ElbMemberStatusArgs']]]]:
+        return pulumi.get(self, "statuses")
+
+    @statuses.setter
+    def statuses(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ElbMemberStatusArgs']]]]):
+        pulumi.set(self, "statuses", value)
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> Optional[pulumi.Input[builtins.str]]:
-        """
-        The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-        """
         return pulumi.get(self, "subnet_id")
 
     @subnet_id.setter
     def subnet_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "subnet_id", value)
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_at", value)
 
     @property
     @pulumi.getter
@@ -224,7 +314,6 @@ class ElbMember(pulumi.CustomResource):
         Create a ElbMember resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] subnet_id: The IPv4 or IPv6 subnet ID of the subnet in which to access the member
         """
         ...
     @overload
@@ -276,6 +365,14 @@ class ElbMember(pulumi.CustomResource):
             __props__.__dict__["region"] = region
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["weight"] = weight
+            __props__.__dict__["created_at"] = None
+            __props__.__dict__["instance_id"] = None
+            __props__.__dict__["ip_version"] = None
+            __props__.__dict__["member_type"] = None
+            __props__.__dict__["operating_status"] = None
+            __props__.__dict__["reasons"] = None
+            __props__.__dict__["statuses"] = None
+            __props__.__dict__["updated_at"] = None
         super(ElbMember, __self__).__init__(
             'sbercloud:index/elbMember:ElbMember',
             resource_name,
@@ -287,11 +384,19 @@ class ElbMember(pulumi.CustomResource):
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
             address: Optional[pulumi.Input[builtins.str]] = None,
+            created_at: Optional[pulumi.Input[builtins.str]] = None,
+            instance_id: Optional[pulumi.Input[builtins.str]] = None,
+            ip_version: Optional[pulumi.Input[builtins.str]] = None,
+            member_type: Optional[pulumi.Input[builtins.str]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
+            operating_status: Optional[pulumi.Input[builtins.str]] = None,
             pool_id: Optional[pulumi.Input[builtins.str]] = None,
             protocol_port: Optional[pulumi.Input[builtins.int]] = None,
+            reasons: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ElbMemberReasonArgs', 'ElbMemberReasonArgsDict']]]]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
+            statuses: Optional[pulumi.Input[Sequence[pulumi.Input[Union['ElbMemberStatusArgs', 'ElbMemberStatusArgsDict']]]]] = None,
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
+            updated_at: Optional[pulumi.Input[builtins.str]] = None,
             weight: Optional[pulumi.Input[builtins.int]] = None) -> 'ElbMember':
         """
         Get an existing ElbMember resource's state with the given name, id, and optional extra
@@ -300,18 +405,25 @@ class ElbMember(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
-        :param pulumi.Input[builtins.str] subnet_id: The IPv4 or IPv6 subnet ID of the subnet in which to access the member
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
         __props__ = _ElbMemberState.__new__(_ElbMemberState)
 
         __props__.__dict__["address"] = address
+        __props__.__dict__["created_at"] = created_at
+        __props__.__dict__["instance_id"] = instance_id
+        __props__.__dict__["ip_version"] = ip_version
+        __props__.__dict__["member_type"] = member_type
         __props__.__dict__["name"] = name
+        __props__.__dict__["operating_status"] = operating_status
         __props__.__dict__["pool_id"] = pool_id
         __props__.__dict__["protocol_port"] = protocol_port
+        __props__.__dict__["reasons"] = reasons
         __props__.__dict__["region"] = region
+        __props__.__dict__["statuses"] = statuses
         __props__.__dict__["subnet_id"] = subnet_id
+        __props__.__dict__["updated_at"] = updated_at
         __props__.__dict__["weight"] = weight
         return ElbMember(resource_name, opts=opts, __props__=__props__)
 
@@ -321,9 +433,34 @@ class ElbMember(pulumi.CustomResource):
         return pulumi.get(self, "address")
 
     @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "created_at")
+
+    @property
+    @pulumi.getter(name="instanceId")
+    def instance_id(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "instance_id")
+
+    @property
+    @pulumi.getter(name="ipVersion")
+    def ip_version(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "ip_version")
+
+    @property
+    @pulumi.getter(name="memberType")
+    def member_type(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "member_type")
+
+    @property
     @pulumi.getter
     def name(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="operatingStatus")
+    def operating_status(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "operating_status")
 
     @property
     @pulumi.getter(name="poolId")
@@ -337,16 +474,28 @@ class ElbMember(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def reasons(self) -> pulumi.Output[Sequence['outputs.ElbMemberReason']]:
+        return pulumi.get(self, "reasons")
+
+    @property
+    @pulumi.getter
     def region(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter
+    def statuses(self) -> pulumi.Output[Sequence['outputs.ElbMemberStatus']]:
+        return pulumi.get(self, "statuses")
+
+    @property
     @pulumi.getter(name="subnetId")
     def subnet_id(self) -> pulumi.Output[Optional[builtins.str]]:
-        """
-        The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-        """
         return pulumi.get(self, "subnet_id")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter

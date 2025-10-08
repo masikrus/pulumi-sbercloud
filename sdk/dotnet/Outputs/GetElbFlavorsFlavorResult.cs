@@ -14,35 +14,59 @@ namespace Pulumi.Sbercloud.Outputs
     public sealed class GetElbFlavorsFlavorResult
     {
         public readonly int Bandwidth;
+        public readonly int Category;
         public readonly int Cps;
+        public readonly bool FlavorSoldOut;
+        public readonly int HttpsCps;
         public readonly string Id;
+        public readonly int Lcu;
         public readonly int MaxConnections;
         public readonly string Name;
+        public readonly string PublicBorderGroup;
         public readonly int Qps;
+        public readonly bool Shared;
         public readonly string Type;
 
         [OutputConstructor]
         private GetElbFlavorsFlavorResult(
             int bandwidth,
 
+            int category,
+
             int cps,
 
+            bool flavorSoldOut,
+
+            int httpsCps,
+
             string id,
+
+            int lcu,
 
             int maxConnections,
 
             string name,
 
+            string publicBorderGroup,
+
             int qps,
+
+            bool shared,
 
             string type)
         {
             Bandwidth = bandwidth;
+            Category = category;
             Cps = cps;
+            FlavorSoldOut = flavorSoldOut;
+            HttpsCps = httpsCps;
             Id = id;
+            Lcu = lcu;
             MaxConnections = maxConnections;
             Name = name;
+            PublicBorderGroup = publicBorderGroup;
             Qps = qps;
+            Shared = shared;
             Type = type;
         }
     }

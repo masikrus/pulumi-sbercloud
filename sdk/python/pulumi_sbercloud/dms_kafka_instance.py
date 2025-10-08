@@ -43,6 +43,7 @@ class DmsKafkaInstanceArgs:
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  flavor_id: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_enable: Optional[pulumi.Input[builtins.bool]] = None,
+                 kms_encrypted_password: Optional[pulumi.Input[builtins.str]] = None,
                  maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
                  maintain_end: Optional[pulumi.Input[builtins.str]] = None,
                  manager_password: Optional[pulumi.Input[builtins.str]] = None,
@@ -65,6 +66,7 @@ class DmsKafkaInstanceArgs:
         """
         The set of arguments for constructing a DmsKafkaInstance resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: schema: Required
+        :param pulumi.Input[builtins.str] kms_encrypted_password: schema: Internal
         """
         pulumi.set(__self__, "engine_version", engine_version)
         pulumi.set(__self__, "network_id", network_id)
@@ -109,6 +111,8 @@ class DmsKafkaInstanceArgs:
             pulumi.set(__self__, "flavor_id", flavor_id)
         if ipv6_enable is not None:
             pulumi.set(__self__, "ipv6_enable", ipv6_enable)
+        if kms_encrypted_password is not None:
+            pulumi.set(__self__, "kms_encrypted_password", kms_encrypted_password)
         if maintain_begin is not None:
             pulumi.set(__self__, "maintain_begin", maintain_begin)
         if maintain_end is not None:
@@ -349,6 +353,18 @@ class DmsKafkaInstanceArgs:
         pulumi.set(self, "ipv6_enable", value)
 
     @property
+    @pulumi.getter(name="kmsEncryptedPassword")
+    def kms_encrypted_password(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Internal
+        """
+        return pulumi.get(self, "kms_encrypted_password")
+
+    @kms_encrypted_password.setter
+    def kms_encrypted_password(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "kms_encrypted_password", value)
+
+    @property
     @pulumi.getter(name="maintainBegin")
     def maintain_begin(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "maintain_begin")
@@ -552,6 +568,7 @@ class _DmsKafkaInstanceState:
                  ipv6_connect_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
                  ipv6_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  is_logical_volume: Optional[pulumi.Input[builtins.bool]] = None,
+                 kms_encrypted_password: Optional[pulumi.Input[builtins.str]] = None,
                  maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
                  maintain_end: Optional[pulumi.Input[builtins.str]] = None,
                  management_connect_address: Optional[pulumi.Input[builtins.str]] = None,
@@ -597,6 +614,7 @@ class _DmsKafkaInstanceState:
         """
         Input properties used for looking up and filtering DmsKafkaInstance resources.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: schema: Required
+        :param pulumi.Input[builtins.str] kms_encrypted_password: schema: Internal
         """
         if access_user is not None:
             pulumi.set(__self__, "access_user", access_user)
@@ -658,6 +676,8 @@ class _DmsKafkaInstanceState:
             pulumi.set(__self__, "ipv6_enable", ipv6_enable)
         if is_logical_volume is not None:
             pulumi.set(__self__, "is_logical_volume", is_logical_volume)
+        if kms_encrypted_password is not None:
+            pulumi.set(__self__, "kms_encrypted_password", kms_encrypted_password)
         if maintain_begin is not None:
             pulumi.set(__self__, "maintain_begin", maintain_begin)
         if maintain_end is not None:
@@ -1002,6 +1022,18 @@ class _DmsKafkaInstanceState:
     @is_logical_volume.setter
     def is_logical_volume(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "is_logical_volume", value)
+
+    @property
+    @pulumi.getter(name="kmsEncryptedPassword")
+    def kms_encrypted_password(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        schema: Internal
+        """
+        return pulumi.get(self, "kms_encrypted_password")
+
+    @kms_encrypted_password.setter
+    def kms_encrypted_password(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "kms_encrypted_password", value)
 
     @property
     @pulumi.getter(name="maintainBegin")
@@ -1408,6 +1440,7 @@ class DmsKafkaInstance(pulumi.CustomResource):
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  flavor_id: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_enable: Optional[pulumi.Input[builtins.bool]] = None,
+                 kms_encrypted_password: Optional[pulumi.Input[builtins.str]] = None,
                  maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
                  maintain_end: Optional[pulumi.Input[builtins.str]] = None,
                  manager_password: Optional[pulumi.Input[builtins.str]] = None,
@@ -1437,6 +1470,7 @@ class DmsKafkaInstance(pulumi.CustomResource):
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: schema: Required
+        :param pulumi.Input[builtins.str] kms_encrypted_password: schema: Internal
         """
         ...
     @overload
@@ -1478,6 +1512,7 @@ class DmsKafkaInstance(pulumi.CustomResource):
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  flavor_id: Optional[pulumi.Input[builtins.str]] = None,
                  ipv6_enable: Optional[pulumi.Input[builtins.bool]] = None,
+                 kms_encrypted_password: Optional[pulumi.Input[builtins.str]] = None,
                  maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
                  maintain_end: Optional[pulumi.Input[builtins.str]] = None,
                  manager_password: Optional[pulumi.Input[builtins.str]] = None,
@@ -1529,6 +1564,7 @@ class DmsKafkaInstance(pulumi.CustomResource):
             __props__.__dict__["enterprise_project_id"] = enterprise_project_id
             __props__.__dict__["flavor_id"] = flavor_id
             __props__.__dict__["ipv6_enable"] = ipv6_enable
+            __props__.__dict__["kms_encrypted_password"] = None if kms_encrypted_password is None else pulumi.Output.secret(kms_encrypted_password)
             __props__.__dict__["maintain_begin"] = maintain_begin
             __props__.__dict__["maintain_end"] = maintain_end
             __props__.__dict__["manager_password"] = None if manager_password is None else pulumi.Output.secret(manager_password)
@@ -1589,7 +1625,7 @@ class DmsKafkaInstance(pulumi.CustomResource):
             __props__.__dict__["used_storage_space"] = None
             __props__.__dict__["user_id"] = None
             __props__.__dict__["user_name"] = None
-        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["managerPassword", "password"])
+        secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["kmsEncryptedPassword", "managerPassword", "password"])
         opts = pulumi.ResourceOptions.merge(opts, secret_opts)
         super(DmsKafkaInstance, __self__).__init__(
             'sbercloud:index/dmsKafkaInstance:DmsKafkaInstance',
@@ -1628,6 +1664,7 @@ class DmsKafkaInstance(pulumi.CustomResource):
             ipv6_connect_addresses: Optional[pulumi.Input[Sequence[pulumi.Input[builtins.str]]]] = None,
             ipv6_enable: Optional[pulumi.Input[builtins.bool]] = None,
             is_logical_volume: Optional[pulumi.Input[builtins.bool]] = None,
+            kms_encrypted_password: Optional[pulumi.Input[builtins.str]] = None,
             maintain_begin: Optional[pulumi.Input[builtins.str]] = None,
             maintain_end: Optional[pulumi.Input[builtins.str]] = None,
             management_connect_address: Optional[pulumi.Input[builtins.str]] = None,
@@ -1678,6 +1715,7 @@ class DmsKafkaInstance(pulumi.CustomResource):
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[Sequence[pulumi.Input[builtins.str]]] availability_zones: schema: Required
+        :param pulumi.Input[builtins.str] kms_encrypted_password: schema: Internal
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -1710,6 +1748,7 @@ class DmsKafkaInstance(pulumi.CustomResource):
         __props__.__dict__["ipv6_connect_addresses"] = ipv6_connect_addresses
         __props__.__dict__["ipv6_enable"] = ipv6_enable
         __props__.__dict__["is_logical_volume"] = is_logical_volume
+        __props__.__dict__["kms_encrypted_password"] = kms_encrypted_password
         __props__.__dict__["maintain_begin"] = maintain_begin
         __props__.__dict__["maintain_end"] = maintain_end
         __props__.__dict__["management_connect_address"] = management_connect_address
@@ -1893,6 +1932,14 @@ class DmsKafkaInstance(pulumi.CustomResource):
     @pulumi.getter(name="isLogicalVolume")
     def is_logical_volume(self) -> pulumi.Output[builtins.bool]:
         return pulumi.get(self, "is_logical_volume")
+
+    @property
+    @pulumi.getter(name="kmsEncryptedPassword")
+    def kms_encrypted_password(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        schema: Internal
+        """
+        return pulumi.get(self, "kms_encrypted_password")
 
     @property
     @pulumi.getter(name="maintainBegin")

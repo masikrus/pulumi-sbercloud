@@ -28,10 +28,13 @@ class GetLbPoolsResult:
     """
     A collection of values returned by getLbPools.
     """
-    def __init__(__self__, description=None, healthmonitor_id=None, id=None, lb_method=None, loadbalancer_id=None, name=None, pool_id=None, pools=None, protocol=None, region=None):
+    def __init__(__self__, description=None, enterprise_project_id=None, healthmonitor_id=None, id=None, lb_method=None, loadbalancer_id=None, member_address=None, member_device_id=None, name=None, pool_id=None, pools=None, protocol=None, region=None):
         if description and not isinstance(description, str):
             raise TypeError("Expected argument 'description' to be a str")
         pulumi.set(__self__, "description", description)
+        if enterprise_project_id and not isinstance(enterprise_project_id, str):
+            raise TypeError("Expected argument 'enterprise_project_id' to be a str")
+        pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if healthmonitor_id and not isinstance(healthmonitor_id, str):
             raise TypeError("Expected argument 'healthmonitor_id' to be a str")
         pulumi.set(__self__, "healthmonitor_id", healthmonitor_id)
@@ -44,6 +47,12 @@ class GetLbPoolsResult:
         if loadbalancer_id and not isinstance(loadbalancer_id, str):
             raise TypeError("Expected argument 'loadbalancer_id' to be a str")
         pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
+        if member_address and not isinstance(member_address, str):
+            raise TypeError("Expected argument 'member_address' to be a str")
+        pulumi.set(__self__, "member_address", member_address)
+        if member_device_id and not isinstance(member_device_id, str):
+            raise TypeError("Expected argument 'member_device_id' to be a str")
+        pulumi.set(__self__, "member_device_id", member_device_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -64,6 +73,11 @@ class GetLbPoolsResult:
     @pulumi.getter
     def description(self) -> Optional[builtins.str]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enterpriseProjectId")
+    def enterprise_project_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "enterprise_project_id")
 
     @property
     @pulumi.getter(name="healthmonitorId")
@@ -87,6 +101,16 @@ class GetLbPoolsResult:
     @pulumi.getter(name="loadbalancerId")
     def loadbalancer_id(self) -> Optional[builtins.str]:
         return pulumi.get(self, "loadbalancer_id")
+
+    @property
+    @pulumi.getter(name="memberAddress")
+    def member_address(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "member_address")
+
+    @property
+    @pulumi.getter(name="memberDeviceId")
+    def member_device_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "member_device_id")
 
     @property
     @pulumi.getter
@@ -121,10 +145,13 @@ class AwaitableGetLbPoolsResult(GetLbPoolsResult):
             yield self
         return GetLbPoolsResult(
             description=self.description,
+            enterprise_project_id=self.enterprise_project_id,
             healthmonitor_id=self.healthmonitor_id,
             id=self.id,
             lb_method=self.lb_method,
             loadbalancer_id=self.loadbalancer_id,
+            member_address=self.member_address,
+            member_device_id=self.member_device_id,
             name=self.name,
             pool_id=self.pool_id,
             pools=self.pools,
@@ -133,9 +160,12 @@ class AwaitableGetLbPoolsResult(GetLbPoolsResult):
 
 
 def get_lb_pools(description: Optional[builtins.str] = None,
+                 enterprise_project_id: Optional[builtins.str] = None,
                  healthmonitor_id: Optional[builtins.str] = None,
                  lb_method: Optional[builtins.str] = None,
                  loadbalancer_id: Optional[builtins.str] = None,
+                 member_address: Optional[builtins.str] = None,
+                 member_device_id: Optional[builtins.str] = None,
                  name: Optional[builtins.str] = None,
                  pool_id: Optional[builtins.str] = None,
                  protocol: Optional[builtins.str] = None,
@@ -146,9 +176,12 @@ def get_lb_pools(description: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['description'] = description
+    __args__['enterpriseProjectId'] = enterprise_project_id
     __args__['healthmonitorId'] = healthmonitor_id
     __args__['lbMethod'] = lb_method
     __args__['loadbalancerId'] = loadbalancer_id
+    __args__['memberAddress'] = member_address
+    __args__['memberDeviceId'] = member_device_id
     __args__['name'] = name
     __args__['poolId'] = pool_id
     __args__['protocol'] = protocol
@@ -158,19 +191,25 @@ def get_lb_pools(description: Optional[builtins.str] = None,
 
     return AwaitableGetLbPoolsResult(
         description=pulumi.get(__ret__, 'description'),
+        enterprise_project_id=pulumi.get(__ret__, 'enterprise_project_id'),
         healthmonitor_id=pulumi.get(__ret__, 'healthmonitor_id'),
         id=pulumi.get(__ret__, 'id'),
         lb_method=pulumi.get(__ret__, 'lb_method'),
         loadbalancer_id=pulumi.get(__ret__, 'loadbalancer_id'),
+        member_address=pulumi.get(__ret__, 'member_address'),
+        member_device_id=pulumi.get(__ret__, 'member_device_id'),
         name=pulumi.get(__ret__, 'name'),
         pool_id=pulumi.get(__ret__, 'pool_id'),
         pools=pulumi.get(__ret__, 'pools'),
         protocol=pulumi.get(__ret__, 'protocol'),
         region=pulumi.get(__ret__, 'region'))
 def get_lb_pools_output(description: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        enterprise_project_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         healthmonitor_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         lb_method: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         loadbalancer_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        member_address: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                        member_device_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         pool_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                         protocol: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -181,9 +220,12 @@ def get_lb_pools_output(description: Optional[pulumi.Input[Optional[builtins.str
     """
     __args__ = dict()
     __args__['description'] = description
+    __args__['enterpriseProjectId'] = enterprise_project_id
     __args__['healthmonitorId'] = healthmonitor_id
     __args__['lbMethod'] = lb_method
     __args__['loadbalancerId'] = loadbalancer_id
+    __args__['memberAddress'] = member_address
+    __args__['memberDeviceId'] = member_device_id
     __args__['name'] = name
     __args__['poolId'] = pool_id
     __args__['protocol'] = protocol
@@ -192,10 +234,13 @@ def get_lb_pools_output(description: Optional[pulumi.Input[Optional[builtins.str
     __ret__ = pulumi.runtime.invoke_output('sbercloud:index/getLbPools:getLbPools', __args__, opts=opts, typ=GetLbPoolsResult)
     return __ret__.apply(lambda __response__: GetLbPoolsResult(
         description=pulumi.get(__response__, 'description'),
+        enterprise_project_id=pulumi.get(__response__, 'enterprise_project_id'),
         healthmonitor_id=pulumi.get(__response__, 'healthmonitor_id'),
         id=pulumi.get(__response__, 'id'),
         lb_method=pulumi.get(__response__, 'lb_method'),
         loadbalancer_id=pulumi.get(__response__, 'loadbalancer_id'),
+        member_address=pulumi.get(__response__, 'member_address'),
+        member_device_id=pulumi.get(__response__, 'member_device_id'),
         name=pulumi.get(__response__, 'name'),
         pool_id=pulumi.get(__response__, 'pool_id'),
         pools=pulumi.get(__response__, 'pools'),

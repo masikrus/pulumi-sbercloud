@@ -31,6 +31,7 @@ class MapreduceClusterArgs:
                  vpc_id: pulumi.Input[builtins.str],
                  analysis_core_nodes: Optional[pulumi.Input['MapreduceClusterAnalysisCoreNodesArgs']] = None,
                  analysis_task_nodes: Optional[pulumi.Input['MapreduceClusterAnalysisTaskNodesArgs']] = None,
+                 auto_renew: Optional[pulumi.Input[builtins.str]] = None,
                  bootstrap_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['MapreduceClusterBootstrapScriptArgs']]]] = None,
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
                  component_configs: Optional[pulumi.Input[Sequence[pulumi.Input['MapreduceClusterComponentConfigArgs']]]] = None,
@@ -68,6 +69,8 @@ class MapreduceClusterArgs:
             pulumi.set(__self__, "analysis_core_nodes", analysis_core_nodes)
         if analysis_task_nodes is not None:
             pulumi.set(__self__, "analysis_task_nodes", analysis_task_nodes)
+        if auto_renew is not None:
+            pulumi.set(__self__, "auto_renew", auto_renew)
         if bootstrap_scripts is not None:
             pulumi.set(__self__, "bootstrap_scripts", bootstrap_scripts)
         if charging_mode is not None:
@@ -195,6 +198,15 @@ class MapreduceClusterArgs:
     @analysis_task_nodes.setter
     def analysis_task_nodes(self, value: Optional[pulumi.Input['MapreduceClusterAnalysisTaskNodesArgs']]):
         pulumi.set(self, "analysis_task_nodes", value)
+
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "auto_renew")
+
+    @auto_renew.setter
+    def auto_renew(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "auto_renew", value)
 
     @property
     @pulumi.getter(name="bootstrapScripts")
@@ -409,6 +421,7 @@ class _MapreduceClusterState:
     def __init__(__self__, *,
                  analysis_core_nodes: Optional[pulumi.Input['MapreduceClusterAnalysisCoreNodesArgs']] = None,
                  analysis_task_nodes: Optional[pulumi.Input['MapreduceClusterAnalysisTaskNodesArgs']] = None,
+                 auto_renew: Optional[pulumi.Input[builtins.str]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  bootstrap_scripts: Optional[pulumi.Input[Sequence[pulumi.Input['MapreduceClusterBootstrapScriptArgs']]]] = None,
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
@@ -453,6 +466,8 @@ class _MapreduceClusterState:
             pulumi.set(__self__, "analysis_core_nodes", analysis_core_nodes)
         if analysis_task_nodes is not None:
             pulumi.set(__self__, "analysis_task_nodes", analysis_task_nodes)
+        if auto_renew is not None:
+            pulumi.set(__self__, "auto_renew", auto_renew)
         if availability_zone is not None:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if bootstrap_scripts is not None:
@@ -545,6 +560,15 @@ class _MapreduceClusterState:
     @analysis_task_nodes.setter
     def analysis_task_nodes(self, value: Optional[pulumi.Input['MapreduceClusterAnalysisTaskNodesArgs']]):
         pulumi.set(self, "analysis_task_nodes", value)
+
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "auto_renew")
+
+    @auto_renew.setter
+    def auto_renew(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "auto_renew", value)
 
     @property
     @pulumi.getter(name="availabilityZone")
@@ -887,6 +911,7 @@ class MapreduceCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_core_nodes: Optional[pulumi.Input[Union['MapreduceClusterAnalysisCoreNodesArgs', 'MapreduceClusterAnalysisCoreNodesArgsDict']]] = None,
                  analysis_task_nodes: Optional[pulumi.Input[Union['MapreduceClusterAnalysisTaskNodesArgs', 'MapreduceClusterAnalysisTaskNodesArgsDict']]] = None,
+                 auto_renew: Optional[pulumi.Input[builtins.str]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  bootstrap_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapreduceClusterBootstrapScriptArgs', 'MapreduceClusterBootstrapScriptArgsDict']]]]] = None,
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
@@ -948,6 +973,7 @@ class MapreduceCluster(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  analysis_core_nodes: Optional[pulumi.Input[Union['MapreduceClusterAnalysisCoreNodesArgs', 'MapreduceClusterAnalysisCoreNodesArgsDict']]] = None,
                  analysis_task_nodes: Optional[pulumi.Input[Union['MapreduceClusterAnalysisTaskNodesArgs', 'MapreduceClusterAnalysisTaskNodesArgsDict']]] = None,
+                 auto_renew: Optional[pulumi.Input[builtins.str]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  bootstrap_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapreduceClusterBootstrapScriptArgs', 'MapreduceClusterBootstrapScriptArgsDict']]]]] = None,
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
@@ -989,6 +1015,7 @@ class MapreduceCluster(pulumi.CustomResource):
 
             __props__.__dict__["analysis_core_nodes"] = analysis_core_nodes
             __props__.__dict__["analysis_task_nodes"] = analysis_task_nodes
+            __props__.__dict__["auto_renew"] = auto_renew
             if availability_zone is None and not opts.urn:
                 raise TypeError("Missing required property 'availability_zone'")
             __props__.__dict__["availability_zone"] = availability_zone
@@ -1054,6 +1081,7 @@ class MapreduceCluster(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             analysis_core_nodes: Optional[pulumi.Input[Union['MapreduceClusterAnalysisCoreNodesArgs', 'MapreduceClusterAnalysisCoreNodesArgsDict']]] = None,
             analysis_task_nodes: Optional[pulumi.Input[Union['MapreduceClusterAnalysisTaskNodesArgs', 'MapreduceClusterAnalysisTaskNodesArgsDict']]] = None,
+            auto_renew: Optional[pulumi.Input[builtins.str]] = None,
             availability_zone: Optional[pulumi.Input[builtins.str]] = None,
             bootstrap_scripts: Optional[pulumi.Input[Sequence[pulumi.Input[Union['MapreduceClusterBootstrapScriptArgs', 'MapreduceClusterBootstrapScriptArgsDict']]]]] = None,
             charging_mode: Optional[pulumi.Input[builtins.str]] = None,
@@ -1105,6 +1133,7 @@ class MapreduceCluster(pulumi.CustomResource):
 
         __props__.__dict__["analysis_core_nodes"] = analysis_core_nodes
         __props__.__dict__["analysis_task_nodes"] = analysis_task_nodes
+        __props__.__dict__["auto_renew"] = auto_renew
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["bootstrap_scripts"] = bootstrap_scripts
         __props__.__dict__["charging_mode"] = charging_mode
@@ -1153,6 +1182,11 @@ class MapreduceCluster(pulumi.CustomResource):
     @pulumi.getter(name="analysisTaskNodes")
     def analysis_task_nodes(self) -> pulumi.Output[Optional['outputs.MapreduceClusterAnalysisTaskNodes']]:
         return pulumi.get(self, "analysis_task_nodes")
+
+    @property
+    @pulumi.getter(name="autoRenew")
+    def auto_renew(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "auto_renew")
 
     @property
     @pulumi.getter(name="availabilityZone")

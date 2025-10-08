@@ -13,7 +13,7 @@ namespace Pulumi.Sbercloud
     public partial class CceNodePool : global::Pulumi.CustomResource
     {
         [Output("autoRenew")]
-        public Output<string?> AutoRenew { get; private set; } = null!;
+        public Output<string> AutoRenew { get; private set; } = null!;
 
         [Output("availabilityZone")]
         public Output<string?> AvailabilityZone { get; private set; } = null!;
@@ -36,6 +36,9 @@ namespace Pulumi.Sbercloud
         [Output("ecsGroupId")]
         public Output<string?> EcsGroupId { get; private set; } = null!;
 
+        [Output("enableForceNew")]
+        public Output<string?> EnableForceNew { get; private set; } = null!;
+
         [Output("enterpriseProjectId")]
         public Output<string> EnterpriseProjectId { get; private set; } = null!;
 
@@ -46,7 +49,7 @@ namespace Pulumi.Sbercloud
         public Output<ImmutableDictionary<string, string>?> ExtendParam { get; private set; } = null!;
 
         [Output("extendParams")]
-        public Output<Outputs.CceNodePoolExtendParams?> ExtendParams { get; private set; } = null!;
+        public Output<Outputs.CceNodePoolExtendParams> ExtendParams { get; private set; } = null!;
 
         [Output("extensionScaleGroups")]
         public Output<ImmutableArray<Outputs.CceNodePoolExtensionScaleGroup>> ExtensionScaleGroups { get; private set; } = null!;
@@ -89,6 +92,9 @@ namespace Pulumi.Sbercloud
 
         [Output("os")]
         public Output<string> Os { get; private set; } = null!;
+
+        [Output("partition")]
+        public Output<string?> Partition { get; private set; } = null!;
 
         [Output("password")]
         public Output<string?> Password { get; private set; } = null!;
@@ -235,6 +241,9 @@ namespace Pulumi.Sbercloud
         [Input("ecsGroupId")]
         public Input<string>? EcsGroupId { get; set; }
 
+        [Input("enableForceNew")]
+        public Input<string>? EnableForceNew { get; set; }
+
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 
@@ -309,6 +318,9 @@ namespace Pulumi.Sbercloud
 
         [Input("os")]
         public Input<string>? Os { get; set; }
+
+        [Input("partition")]
+        public Input<string>? Partition { get; set; }
 
         [Input("password")]
         private Input<string>? _password;
@@ -450,6 +462,9 @@ namespace Pulumi.Sbercloud
         [Input("ecsGroupId")]
         public Input<string>? EcsGroupId { get; set; }
 
+        [Input("enableForceNew")]
+        public Input<string>? EnableForceNew { get; set; }
+
         [Input("enterpriseProjectId")]
         public Input<string>? EnterpriseProjectId { get; set; }
 
@@ -524,6 +539,9 @@ namespace Pulumi.Sbercloud
 
         [Input("os")]
         public Input<string>? Os { get; set; }
+
+        [Input("partition")]
+        public Input<string>? Partition { get; set; }
 
         [Input("password")]
         private Input<string>? _password;

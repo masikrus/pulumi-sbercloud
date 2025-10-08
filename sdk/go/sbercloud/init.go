@@ -125,6 +125,36 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CdmCluster{}
 	case "sbercloud:index/cesAlarmrule:CesAlarmrule":
 		r = &CesAlarmrule{}
+	case "sbercloud:index/cfwAclRule:CfwAclRule":
+		r = &CfwAclRule{}
+	case "sbercloud:index/cfwAddressGroup:CfwAddressGroup":
+		r = &CfwAddressGroup{}
+	case "sbercloud:index/cfwAddressGroupMember:CfwAddressGroupMember":
+		r = &CfwAddressGroupMember{}
+	case "sbercloud:index/cfwAlarmConfig:CfwAlarmConfig":
+		r = &CfwAlarmConfig{}
+	case "sbercloud:index/cfwAntiVirus:CfwAntiVirus":
+		r = &CfwAntiVirus{}
+	case "sbercloud:index/cfwBlackWhiteList:CfwBlackWhiteList":
+		r = &CfwBlackWhiteList{}
+	case "sbercloud:index/cfwCaptureTask:CfwCaptureTask":
+		r = &CfwCaptureTask{}
+	case "sbercloud:index/cfwDnsResolution:CfwDnsResolution":
+		r = &CfwDnsResolution{}
+	case "sbercloud:index/cfwDomainNameGroup:CfwDomainNameGroup":
+		r = &CfwDomainNameGroup{}
+	case "sbercloud:index/cfwEipProtection:CfwEipProtection":
+		r = &CfwEipProtection{}
+	case "sbercloud:index/cfwFirewall:CfwFirewall":
+		r = &CfwFirewall{}
+	case "sbercloud:index/cfwIpsRuleModeChange:CfwIpsRuleModeChange":
+		r = &CfwIpsRuleModeChange{}
+	case "sbercloud:index/cfwLtsLog:CfwLtsLog":
+		r = &CfwLtsLog{}
+	case "sbercloud:index/cfwServiceGroup:CfwServiceGroup":
+		r = &CfwServiceGroup{}
+	case "sbercloud:index/cfwServiceGroupMember:CfwServiceGroupMember":
+		r = &CfwServiceGroupMember{}
 	case "sbercloud:index/computeEipAssociate:ComputeEipAssociate":
 		r = &ComputeEipAssociate{}
 	case "sbercloud:index/computeInstance:ComputeInstance":
@@ -159,6 +189,16 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DcsRestore{}
 	case "sbercloud:index/ddsInstance:DdsInstance":
 		r = &DdsInstance{}
+	case "sbercloud:index/ddsParameterTemplate:DdsParameterTemplate":
+		r = &DdsParameterTemplate{}
+	case "sbercloud:index/ddsParameterTemplateApply:DdsParameterTemplateApply":
+		r = &DdsParameterTemplateApply{}
+	case "sbercloud:index/ddsParameterTemplateCompare:DdsParameterTemplateCompare":
+		r = &DdsParameterTemplateCompare{}
+	case "sbercloud:index/ddsParameterTemplateCopy:DdsParameterTemplateCopy":
+		r = &DdsParameterTemplateCopy{}
+	case "sbercloud:index/ddsParameterTemplateReset:DdsParameterTemplateReset":
+		r = &DdsParameterTemplateReset{}
 	case "sbercloud:index/disStream:DisStream":
 		r = &DisStream{}
 	case "sbercloud:index/dliDatabase:DliDatabase":
@@ -171,6 +211,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DliSparkJob{}
 	case "sbercloud:index/dmsInstance:DmsInstance":
 		r = &DmsInstance{}
+	case "sbercloud:index/dmsKafkaConsumerGroup:DmsKafkaConsumerGroup":
+		r = &DmsKafkaConsumerGroup{}
 	case "sbercloud:index/dmsKafkaInstance:DmsKafkaInstance":
 		r = &DmsKafkaInstance{}
 	case "sbercloud:index/dmsKafkaMessageProduce:DmsKafkaMessageProduce":
@@ -183,6 +225,22 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &DmsKafkaUser{}
 	case "sbercloud:index/dmsRabbitmqInstance:DmsRabbitmqInstance":
 		r = &DmsRabbitmqInstance{}
+	case "sbercloud:index/dmsRocketmqConsumerGroup:DmsRocketmqConsumerGroup":
+		r = &DmsRocketmqConsumerGroup{}
+	case "sbercloud:index/dmsRocketmqConsumptionVerify:DmsRocketmqConsumptionVerify":
+		r = &DmsRocketmqConsumptionVerify{}
+	case "sbercloud:index/dmsRocketmqDeadLetterResend:DmsRocketmqDeadLetterResend":
+		r = &DmsRocketmqDeadLetterResend{}
+	case "sbercloud:index/dmsRocketmqInstance:DmsRocketmqInstance":
+		r = &DmsRocketmqInstance{}
+	case "sbercloud:index/dmsRocketmqMessageOffsetReset:DmsRocketmqMessageOffsetReset":
+		r = &DmsRocketmqMessageOffsetReset{}
+	case "sbercloud:index/dmsRocketmqMigrationTask:DmsRocketmqMigrationTask":
+		r = &DmsRocketmqMigrationTask{}
+	case "sbercloud:index/dmsRocketmqTopic:DmsRocketmqTopic":
+		r = &DmsRocketmqTopic{}
+	case "sbercloud:index/dmsRocketmqUser:DmsRocketmqUser":
+		r = &DmsRocketmqUser{}
 	case "sbercloud:index/dnsRecordset:DnsRecordset":
 		r = &DnsRecordset{}
 	case "sbercloud:index/dnsZone:DnsZone":
@@ -213,12 +271,46 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ElbSecurityPolicy{}
 	case "sbercloud:index/enterpriseProject:EnterpriseProject":
 		r = &EnterpriseProject{}
+	case "sbercloud:index/erAssociation:ErAssociation":
+		r = &ErAssociation{}
+	case "sbercloud:index/erAttachmentAccepter:ErAttachmentAccepter":
+		r = &ErAttachmentAccepter{}
+	case "sbercloud:index/erFlowLog:ErFlowLog":
+		r = &ErFlowLog{}
+	case "sbercloud:index/erInstance:ErInstance":
+		r = &ErInstance{}
+	case "sbercloud:index/erPropagation:ErPropagation":
+		r = &ErPropagation{}
+	case "sbercloud:index/erRouteTable:ErRouteTable":
+		r = &ErRouteTable{}
+	case "sbercloud:index/erStaticRoute:ErStaticRoute":
+		r = &ErStaticRoute{}
+	case "sbercloud:index/erVpcAttachment:ErVpcAttachment":
+		r = &ErVpcAttachment{}
 	case "sbercloud:index/evsSnapshot:EvsSnapshot":
 		r = &EvsSnapshot{}
 	case "sbercloud:index/evsVolume:EvsVolume":
 		r = &EvsVolume{}
+	case "sbercloud:index/fgsApplication:FgsApplication":
+		r = &FgsApplication{}
+	case "sbercloud:index/fgsAsyncInvokeConfiguration:FgsAsyncInvokeConfiguration":
+		r = &FgsAsyncInvokeConfiguration{}
+	case "sbercloud:index/fgsDependency:FgsDependency":
+		r = &FgsDependency{}
+	case "sbercloud:index/fgsDependencyVersion:FgsDependencyVersion":
+		r = &FgsDependencyVersion{}
 	case "sbercloud:index/fgsFunction:FgsFunction":
 		r = &FgsFunction{}
+	case "sbercloud:index/fgsFunctionEvent:FgsFunctionEvent":
+		r = &FgsFunctionEvent{}
+	case "sbercloud:index/fgsFunctionTopping:FgsFunctionTopping":
+		r = &FgsFunctionTopping{}
+	case "sbercloud:index/fgsFunctionTrigger:FgsFunctionTrigger":
+		r = &FgsFunctionTrigger{}
+	case "sbercloud:index/fgsFunctionTriggerStatusAction:FgsFunctionTriggerStatusAction":
+		r = &FgsFunctionTriggerStatusAction{}
+	case "sbercloud:index/fgsLtsLogEnable:FgsLtsLogEnable":
+		r = &FgsLtsLogEnable{}
 	case "sbercloud:index/gesGraph:GesGraph":
 		r = &GesGraph{}
 	case "sbercloud:index/identityAccessKey:IdentityAccessKey":
@@ -317,6 +409,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &RdsBackup{}
 	case "sbercloud:index/rdsInstance:RdsInstance":
 		r = &RdsInstance{}
+	case "sbercloud:index/rdsInstanceEipAssociate:RdsInstanceEipAssociate":
+		r = &RdsInstanceEipAssociate{}
 	case "sbercloud:index/rdsMysqlAccount:RdsMysqlAccount":
 		r = &RdsMysqlAccount{}
 	case "sbercloud:index/rdsMysqlBinlog:RdsMysqlBinlog":
@@ -373,6 +467,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &SfsTurboObsTarget{}
 	case "sbercloud:index/sfsTurboPermRule:SfsTurboPermRule":
 		r = &SfsTurboPermRule{}
+	case "sbercloud:index/smnMessageDetection:SmnMessageDetection":
+		r = &SmnMessageDetection{}
 	case "sbercloud:index/smnSubscription:SmnSubscription":
 		r = &SmnSubscription{}
 	case "sbercloud:index/smnTopic:SmnTopic":
@@ -706,6 +802,81 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"sbercloud",
+		"index/cfwAclRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwAddressGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwAddressGroupMember",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwAlarmConfig",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwAntiVirus",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwBlackWhiteList",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwCaptureTask",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwDnsResolution",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwDomainNameGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwEipProtection",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwFirewall",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwIpsRuleModeChange",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwLtsLog",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwServiceGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/cfwServiceGroupMember",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
 		"index/computeEipAssociate",
 		&module{version},
 	)
@@ -791,6 +962,31 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"sbercloud",
+		"index/ddsParameterTemplate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/ddsParameterTemplateApply",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/ddsParameterTemplateCompare",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/ddsParameterTemplateCopy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/ddsParameterTemplateReset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
 		"index/disStream",
 		&module{version},
 	)
@@ -821,6 +1017,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"sbercloud",
+		"index/dmsKafkaConsumerGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
 		"index/dmsKafkaInstance",
 		&module{version},
 	)
@@ -847,6 +1048,46 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"sbercloud",
 		"index/dmsRabbitmqInstance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/dmsRocketmqConsumerGroup",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/dmsRocketmqConsumptionVerify",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/dmsRocketmqDeadLetterResend",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/dmsRocketmqInstance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/dmsRocketmqMessageOffsetReset",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/dmsRocketmqMigrationTask",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/dmsRocketmqTopic",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/dmsRocketmqUser",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -926,6 +1167,46 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"sbercloud",
+		"index/erAssociation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/erAttachmentAccepter",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/erFlowLog",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/erInstance",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/erPropagation",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/erRouteTable",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/erStaticRoute",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/erVpcAttachment",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
 		"index/evsSnapshot",
 		&module{version},
 	)
@@ -936,7 +1217,52 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"sbercloud",
+		"index/fgsApplication",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/fgsAsyncInvokeConfiguration",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/fgsDependency",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/fgsDependencyVersion",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
 		"index/fgsFunction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/fgsFunctionEvent",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/fgsFunctionTopping",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/fgsFunctionTrigger",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/fgsFunctionTriggerStatusAction",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/fgsLtsLogEnable",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(
@@ -1186,6 +1512,11 @@ func init() {
 	)
 	pulumi.RegisterResourceModule(
 		"sbercloud",
+		"index/rdsInstanceEipAssociate",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
 		"index/rdsMysqlAccount",
 		&module{version},
 	)
@@ -1322,6 +1653,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"sbercloud",
 		"index/sfsTurboPermRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"sbercloud",
+		"index/smnMessageDetection",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export class ElbMember extends pulumi.CustomResource {
@@ -33,14 +35,19 @@ export class ElbMember extends pulumi.CustomResource {
     }
 
     public readonly address!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly instanceId!: pulumi.Output<string>;
+    public /*out*/ readonly ipVersion!: pulumi.Output<string>;
+    public /*out*/ readonly memberType!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
+    public /*out*/ readonly operatingStatus!: pulumi.Output<string>;
     public readonly poolId!: pulumi.Output<string>;
     public readonly protocolPort!: pulumi.Output<number>;
+    public /*out*/ readonly reasons!: pulumi.Output<outputs.ElbMemberReason[]>;
     public readonly region!: pulumi.Output<string>;
-    /**
-     * The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-     */
+    public /*out*/ readonly statuses!: pulumi.Output<outputs.ElbMemberStatus[]>;
     public readonly subnetId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     public readonly weight!: pulumi.Output<number>;
 
     /**
@@ -57,11 +64,19 @@ export class ElbMember extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as ElbMemberState | undefined;
             resourceInputs["address"] = state ? state.address : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["instanceId"] = state ? state.instanceId : undefined;
+            resourceInputs["ipVersion"] = state ? state.ipVersion : undefined;
+            resourceInputs["memberType"] = state ? state.memberType : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["operatingStatus"] = state ? state.operatingStatus : undefined;
             resourceInputs["poolId"] = state ? state.poolId : undefined;
             resourceInputs["protocolPort"] = state ? state.protocolPort : undefined;
+            resourceInputs["reasons"] = state ? state.reasons : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["statuses"] = state ? state.statuses : undefined;
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
             resourceInputs["weight"] = state ? state.weight : undefined;
         } else {
             const args = argsOrState as ElbMemberArgs | undefined;
@@ -78,6 +93,14 @@ export class ElbMember extends pulumi.CustomResource {
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["weight"] = args ? args.weight : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["instanceId"] = undefined /*out*/;
+            resourceInputs["ipVersion"] = undefined /*out*/;
+            resourceInputs["memberType"] = undefined /*out*/;
+            resourceInputs["operatingStatus"] = undefined /*out*/;
+            resourceInputs["reasons"] = undefined /*out*/;
+            resourceInputs["statuses"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(ElbMember.__pulumiType, name, resourceInputs, opts);
@@ -89,14 +112,19 @@ export class ElbMember extends pulumi.CustomResource {
  */
 export interface ElbMemberState {
     address?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
+    instanceId?: pulumi.Input<string>;
+    ipVersion?: pulumi.Input<string>;
+    memberType?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    operatingStatus?: pulumi.Input<string>;
     poolId?: pulumi.Input<string>;
     protocolPort?: pulumi.Input<number>;
+    reasons?: pulumi.Input<pulumi.Input<inputs.ElbMemberReason>[]>;
     region?: pulumi.Input<string>;
-    /**
-     * The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-     */
+    statuses?: pulumi.Input<pulumi.Input<inputs.ElbMemberStatus>[]>;
     subnetId?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string>;
     weight?: pulumi.Input<number>;
 }
 
@@ -109,9 +137,6 @@ export interface ElbMemberArgs {
     poolId: pulumi.Input<string>;
     protocolPort?: pulumi.Input<number>;
     region?: pulumi.Input<string>;
-    /**
-     * The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-     */
     subnetId?: pulumi.Input<string>;
     weight?: pulumi.Input<number>;
 }

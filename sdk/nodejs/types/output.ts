@@ -569,8 +569,17 @@ export interface ApiGatewayGroupEnvironmentVariable {
 }
 
 export interface ApiGatewayGroupUrlDomain {
+    /**
+     * Whether to enable redirection from HTTP to HTTPS.
+     */
     isHttpRedirectToHttps: boolean;
+    /**
+     * The minimum SSL protocol version.
+     */
     minSslVersion: string;
+    /**
+     * The associated domain name.
+     */
     name: string;
 }
 
@@ -1308,8 +1317,17 @@ export interface ApigGroupEnvironmentVariable {
 }
 
 export interface ApigGroupUrlDomain {
+    /**
+     * Whether to enable redirection from HTTP to HTTPS.
+     */
     isHttpRedirectToHttps: boolean;
+    /**
+     * The minimum SSL protocol version.
+     */
     minSslVersion: string;
+    /**
+     * The associated domain name.
+     */
     name: string;
 }
 
@@ -1400,6 +1418,44 @@ export interface ApigThrottlingPolicyUserThrottle {
     throttlingObjectName: string;
 }
 
+export interface AsBandwidthPolicyIntervalAlarmAction {
+    /**
+     * Specifies the operation restrictions.
+     */
+    limits: number;
+    /**
+     * Specifies the lower limit of the value range.
+     */
+    lowerBound: string;
+    /**
+     * Specifies the operation to be performed.
+     */
+    operation: string;
+    /**
+     * Specifies the operation size.
+     */
+    size: number;
+    /**
+     * Specifies the upper limit of the value range.
+     */
+    upperBound: string;
+}
+
+export interface AsBandwidthPolicyMetaData {
+    /**
+     * The bandwidth sharing type in the bandwidth policy.
+     */
+    metadataBandwidthShareType: string;
+    /**
+     * The EIP IP address for the bandwidth in the bandwidth policy.
+     */
+    metadataEipAddress: string;
+    /**
+     * The EIP ID for the bandwidth in the bandwidth policy.
+     */
+    metadataEipId: string;
+}
+
 export interface AsBandwidthPolicyScalingPolicyAction {
     /**
      * Specifies the operation restrictions.
@@ -1448,6 +1504,7 @@ export interface AsConfigurationInstanceConfig {
     flavorPriorityPolicy: string;
     image: string;
     instanceId: string;
+    keyFingerprint: string;
     keyName: string;
     metadata?: {[key: string]: string};
     personalities: outputs.AsConfigurationInstanceConfigPersonality[];
@@ -1494,6 +1551,7 @@ export interface AsConfigurationInstanceConfigPublicIpEipBandwidth {
 }
 
 export interface AsGroupLbaasListener {
+    listenerId: string;
     poolId: string;
     protocolPort: number;
     protocolVersion: string;
@@ -1677,6 +1735,11 @@ export interface CceClusterComponentConfiguration {
     name: string;
 }
 
+export interface CceClusterEncryptionConfig {
+    kmsKeyId: string;
+    mode: string;
+}
+
 export interface CceClusterExtendParam {
     clusterAz?: string;
     cpuManagerPolicy?: string;
@@ -1706,6 +1769,10 @@ export interface CceNodeAttachDataVolume {
     size: number;
     throughput: number;
     volumetype: string;
+}
+
+export interface CceNodeAttachExtensionNic {
+    subnetId: string;
 }
 
 export interface CceNodeAttachHostnameConfig {
@@ -1827,19 +1894,19 @@ export interface CceNodePoolDataVolume {
 }
 
 export interface CceNodePoolExtendParams {
-    agencyName?: string;
-    dockerBaseSize?: number;
-    kubeReservedMem?: number;
-    marketType?: string;
-    maxPods?: number;
-    nicThreshold?: string;
-    nodeImageId?: string;
-    nodeMultiQueue?: string;
-    postinstall?: string;
-    preinstall?: string;
-    securityReinforcementType?: string;
-    spotPrice?: string;
-    systemReservedMem?: number;
+    agencyName: string;
+    dockerBaseSize: number;
+    kubeReservedMem: number;
+    marketType: string;
+    maxPods: number;
+    nicThreshold: string;
+    nodeImageId: string;
+    nodeMultiQueue: string;
+    postinstall: string;
+    preinstall: string;
+    securityReinforcementType: string;
+    spotPrice: string;
+    systemReservedMem: number;
 }
 
 export interface CceNodePoolExtensionScaleGroup {
@@ -2029,6 +2096,256 @@ export interface CesAlarmruleOkAction {
     type: string;
 }
 
+export interface CfwAclRuleCustomService {
+    /**
+     * The destination port.
+     */
+    destPort: string;
+    /**
+     * The protocol type.
+     */
+    protocol: number;
+    /**
+     * The source port.
+     */
+    sourcePort: string;
+}
+
+export interface CfwAclRuleCustomServiceGroups {
+    /**
+     * The IDs of the service groups.
+     */
+    groupIds: string[];
+    /**
+     * The protocols used in the service groups.
+     */
+    protocols: number[];
+}
+
+export interface CfwAclRuleDestinationRegionList {
+    /**
+     * The Chinese description of the region.
+     */
+    descriptionCn?: string;
+    /**
+     * The English description of the region.
+     */
+    descriptionEn?: string;
+    /**
+     * The region ID.
+     */
+    regionId: string;
+    /**
+     * The region type.
+     */
+    regionType: number;
+}
+
+export interface CfwAclRulePredefinedServiceGroups {
+    /**
+     * The IDs of the service groups.
+     */
+    groupIds: string[];
+    /**
+     * The protocols used in the service groups.
+     */
+    protocols: number[];
+}
+
+export interface CfwAclRuleSequence {
+    /**
+     * Whether to pin on bottom.
+     */
+    bottom?: number;
+    /**
+     * The ID of the rule that the added rule will follow.
+     */
+    destRuleId: string;
+    /**
+     * Whether to pin on top.
+     */
+    top?: number;
+}
+
+export interface CfwAclRuleSourceRegionList {
+    /**
+     * The Chinese description of the region.
+     */
+    descriptionCn?: string;
+    /**
+     * The English description of the region.
+     */
+    descriptionEn?: string;
+    /**
+     * The region ID.
+     */
+    regionId: string;
+    /**
+     * The region type.
+     */
+    regionType: number;
+}
+
+export interface CfwAntiVirusScanProtocolConfig {
+    /**
+     * The antivirus action.
+     */
+    action: number;
+    /**
+     * The protocol type.
+     */
+    protocolType: number;
+}
+
+export interface CfwCaptureTaskDestination {
+    /**
+     * The address.
+     */
+    address: string;
+    /**
+     * The address type.
+     */
+    addressType: number;
+}
+
+export interface CfwCaptureTaskService {
+    /**
+     * The destination port.
+     */
+    destPort?: string;
+    /**
+     * The protocol type.
+     */
+    protocol: number;
+    /**
+     * The source port.
+     */
+    sourcePort?: string;
+}
+
+export interface CfwCaptureTaskSource {
+    /**
+     * The address.
+     */
+    address: string;
+    /**
+     * The address type.
+     */
+    addressType: number;
+}
+
+export interface CfwDomainNameGroupDomainName {
+    /**
+     * Specifies the description.
+     */
+    description: string;
+    /**
+     * The DNS IP list.
+     */
+    dnsIps: string;
+    /**
+     * The domain address ID.
+     */
+    domainAddressId: string;
+    /**
+     * Specifies the domain name.
+     */
+    domainName: string;
+}
+
+export interface CfwEipProtectionProtectedEip {
+    /**
+     * The ID of the protected EIP.
+     */
+    id: string;
+    /**
+     * The IPv4 address of the protected EIP.
+     */
+    publicIpv4: string;
+    /**
+     * The IPv6 address of the protected EIP.
+     */
+    publicIpv6: string;
+}
+
+export interface CfwFirewallFlavor {
+    /**
+     * Specifies the bandwidth of the firewall.
+     */
+    bandwidth: number;
+    /**
+     * Specifies the default bandwidth of the firewall.
+     */
+    defaultBandwidth: number;
+    /**
+     * Specifies the default EIP number of the firewall.
+     */
+    defaultEipCount: number;
+    /**
+     * Specifies the default log storage of the firewall.
+     */
+    defaultLogStorage: number;
+    /**
+     * Specifies the default VPC number of the firewall.
+     */
+    defaultVpcCount: number;
+    /**
+     * Specifies the EIP number of the firewall.
+     */
+    eipCount: number;
+    /**
+     * Specifies the extend bandwidth of the firewall.
+     */
+    extendBandwidth?: number;
+    /**
+     * Specifies the extend EIP number of the firewall.
+     */
+    extendEipCount?: number;
+    /**
+     * Specifies the extend VPC number of the firewall.
+     */
+    extendVpcCount?: number;
+    /**
+     * Specifies the log storage of the firewall.
+     */
+    logStorage: number;
+    /**
+     * Specifies the total rule count of the firewall.
+     */
+    totalRuleCount: number;
+    /**
+     * Specifies the used rule count of the firewall.
+     */
+    usedRuleCount: number;
+    /**
+     * Specifies the version of the firewall.
+     */
+    version: string;
+    /**
+     * Specifies the VPC bandwidth of the firewall.
+     */
+    vpcBandwidth: number;
+    /**
+     * Specifies the VPC number of the firewall.
+     */
+    vpcCount: number;
+}
+
+export interface CfwFirewallProtectObject {
+    /**
+     * Protected object ID
+     */
+    objectId: string;
+    /**
+     * Protected object name
+     */
+    objectName: string;
+    /**
+     * Project type. The options are as follows: 0: north-south; 1: east-west.
+     */
+    type: number;
+}
+
 export interface ComputeInstanceBandwidth {
     chargeMode?: string;
     extendParam?: {[key: string]: string};
@@ -2095,14 +2412,74 @@ export interface CssClusterBackupStrategy {
     startTime: string;
 }
 
+export interface CssClusterClientNodeConfig {
+    flavor: string;
+    instanceNumber: number;
+    shrinkNodeIds?: string[];
+    volume: outputs.CssClusterClientNodeConfigVolume;
+}
+
+export interface CssClusterClientNodeConfigVolume {
+    size: number;
+    volumeType: string;
+}
+
+export interface CssClusterColdNodeConfig {
+    flavor: string;
+    instanceNumber: number;
+    shrinkNodeIds?: string[];
+    volume: outputs.CssClusterColdNodeConfigVolume;
+}
+
+export interface CssClusterColdNodeConfigVolume {
+    size: number;
+    volumeType: string;
+}
+
+export interface CssClusterEssNodeConfig {
+    flavor: string;
+    instanceNumber: number;
+    shrinkNodeIds?: string[];
+    volume: outputs.CssClusterEssNodeConfigVolume;
+}
+
+export interface CssClusterEssNodeConfigVolume {
+    size: number;
+    volumeType: string;
+}
+
+export interface CssClusterKibanaPublicAccess {
+    bandwidth: number;
+    publicIp: string;
+    whitelist?: string;
+    whitelistEnabled: boolean;
+}
+
+export interface CssClusterMasterNodeConfig {
+    flavor: string;
+    instanceNumber: number;
+    shrinkNodeIds?: string[];
+    volume: outputs.CssClusterMasterNodeConfigVolume;
+}
+
+export interface CssClusterMasterNodeConfigVolume {
+    size: number;
+    volumeType: string;
+}
+
 export interface CssClusterNode {
+    availabilityZone: string;
     id: string;
+    ip: string;
     name: string;
+    resourceId: string;
+    specCode: string;
+    status: string;
     type: string;
 }
 
 export interface CssClusterNodeConfig {
-    availabilityZone?: string;
+    availabilityZone: string;
     flavor: string;
     networkInfo: outputs.CssClusterNodeConfigNetworkInfo;
     volume: outputs.CssClusterNodeConfigVolume;
@@ -2117,6 +2494,18 @@ export interface CssClusterNodeConfigNetworkInfo {
 export interface CssClusterNodeConfigVolume {
     size: number;
     volumeType: string;
+}
+
+export interface CssClusterPublicAccess {
+    bandwidth: number;
+    publicIp: string;
+    whitelist?: string;
+    whitelistEnabled: boolean;
+}
+
+export interface CssClusterVpcepEndpoint {
+    endpointWithDnsName: boolean;
+    whitelists?: string[];
 }
 
 export interface CtsNotificationFilter {
@@ -2288,6 +2677,74 @@ export interface DdsInstanceNode {
     type: string;
 }
 
+export interface DdsParameterTemplateCompareDifference {
+    parameterName: string;
+    sourceValue: string;
+    targetValue: string;
+}
+
+export interface DdsParameterTemplateCopyParameter {
+    /**
+     * Indicates the parameter description.
+     */
+    description: string;
+    /**
+     * Indicates the parameter name.
+     */
+    name: string;
+    /**
+     * Indicates whether the parameter is read-only.
+     */
+    readonly: boolean;
+    /**
+     * Indicates whether the instance needs to be restarted.
+     */
+    restartRequired: boolean;
+    /**
+     * Indicates the parameter type.
+     */
+    type: string;
+    /**
+     * Indicates the parameter value.
+     */
+    value: string;
+    /**
+     * Indicates the value range.
+     */
+    valueRange: string;
+}
+
+export interface DdsParameterTemplateParameter {
+    /**
+     * Indicates the parameter description.
+     */
+    description: string;
+    /**
+     * Indicates the parameter name.
+     */
+    name: string;
+    /**
+     * Indicates whether the parameter is read-only.
+     */
+    readonly: boolean;
+    /**
+     * Indicates whether the instance needs to be restarted.
+     */
+    restartRequired: boolean;
+    /**
+     * Indicates the parameter type.
+     */
+    type: string;
+    /**
+     * Indicates the parameter value.
+     */
+    value: string;
+    /**
+     * Indicates the value range.
+     */
+    valueRange: string;
+}
+
 export interface DisStreamPartition {
     hashRange: string;
     id: string;
@@ -2369,6 +2826,232 @@ export interface DmsKafkaPermissionsPolicy {
 export interface DmsKafkaTopicConfig {
     name: string;
     value: string;
+}
+
+export interface DmsRocketmqConsumptionVerifyResendResult {
+    /**
+     * Indicates the error code.
+     */
+    errorCode: string;
+    /**
+     * Indicates the error message.
+     */
+    errorMessage: string;
+    /**
+     * Indicates the message ID.
+     */
+    messageId: string;
+}
+
+export interface DmsRocketmqDeadLetterResendResendResult {
+    /**
+     * Indicates the error code.
+     */
+    errorCode: string;
+    /**
+     * Indicates the error message.
+     */
+    errorMessage: string;
+    /**
+     * Indicates the message ID.
+     */
+    messageId: string;
+}
+
+export interface DmsRocketmqInstanceConfig {
+    name: string;
+    value: string;
+}
+
+export interface DmsRocketmqInstanceCrossVpcAccess {
+    advertisedIp: string;
+    /**
+     * @deprecated typo in lisenter_ip, please use "listenerIp" instead.
+     */
+    lisenterIp: string;
+    listenerIp: string;
+    port: number;
+    portId: string;
+}
+
+export interface DmsRocketmqMigrationTaskBinding {
+    /**
+     * Specifies the message target.
+     */
+    destination?: string;
+    /**
+     * Specifies the message target type.
+     */
+    destinationType: string;
+    /**
+     * Specifies the routing key.
+     */
+    routingKey: string;
+    /**
+     * Specifies the message source.
+     */
+    source: string;
+    /**
+     * Specifies the virtual host name.
+     */
+    vhost: string;
+}
+
+export interface DmsRocketmqMigrationTaskExchange {
+    /**
+     * Specifies whether to enable data persistence.
+     */
+    durable: boolean;
+    /**
+     * Specifies the switch name.
+     */
+    name: string;
+    /**
+     * Specifies the exchange type.
+     */
+    type: string;
+    /**
+     * Specifies the virtual host name.
+     */
+    vhost: string;
+}
+
+export interface DmsRocketmqMigrationTaskQueue {
+    /**
+     * Specifies whether to enable data persistence.
+     */
+    durable: boolean;
+    /**
+     * Specifies the queue name.
+     */
+    name: string;
+    /**
+     * Specifies the virtual host name.
+     */
+    vhost: string;
+}
+
+export interface DmsRocketmqMigrationTaskSubscriptionGroup {
+    /**
+     * Specifies whether to enable broadcast.
+     */
+    consumeBroadcastEnable: boolean;
+    /**
+     * Specifies whether to enable consumption.
+     */
+    consumeEnable: boolean;
+    /**
+     * Specifies whether to enable consumption from the earliest offset.
+     */
+    consumeFromMinEnable: boolean;
+    /**
+     * Specifies the name of a consumer group.
+     */
+    groupName: string;
+    /**
+     * Specifies whether to notify changes of consumer IDs.
+     */
+    notifyConsumeridsChangedEnable: boolean;
+    /**
+     * Specifies the maximum number of consumption retries.
+     */
+    retryMaxTimes: number;
+    /**
+     * Specifies the number of retry queues.
+     */
+    retryQueueNum: number;
+    /**
+     * Specifies the ID of the broker selected for slow consumption.
+     */
+    whichBrokerWhenConsumeSlow: number;
+}
+
+export interface DmsRocketmqMigrationTaskTopicConfig {
+    /**
+     * Specifies whether a message is an ordered message.
+     */
+    order: boolean;
+    /**
+     * Specifies the number of permission.
+     */
+    perm: number;
+    /**
+     * Specifies the number of read queues.
+     */
+    readQueueNum: number;
+    /**
+     * Specifies the filter type of a topic.
+     */
+    topicFilterType: string;
+    /**
+     * Specifies the topic name.
+     */
+    topicName: string;
+    /**
+     * Specifies the system flag of a topic.
+     */
+    topicSysFlag: number;
+    /**
+     * Specifies the number of write queues.
+     */
+    writeQueueNum: number;
+}
+
+export interface DmsRocketmqMigrationTaskVhost {
+    /**
+     * Specifies the virtual host name.
+     */
+    name: string;
+}
+
+export interface DmsRocketmqTopicBroker {
+    /**
+     * Indicates the name of the broker.
+     */
+    name: string;
+    /**
+     * Indicates the read queues number of the broker.
+     */
+    readQueueNum: number;
+    /**
+     * Indicates the read queues number of the broker.
+     */
+    writeQueueNum: number;
+}
+
+export interface DmsRocketmqTopicQueue {
+    /**
+     * Specifies the associated broker.
+     */
+    broker?: string;
+    /**
+     * Specifies the number of the queues.
+     */
+    queueNum?: number;
+}
+
+export interface DmsRocketmqUserGroupPerm {
+    /**
+     * Indicates the name of a topic or consumer group.
+     */
+    name: string;
+    /**
+     * Indicates the permissions of the topic or consumer group.
+     * Value options: **PUB|SUB**, **PUB**, **SUB**, **DENY**.
+     */
+    perm: string;
+}
+
+export interface DmsRocketmqUserTopicPerm {
+    /**
+     * Indicates the name of a topic or consumer group.
+     */
+    name: string;
+    /**
+     * Indicates the permissions of the topic or consumer group.
+     * Value options: **PUB|SUB**, **PUB**, **SUB**, **DENY**.
+     */
+    perm: string;
 }
 
 export interface DnsZoneRouter {
@@ -2637,6 +3320,24 @@ export interface ElbListenerPortRange {
     startPort: number;
 }
 
+export interface ElbMemberReason {
+    expectedResponse: string;
+    healthcheckResponse: string;
+    reasonCode: string;
+}
+
+export interface ElbMemberStatus {
+    listenerId: string;
+    operatingStatus: string;
+    reasons: outputs.ElbMemberStatusReason[];
+}
+
+export interface ElbMemberStatusReason {
+    expectedResponse: string;
+    healthcheckResponse: string;
+    reasonCode: string;
+}
+
 export interface ElbPoolPersistence {
     cookieName?: string;
     timeout: number;
@@ -2648,9 +3349,106 @@ export interface ElbSecurityPolicyListener {
 }
 
 export interface EvsVolumeAttachment {
+    attachedAt: string;
+    attachedVolumeId: string;
     device: string;
+    hostName: string;
     id: string;
     instanceId: string;
+    volumeId: string;
+}
+
+export interface EvsVolumeIopsAttribute {
+    frozened: boolean;
+    id: string;
+    totalVal: number;
+}
+
+export interface EvsVolumeLink {
+    href: string;
+    rel: string;
+}
+
+export interface EvsVolumeThroughputAttribute {
+    frozened: boolean;
+    id: string;
+    totalVal: number;
+}
+
+export interface FgsApplicationRepository {
+    /**
+     * The HTTP address of the repository.
+     */
+    httpsUrl: string;
+    /**
+     * The project ID of the repository.
+     */
+    projectId: string;
+    /**
+     * The repository status.
+     */
+    status: string;
+    /**
+     * The repository link.
+     */
+    webUrl: string;
+}
+
+export interface FgsApplicationStackResource {
+    /**
+     * The cloud service name.
+     */
+    displayName: string;
+    /**
+     * The hyperlink.
+     */
+    href: string;
+    /**
+     * The logical resource name.
+     */
+    logicalResourceName: string;
+    /**
+     * The logical resource type.
+     */
+    logicalResourceType: string;
+    /**
+     * The physical resource ID.
+     */
+    physicalResourceId: string;
+    /**
+     * The physical resource name.
+     */
+    physicalResourceName: string;
+    /**
+     * The status of resource.
+     */
+    resourceStatus: string;
+    /**
+     * The status information.
+     */
+    statusMessage: string;
+}
+
+export interface FgsAsyncInvokeConfigurationOnFailure {
+    /**
+     * The object type.
+     */
+    destination: string;
+    /**
+     * The parameters (in JSON format) corresponding to the target service.
+     */
+    param: string;
+}
+
+export interface FgsAsyncInvokeConfigurationOnSuccess {
+    /**
+     * The object type.
+     */
+    destination: string;
+    /**
+     * The parameters (in JSON format) corresponding to the target service.
+     */
+    param: string;
 }
 
 export interface FgsFunctionCustomImage {
@@ -2719,6 +3517,10 @@ export interface FgsFunctionNetworkControllerTriggerAccessVpc {
      * The ID of the VPC that can trigger the function.
      */
     vpcId: string;
+    /**
+     * The ID of the VPC that can trigger the function.
+     */
+    vpcName: string;
 }
 
 export interface FgsFunctionReservedInstance {
@@ -5135,6 +5937,1179 @@ export interface GetCdmFlavorsFlavor {
     name: string;
 }
 
+export interface GetCfwAccessControlLogsRecord {
+    /**
+     * The action.
+     */
+    action: string;
+    /**
+     * The application protocol.
+     */
+    app: string;
+    /**
+     * The distination city ID.
+     */
+    dstCityId: string;
+    /**
+     * The distination city name.
+     */
+    dstCityName: string;
+    /**
+     * The destination host.
+     */
+    dstHost: string;
+    /**
+     * The destination IP address.
+     */
+    dstIp: string;
+    /**
+     * The destination port.
+     */
+    dstPort: number;
+    /**
+     * The distination province ID.
+     */
+    dstProvinceId: string;
+    /**
+     * The distination province name.
+     */
+    dstProvinceName: string;
+    /**
+     * The destination region ID.
+     */
+    dstRegionId: string;
+    /**
+     * The destination region name.
+     */
+    dstRegionName: string;
+    /**
+     * The hit time.
+     */
+    hitTime: string;
+    /**
+     * The document ID.
+     */
+    logId: string;
+    /**
+     * The protocol type.
+     */
+    protocol: string;
+    /**
+     * The rule ID.
+     */
+    ruleId: string;
+    /**
+     * The rule name.
+     */
+    ruleName: string;
+    /**
+     * The source city ID.
+     */
+    srcCityId: string;
+    /**
+     * The source city name.
+     */
+    srcCityName: string;
+    /**
+     * The source IP address.
+     */
+    srcIp: string;
+    /**
+     * The source port.
+     */
+    srcPort: number;
+    /**
+     * The source province ID.
+     */
+    srcProvinceId: string;
+    /**
+     * The source province name.
+     */
+    srcProvinceName: string;
+    /**
+     * The source region ID.
+     */
+    srcRegionId: string;
+    /**
+     * The source region name.
+     */
+    srcRegionName: string;
+}
+
+export interface GetCfwAddressGroupMembersRecord {
+    /**
+     * The IP address.
+     */
+    address: string;
+    /**
+     * The address type.
+     */
+    addressType: number;
+    /**
+     * The address group member description.
+     */
+    description: string;
+    /**
+     * The ID of an address group member.
+     */
+    itemId: string;
+}
+
+export interface GetCfwAddressGroupsAddressGroup {
+    /**
+     * The address type.
+     */
+    addressType: number;
+    /**
+     * The address groups description.
+     */
+    description: string;
+    /**
+     * The ID of the IP address group.
+     */
+    id: string;
+    /**
+     * The IP address group name.
+     */
+    name: string;
+    /**
+     * The protected object ID.
+     */
+    objectId: string;
+    /**
+     * The number of times this address group has been referenced.
+     */
+    refCount: number;
+    /**
+     * The address group type.
+     */
+    type: number;
+}
+
+export interface GetCfwAttackLogsRecord {
+    /**
+     * Then action.
+     */
+    action: string;
+    /**
+     * The application protocol.
+     */
+    app: string;
+    /**
+     * The attack rule.
+     */
+    attackRule: string;
+    /**
+     * The attack rule ID.
+     */
+    attackRuleId: string;
+    /**
+     * The attack type.
+     */
+    attackType: string;
+    /**
+     * The direction.
+     */
+    direction: string;
+    /**
+     * The distination city ID.
+     */
+    dstCityId: string;
+    /**
+     * The distination city name.
+     */
+    dstCityName: string;
+    /**
+     * The destination IP address.
+     */
+    dstIp: string;
+    /**
+     * The destination port.
+     */
+    dstPort: number;
+    /**
+     * The distination province ID.
+     */
+    dstProvinceId: string;
+    /**
+     * The distination province name.
+     */
+    dstProvinceName: string;
+    /**
+     * The destination region ID.
+     */
+    dstRegionId: string;
+    /**
+     * The destination region name.
+     */
+    dstRegionName: string;
+    /**
+     * The event time.
+     */
+    eventTime: string;
+    /**
+     * The threat level.
+     */
+    level: string;
+    /**
+     * The log ID.
+     */
+    logId: string;
+    /**
+     * The attack log packet.
+     */
+    packet: string;
+    /**
+     * The packet length.
+     */
+    packetLength: number;
+    /**
+     * The packet messages.
+     */
+    packetMessages: outputs.GetCfwAttackLogsRecordPacketMessage[];
+    /**
+     * The protocol.
+     */
+    protocol: string;
+    /**
+     * The source.
+     */
+    source: string;
+    /**
+     * The source city ID.
+     */
+    srcCityId: string;
+    /**
+     * The source city name.
+     */
+    srcCityName: string;
+    /**
+     * The source IP address.
+     */
+    srcIp: string;
+    /**
+     * The source port.
+     */
+    srcPort: number;
+    /**
+     * The source province ID.
+     */
+    srcProvinceId: string;
+    /**
+     * The source province name.
+     */
+    srcProvinceName: string;
+    /**
+     * The source region ID.
+     */
+    srcRegionId: string;
+    /**
+     * The source region name.
+     */
+    srcRegionName: string;
+}
+
+export interface GetCfwAttackLogsRecordPacketMessage {
+    /**
+     * The hexadecimal index.
+     */
+    hexIndex: string;
+    /**
+     * The hexadecimal series.
+     */
+    hexs: string[];
+    /**
+     * The utf-8 string.
+     */
+    utf8String: string;
+}
+
+export interface GetCfwBlackWhiteListsRecord {
+    /**
+     * The IP address.
+     */
+    address: string;
+    /**
+     * The IP address type.
+     */
+    addressType: string;
+    /**
+     * The description.
+     */
+    description: string;
+    /**
+     * The direction of a black or white address.
+     */
+    direction: string;
+    /**
+     * The blacklist/whitelist ID.
+     */
+    listId: string;
+    /**
+     * The port.
+     */
+    port: string;
+    /**
+     * The protocol type.
+     */
+    protocol: number;
+}
+
+export interface GetCfwCaptureTaskResultsFileList {
+    /**
+     * The file name.
+     */
+    fileName: string;
+    /**
+     * The file path.
+     */
+    filePath: string;
+    /**
+     * The download link.
+     */
+    url: string;
+}
+
+export interface GetCfwCaptureTaskResultsRequestHeader {
+    /**
+     * The host header information.
+     */
+    host: string;
+}
+
+export interface GetCfwCaptureTasksRecord {
+    /**
+     * The capture task size.
+     */
+    captureSize: string;
+    /**
+     * The creation time of the capture task.
+     */
+    createdAt: string;
+    /**
+     * The destination address.
+     */
+    destAddress: string;
+    /**
+     * The destination address type.
+     */
+    destAddressType: number;
+    /**
+     * The destination port.
+     */
+    destPort: string;
+    /**
+     * The capture task duration.
+     */
+    duration: number;
+    /**
+     * Whether is deleted.
+     */
+    isDeleted: number;
+    /**
+     * The max packets.
+     */
+    maxPackets: number;
+    /**
+     * The capture task name.
+     */
+    name: string;
+    /**
+     * The protocol type.
+     */
+    protocol: number;
+    /**
+     * The remaining days.
+     */
+    remainingDays: number;
+    /**
+     * The source address.
+     */
+    sourceAddress: string;
+    /**
+     * The source address type.
+     */
+    sourceAddressType: number;
+    /**
+     * The source port.
+     */
+    sourcePort: string;
+    /**
+     * The capture task status.
+     */
+    status: number;
+    /**
+     * The capture task ID.
+     */
+    taskId: string;
+    /**
+     * The update time of the capture task.
+     */
+    updatedAt: string;
+}
+
+export interface GetCfwDomainNameGroupsRecord {
+    /**
+     * The configuration status.
+     */
+    configStatus: string;
+    /**
+     * The domain name group description.
+     */
+    description: string;
+    /**
+     * The list of domain names.
+     */
+    domainNames: outputs.GetCfwDomainNameGroupsRecordDomainName[];
+    /**
+     * The domain name group ID.
+     */
+    groupId: string;
+    /**
+     * The configuration message.
+     */
+    message: string;
+    /**
+     * The domain name group name.
+     */
+    name: string;
+    /**
+     * The domain name group reference count.
+     */
+    refCount: string;
+    /**
+     * The used rule list.
+     */
+    rules: outputs.GetCfwDomainNameGroupsRecordRule[];
+    /**
+     * The domain name group type.
+     */
+    type: string;
+}
+
+export interface GetCfwDomainNameGroupsRecordDomainName {
+    /**
+     * The description.
+     */
+    description: string;
+    /**
+     * The domain address ID.
+     */
+    domainAddressId: string;
+    /**
+     * The domain name.
+     */
+    domainName: string;
+}
+
+export interface GetCfwDomainNameGroupsRecordRule {
+    /**
+     * The rule ID.
+     */
+    id: string;
+    /**
+     * The rule name.
+     */
+    name: string;
+}
+
+export interface GetCfwFirewallsRecord {
+    /**
+     * Billing mode. The value can be 0 (yearly/monthly) or 1 (pay-per-use).
+     */
+    chargeMode: number;
+    /**
+     * Engine type
+     */
+    engineType: number;
+    /**
+     * Whether to enable the feature. The options are true (yes) and false (no).
+     */
+    featureToggle: {[key: string]: boolean};
+    /**
+     * The flavor of the firewall.
+     */
+    flavors: outputs.GetCfwFirewallsRecordFlavor[];
+    /**
+     * Firewall ID
+     */
+    fwInstanceId: string;
+    /**
+     * Cluster type
+     */
+    haType: number;
+    /**
+     * Whether the engine is an old engine. The options are true (yes) and false (no).
+     */
+    isOldFirewallInstance: boolean;
+    /**
+     * Firewall name
+     */
+    name: string;
+    /**
+     * Project list
+     */
+    protectObjects: outputs.GetCfwFirewallsRecordProtectObject[];
+    /**
+     * Firewall instance resources
+     */
+    resources: outputs.GetCfwFirewallsRecordResource[];
+    /**
+     * Service type
+     */
+    serviceType: number;
+    /**
+     * Firewall status list. The options are as follows: -1: waiting for payment; 0: creating; 1: deleting; 2: running; 3: upgrading; 4: deletion completed; 5: freezing; 6: creation failed; 7: deletion failed; 8: freezing failed; 9: storage in progress; 10: storage failed; 11: upgrade failed
+     */
+    status: number;
+    /**
+     * Whether IPv6 is supported. The options are true (yes) and false (no).
+     */
+    supportIpv6: boolean;
+}
+
+export interface GetCfwFirewallsRecordFlavor {
+    /**
+     * Bandwidth
+     */
+    bandwidth: number;
+    /**
+     * Number of EIPs
+     */
+    eipCount: number;
+    /**
+     * Log storage
+     */
+    logStorage: number;
+    /**
+     * Firewall version. The value can be 0 (standard edition), 1 (professional edition), 2 (platinum edition), or 3 (basic edition).
+     */
+    version: number;
+    /**
+     * Number of VPCs
+     */
+    vpcCount: number;
+}
+
+export interface GetCfwFirewallsRecordProtectObject {
+    /**
+     * Protected object ID
+     */
+    objectId: string;
+    /**
+     * Protected object name
+     */
+    objectName: string;
+    /**
+     * Project type. The options are as follows: 0: north-south; 1: east-west.
+     */
+    type: number;
+}
+
+export interface GetCfwFirewallsRecordResource {
+    /**
+     * Service type, which is used by CBC. The value is hws.service.type.cfw.
+     */
+    cloudServiceType: string;
+    /**
+     * Resource ID
+     */
+    resourceId: string;
+    /**
+     * Resource quantity
+     */
+    resourceSize: number;
+    /**
+     * Resource unit name
+     */
+    resourceSizeMeasureId: number;
+    /**
+     * Inventory unit code
+     */
+    resourceSpecCode: string;
+    /**
+     * Resource type. The options are as follows:1. CFW: hws.resource.type.cfw 2. EIP:hws.resource.type.cfw.exp.eip 3. Bandwidth: hws.resource.type.cfw.exp.bandwidth 4. VPC: hws.resource.type.cfw.exp.vpc 5. Log storage: hws.resource.type.cfw.exp.logaudit
+     */
+    resourceType: string;
+}
+
+export interface GetCfwFlowLogsRecord {
+    /**
+     * The application protocol.
+     */
+    app: string;
+    /**
+     * The flow log bytes.
+     */
+    bytes: number;
+    /**
+     * The direction, which can be inbound or outbound.
+     */
+    direction: string;
+    /**
+     * The distination city ID.
+     */
+    dstCityId: string;
+    /**
+     * The distination city name.
+     */
+    dstCityName: string;
+    /**
+     * The destination host.
+     */
+    dstHost: string;
+    /**
+     * The destination IP address.
+     */
+    dstIp: string;
+    /**
+     * The destination port.
+     */
+    dstPort: number;
+    /**
+     * The distination province ID.
+     */
+    dstProvinceId: string;
+    /**
+     * The distination province name.
+     */
+    dstProvinceName: string;
+    /**
+     * The destination region id.
+     */
+    dstRegionId: string;
+    /**
+     * The destination region name.
+     */
+    dstRegionName: string;
+    /**
+     * The end time.
+     */
+    endTime: string;
+    /**
+     * The document ID.
+     */
+    logId: string;
+    /**
+     * The number of packets.
+     */
+    packets: number;
+    /**
+     * The protocol type.
+     */
+    protocol: string;
+    /**
+     * The source city ID.
+     */
+    srcCityId: string;
+    /**
+     * The source city name.
+     */
+    srcCityName: string;
+    /**
+     * The source IP address.
+     */
+    srcIp: string;
+    /**
+     * The source port.
+     */
+    srcPort: number;
+    /**
+     * The source province ID.
+     */
+    srcProvinceId: string;
+    /**
+     * The source province name.
+     */
+    srcProvinceName: string;
+    /**
+     * The source region id.
+     */
+    srcRegionId: string;
+    /**
+     * The source region name.
+     */
+    srcRegionName: string;
+    /**
+     * The start time.
+     */
+    startTime: string;
+}
+
+export interface GetCfwIpsCustomRulesRecord {
+    /**
+     * The action.
+     */
+    action: number;
+    /**
+     * The affected OS.
+     */
+    affectedOs: number;
+    /**
+     * The attack type.
+     */
+    attackType: number;
+    /**
+     * The rule status.
+     */
+    configStatus: number;
+    /**
+     * The content storage in JSON format.
+     */
+    content: string;
+    /**
+     * The destination port type.
+     */
+    dstPortType: number;
+    /**
+     * The destination port.
+     */
+    dstPorts: string;
+    /**
+     * The firewall cluster ID.
+     */
+    groupId: string;
+    /**
+     * The ID of a custom IPS rule in CFW.
+     */
+    ipsCfwId: string;
+    /**
+     * The ID of a rule in Hillstone.
+     */
+    ipsId: string;
+    /**
+     * The IPS rule name.
+     */
+    ipsName: string;
+    /**
+     * The protocol.
+     */
+    protocol: number;
+    /**
+     * The severity.
+     */
+    severity: number;
+    /**
+     * The affected software.
+     */
+    software: number;
+    /**
+     * The source port type.
+     */
+    srcPortType: number;
+    /**
+     * The source port.
+     */
+    srcPorts: string;
+}
+
+export interface GetCfwIpsRuleDetailsData {
+    /**
+     * The IPS type.
+     */
+    ipsType: number;
+    /**
+     * The IPS version.
+     */
+    ipsVersion: string;
+    /**
+     * The update time.
+     */
+    updateTime: string;
+}
+
+export interface GetCfwIpsRulesRecord {
+    /**
+     * The application affected by the rule.
+     */
+    affectedApplication: string;
+    /**
+     * The creation time.
+     */
+    createTime: string;
+    /**
+     * The default status of the IPS rule.
+     */
+    defaultStatus: string;
+    /**
+     * The CVE.
+     */
+    ipsCve: string;
+    /**
+     * The IPS rule group.
+     */
+    ipsGroup: string;
+    /**
+     * The IPS rule ID.
+     */
+    ipsId: string;
+    /**
+     * The risk level.
+     */
+    ipsLevel: string;
+    /**
+     * The IPS rule name.
+     */
+    ipsName: string;
+    /**
+     * The IPS rule type.
+     */
+    ipsRulesType: string;
+    /**
+     * The current status of the IPS rule.
+     */
+    ipsStatus: string;
+}
+
+export interface GetCfwProtectionRulesRecord {
+    /**
+     * The rule action type.
+     */
+    actionType: string;
+    /**
+     * The address type.
+     */
+    addressType: number;
+    /**
+     * The created time of a rule.
+     */
+    createdDate: string;
+    /**
+     * The rule description.
+     */
+    description: string;
+    /**
+     * The destination configuration.
+     */
+    destinations: outputs.GetCfwProtectionRulesRecordDestination[];
+    /**
+     * The direction of a rule.
+     */
+    direction: string;
+    /**
+     * The last open time.
+     */
+    lastOpenTime: string;
+    /**
+     * Whether to support persistent connections.
+     */
+    longConnectEnable: number;
+    /**
+     * The persistent connection duration.
+     */
+    longConnectTime: number;
+    /**
+     * The persistent connection duration (hour).
+     */
+    longConnectTimeHour: number;
+    /**
+     * The persistent connection duration (minute).
+     */
+    longConnectTimeMinute: number;
+    /**
+     * The persistent connection duration (second).
+     */
+    longConnectTimeSecond: number;
+    /**
+     * The rule name.
+     */
+    name: string;
+    /**
+     * The rule ID.
+     */
+    ruleId: string;
+    /**
+     * The service.
+     */
+    services: outputs.GetCfwProtectionRulesRecordService[];
+    /**
+     * The source configuration.
+     */
+    sources: outputs.GetCfwProtectionRulesRecordSource[];
+    /**
+     * The rule status.
+     */
+    status: string;
+    /**
+     * The tag of a rule.
+     */
+    tags: {[key: string]: string};
+    /**
+     * The rule type.
+     */
+    type: string;
+}
+
+export interface GetCfwProtectionRulesRecordDestination {
+    /**
+     * The destination IP address.
+     */
+    address: string;
+    /**
+     * The address group.
+     */
+    addressGroups: string[];
+    /**
+     * The ID of the associated IP address group.
+     */
+    addressSetId: string;
+    /**
+     * The IP address group name.
+     */
+    addressSetName: string;
+    /**
+     * The destination address set type.
+     */
+    addressSetType: number;
+    /**
+     * The destination address type.
+     */
+    addressType: number;
+    /**
+     * The name of the domain name address.
+     */
+    domainAddressName: string;
+    /**
+     * The ID of the domain group.
+     */
+    domainSetId: string;
+    /**
+     * The name of domain group.
+     */
+    domainSetName: string;
+    /**
+     * The IP address list.
+     */
+    ipAddresses: string[];
+    /**
+     * The region list of a rule.
+     */
+    regionLists: outputs.GetCfwProtectionRulesRecordDestinationRegionList[];
+    /**
+     * The destination type.
+     */
+    type: number;
+}
+
+export interface GetCfwProtectionRulesRecordDestinationRegionList {
+    /**
+     * The Chinese description of a region.
+     */
+    descriptionCn: string;
+    /**
+     * The English description of a region.
+     */
+    descriptionEn: string;
+    /**
+     * The region ID of the destination.
+     */
+    regionId: string;
+    /**
+     * The region type.
+     */
+    regionType: number;
+}
+
+export interface GetCfwProtectionRulesRecordService {
+    /**
+     * The custom service.
+     */
+    customServices: outputs.GetCfwProtectionRulesRecordServiceCustomService[];
+    /**
+     * The destination port of the service.
+     */
+    destPort: string;
+    /**
+     * The protocol type.
+     */
+    protocol: number;
+    /**
+     * The protocols.
+     */
+    protocols: number[];
+    /**
+     * The service group list.
+     */
+    serviceGroups: string[];
+    /**
+     * The service group ID.
+     */
+    serviceSetId: string;
+    /**
+     * The service group name.
+     */
+    serviceSetName: string;
+    /**
+     * The service set type.
+     */
+    serviceSetType: number;
+    /**
+     * The source port.
+     */
+    sourcePort: string;
+    /**
+     * The service input type.
+     */
+    type: number;
+}
+
+export interface GetCfwProtectionRulesRecordServiceCustomService {
+    /**
+     * The custom service description.
+     */
+    description: string;
+    /**
+     * The destination port.
+     */
+    destPort: string;
+    /**
+     * The custom service name.
+     */
+    name: string;
+    /**
+     * The protocol type of the custom service.
+     */
+    protocol: number;
+    /**
+     * The source port of the custom service.
+     */
+    sourcePort: string;
+}
+
+export interface GetCfwProtectionRulesRecordSource {
+    /**
+     * The source IP address.
+     */
+    address: string;
+    /**
+     * The address group.
+     */
+    addressGroups: string[];
+    /**
+     * The ID of the associated IP address group.
+     */
+    addressSetId: string;
+    /**
+     * The IP address group name.
+     */
+    addressSetName: string;
+    /**
+     * The address set type.
+     */
+    addressSetType: number;
+    /**
+     * The address type.
+     */
+    addressType: number;
+    /**
+     * The name of the domain address.
+     */
+    domainAddressName: string;
+    /**
+     * The IP address list.
+     */
+    ipAddresses: string[];
+    /**
+     * The region list of a rule.
+     */
+    regionLists: outputs.GetCfwProtectionRulesRecordSourceRegionList[];
+    /**
+     * The source type.
+     */
+    type: number;
+}
+
+export interface GetCfwProtectionRulesRecordSourceRegionList {
+    /**
+     * The Chinese description of a region.
+     */
+    descriptionCn: string;
+    /**
+     * The English description of a region.
+     */
+    descriptionEn: string;
+    /**
+     * The region ID.
+     */
+    regionId: string;
+    /**
+     * The region type.
+     */
+    regionType: number;
+}
+
+export interface GetCfwResourceTagsTag {
+    /**
+     * The tag key.
+     */
+    key: string;
+    /**
+     * The tag value.
+     */
+    value: string;
+}
+
+export interface GetCfwServiceGroupMembersRecord {
+    /**
+     * The service group member description.
+     */
+    description: string;
+    /**
+     * The destination port.
+     */
+    destPort: string;
+    /**
+     * The service group member ID.
+     */
+    itemId: string;
+    /**
+     * The protocol type.
+     */
+    protocol: number;
+    /**
+     * The source port.
+     */
+    sourcePort: string;
+}
+
+export interface GetCfwServiceGroupsServiceGroup {
+    /**
+     * The description of the service group.
+     */
+    description: string;
+    /**
+     * The service group ID.
+     */
+    id: string;
+    /**
+     * The name of the service group.
+     */
+    name: string;
+    /**
+     * The protocols of the service group.
+     */
+    protocols: number[];
+    /**
+     * The number of times this service group has been referenced.
+     */
+    refCount: number;
+    /**
+     * The type of the Service group.
+     */
+    type: number;
+}
+
+export interface GetCfwTagsTag {
+    /**
+     * The tag key.
+     */
+    key: string;
+    /**
+     * The tag values.
+     */
+    values: string[];
+}
+
 export interface GetComputeFlavorsFlavor {
     cpuCoreCount: number;
     generation: string;
@@ -5272,6 +7247,98 @@ export interface GetDdsFlavorsFlavor {
     specCode: string;
     type: string;
     vcpus: string;
+}
+
+export interface GetDmsKafkaConsumerGroupsGroup {
+    /**
+     * Indicates the partition assignment strategy.
+     */
+    assignmentStrategy: string;
+    /**
+     * Indicates the coordinator ID.
+     */
+    coordinatorId: number;
+    /**
+     * Indicates the create time.
+     */
+    createdAt: string;
+    /**
+     * Indicates the consumer group description.
+     */
+    description: string;
+    /**
+     * Indicates the group message offsets.
+     */
+    groupMessageOffsets: outputs.GetDmsKafkaConsumerGroupsGroupGroupMessageOffset[];
+    /**
+     * Indicates the number of accumulated messages.
+     */
+    lag: number;
+    /**
+     * Indicates the consumer group members.
+     */
+    members: outputs.GetDmsKafkaConsumerGroupsGroupMember[];
+    /**
+     * Indicates the consumer group name.
+     */
+    name: string;
+    /**
+     * Indicates the consumer group status.
+     */
+    state: string;
+}
+
+export interface GetDmsKafkaConsumerGroupsGroupGroupMessageOffset {
+    /**
+     * Indicates the number of accumulated messages.
+     */
+    lag: number;
+    /**
+     * Indicates the message current offset.
+     */
+    messageCurrentOffset: number;
+    /**
+     * Indicates the message log end offset.
+     */
+    messageLogEndOffset: number;
+    /**
+     * Indicates the partition.
+     */
+    partition: number;
+    /**
+     * Indicates the topic name.
+     */
+    topic: string;
+}
+
+export interface GetDmsKafkaConsumerGroupsGroupMember {
+    /**
+     * Indicates the details about the partition assigned to the consumer.
+     */
+    assignments: outputs.GetDmsKafkaConsumerGroupsGroupMemberAssignment[];
+    /**
+     * Indicates the client ID.
+     */
+    clientId: string;
+    /**
+     * Indicates the consumer address.
+     */
+    host: string;
+    /**
+     * Indicates the member ID.
+     */
+    memberId: string;
+}
+
+export interface GetDmsKafkaConsumerGroupsGroupMemberAssignment {
+    /**
+     * Indicates the partitions.
+     */
+    partitions: number[];
+    /**
+     * Indicates the topic name.
+     */
+    topic: string;
 }
 
 export interface GetDmsKafkaFlavorsFlavor {
@@ -5479,6 +7546,670 @@ export interface GetDmsRabbitmqFlavorsFlavorSupportFeatureProperty {
     minTask: number;
 }
 
+export interface GetDmsRocketmqConsumerGroupAccessUsersPolicy {
+    /**
+     * Indicates the user name.
+     */
+    accessKey: string;
+    /**
+     * Indicates whether the user is an administrator.
+     */
+    admin: boolean;
+    /**
+     * Indicates the permissions.
+     */
+    perm: string;
+    /**
+     * Indicates the IP address whitelist.
+     */
+    whiteRemoteAddress: string;
+}
+
+export interface GetDmsRocketmqConsumerGroupsGroup {
+    broadcast: boolean;
+    brokers: string[];
+    description: string;
+    enabled: boolean;
+    name: string;
+    retryMaxTimes: number;
+}
+
+export interface GetDmsRocketmqConsumersClient {
+    /**
+     * Indicates the client address.
+     */
+    clientAddress: string;
+    /**
+     * Indicates the client ID.
+     */
+    clientId: string;
+    /**
+     * Indicates the client language.
+     */
+    language: string;
+    /**
+     * Indicates the subscription list.
+     */
+    subscriptions: outputs.GetDmsRocketmqConsumersClientSubscription[];
+    /**
+     * Indicates the client version.
+     */
+    version: string;
+}
+
+export interface GetDmsRocketmqConsumersClientSubscription {
+    /**
+     * Indicates the subscription tag.
+     */
+    expression: string;
+    /**
+     * Indicates the name of the subscribed topic.
+     */
+    topic: string;
+    /**
+     * Indicates the subscription type.
+     */
+    type: string;
+}
+
+export interface GetDmsRocketmqExtendFlavorsFlavor {
+    /**
+     * Indicates the list of supported CPU architectures.
+     */
+    archTypes: string[];
+    /**
+     * Indicates the AZs where there are available resources.
+     */
+    availableZones: string[];
+    /**
+     * Indicates the billing code.
+     */
+    billingCode: string;
+    /**
+     * Indicates the list of supported billing modes.
+     */
+    chargingModes: string[];
+    /**
+     * Indicates the flavor ID.
+     */
+    id: string;
+    /**
+     * Indicates the list of supported disk IO types.
+     */
+    ios: outputs.GetDmsRocketmqExtendFlavorsFlavorIo[];
+    /**
+     * Indicates the properties of the current specification.
+     */
+    properties: outputs.GetDmsRocketmqExtendFlavorsFlavorProperty[];
+    /**
+     * Indicates the supported features.
+     */
+    supportFeatures: outputs.GetDmsRocketmqExtendFlavorsFlavorSupportFeature[];
+    /**
+     * Indicates the flavor type.
+     */
+    type: string;
+    /**
+     * Indicates the AZs where resources are unavailable.
+     */
+    unavailableZones: string[];
+    /**
+     * Indicates the underlying VM specification.
+     */
+    vmSpecification: string;
+}
+
+export interface GetDmsRocketmqExtendFlavorsFlavorIo {
+    /**
+     * Indicates the list of availability zones with available resources.
+     */
+    availableZones: string[];
+    /**
+     * Indicates the disk IO encoding.
+     */
+    storageSpecCode: string;
+    /**
+     * Indicates the disk type.
+     */
+    type: string;
+    /**
+     * Indicates the list of unavailability zones with available resources.
+     */
+    unavailableZones: string[];
+}
+
+export interface GetDmsRocketmqExtendFlavorsFlavorProperty {
+    /**
+     * Indicates the version of the message engine.
+     */
+    engineVersions: string;
+    /**
+     * Indicates the alias of **flavor_id**.
+     */
+    flavorAlias: string;
+    /**
+     * Indicates the maximum number of brokers.
+     */
+    maxBroker: string;
+    /**
+     * Indicates the maximum number of consumers of each broker.
+     */
+    maxConsumerPerBroker: string;
+    /**
+     * Indicates the maximum storage space of each broker. Unit: GB.
+     */
+    maxStoragePerNode: string;
+    /**
+     * Indicates the maximum number of topics that can be created on each broker.
+     */
+    maxTopicPerBroker: string;
+    /**
+     * Indicates the minimum number of brokers.
+     */
+    minBroker: string;
+    /**
+     * Indicates the minimum storage space of each broker. Unit: GB.
+     */
+    minStoragePerNode: string;
+}
+
+export interface GetDmsRocketmqExtendFlavorsFlavorSupportFeature {
+    /**
+     * Indicates the feature name.
+     */
+    name: string;
+    /**
+     * Indicates the key-value pair of a feature.
+     */
+    properties: {[key: string]: string};
+}
+
+export interface GetDmsRocketmqFlavorsFlavor {
+    /**
+     * Indicates the list of the types of CPU architecture.
+     */
+    archTypes: string[];
+    /**
+     * Indicates the list of the billing modes.
+     */
+    chargingModes: string[];
+    /**
+     * Indicates the ID of the flavor.
+     */
+    id: string;
+    /**
+     * Indicates the list of disk IO types.
+     */
+    ios: outputs.GetDmsRocketmqFlavorsFlavorIo[];
+    /**
+     * Indicates the list of the properties of the current specification.
+     */
+    properties: outputs.GetDmsRocketmqFlavorsFlavorProperty[];
+    /**
+     * Indicates the list of features supported by the current specification.
+     */
+    supportFeatures: outputs.GetDmsRocketmqFlavorsFlavorSupportFeature[];
+    /**
+     * Indicates the type of the flavor.
+     */
+    type: string;
+    /**
+     * Indicates the underlying VM specification.
+     */
+    vmSpecification: string;
+}
+
+export interface GetDmsRocketmqFlavorsFlavorIo {
+    /**
+     * Indicates the list of availability zone names.
+     */
+    availabilityZones: string[];
+    /**
+     * Indicates the disk IO encoding.
+     */
+    storageSpecCode: string;
+    /**
+     * Indicates the disk type.
+     */
+    type: string;
+    /**
+     * Indicates the list of unavailability zone names.
+     */
+    unavailabilityZones: string[];
+}
+
+export interface GetDmsRocketmqFlavorsFlavorProperty {
+    /**
+     * Indicates the alias of the flavor.
+     */
+    flavorAlias: string;
+    /**
+     * Indicates the maximum bandwidth per broker.
+     */
+    maxBandwidthPerBroker: number;
+    /**
+     * Indicates the maximum number of brokers.
+     */
+    maxBroker: number;
+    /**
+     * Indicates the maximum number of consumers per broker.
+     */
+    maxConsumerPerBroker: number;
+    /**
+     * Indicates the maximum number of partitions per broker.
+     */
+    maxPartitionPerBroker: number;
+    /**
+     * Indicates the maximum storage per node. The unit is GB.
+     */
+    maxStoragePerNode: number;
+    /**
+     * Indicates the maximum TPS per broker.
+     */
+    maxTpsPerBroker: number;
+    /**
+     * Indicates the minimum number of brokers.
+     */
+    minBroker: number;
+    /**
+     * Indicates the minimum storage per node. The unit is GB.
+     */
+    minStoragePerNode: number;
+}
+
+export interface GetDmsRocketmqFlavorsFlavorSupportFeature {
+    /**
+     * Indicates the function name.
+     */
+    name: string;
+    /**
+     * Indicates the list of the function property details.
+     */
+    properties: outputs.GetDmsRocketmqFlavorsFlavorSupportFeatureProperty[];
+}
+
+export interface GetDmsRocketmqFlavorsFlavorSupportFeatureProperty {
+    /**
+     * Indicates the maximum number of nodes for the dump function.
+     */
+    maxNode: number;
+    /**
+     * Indicates the maximum number of tasks for the dump function.
+     */
+    maxTask: number;
+    /**
+     * Indicates the minimum number of nodes for the dump function.
+     */
+    minNode: number;
+    /**
+     * Indicates the minimum number of tasks for the dump function.
+     */
+    minTask: number;
+}
+
+export interface GetDmsRocketmqInstancesInstance {
+    /**
+     * Indicates the list of availability zone names.
+     */
+    availabilityZones: string[];
+    /**
+     * Indicates the service data address.
+     */
+    brokerAddress: string;
+    /**
+     * Indicates the broker numbers.
+     */
+    brokerNum: number;
+    /**
+     * Indicates the Cross-VPC access information.
+     */
+    crossVpcAccesses: outputs.GetDmsRocketmqInstancesInstanceCrossVpcAccess[];
+    /**
+     * Indicates the description of the DMS RocketMQ instance.
+     */
+    description: string;
+    /**
+     * Indicates whether access control is enabled.
+     */
+    enableAcl: boolean;
+    /**
+     * Indicates whether to enable public access.
+     */
+    enablePublicip: boolean;
+    /**
+     * Indicates the version of the RocketMQ engine.
+     */
+    engineVersion: string;
+    /**
+     * Indicates a product ID.
+     */
+    flavorId: string;
+    /**
+     * Indicates the ID of the DMS RocketMQ instance.
+     */
+    id: string;
+    /**
+     * Indicates whether to support IPv6.
+     */
+    ipv6Enable: boolean;
+    /**
+     * Indicates the time at which the maintenance window starts. The format is HH:mm:ss.
+     */
+    maintainBegin: string;
+    /**
+     * Indicates the time at which the maintenance window ends. The format is HH:mm:ss.
+     */
+    maintainEnd: string;
+    /**
+     * Indicates the name of the DMS RocketMQ instance.
+     */
+    name: string;
+    /**
+     * Indicates the metadata address.
+     */
+    namesrvAddress: string;
+    /**
+     * Indicates whether billing based on new specifications is enabled.
+     */
+    newSpecBillingEnable: boolean;
+    /**
+     * Indicates the node quantity.
+     */
+    nodeNum: number;
+    /**
+     * Indicates the public network service data address.
+     */
+    publicBrokerAddress: string;
+    /**
+     * Indicates the public network metadata address.
+     */
+    publicNamesrvAddress: string;
+    /**
+     * Indicates the public IP address.
+     */
+    publicipAddress: string;
+    /**
+     * Indicates the ID of the EIP bound to the instance.
+     */
+    publicipId: string;
+    /**
+     * Indicates the resource specifications.
+     */
+    resourceSpecCode: string;
+    /**
+     * Indicates the ID of a security group.
+     */
+    securityGroupId: string;
+    /**
+     * Indicates the instance specification.
+     */
+    specification: string;
+    /**
+     * Indicates whether the RocketMQ SASL_SSL is enabled.
+     */
+    sslEnable: boolean;
+    /**
+     * Indicates the status of the DMS RocketMQ instance.
+     */
+    status: string;
+    /**
+     * Indicates the message storage capacity. Unit: GB.
+     */
+    storageSpace: number;
+    /**
+     * Indicates the storage I/O specification.
+     */
+    storageSpecCode: string;
+    /**
+     * Indicates the ID of a subnet.
+     */
+    subnetId: string;
+    /**
+     * Indicates the DMS RocketMQ instance type. Value: cluster.
+     */
+    type: string;
+    /**
+     * Indicates the used message storage space. Unit: GB.
+     */
+    usedStorageSpace: number;
+    /**
+     * Indicates the ID of a VPC.
+     */
+    vpcId: string;
+}
+
+export interface GetDmsRocketmqInstancesInstanceCrossVpcAccess {
+    advertisedIp: string;
+    /**
+     * @deprecated typo in lisenter_ip, please use "listenerIp" instead.
+     */
+    lisenterIp: string;
+    listenerIp: string;
+    port: number;
+    portId: string;
+}
+
+export interface GetDmsRocketmqMessageTracesTrace {
+    /**
+     * Specifies the message body length.
+     */
+    bodyLength: number;
+    /**
+     * Specifies the IP address of the host that generates the message.
+     */
+    clientHost: string;
+    /**
+     * Specifies the consumption status.
+     */
+    consumeStatus: number;
+    /**
+     * Specifies the time spent.
+     */
+    costTime: number;
+    /**
+     * Specifies whether the response is a transaction check response.
+     */
+    fromTransactionCheck: boolean;
+    /**
+     * Specifies the producer group or consumer group.
+     */
+    groupName: string;
+    /**
+     * Specifies the message keys.
+     */
+    keys: string;
+    /**
+     * Specifies the message ID.
+     */
+    messageId: string;
+    /**
+     * Specifies the message type.
+     */
+    messageType: string;
+    /**
+     * Specifies the offset message ID.
+     */
+    offsetMessageId: string;
+    /**
+     * Specifies the request ID.
+     */
+    requestId: string;
+    /**
+     * Specifies the number of retry times.
+     */
+    retryTimes: number;
+    /**
+     * Specifies the IP address of the host that stores the message.
+     */
+    storeHost: string;
+    /**
+     * Specifies whether the request is successful.
+     */
+    success: boolean;
+    /**
+     * Specifies the message tag.
+     */
+    tags: string;
+    /**
+     * Specifies the time.
+     */
+    time: string;
+    /**
+     * Specifies the topic name.
+     */
+    topic: string;
+    /**
+     * Specifies the trace type.
+     */
+    traceType: string;
+    /**
+     * Specifies the transaction ID.
+     */
+    transactionId: string;
+    /**
+     * Specifies the transaction status.
+     */
+    transactionState: string;
+}
+
+export interface GetDmsRocketmqMessagesMessage {
+    /**
+     * Indicates the message body.
+     */
+    body: string;
+    /**
+     * Indicates the message body checksum.
+     */
+    bodyCrc: number;
+    /**
+     * Indicates the IP address of the host that generates the message.
+     */
+    bornHost: string;
+    /**
+     * Indicates the message generated time.
+     */
+    bornTime: string;
+    /**
+     * Indicates the message ID.
+     */
+    messageId: string;
+    /**
+     * Indicates the property list.
+     */
+    propertyLists: outputs.GetDmsRocketmqMessagesMessagePropertyList[];
+    /**
+     * Indicates the queue ID.
+     */
+    queueId: number;
+    /**
+     * Indicates the offset in the queue.
+     */
+    queueOffset: number;
+    /**
+     * Indicates the number of retry times.
+     */
+    reconsumeTimes: number;
+    /**
+     * Indicates the IP address of the host that stores the message.
+     */
+    storeHost: string;
+    /**
+     * Indicates the storage size.
+     */
+    storeSize: number;
+    /**
+     * Indicates the message stored time.
+     */
+    storeTime: string;
+}
+
+export interface GetDmsRocketmqMessagesMessagePropertyList {
+    /**
+     * Indicates the property name.
+     */
+    name: string;
+    /**
+     * Indicates the property value.
+     */
+    value: string;
+}
+
+export interface GetDmsRocketmqMigrationTasksTask {
+    /**
+     * Indicates the ID of a metadata migration task.
+     */
+    id: string;
+    /**
+     * Indicates the name of a metadata migration task.
+     */
+    name: string;
+    /**
+     * Indicates the start time of a metadata migration task.
+     */
+    startDate: string;
+    /**
+     * Indicates the status of a metadata migration task.
+     */
+    status: string;
+    /**
+     * Indicates the metadata migration task type.
+     */
+    type: string;
+}
+
+export interface GetDmsRocketmqTopicAccessUsersPolicy {
+    /**
+     * Indicates the user name.
+     */
+    accessKey: string;
+    /**
+     * Indicates whether the user is an administrator.
+     */
+    admin: boolean;
+    /**
+     * Indicates the permissions.
+     */
+    perm: string;
+    /**
+     * Indicates the IP address whitelist.
+     */
+    whiteRemoteAddress: string;
+}
+
+export interface GetDmsRocketmqTopicsTopic {
+    brokers: outputs.GetDmsRocketmqTopicsTopicBroker[];
+    name: string;
+    permission: string;
+    totalReadQueueNum: number;
+    totalWriteQueueNum: number;
+}
+
+export interface GetDmsRocketmqTopicsTopicBroker {
+    brokerName: string;
+    readQueueNum: number;
+    writeQueueNum: number;
+}
+
+export interface GetDmsRocketmqUsersUser {
+    accessKey: string;
+    admin: boolean;
+    defaultGroupPerm: string;
+    defaultTopicPerm: string;
+    groupPerms: outputs.GetDmsRocketmqUsersUserGroupPerm[];
+    topicPerms: outputs.GetDmsRocketmqUsersUserTopicPerm[];
+    whiteRemoteAddress: string;
+}
+
+export interface GetDmsRocketmqUsersUserGroupPerm {
+    name: string;
+    perm: string;
+}
+
+export interface GetDmsRocketmqUsersUserTopicPerm {
+    name: string;
+    perm: string;
+}
+
 export interface GetDwsFlavorsFlavor {
     /**
      * The list of availability zones.
@@ -5535,15 +8266,22 @@ export interface GetDwsFlavorsFlavorElasticVolumeSpec {
 
 export interface GetElbFlavorsFlavor {
     bandwidth: number;
+    category: number;
     cps: number;
+    flavorSoldOut: boolean;
+    httpsCps: number;
     id: string;
+    lcu: number;
     maxConnections: number;
     name: string;
+    publicBorderGroup: string;
     qps: number;
+    shared: boolean;
     type: string;
 }
 
 export interface GetElbPoolsPool {
+    anyPortEnable: boolean;
     /**
      * Whether to enable delayed logout.
      */
@@ -5552,10 +8290,12 @@ export interface GetElbPoolsPool {
      * The timeout of the delayed logout in seconds.
      */
     connectionDrainTimeout: number;
+    createdAt: string;
     /**
      * The description of pool.
      */
     description: string;
+    enterpriseProjectId: string;
     /**
      * The health monitor ID of the ELB pool.
      */
@@ -5580,6 +8320,7 @@ export interface GetElbPoolsPool {
      * Loadbalancer list. For details, see Data structure of the loadbalancer field.
      */
     loadbalancers: outputs.GetElbPoolsPoolLoadbalancer[];
+    memberDeletionProtectionEnable: boolean;
     /**
      * Loadbalancer list. For details, see Data structure of the members field.
      */
@@ -5608,6 +8349,8 @@ export interface GetElbPoolsPool {
      * The protocol of pool.
      */
     protocol: string;
+    publicBorderGroup: string;
+    quicCidHashStrategies: outputs.GetElbPoolsPoolQuicCidHashStrategy[];
     /**
      * The slow start duration, in seconds.
      */
@@ -5620,6 +8363,7 @@ export interface GetElbPoolsPool {
      * The type of the backend server group.
      */
     type: string;
+    updatedAt: string;
     /**
      * The ID of the VPC where the backend server group works.
      */
@@ -5662,23 +8406,410 @@ export interface GetElbPoolsPoolPersistence {
     type: string;
 }
 
+export interface GetElbPoolsPoolQuicCidHashStrategy {
+    len: number;
+    offset: number;
+}
+
+export interface GetErAssociationsAssociation {
+    attachmentId: string;
+    attachmentType: string;
+    createdAt: string;
+    id: string;
+    resourceId: string;
+    routePolicyId: string;
+    routeTableId: string;
+    status: string;
+    updatedAt: string;
+}
+
+export interface GetErAttachmentsAttachment {
+    /**
+     * Whether this attachment has been associated.
+     */
+    associated: boolean;
+    /**
+     * The creation time of the attachment.
+     */
+    createdAt: string;
+    /**
+     * The description of the attachment.
+     */
+    description: string;
+    /**
+     * The attachment ID.
+     */
+    id: string;
+    /**
+     * The attachment name.
+     */
+    name: string;
+    /**
+     * The associated resource ID.
+     */
+    resourceId: string;
+    /**
+     * The associated route table ID.
+     */
+    routeTableId: string;
+    /**
+     * The current status of the attachment.
+     */
+    status: string;
+    /**
+     * The key/value pairs to associate with the attachment.
+     */
+    tags: {[key: string]: string};
+    /**
+     * The attachment type.
+     */
+    type: string;
+    /**
+     * The latest update time of the attachment.
+     */
+    updatedAt: string;
+}
+
+export interface GetErAvailableRoutesRoute {
+    /**
+     * The destination address of the route.
+     */
+    destination: string;
+    /**
+     * The route ID.
+     */
+    id: string;
+    /**
+     * Whether the route is a blackhole route.
+     */
+    isBlackhole: boolean;
+    /**
+     * The next hops of the route.
+     */
+    nextHops: outputs.GetErAvailableRoutesRouteNextHop[];
+    /**
+     * The route type.
+     */
+    type: string;
+}
+
+export interface GetErAvailableRoutesRouteNextHop {
+    /**
+     * The attachment ID.
+     */
+    attachmentId: string;
+    /**
+     * The attached resource ID.
+     */
+    resourceId: string;
+    /**
+     * The attachment type.
+     */
+    resourceType: string;
+}
+
+export interface GetErFlowLogsFlowLog {
+    /**
+     * The creation time of the flow log.
+     */
+    createdAt: string;
+    /**
+     * The description of the flow log.
+     */
+    description: string;
+    /**
+     * The switch of the flow log.
+     */
+    enabled: boolean;
+    /**
+     * The ID of the flow log.
+     */
+    id: string;
+    /**
+     * The ID of the log group to which the flow log belongs.
+     */
+    logGroupId: string;
+    /**
+     * The storage type of the flow log.
+     */
+    logStoreType: string;
+    /**
+     * The ID of the log stream to which the flow log belongs.
+     */
+    logStreamId: string;
+    /**
+     * The name of the flow log.
+     */
+    name: string;
+    /**
+     * The ID of the attachment to which the flow log belongs.
+     */
+    resourceId: string;
+    /**
+     * The type of the flow log.
+     */
+    resourceType: string;
+    /**
+     * The status of the flow log.
+     */
+    status: string;
+    /**
+     * The latest update time of the flow log.
+     */
+    updatedAt: string;
+}
+
+export interface GetErInstancesInstance {
+    /**
+     * The BGP AS number of the ER instance.
+     */
+    asn: number;
+    /**
+     * Whether to automatically accept the creation of shared attachment.
+     */
+    autoAcceptSharedAttachments: boolean;
+    /**
+     * The availability zone list where the ER instance is located.
+     */
+    availabilityZones: string[];
+    /**
+     * The creation time of the instance.
+     */
+    createdAt: string;
+    /**
+     * The ID of the default association route table.
+     */
+    defaultAssociationRouteTableId: string;
+    /**
+     * The ID of the default propagation route table.
+     */
+    defaultPropagationRouteTableId: string;
+    /**
+     * The description of the instance.
+     */
+    description: string;
+    /**
+     * Whether to enable the association of the default route table.
+     */
+    enableDefaultAssociation: boolean;
+    /**
+     * Whether to enable the propagation of the default route table.
+     */
+    enableDefaultPropagation: boolean;
+    /**
+     * The ID of enterprise project to which the instance belongs.
+     */
+    enterpriseProjectId: string;
+    /**
+     * The instance ID.
+     */
+    id: string;
+    /**
+     * The name of the instance.
+     */
+    name: string;
+    /**
+     * The current status of the instance.
+     */
+    status: string;
+    /**
+     * The key/value pairs to associate with the instance.
+     */
+    tags: {[key: string]: string};
+    /**
+     * The last update time of the instance.
+     */
+    updatedAt: string;
+}
+
+export interface GetErPropagationsPropagation {
+    attachmentId: string;
+    attachmentType: string;
+    createdAt: string;
+    id: string;
+    instanceId: string;
+    resourceId: string;
+    routePolicyId: string;
+    routeTableId: string;
+    status: string;
+    updatedAt: string;
+}
+
+export interface GetErQuotasQuota {
+    /**
+     * The number of available quotas, `-1` means unlimited.
+     */
+    limit: number;
+    /**
+     * The quota type.
+     */
+    type: string;
+    /**
+     * The unit of usage.
+     */
+    unit: string;
+    /**
+     * The number of quota used.
+     */
+    used: number;
+}
+
+export interface GetErRouteTablesRouteTable {
+    /**
+     * The association configuration of the route table.
+     */
+    associations: outputs.GetErRouteTablesRouteTableAssociation[];
+    /**
+     * The creation time.
+     */
+    createdAt: string;
+    /**
+     * The description of the route table.
+     */
+    description: string;
+    /**
+     * The route table ID.
+     */
+    id: string;
+    /**
+     * Whether this route table is the default association route table.
+     */
+    isDefaultAssociation: boolean;
+    /**
+     * Whether this route table is the default propagation route table.
+     */
+    isDefaultPropagation: boolean;
+    /**
+     * The name of the route table.
+     */
+    name: string;
+    /**
+     * The propagation configuration of the route table.
+     */
+    propagations: outputs.GetErRouteTablesRouteTablePropagation[];
+    /**
+     * The route details of the route table.
+     */
+    routes: outputs.GetErRouteTablesRouteTableRoute[];
+    /**
+     * The current status of the route table.
+     */
+    status: string;
+    /**
+     * The tags configuration of the route table.
+     */
+    tags: {[key: string]: string};
+    /**
+     * The latest update time.
+     */
+    updatedAt: string;
+}
+
+export interface GetErRouteTablesRouteTableAssociation {
+    /**
+     * The attachment ID corresponding to the routing association/propagation.
+     */
+    attachmentId: string;
+    /**
+     * The attachment type corresponding to the routing association/propagation.
+     */
+    attachmentType: string;
+    /**
+     * The ID of the association/propagation.
+     */
+    id: string;
+}
+
+export interface GetErRouteTablesRouteTablePropagation {
+    /**
+     * The attachment ID corresponding to the routing association/propagation.
+     */
+    attachmentId: string;
+    /**
+     * The attachment type corresponding to the routing association/propagation.
+     */
+    attachmentType: string;
+    /**
+     * The ID of the association/propagation.
+     */
+    id: string;
+}
+
+export interface GetErRouteTablesRouteTableRoute {
+    /**
+     * The details of the attachment corresponding to the route.
+     */
+    attachments: outputs.GetErRouteTablesRouteTableRouteAttachment[];
+    /**
+     * The destination address (CIDR) of the route.
+     */
+    destination: string;
+    /**
+     * The route ID.
+     */
+    id: string;
+    /**
+     * Whether route is the black hole route.
+     */
+    isBlackhole: boolean;
+    /**
+     * The current status of the route.
+     */
+    status: string;
+}
+
+export interface GetErRouteTablesRouteTableRouteAttachment {
+    /**
+     * The ID of the nexthop attachment.
+     */
+    attachmentId: string;
+    /**
+     * The type of the nexthop attachment.
+     */
+    attachmentType: string;
+    /**
+     * The ID of the resource associated with the attachment.
+     */
+    resourceId: string;
+}
+
+export interface GetErTagsTag {
+    /**
+     * The key of the resource tag.
+     */
+    key: string;
+    /**
+     * All values corresponding to the key.
+     */
+    values: string[];
+}
+
 export interface GetEvsVolumesVolume {
     attachments: outputs.GetEvsVolumesVolumeAttachment[];
     availabilityZone: string;
     bootable: boolean;
     createAt: string;
+    dedicatedStorageId: string;
+    dedicatedStorageName: string;
     description: string;
     enterpriseProjectId: string;
     id: string;
     iops: number;
+    iopsAttributes: outputs.GetEvsVolumesVolumeIopsAttribute[];
+    links: outputs.GetEvsVolumesVolumeLink[];
+    metadata: {[key: string]: string};
     name: string;
+    serialNumber: string;
     serviceType: string;
     shareable: boolean;
     size: number;
+    snapshotId: string;
     status: string;
     tags: {[key: string]: string};
     throughput: number;
+    throughputAttributes: outputs.GetEvsVolumesVolumeThroughputAttribute[];
     updateAt: string;
+    volumeImageMetadata: {[key: string]: string};
     volumeType: string;
     wwn: string;
 }
@@ -5686,9 +8817,336 @@ export interface GetEvsVolumesVolume {
 export interface GetEvsVolumesVolumeAttachment {
     attachedAt: string;
     attachedMode: string;
+    attachedVolumeId: string;
     deviceName: string;
+    hostName: string;
     id: string;
     serverId: string;
+    volumeId: string;
+}
+
+export interface GetEvsVolumesVolumeIopsAttribute {
+    frozened: boolean;
+    id: string;
+    totalVal: number;
+}
+
+export interface GetEvsVolumesVolumeLink {
+    href: string;
+    rel: string;
+}
+
+export interface GetEvsVolumesVolumeThroughputAttribute {
+    frozened: boolean;
+    id: string;
+    totalVal: number;
+}
+
+export interface GetFgsApplicationTemplatesTemplate {
+    /**
+     * The template category.
+     */
+    category: string;
+    /**
+     * The description of template.
+     */
+    description: string;
+    /**
+     * The template ID.
+     */
+    id: string;
+    /**
+     * The template name.
+     */
+    name: string;
+    /**
+     * The template runtime.
+     */
+    runtime: string;
+    /**
+     * The type of the function application.
+     */
+    type: string;
+}
+
+export interface GetFgsApplicationsApplication {
+    /**
+     * The latest update time of the application, in RFC3339 format.
+     */
+    description: string;
+    /**
+     * The ID of application.
+     */
+    id: string;
+    /**
+     * The name of application.
+     */
+    name: string;
+    /**
+     * The status of application.
+     */
+    status: string;
+    /**
+     * The description of application.
+     */
+    updatedAt: string;
+}
+
+export interface GetFgsDependenciesPackage {
+    /**
+     * The unique ID of the dependency package.
+     */
+    etag: string;
+    /**
+     * The file name of the stored dependency package.
+     */
+    fileName: string;
+    /**
+     * The ID of the dependency package.
+     */
+    id: string;
+    /**
+     * The OBS bucket path where the dependency package is located (FunctionGraph serivce side).
+     */
+    link: string;
+    /**
+     * The name of the dependency package.
+     */
+    name: string;
+    /**
+     * The owner of the dependency package.
+     */
+    owner: string;
+    /**
+     * The runtime of the dependency package.
+     */
+    runtime: string;
+    /**
+     * The size of the dependency package.
+     */
+    size: number;
+    /**
+     * The list of the versions for the dependency package.
+     */
+    versions: outputs.GetFgsDependenciesPackageVersion[];
+}
+
+export interface GetFgsDependenciesPackageVersion {
+    /**
+     * The ID of the dependency package version.
+     */
+    id: string;
+    /**
+     * The dependency package version.
+     */
+    version: number;
+}
+
+export interface GetFgsDependencyVersionsVersion {
+    /**
+     * The ID of the dependency package corresponding to the version.
+     */
+    dependencyId: string;
+    /**
+     * The name of the dependency package corresponding to the version.
+     */
+    dependencyName: string;
+    /**
+     * The description of the dependency package version.
+     */
+    description: string;
+    /**
+     * The unique ID of the dependency.
+     */
+    etag: string;
+    /**
+     * The ID of the dependency package version.
+     */
+    id: string;
+    /**
+     * The OBS bucket path where the dependency package version is located.
+     */
+    link: string;
+    /**
+     * The dependency owner, public indicates a public dependency.
+     */
+    owner: string;
+    /**
+     * The runtime of the dependency package version.
+     */
+    runtime: string;
+    /**
+     * The size of the ZIP file used by the dependency package version, in bytes.
+     */
+    size: number;
+    /**
+     * The dependency package version.
+     */
+    version: number;
+}
+
+export interface GetFgsFunctionEventsEvent {
+    /**
+     * The event ID.
+     */
+    id: string;
+    /**
+     * The event name.
+     */
+    name: string;
+    /**
+     * The latest update time of the function event, in RFC3339 format.
+     */
+    updatedAt: string;
+}
+
+export interface GetFgsFunctionTriggersTrigger {
+    /**
+     * The creation time of the function trigger, in RFC3339 format.
+     */
+    createdAt: string;
+    /**
+     * The detailed configuration of the function trigger.
+     */
+    eventData: string;
+    /**
+     * The ID of the function trigger.
+     */
+    id: string;
+    /**
+     * The current status of the function trigger.
+     */
+    status: string;
+    /**
+     * The type of the function trigger.
+     */
+    type: string;
+    /**
+     * The latest update time of the function trigger, in RFC3339 format.
+     */
+    updatedAt: string;
+}
+
+export interface GetFgsFunctionsFunction {
+    /**
+     * The IAM agency name for the function configuration.
+     */
+    agency: string;
+    /**
+     * The IAM agency name for the function execution.
+     */
+    appAgency: string;
+    /**
+     * The name of the function file.
+     */
+    codeFilename: string;
+    /**
+     * The function code type.
+     */
+    codeType: string;
+    /**
+     * The code URL.
+     */
+    codeUrl: string;
+    /**
+     * The description of the function.
+     */
+    description: string;
+    /**
+     * The custom user data (key/value pairs) defined to be encrypted for the function.
+     */
+    encryptedUserData: string;
+    /**
+     * The enterprise project ID to which the function belongs.
+     */
+    enterpriseProjectId: string;
+    /**
+     * The functionGraph version.
+     */
+    functiongraphVersion: string;
+    /**
+     * The entry point of the function.
+     */
+    handler: string;
+    /**
+     * The initializer of the function.
+     */
+    initializerHandler: string;
+    /**
+     * The maximum duration the function can be initialized.
+     */
+    initializerTimeout: number;
+    /**
+     * The LTS log group ID.
+     */
+    logGroupId: string;
+    /**
+     * The LTS log stream ID.
+     */
+    logStreamId: string;
+    /**
+     * The maximum number of instances for a single function.
+     */
+    maxInstanceNum: string;
+    /**
+     * The memory size(MB) allocated to the function.
+     */
+    memorySize: number;
+    /**
+     * The function name.
+     */
+    name: string;
+    /**
+     * The network ID of subnet to which the function belongs.
+     */
+    networkId: string;
+    /**
+     * The package name that function used.
+     */
+    package: string;
+    /**
+     * The dependency package runtime of the function.
+     */
+    runtime: string;
+    /**
+     * The timeout interval of the function.
+     */
+    timeout: number;
+    /**
+     * The function URN.
+     */
+    urn: string;
+    /**
+     * The custom user data (key/value pairs) defined for the function.
+     */
+    userData: string;
+    /**
+     * The function version.
+     */
+    version: string;
+    /**
+     * The VPC ID to which the function belongs.
+     */
+    vpcId: string;
+}
+
+export interface GetFgsQuotasQuota {
+    /**
+     * The number of available quota.
+     */
+    limit: number;
+    /**
+     * The resource type corresponding to quota.
+     */
+    type: string;
+    /**
+     * The unit of usage.
+     */
+    unit: string;
+    /**
+     * The number of quota used.
+     */
+    used: number;
 }
 
 export interface GetIdentityGroupUser {
@@ -5718,6 +9176,7 @@ export interface GetIdentityUsersUser {
 }
 
 export interface GetImagesImagesImage {
+    __supportAgentList: string;
     activeAt: string;
     architecture: string;
     backupId: string;
@@ -5816,50 +9275,30 @@ export interface GetKpsRunningTasksTask {
 }
 
 export interface GetLbListenersListener {
-    /**
-     * The maximum number of connections allowed for the listener.
-     */
+    clientCaTlsContainerRef: string;
     connectionLimit: number;
-    /**
-     * The ID of the default pool with which the ELB listener is associated.
-     */
+    createdAt: string;
     defaultPoolId: string;
-    /**
-     * The ID of the server certificate used by the listener.
-     */
     defaultTlsContainerRef: string;
-    /**
-     * The description of the ELB listener.
-     */
     description: string;
-    /**
-     * Whether the ELB listener uses HTTP/2.
-     */
     http2Enable: boolean;
-    /**
-     * The ELB listener ID.
-     */
     id: string;
-    /**
-     * Loadbalancer list. For details, see Data structure of the loadbalancer field.
-     */
+    insertHeaders: outputs.GetLbListenersListenerInsertHeader[];
     loadbalancers: outputs.GetLbListenersListenerLoadbalancer[];
-    /**
-     * The listener name.
-     */
     name: string;
-    /**
-     * The listener protocol.
-     */
+    protectionReason: string;
+    protectionStatus: string;
     protocol: string;
-    /**
-     * The front-end listening port of the listener.
-     */
     protocolPort: number;
-    /**
-     * List of the SNI certificate (server certificates with a domain name) IDs used by the listener.
-     */
     sniContainerRefs: string[];
+    tags: {[key: string]: string};
+    tlsCiphersPolicy: string;
+    updatedAt: string;
+}
+
+export interface GetLbListenersListenerInsertHeader {
+    xForwardedElbIp: string;
+    xForwardedHost: string;
 }
 
 export interface GetLbListenersListenerLoadbalancer {
@@ -5870,74 +9309,35 @@ export interface GetLbListenersListenerLoadbalancer {
 }
 
 export interface GetLbPoolsPool {
-    /**
-     * The description of pool.
-     */
     description: string;
-    /**
-     * Specifies the health monitor ID of the LB pool.
-     */
     healthmonitorId: string;
-    /**
-     * The pool ID.
-     */
     id: string;
-    /**
-     * The method of the LB pool.
-     */
     lbMethod: string;
-    /**
-     * Listener list. For details, see Data structure of the listener field.
-     */
     listeners: outputs.GetLbPoolsPoolListener[];
-    /**
-     * Loadbalancer list. For details, see Data structure of the loadbalancer field.
-     */
     loadbalancers: outputs.GetLbPoolsPoolLoadbalancer[];
-    /**
-     * Loadbalancer list. For details, see Data structure of the members field.
-     */
     members: outputs.GetLbPoolsPoolMember[];
-    /**
-     * The pool name.
-     */
     name: string;
     persistences: outputs.GetLbPoolsPoolPersistence[];
-    /**
-     * The protocol of pool.
-     */
+    protectionReason: string;
+    protectionStatus: string;
     protocol: string;
 }
 
 export interface GetLbPoolsPoolListener {
-    /**
-     * The listener ID.
-     */
     id: string;
 }
 
 export interface GetLbPoolsPoolLoadbalancer {
-    /**
-     * The loadbalancer ID.
-     */
     id: string;
 }
 
 export interface GetLbPoolsPoolMember {
-    /**
-     * The member ID.
-     */
     id: string;
 }
 
 export interface GetLbPoolsPoolPersistence {
-    /**
-     * The name of the cookie if persistence mode is set appropriately.
-     */
     cookieName: string;
-    /**
-     * The type of persistence mode.
-     */
+    timeout: number;
     type: string;
 }
 
@@ -6851,6 +10251,11 @@ export interface IdentityProviderConversionRuleRemote {
     values: string[];
 }
 
+export interface LbListenerInsertHeaders {
+    xForwardedElbIp: string;
+    xForwardedHost: string;
+}
+
 export interface LbPoolPersistence {
     cookieName?: string;
     timeout: number;
@@ -6859,12 +10264,16 @@ export interface LbPoolPersistence {
 
 export interface MapreduceClusterAnalysisCoreNodes {
     assignedRoles?: string[];
+    autoRenew?: string;
+    chargingMode: string;
     dataVolumeCount: number;
     dataVolumeSize?: number;
     dataVolumeType?: string;
     flavor: string;
     hostIps: string[];
     nodeNumber: number;
+    period?: number;
+    periodUnit?: string;
     rootVolumeSize: number;
     rootVolumeType: string;
 }
@@ -6937,6 +10346,8 @@ export interface MapreduceClusterComponentConfigConfig {
 
 export interface MapreduceClusterCustomNode {
     assignedRoles?: string[];
+    autoRenew?: string;
+    chargingMode: string;
     dataVolumeCount: number;
     dataVolumeSize?: number;
     dataVolumeType?: string;
@@ -6944,6 +10355,8 @@ export interface MapreduceClusterCustomNode {
     groupName: string;
     hostIps: string[];
     nodeNumber: number;
+    period?: number;
+    periodUnit?: string;
     rootVolumeSize: number;
     rootVolumeType: string;
 }
@@ -6957,12 +10370,16 @@ export interface MapreduceClusterExternalDatasource {
 
 export interface MapreduceClusterMasterNodes {
     assignedRoles?: string[];
+    autoRenew?: string;
+    chargingMode: string;
     dataVolumeCount: number;
     dataVolumeSize?: number;
     dataVolumeType?: string;
     flavor: string;
     hostIps: string[];
     nodeNumber: number;
+    period?: number;
+    periodUnit?: string;
     rootVolumeSize: number;
     rootVolumeType: string;
 }
@@ -6980,12 +10397,16 @@ export interface MapreduceClusterSmnNotify {
 
 export interface MapreduceClusterStreamingCoreNodes {
     assignedRoles?: string[];
+    autoRenew?: string;
+    chargingMode: string;
     dataVolumeCount: number;
     dataVolumeSize?: number;
     dataVolumeType?: string;
     flavor: string;
     hostIps: string[];
     nodeNumber: number;
+    period?: number;
+    periodUnit?: string;
     rootVolumeSize: number;
     rootVolumeType: string;
 }
@@ -7393,13 +10814,33 @@ export interface SfsTurboDuTaskDirUsageFileCount {
 }
 
 export interface SfsTurboObsTargetObs {
+    attributes?: outputs.SfsTurboObsTargetObsAttributes;
     bucket: string;
     endpoint: string;
+    policy?: outputs.SfsTurboObsTargetObsPolicy;
+}
+
+export interface SfsTurboObsTargetObsAttributes {
+    dirMode: string;
+    fileMode: string;
+    gid: number;
+    uid: number;
+}
+
+export interface SfsTurboObsTargetObsPolicy {
+    autoExportPolicy?: outputs.SfsTurboObsTargetObsPolicyAutoExportPolicy;
+}
+
+export interface SfsTurboObsTargetObsPolicyAutoExportPolicy {
+    events: string[];
+    prefix: string;
+    suffix: string;
 }
 
 export interface SmnSubscriptionExtension {
     clientId?: string;
     clientSecret?: string;
+    header?: {[key: string]: string};
     keyword?: string;
     signSecret?: string;
 }

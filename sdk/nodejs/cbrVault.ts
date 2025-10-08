@@ -77,6 +77,10 @@ export class CbrVault extends pulumi.CustomResource {
      */
     public readonly isMultiAz!: pulumi.Output<boolean>;
     /**
+     * Locked status of the vault.
+     */
+    public readonly locked!: pulumi.Output<boolean>;
+    /**
      * The name of the vault.
      */
     public readonly name!: pulumi.Output<string>;
@@ -153,6 +157,7 @@ export class CbrVault extends pulumi.CustomResource {
             resourceInputs["consistentLevel"] = state ? state.consistentLevel : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["isMultiAz"] = state ? state.isMultiAz : undefined;
+            resourceInputs["locked"] = state ? state.locked : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
             resourceInputs["periodUnit"] = state ? state.periodUnit : undefined;
@@ -190,6 +195,7 @@ export class CbrVault extends pulumi.CustomResource {
             resourceInputs["consistentLevel"] = args ? args.consistentLevel : undefined;
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
             resourceInputs["isMultiAz"] = args ? args.isMultiAz : undefined;
+            resourceInputs["locked"] = args ? args.locked : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["period"] = args ? args.period : undefined;
             resourceInputs["periodUnit"] = args ? args.periodUnit : undefined;
@@ -258,6 +264,10 @@ export interface CbrVaultState {
      * Whether multiple availability zones are used for backing up.
      */
     isMultiAz?: pulumi.Input<boolean>;
+    /**
+     * Locked status of the vault.
+     */
+    locked?: pulumi.Input<boolean>;
     /**
      * The name of the vault.
      */
@@ -353,6 +363,10 @@ export interface CbrVaultArgs {
      * Whether multiple availability zones are used for backing up.
      */
     isMultiAz?: pulumi.Input<boolean>;
+    /**
+     * Locked status of the vault.
+     */
+    locked?: pulumi.Input<boolean>;
     /**
      * The name of the vault.
      */

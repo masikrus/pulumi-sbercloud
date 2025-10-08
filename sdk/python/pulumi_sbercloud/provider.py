@@ -28,6 +28,7 @@ class ProviderArgs:
                  auth_url: Optional[pulumi.Input[builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  insecure: Optional[pulumi.Input[builtins.bool]] = None,
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
@@ -42,6 +43,7 @@ class ProviderArgs:
         :param pulumi.Input[builtins.str] access_key: The access key of the SberCloud to use.
         :param pulumi.Input[builtins.str] account_name: The name of the Account to login with.
         :param pulumi.Input[builtins.str] auth_url: The Identity authentication URL.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] endpoints: The custom endpoints used to override the default endpoint URL.
         :param pulumi.Input[builtins.bool] insecure: Trust self-signed certificates.
         :param pulumi.Input[builtins.str] password: Password to login with.
         :param pulumi.Input[builtins.str] project_name: The name of the Project to login with.
@@ -62,6 +64,8 @@ class ProviderArgs:
             pulumi.set(__self__, "domain_id", domain_id)
         if domain_name is not None:
             pulumi.set(__self__, "domain_name", domain_name)
+        if endpoints is not None:
+            pulumi.set(__self__, "endpoints", endpoints)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if insecure is not None:
@@ -153,6 +157,18 @@ class ProviderArgs:
     @domain_name.setter
     def domain_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "domain_name", value)
+
+    @property
+    @pulumi.getter
+    def endpoints(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The custom endpoints used to override the default endpoint URL.
+        """
+        return pulumi.get(self, "endpoints")
+
+    @endpoints.setter
+    def endpoints(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "endpoints", value)
 
     @property
     @pulumi.getter(name="enterpriseProjectId")
@@ -256,6 +272,7 @@ class Provider(pulumi.ProviderResource):
                  auth_url: Optional[pulumi.Input[builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  insecure: Optional[pulumi.Input[builtins.bool]] = None,
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
@@ -277,6 +294,7 @@ class Provider(pulumi.ProviderResource):
         :param pulumi.Input[builtins.str] access_key: The access key of the SberCloud to use.
         :param pulumi.Input[builtins.str] account_name: The name of the Account to login with.
         :param pulumi.Input[builtins.str] auth_url: The Identity authentication URL.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] endpoints: The custom endpoints used to override the default endpoint URL.
         :param pulumi.Input[builtins.bool] insecure: Trust self-signed certificates.
         :param pulumi.Input[builtins.str] password: Password to login with.
         :param pulumi.Input[builtins.str] project_name: The name of the Project to login with.
@@ -318,6 +336,7 @@ class Provider(pulumi.ProviderResource):
                  auth_url: Optional[pulumi.Input[builtins.str]] = None,
                  domain_id: Optional[pulumi.Input[builtins.str]] = None,
                  domain_name: Optional[pulumi.Input[builtins.str]] = None,
+                 endpoints: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  insecure: Optional[pulumi.Input[builtins.bool]] = None,
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
@@ -342,6 +361,7 @@ class Provider(pulumi.ProviderResource):
             __props__.__dict__["auth_url"] = auth_url
             __props__.__dict__["domain_id"] = domain_id
             __props__.__dict__["domain_name"] = domain_name
+            __props__.__dict__["endpoints"] = pulumi.Output.from_input(endpoints).apply(pulumi.runtime.to_json) if endpoints is not None else None
             __props__.__dict__["enterprise_project_id"] = enterprise_project_id
             __props__.__dict__["insecure"] = pulumi.Output.from_input(insecure).apply(pulumi.runtime.to_json) if insecure is not None else None
             __props__.__dict__["max_retries"] = pulumi.Output.from_input(max_retries).apply(pulumi.runtime.to_json) if max_retries is not None else None

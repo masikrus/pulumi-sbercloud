@@ -21,6 +21,8 @@ type ElbPool struct {
 	CreatedAt                 pulumi.StringOutput         `pulumi:"createdAt"`
 	DeletionProtectionEnable  pulumi.BoolPtrOutput        `pulumi:"deletionProtectionEnable"`
 	Description               pulumi.StringPtrOutput      `pulumi:"description"`
+	EnableForceNew            pulumi.StringPtrOutput      `pulumi:"enableForceNew"`
+	EnterpriseProjectId       pulumi.StringOutput         `pulumi:"enterpriseProjectId"`
 	IpVersion                 pulumi.StringOutput         `pulumi:"ipVersion"`
 	LbMethod                  pulumi.StringOutput         `pulumi:"lbMethod"`
 	ListenerId                pulumi.StringOutput         `pulumi:"listenerId"`
@@ -32,6 +34,7 @@ type ElbPool struct {
 	ProtectionReason          pulumi.StringPtrOutput      `pulumi:"protectionReason"`
 	ProtectionStatus          pulumi.StringOutput         `pulumi:"protectionStatus"`
 	Protocol                  pulumi.StringOutput         `pulumi:"protocol"`
+	PublicBorderGroup         pulumi.StringOutput         `pulumi:"publicBorderGroup"`
 	Region                    pulumi.StringOutput         `pulumi:"region"`
 	SlowStartDuration         pulumi.IntOutput            `pulumi:"slowStartDuration"`
 	SlowStartEnabled          pulumi.BoolOutput           `pulumi:"slowStartEnabled"`
@@ -82,6 +85,8 @@ type elbPoolState struct {
 	CreatedAt                 *string             `pulumi:"createdAt"`
 	DeletionProtectionEnable  *bool               `pulumi:"deletionProtectionEnable"`
 	Description               *string             `pulumi:"description"`
+	EnableForceNew            *string             `pulumi:"enableForceNew"`
+	EnterpriseProjectId       *string             `pulumi:"enterpriseProjectId"`
 	IpVersion                 *string             `pulumi:"ipVersion"`
 	LbMethod                  *string             `pulumi:"lbMethod"`
 	ListenerId                *string             `pulumi:"listenerId"`
@@ -93,6 +98,7 @@ type elbPoolState struct {
 	ProtectionReason          *string             `pulumi:"protectionReason"`
 	ProtectionStatus          *string             `pulumi:"protectionStatus"`
 	Protocol                  *string             `pulumi:"protocol"`
+	PublicBorderGroup         *string             `pulumi:"publicBorderGroup"`
 	Region                    *string             `pulumi:"region"`
 	SlowStartDuration         *int                `pulumi:"slowStartDuration"`
 	SlowStartEnabled          *bool               `pulumi:"slowStartEnabled"`
@@ -108,6 +114,8 @@ type ElbPoolState struct {
 	CreatedAt                 pulumi.StringPtrInput
 	DeletionProtectionEnable  pulumi.BoolPtrInput
 	Description               pulumi.StringPtrInput
+	EnableForceNew            pulumi.StringPtrInput
+	EnterpriseProjectId       pulumi.StringPtrInput
 	IpVersion                 pulumi.StringPtrInput
 	LbMethod                  pulumi.StringPtrInput
 	ListenerId                pulumi.StringPtrInput
@@ -119,6 +127,7 @@ type ElbPoolState struct {
 	ProtectionReason          pulumi.StringPtrInput
 	ProtectionStatus          pulumi.StringPtrInput
 	Protocol                  pulumi.StringPtrInput
+	PublicBorderGroup         pulumi.StringPtrInput
 	Region                    pulumi.StringPtrInput
 	SlowStartDuration         pulumi.IntPtrInput
 	SlowStartEnabled          pulumi.BoolPtrInput
@@ -137,6 +146,7 @@ type elbPoolArgs struct {
 	ConnectionDrainTimeout    *int                `pulumi:"connectionDrainTimeout"`
 	DeletionProtectionEnable  *bool               `pulumi:"deletionProtectionEnable"`
 	Description               *string             `pulumi:"description"`
+	EnableForceNew            *string             `pulumi:"enableForceNew"`
 	IpVersion                 *string             `pulumi:"ipVersion"`
 	LbMethod                  string              `pulumi:"lbMethod"`
 	ListenerId                *string             `pulumi:"listenerId"`
@@ -147,6 +157,7 @@ type elbPoolArgs struct {
 	ProtectionReason          *string             `pulumi:"protectionReason"`
 	ProtectionStatus          *string             `pulumi:"protectionStatus"`
 	Protocol                  string              `pulumi:"protocol"`
+	PublicBorderGroup         *string             `pulumi:"publicBorderGroup"`
 	Region                    *string             `pulumi:"region"`
 	SlowStartDuration         *int                `pulumi:"slowStartDuration"`
 	SlowStartEnabled          *bool               `pulumi:"slowStartEnabled"`
@@ -161,6 +172,7 @@ type ElbPoolArgs struct {
 	ConnectionDrainTimeout    pulumi.IntPtrInput
 	DeletionProtectionEnable  pulumi.BoolPtrInput
 	Description               pulumi.StringPtrInput
+	EnableForceNew            pulumi.StringPtrInput
 	IpVersion                 pulumi.StringPtrInput
 	LbMethod                  pulumi.StringInput
 	ListenerId                pulumi.StringPtrInput
@@ -171,6 +183,7 @@ type ElbPoolArgs struct {
 	ProtectionReason          pulumi.StringPtrInput
 	ProtectionStatus          pulumi.StringPtrInput
 	Protocol                  pulumi.StringInput
+	PublicBorderGroup         pulumi.StringPtrInput
 	Region                    pulumi.StringPtrInput
 	SlowStartDuration         pulumi.IntPtrInput
 	SlowStartEnabled          pulumi.BoolPtrInput
@@ -289,6 +302,14 @@ func (o ElbPoolOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElbPool) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o ElbPoolOutput) EnableForceNew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ElbPool) pulumi.StringPtrOutput { return v.EnableForceNew }).(pulumi.StringPtrOutput)
+}
+
+func (o ElbPoolOutput) EnterpriseProjectId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbPool) pulumi.StringOutput { return v.EnterpriseProjectId }).(pulumi.StringOutput)
+}
+
 func (o ElbPoolOutput) IpVersion() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbPool) pulumi.StringOutput { return v.IpVersion }).(pulumi.StringOutput)
 }
@@ -331,6 +352,10 @@ func (o ElbPoolOutput) ProtectionStatus() pulumi.StringOutput {
 
 func (o ElbPoolOutput) Protocol() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbPool) pulumi.StringOutput { return v.Protocol }).(pulumi.StringOutput)
+}
+
+func (o ElbPoolOutput) PublicBorderGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbPool) pulumi.StringOutput { return v.PublicBorderGroup }).(pulumi.StringOutput)
 }
 
 func (o ElbPoolOutput) Region() pulumi.StringOutput {

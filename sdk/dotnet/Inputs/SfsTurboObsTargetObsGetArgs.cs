@@ -12,11 +12,17 @@ namespace Pulumi.Sbercloud.Inputs
 
     public sealed class SfsTurboObsTargetObsGetArgs : global::Pulumi.ResourceArgs
     {
+        [Input("attributes")]
+        public Input<Inputs.SfsTurboObsTargetObsAttributesGetArgs>? Attributes { get; set; }
+
         [Input("bucket", required: true)]
         public Input<string> Bucket { get; set; } = null!;
 
         [Input("endpoint", required: true)]
         public Input<string> Endpoint { get; set; } = null!;
+
+        [Input("policy")]
+        public Input<Inputs.SfsTurboObsTargetObsPolicyGetArgs>? Policy { get; set; }
 
         public SfsTurboObsTargetObsGetArgs()
         {

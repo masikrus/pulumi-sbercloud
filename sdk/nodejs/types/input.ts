@@ -569,8 +569,17 @@ export interface ApiGatewayGroupEnvironmentVariable {
 }
 
 export interface ApiGatewayGroupUrlDomain {
+    /**
+     * Whether to enable redirection from HTTP to HTTPS.
+     */
     isHttpRedirectToHttps?: pulumi.Input<boolean>;
+    /**
+     * The minimum SSL protocol version.
+     */
     minSslVersion?: pulumi.Input<string>;
+    /**
+     * The associated domain name.
+     */
     name: pulumi.Input<string>;
 }
 
@@ -1308,8 +1317,17 @@ export interface ApigGroupEnvironmentVariable {
 }
 
 export interface ApigGroupUrlDomain {
+    /**
+     * Whether to enable redirection from HTTP to HTTPS.
+     */
     isHttpRedirectToHttps?: pulumi.Input<boolean>;
+    /**
+     * The minimum SSL protocol version.
+     */
     minSslVersion?: pulumi.Input<string>;
+    /**
+     * The associated domain name.
+     */
     name: pulumi.Input<string>;
 }
 
@@ -1400,6 +1418,44 @@ export interface ApigThrottlingPolicyUserThrottle {
     throttlingObjectName?: pulumi.Input<string>;
 }
 
+export interface AsBandwidthPolicyIntervalAlarmAction {
+    /**
+     * Specifies the operation restrictions.
+     */
+    limits?: pulumi.Input<number>;
+    /**
+     * Specifies the lower limit of the value range.
+     */
+    lowerBound?: pulumi.Input<string>;
+    /**
+     * Specifies the operation to be performed.
+     */
+    operation?: pulumi.Input<string>;
+    /**
+     * Specifies the operation size.
+     */
+    size?: pulumi.Input<number>;
+    /**
+     * Specifies the upper limit of the value range.
+     */
+    upperBound?: pulumi.Input<string>;
+}
+
+export interface AsBandwidthPolicyMetaData {
+    /**
+     * The bandwidth sharing type in the bandwidth policy.
+     */
+    metadataBandwidthShareType?: pulumi.Input<string>;
+    /**
+     * The EIP IP address for the bandwidth in the bandwidth policy.
+     */
+    metadataEipAddress?: pulumi.Input<string>;
+    /**
+     * The EIP ID for the bandwidth in the bandwidth policy.
+     */
+    metadataEipId?: pulumi.Input<string>;
+}
+
 export interface AsBandwidthPolicyScalingPolicyAction {
     /**
      * Specifies the operation restrictions.
@@ -1448,6 +1504,7 @@ export interface AsConfigurationInstanceConfig {
     flavorPriorityPolicy?: pulumi.Input<string>;
     image?: pulumi.Input<string>;
     instanceId?: pulumi.Input<string>;
+    keyFingerprint?: pulumi.Input<string>;
     keyName?: pulumi.Input<string>;
     metadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     personalities?: pulumi.Input<pulumi.Input<inputs.AsConfigurationInstanceConfigPersonality>[]>;
@@ -1494,6 +1551,7 @@ export interface AsConfigurationInstanceConfigPublicIpEipBandwidth {
 }
 
 export interface AsGroupLbaasListener {
+    listenerId?: pulumi.Input<string>;
     poolId: pulumi.Input<string>;
     protocolPort: pulumi.Input<number>;
     protocolVersion?: pulumi.Input<string>;
@@ -1677,6 +1735,11 @@ export interface CceClusterComponentConfiguration {
     name: pulumi.Input<string>;
 }
 
+export interface CceClusterEncryptionConfig {
+    kmsKeyId?: pulumi.Input<string>;
+    mode?: pulumi.Input<string>;
+}
+
 export interface CceClusterExtendParam {
     clusterAz?: pulumi.Input<string>;
     cpuManagerPolicy?: pulumi.Input<string>;
@@ -1706,6 +1769,10 @@ export interface CceNodeAttachDataVolume {
     size?: pulumi.Input<number>;
     throughput?: pulumi.Input<number>;
     volumetype?: pulumi.Input<string>;
+}
+
+export interface CceNodeAttachExtensionNic {
+    subnetId?: pulumi.Input<string>;
 }
 
 export interface CceNodeAttachHostnameConfig {
@@ -2029,6 +2096,256 @@ export interface CesAlarmruleOkAction {
     type: pulumi.Input<string>;
 }
 
+export interface CfwAclRuleCustomService {
+    /**
+     * The destination port.
+     */
+    destPort: pulumi.Input<string>;
+    /**
+     * The protocol type.
+     */
+    protocol: pulumi.Input<number>;
+    /**
+     * The source port.
+     */
+    sourcePort: pulumi.Input<string>;
+}
+
+export interface CfwAclRuleCustomServiceGroups {
+    /**
+     * The IDs of the service groups.
+     */
+    groupIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The protocols used in the service groups.
+     */
+    protocols: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CfwAclRuleDestinationRegionList {
+    /**
+     * The Chinese description of the region.
+     */
+    descriptionCn?: pulumi.Input<string>;
+    /**
+     * The English description of the region.
+     */
+    descriptionEn?: pulumi.Input<string>;
+    /**
+     * The region ID.
+     */
+    regionId: pulumi.Input<string>;
+    /**
+     * The region type.
+     */
+    regionType: pulumi.Input<number>;
+}
+
+export interface CfwAclRulePredefinedServiceGroups {
+    /**
+     * The IDs of the service groups.
+     */
+    groupIds: pulumi.Input<pulumi.Input<string>[]>;
+    /**
+     * The protocols used in the service groups.
+     */
+    protocols: pulumi.Input<pulumi.Input<number>[]>;
+}
+
+export interface CfwAclRuleSequence {
+    /**
+     * Whether to pin on bottom.
+     */
+    bottom?: pulumi.Input<number>;
+    /**
+     * The ID of the rule that the added rule will follow.
+     */
+    destRuleId?: pulumi.Input<string>;
+    /**
+     * Whether to pin on top.
+     */
+    top?: pulumi.Input<number>;
+}
+
+export interface CfwAclRuleSourceRegionList {
+    /**
+     * The Chinese description of the region.
+     */
+    descriptionCn?: pulumi.Input<string>;
+    /**
+     * The English description of the region.
+     */
+    descriptionEn?: pulumi.Input<string>;
+    /**
+     * The region ID.
+     */
+    regionId: pulumi.Input<string>;
+    /**
+     * The region type.
+     */
+    regionType: pulumi.Input<number>;
+}
+
+export interface CfwAntiVirusScanProtocolConfig {
+    /**
+     * The antivirus action.
+     */
+    action: pulumi.Input<number>;
+    /**
+     * The protocol type.
+     */
+    protocolType: pulumi.Input<number>;
+}
+
+export interface CfwCaptureTaskDestination {
+    /**
+     * The address.
+     */
+    address: pulumi.Input<string>;
+    /**
+     * The address type.
+     */
+    addressType: pulumi.Input<number>;
+}
+
+export interface CfwCaptureTaskService {
+    /**
+     * The destination port.
+     */
+    destPort?: pulumi.Input<string>;
+    /**
+     * The protocol type.
+     */
+    protocol: pulumi.Input<number>;
+    /**
+     * The source port.
+     */
+    sourcePort?: pulumi.Input<string>;
+}
+
+export interface CfwCaptureTaskSource {
+    /**
+     * The address.
+     */
+    address: pulumi.Input<string>;
+    /**
+     * The address type.
+     */
+    addressType: pulumi.Input<number>;
+}
+
+export interface CfwDomainNameGroupDomainName {
+    /**
+     * Specifies the description.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * The DNS IP list.
+     */
+    dnsIps?: pulumi.Input<string>;
+    /**
+     * The domain address ID.
+     */
+    domainAddressId?: pulumi.Input<string>;
+    /**
+     * Specifies the domain name.
+     */
+    domainName: pulumi.Input<string>;
+}
+
+export interface CfwEipProtectionProtectedEip {
+    /**
+     * The ID of the protected EIP.
+     */
+    id: pulumi.Input<string>;
+    /**
+     * The IPv4 address of the protected EIP.
+     */
+    publicIpv4?: pulumi.Input<string>;
+    /**
+     * The IPv6 address of the protected EIP.
+     */
+    publicIpv6?: pulumi.Input<string>;
+}
+
+export interface CfwFirewallFlavor {
+    /**
+     * Specifies the bandwidth of the firewall.
+     */
+    bandwidth?: pulumi.Input<number>;
+    /**
+     * Specifies the default bandwidth of the firewall.
+     */
+    defaultBandwidth?: pulumi.Input<number>;
+    /**
+     * Specifies the default EIP number of the firewall.
+     */
+    defaultEipCount?: pulumi.Input<number>;
+    /**
+     * Specifies the default log storage of the firewall.
+     */
+    defaultLogStorage?: pulumi.Input<number>;
+    /**
+     * Specifies the default VPC number of the firewall.
+     */
+    defaultVpcCount?: pulumi.Input<number>;
+    /**
+     * Specifies the EIP number of the firewall.
+     */
+    eipCount?: pulumi.Input<number>;
+    /**
+     * Specifies the extend bandwidth of the firewall.
+     */
+    extendBandwidth?: pulumi.Input<number>;
+    /**
+     * Specifies the extend EIP number of the firewall.
+     */
+    extendEipCount?: pulumi.Input<number>;
+    /**
+     * Specifies the extend VPC number of the firewall.
+     */
+    extendVpcCount?: pulumi.Input<number>;
+    /**
+     * Specifies the log storage of the firewall.
+     */
+    logStorage?: pulumi.Input<number>;
+    /**
+     * Specifies the total rule count of the firewall.
+     */
+    totalRuleCount?: pulumi.Input<number>;
+    /**
+     * Specifies the used rule count of the firewall.
+     */
+    usedRuleCount?: pulumi.Input<number>;
+    /**
+     * Specifies the version of the firewall.
+     */
+    version: pulumi.Input<string>;
+    /**
+     * Specifies the VPC bandwidth of the firewall.
+     */
+    vpcBandwidth?: pulumi.Input<number>;
+    /**
+     * Specifies the VPC number of the firewall.
+     */
+    vpcCount?: pulumi.Input<number>;
+}
+
+export interface CfwFirewallProtectObject {
+    /**
+     * Protected object ID
+     */
+    objectId?: pulumi.Input<string>;
+    /**
+     * Protected object name
+     */
+    objectName?: pulumi.Input<string>;
+    /**
+     * Project type. The options are as follows: 0: north-south; 1: east-west.
+     */
+    type?: pulumi.Input<number>;
+}
+
 export interface ComputeInstanceBandwidth {
     chargeMode?: pulumi.Input<string>;
     extendParam?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -2095,14 +2412,74 @@ export interface CssClusterBackupStrategy {
     startTime: pulumi.Input<string>;
 }
 
+export interface CssClusterClientNodeConfig {
+    flavor: pulumi.Input<string>;
+    instanceNumber: pulumi.Input<number>;
+    shrinkNodeIds?: pulumi.Input<pulumi.Input<string>[]>;
+    volume: pulumi.Input<inputs.CssClusterClientNodeConfigVolume>;
+}
+
+export interface CssClusterClientNodeConfigVolume {
+    size: pulumi.Input<number>;
+    volumeType: pulumi.Input<string>;
+}
+
+export interface CssClusterColdNodeConfig {
+    flavor: pulumi.Input<string>;
+    instanceNumber: pulumi.Input<number>;
+    shrinkNodeIds?: pulumi.Input<pulumi.Input<string>[]>;
+    volume?: pulumi.Input<inputs.CssClusterColdNodeConfigVolume>;
+}
+
+export interface CssClusterColdNodeConfigVolume {
+    size: pulumi.Input<number>;
+    volumeType: pulumi.Input<string>;
+}
+
+export interface CssClusterEssNodeConfig {
+    flavor: pulumi.Input<string>;
+    instanceNumber: pulumi.Input<number>;
+    shrinkNodeIds?: pulumi.Input<pulumi.Input<string>[]>;
+    volume?: pulumi.Input<inputs.CssClusterEssNodeConfigVolume>;
+}
+
+export interface CssClusterEssNodeConfigVolume {
+    size: pulumi.Input<number>;
+    volumeType: pulumi.Input<string>;
+}
+
+export interface CssClusterKibanaPublicAccess {
+    bandwidth: pulumi.Input<number>;
+    publicIp?: pulumi.Input<string>;
+    whitelist?: pulumi.Input<string>;
+    whitelistEnabled: pulumi.Input<boolean>;
+}
+
+export interface CssClusterMasterNodeConfig {
+    flavor: pulumi.Input<string>;
+    instanceNumber: pulumi.Input<number>;
+    shrinkNodeIds?: pulumi.Input<pulumi.Input<string>[]>;
+    volume: pulumi.Input<inputs.CssClusterMasterNodeConfigVolume>;
+}
+
+export interface CssClusterMasterNodeConfigVolume {
+    size: pulumi.Input<number>;
+    volumeType: pulumi.Input<string>;
+}
+
 export interface CssClusterNode {
+    availabilityZone?: pulumi.Input<string>;
     id?: pulumi.Input<string>;
+    ip?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    resourceId?: pulumi.Input<string>;
+    specCode?: pulumi.Input<string>;
+    status?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
 }
 
 export interface CssClusterNodeConfig {
-    availabilityZone?: pulumi.Input<string>;
+    availabilityZone: pulumi.Input<string>;
     flavor: pulumi.Input<string>;
     networkInfo: pulumi.Input<inputs.CssClusterNodeConfigNetworkInfo>;
     volume: pulumi.Input<inputs.CssClusterNodeConfigVolume>;
@@ -2117,6 +2494,18 @@ export interface CssClusterNodeConfigNetworkInfo {
 export interface CssClusterNodeConfigVolume {
     size: pulumi.Input<number>;
     volumeType: pulumi.Input<string>;
+}
+
+export interface CssClusterPublicAccess {
+    bandwidth: pulumi.Input<number>;
+    publicIp?: pulumi.Input<string>;
+    whitelist?: pulumi.Input<string>;
+    whitelistEnabled: pulumi.Input<boolean>;
+}
+
+export interface CssClusterVpcepEndpoint {
+    endpointWithDnsName: pulumi.Input<boolean>;
+    whitelists?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
 export interface CtsNotificationFilter {
@@ -2288,6 +2677,74 @@ export interface DdsInstanceNode {
     type?: pulumi.Input<string>;
 }
 
+export interface DdsParameterTemplateCompareDifference {
+    parameterName?: pulumi.Input<string>;
+    sourceValue?: pulumi.Input<string>;
+    targetValue?: pulumi.Input<string>;
+}
+
+export interface DdsParameterTemplateCopyParameter {
+    /**
+     * Indicates the parameter description.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Indicates the parameter name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Indicates whether the parameter is read-only.
+     */
+    readonly?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the instance needs to be restarted.
+     */
+    restartRequired?: pulumi.Input<boolean>;
+    /**
+     * Indicates the parameter type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Indicates the parameter value.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * Indicates the value range.
+     */
+    valueRange?: pulumi.Input<string>;
+}
+
+export interface DdsParameterTemplateParameter {
+    /**
+     * Indicates the parameter description.
+     */
+    description?: pulumi.Input<string>;
+    /**
+     * Indicates the parameter name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Indicates whether the parameter is read-only.
+     */
+    readonly?: pulumi.Input<boolean>;
+    /**
+     * Indicates whether the instance needs to be restarted.
+     */
+    restartRequired?: pulumi.Input<boolean>;
+    /**
+     * Indicates the parameter type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Indicates the parameter value.
+     */
+    value?: pulumi.Input<string>;
+    /**
+     * Indicates the value range.
+     */
+    valueRange?: pulumi.Input<string>;
+}
+
 export interface DisStreamPartition {
     hashRange?: pulumi.Input<string>;
     id?: pulumi.Input<string>;
@@ -2369,6 +2826,232 @@ export interface DmsKafkaPermissionsPolicy {
 export interface DmsKafkaTopicConfig {
     name: pulumi.Input<string>;
     value: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqConsumptionVerifyResendResult {
+    /**
+     * Indicates the error code.
+     */
+    errorCode?: pulumi.Input<string>;
+    /**
+     * Indicates the error message.
+     */
+    errorMessage?: pulumi.Input<string>;
+    /**
+     * Indicates the message ID.
+     */
+    messageId?: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqDeadLetterResendResendResult {
+    /**
+     * Indicates the error code.
+     */
+    errorCode?: pulumi.Input<string>;
+    /**
+     * Indicates the error message.
+     */
+    errorMessage?: pulumi.Input<string>;
+    /**
+     * Indicates the message ID.
+     */
+    messageId?: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqInstanceConfig {
+    name: pulumi.Input<string>;
+    value: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqInstanceCrossVpcAccess {
+    advertisedIp?: pulumi.Input<string>;
+    /**
+     * @deprecated typo in lisenter_ip, please use "listenerIp" instead.
+     */
+    lisenterIp?: pulumi.Input<string>;
+    listenerIp?: pulumi.Input<string>;
+    port?: pulumi.Input<number>;
+    portId?: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqMigrationTaskBinding {
+    /**
+     * Specifies the message target.
+     */
+    destination?: pulumi.Input<string>;
+    /**
+     * Specifies the message target type.
+     */
+    destinationType?: pulumi.Input<string>;
+    /**
+     * Specifies the routing key.
+     */
+    routingKey?: pulumi.Input<string>;
+    /**
+     * Specifies the message source.
+     */
+    source?: pulumi.Input<string>;
+    /**
+     * Specifies the virtual host name.
+     */
+    vhost?: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqMigrationTaskExchange {
+    /**
+     * Specifies whether to enable data persistence.
+     */
+    durable?: pulumi.Input<boolean>;
+    /**
+     * Specifies the switch name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Specifies the exchange type.
+     */
+    type?: pulumi.Input<string>;
+    /**
+     * Specifies the virtual host name.
+     */
+    vhost?: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqMigrationTaskQueue {
+    /**
+     * Specifies whether to enable data persistence.
+     */
+    durable?: pulumi.Input<boolean>;
+    /**
+     * Specifies the queue name.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Specifies the virtual host name.
+     */
+    vhost?: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqMigrationTaskSubscriptionGroup {
+    /**
+     * Specifies whether to enable broadcast.
+     */
+    consumeBroadcastEnable?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to enable consumption.
+     */
+    consumeEnable?: pulumi.Input<boolean>;
+    /**
+     * Specifies whether to enable consumption from the earliest offset.
+     */
+    consumeFromMinEnable?: pulumi.Input<boolean>;
+    /**
+     * Specifies the name of a consumer group.
+     */
+    groupName: pulumi.Input<string>;
+    /**
+     * Specifies whether to notify changes of consumer IDs.
+     */
+    notifyConsumeridsChangedEnable?: pulumi.Input<boolean>;
+    /**
+     * Specifies the maximum number of consumption retries.
+     */
+    retryMaxTimes?: pulumi.Input<number>;
+    /**
+     * Specifies the number of retry queues.
+     */
+    retryQueueNum?: pulumi.Input<number>;
+    /**
+     * Specifies the ID of the broker selected for slow consumption.
+     */
+    whichBrokerWhenConsumeSlow?: pulumi.Input<number>;
+}
+
+export interface DmsRocketmqMigrationTaskTopicConfig {
+    /**
+     * Specifies whether a message is an ordered message.
+     */
+    order?: pulumi.Input<boolean>;
+    /**
+     * Specifies the number of permission.
+     */
+    perm?: pulumi.Input<number>;
+    /**
+     * Specifies the number of read queues.
+     */
+    readQueueNum?: pulumi.Input<number>;
+    /**
+     * Specifies the filter type of a topic.
+     */
+    topicFilterType?: pulumi.Input<string>;
+    /**
+     * Specifies the topic name.
+     */
+    topicName: pulumi.Input<string>;
+    /**
+     * Specifies the system flag of a topic.
+     */
+    topicSysFlag?: pulumi.Input<number>;
+    /**
+     * Specifies the number of write queues.
+     */
+    writeQueueNum?: pulumi.Input<number>;
+}
+
+export interface DmsRocketmqMigrationTaskVhost {
+    /**
+     * Specifies the virtual host name.
+     */
+    name?: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqTopicBroker {
+    /**
+     * Indicates the name of the broker.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Indicates the read queues number of the broker.
+     */
+    readQueueNum?: pulumi.Input<number>;
+    /**
+     * Indicates the read queues number of the broker.
+     */
+    writeQueueNum?: pulumi.Input<number>;
+}
+
+export interface DmsRocketmqTopicQueue {
+    /**
+     * Specifies the associated broker.
+     */
+    broker?: pulumi.Input<string>;
+    /**
+     * Specifies the number of the queues.
+     */
+    queueNum?: pulumi.Input<number>;
+}
+
+export interface DmsRocketmqUserGroupPerm {
+    /**
+     * Indicates the name of a topic or consumer group.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Indicates the permissions of the topic or consumer group.
+     * Value options: **PUB|SUB**, **PUB**, **SUB**, **DENY**.
+     */
+    perm?: pulumi.Input<string>;
+}
+
+export interface DmsRocketmqUserTopicPerm {
+    /**
+     * Indicates the name of a topic or consumer group.
+     */
+    name?: pulumi.Input<string>;
+    /**
+     * Indicates the permissions of the topic or consumer group.
+     * Value options: **PUB|SUB**, **PUB**, **SUB**, **DENY**.
+     */
+    perm?: pulumi.Input<string>;
 }
 
 export interface DnsZoneRouter {
@@ -2637,6 +3320,24 @@ export interface ElbListenerPortRange {
     startPort: pulumi.Input<number>;
 }
 
+export interface ElbMemberReason {
+    expectedResponse?: pulumi.Input<string>;
+    healthcheckResponse?: pulumi.Input<string>;
+    reasonCode?: pulumi.Input<string>;
+}
+
+export interface ElbMemberStatus {
+    listenerId?: pulumi.Input<string>;
+    operatingStatus?: pulumi.Input<string>;
+    reasons?: pulumi.Input<pulumi.Input<inputs.ElbMemberStatusReason>[]>;
+}
+
+export interface ElbMemberStatusReason {
+    expectedResponse?: pulumi.Input<string>;
+    healthcheckResponse?: pulumi.Input<string>;
+    reasonCode?: pulumi.Input<string>;
+}
+
 export interface ElbPoolPersistence {
     cookieName?: pulumi.Input<string>;
     timeout?: pulumi.Input<number>;
@@ -2648,9 +3349,106 @@ export interface ElbSecurityPolicyListener {
 }
 
 export interface EvsVolumeAttachment {
+    attachedAt?: pulumi.Input<string>;
+    attachedVolumeId?: pulumi.Input<string>;
     device?: pulumi.Input<string>;
+    hostName?: pulumi.Input<string>;
     id?: pulumi.Input<string>;
     instanceId?: pulumi.Input<string>;
+    volumeId?: pulumi.Input<string>;
+}
+
+export interface EvsVolumeIopsAttribute {
+    frozened?: pulumi.Input<boolean>;
+    id?: pulumi.Input<string>;
+    totalVal?: pulumi.Input<number>;
+}
+
+export interface EvsVolumeLink {
+    href?: pulumi.Input<string>;
+    rel?: pulumi.Input<string>;
+}
+
+export interface EvsVolumeThroughputAttribute {
+    frozened?: pulumi.Input<boolean>;
+    id?: pulumi.Input<string>;
+    totalVal?: pulumi.Input<number>;
+}
+
+export interface FgsApplicationRepository {
+    /**
+     * The HTTP address of the repository.
+     */
+    httpsUrl?: pulumi.Input<string>;
+    /**
+     * The project ID of the repository.
+     */
+    projectId?: pulumi.Input<string>;
+    /**
+     * The repository status.
+     */
+    status?: pulumi.Input<string>;
+    /**
+     * The repository link.
+     */
+    webUrl?: pulumi.Input<string>;
+}
+
+export interface FgsApplicationStackResource {
+    /**
+     * The cloud service name.
+     */
+    displayName?: pulumi.Input<string>;
+    /**
+     * The hyperlink.
+     */
+    href?: pulumi.Input<string>;
+    /**
+     * The logical resource name.
+     */
+    logicalResourceName?: pulumi.Input<string>;
+    /**
+     * The logical resource type.
+     */
+    logicalResourceType?: pulumi.Input<string>;
+    /**
+     * The physical resource ID.
+     */
+    physicalResourceId?: pulumi.Input<string>;
+    /**
+     * The physical resource name.
+     */
+    physicalResourceName?: pulumi.Input<string>;
+    /**
+     * The status of resource.
+     */
+    resourceStatus?: pulumi.Input<string>;
+    /**
+     * The status information.
+     */
+    statusMessage?: pulumi.Input<string>;
+}
+
+export interface FgsAsyncInvokeConfigurationOnFailure {
+    /**
+     * The object type.
+     */
+    destination: pulumi.Input<string>;
+    /**
+     * The parameters (in JSON format) corresponding to the target service.
+     */
+    param: pulumi.Input<string>;
+}
+
+export interface FgsAsyncInvokeConfigurationOnSuccess {
+    /**
+     * The object type.
+     */
+    destination: pulumi.Input<string>;
+    /**
+     * The parameters (in JSON format) corresponding to the target service.
+     */
+    param: pulumi.Input<string>;
 }
 
 export interface FgsFunctionCustomImage {
@@ -2711,14 +3509,18 @@ export interface FgsFunctionNetworkController {
     /**
      * The configuration of the VPCs that can trigger the function.
      */
-    triggerAccessVpcs: pulumi.Input<pulumi.Input<inputs.FgsFunctionNetworkControllerTriggerAccessVpc>[]>;
+    triggerAccessVpcs?: pulumi.Input<pulumi.Input<inputs.FgsFunctionNetworkControllerTriggerAccessVpc>[]>;
 }
 
 export interface FgsFunctionNetworkControllerTriggerAccessVpc {
     /**
      * The ID of the VPC that can trigger the function.
      */
-    vpcId: pulumi.Input<string>;
+    vpcId?: pulumi.Input<string>;
+    /**
+     * The ID of the VPC that can trigger the function.
+     */
+    vpcName?: pulumi.Input<string>;
 }
 
 export interface FgsFunctionReservedInstance {
@@ -2933,6 +3735,11 @@ export interface IdentityProviderConversionRuleRemote {
     values?: pulumi.Input<pulumi.Input<string>[]>;
 }
 
+export interface LbListenerInsertHeaders {
+    xForwardedElbIp?: pulumi.Input<string>;
+    xForwardedHost?: pulumi.Input<string>;
+}
+
 export interface LbPoolPersistence {
     cookieName?: pulumi.Input<string>;
     timeout?: pulumi.Input<number>;
@@ -2941,12 +3748,16 @@ export interface LbPoolPersistence {
 
 export interface MapreduceClusterAnalysisCoreNodes {
     assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    autoRenew?: pulumi.Input<string>;
+    chargingMode?: pulumi.Input<string>;
     dataVolumeCount: pulumi.Input<number>;
     dataVolumeSize?: pulumi.Input<number>;
     dataVolumeType?: pulumi.Input<string>;
     flavor: pulumi.Input<string>;
     hostIps?: pulumi.Input<pulumi.Input<string>[]>;
     nodeNumber: pulumi.Input<number>;
+    period?: pulumi.Input<number>;
+    periodUnit?: pulumi.Input<string>;
     rootVolumeSize: pulumi.Input<number>;
     rootVolumeType: pulumi.Input<string>;
 }
@@ -3019,6 +3830,8 @@ export interface MapreduceClusterComponentConfigConfig {
 
 export interface MapreduceClusterCustomNode {
     assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    autoRenew?: pulumi.Input<string>;
+    chargingMode?: pulumi.Input<string>;
     dataVolumeCount: pulumi.Input<number>;
     dataVolumeSize?: pulumi.Input<number>;
     dataVolumeType?: pulumi.Input<string>;
@@ -3026,6 +3839,8 @@ export interface MapreduceClusterCustomNode {
     groupName: pulumi.Input<string>;
     hostIps?: pulumi.Input<pulumi.Input<string>[]>;
     nodeNumber: pulumi.Input<number>;
+    period?: pulumi.Input<number>;
+    periodUnit?: pulumi.Input<string>;
     rootVolumeSize: pulumi.Input<number>;
     rootVolumeType: pulumi.Input<string>;
 }
@@ -3039,12 +3854,16 @@ export interface MapreduceClusterExternalDatasource {
 
 export interface MapreduceClusterMasterNodes {
     assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    autoRenew?: pulumi.Input<string>;
+    chargingMode?: pulumi.Input<string>;
     dataVolumeCount: pulumi.Input<number>;
     dataVolumeSize?: pulumi.Input<number>;
     dataVolumeType?: pulumi.Input<string>;
     flavor: pulumi.Input<string>;
     hostIps?: pulumi.Input<pulumi.Input<string>[]>;
     nodeNumber: pulumi.Input<number>;
+    period?: pulumi.Input<number>;
+    periodUnit?: pulumi.Input<string>;
     rootVolumeSize: pulumi.Input<number>;
     rootVolumeType: pulumi.Input<string>;
 }
@@ -3062,12 +3881,16 @@ export interface MapreduceClusterSmnNotify {
 
 export interface MapreduceClusterStreamingCoreNodes {
     assignedRoles?: pulumi.Input<pulumi.Input<string>[]>;
+    autoRenew?: pulumi.Input<string>;
+    chargingMode?: pulumi.Input<string>;
     dataVolumeCount: pulumi.Input<number>;
     dataVolumeSize?: pulumi.Input<number>;
     dataVolumeType?: pulumi.Input<string>;
     flavor: pulumi.Input<string>;
     hostIps?: pulumi.Input<pulumi.Input<string>[]>;
     nodeNumber: pulumi.Input<number>;
+    period?: pulumi.Input<number>;
+    periodUnit?: pulumi.Input<string>;
     rootVolumeSize: pulumi.Input<number>;
     rootVolumeType: pulumi.Input<string>;
 }
@@ -3480,13 +4303,33 @@ export interface SfsTurboDuTaskDirUsageFileCount {
 }
 
 export interface SfsTurboObsTargetObs {
+    attributes?: pulumi.Input<inputs.SfsTurboObsTargetObsAttributes>;
     bucket: pulumi.Input<string>;
     endpoint: pulumi.Input<string>;
+    policy?: pulumi.Input<inputs.SfsTurboObsTargetObsPolicy>;
+}
+
+export interface SfsTurboObsTargetObsAttributes {
+    dirMode?: pulumi.Input<string>;
+    fileMode?: pulumi.Input<string>;
+    gid?: pulumi.Input<number>;
+    uid?: pulumi.Input<number>;
+}
+
+export interface SfsTurboObsTargetObsPolicy {
+    autoExportPolicy?: pulumi.Input<inputs.SfsTurboObsTargetObsPolicyAutoExportPolicy>;
+}
+
+export interface SfsTurboObsTargetObsPolicyAutoExportPolicy {
+    events?: pulumi.Input<pulumi.Input<string>[]>;
+    prefix?: pulumi.Input<string>;
+    suffix?: pulumi.Input<string>;
 }
 
 export interface SmnSubscriptionExtension {
     clientId?: pulumi.Input<string>;
     clientSecret?: pulumi.Input<string>;
+    header?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     keyword?: pulumi.Input<string>;
     signSecret?: pulumi.Input<string>;
 }

@@ -13,6 +13,12 @@ namespace Pulumi.Sbercloud
     public partial class AsBandwidthPolicy : global::Pulumi.CustomResource
     {
         /// <summary>
+        /// Specifies identification of operation the AS bandwidth policy.
+        /// </summary>
+        [Output("action")]
+        public Output<string?> Action { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the alarm rule ID.
         /// </summary>
         [Output("alarmId")]
@@ -31,10 +37,28 @@ namespace Pulumi.Sbercloud
         public Output<int> CoolDownTime { get; private set; } = null!;
 
         /// <summary>
+        /// The creation time of the bandwidth policy.
+        /// </summary>
+        [Output("createTime")]
+        public Output<string> CreateTime { get; private set; } = null!;
+
+        /// <summary>
         /// Specifies the description of the AS policy.
         /// </summary>
         [Output("description")]
         public Output<string> Description { get; private set; } = null!;
+
+        /// <summary>
+        /// Specifies the alarm interval of the bandwidth policy.
+        /// </summary>
+        [Output("intervalAlarmActions")]
+        public Output<ImmutableArray<Outputs.AsBandwidthPolicyIntervalAlarmAction>> IntervalAlarmActions { get; private set; } = null!;
+
+        /// <summary>
+        /// The bandwidth policy additional information.
+        /// </summary>
+        [Output("metaDatas")]
+        public Output<ImmutableArray<Outputs.AsBandwidthPolicyMetaData>> MetaDatas { get; private set; } = null!;
 
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
@@ -116,6 +140,12 @@ namespace Pulumi.Sbercloud
     public sealed class AsBandwidthPolicyArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies identification of operation the AS bandwidth policy.
+        /// </summary>
+        [Input("action")]
+        public Input<string>? Action { get; set; }
+
+        /// <summary>
         /// Specifies the alarm rule ID.
         /// </summary>
         [Input("alarmId")]
@@ -138,6 +168,18 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("intervalAlarmActions")]
+        private InputList<Inputs.AsBandwidthPolicyIntervalAlarmActionArgs>? _intervalAlarmActions;
+
+        /// <summary>
+        /// Specifies the alarm interval of the bandwidth policy.
+        /// </summary>
+        public InputList<Inputs.AsBandwidthPolicyIntervalAlarmActionArgs> IntervalAlarmActions
+        {
+            get => _intervalAlarmActions ?? (_intervalAlarmActions = new InputList<Inputs.AsBandwidthPolicyIntervalAlarmActionArgs>());
+            set => _intervalAlarmActions = value;
+        }
 
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -169,6 +211,12 @@ namespace Pulumi.Sbercloud
     public sealed class AsBandwidthPolicyState : global::Pulumi.ResourceArgs
     {
         /// <summary>
+        /// Specifies identification of operation the AS bandwidth policy.
+        /// </summary>
+        [Input("action")]
+        public Input<string>? Action { get; set; }
+
+        /// <summary>
         /// Specifies the alarm rule ID.
         /// </summary>
         [Input("alarmId")]
@@ -187,10 +235,40 @@ namespace Pulumi.Sbercloud
         public Input<int>? CoolDownTime { get; set; }
 
         /// <summary>
+        /// The creation time of the bandwidth policy.
+        /// </summary>
+        [Input("createTime")]
+        public Input<string>? CreateTime { get; set; }
+
+        /// <summary>
         /// Specifies the description of the AS policy.
         /// </summary>
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("intervalAlarmActions")]
+        private InputList<Inputs.AsBandwidthPolicyIntervalAlarmActionGetArgs>? _intervalAlarmActions;
+
+        /// <summary>
+        /// Specifies the alarm interval of the bandwidth policy.
+        /// </summary>
+        public InputList<Inputs.AsBandwidthPolicyIntervalAlarmActionGetArgs> IntervalAlarmActions
+        {
+            get => _intervalAlarmActions ?? (_intervalAlarmActions = new InputList<Inputs.AsBandwidthPolicyIntervalAlarmActionGetArgs>());
+            set => _intervalAlarmActions = value;
+        }
+
+        [Input("metaDatas")]
+        private InputList<Inputs.AsBandwidthPolicyMetaDataGetArgs>? _metaDatas;
+
+        /// <summary>
+        /// The bandwidth policy additional information.
+        /// </summary>
+        public InputList<Inputs.AsBandwidthPolicyMetaDataGetArgs> MetaDatas
+        {
+            get => _metaDatas ?? (_metaDatas = new InputList<Inputs.AsBandwidthPolicyMetaDataGetArgs>());
+            set => _metaDatas = value;
+        }
 
         [Input("region")]
         public Input<string>? Region { get; set; }

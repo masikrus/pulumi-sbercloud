@@ -15,8 +15,14 @@ namespace Pulumi.Sbercloud.Inputs
         /// <summary>
         /// The ID of the VPC that can trigger the function.
         /// </summary>
-        [Input("vpcId", required: true)]
-        public Input<string> VpcId { get; set; } = null!;
+        [Input("vpcId")]
+        public Input<string>? VpcId { get; set; }
+
+        /// <summary>
+        /// The ID of the VPC that can trigger the function.
+        /// </summary>
+        [Input("vpcName")]
+        public Input<string>? VpcName { get; set; }
 
         public FgsFunctionNetworkControllerTriggerAccessVpcGetArgs()
         {

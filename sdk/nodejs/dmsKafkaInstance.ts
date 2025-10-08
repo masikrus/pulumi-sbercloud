@@ -70,6 +70,10 @@ export class DmsKafkaInstance extends pulumi.CustomResource {
     public /*out*/ readonly ipv6ConnectAddresses!: pulumi.Output<string[]>;
     public readonly ipv6Enable!: pulumi.Output<boolean>;
     public /*out*/ readonly isLogicalVolume!: pulumi.Output<boolean>;
+    /**
+     * schema: Internal
+     */
+    public readonly kmsEncryptedPassword!: pulumi.Output<string | undefined>;
     public readonly maintainBegin!: pulumi.Output<string>;
     public readonly maintainEnd!: pulumi.Output<string>;
     /**
@@ -165,6 +169,7 @@ export class DmsKafkaInstance extends pulumi.CustomResource {
             resourceInputs["ipv6ConnectAddresses"] = state ? state.ipv6ConnectAddresses : undefined;
             resourceInputs["ipv6Enable"] = state ? state.ipv6Enable : undefined;
             resourceInputs["isLogicalVolume"] = state ? state.isLogicalVolume : undefined;
+            resourceInputs["kmsEncryptedPassword"] = state ? state.kmsEncryptedPassword : undefined;
             resourceInputs["maintainBegin"] = state ? state.maintainBegin : undefined;
             resourceInputs["maintainEnd"] = state ? state.maintainEnd : undefined;
             resourceInputs["managementConnectAddress"] = state ? state.managementConnectAddress : undefined;
@@ -241,6 +246,7 @@ export class DmsKafkaInstance extends pulumi.CustomResource {
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
             resourceInputs["flavorId"] = args ? args.flavorId : undefined;
             resourceInputs["ipv6Enable"] = args ? args.ipv6Enable : undefined;
+            resourceInputs["kmsEncryptedPassword"] = args?.kmsEncryptedPassword ? pulumi.secret(args.kmsEncryptedPassword) : undefined;
             resourceInputs["maintainBegin"] = args ? args.maintainBegin : undefined;
             resourceInputs["maintainEnd"] = args ? args.maintainEnd : undefined;
             resourceInputs["managerPassword"] = args?.managerPassword ? pulumi.secret(args.managerPassword) : undefined;
@@ -295,7 +301,7 @@ export class DmsKafkaInstance extends pulumi.CustomResource {
             resourceInputs["userName"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
-        const secretOpts = { additionalSecretOutputs: ["managerPassword", "password"] };
+        const secretOpts = { additionalSecretOutputs: ["kmsEncryptedPassword", "managerPassword", "password"] };
         opts = pulumi.mergeOptions(opts, secretOpts);
         super(DmsKafkaInstance.__pulumiType, name, resourceInputs, opts);
     }
@@ -341,6 +347,10 @@ export interface DmsKafkaInstanceState {
     ipv6ConnectAddresses?: pulumi.Input<pulumi.Input<string>[]>;
     ipv6Enable?: pulumi.Input<boolean>;
     isLogicalVolume?: pulumi.Input<boolean>;
+    /**
+     * schema: Internal
+     */
+    kmsEncryptedPassword?: pulumi.Input<string>;
     maintainBegin?: pulumi.Input<string>;
     maintainEnd?: pulumi.Input<string>;
     /**
@@ -427,6 +437,10 @@ export interface DmsKafkaInstanceArgs {
     enterpriseProjectId?: pulumi.Input<string>;
     flavorId?: pulumi.Input<string>;
     ipv6Enable?: pulumi.Input<boolean>;
+    /**
+     * schema: Internal
+     */
+    kmsEncryptedPassword?: pulumi.Input<string>;
     maintainBegin?: pulumi.Input<string>;
     maintainEnd?: pulumi.Input<string>;
     /**

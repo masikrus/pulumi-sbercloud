@@ -34,21 +34,70 @@ export class CssCluster extends pulumi.CustomResource {
         return obj['__pulumiType'] === CssCluster.__pulumiType;
     }
 
+    public readonly autoRenew!: pulumi.Output<string | undefined>;
+    /**
+     * schema: Required
+     */
+    public readonly availabilityZone!: pulumi.Output<string>;
+    public /*out*/ readonly backupAvailable!: pulumi.Output<boolean>;
     public readonly backupStrategy!: pulumi.Output<outputs.CssClusterBackupStrategy | undefined>;
+    public /*out*/ readonly bandwidthResourceId!: pulumi.Output<string>;
+    public readonly chargingMode!: pulumi.Output<string>;
+    public readonly clientNodeConfig!: pulumi.Output<outputs.CssClusterClientNodeConfig | undefined>;
+    public readonly coldNodeConfig!: pulumi.Output<outputs.CssClusterColdNodeConfig | undefined>;
+    /**
+     * schema: Deprecated; use createdAt instead
+     */
     public /*out*/ readonly created!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
+    public /*out*/ readonly diskEncrypted!: pulumi.Output<boolean>;
+    public readonly enableForceNew!: pulumi.Output<string | undefined>;
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     public readonly engineType!: pulumi.Output<string | undefined>;
     public readonly engineVersion!: pulumi.Output<string>;
     public readonly enterpriseProjectId!: pulumi.Output<string>;
-    public readonly expectNodeNum!: pulumi.Output<number | undefined>;
+    /**
+     * schema: Required
+     */
+    public readonly essNodeConfig!: pulumi.Output<outputs.CssClusterEssNodeConfig>;
+    /**
+     * @deprecated please use ess_node_config.instance_number instead
+     */
+    public readonly expectNodeNum!: pulumi.Output<number>;
+    public readonly httpsEnabled!: pulumi.Output<boolean>;
+    public /*out*/ readonly isPeriod!: pulumi.Output<boolean>;
+    public readonly kibanaPublicAccess!: pulumi.Output<outputs.CssClusterKibanaPublicAccess | undefined>;
+    public readonly masterNodeConfig!: pulumi.Output<outputs.CssClusterMasterNodeConfig | undefined>;
     public readonly name!: pulumi.Output<string>;
+    /**
+     * @deprecated please use essNodeConfig instead
+     */
     public readonly nodeConfig!: pulumi.Output<outputs.CssClusterNodeConfig>;
     public /*out*/ readonly nodes!: pulumi.Output<outputs.CssClusterNode[]>;
     public readonly password!: pulumi.Output<string | undefined>;
+    public readonly period!: pulumi.Output<number | undefined>;
+    public readonly periodUnit!: pulumi.Output<string | undefined>;
+    public readonly publicAccess!: pulumi.Output<outputs.CssClusterPublicAccess | undefined>;
     public readonly region!: pulumi.Output<string>;
+    /**
+     * schema: Required
+     */
+    public readonly securityGroupId!: pulumi.Output<string>;
     public readonly securityMode!: pulumi.Output<boolean | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
+    /**
+     * schema: Required
+     */
+    public readonly subnetId!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
+    /**
+     * schema: Required
+     */
+    public readonly vpcId!: pulumi.Output<string>;
+    public readonly vpcepEndpoint!: pulumi.Output<outputs.CssClusterVpcepEndpoint | undefined>;
+    public /*out*/ readonly vpcepEndpointId!: pulumi.Output<string>;
+    public /*out*/ readonly vpcepIp!: pulumi.Output<string>;
 
     /**
      * Create a CssCluster resource with the given unique name, arguments, and options.
@@ -63,44 +112,91 @@ export class CssCluster extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as CssClusterState | undefined;
+            resourceInputs["autoRenew"] = state ? state.autoRenew : undefined;
+            resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
+            resourceInputs["backupAvailable"] = state ? state.backupAvailable : undefined;
             resourceInputs["backupStrategy"] = state ? state.backupStrategy : undefined;
+            resourceInputs["bandwidthResourceId"] = state ? state.bandwidthResourceId : undefined;
+            resourceInputs["chargingMode"] = state ? state.chargingMode : undefined;
+            resourceInputs["clientNodeConfig"] = state ? state.clientNodeConfig : undefined;
+            resourceInputs["coldNodeConfig"] = state ? state.coldNodeConfig : undefined;
             resourceInputs["created"] = state ? state.created : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
+            resourceInputs["diskEncrypted"] = state ? state.diskEncrypted : undefined;
+            resourceInputs["enableForceNew"] = state ? state.enableForceNew : undefined;
             resourceInputs["endpoint"] = state ? state.endpoint : undefined;
             resourceInputs["engineType"] = state ? state.engineType : undefined;
             resourceInputs["engineVersion"] = state ? state.engineVersion : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
+            resourceInputs["essNodeConfig"] = state ? state.essNodeConfig : undefined;
             resourceInputs["expectNodeNum"] = state ? state.expectNodeNum : undefined;
+            resourceInputs["httpsEnabled"] = state ? state.httpsEnabled : undefined;
+            resourceInputs["isPeriod"] = state ? state.isPeriod : undefined;
+            resourceInputs["kibanaPublicAccess"] = state ? state.kibanaPublicAccess : undefined;
+            resourceInputs["masterNodeConfig"] = state ? state.masterNodeConfig : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["nodeConfig"] = state ? state.nodeConfig : undefined;
             resourceInputs["nodes"] = state ? state.nodes : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
+            resourceInputs["period"] = state ? state.period : undefined;
+            resourceInputs["periodUnit"] = state ? state.periodUnit : undefined;
+            resourceInputs["publicAccess"] = state ? state.publicAccess : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["securityGroupId"] = state ? state.securityGroupId : undefined;
             resourceInputs["securityMode"] = state ? state.securityMode : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
+            resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
+            resourceInputs["vpcId"] = state ? state.vpcId : undefined;
+            resourceInputs["vpcepEndpoint"] = state ? state.vpcepEndpoint : undefined;
+            resourceInputs["vpcepEndpointId"] = state ? state.vpcepEndpointId : undefined;
+            resourceInputs["vpcepIp"] = state ? state.vpcepIp : undefined;
         } else {
             const args = argsOrState as CssClusterArgs | undefined;
             if ((!args || args.engineVersion === undefined) && !opts.urn) {
                 throw new Error("Missing required property 'engineVersion'");
             }
-            if ((!args || args.nodeConfig === undefined) && !opts.urn) {
-                throw new Error("Missing required property 'nodeConfig'");
-            }
+            resourceInputs["autoRenew"] = args ? args.autoRenew : undefined;
+            resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["backupStrategy"] = args ? args.backupStrategy : undefined;
+            resourceInputs["chargingMode"] = args ? args.chargingMode : undefined;
+            resourceInputs["clientNodeConfig"] = args ? args.clientNodeConfig : undefined;
+            resourceInputs["coldNodeConfig"] = args ? args.coldNodeConfig : undefined;
+            resourceInputs["enableForceNew"] = args ? args.enableForceNew : undefined;
             resourceInputs["engineType"] = args ? args.engineType : undefined;
             resourceInputs["engineVersion"] = args ? args.engineVersion : undefined;
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
+            resourceInputs["essNodeConfig"] = args ? args.essNodeConfig : undefined;
             resourceInputs["expectNodeNum"] = args ? args.expectNodeNum : undefined;
+            resourceInputs["httpsEnabled"] = args ? args.httpsEnabled : undefined;
+            resourceInputs["kibanaPublicAccess"] = args ? args.kibanaPublicAccess : undefined;
+            resourceInputs["masterNodeConfig"] = args ? args.masterNodeConfig : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["nodeConfig"] = args ? args.nodeConfig : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
+            resourceInputs["period"] = args ? args.period : undefined;
+            resourceInputs["periodUnit"] = args ? args.periodUnit : undefined;
+            resourceInputs["publicAccess"] = args ? args.publicAccess : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
+            resourceInputs["securityGroupId"] = args ? args.securityGroupId : undefined;
             resourceInputs["securityMode"] = args ? args.securityMode : undefined;
+            resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["vpcId"] = args ? args.vpcId : undefined;
+            resourceInputs["vpcepEndpoint"] = args ? args.vpcepEndpoint : undefined;
+            resourceInputs["backupAvailable"] = undefined /*out*/;
+            resourceInputs["bandwidthResourceId"] = undefined /*out*/;
             resourceInputs["created"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["diskEncrypted"] = undefined /*out*/;
             resourceInputs["endpoint"] = undefined /*out*/;
+            resourceInputs["isPeriod"] = undefined /*out*/;
             resourceInputs["nodes"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
+            resourceInputs["vpcepEndpointId"] = undefined /*out*/;
+            resourceInputs["vpcepIp"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         const secretOpts = { additionalSecretOutputs: ["password"] };
@@ -113,36 +209,123 @@ export class CssCluster extends pulumi.CustomResource {
  * Input properties used for looking up and filtering CssCluster resources.
  */
 export interface CssClusterState {
+    autoRenew?: pulumi.Input<string>;
+    /**
+     * schema: Required
+     */
+    availabilityZone?: pulumi.Input<string>;
+    backupAvailable?: pulumi.Input<boolean>;
     backupStrategy?: pulumi.Input<inputs.CssClusterBackupStrategy>;
+    bandwidthResourceId?: pulumi.Input<string>;
+    chargingMode?: pulumi.Input<string>;
+    clientNodeConfig?: pulumi.Input<inputs.CssClusterClientNodeConfig>;
+    coldNodeConfig?: pulumi.Input<inputs.CssClusterColdNodeConfig>;
+    /**
+     * schema: Deprecated; use createdAt instead
+     */
     created?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
+    diskEncrypted?: pulumi.Input<boolean>;
+    enableForceNew?: pulumi.Input<string>;
     endpoint?: pulumi.Input<string>;
     engineType?: pulumi.Input<string>;
     engineVersion?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
+    /**
+     * schema: Required
+     */
+    essNodeConfig?: pulumi.Input<inputs.CssClusterEssNodeConfig>;
+    /**
+     * @deprecated please use ess_node_config.instance_number instead
+     */
     expectNodeNum?: pulumi.Input<number>;
+    httpsEnabled?: pulumi.Input<boolean>;
+    isPeriod?: pulumi.Input<boolean>;
+    kibanaPublicAccess?: pulumi.Input<inputs.CssClusterKibanaPublicAccess>;
+    masterNodeConfig?: pulumi.Input<inputs.CssClusterMasterNodeConfig>;
     name?: pulumi.Input<string>;
+    /**
+     * @deprecated please use essNodeConfig instead
+     */
     nodeConfig?: pulumi.Input<inputs.CssClusterNodeConfig>;
     nodes?: pulumi.Input<pulumi.Input<inputs.CssClusterNode>[]>;
     password?: pulumi.Input<string>;
+    period?: pulumi.Input<number>;
+    periodUnit?: pulumi.Input<string>;
+    publicAccess?: pulumi.Input<inputs.CssClusterPublicAccess>;
     region?: pulumi.Input<string>;
+    /**
+     * schema: Required
+     */
+    securityGroupId?: pulumi.Input<string>;
     securityMode?: pulumi.Input<boolean>;
     status?: pulumi.Input<string>;
+    /**
+     * schema: Required
+     */
+    subnetId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    updatedAt?: pulumi.Input<string>;
+    /**
+     * schema: Required
+     */
+    vpcId?: pulumi.Input<string>;
+    vpcepEndpoint?: pulumi.Input<inputs.CssClusterVpcepEndpoint>;
+    vpcepEndpointId?: pulumi.Input<string>;
+    vpcepIp?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a CssCluster resource.
  */
 export interface CssClusterArgs {
+    autoRenew?: pulumi.Input<string>;
+    /**
+     * schema: Required
+     */
+    availabilityZone?: pulumi.Input<string>;
     backupStrategy?: pulumi.Input<inputs.CssClusterBackupStrategy>;
+    chargingMode?: pulumi.Input<string>;
+    clientNodeConfig?: pulumi.Input<inputs.CssClusterClientNodeConfig>;
+    coldNodeConfig?: pulumi.Input<inputs.CssClusterColdNodeConfig>;
+    enableForceNew?: pulumi.Input<string>;
     engineType?: pulumi.Input<string>;
     engineVersion: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
+    /**
+     * schema: Required
+     */
+    essNodeConfig?: pulumi.Input<inputs.CssClusterEssNodeConfig>;
+    /**
+     * @deprecated please use ess_node_config.instance_number instead
+     */
     expectNodeNum?: pulumi.Input<number>;
+    httpsEnabled?: pulumi.Input<boolean>;
+    kibanaPublicAccess?: pulumi.Input<inputs.CssClusterKibanaPublicAccess>;
+    masterNodeConfig?: pulumi.Input<inputs.CssClusterMasterNodeConfig>;
     name?: pulumi.Input<string>;
-    nodeConfig: pulumi.Input<inputs.CssClusterNodeConfig>;
+    /**
+     * @deprecated please use essNodeConfig instead
+     */
+    nodeConfig?: pulumi.Input<inputs.CssClusterNodeConfig>;
     password?: pulumi.Input<string>;
+    period?: pulumi.Input<number>;
+    periodUnit?: pulumi.Input<string>;
+    publicAccess?: pulumi.Input<inputs.CssClusterPublicAccess>;
     region?: pulumi.Input<string>;
+    /**
+     * schema: Required
+     */
+    securityGroupId?: pulumi.Input<string>;
     securityMode?: pulumi.Input<boolean>;
+    /**
+     * schema: Required
+     */
+    subnetId?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * schema: Required
+     */
+    vpcId?: pulumi.Input<string>;
+    vpcepEndpoint?: pulumi.Input<inputs.CssClusterVpcepEndpoint>;
 }

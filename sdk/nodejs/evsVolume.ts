@@ -34,6 +34,8 @@ export class EvsVolume extends pulumi.CustomResource {
         return obj['__pulumiType'] === EvsVolume.__pulumiType;
     }
 
+    public /*out*/ readonly allMetadata!: pulumi.Output<{[key: string]: string}>;
+    public /*out*/ readonly allVolumeImageMetadata!: pulumi.Output<{[key: string]: string}>;
     public /*out*/ readonly attachments!: pulumi.Output<outputs.EvsVolumeAttachment[]>;
     /**
      * @deprecated Deprecated
@@ -42,8 +44,10 @@ export class EvsVolume extends pulumi.CustomResource {
     public readonly autoRenew!: pulumi.Output<string | undefined>;
     public readonly availabilityZone!: pulumi.Output<string>;
     public readonly backupId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly bootable!: pulumi.Output<string>;
     public readonly cascade!: pulumi.Output<boolean | undefined>;
     public readonly chargingMode!: pulumi.Output<string>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly dedicatedStorageId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly dedicatedStorageName!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
@@ -51,18 +55,24 @@ export class EvsVolume extends pulumi.CustomResource {
     public readonly enterpriseProjectId!: pulumi.Output<string>;
     public readonly imageId!: pulumi.Output<string | undefined>;
     public readonly iops!: pulumi.Output<number>;
+    public /*out*/ readonly iopsAttributes!: pulumi.Output<outputs.EvsVolumeIopsAttribute[]>;
     public readonly kmsId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly links!: pulumi.Output<outputs.EvsVolumeLink[]>;
     public readonly multiattach!: pulumi.Output<boolean | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly period!: pulumi.Output<number | undefined>;
     public readonly periodUnit!: pulumi.Output<string | undefined>;
     public readonly region!: pulumi.Output<string>;
+    public /*out*/ readonly serialNumber!: pulumi.Output<string>;
     public readonly serverId!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly serviceType!: pulumi.Output<string>;
     public readonly size!: pulumi.Output<number>;
     public readonly snapshotId!: pulumi.Output<string | undefined>;
     public /*out*/ readonly status!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     public readonly throughput!: pulumi.Output<number>;
+    public /*out*/ readonly throughputAttributes!: pulumi.Output<outputs.EvsVolumeThroughputAttribute[]>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
     public readonly volumeType!: pulumi.Output<string>;
     public /*out*/ readonly wwn!: pulumi.Output<string>;
 
@@ -79,13 +89,17 @@ export class EvsVolume extends pulumi.CustomResource {
         opts = opts || {};
         if (opts.id) {
             const state = argsOrState as EvsVolumeState | undefined;
+            resourceInputs["allMetadata"] = state ? state.allMetadata : undefined;
+            resourceInputs["allVolumeImageMetadata"] = state ? state.allVolumeImageMetadata : undefined;
             resourceInputs["attachments"] = state ? state.attachments : undefined;
             resourceInputs["autoPay"] = state ? state.autoPay : undefined;
             resourceInputs["autoRenew"] = state ? state.autoRenew : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["backupId"] = state ? state.backupId : undefined;
+            resourceInputs["bootable"] = state ? state.bootable : undefined;
             resourceInputs["cascade"] = state ? state.cascade : undefined;
             resourceInputs["chargingMode"] = state ? state.chargingMode : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["dedicatedStorageId"] = state ? state.dedicatedStorageId : undefined;
             resourceInputs["dedicatedStorageName"] = state ? state.dedicatedStorageName : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
@@ -93,18 +107,24 @@ export class EvsVolume extends pulumi.CustomResource {
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["imageId"] = state ? state.imageId : undefined;
             resourceInputs["iops"] = state ? state.iops : undefined;
+            resourceInputs["iopsAttributes"] = state ? state.iopsAttributes : undefined;
             resourceInputs["kmsId"] = state ? state.kmsId : undefined;
+            resourceInputs["links"] = state ? state.links : undefined;
             resourceInputs["multiattach"] = state ? state.multiattach : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
             resourceInputs["periodUnit"] = state ? state.periodUnit : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
+            resourceInputs["serialNumber"] = state ? state.serialNumber : undefined;
             resourceInputs["serverId"] = state ? state.serverId : undefined;
+            resourceInputs["serviceType"] = state ? state.serviceType : undefined;
             resourceInputs["size"] = state ? state.size : undefined;
             resourceInputs["snapshotId"] = state ? state.snapshotId : undefined;
             resourceInputs["status"] = state ? state.status : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["throughput"] = state ? state.throughput : undefined;
+            resourceInputs["throughputAttributes"] = state ? state.throughputAttributes : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
             resourceInputs["volumeType"] = state ? state.volumeType : undefined;
             resourceInputs["wwn"] = state ? state.wwn : undefined;
         } else {
@@ -139,9 +159,19 @@ export class EvsVolume extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["throughput"] = args ? args.throughput : undefined;
             resourceInputs["volumeType"] = args ? args.volumeType : undefined;
+            resourceInputs["allMetadata"] = undefined /*out*/;
+            resourceInputs["allVolumeImageMetadata"] = undefined /*out*/;
             resourceInputs["attachments"] = undefined /*out*/;
+            resourceInputs["bootable"] = undefined /*out*/;
+            resourceInputs["createdAt"] = undefined /*out*/;
             resourceInputs["dedicatedStorageName"] = undefined /*out*/;
+            resourceInputs["iopsAttributes"] = undefined /*out*/;
+            resourceInputs["links"] = undefined /*out*/;
+            resourceInputs["serialNumber"] = undefined /*out*/;
+            resourceInputs["serviceType"] = undefined /*out*/;
             resourceInputs["status"] = undefined /*out*/;
+            resourceInputs["throughputAttributes"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
             resourceInputs["wwn"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -153,6 +183,8 @@ export class EvsVolume extends pulumi.CustomResource {
  * Input properties used for looking up and filtering EvsVolume resources.
  */
 export interface EvsVolumeState {
+    allMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    allVolumeImageMetadata?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     attachments?: pulumi.Input<pulumi.Input<inputs.EvsVolumeAttachment>[]>;
     /**
      * @deprecated Deprecated
@@ -161,8 +193,10 @@ export interface EvsVolumeState {
     autoRenew?: pulumi.Input<string>;
     availabilityZone?: pulumi.Input<string>;
     backupId?: pulumi.Input<string>;
+    bootable?: pulumi.Input<string>;
     cascade?: pulumi.Input<boolean>;
     chargingMode?: pulumi.Input<string>;
+    createdAt?: pulumi.Input<string>;
     dedicatedStorageId?: pulumi.Input<string>;
     dedicatedStorageName?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
@@ -170,18 +204,24 @@ export interface EvsVolumeState {
     enterpriseProjectId?: pulumi.Input<string>;
     imageId?: pulumi.Input<string>;
     iops?: pulumi.Input<number>;
+    iopsAttributes?: pulumi.Input<pulumi.Input<inputs.EvsVolumeIopsAttribute>[]>;
     kmsId?: pulumi.Input<string>;
+    links?: pulumi.Input<pulumi.Input<inputs.EvsVolumeLink>[]>;
     multiattach?: pulumi.Input<boolean>;
     name?: pulumi.Input<string>;
     period?: pulumi.Input<number>;
     periodUnit?: pulumi.Input<string>;
     region?: pulumi.Input<string>;
+    serialNumber?: pulumi.Input<string>;
     serverId?: pulumi.Input<string>;
+    serviceType?: pulumi.Input<string>;
     size?: pulumi.Input<number>;
     snapshotId?: pulumi.Input<string>;
     status?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     throughput?: pulumi.Input<number>;
+    throughputAttributes?: pulumi.Input<pulumi.Input<inputs.EvsVolumeThroughputAttribute>[]>;
+    updatedAt?: pulumi.Input<string>;
     volumeType?: pulumi.Input<string>;
     wwn?: pulumi.Input<string>;
 }

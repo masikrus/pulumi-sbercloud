@@ -16,12 +16,20 @@ namespace Pulumi.Sbercloud.Outputs
         /// <summary>
         /// The ID of the VPC that can trigger the function.
         /// </summary>
-        public readonly string VpcId;
+        public readonly string? VpcId;
+        /// <summary>
+        /// The ID of the VPC that can trigger the function.
+        /// </summary>
+        public readonly string? VpcName;
 
         [OutputConstructor]
-        private FgsFunctionNetworkControllerTriggerAccessVpc(string vpcId)
+        private FgsFunctionNetworkControllerTriggerAccessVpc(
+            string? vpcId,
+
+            string? vpcName)
         {
             VpcId = vpcId;
+            VpcName = vpcName;
         }
     }
 }

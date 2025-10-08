@@ -28,13 +28,37 @@ class GetLbListenersResult:
     """
     A collection of values returned by getLbListeners.
     """
-    def __init__(__self__, id=None, listeners=None, name=None, protocol=None, protocol_port=None, region=None):
+    def __init__(__self__, client_ca_tls_container_ref=None, default_pool_id=None, default_tls_container_ref=None, description=None, enterprise_project_id=None, http2_enable=None, id=None, listener_id=None, listeners=None, loadbalancer_id=None, name=None, protocol=None, protocol_port=None, region=None, tls_ciphers_policy=None):
+        if client_ca_tls_container_ref and not isinstance(client_ca_tls_container_ref, str):
+            raise TypeError("Expected argument 'client_ca_tls_container_ref' to be a str")
+        pulumi.set(__self__, "client_ca_tls_container_ref", client_ca_tls_container_ref)
+        if default_pool_id and not isinstance(default_pool_id, str):
+            raise TypeError("Expected argument 'default_pool_id' to be a str")
+        pulumi.set(__self__, "default_pool_id", default_pool_id)
+        if default_tls_container_ref and not isinstance(default_tls_container_ref, str):
+            raise TypeError("Expected argument 'default_tls_container_ref' to be a str")
+        pulumi.set(__self__, "default_tls_container_ref", default_tls_container_ref)
+        if description and not isinstance(description, str):
+            raise TypeError("Expected argument 'description' to be a str")
+        pulumi.set(__self__, "description", description)
+        if enterprise_project_id and not isinstance(enterprise_project_id, str):
+            raise TypeError("Expected argument 'enterprise_project_id' to be a str")
+        pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
+        if http2_enable and not isinstance(http2_enable, str):
+            raise TypeError("Expected argument 'http2_enable' to be a str")
+        pulumi.set(__self__, "http2_enable", http2_enable)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if listener_id and not isinstance(listener_id, str):
+            raise TypeError("Expected argument 'listener_id' to be a str")
+        pulumi.set(__self__, "listener_id", listener_id)
         if listeners and not isinstance(listeners, list):
             raise TypeError("Expected argument 'listeners' to be a list")
         pulumi.set(__self__, "listeners", listeners)
+        if loadbalancer_id and not isinstance(loadbalancer_id, str):
+            raise TypeError("Expected argument 'loadbalancer_id' to be a str")
+        pulumi.set(__self__, "loadbalancer_id", loadbalancer_id)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -47,6 +71,39 @@ class GetLbListenersResult:
         if region and not isinstance(region, str):
             raise TypeError("Expected argument 'region' to be a str")
         pulumi.set(__self__, "region", region)
+        if tls_ciphers_policy and not isinstance(tls_ciphers_policy, str):
+            raise TypeError("Expected argument 'tls_ciphers_policy' to be a str")
+        pulumi.set(__self__, "tls_ciphers_policy", tls_ciphers_policy)
+
+    @property
+    @pulumi.getter(name="clientCaTlsContainerRef")
+    def client_ca_tls_container_ref(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "client_ca_tls_container_ref")
+
+    @property
+    @pulumi.getter(name="defaultPoolId")
+    def default_pool_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "default_pool_id")
+
+    @property
+    @pulumi.getter(name="defaultTlsContainerRef")
+    def default_tls_container_ref(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "default_tls_container_ref")
+
+    @property
+    @pulumi.getter
+    def description(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enterpriseProjectId")
+    def enterprise_project_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "enterprise_project_id")
+
+    @property
+    @pulumi.getter(name="http2Enable")
+    def http2_enable(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "http2_enable")
 
     @property
     @pulumi.getter
@@ -57,9 +114,19 @@ class GetLbListenersResult:
         return pulumi.get(self, "id")
 
     @property
+    @pulumi.getter(name="listenerId")
+    def listener_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "listener_id")
+
+    @property
     @pulumi.getter
     def listeners(self) -> Sequence['outputs.GetLbListenersListenerResult']:
         return pulumi.get(self, "listeners")
+
+    @property
+    @pulumi.getter(name="loadbalancerId")
+    def loadbalancer_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "loadbalancer_id")
 
     @property
     @pulumi.getter
@@ -81,6 +148,11 @@ class GetLbListenersResult:
     def region(self) -> builtins.str:
         return pulumi.get(self, "region")
 
+    @property
+    @pulumi.getter(name="tlsCiphersPolicy")
+    def tls_ciphers_policy(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "tls_ciphers_policy")
+
 
 class AwaitableGetLbListenersResult(GetLbListenersResult):
     # pylint: disable=using-constant-test
@@ -88,56 +160,119 @@ class AwaitableGetLbListenersResult(GetLbListenersResult):
         if False:
             yield self
         return GetLbListenersResult(
+            client_ca_tls_container_ref=self.client_ca_tls_container_ref,
+            default_pool_id=self.default_pool_id,
+            default_tls_container_ref=self.default_tls_container_ref,
+            description=self.description,
+            enterprise_project_id=self.enterprise_project_id,
+            http2_enable=self.http2_enable,
             id=self.id,
+            listener_id=self.listener_id,
             listeners=self.listeners,
+            loadbalancer_id=self.loadbalancer_id,
             name=self.name,
             protocol=self.protocol,
             protocol_port=self.protocol_port,
-            region=self.region)
+            region=self.region,
+            tls_ciphers_policy=self.tls_ciphers_policy)
 
 
-def get_lb_listeners(name: Optional[builtins.str] = None,
+def get_lb_listeners(client_ca_tls_container_ref: Optional[builtins.str] = None,
+                     default_pool_id: Optional[builtins.str] = None,
+                     default_tls_container_ref: Optional[builtins.str] = None,
+                     description: Optional[builtins.str] = None,
+                     enterprise_project_id: Optional[builtins.str] = None,
+                     http2_enable: Optional[builtins.str] = None,
+                     listener_id: Optional[builtins.str] = None,
+                     loadbalancer_id: Optional[builtins.str] = None,
+                     name: Optional[builtins.str] = None,
                      protocol: Optional[builtins.str] = None,
                      protocol_port: Optional[builtins.str] = None,
                      region: Optional[builtins.str] = None,
+                     tls_ciphers_policy: Optional[builtins.str] = None,
                      opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetLbListenersResult:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['clientCaTlsContainerRef'] = client_ca_tls_container_ref
+    __args__['defaultPoolId'] = default_pool_id
+    __args__['defaultTlsContainerRef'] = default_tls_container_ref
+    __args__['description'] = description
+    __args__['enterpriseProjectId'] = enterprise_project_id
+    __args__['http2Enable'] = http2_enable
+    __args__['listenerId'] = listener_id
+    __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
     __args__['protocol'] = protocol
     __args__['protocolPort'] = protocol_port
     __args__['region'] = region
+    __args__['tlsCiphersPolicy'] = tls_ciphers_policy
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke('sbercloud:index/getLbListeners:getLbListeners', __args__, opts=opts, typ=GetLbListenersResult).value
 
     return AwaitableGetLbListenersResult(
+        client_ca_tls_container_ref=pulumi.get(__ret__, 'client_ca_tls_container_ref'),
+        default_pool_id=pulumi.get(__ret__, 'default_pool_id'),
+        default_tls_container_ref=pulumi.get(__ret__, 'default_tls_container_ref'),
+        description=pulumi.get(__ret__, 'description'),
+        enterprise_project_id=pulumi.get(__ret__, 'enterprise_project_id'),
+        http2_enable=pulumi.get(__ret__, 'http2_enable'),
         id=pulumi.get(__ret__, 'id'),
+        listener_id=pulumi.get(__ret__, 'listener_id'),
         listeners=pulumi.get(__ret__, 'listeners'),
+        loadbalancer_id=pulumi.get(__ret__, 'loadbalancer_id'),
         name=pulumi.get(__ret__, 'name'),
         protocol=pulumi.get(__ret__, 'protocol'),
         protocol_port=pulumi.get(__ret__, 'protocol_port'),
-        region=pulumi.get(__ret__, 'region'))
-def get_lb_listeners_output(name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+        region=pulumi.get(__ret__, 'region'),
+        tls_ciphers_policy=pulumi.get(__ret__, 'tls_ciphers_policy'))
+def get_lb_listeners_output(client_ca_tls_container_ref: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            default_pool_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            default_tls_container_ref: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            description: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            enterprise_project_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            http2_enable: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            listener_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            loadbalancer_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             protocol: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             protocol_port: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                            tls_ciphers_policy: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                             opts: Optional[Union[pulumi.InvokeOptions, pulumi.InvokeOutputOptions]] = None) -> pulumi.Output[GetLbListenersResult]:
     """
     Use this data source to access information about an existing resource.
     """
     __args__ = dict()
+    __args__['clientCaTlsContainerRef'] = client_ca_tls_container_ref
+    __args__['defaultPoolId'] = default_pool_id
+    __args__['defaultTlsContainerRef'] = default_tls_container_ref
+    __args__['description'] = description
+    __args__['enterpriseProjectId'] = enterprise_project_id
+    __args__['http2Enable'] = http2_enable
+    __args__['listenerId'] = listener_id
+    __args__['loadbalancerId'] = loadbalancer_id
     __args__['name'] = name
     __args__['protocol'] = protocol
     __args__['protocolPort'] = protocol_port
     __args__['region'] = region
+    __args__['tlsCiphersPolicy'] = tls_ciphers_policy
     opts = pulumi.InvokeOutputOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
     __ret__ = pulumi.runtime.invoke_output('sbercloud:index/getLbListeners:getLbListeners', __args__, opts=opts, typ=GetLbListenersResult)
     return __ret__.apply(lambda __response__: GetLbListenersResult(
+        client_ca_tls_container_ref=pulumi.get(__response__, 'client_ca_tls_container_ref'),
+        default_pool_id=pulumi.get(__response__, 'default_pool_id'),
+        default_tls_container_ref=pulumi.get(__response__, 'default_tls_container_ref'),
+        description=pulumi.get(__response__, 'description'),
+        enterprise_project_id=pulumi.get(__response__, 'enterprise_project_id'),
+        http2_enable=pulumi.get(__response__, 'http2_enable'),
         id=pulumi.get(__response__, 'id'),
+        listener_id=pulumi.get(__response__, 'listener_id'),
         listeners=pulumi.get(__response__, 'listeners'),
+        loadbalancer_id=pulumi.get(__response__, 'loadbalancer_id'),
         name=pulumi.get(__response__, 'name'),
         protocol=pulumi.get(__response__, 'protocol'),
         protocol_port=pulumi.get(__response__, 'protocol_port'),
-        region=pulumi.get(__response__, 'region')))
+        region=pulumi.get(__response__, 'region'),
+        tls_ciphers_policy=pulumi.get(__response__, 'tls_ciphers_policy')))

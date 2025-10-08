@@ -12,6 +12,9 @@ namespace Pulumi.Sbercloud
     [SbercloudResourceType("sbercloud:index/evsSnapshot:EvsSnapshot")]
     public partial class EvsSnapshot : global::Pulumi.CustomResource
     {
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
+
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
@@ -19,7 +22,14 @@ namespace Pulumi.Sbercloud
         public Output<bool?> Force { get; private set; } = null!;
 
         [Output("metadata")]
-        public Output<ImmutableDictionary<string, string>?> Metadata { get; private set; } = null!;
+        public Output<ImmutableDictionary<string, string>> Metadata { get; private set; } = null!;
+
+        /// <summary>
+        /// The script configuration value of this change is also the original value used for comparison with the new value next
+        /// time the change is made. The corresponding parameter name is 'metadata'.
+        /// </summary>
+        [Output("metadataOrigin")]
+        public Output<ImmutableDictionary<string, string>> MetadataOrigin { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
@@ -32,6 +42,9 @@ namespace Pulumi.Sbercloud
 
         [Output("status")]
         public Output<string> Status { get; private set; } = null!;
+
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
         [Output("volumeId")]
         public Output<string> VolumeId { get; private set; } = null!;
@@ -113,6 +126,9 @@ namespace Pulumi.Sbercloud
 
     public sealed class EvsSnapshotState : global::Pulumi.ResourceArgs
     {
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
@@ -127,6 +143,19 @@ namespace Pulumi.Sbercloud
             set => _metadata = value;
         }
 
+        [Input("metadataOrigin")]
+        private InputMap<string>? _metadataOrigin;
+
+        /// <summary>
+        /// The script configuration value of this change is also the original value used for comparison with the new value next
+        /// time the change is made. The corresponding parameter name is 'metadata'.
+        /// </summary>
+        public InputMap<string> MetadataOrigin
+        {
+            get => _metadataOrigin ?? (_metadataOrigin = new InputMap<string>());
+            set => _metadataOrigin = value;
+        }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
 
@@ -138,6 +167,9 @@ namespace Pulumi.Sbercloud
 
         [Input("status")]
         public Input<string>? Status { get; set; }
+
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
 
         [Input("volumeId")]
         public Input<string>? VolumeId { get; set; }

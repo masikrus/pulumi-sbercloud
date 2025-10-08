@@ -15,9 +15,12 @@ namespace Pulumi.Sbercloud.Outputs
     {
         public readonly string AttachedAt;
         public readonly string AttachedMode;
+        public readonly string AttachedVolumeId;
         public readonly string DeviceName;
+        public readonly string HostName;
         public readonly string Id;
         public readonly string ServerId;
+        public readonly string VolumeId;
 
         [OutputConstructor]
         private GetEvsVolumesVolumeAttachmentResult(
@@ -25,17 +28,26 @@ namespace Pulumi.Sbercloud.Outputs
 
             string attachedMode,
 
+            string attachedVolumeId,
+
             string deviceName,
+
+            string hostName,
 
             string id,
 
-            string serverId)
+            string serverId,
+
+            string volumeId)
         {
             AttachedAt = attachedAt;
             AttachedMode = attachedMode;
+            AttachedVolumeId = attachedVolumeId;
             DeviceName = deviceName;
+            HostName = hostName;
             Id = id;
             ServerId = serverId;
+            VolumeId = volumeId;
         }
     }
 }

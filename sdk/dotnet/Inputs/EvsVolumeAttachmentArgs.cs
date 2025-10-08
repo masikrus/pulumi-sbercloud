@@ -12,14 +12,26 @@ namespace Pulumi.Sbercloud.Inputs
 
     public sealed class EvsVolumeAttachmentArgs : global::Pulumi.ResourceArgs
     {
+        [Input("attachedAt")]
+        public Input<string>? AttachedAt { get; set; }
+
+        [Input("attachedVolumeId")]
+        public Input<string>? AttachedVolumeId { get; set; }
+
         [Input("device")]
         public Input<string>? Device { get; set; }
+
+        [Input("hostName")]
+        public Input<string>? HostName { get; set; }
 
         [Input("id")]
         public Input<string>? Id { get; set; }
 
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
+
+        [Input("volumeId")]
+        public Input<string>? VolumeId { get; set; }
 
         public EvsVolumeAttachmentArgs()
         {

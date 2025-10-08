@@ -28,16 +28,28 @@ class GetEvsVolumesResult:
     """
     A collection of values returned by getEvsVolumes.
     """
-    def __init__(__self__, availability_zone=None, enterprise_project_id=None, id=None, name=None, region=None, server_id=None, shareable=None, status=None, tags=None, volume_id=None, volume_type_id=None, volumes=None):
+    def __init__(__self__, availability_zone=None, dedicated_storage_id=None, dedicated_storage_name=None, enterprise_project_id=None, id=None, ids=None, metadata=None, name=None, region=None, server_id=None, service_type=None, shareable=None, sort_dir=None, sort_key=None, status=None, tags=None, volume_id=None, volume_type_id=None, volumes=None):
         if availability_zone and not isinstance(availability_zone, str):
             raise TypeError("Expected argument 'availability_zone' to be a str")
         pulumi.set(__self__, "availability_zone", availability_zone)
+        if dedicated_storage_id and not isinstance(dedicated_storage_id, str):
+            raise TypeError("Expected argument 'dedicated_storage_id' to be a str")
+        pulumi.set(__self__, "dedicated_storage_id", dedicated_storage_id)
+        if dedicated_storage_name and not isinstance(dedicated_storage_name, str):
+            raise TypeError("Expected argument 'dedicated_storage_name' to be a str")
+        pulumi.set(__self__, "dedicated_storage_name", dedicated_storage_name)
         if enterprise_project_id and not isinstance(enterprise_project_id, str):
             raise TypeError("Expected argument 'enterprise_project_id' to be a str")
         pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ids and not isinstance(ids, str):
+            raise TypeError("Expected argument 'ids' to be a str")
+        pulumi.set(__self__, "ids", ids)
+        if metadata and not isinstance(metadata, str):
+            raise TypeError("Expected argument 'metadata' to be a str")
+        pulumi.set(__self__, "metadata", metadata)
         if name and not isinstance(name, str):
             raise TypeError("Expected argument 'name' to be a str")
         pulumi.set(__self__, "name", name)
@@ -47,9 +59,18 @@ class GetEvsVolumesResult:
         if server_id and not isinstance(server_id, str):
             raise TypeError("Expected argument 'server_id' to be a str")
         pulumi.set(__self__, "server_id", server_id)
+        if service_type and not isinstance(service_type, str):
+            raise TypeError("Expected argument 'service_type' to be a str")
+        pulumi.set(__self__, "service_type", service_type)
         if shareable and not isinstance(shareable, bool):
             raise TypeError("Expected argument 'shareable' to be a bool")
         pulumi.set(__self__, "shareable", shareable)
+        if sort_dir and not isinstance(sort_dir, str):
+            raise TypeError("Expected argument 'sort_dir' to be a str")
+        pulumi.set(__self__, "sort_dir", sort_dir)
+        if sort_key and not isinstance(sort_key, str):
+            raise TypeError("Expected argument 'sort_key' to be a str")
+        pulumi.set(__self__, "sort_key", sort_key)
         if status and not isinstance(status, str):
             raise TypeError("Expected argument 'status' to be a str")
         pulumi.set(__self__, "status", status)
@@ -72,6 +93,16 @@ class GetEvsVolumesResult:
         return pulumi.get(self, "availability_zone")
 
     @property
+    @pulumi.getter(name="dedicatedStorageId")
+    def dedicated_storage_id(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "dedicated_storage_id")
+
+    @property
+    @pulumi.getter(name="dedicatedStorageName")
+    def dedicated_storage_name(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "dedicated_storage_name")
+
+    @property
     @pulumi.getter(name="enterpriseProjectId")
     def enterprise_project_id(self) -> Optional[builtins.str]:
         return pulumi.get(self, "enterprise_project_id")
@@ -83,6 +114,16 @@ class GetEvsVolumesResult:
         The provider-assigned unique ID for this managed resource.
         """
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter
+    def ids(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "ids")
+
+    @property
+    @pulumi.getter
+    def metadata(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "metadata")
 
     @property
     @pulumi.getter
@@ -100,9 +141,24 @@ class GetEvsVolumesResult:
         return pulumi.get(self, "server_id")
 
     @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "service_type")
+
+    @property
     @pulumi.getter
     def shareable(self) -> Optional[builtins.bool]:
         return pulumi.get(self, "shareable")
+
+    @property
+    @pulumi.getter(name="sortDir")
+    def sort_dir(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "sort_dir")
+
+    @property
+    @pulumi.getter(name="sortKey")
+    def sort_key(self) -> Optional[builtins.str]:
+        return pulumi.get(self, "sort_key")
 
     @property
     @pulumi.getter
@@ -137,12 +193,19 @@ class AwaitableGetEvsVolumesResult(GetEvsVolumesResult):
             yield self
         return GetEvsVolumesResult(
             availability_zone=self.availability_zone,
+            dedicated_storage_id=self.dedicated_storage_id,
+            dedicated_storage_name=self.dedicated_storage_name,
             enterprise_project_id=self.enterprise_project_id,
             id=self.id,
+            ids=self.ids,
+            metadata=self.metadata,
             name=self.name,
             region=self.region,
             server_id=self.server_id,
+            service_type=self.service_type,
             shareable=self.shareable,
+            sort_dir=self.sort_dir,
+            sort_key=self.sort_key,
             status=self.status,
             tags=self.tags,
             volume_id=self.volume_id,
@@ -151,11 +214,18 @@ class AwaitableGetEvsVolumesResult(GetEvsVolumesResult):
 
 
 def get_evs_volumes(availability_zone: Optional[builtins.str] = None,
+                    dedicated_storage_id: Optional[builtins.str] = None,
+                    dedicated_storage_name: Optional[builtins.str] = None,
                     enterprise_project_id: Optional[builtins.str] = None,
+                    ids: Optional[builtins.str] = None,
+                    metadata: Optional[builtins.str] = None,
                     name: Optional[builtins.str] = None,
                     region: Optional[builtins.str] = None,
                     server_id: Optional[builtins.str] = None,
+                    service_type: Optional[builtins.str] = None,
                     shareable: Optional[builtins.bool] = None,
+                    sort_dir: Optional[builtins.str] = None,
+                    sort_key: Optional[builtins.str] = None,
                     status: Optional[builtins.str] = None,
                     tags: Optional[Mapping[str, builtins.str]] = None,
                     volume_id: Optional[builtins.str] = None,
@@ -166,11 +236,18 @@ def get_evs_volumes(availability_zone: Optional[builtins.str] = None,
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
+    __args__['dedicatedStorageId'] = dedicated_storage_id
+    __args__['dedicatedStorageName'] = dedicated_storage_name
     __args__['enterpriseProjectId'] = enterprise_project_id
+    __args__['ids'] = ids
+    __args__['metadata'] = metadata
     __args__['name'] = name
     __args__['region'] = region
     __args__['serverId'] = server_id
+    __args__['serviceType'] = service_type
     __args__['shareable'] = shareable
+    __args__['sortDir'] = sort_dir
+    __args__['sortKey'] = sort_key
     __args__['status'] = status
     __args__['tags'] = tags
     __args__['volumeId'] = volume_id
@@ -180,23 +257,37 @@ def get_evs_volumes(availability_zone: Optional[builtins.str] = None,
 
     return AwaitableGetEvsVolumesResult(
         availability_zone=pulumi.get(__ret__, 'availability_zone'),
+        dedicated_storage_id=pulumi.get(__ret__, 'dedicated_storage_id'),
+        dedicated_storage_name=pulumi.get(__ret__, 'dedicated_storage_name'),
         enterprise_project_id=pulumi.get(__ret__, 'enterprise_project_id'),
         id=pulumi.get(__ret__, 'id'),
+        ids=pulumi.get(__ret__, 'ids'),
+        metadata=pulumi.get(__ret__, 'metadata'),
         name=pulumi.get(__ret__, 'name'),
         region=pulumi.get(__ret__, 'region'),
         server_id=pulumi.get(__ret__, 'server_id'),
+        service_type=pulumi.get(__ret__, 'service_type'),
         shareable=pulumi.get(__ret__, 'shareable'),
+        sort_dir=pulumi.get(__ret__, 'sort_dir'),
+        sort_key=pulumi.get(__ret__, 'sort_key'),
         status=pulumi.get(__ret__, 'status'),
         tags=pulumi.get(__ret__, 'tags'),
         volume_id=pulumi.get(__ret__, 'volume_id'),
         volume_type_id=pulumi.get(__ret__, 'volume_type_id'),
         volumes=pulumi.get(__ret__, 'volumes'))
 def get_evs_volumes_output(availability_zone: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           dedicated_storage_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           dedicated_storage_name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            enterprise_project_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           ids: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           metadata: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            name: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            region: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            server_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           service_type: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            shareable: Optional[pulumi.Input[Optional[builtins.bool]]] = None,
+                           sort_dir: Optional[pulumi.Input[Optional[builtins.str]]] = None,
+                           sort_key: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            status: Optional[pulumi.Input[Optional[builtins.str]]] = None,
                            tags: Optional[pulumi.Input[Optional[Mapping[str, builtins.str]]]] = None,
                            volume_id: Optional[pulumi.Input[Optional[builtins.str]]] = None,
@@ -207,11 +298,18 @@ def get_evs_volumes_output(availability_zone: Optional[pulumi.Input[Optional[bui
     """
     __args__ = dict()
     __args__['availabilityZone'] = availability_zone
+    __args__['dedicatedStorageId'] = dedicated_storage_id
+    __args__['dedicatedStorageName'] = dedicated_storage_name
     __args__['enterpriseProjectId'] = enterprise_project_id
+    __args__['ids'] = ids
+    __args__['metadata'] = metadata
     __args__['name'] = name
     __args__['region'] = region
     __args__['serverId'] = server_id
+    __args__['serviceType'] = service_type
     __args__['shareable'] = shareable
+    __args__['sortDir'] = sort_dir
+    __args__['sortKey'] = sort_key
     __args__['status'] = status
     __args__['tags'] = tags
     __args__['volumeId'] = volume_id
@@ -220,12 +318,19 @@ def get_evs_volumes_output(availability_zone: Optional[pulumi.Input[Optional[bui
     __ret__ = pulumi.runtime.invoke_output('sbercloud:index/getEvsVolumes:getEvsVolumes', __args__, opts=opts, typ=GetEvsVolumesResult)
     return __ret__.apply(lambda __response__: GetEvsVolumesResult(
         availability_zone=pulumi.get(__response__, 'availability_zone'),
+        dedicated_storage_id=pulumi.get(__response__, 'dedicated_storage_id'),
+        dedicated_storage_name=pulumi.get(__response__, 'dedicated_storage_name'),
         enterprise_project_id=pulumi.get(__response__, 'enterprise_project_id'),
         id=pulumi.get(__response__, 'id'),
+        ids=pulumi.get(__response__, 'ids'),
+        metadata=pulumi.get(__response__, 'metadata'),
         name=pulumi.get(__response__, 'name'),
         region=pulumi.get(__response__, 'region'),
         server_id=pulumi.get(__response__, 'server_id'),
+        service_type=pulumi.get(__response__, 'service_type'),
         shareable=pulumi.get(__response__, 'shareable'),
+        sort_dir=pulumi.get(__response__, 'sort_dir'),
+        sort_key=pulumi.get(__response__, 'sort_key'),
         status=pulumi.get(__response__, 'status'),
         tags=pulumi.get(__response__, 'tags'),
         volume_id=pulumi.get(__response__, 'volume_id'),

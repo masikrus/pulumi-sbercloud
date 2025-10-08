@@ -11,11 +11,17 @@ export function getElbFlavors(args?: GetElbFlavorsArgs, opts?: pulumi.InvokeOpti
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("sbercloud:index/getElbFlavors:getElbFlavors", {
         "bandwidth": args.bandwidth,
+        "category": args.category,
         "cps": args.cps,
+        "flavorId": args.flavorId,
+        "flavorSoldOut": args.flavorSoldOut,
+        "listAll": args.listAll,
         "maxConnections": args.maxConnections,
         "name": args.name,
+        "publicBorderGroup": args.publicBorderGroup,
         "qps": args.qps,
         "region": args.region,
+        "shared": args.shared,
         "type": args.type,
     }, opts);
 }
@@ -25,11 +31,17 @@ export function getElbFlavors(args?: GetElbFlavorsArgs, opts?: pulumi.InvokeOpti
  */
 export interface GetElbFlavorsArgs {
     bandwidth?: number;
+    category?: number;
     cps?: number;
+    flavorId?: string;
+    flavorSoldOut?: string;
+    listAll?: string;
     maxConnections?: number;
     name?: string;
+    publicBorderGroup?: string;
     qps?: number;
     region?: string;
+    shared?: string;
     type?: string;
 }
 
@@ -38,17 +50,23 @@ export interface GetElbFlavorsArgs {
  */
 export interface GetElbFlavorsResult {
     readonly bandwidth?: number;
+    readonly category?: number;
     readonly cps?: number;
+    readonly flavorId?: string;
+    readonly flavorSoldOut?: string;
     readonly flavors: outputs.GetElbFlavorsFlavor[];
     /**
      * The provider-assigned unique ID for this managed resource.
      */
     readonly id: string;
     readonly ids: string[];
+    readonly listAll?: string;
     readonly maxConnections?: number;
     readonly name?: string;
+    readonly publicBorderGroup?: string;
     readonly qps?: number;
     readonly region: string;
+    readonly shared?: string;
     readonly type?: string;
 }
 export function getElbFlavorsOutput(args?: GetElbFlavorsOutputArgs, opts?: pulumi.InvokeOutputOptions): pulumi.Output<GetElbFlavorsResult> {
@@ -56,11 +74,17 @@ export function getElbFlavorsOutput(args?: GetElbFlavorsOutputArgs, opts?: pulum
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invokeOutput("sbercloud:index/getElbFlavors:getElbFlavors", {
         "bandwidth": args.bandwidth,
+        "category": args.category,
         "cps": args.cps,
+        "flavorId": args.flavorId,
+        "flavorSoldOut": args.flavorSoldOut,
+        "listAll": args.listAll,
         "maxConnections": args.maxConnections,
         "name": args.name,
+        "publicBorderGroup": args.publicBorderGroup,
         "qps": args.qps,
         "region": args.region,
+        "shared": args.shared,
         "type": args.type,
     }, opts);
 }
@@ -70,10 +94,16 @@ export function getElbFlavorsOutput(args?: GetElbFlavorsOutputArgs, opts?: pulum
  */
 export interface GetElbFlavorsOutputArgs {
     bandwidth?: pulumi.Input<number>;
+    category?: pulumi.Input<number>;
     cps?: pulumi.Input<number>;
+    flavorId?: pulumi.Input<string>;
+    flavorSoldOut?: pulumi.Input<string>;
+    listAll?: pulumi.Input<string>;
     maxConnections?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
+    publicBorderGroup?: pulumi.Input<string>;
     qps?: pulumi.Input<number>;
     region?: pulumi.Input<string>;
+    shared?: pulumi.Input<string>;
     type?: pulumi.Input<string>;
 }

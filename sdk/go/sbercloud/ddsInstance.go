@@ -24,6 +24,7 @@ type DdsInstance struct {
 	BalancerActiveEnd   pulumi.StringPtrOutput              `pulumi:"balancerActiveEnd"`
 	BalancerStatus      pulumi.StringOutput                 `pulumi:"balancerStatus"`
 	ChargingMode        pulumi.StringOutput                 `pulumi:"chargingMode"`
+	ClientNetworkRanges pulumi.StringArrayOutput            `pulumi:"clientNetworkRanges"`
 	Configurations      DdsInstanceConfigurationArrayOutput `pulumi:"configurations"`
 	CreatedAt           pulumi.StringOutput                 `pulumi:"createdAt"`
 	Datastore           DdsInstanceDatastoreOutput          `pulumi:"datastore"`
@@ -33,23 +34,28 @@ type DdsInstance struct {
 	EnterpriseProjectId pulumi.StringOutput                 `pulumi:"enterpriseProjectId"`
 	Flavors             DdsInstanceFlavorArrayOutput        `pulumi:"flavors"`
 	Groups              DdsInstanceGroupArrayOutput         `pulumi:"groups"`
+	MaintainBegin       pulumi.StringOutput                 `pulumi:"maintainBegin"`
+	MaintainEnd         pulumi.StringOutput                 `pulumi:"maintainEnd"`
 	Mode                pulumi.StringOutput                 `pulumi:"mode"`
 	Name                pulumi.StringOutput                 `pulumi:"name"`
 	// This field is deprecated.
-	Nodes           DdsInstanceNodeArrayOutput `pulumi:"nodes"`
-	Password        pulumi.StringPtrOutput     `pulumi:"password"`
-	Period          pulumi.IntPtrOutput        `pulumi:"period"`
-	PeriodUnit      pulumi.StringPtrOutput     `pulumi:"periodUnit"`
-	Port            pulumi.IntOutput           `pulumi:"port"`
-	Region          pulumi.StringOutput        `pulumi:"region"`
-	SecurityGroupId pulumi.StringOutput        `pulumi:"securityGroupId"`
-	Ssl             pulumi.BoolPtrOutput       `pulumi:"ssl"`
-	Status          pulumi.StringOutput        `pulumi:"status"`
-	SubnetId        pulumi.StringOutput        `pulumi:"subnetId"`
-	Tags            pulumi.StringMapOutput     `pulumi:"tags"`
-	TimeZone        pulumi.StringOutput        `pulumi:"timeZone"`
-	UpdatedAt       pulumi.StringOutput        `pulumi:"updatedAt"`
-	VpcId           pulumi.StringOutput        `pulumi:"vpcId"`
+	Nodes                        DdsInstanceNodeArrayOutput `pulumi:"nodes"`
+	Password                     pulumi.StringPtrOutput     `pulumi:"password"`
+	Period                       pulumi.IntPtrOutput        `pulumi:"period"`
+	PeriodUnit                   pulumi.StringPtrOutput     `pulumi:"periodUnit"`
+	Port                         pulumi.IntOutput           `pulumi:"port"`
+	Region                       pulumi.StringOutput        `pulumi:"region"`
+	ReplicaSetName               pulumi.StringOutput        `pulumi:"replicaSetName"`
+	SecondLevelMonitoringEnabled pulumi.BoolOutput          `pulumi:"secondLevelMonitoringEnabled"`
+	SecurityGroupId              pulumi.StringOutput        `pulumi:"securityGroupId"`
+	SlowLogDesensitization       pulumi.StringOutput        `pulumi:"slowLogDesensitization"`
+	Ssl                          pulumi.BoolPtrOutput       `pulumi:"ssl"`
+	Status                       pulumi.StringOutput        `pulumi:"status"`
+	SubnetId                     pulumi.StringOutput        `pulumi:"subnetId"`
+	Tags                         pulumi.StringMapOutput     `pulumi:"tags"`
+	TimeZone                     pulumi.StringOutput        `pulumi:"timeZone"`
+	UpdatedAt                    pulumi.StringOutput        `pulumi:"updatedAt"`
+	VpcId                        pulumi.StringOutput        `pulumi:"vpcId"`
 }
 
 // NewDdsInstance registers a new resource with the given unique name, arguments, and options.
@@ -119,6 +125,7 @@ type ddsInstanceState struct {
 	BalancerActiveEnd   *string                    `pulumi:"balancerActiveEnd"`
 	BalancerStatus      *string                    `pulumi:"balancerStatus"`
 	ChargingMode        *string                    `pulumi:"chargingMode"`
+	ClientNetworkRanges []string                   `pulumi:"clientNetworkRanges"`
 	Configurations      []DdsInstanceConfiguration `pulumi:"configurations"`
 	CreatedAt           *string                    `pulumi:"createdAt"`
 	Datastore           *DdsInstanceDatastore      `pulumi:"datastore"`
@@ -128,23 +135,28 @@ type ddsInstanceState struct {
 	EnterpriseProjectId *string                    `pulumi:"enterpriseProjectId"`
 	Flavors             []DdsInstanceFlavor        `pulumi:"flavors"`
 	Groups              []DdsInstanceGroup         `pulumi:"groups"`
+	MaintainBegin       *string                    `pulumi:"maintainBegin"`
+	MaintainEnd         *string                    `pulumi:"maintainEnd"`
 	Mode                *string                    `pulumi:"mode"`
 	Name                *string                    `pulumi:"name"`
 	// This field is deprecated.
-	Nodes           []DdsInstanceNode `pulumi:"nodes"`
-	Password        *string           `pulumi:"password"`
-	Period          *int              `pulumi:"period"`
-	PeriodUnit      *string           `pulumi:"periodUnit"`
-	Port            *int              `pulumi:"port"`
-	Region          *string           `pulumi:"region"`
-	SecurityGroupId *string           `pulumi:"securityGroupId"`
-	Ssl             *bool             `pulumi:"ssl"`
-	Status          *string           `pulumi:"status"`
-	SubnetId        *string           `pulumi:"subnetId"`
-	Tags            map[string]string `pulumi:"tags"`
-	TimeZone        *string           `pulumi:"timeZone"`
-	UpdatedAt       *string           `pulumi:"updatedAt"`
-	VpcId           *string           `pulumi:"vpcId"`
+	Nodes                        []DdsInstanceNode `pulumi:"nodes"`
+	Password                     *string           `pulumi:"password"`
+	Period                       *int              `pulumi:"period"`
+	PeriodUnit                   *string           `pulumi:"periodUnit"`
+	Port                         *int              `pulumi:"port"`
+	Region                       *string           `pulumi:"region"`
+	ReplicaSetName               *string           `pulumi:"replicaSetName"`
+	SecondLevelMonitoringEnabled *bool             `pulumi:"secondLevelMonitoringEnabled"`
+	SecurityGroupId              *string           `pulumi:"securityGroupId"`
+	SlowLogDesensitization       *string           `pulumi:"slowLogDesensitization"`
+	Ssl                          *bool             `pulumi:"ssl"`
+	Status                       *string           `pulumi:"status"`
+	SubnetId                     *string           `pulumi:"subnetId"`
+	Tags                         map[string]string `pulumi:"tags"`
+	TimeZone                     *string           `pulumi:"timeZone"`
+	UpdatedAt                    *string           `pulumi:"updatedAt"`
+	VpcId                        *string           `pulumi:"vpcId"`
 }
 
 type DdsInstanceState struct {
@@ -157,6 +169,7 @@ type DdsInstanceState struct {
 	BalancerActiveEnd   pulumi.StringPtrInput
 	BalancerStatus      pulumi.StringPtrInput
 	ChargingMode        pulumi.StringPtrInput
+	ClientNetworkRanges pulumi.StringArrayInput
 	Configurations      DdsInstanceConfigurationArrayInput
 	CreatedAt           pulumi.StringPtrInput
 	Datastore           DdsInstanceDatastorePtrInput
@@ -166,23 +179,28 @@ type DdsInstanceState struct {
 	EnterpriseProjectId pulumi.StringPtrInput
 	Flavors             DdsInstanceFlavorArrayInput
 	Groups              DdsInstanceGroupArrayInput
+	MaintainBegin       pulumi.StringPtrInput
+	MaintainEnd         pulumi.StringPtrInput
 	Mode                pulumi.StringPtrInput
 	Name                pulumi.StringPtrInput
 	// This field is deprecated.
-	Nodes           DdsInstanceNodeArrayInput
-	Password        pulumi.StringPtrInput
-	Period          pulumi.IntPtrInput
-	PeriodUnit      pulumi.StringPtrInput
-	Port            pulumi.IntPtrInput
-	Region          pulumi.StringPtrInput
-	SecurityGroupId pulumi.StringPtrInput
-	Ssl             pulumi.BoolPtrInput
-	Status          pulumi.StringPtrInput
-	SubnetId        pulumi.StringPtrInput
-	Tags            pulumi.StringMapInput
-	TimeZone        pulumi.StringPtrInput
-	UpdatedAt       pulumi.StringPtrInput
-	VpcId           pulumi.StringPtrInput
+	Nodes                        DdsInstanceNodeArrayInput
+	Password                     pulumi.StringPtrInput
+	Period                       pulumi.IntPtrInput
+	PeriodUnit                   pulumi.StringPtrInput
+	Port                         pulumi.IntPtrInput
+	Region                       pulumi.StringPtrInput
+	ReplicaSetName               pulumi.StringPtrInput
+	SecondLevelMonitoringEnabled pulumi.BoolPtrInput
+	SecurityGroupId              pulumi.StringPtrInput
+	SlowLogDesensitization       pulumi.StringPtrInput
+	Ssl                          pulumi.BoolPtrInput
+	Status                       pulumi.StringPtrInput
+	SubnetId                     pulumi.StringPtrInput
+	Tags                         pulumi.StringMapInput
+	TimeZone                     pulumi.StringPtrInput
+	UpdatedAt                    pulumi.StringPtrInput
+	VpcId                        pulumi.StringPtrInput
 }
 
 func (DdsInstanceState) ElementType() reflect.Type {
@@ -191,63 +209,75 @@ func (DdsInstanceState) ElementType() reflect.Type {
 
 type ddsInstanceArgs struct {
 	// Deprecated: Deprecated
-	AutoPay             *string                    `pulumi:"autoPay"`
-	AutoRenew           *string                    `pulumi:"autoRenew"`
-	AvailabilityZone    string                     `pulumi:"availabilityZone"`
-	BackupStrategy      *DdsInstanceBackupStrategy `pulumi:"backupStrategy"`
-	BalancerActiveBegin *string                    `pulumi:"balancerActiveBegin"`
-	BalancerActiveEnd   *string                    `pulumi:"balancerActiveEnd"`
-	BalancerStatus      *string                    `pulumi:"balancerStatus"`
-	ChargingMode        *string                    `pulumi:"chargingMode"`
-	Configurations      []DdsInstanceConfiguration `pulumi:"configurations"`
-	Datastore           DdsInstanceDatastore       `pulumi:"datastore"`
-	Description         *string                    `pulumi:"description"`
-	DiskEncryptionId    *string                    `pulumi:"diskEncryptionId"`
-	EnterpriseProjectId *string                    `pulumi:"enterpriseProjectId"`
-	Flavors             []DdsInstanceFlavor        `pulumi:"flavors"`
-	Mode                string                     `pulumi:"mode"`
-	Name                *string                    `pulumi:"name"`
-	Password            *string                    `pulumi:"password"`
-	Period              *int                       `pulumi:"period"`
-	PeriodUnit          *string                    `pulumi:"periodUnit"`
-	Port                *int                       `pulumi:"port"`
-	Region              *string                    `pulumi:"region"`
-	SecurityGroupId     string                     `pulumi:"securityGroupId"`
-	Ssl                 *bool                      `pulumi:"ssl"`
-	SubnetId            string                     `pulumi:"subnetId"`
-	Tags                map[string]string          `pulumi:"tags"`
-	VpcId               string                     `pulumi:"vpcId"`
+	AutoPay                      *string                    `pulumi:"autoPay"`
+	AutoRenew                    *string                    `pulumi:"autoRenew"`
+	AvailabilityZone             string                     `pulumi:"availabilityZone"`
+	BackupStrategy               *DdsInstanceBackupStrategy `pulumi:"backupStrategy"`
+	BalancerActiveBegin          *string                    `pulumi:"balancerActiveBegin"`
+	BalancerActiveEnd            *string                    `pulumi:"balancerActiveEnd"`
+	BalancerStatus               *string                    `pulumi:"balancerStatus"`
+	ChargingMode                 *string                    `pulumi:"chargingMode"`
+	ClientNetworkRanges          []string                   `pulumi:"clientNetworkRanges"`
+	Configurations               []DdsInstanceConfiguration `pulumi:"configurations"`
+	Datastore                    DdsInstanceDatastore       `pulumi:"datastore"`
+	Description                  *string                    `pulumi:"description"`
+	DiskEncryptionId             *string                    `pulumi:"diskEncryptionId"`
+	EnterpriseProjectId          *string                    `pulumi:"enterpriseProjectId"`
+	Flavors                      []DdsInstanceFlavor        `pulumi:"flavors"`
+	MaintainBegin                *string                    `pulumi:"maintainBegin"`
+	MaintainEnd                  *string                    `pulumi:"maintainEnd"`
+	Mode                         string                     `pulumi:"mode"`
+	Name                         *string                    `pulumi:"name"`
+	Password                     *string                    `pulumi:"password"`
+	Period                       *int                       `pulumi:"period"`
+	PeriodUnit                   *string                    `pulumi:"periodUnit"`
+	Port                         *int                       `pulumi:"port"`
+	Region                       *string                    `pulumi:"region"`
+	ReplicaSetName               *string                    `pulumi:"replicaSetName"`
+	SecondLevelMonitoringEnabled *bool                      `pulumi:"secondLevelMonitoringEnabled"`
+	SecurityGroupId              string                     `pulumi:"securityGroupId"`
+	SlowLogDesensitization       *string                    `pulumi:"slowLogDesensitization"`
+	Ssl                          *bool                      `pulumi:"ssl"`
+	SubnetId                     string                     `pulumi:"subnetId"`
+	Tags                         map[string]string          `pulumi:"tags"`
+	VpcId                        string                     `pulumi:"vpcId"`
 }
 
 // The set of arguments for constructing a DdsInstance resource.
 type DdsInstanceArgs struct {
 	// Deprecated: Deprecated
-	AutoPay             pulumi.StringPtrInput
-	AutoRenew           pulumi.StringPtrInput
-	AvailabilityZone    pulumi.StringInput
-	BackupStrategy      DdsInstanceBackupStrategyPtrInput
-	BalancerActiveBegin pulumi.StringPtrInput
-	BalancerActiveEnd   pulumi.StringPtrInput
-	BalancerStatus      pulumi.StringPtrInput
-	ChargingMode        pulumi.StringPtrInput
-	Configurations      DdsInstanceConfigurationArrayInput
-	Datastore           DdsInstanceDatastoreInput
-	Description         pulumi.StringPtrInput
-	DiskEncryptionId    pulumi.StringPtrInput
-	EnterpriseProjectId pulumi.StringPtrInput
-	Flavors             DdsInstanceFlavorArrayInput
-	Mode                pulumi.StringInput
-	Name                pulumi.StringPtrInput
-	Password            pulumi.StringPtrInput
-	Period              pulumi.IntPtrInput
-	PeriodUnit          pulumi.StringPtrInput
-	Port                pulumi.IntPtrInput
-	Region              pulumi.StringPtrInput
-	SecurityGroupId     pulumi.StringInput
-	Ssl                 pulumi.BoolPtrInput
-	SubnetId            pulumi.StringInput
-	Tags                pulumi.StringMapInput
-	VpcId               pulumi.StringInput
+	AutoPay                      pulumi.StringPtrInput
+	AutoRenew                    pulumi.StringPtrInput
+	AvailabilityZone             pulumi.StringInput
+	BackupStrategy               DdsInstanceBackupStrategyPtrInput
+	BalancerActiveBegin          pulumi.StringPtrInput
+	BalancerActiveEnd            pulumi.StringPtrInput
+	BalancerStatus               pulumi.StringPtrInput
+	ChargingMode                 pulumi.StringPtrInput
+	ClientNetworkRanges          pulumi.StringArrayInput
+	Configurations               DdsInstanceConfigurationArrayInput
+	Datastore                    DdsInstanceDatastoreInput
+	Description                  pulumi.StringPtrInput
+	DiskEncryptionId             pulumi.StringPtrInput
+	EnterpriseProjectId          pulumi.StringPtrInput
+	Flavors                      DdsInstanceFlavorArrayInput
+	MaintainBegin                pulumi.StringPtrInput
+	MaintainEnd                  pulumi.StringPtrInput
+	Mode                         pulumi.StringInput
+	Name                         pulumi.StringPtrInput
+	Password                     pulumi.StringPtrInput
+	Period                       pulumi.IntPtrInput
+	PeriodUnit                   pulumi.StringPtrInput
+	Port                         pulumi.IntPtrInput
+	Region                       pulumi.StringPtrInput
+	ReplicaSetName               pulumi.StringPtrInput
+	SecondLevelMonitoringEnabled pulumi.BoolPtrInput
+	SecurityGroupId              pulumi.StringInput
+	SlowLogDesensitization       pulumi.StringPtrInput
+	Ssl                          pulumi.BoolPtrInput
+	SubnetId                     pulumi.StringInput
+	Tags                         pulumi.StringMapInput
+	VpcId                        pulumi.StringInput
 }
 
 func (DdsInstanceArgs) ElementType() reflect.Type {
@@ -370,6 +400,10 @@ func (o DdsInstanceOutput) ChargingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *DdsInstance) pulumi.StringOutput { return v.ChargingMode }).(pulumi.StringOutput)
 }
 
+func (o DdsInstanceOutput) ClientNetworkRanges() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *DdsInstance) pulumi.StringArrayOutput { return v.ClientNetworkRanges }).(pulumi.StringArrayOutput)
+}
+
 func (o DdsInstanceOutput) Configurations() DdsInstanceConfigurationArrayOutput {
 	return o.ApplyT(func(v *DdsInstance) DdsInstanceConfigurationArrayOutput { return v.Configurations }).(DdsInstanceConfigurationArrayOutput)
 }
@@ -406,6 +440,14 @@ func (o DdsInstanceOutput) Groups() DdsInstanceGroupArrayOutput {
 	return o.ApplyT(func(v *DdsInstance) DdsInstanceGroupArrayOutput { return v.Groups }).(DdsInstanceGroupArrayOutput)
 }
 
+func (o DdsInstanceOutput) MaintainBegin() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdsInstance) pulumi.StringOutput { return v.MaintainBegin }).(pulumi.StringOutput)
+}
+
+func (o DdsInstanceOutput) MaintainEnd() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdsInstance) pulumi.StringOutput { return v.MaintainEnd }).(pulumi.StringOutput)
+}
+
 func (o DdsInstanceOutput) Mode() pulumi.StringOutput {
 	return o.ApplyT(func(v *DdsInstance) pulumi.StringOutput { return v.Mode }).(pulumi.StringOutput)
 }
@@ -439,8 +481,20 @@ func (o DdsInstanceOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *DdsInstance) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+func (o DdsInstanceOutput) ReplicaSetName() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdsInstance) pulumi.StringOutput { return v.ReplicaSetName }).(pulumi.StringOutput)
+}
+
+func (o DdsInstanceOutput) SecondLevelMonitoringEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v *DdsInstance) pulumi.BoolOutput { return v.SecondLevelMonitoringEnabled }).(pulumi.BoolOutput)
+}
+
 func (o DdsInstanceOutput) SecurityGroupId() pulumi.StringOutput {
 	return o.ApplyT(func(v *DdsInstance) pulumi.StringOutput { return v.SecurityGroupId }).(pulumi.StringOutput)
+}
+
+func (o DdsInstanceOutput) SlowLogDesensitization() pulumi.StringOutput {
+	return o.ApplyT(func(v *DdsInstance) pulumi.StringOutput { return v.SlowLogDesensitization }).(pulumi.StringOutput)
 }
 
 func (o DdsInstanceOutput) Ssl() pulumi.BoolPtrOutput {

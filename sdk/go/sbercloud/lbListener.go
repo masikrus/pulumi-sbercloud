@@ -15,21 +15,30 @@ import (
 type LbListener struct {
 	pulumi.CustomResourceState
 
-	AdminStateUp           pulumi.BoolPtrOutput     `pulumi:"adminStateUp"`
-	ConnectionLimit        pulumi.IntOutput         `pulumi:"connectionLimit"`
-	DefaultPoolId          pulumi.StringOutput      `pulumi:"defaultPoolId"`
-	DefaultTlsContainerRef pulumi.StringPtrOutput   `pulumi:"defaultTlsContainerRef"`
-	Description            pulumi.StringPtrOutput   `pulumi:"description"`
-	Http2Enable            pulumi.BoolPtrOutput     `pulumi:"http2Enable"`
-	LoadbalancerId         pulumi.StringOutput      `pulumi:"loadbalancerId"`
-	Name                   pulumi.StringOutput      `pulumi:"name"`
-	Protocol               pulumi.StringOutput      `pulumi:"protocol"`
-	ProtocolPort           pulumi.IntOutput         `pulumi:"protocolPort"`
-	Region                 pulumi.StringOutput      `pulumi:"region"`
-	SniContainerRefs       pulumi.StringArrayOutput `pulumi:"sniContainerRefs"`
-	Tags                   pulumi.StringMapOutput   `pulumi:"tags"`
+	// Deprecated: admin_state_up is deprecated
+	AdminStateUp            pulumi.BoolPtrOutput `pulumi:"adminStateUp"`
+	ClientCaTlsContainerRef pulumi.StringOutput  `pulumi:"clientCaTlsContainerRef"`
+	// Deprecated: connection_limit is deprecated
+	ConnectionLimit        pulumi.IntOutput              `pulumi:"connectionLimit"`
+	CreatedAt              pulumi.StringOutput           `pulumi:"createdAt"`
+	DefaultPoolId          pulumi.StringOutput           `pulumi:"defaultPoolId"`
+	DefaultTlsContainerRef pulumi.StringOutput           `pulumi:"defaultTlsContainerRef"`
+	Description            pulumi.StringPtrOutput        `pulumi:"description"`
+	Http2Enable            pulumi.BoolPtrOutput          `pulumi:"http2Enable"`
+	InsertHeaders          LbListenerInsertHeadersOutput `pulumi:"insertHeaders"`
+	LoadbalancerId         pulumi.StringOutput           `pulumi:"loadbalancerId"`
+	Name                   pulumi.StringOutput           `pulumi:"name"`
+	ProtectionReason       pulumi.StringPtrOutput        `pulumi:"protectionReason"`
+	ProtectionStatus       pulumi.StringOutput           `pulumi:"protectionStatus"`
+	Protocol               pulumi.StringOutput           `pulumi:"protocol"`
+	ProtocolPort           pulumi.IntOutput              `pulumi:"protocolPort"`
+	Region                 pulumi.StringOutput           `pulumi:"region"`
+	SniContainerRefs       pulumi.StringArrayOutput      `pulumi:"sniContainerRefs"`
+	Tags                   pulumi.StringMapOutput        `pulumi:"tags"`
 	// Deprecated: tenant_id is deprecated
-	TenantId pulumi.StringOutput `pulumi:"tenantId"`
+	TenantId         pulumi.StringOutput `pulumi:"tenantId"`
+	TlsCiphersPolicy pulumi.StringOutput `pulumi:"tlsCiphersPolicy"`
+	UpdatedAt        pulumi.StringOutput `pulumi:"updatedAt"`
 }
 
 // NewLbListener registers a new resource with the given unique name, arguments, and options.
@@ -71,39 +80,57 @@ func GetLbListener(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering LbListener resources.
 type lbListenerState struct {
-	AdminStateUp           *bool             `pulumi:"adminStateUp"`
-	ConnectionLimit        *int              `pulumi:"connectionLimit"`
-	DefaultPoolId          *string           `pulumi:"defaultPoolId"`
-	DefaultTlsContainerRef *string           `pulumi:"defaultTlsContainerRef"`
-	Description            *string           `pulumi:"description"`
-	Http2Enable            *bool             `pulumi:"http2Enable"`
-	LoadbalancerId         *string           `pulumi:"loadbalancerId"`
-	Name                   *string           `pulumi:"name"`
-	Protocol               *string           `pulumi:"protocol"`
-	ProtocolPort           *int              `pulumi:"protocolPort"`
-	Region                 *string           `pulumi:"region"`
-	SniContainerRefs       []string          `pulumi:"sniContainerRefs"`
-	Tags                   map[string]string `pulumi:"tags"`
+	// Deprecated: admin_state_up is deprecated
+	AdminStateUp            *bool   `pulumi:"adminStateUp"`
+	ClientCaTlsContainerRef *string `pulumi:"clientCaTlsContainerRef"`
+	// Deprecated: connection_limit is deprecated
+	ConnectionLimit        *int                     `pulumi:"connectionLimit"`
+	CreatedAt              *string                  `pulumi:"createdAt"`
+	DefaultPoolId          *string                  `pulumi:"defaultPoolId"`
+	DefaultTlsContainerRef *string                  `pulumi:"defaultTlsContainerRef"`
+	Description            *string                  `pulumi:"description"`
+	Http2Enable            *bool                    `pulumi:"http2Enable"`
+	InsertHeaders          *LbListenerInsertHeaders `pulumi:"insertHeaders"`
+	LoadbalancerId         *string                  `pulumi:"loadbalancerId"`
+	Name                   *string                  `pulumi:"name"`
+	ProtectionReason       *string                  `pulumi:"protectionReason"`
+	ProtectionStatus       *string                  `pulumi:"protectionStatus"`
+	Protocol               *string                  `pulumi:"protocol"`
+	ProtocolPort           *int                     `pulumi:"protocolPort"`
+	Region                 *string                  `pulumi:"region"`
+	SniContainerRefs       []string                 `pulumi:"sniContainerRefs"`
+	Tags                   map[string]string        `pulumi:"tags"`
 	// Deprecated: tenant_id is deprecated
-	TenantId *string `pulumi:"tenantId"`
+	TenantId         *string `pulumi:"tenantId"`
+	TlsCiphersPolicy *string `pulumi:"tlsCiphersPolicy"`
+	UpdatedAt        *string `pulumi:"updatedAt"`
 }
 
 type LbListenerState struct {
-	AdminStateUp           pulumi.BoolPtrInput
+	// Deprecated: admin_state_up is deprecated
+	AdminStateUp            pulumi.BoolPtrInput
+	ClientCaTlsContainerRef pulumi.StringPtrInput
+	// Deprecated: connection_limit is deprecated
 	ConnectionLimit        pulumi.IntPtrInput
+	CreatedAt              pulumi.StringPtrInput
 	DefaultPoolId          pulumi.StringPtrInput
 	DefaultTlsContainerRef pulumi.StringPtrInput
 	Description            pulumi.StringPtrInput
 	Http2Enable            pulumi.BoolPtrInput
+	InsertHeaders          LbListenerInsertHeadersPtrInput
 	LoadbalancerId         pulumi.StringPtrInput
 	Name                   pulumi.StringPtrInput
+	ProtectionReason       pulumi.StringPtrInput
+	ProtectionStatus       pulumi.StringPtrInput
 	Protocol               pulumi.StringPtrInput
 	ProtocolPort           pulumi.IntPtrInput
 	Region                 pulumi.StringPtrInput
 	SniContainerRefs       pulumi.StringArrayInput
 	Tags                   pulumi.StringMapInput
 	// Deprecated: tenant_id is deprecated
-	TenantId pulumi.StringPtrInput
+	TenantId         pulumi.StringPtrInput
+	TlsCiphersPolicy pulumi.StringPtrInput
+	UpdatedAt        pulumi.StringPtrInput
 }
 
 func (LbListenerState) ElementType() reflect.Type {
@@ -111,40 +138,54 @@ func (LbListenerState) ElementType() reflect.Type {
 }
 
 type lbListenerArgs struct {
-	AdminStateUp           *bool             `pulumi:"adminStateUp"`
-	ConnectionLimit        *int              `pulumi:"connectionLimit"`
-	DefaultPoolId          *string           `pulumi:"defaultPoolId"`
-	DefaultTlsContainerRef *string           `pulumi:"defaultTlsContainerRef"`
-	Description            *string           `pulumi:"description"`
-	Http2Enable            *bool             `pulumi:"http2Enable"`
-	LoadbalancerId         string            `pulumi:"loadbalancerId"`
-	Name                   *string           `pulumi:"name"`
-	Protocol               string            `pulumi:"protocol"`
-	ProtocolPort           int               `pulumi:"protocolPort"`
-	Region                 *string           `pulumi:"region"`
-	SniContainerRefs       []string          `pulumi:"sniContainerRefs"`
-	Tags                   map[string]string `pulumi:"tags"`
+	// Deprecated: admin_state_up is deprecated
+	AdminStateUp            *bool   `pulumi:"adminStateUp"`
+	ClientCaTlsContainerRef *string `pulumi:"clientCaTlsContainerRef"`
+	// Deprecated: connection_limit is deprecated
+	ConnectionLimit        *int                     `pulumi:"connectionLimit"`
+	DefaultPoolId          *string                  `pulumi:"defaultPoolId"`
+	DefaultTlsContainerRef *string                  `pulumi:"defaultTlsContainerRef"`
+	Description            *string                  `pulumi:"description"`
+	Http2Enable            *bool                    `pulumi:"http2Enable"`
+	InsertHeaders          *LbListenerInsertHeaders `pulumi:"insertHeaders"`
+	LoadbalancerId         string                   `pulumi:"loadbalancerId"`
+	Name                   *string                  `pulumi:"name"`
+	ProtectionReason       *string                  `pulumi:"protectionReason"`
+	ProtectionStatus       *string                  `pulumi:"protectionStatus"`
+	Protocol               string                   `pulumi:"protocol"`
+	ProtocolPort           int                      `pulumi:"protocolPort"`
+	Region                 *string                  `pulumi:"region"`
+	SniContainerRefs       []string                 `pulumi:"sniContainerRefs"`
+	Tags                   map[string]string        `pulumi:"tags"`
 	// Deprecated: tenant_id is deprecated
-	TenantId *string `pulumi:"tenantId"`
+	TenantId         *string `pulumi:"tenantId"`
+	TlsCiphersPolicy *string `pulumi:"tlsCiphersPolicy"`
 }
 
 // The set of arguments for constructing a LbListener resource.
 type LbListenerArgs struct {
-	AdminStateUp           pulumi.BoolPtrInput
+	// Deprecated: admin_state_up is deprecated
+	AdminStateUp            pulumi.BoolPtrInput
+	ClientCaTlsContainerRef pulumi.StringPtrInput
+	// Deprecated: connection_limit is deprecated
 	ConnectionLimit        pulumi.IntPtrInput
 	DefaultPoolId          pulumi.StringPtrInput
 	DefaultTlsContainerRef pulumi.StringPtrInput
 	Description            pulumi.StringPtrInput
 	Http2Enable            pulumi.BoolPtrInput
+	InsertHeaders          LbListenerInsertHeadersPtrInput
 	LoadbalancerId         pulumi.StringInput
 	Name                   pulumi.StringPtrInput
+	ProtectionReason       pulumi.StringPtrInput
+	ProtectionStatus       pulumi.StringPtrInput
 	Protocol               pulumi.StringInput
 	ProtocolPort           pulumi.IntInput
 	Region                 pulumi.StringPtrInput
 	SniContainerRefs       pulumi.StringArrayInput
 	Tags                   pulumi.StringMapInput
 	// Deprecated: tenant_id is deprecated
-	TenantId pulumi.StringPtrInput
+	TenantId         pulumi.StringPtrInput
+	TlsCiphersPolicy pulumi.StringPtrInput
 }
 
 func (LbListenerArgs) ElementType() reflect.Type {
@@ -234,20 +275,30 @@ func (o LbListenerOutput) ToLbListenerOutputWithContext(ctx context.Context) LbL
 	return o
 }
 
+// Deprecated: admin_state_up is deprecated
 func (o LbListenerOutput) AdminStateUp() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LbListener) pulumi.BoolPtrOutput { return v.AdminStateUp }).(pulumi.BoolPtrOutput)
 }
 
+func (o LbListenerOutput) ClientCaTlsContainerRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.ClientCaTlsContainerRef }).(pulumi.StringOutput)
+}
+
+// Deprecated: connection_limit is deprecated
 func (o LbListenerOutput) ConnectionLimit() pulumi.IntOutput {
 	return o.ApplyT(func(v *LbListener) pulumi.IntOutput { return v.ConnectionLimit }).(pulumi.IntOutput)
+}
+
+func (o LbListenerOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 func (o LbListenerOutput) DefaultPoolId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.DefaultPoolId }).(pulumi.StringOutput)
 }
 
-func (o LbListenerOutput) DefaultTlsContainerRef() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v *LbListener) pulumi.StringPtrOutput { return v.DefaultTlsContainerRef }).(pulumi.StringPtrOutput)
+func (o LbListenerOutput) DefaultTlsContainerRef() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.DefaultTlsContainerRef }).(pulumi.StringOutput)
 }
 
 func (o LbListenerOutput) Description() pulumi.StringPtrOutput {
@@ -258,12 +309,24 @@ func (o LbListenerOutput) Http2Enable() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *LbListener) pulumi.BoolPtrOutput { return v.Http2Enable }).(pulumi.BoolPtrOutput)
 }
 
+func (o LbListenerOutput) InsertHeaders() LbListenerInsertHeadersOutput {
+	return o.ApplyT(func(v *LbListener) LbListenerInsertHeadersOutput { return v.InsertHeaders }).(LbListenerInsertHeadersOutput)
+}
+
 func (o LbListenerOutput) LoadbalancerId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.LoadbalancerId }).(pulumi.StringOutput)
 }
 
 func (o LbListenerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o LbListenerOutput) ProtectionReason() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *LbListener) pulumi.StringPtrOutput { return v.ProtectionReason }).(pulumi.StringPtrOutput)
+}
+
+func (o LbListenerOutput) ProtectionStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.ProtectionStatus }).(pulumi.StringOutput)
 }
 
 func (o LbListenerOutput) Protocol() pulumi.StringOutput {
@@ -289,6 +352,14 @@ func (o LbListenerOutput) Tags() pulumi.StringMapOutput {
 // Deprecated: tenant_id is deprecated
 func (o LbListenerOutput) TenantId() pulumi.StringOutput {
 	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.TenantId }).(pulumi.StringOutput)
+}
+
+func (o LbListenerOutput) TlsCiphersPolicy() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.TlsCiphersPolicy }).(pulumi.StringOutput)
+}
+
+func (o LbListenerOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *LbListener) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 type LbListenerArrayOutput struct{ *pulumi.OutputState }

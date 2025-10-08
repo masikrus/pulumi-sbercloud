@@ -18,6 +18,14 @@ namespace Pulumi.Sbercloud.Inputs
         [Input("clientSecret")]
         public Input<string>? ClientSecret { get; set; }
 
+        [Input("header")]
+        private InputMap<string>? _header;
+        public InputMap<string> Header
+        {
+            get => _header ?? (_header = new InputMap<string>());
+            set => _header = value;
+        }
+
         [Input("keyword")]
         public Input<string>? Keyword { get; set; }
 

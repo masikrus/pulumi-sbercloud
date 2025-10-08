@@ -26,6 +26,7 @@ class LbMonitorArgs:
                  timeout: pulumi.Input[builtins.int],
                  type: pulumi.Input[builtins.str],
                  admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
+                 domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  expected_codes: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
@@ -42,7 +43,12 @@ class LbMonitorArgs:
         pulumi.set(__self__, "timeout", timeout)
         pulumi.set(__self__, "type", type)
         if admin_state_up is not None:
+            warnings.warn("""tenant_id is deprecated""", DeprecationWarning)
+            pulumi.log.warn("""admin_state_up is deprecated: tenant_id is deprecated""")
+        if admin_state_up is not None:
             pulumi.set(__self__, "admin_state_up", admin_state_up)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
         if expected_codes is not None:
             pulumi.set(__self__, "expected_codes", expected_codes)
         if http_method is not None:
@@ -108,12 +114,22 @@ class LbMonitorArgs:
 
     @property
     @pulumi.getter(name="adminStateUp")
+    @_utilities.deprecated("""tenant_id is deprecated""")
     def admin_state_up(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "admin_state_up")
 
     @admin_state_up.setter
     def admin_state_up(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "admin_state_up", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain_name", value)
 
     @property
     @pulumi.getter(name="expectedCodes")
@@ -185,6 +201,7 @@ class _LbMonitorState:
     def __init__(__self__, *,
                  admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
                  delay: Optional[pulumi.Input[builtins.int]] = None,
+                 domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  expected_codes: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
@@ -200,9 +217,14 @@ class _LbMonitorState:
         Input properties used for looking up and filtering LbMonitor resources.
         """
         if admin_state_up is not None:
+            warnings.warn("""tenant_id is deprecated""", DeprecationWarning)
+            pulumi.log.warn("""admin_state_up is deprecated: tenant_id is deprecated""")
+        if admin_state_up is not None:
             pulumi.set(__self__, "admin_state_up", admin_state_up)
         if delay is not None:
             pulumi.set(__self__, "delay", delay)
+        if domain_name is not None:
+            pulumi.set(__self__, "domain_name", domain_name)
         if expected_codes is not None:
             pulumi.set(__self__, "expected_codes", expected_codes)
         if http_method is not None:
@@ -231,6 +253,7 @@ class _LbMonitorState:
 
     @property
     @pulumi.getter(name="adminStateUp")
+    @_utilities.deprecated("""tenant_id is deprecated""")
     def admin_state_up(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "admin_state_up")
 
@@ -246,6 +269,15 @@ class _LbMonitorState:
     @delay.setter
     def delay(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "delay", value)
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "domain_name")
+
+    @domain_name.setter
+    def domain_name(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "domain_name", value)
 
     @property
     @pulumi.getter(name="expectedCodes")
@@ -355,6 +387,7 @@ class LbMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
                  delay: Optional[pulumi.Input[builtins.int]] = None,
+                 domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  expected_codes: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
@@ -397,6 +430,7 @@ class LbMonitor(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
                  delay: Optional[pulumi.Input[builtins.int]] = None,
+                 domain_name: Optional[pulumi.Input[builtins.str]] = None,
                  expected_codes: Optional[pulumi.Input[builtins.str]] = None,
                  http_method: Optional[pulumi.Input[builtins.str]] = None,
                  max_retries: Optional[pulumi.Input[builtins.int]] = None,
@@ -421,6 +455,7 @@ class LbMonitor(pulumi.CustomResource):
             if delay is None and not opts.urn:
                 raise TypeError("Missing required property 'delay'")
             __props__.__dict__["delay"] = delay
+            __props__.__dict__["domain_name"] = domain_name
             __props__.__dict__["expected_codes"] = expected_codes
             __props__.__dict__["http_method"] = http_method
             if max_retries is None and not opts.urn:
@@ -452,6 +487,7 @@ class LbMonitor(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             admin_state_up: Optional[pulumi.Input[builtins.bool]] = None,
             delay: Optional[pulumi.Input[builtins.int]] = None,
+            domain_name: Optional[pulumi.Input[builtins.str]] = None,
             expected_codes: Optional[pulumi.Input[builtins.str]] = None,
             http_method: Optional[pulumi.Input[builtins.str]] = None,
             max_retries: Optional[pulumi.Input[builtins.int]] = None,
@@ -477,6 +513,7 @@ class LbMonitor(pulumi.CustomResource):
 
         __props__.__dict__["admin_state_up"] = admin_state_up
         __props__.__dict__["delay"] = delay
+        __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["expected_codes"] = expected_codes
         __props__.__dict__["http_method"] = http_method
         __props__.__dict__["max_retries"] = max_retries
@@ -492,6 +529,7 @@ class LbMonitor(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="adminStateUp")
+    @_utilities.deprecated("""tenant_id is deprecated""")
     def admin_state_up(self) -> pulumi.Output[Optional[builtins.bool]]:
         return pulumi.get(self, "admin_state_up")
 
@@ -499,6 +537,11 @@ class LbMonitor(pulumi.CustomResource):
     @pulumi.getter
     def delay(self) -> pulumi.Output[builtins.int]:
         return pulumi.get(self, "delay")
+
+    @property
+    @pulumi.getter(name="domainName")
+    def domain_name(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "domain_name")
 
     @property
     @pulumi.getter(name="expectedCodes")

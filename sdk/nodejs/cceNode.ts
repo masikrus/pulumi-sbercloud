@@ -64,6 +64,7 @@ export class CceNode extends pulumi.CustomResource {
      * @deprecated use eipId instead
      */
     public readonly eipIds!: pulumi.Output<string[] | undefined>;
+    public readonly enableForceNew!: pulumi.Output<string | undefined>;
     public readonly enterpriseProjectId!: pulumi.Output<string>;
     /**
      * schema: Deprecated
@@ -96,9 +97,6 @@ export class CceNode extends pulumi.CustomResource {
      */
     public readonly orderId!: pulumi.Output<string | undefined>;
     public readonly os!: pulumi.Output<string>;
-    /**
-     * schema: Internal
-     */
     public readonly partition!: pulumi.Output<string | undefined>;
     public readonly password!: pulumi.Output<string | undefined>;
     public readonly period!: pulumi.Output<number | undefined>;
@@ -161,6 +159,7 @@ export class CceNode extends pulumi.CustomResource {
             resourceInputs["ecsPerformanceType"] = state ? state.ecsPerformanceType : undefined;
             resourceInputs["eipId"] = state ? state.eipId : undefined;
             resourceInputs["eipIds"] = state ? state.eipIds : undefined;
+            resourceInputs["enableForceNew"] = state ? state.enableForceNew : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["extendParam"] = state ? state.extendParam : undefined;
             resourceInputs["extendParamChargingMode"] = state ? state.extendParamChargingMode : undefined;
@@ -228,6 +227,7 @@ export class CceNode extends pulumi.CustomResource {
             resourceInputs["ecsPerformanceType"] = args ? args.ecsPerformanceType : undefined;
             resourceInputs["eipId"] = args ? args.eipId : undefined;
             resourceInputs["eipIds"] = args ? args.eipIds : undefined;
+            resourceInputs["enableForceNew"] = args ? args.enableForceNew : undefined;
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
             resourceInputs["extendParam"] = args ? args.extendParam : undefined;
             resourceInputs["extendParamChargingMode"] = args ? args.extendParamChargingMode : undefined;
@@ -308,6 +308,7 @@ export interface CceNodeState {
      * @deprecated use eipId instead
      */
     eipIds?: pulumi.Input<pulumi.Input<string>[]>;
+    enableForceNew?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
     /**
      * schema: Deprecated
@@ -340,9 +341,6 @@ export interface CceNodeState {
      */
     orderId?: pulumi.Input<string>;
     os?: pulumi.Input<string>;
-    /**
-     * schema: Internal
-     */
     partition?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
     period?: pulumi.Input<number>;
@@ -412,6 +410,7 @@ export interface CceNodeArgs {
      * @deprecated use eipId instead
      */
     eipIds?: pulumi.Input<pulumi.Input<string>[]>;
+    enableForceNew?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
     /**
      * schema: Deprecated
@@ -444,9 +443,6 @@ export interface CceNodeArgs {
      */
     orderId?: pulumi.Input<string>;
     os?: pulumi.Input<string>;
-    /**
-     * schema: Internal
-     */
     partition?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
     period?: pulumi.Input<number>;

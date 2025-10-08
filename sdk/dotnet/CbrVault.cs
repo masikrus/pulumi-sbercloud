@@ -76,6 +76,12 @@ namespace Pulumi.Sbercloud
         public Output<bool> IsMultiAz { get; private set; } = null!;
 
         /// <summary>
+        /// Locked status of the vault.
+        /// </summary>
+        [Output("locked")]
+        public Output<bool> Locked { get; private set; } = null!;
+
+        /// <summary>
         /// The name of the vault.
         /// </summary>
         [Output("name")]
@@ -266,6 +272,12 @@ namespace Pulumi.Sbercloud
         public Input<bool>? IsMultiAz { get; set; }
 
         /// <summary>
+        /// Locked status of the vault.
+        /// </summary>
+        [Input("locked")]
+        public Input<bool>? Locked { get; set; }
+
+        /// <summary>
         /// The name of the vault.
         /// </summary>
         [Input("name")]
@@ -415,6 +427,12 @@ namespace Pulumi.Sbercloud
         /// </summary>
         [Input("isMultiAz")]
         public Input<bool>? IsMultiAz { get; set; }
+
+        /// <summary>
+        /// Locked status of the vault.
+        /// </summary>
+        [Input("locked")]
+        public Input<bool>? Locked { get; set; }
 
         /// <summary>
         /// The name of the vault.

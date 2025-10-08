@@ -35,6 +35,7 @@ type CceNode struct {
 	EipId              pulumi.StringPtrOutput `pulumi:"eipId"`
 	// Deprecated: use eipId instead
 	EipIds              pulumi.StringArrayOutput `pulumi:"eipIds"`
+	EnableForceNew      pulumi.StringPtrOutput   `pulumi:"enableForceNew"`
 	EnterpriseProjectId pulumi.StringOutput      `pulumi:"enterpriseProjectId"`
 	// schema: Deprecated
 	ExtendParam pulumi.StringMapOutput `pulumi:"extendParam"`
@@ -55,9 +56,8 @@ type CceNode struct {
 	MaxPods pulumi.IntPtrOutput `pulumi:"maxPods"`
 	Name    pulumi.StringOutput `pulumi:"name"`
 	// Deprecated: will be removed after v1.26.0
-	OrderId pulumi.StringPtrOutput `pulumi:"orderId"`
-	Os      pulumi.StringOutput    `pulumi:"os"`
-	// schema: Internal
+	OrderId    pulumi.StringPtrOutput `pulumi:"orderId"`
+	Os         pulumi.StringOutput    `pulumi:"os"`
 	Partition  pulumi.StringPtrOutput `pulumi:"partition"`
 	Password   pulumi.StringPtrOutput `pulumi:"password"`
 	Period     pulumi.IntPtrOutput    `pulumi:"period"`
@@ -158,6 +158,7 @@ type cceNodeState struct {
 	EipId              *string `pulumi:"eipId"`
 	// Deprecated: use eipId instead
 	EipIds              []string `pulumi:"eipIds"`
+	EnableForceNew      *string  `pulumi:"enableForceNew"`
 	EnterpriseProjectId *string  `pulumi:"enterpriseProjectId"`
 	// schema: Deprecated
 	ExtendParam map[string]string `pulumi:"extendParam"`
@@ -178,9 +179,8 @@ type cceNodeState struct {
 	MaxPods *int    `pulumi:"maxPods"`
 	Name    *string `pulumi:"name"`
 	// Deprecated: will be removed after v1.26.0
-	OrderId *string `pulumi:"orderId"`
-	Os      *string `pulumi:"os"`
-	// schema: Internal
+	OrderId    *string `pulumi:"orderId"`
+	Os         *string `pulumi:"os"`
 	Partition  *string `pulumi:"partition"`
 	Password   *string `pulumi:"password"`
 	Period     *int    `pulumi:"period"`
@@ -229,6 +229,7 @@ type CceNodeState struct {
 	EipId              pulumi.StringPtrInput
 	// Deprecated: use eipId instead
 	EipIds              pulumi.StringArrayInput
+	EnableForceNew      pulumi.StringPtrInput
 	EnterpriseProjectId pulumi.StringPtrInput
 	// schema: Deprecated
 	ExtendParam pulumi.StringMapInput
@@ -249,9 +250,8 @@ type CceNodeState struct {
 	MaxPods pulumi.IntPtrInput
 	Name    pulumi.StringPtrInput
 	// Deprecated: will be removed after v1.26.0
-	OrderId pulumi.StringPtrInput
-	Os      pulumi.StringPtrInput
-	// schema: Internal
+	OrderId    pulumi.StringPtrInput
+	Os         pulumi.StringPtrInput
 	Partition  pulumi.StringPtrInput
 	Password   pulumi.StringPtrInput
 	Period     pulumi.IntPtrInput
@@ -304,6 +304,7 @@ type cceNodeArgs struct {
 	EipId              *string `pulumi:"eipId"`
 	// Deprecated: use eipId instead
 	EipIds              []string `pulumi:"eipIds"`
+	EnableForceNew      *string  `pulumi:"enableForceNew"`
 	EnterpriseProjectId *string  `pulumi:"enterpriseProjectId"`
 	// schema: Deprecated
 	ExtendParam map[string]string `pulumi:"extendParam"`
@@ -324,9 +325,8 @@ type cceNodeArgs struct {
 	MaxPods *int    `pulumi:"maxPods"`
 	Name    *string `pulumi:"name"`
 	// Deprecated: will be removed after v1.26.0
-	OrderId *string `pulumi:"orderId"`
-	Os      *string `pulumi:"os"`
-	// schema: Internal
+	OrderId    *string `pulumi:"orderId"`
+	Os         *string `pulumi:"os"`
 	Partition  *string `pulumi:"partition"`
 	Password   *string `pulumi:"password"`
 	Period     *int    `pulumi:"period"`
@@ -372,6 +372,7 @@ type CceNodeArgs struct {
 	EipId              pulumi.StringPtrInput
 	// Deprecated: use eipId instead
 	EipIds              pulumi.StringArrayInput
+	EnableForceNew      pulumi.StringPtrInput
 	EnterpriseProjectId pulumi.StringPtrInput
 	// schema: Deprecated
 	ExtendParam pulumi.StringMapInput
@@ -392,9 +393,8 @@ type CceNodeArgs struct {
 	MaxPods pulumi.IntPtrInput
 	Name    pulumi.StringPtrInput
 	// Deprecated: will be removed after v1.26.0
-	OrderId pulumi.StringPtrInput
-	Os      pulumi.StringPtrInput
-	// schema: Internal
+	OrderId    pulumi.StringPtrInput
+	Os         pulumi.StringPtrInput
 	Partition  pulumi.StringPtrInput
 	Password   pulumi.StringPtrInput
 	Period     pulumi.IntPtrInput
@@ -570,6 +570,10 @@ func (o CceNodeOutput) EipIds() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *CceNode) pulumi.StringArrayOutput { return v.EipIds }).(pulumi.StringArrayOutput)
 }
 
+func (o CceNodeOutput) EnableForceNew() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *CceNode) pulumi.StringPtrOutput { return v.EnableForceNew }).(pulumi.StringPtrOutput)
+}
+
 func (o CceNodeOutput) EnterpriseProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *CceNode) pulumi.StringOutput { return v.EnterpriseProjectId }).(pulumi.StringOutput)
 }
@@ -643,7 +647,6 @@ func (o CceNodeOutput) Os() pulumi.StringOutput {
 	return o.ApplyT(func(v *CceNode) pulumi.StringOutput { return v.Os }).(pulumi.StringOutput)
 }
 
-// schema: Internal
 func (o CceNodeOutput) Partition() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *CceNode) pulumi.StringPtrOutput { return v.Partition }).(pulumi.StringPtrOutput)
 }

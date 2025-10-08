@@ -17,18 +17,27 @@ namespace Pulumi.Sbercloud.Outputs
         public readonly string AvailabilityZone;
         public readonly bool Bootable;
         public readonly string CreateAt;
+        public readonly string DedicatedStorageId;
+        public readonly string DedicatedStorageName;
         public readonly string Description;
         public readonly string EnterpriseProjectId;
         public readonly string Id;
         public readonly int Iops;
+        public readonly ImmutableArray<Outputs.GetEvsVolumesVolumeIopsAttributeResult> IopsAttributes;
+        public readonly ImmutableArray<Outputs.GetEvsVolumesVolumeLinkResult> Links;
+        public readonly ImmutableDictionary<string, string> Metadata;
         public readonly string Name;
+        public readonly string SerialNumber;
         public readonly string ServiceType;
         public readonly bool Shareable;
         public readonly int Size;
+        public readonly string SnapshotId;
         public readonly string Status;
         public readonly ImmutableDictionary<string, string> Tags;
         public readonly int Throughput;
+        public readonly ImmutableArray<Outputs.GetEvsVolumesVolumeThroughputAttributeResult> ThroughputAttributes;
         public readonly string UpdateAt;
+        public readonly ImmutableDictionary<string, string> VolumeImageMetadata;
         public readonly string VolumeType;
         public readonly string Wwn;
 
@@ -42,6 +51,10 @@ namespace Pulumi.Sbercloud.Outputs
 
             string createAt,
 
+            string dedicatedStorageId,
+
+            string dedicatedStorageName,
+
             string description,
 
             string enterpriseProjectId,
@@ -50,7 +63,15 @@ namespace Pulumi.Sbercloud.Outputs
 
             int iops,
 
+            ImmutableArray<Outputs.GetEvsVolumesVolumeIopsAttributeResult> iopsAttributes,
+
+            ImmutableArray<Outputs.GetEvsVolumesVolumeLinkResult> links,
+
+            ImmutableDictionary<string, string> metadata,
+
             string name,
+
+            string serialNumber,
 
             string serviceType,
 
@@ -58,13 +79,19 @@ namespace Pulumi.Sbercloud.Outputs
 
             int size,
 
+            string snapshotId,
+
             string status,
 
             ImmutableDictionary<string, string> tags,
 
             int throughput,
 
+            ImmutableArray<Outputs.GetEvsVolumesVolumeThroughputAttributeResult> throughputAttributes,
+
             string updateAt,
+
+            ImmutableDictionary<string, string> volumeImageMetadata,
 
             string volumeType,
 
@@ -74,18 +101,27 @@ namespace Pulumi.Sbercloud.Outputs
             AvailabilityZone = availabilityZone;
             Bootable = bootable;
             CreateAt = createAt;
+            DedicatedStorageId = dedicatedStorageId;
+            DedicatedStorageName = dedicatedStorageName;
             Description = description;
             EnterpriseProjectId = enterpriseProjectId;
             Id = id;
             Iops = iops;
+            IopsAttributes = iopsAttributes;
+            Links = links;
+            Metadata = metadata;
             Name = name;
+            SerialNumber = serialNumber;
             ServiceType = serviceType;
             Shareable = shareable;
             Size = size;
+            SnapshotId = snapshotId;
             Status = status;
             Tags = tags;
             Throughput = throughput;
+            ThroughputAttributes = throughputAttributes;
             UpdateAt = updateAt;
+            VolumeImageMetadata = volumeImageMetadata;
             VolumeType = volumeType;
             Wwn = wwn;
         }

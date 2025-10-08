@@ -18,7 +18,7 @@ namespace Pulumi.Sbercloud.Inputs
         [Input("disablePublicNetwork")]
         public Input<bool>? DisablePublicNetwork { get; set; }
 
-        [Input("triggerAccessVpcs", required: true)]
+        [Input("triggerAccessVpcs")]
         private InputList<Inputs.FgsFunctionNetworkControllerTriggerAccessVpcArgs>? _triggerAccessVpcs;
 
         /// <summary>

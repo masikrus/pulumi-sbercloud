@@ -75,10 +75,12 @@ type providerArgs struct {
 	AccountName *string             `pulumi:"accountName"`
 	AssumeRole  *ProviderAssumeRole `pulumi:"assumeRole"`
 	// The Identity authentication URL.
-	AuthUrl             *string `pulumi:"authUrl"`
-	DomainId            *string `pulumi:"domainId"`
-	DomainName          *string `pulumi:"domainName"`
-	EnterpriseProjectId *string `pulumi:"enterpriseProjectId"`
+	AuthUrl    *string `pulumi:"authUrl"`
+	DomainId   *string `pulumi:"domainId"`
+	DomainName *string `pulumi:"domainName"`
+	// The custom endpoints used to override the default endpoint URL.
+	Endpoints           map[string]string `pulumi:"endpoints"`
+	EnterpriseProjectId *string           `pulumi:"enterpriseProjectId"`
 	// Trust self-signed certificates.
 	Insecure   *bool `pulumi:"insecure"`
 	MaxRetries *int  `pulumi:"maxRetries"`
@@ -104,9 +106,11 @@ type ProviderArgs struct {
 	AccountName pulumi.StringPtrInput
 	AssumeRole  ProviderAssumeRolePtrInput
 	// The Identity authentication URL.
-	AuthUrl             pulumi.StringPtrInput
-	DomainId            pulumi.StringPtrInput
-	DomainName          pulumi.StringPtrInput
+	AuthUrl    pulumi.StringPtrInput
+	DomainId   pulumi.StringPtrInput
+	DomainName pulumi.StringPtrInput
+	// The custom endpoints used to override the default endpoint URL.
+	Endpoints           pulumi.StringMapInput
 	EnterpriseProjectId pulumi.StringPtrInput
 	// Trust self-signed certificates.
 	Insecure   pulumi.BoolPtrInput

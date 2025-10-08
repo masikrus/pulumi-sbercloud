@@ -13,21 +13,37 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class EvsVolumeAttachment
     {
+        public readonly string? AttachedAt;
+        public readonly string? AttachedVolumeId;
         public readonly string? Device;
+        public readonly string? HostName;
         public readonly string? Id;
         public readonly string? InstanceId;
+        public readonly string? VolumeId;
 
         [OutputConstructor]
         private EvsVolumeAttachment(
+            string? attachedAt,
+
+            string? attachedVolumeId,
+
             string? device,
+
+            string? hostName,
 
             string? id,
 
-            string? instanceId)
+            string? instanceId,
+
+            string? volumeId)
         {
+            AttachedAt = attachedAt;
+            AttachedVolumeId = attachedVolumeId;
             Device = device;
+            HostName = hostName;
             Id = id;
             InstanceId = instanceId;
+            VolumeId = volumeId;
         }
     }
 }

@@ -28,6 +28,7 @@ class FgsFunctionArgs:
                  agency: Optional[pulumi.Input[builtins.str]] = None,
                  app: Optional[pulumi.Input[builtins.str]] = None,
                  app_agency: Optional[pulumi.Input[builtins.str]] = None,
+                 code_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  code_filename: Optional[pulumi.Input[builtins.str]] = None,
                  code_type: Optional[pulumi.Input[builtins.str]] = None,
                  code_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -39,6 +40,7 @@ class FgsFunctionArgs:
                  enable_auth_in_header: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_class_isolation: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_dynamic_memory: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_lts_log: Optional[pulumi.Input[builtins.bool]] = None,
                  encrypted_user_data: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  ephemeral_storage: Optional[pulumi.Input[builtins.int]] = None,
@@ -56,6 +58,7 @@ class FgsFunctionArgs:
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  log_stream_id: Optional[pulumi.Input[builtins.str]] = None,
                  log_stream_name: Optional[pulumi.Input[builtins.str]] = None,
+                 lts_custom_tag: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  max_instance_num: Optional[pulumi.Input[builtins.str]] = None,
                  mount_user_group_id: Optional[pulumi.Input[builtins.int]] = None,
                  mount_user_id: Optional[pulumi.Input[builtins.int]] = None,
@@ -72,6 +75,7 @@ class FgsFunctionArgs:
                  restore_hook_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  user_data: Optional[pulumi.Input[builtins.str]] = None,
+                 user_data_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input['FgsFunctionVersionArgs']]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  xrole: Optional[pulumi.Input[builtins.str]] = None):
@@ -83,6 +87,7 @@ class FgsFunctionArgs:
         :param pulumi.Input[builtins.str] agency: The agency configuration of the function.
         :param pulumi.Input[builtins.str] app: The group to which the function belongs.
         :param pulumi.Input[builtins.str] app_agency: The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
+        :param pulumi.Input[builtins.str] code_encrypt_kms_key_id: The KMS key ID for encrypting the function code.
         :param pulumi.Input[builtins.str] code_filename: The name of the function file.
         :param pulumi.Input[builtins.str] code_type: The code type of the function.
         :param pulumi.Input[builtins.str] code_url: The URL where the function code is stored in OBS.
@@ -94,6 +99,7 @@ class FgsFunctionArgs:
         :param pulumi.Input[builtins.bool] enable_auth_in_header: Whether the authentication in the request header is enabled.
         :param pulumi.Input[builtins.bool] enable_class_isolation: Whether the class isolation is enabled for the JAVA runtime functions.
         :param pulumi.Input[builtins.bool] enable_dynamic_memory: Whether the dynamic memory configuration is enabled.
+        :param pulumi.Input[builtins.bool] enable_lts_log: Whether to enable the LTS log.
         :param pulumi.Input[builtins.str] encrypted_user_data: The key/value information defined to be encrypted for the function.
         :param pulumi.Input[builtins.str] enterprise_project_id: The ID of the enterprise project to which the function belongs.
         :param pulumi.Input[builtins.int] ephemeral_storage: The size of the function ephemeral storage.
@@ -111,6 +117,7 @@ class FgsFunctionArgs:
         :param pulumi.Input[builtins.str] log_group_name: The LTS group name for collecting logs.
         :param pulumi.Input[builtins.str] log_stream_id: The LTS stream ID for collecting logs.
         :param pulumi.Input[builtins.str] log_stream_name: The LTS stream name for collecting logs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] lts_custom_tag: The custom tags configuration that used to filter the LTS logs.
         :param pulumi.Input[builtins.str] max_instance_num: The maximum number of instances of the function.
         :param pulumi.Input[builtins.int] mount_user_group_id: The mount user group ID.
         :param pulumi.Input[builtins.int] mount_user_id: The mount user ID.
@@ -127,6 +134,7 @@ class FgsFunctionArgs:
         :param pulumi.Input[builtins.int] restore_hook_timeout: The timeout of the function restore hook.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The key/value pairs to associate with the function.
         :param pulumi.Input[builtins.str] user_data: The key/value information defined for the function.
+        :param pulumi.Input[builtins.str] user_data_encrypt_kms_key_id: The KMS key ID for encrypting the user data.
         :param pulumi.Input[Sequence[pulumi.Input['FgsFunctionVersionArgs']]] versions: The versions management of the function.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to which the function belongs.
         """
@@ -139,6 +147,8 @@ class FgsFunctionArgs:
             pulumi.set(__self__, "app", app)
         if app_agency is not None:
             pulumi.set(__self__, "app_agency", app_agency)
+        if code_encrypt_kms_key_id is not None:
+            pulumi.set(__self__, "code_encrypt_kms_key_id", code_encrypt_kms_key_id)
         if code_filename is not None:
             pulumi.set(__self__, "code_filename", code_filename)
         if code_type is not None:
@@ -161,6 +171,8 @@ class FgsFunctionArgs:
             pulumi.set(__self__, "enable_class_isolation", enable_class_isolation)
         if enable_dynamic_memory is not None:
             pulumi.set(__self__, "enable_dynamic_memory", enable_dynamic_memory)
+        if enable_lts_log is not None:
+            pulumi.set(__self__, "enable_lts_log", enable_lts_log)
         if encrypted_user_data is not None:
             pulumi.set(__self__, "encrypted_user_data", encrypted_user_data)
         if enterprise_project_id is not None:
@@ -195,6 +207,8 @@ class FgsFunctionArgs:
             pulumi.set(__self__, "log_stream_id", log_stream_id)
         if log_stream_name is not None:
             pulumi.set(__self__, "log_stream_name", log_stream_name)
+        if lts_custom_tag is not None:
+            pulumi.set(__self__, "lts_custom_tag", lts_custom_tag)
         if max_instance_num is not None:
             pulumi.set(__self__, "max_instance_num", max_instance_num)
         if mount_user_group_id is not None:
@@ -230,6 +244,8 @@ class FgsFunctionArgs:
             pulumi.set(__self__, "tags", tags)
         if user_data is not None:
             pulumi.set(__self__, "user_data", user_data)
+        if user_data_encrypt_kms_key_id is not None:
+            pulumi.set(__self__, "user_data_encrypt_kms_key_id", user_data_encrypt_kms_key_id)
         if versions is not None:
             pulumi.set(__self__, "versions", versions)
         if vpc_id is not None:
@@ -311,6 +327,18 @@ class FgsFunctionArgs:
     @app_agency.setter
     def app_agency(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "app_agency", value)
+
+    @property
+    @pulumi.getter(name="codeEncryptKmsKeyId")
+    def code_encrypt_kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The KMS key ID for encrypting the function code.
+        """
+        return pulumi.get(self, "code_encrypt_kms_key_id")
+
+    @code_encrypt_kms_key_id.setter
+    def code_encrypt_kms_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "code_encrypt_kms_key_id", value)
 
     @property
     @pulumi.getter(name="codeFilename")
@@ -443,6 +471,18 @@ class FgsFunctionArgs:
     @enable_dynamic_memory.setter
     def enable_dynamic_memory(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_dynamic_memory", value)
+
+    @property
+    @pulumi.getter(name="enableLtsLog")
+    def enable_lts_log(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to enable the LTS log.
+        """
+        return pulumi.get(self, "enable_lts_log")
+
+    @enable_lts_log.setter
+    def enable_lts_log(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_lts_log", value)
 
     @property
     @pulumi.getter(name="encryptedUserData")
@@ -647,6 +687,18 @@ class FgsFunctionArgs:
     @log_stream_name.setter
     def log_stream_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "log_stream_name", value)
+
+    @property
+    @pulumi.getter(name="ltsCustomTag")
+    def lts_custom_tag(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The custom tags configuration that used to filter the LTS logs.
+        """
+        return pulumi.get(self, "lts_custom_tag")
+
+    @lts_custom_tag.setter
+    def lts_custom_tag(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "lts_custom_tag", value)
 
     @property
     @pulumi.getter(name="maxInstanceNum")
@@ -840,6 +892,18 @@ class FgsFunctionArgs:
         pulumi.set(self, "user_data", value)
 
     @property
+    @pulumi.getter(name="userDataEncryptKmsKeyId")
+    def user_data_encrypt_kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The KMS key ID for encrypting the user data.
+        """
+        return pulumi.get(self, "user_data_encrypt_kms_key_id")
+
+    @user_data_encrypt_kms_key_id.setter
+    def user_data_encrypt_kms_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_data_encrypt_kms_key_id", value)
+
+    @property
     @pulumi.getter
     def versions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['FgsFunctionVersionArgs']]]]:
         """
@@ -880,6 +944,7 @@ class _FgsFunctionState:
                  agency: Optional[pulumi.Input[builtins.str]] = None,
                  app: Optional[pulumi.Input[builtins.str]] = None,
                  app_agency: Optional[pulumi.Input[builtins.str]] = None,
+                 code_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  code_filename: Optional[pulumi.Input[builtins.str]] = None,
                  code_type: Optional[pulumi.Input[builtins.str]] = None,
                  code_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -891,6 +956,7 @@ class _FgsFunctionState:
                  enable_auth_in_header: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_class_isolation: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_dynamic_memory: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_lts_log: Optional[pulumi.Input[builtins.bool]] = None,
                  encrypted_user_data: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  ephemeral_storage: Optional[pulumi.Input[builtins.int]] = None,
@@ -908,6 +974,8 @@ class _FgsFunctionState:
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  log_stream_id: Optional[pulumi.Input[builtins.str]] = None,
                  log_stream_name: Optional[pulumi.Input[builtins.str]] = None,
+                 lts_custom_tag: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 lts_custom_tag_origin: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  max_instance_num: Optional[pulumi.Input[builtins.str]] = None,
                  memory_size: Optional[pulumi.Input[builtins.int]] = None,
                  mount_user_group_id: Optional[pulumi.Input[builtins.int]] = None,
@@ -928,6 +996,7 @@ class _FgsFunctionState:
                  timeout: Optional[pulumi.Input[builtins.int]] = None,
                  urn: Optional[pulumi.Input[builtins.str]] = None,
                  user_data: Optional[pulumi.Input[builtins.str]] = None,
+                 user_data_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  version: Optional[pulumi.Input[builtins.str]] = None,
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input['FgsFunctionVersionArgs']]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -937,6 +1006,7 @@ class _FgsFunctionState:
         :param pulumi.Input[builtins.str] agency: The agency configuration of the function.
         :param pulumi.Input[builtins.str] app: The group to which the function belongs.
         :param pulumi.Input[builtins.str] app_agency: The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
+        :param pulumi.Input[builtins.str] code_encrypt_kms_key_id: The KMS key ID for encrypting the function code.
         :param pulumi.Input[builtins.str] code_filename: The name of the function file.
         :param pulumi.Input[builtins.str] code_type: The code type of the function.
         :param pulumi.Input[builtins.str] code_url: The URL where the function code is stored in OBS.
@@ -948,6 +1018,7 @@ class _FgsFunctionState:
         :param pulumi.Input[builtins.bool] enable_auth_in_header: Whether the authentication in the request header is enabled.
         :param pulumi.Input[builtins.bool] enable_class_isolation: Whether the class isolation is enabled for the JAVA runtime functions.
         :param pulumi.Input[builtins.bool] enable_dynamic_memory: Whether the dynamic memory configuration is enabled.
+        :param pulumi.Input[builtins.bool] enable_lts_log: Whether to enable the LTS log.
         :param pulumi.Input[builtins.str] encrypted_user_data: The key/value information defined to be encrypted for the function.
         :param pulumi.Input[builtins.str] enterprise_project_id: The ID of the enterprise project to which the function belongs.
         :param pulumi.Input[builtins.int] ephemeral_storage: The size of the function ephemeral storage.
@@ -965,6 +1036,9 @@ class _FgsFunctionState:
         :param pulumi.Input[builtins.str] log_group_name: The LTS group name for collecting logs.
         :param pulumi.Input[builtins.str] log_stream_id: The LTS stream ID for collecting logs.
         :param pulumi.Input[builtins.str] log_stream_name: The LTS stream name for collecting logs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] lts_custom_tag: The custom tags configuration that used to filter the LTS logs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] lts_custom_tag_origin: The script configuration value of this change is also the original value used for comparison with the new value next
+               time the change is made. The corresponding parameter name is 'lts_custom_tag'.
         :param pulumi.Input[builtins.str] max_instance_num: The maximum number of instances of the function.
         :param pulumi.Input[builtins.int] memory_size: The memory size allocated to the function, in MByte (MB).
         :param pulumi.Input[builtins.int] mount_user_group_id: The mount user group ID.
@@ -985,6 +1059,7 @@ class _FgsFunctionState:
         :param pulumi.Input[builtins.int] timeout: The timeout interval of the function, in seconds.
         :param pulumi.Input[builtins.str] urn: The URN (Uniform Resource Name) of the function.
         :param pulumi.Input[builtins.str] user_data: The key/value information defined for the function.
+        :param pulumi.Input[builtins.str] user_data_encrypt_kms_key_id: The KMS key ID for encrypting the user data.
         :param pulumi.Input[builtins.str] version: The version of the function.
         :param pulumi.Input[Sequence[pulumi.Input['FgsFunctionVersionArgs']]] versions: The versions management of the function.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to which the function belongs.
@@ -995,6 +1070,8 @@ class _FgsFunctionState:
             pulumi.set(__self__, "app", app)
         if app_agency is not None:
             pulumi.set(__self__, "app_agency", app_agency)
+        if code_encrypt_kms_key_id is not None:
+            pulumi.set(__self__, "code_encrypt_kms_key_id", code_encrypt_kms_key_id)
         if code_filename is not None:
             pulumi.set(__self__, "code_filename", code_filename)
         if code_type is not None:
@@ -1017,6 +1094,8 @@ class _FgsFunctionState:
             pulumi.set(__self__, "enable_class_isolation", enable_class_isolation)
         if enable_dynamic_memory is not None:
             pulumi.set(__self__, "enable_dynamic_memory", enable_dynamic_memory)
+        if enable_lts_log is not None:
+            pulumi.set(__self__, "enable_lts_log", enable_lts_log)
         if encrypted_user_data is not None:
             pulumi.set(__self__, "encrypted_user_data", encrypted_user_data)
         if enterprise_project_id is not None:
@@ -1051,6 +1130,10 @@ class _FgsFunctionState:
             pulumi.set(__self__, "log_stream_id", log_stream_id)
         if log_stream_name is not None:
             pulumi.set(__self__, "log_stream_name", log_stream_name)
+        if lts_custom_tag is not None:
+            pulumi.set(__self__, "lts_custom_tag", lts_custom_tag)
+        if lts_custom_tag_origin is not None:
+            pulumi.set(__self__, "lts_custom_tag_origin", lts_custom_tag_origin)
         if max_instance_num is not None:
             pulumi.set(__self__, "max_instance_num", max_instance_num)
         if memory_size is not None:
@@ -1094,6 +1177,8 @@ class _FgsFunctionState:
             pulumi.set(__self__, "urn", urn)
         if user_data is not None:
             pulumi.set(__self__, "user_data", user_data)
+        if user_data_encrypt_kms_key_id is not None:
+            pulumi.set(__self__, "user_data_encrypt_kms_key_id", user_data_encrypt_kms_key_id)
         if version is not None:
             pulumi.set(__self__, "version", version)
         if versions is not None:
@@ -1141,6 +1226,18 @@ class _FgsFunctionState:
     @app_agency.setter
     def app_agency(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "app_agency", value)
+
+    @property
+    @pulumi.getter(name="codeEncryptKmsKeyId")
+    def code_encrypt_kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The KMS key ID for encrypting the function code.
+        """
+        return pulumi.get(self, "code_encrypt_kms_key_id")
+
+    @code_encrypt_kms_key_id.setter
+    def code_encrypt_kms_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "code_encrypt_kms_key_id", value)
 
     @property
     @pulumi.getter(name="codeFilename")
@@ -1273,6 +1370,18 @@ class _FgsFunctionState:
     @enable_dynamic_memory.setter
     def enable_dynamic_memory(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_dynamic_memory", value)
+
+    @property
+    @pulumi.getter(name="enableLtsLog")
+    def enable_lts_log(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to enable the LTS log.
+        """
+        return pulumi.get(self, "enable_lts_log")
+
+    @enable_lts_log.setter
+    def enable_lts_log(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "enable_lts_log", value)
 
     @property
     @pulumi.getter(name="encryptedUserData")
@@ -1477,6 +1586,31 @@ class _FgsFunctionState:
     @log_stream_name.setter
     def log_stream_name(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "log_stream_name", value)
+
+    @property
+    @pulumi.getter(name="ltsCustomTag")
+    def lts_custom_tag(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The custom tags configuration that used to filter the LTS logs.
+        """
+        return pulumi.get(self, "lts_custom_tag")
+
+    @lts_custom_tag.setter
+    def lts_custom_tag(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "lts_custom_tag", value)
+
+    @property
+    @pulumi.getter(name="ltsCustomTagOrigin")
+    def lts_custom_tag_origin(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        """
+        The script configuration value of this change is also the original value used for comparison with the new value next
+        time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+        """
+        return pulumi.get(self, "lts_custom_tag_origin")
+
+    @lts_custom_tag_origin.setter
+    def lts_custom_tag_origin(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "lts_custom_tag_origin", value)
 
     @property
     @pulumi.getter(name="maxInstanceNum")
@@ -1718,6 +1852,18 @@ class _FgsFunctionState:
         pulumi.set(self, "user_data", value)
 
     @property
+    @pulumi.getter(name="userDataEncryptKmsKeyId")
+    def user_data_encrypt_kms_key_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The KMS key ID for encrypting the user data.
+        """
+        return pulumi.get(self, "user_data_encrypt_kms_key_id")
+
+    @user_data_encrypt_kms_key_id.setter
+    def user_data_encrypt_kms_key_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "user_data_encrypt_kms_key_id", value)
+
+    @property
     @pulumi.getter
     def version(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -1772,6 +1918,7 @@ class FgsFunction(pulumi.CustomResource):
                  agency: Optional[pulumi.Input[builtins.str]] = None,
                  app: Optional[pulumi.Input[builtins.str]] = None,
                  app_agency: Optional[pulumi.Input[builtins.str]] = None,
+                 code_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  code_filename: Optional[pulumi.Input[builtins.str]] = None,
                  code_type: Optional[pulumi.Input[builtins.str]] = None,
                  code_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -1783,6 +1930,7 @@ class FgsFunction(pulumi.CustomResource):
                  enable_auth_in_header: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_class_isolation: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_dynamic_memory: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_lts_log: Optional[pulumi.Input[builtins.bool]] = None,
                  encrypted_user_data: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  ephemeral_storage: Optional[pulumi.Input[builtins.int]] = None,
@@ -1800,6 +1948,7 @@ class FgsFunction(pulumi.CustomResource):
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  log_stream_id: Optional[pulumi.Input[builtins.str]] = None,
                  log_stream_name: Optional[pulumi.Input[builtins.str]] = None,
+                 lts_custom_tag: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  max_instance_num: Optional[pulumi.Input[builtins.str]] = None,
                  memory_size: Optional[pulumi.Input[builtins.int]] = None,
                  mount_user_group_id: Optional[pulumi.Input[builtins.int]] = None,
@@ -1819,6 +1968,7 @@ class FgsFunction(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[builtins.int]] = None,
                  user_data: Optional[pulumi.Input[builtins.str]] = None,
+                 user_data_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FgsFunctionVersionArgs', 'FgsFunctionVersionArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  xrole: Optional[pulumi.Input[builtins.str]] = None,
@@ -1830,6 +1980,7 @@ class FgsFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] agency: The agency configuration of the function.
         :param pulumi.Input[builtins.str] app: The group to which the function belongs.
         :param pulumi.Input[builtins.str] app_agency: The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
+        :param pulumi.Input[builtins.str] code_encrypt_kms_key_id: The KMS key ID for encrypting the function code.
         :param pulumi.Input[builtins.str] code_filename: The name of the function file.
         :param pulumi.Input[builtins.str] code_type: The code type of the function.
         :param pulumi.Input[builtins.str] code_url: The URL where the function code is stored in OBS.
@@ -1841,6 +1992,7 @@ class FgsFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_auth_in_header: Whether the authentication in the request header is enabled.
         :param pulumi.Input[builtins.bool] enable_class_isolation: Whether the class isolation is enabled for the JAVA runtime functions.
         :param pulumi.Input[builtins.bool] enable_dynamic_memory: Whether the dynamic memory configuration is enabled.
+        :param pulumi.Input[builtins.bool] enable_lts_log: Whether to enable the LTS log.
         :param pulumi.Input[builtins.str] encrypted_user_data: The key/value information defined to be encrypted for the function.
         :param pulumi.Input[builtins.str] enterprise_project_id: The ID of the enterprise project to which the function belongs.
         :param pulumi.Input[builtins.int] ephemeral_storage: The size of the function ephemeral storage.
@@ -1858,6 +2010,7 @@ class FgsFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] log_group_name: The LTS group name for collecting logs.
         :param pulumi.Input[builtins.str] log_stream_id: The LTS stream ID for collecting logs.
         :param pulumi.Input[builtins.str] log_stream_name: The LTS stream name for collecting logs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] lts_custom_tag: The custom tags configuration that used to filter the LTS logs.
         :param pulumi.Input[builtins.str] max_instance_num: The maximum number of instances of the function.
         :param pulumi.Input[builtins.int] memory_size: The memory size allocated to the function, in MByte (MB).
         :param pulumi.Input[builtins.int] mount_user_group_id: The mount user group ID.
@@ -1877,6 +2030,7 @@ class FgsFunction(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] tags: The key/value pairs to associate with the function.
         :param pulumi.Input[builtins.int] timeout: The timeout interval of the function, in seconds.
         :param pulumi.Input[builtins.str] user_data: The key/value information defined for the function.
+        :param pulumi.Input[builtins.str] user_data_encrypt_kms_key_id: The KMS key ID for encrypting the user data.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FgsFunctionVersionArgs', 'FgsFunctionVersionArgsDict']]]] versions: The versions management of the function.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to which the function belongs.
         """
@@ -1906,6 +2060,7 @@ class FgsFunction(pulumi.CustomResource):
                  agency: Optional[pulumi.Input[builtins.str]] = None,
                  app: Optional[pulumi.Input[builtins.str]] = None,
                  app_agency: Optional[pulumi.Input[builtins.str]] = None,
+                 code_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  code_filename: Optional[pulumi.Input[builtins.str]] = None,
                  code_type: Optional[pulumi.Input[builtins.str]] = None,
                  code_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -1917,6 +2072,7 @@ class FgsFunction(pulumi.CustomResource):
                  enable_auth_in_header: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_class_isolation: Optional[pulumi.Input[builtins.bool]] = None,
                  enable_dynamic_memory: Optional[pulumi.Input[builtins.bool]] = None,
+                 enable_lts_log: Optional[pulumi.Input[builtins.bool]] = None,
                  encrypted_user_data: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  ephemeral_storage: Optional[pulumi.Input[builtins.int]] = None,
@@ -1934,6 +2090,7 @@ class FgsFunction(pulumi.CustomResource):
                  log_group_name: Optional[pulumi.Input[builtins.str]] = None,
                  log_stream_id: Optional[pulumi.Input[builtins.str]] = None,
                  log_stream_name: Optional[pulumi.Input[builtins.str]] = None,
+                 lts_custom_tag: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  max_instance_num: Optional[pulumi.Input[builtins.str]] = None,
                  memory_size: Optional[pulumi.Input[builtins.int]] = None,
                  mount_user_group_id: Optional[pulumi.Input[builtins.int]] = None,
@@ -1953,6 +2110,7 @@ class FgsFunction(pulumi.CustomResource):
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  timeout: Optional[pulumi.Input[builtins.int]] = None,
                  user_data: Optional[pulumi.Input[builtins.str]] = None,
+                 user_data_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
                  versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FgsFunctionVersionArgs', 'FgsFunctionVersionArgsDict']]]]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  xrole: Optional[pulumi.Input[builtins.str]] = None,
@@ -1968,6 +2126,7 @@ class FgsFunction(pulumi.CustomResource):
             __props__.__dict__["agency"] = agency
             __props__.__dict__["app"] = app
             __props__.__dict__["app_agency"] = app_agency
+            __props__.__dict__["code_encrypt_kms_key_id"] = code_encrypt_kms_key_id
             __props__.__dict__["code_filename"] = code_filename
             __props__.__dict__["code_type"] = code_type
             __props__.__dict__["code_url"] = code_url
@@ -1979,6 +2138,7 @@ class FgsFunction(pulumi.CustomResource):
             __props__.__dict__["enable_auth_in_header"] = enable_auth_in_header
             __props__.__dict__["enable_class_isolation"] = enable_class_isolation
             __props__.__dict__["enable_dynamic_memory"] = enable_dynamic_memory
+            __props__.__dict__["enable_lts_log"] = enable_lts_log
             __props__.__dict__["encrypted_user_data"] = None if encrypted_user_data is None else pulumi.Output.secret(encrypted_user_data)
             __props__.__dict__["enterprise_project_id"] = enterprise_project_id
             __props__.__dict__["ephemeral_storage"] = ephemeral_storage
@@ -1996,6 +2156,7 @@ class FgsFunction(pulumi.CustomResource):
             __props__.__dict__["log_group_name"] = log_group_name
             __props__.__dict__["log_stream_id"] = log_stream_id
             __props__.__dict__["log_stream_name"] = log_stream_name
+            __props__.__dict__["lts_custom_tag"] = lts_custom_tag
             __props__.__dict__["max_instance_num"] = max_instance_num
             if memory_size is None and not opts.urn:
                 raise TypeError("Missing required property 'memory_size'")
@@ -2021,9 +2182,11 @@ class FgsFunction(pulumi.CustomResource):
                 raise TypeError("Missing required property 'timeout'")
             __props__.__dict__["timeout"] = timeout
             __props__.__dict__["user_data"] = user_data
+            __props__.__dict__["user_data_encrypt_kms_key_id"] = user_data_encrypt_kms_key_id
             __props__.__dict__["versions"] = versions
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["xrole"] = xrole
+            __props__.__dict__["lts_custom_tag_origin"] = None
             __props__.__dict__["urn"] = None
             __props__.__dict__["version"] = None
         secret_opts = pulumi.ResourceOptions(additional_secret_outputs=["encryptedUserData"])
@@ -2041,6 +2204,7 @@ class FgsFunction(pulumi.CustomResource):
             agency: Optional[pulumi.Input[builtins.str]] = None,
             app: Optional[pulumi.Input[builtins.str]] = None,
             app_agency: Optional[pulumi.Input[builtins.str]] = None,
+            code_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
             code_filename: Optional[pulumi.Input[builtins.str]] = None,
             code_type: Optional[pulumi.Input[builtins.str]] = None,
             code_url: Optional[pulumi.Input[builtins.str]] = None,
@@ -2052,6 +2216,7 @@ class FgsFunction(pulumi.CustomResource):
             enable_auth_in_header: Optional[pulumi.Input[builtins.bool]] = None,
             enable_class_isolation: Optional[pulumi.Input[builtins.bool]] = None,
             enable_dynamic_memory: Optional[pulumi.Input[builtins.bool]] = None,
+            enable_lts_log: Optional[pulumi.Input[builtins.bool]] = None,
             encrypted_user_data: Optional[pulumi.Input[builtins.str]] = None,
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             ephemeral_storage: Optional[pulumi.Input[builtins.int]] = None,
@@ -2069,6 +2234,8 @@ class FgsFunction(pulumi.CustomResource):
             log_group_name: Optional[pulumi.Input[builtins.str]] = None,
             log_stream_id: Optional[pulumi.Input[builtins.str]] = None,
             log_stream_name: Optional[pulumi.Input[builtins.str]] = None,
+            lts_custom_tag: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            lts_custom_tag_origin: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             max_instance_num: Optional[pulumi.Input[builtins.str]] = None,
             memory_size: Optional[pulumi.Input[builtins.int]] = None,
             mount_user_group_id: Optional[pulumi.Input[builtins.int]] = None,
@@ -2089,6 +2256,7 @@ class FgsFunction(pulumi.CustomResource):
             timeout: Optional[pulumi.Input[builtins.int]] = None,
             urn: Optional[pulumi.Input[builtins.str]] = None,
             user_data: Optional[pulumi.Input[builtins.str]] = None,
+            user_data_encrypt_kms_key_id: Optional[pulumi.Input[builtins.str]] = None,
             version: Optional[pulumi.Input[builtins.str]] = None,
             versions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['FgsFunctionVersionArgs', 'FgsFunctionVersionArgsDict']]]]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -2103,6 +2271,7 @@ class FgsFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] agency: The agency configuration of the function.
         :param pulumi.Input[builtins.str] app: The group to which the function belongs.
         :param pulumi.Input[builtins.str] app_agency: The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
+        :param pulumi.Input[builtins.str] code_encrypt_kms_key_id: The KMS key ID for encrypting the function code.
         :param pulumi.Input[builtins.str] code_filename: The name of the function file.
         :param pulumi.Input[builtins.str] code_type: The code type of the function.
         :param pulumi.Input[builtins.str] code_url: The URL where the function code is stored in OBS.
@@ -2114,6 +2283,7 @@ class FgsFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.bool] enable_auth_in_header: Whether the authentication in the request header is enabled.
         :param pulumi.Input[builtins.bool] enable_class_isolation: Whether the class isolation is enabled for the JAVA runtime functions.
         :param pulumi.Input[builtins.bool] enable_dynamic_memory: Whether the dynamic memory configuration is enabled.
+        :param pulumi.Input[builtins.bool] enable_lts_log: Whether to enable the LTS log.
         :param pulumi.Input[builtins.str] encrypted_user_data: The key/value information defined to be encrypted for the function.
         :param pulumi.Input[builtins.str] enterprise_project_id: The ID of the enterprise project to which the function belongs.
         :param pulumi.Input[builtins.int] ephemeral_storage: The size of the function ephemeral storage.
@@ -2131,6 +2301,9 @@ class FgsFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.str] log_group_name: The LTS group name for collecting logs.
         :param pulumi.Input[builtins.str] log_stream_id: The LTS stream ID for collecting logs.
         :param pulumi.Input[builtins.str] log_stream_name: The LTS stream name for collecting logs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] lts_custom_tag: The custom tags configuration that used to filter the LTS logs.
+        :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] lts_custom_tag_origin: The script configuration value of this change is also the original value used for comparison with the new value next
+               time the change is made. The corresponding parameter name is 'lts_custom_tag'.
         :param pulumi.Input[builtins.str] max_instance_num: The maximum number of instances of the function.
         :param pulumi.Input[builtins.int] memory_size: The memory size allocated to the function, in MByte (MB).
         :param pulumi.Input[builtins.int] mount_user_group_id: The mount user group ID.
@@ -2151,6 +2324,7 @@ class FgsFunction(pulumi.CustomResource):
         :param pulumi.Input[builtins.int] timeout: The timeout interval of the function, in seconds.
         :param pulumi.Input[builtins.str] urn: The URN (Uniform Resource Name) of the function.
         :param pulumi.Input[builtins.str] user_data: The key/value information defined for the function.
+        :param pulumi.Input[builtins.str] user_data_encrypt_kms_key_id: The KMS key ID for encrypting the user data.
         :param pulumi.Input[builtins.str] version: The version of the function.
         :param pulumi.Input[Sequence[pulumi.Input[Union['FgsFunctionVersionArgs', 'FgsFunctionVersionArgsDict']]]] versions: The versions management of the function.
         :param pulumi.Input[builtins.str] vpc_id: The ID of the VPC to which the function belongs.
@@ -2162,6 +2336,7 @@ class FgsFunction(pulumi.CustomResource):
         __props__.__dict__["agency"] = agency
         __props__.__dict__["app"] = app
         __props__.__dict__["app_agency"] = app_agency
+        __props__.__dict__["code_encrypt_kms_key_id"] = code_encrypt_kms_key_id
         __props__.__dict__["code_filename"] = code_filename
         __props__.__dict__["code_type"] = code_type
         __props__.__dict__["code_url"] = code_url
@@ -2173,6 +2348,7 @@ class FgsFunction(pulumi.CustomResource):
         __props__.__dict__["enable_auth_in_header"] = enable_auth_in_header
         __props__.__dict__["enable_class_isolation"] = enable_class_isolation
         __props__.__dict__["enable_dynamic_memory"] = enable_dynamic_memory
+        __props__.__dict__["enable_lts_log"] = enable_lts_log
         __props__.__dict__["encrypted_user_data"] = encrypted_user_data
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["ephemeral_storage"] = ephemeral_storage
@@ -2190,6 +2366,8 @@ class FgsFunction(pulumi.CustomResource):
         __props__.__dict__["log_group_name"] = log_group_name
         __props__.__dict__["log_stream_id"] = log_stream_id
         __props__.__dict__["log_stream_name"] = log_stream_name
+        __props__.__dict__["lts_custom_tag"] = lts_custom_tag
+        __props__.__dict__["lts_custom_tag_origin"] = lts_custom_tag_origin
         __props__.__dict__["max_instance_num"] = max_instance_num
         __props__.__dict__["memory_size"] = memory_size
         __props__.__dict__["mount_user_group_id"] = mount_user_group_id
@@ -2210,6 +2388,7 @@ class FgsFunction(pulumi.CustomResource):
         __props__.__dict__["timeout"] = timeout
         __props__.__dict__["urn"] = urn
         __props__.__dict__["user_data"] = user_data
+        __props__.__dict__["user_data_encrypt_kms_key_id"] = user_data_encrypt_kms_key_id
         __props__.__dict__["version"] = version
         __props__.__dict__["versions"] = versions
         __props__.__dict__["vpc_id"] = vpc_id
@@ -2239,6 +2418,14 @@ class FgsFunction(pulumi.CustomResource):
         The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
         """
         return pulumi.get(self, "app_agency")
+
+    @property
+    @pulumi.getter(name="codeEncryptKmsKeyId")
+    def code_encrypt_kms_key_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The KMS key ID for encrypting the function code.
+        """
+        return pulumi.get(self, "code_encrypt_kms_key_id")
 
     @property
     @pulumi.getter(name="codeFilename")
@@ -2327,6 +2514,14 @@ class FgsFunction(pulumi.CustomResource):
         Whether the dynamic memory configuration is enabled.
         """
         return pulumi.get(self, "enable_dynamic_memory")
+
+    @property
+    @pulumi.getter(name="enableLtsLog")
+    def enable_lts_log(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Whether to enable the LTS log.
+        """
+        return pulumi.get(self, "enable_lts_log")
 
     @property
     @pulumi.getter(name="encryptedUserData")
@@ -2463,6 +2658,23 @@ class FgsFunction(pulumi.CustomResource):
         The LTS stream name for collecting logs.
         """
         return pulumi.get(self, "log_stream_name")
+
+    @property
+    @pulumi.getter(name="ltsCustomTag")
+    def lts_custom_tag(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
+        """
+        The custom tags configuration that used to filter the LTS logs.
+        """
+        return pulumi.get(self, "lts_custom_tag")
+
+    @property
+    @pulumi.getter(name="ltsCustomTagOrigin")
+    def lts_custom_tag_origin(self) -> pulumi.Output[Mapping[str, builtins.str]]:
+        """
+        The script configuration value of this change is also the original value used for comparison with the new value next
+        time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+        """
+        return pulumi.get(self, "lts_custom_tag_origin")
 
     @property
     @pulumi.getter(name="maxInstanceNum")
@@ -2622,6 +2834,14 @@ class FgsFunction(pulumi.CustomResource):
         The key/value information defined for the function.
         """
         return pulumi.get(self, "user_data")
+
+    @property
+    @pulumi.getter(name="userDataEncryptKmsKeyId")
+    def user_data_encrypt_kms_key_id(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        The KMS key ID for encrypting the user data.
+        """
+        return pulumi.get(self, "user_data_encrypt_kms_key_id")
 
     @property
     @pulumi.getter

@@ -12,12 +12,21 @@ namespace Pulumi.Sbercloud.Inputs
 
     public sealed class ApigGroupUrlDomainGetArgs : global::Pulumi.ResourceArgs
     {
+        /// <summary>
+        /// Whether to enable redirection from HTTP to HTTPS.
+        /// </summary>
         [Input("isHttpRedirectToHttps")]
         public Input<bool>? IsHttpRedirectToHttps { get; set; }
 
+        /// <summary>
+        /// The minimum SSL protocol version.
+        /// </summary>
         [Input("minSslVersion")]
         public Input<string>? MinSslVersion { get; set; }
 
+        /// <summary>
+        /// The associated domain name.
+        /// </summary>
         [Input("name", required: true)]
         public Input<string> Name { get; set; } = null!;
 

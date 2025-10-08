@@ -24,11 +24,23 @@ namespace Pulumi.Sbercloud
 
     public sealed class GetElbPoolsArgs : global::Pulumi.InvokeArgs
     {
+        [Input("anyPortEnable")]
+        public string? AnyPortEnable { get; set; }
+
+        [Input("connectionDrain")]
+        public string? ConnectionDrain { get; set; }
+
         [Input("description")]
         public string? Description { get; set; }
 
+        [Input("enterpriseProjectId")]
+        public string? EnterpriseProjectId { get; set; }
+
         [Input("healthmonitorId")]
         public string? HealthmonitorId { get; set; }
+
+        [Input("ipVersion")]
+        public string? IpVersion { get; set; }
 
         [Input("lbMethod")]
         public string? LbMethod { get; set; }
@@ -39,8 +51,23 @@ namespace Pulumi.Sbercloud
         [Input("loadbalancerId")]
         public string? LoadbalancerId { get; set; }
 
+        [Input("memberAddress")]
+        public string? MemberAddress { get; set; }
+
+        [Input("memberDeletionProtectionEnable")]
+        public string? MemberDeletionProtectionEnable { get; set; }
+
+        [Input("memberDeviceId")]
+        public string? MemberDeviceId { get; set; }
+
+        [Input("memberInstanceId")]
+        public string? MemberInstanceId { get; set; }
+
         [Input("name")]
         public string? Name { get; set; }
+
+        [Input("poolHealth")]
+        public string? PoolHealth { get; set; }
 
         [Input("poolId")]
         public string? PoolId { get; set; }
@@ -50,6 +77,15 @@ namespace Pulumi.Sbercloud
 
         [Input("protocol")]
         public string? Protocol { get; set; }
+
+        [Input("publicBorderGroup")]
+        public string? PublicBorderGroup { get; set; }
+
+        [Input("quicCidLen")]
+        public int? QuicCidLen { get; set; }
+
+        [Input("quicCidOffset")]
+        public int? QuicCidOffset { get; set; }
 
         [Input("region")]
         public string? Region { get; set; }
@@ -68,11 +104,23 @@ namespace Pulumi.Sbercloud
 
     public sealed class GetElbPoolsInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("anyPortEnable")]
+        public Input<string>? AnyPortEnable { get; set; }
+
+        [Input("connectionDrain")]
+        public Input<string>? ConnectionDrain { get; set; }
+
         [Input("description")]
         public Input<string>? Description { get; set; }
 
+        [Input("enterpriseProjectId")]
+        public Input<string>? EnterpriseProjectId { get; set; }
+
         [Input("healthmonitorId")]
         public Input<string>? HealthmonitorId { get; set; }
+
+        [Input("ipVersion")]
+        public Input<string>? IpVersion { get; set; }
 
         [Input("lbMethod")]
         public Input<string>? LbMethod { get; set; }
@@ -83,8 +131,23 @@ namespace Pulumi.Sbercloud
         [Input("loadbalancerId")]
         public Input<string>? LoadbalancerId { get; set; }
 
+        [Input("memberAddress")]
+        public Input<string>? MemberAddress { get; set; }
+
+        [Input("memberDeletionProtectionEnable")]
+        public Input<string>? MemberDeletionProtectionEnable { get; set; }
+
+        [Input("memberDeviceId")]
+        public Input<string>? MemberDeviceId { get; set; }
+
+        [Input("memberInstanceId")]
+        public Input<string>? MemberInstanceId { get; set; }
+
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("poolHealth")]
+        public Input<string>? PoolHealth { get; set; }
 
         [Input("poolId")]
         public Input<string>? PoolId { get; set; }
@@ -94,6 +157,15 @@ namespace Pulumi.Sbercloud
 
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
+
+        [Input("publicBorderGroup")]
+        public Input<string>? PublicBorderGroup { get; set; }
+
+        [Input("quicCidLen")]
+        public Input<int>? QuicCidLen { get; set; }
+
+        [Input("quicCidOffset")]
+        public Input<int>? QuicCidOffset { get; set; }
 
         [Input("region")]
         public Input<string>? Region { get; set; }
@@ -114,31 +186,51 @@ namespace Pulumi.Sbercloud
     [OutputType]
     public sealed class GetElbPoolsResult
     {
+        public readonly string? AnyPortEnable;
+        public readonly string? ConnectionDrain;
         public readonly string? Description;
+        public readonly string? EnterpriseProjectId;
         public readonly string? HealthmonitorId;
         /// <summary>
         /// The provider-assigned unique ID for this managed resource.
         /// </summary>
         public readonly string Id;
+        public readonly string? IpVersion;
         public readonly string? LbMethod;
         public readonly string? ListenerId;
         public readonly string? LoadbalancerId;
+        public readonly string? MemberAddress;
+        public readonly string? MemberDeletionProtectionEnable;
+        public readonly string? MemberDeviceId;
+        public readonly string? MemberInstanceId;
         public readonly string? Name;
+        public readonly string? PoolHealth;
         public readonly string? PoolId;
         public readonly ImmutableArray<Outputs.GetElbPoolsPoolResult> Pools;
         public readonly string? ProtectionStatus;
         public readonly string? Protocol;
+        public readonly string? PublicBorderGroup;
+        public readonly int? QuicCidLen;
+        public readonly int? QuicCidOffset;
         public readonly string Region;
         public readonly string? Type;
         public readonly string? VpcId;
 
         [OutputConstructor]
         private GetElbPoolsResult(
+            string? anyPortEnable,
+
+            string? connectionDrain,
+
             string? description,
+
+            string? enterpriseProjectId,
 
             string? healthmonitorId,
 
             string id,
+
+            string? ipVersion,
 
             string? lbMethod,
 
@@ -146,7 +238,17 @@ namespace Pulumi.Sbercloud
 
             string? loadbalancerId,
 
+            string? memberAddress,
+
+            string? memberDeletionProtectionEnable,
+
+            string? memberDeviceId,
+
+            string? memberInstanceId,
+
             string? name,
+
+            string? poolHealth,
 
             string? poolId,
 
@@ -156,23 +258,41 @@ namespace Pulumi.Sbercloud
 
             string? protocol,
 
+            string? publicBorderGroup,
+
+            int? quicCidLen,
+
+            int? quicCidOffset,
+
             string region,
 
             string? type,
 
             string? vpcId)
         {
+            AnyPortEnable = anyPortEnable;
+            ConnectionDrain = connectionDrain;
             Description = description;
+            EnterpriseProjectId = enterpriseProjectId;
             HealthmonitorId = healthmonitorId;
             Id = id;
+            IpVersion = ipVersion;
             LbMethod = lbMethod;
             ListenerId = listenerId;
             LoadbalancerId = loadbalancerId;
+            MemberAddress = memberAddress;
+            MemberDeletionProtectionEnable = memberDeletionProtectionEnable;
+            MemberDeviceId = memberDeviceId;
+            MemberInstanceId = memberInstanceId;
             Name = name;
+            PoolHealth = poolHealth;
             PoolId = poolId;
             Pools = pools;
             ProtectionStatus = protectionStatus;
             Protocol = protocol;
+            PublicBorderGroup = publicBorderGroup;
+            QuicCidLen = quicCidLen;
+            QuicCidOffset = quicCidOffset;
             Region = region;
             Type = type;
             VpcId = vpcId;

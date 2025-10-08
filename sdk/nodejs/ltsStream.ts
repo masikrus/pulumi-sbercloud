@@ -36,6 +36,10 @@ export class LtsStream extends pulumi.CustomResource {
     public readonly enterpriseProjectId!: pulumi.Output<string>;
     public /*out*/ readonly filterCount!: pulumi.Output<number>;
     public readonly groupId!: pulumi.Output<string>;
+    /**
+     * Whether to favorite the log stream.
+     */
+    public readonly isFavorite!: pulumi.Output<boolean | undefined>;
     public readonly region!: pulumi.Output<string>;
     public readonly streamName!: pulumi.Output<string>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
@@ -58,6 +62,7 @@ export class LtsStream extends pulumi.CustomResource {
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["filterCount"] = state ? state.filterCount : undefined;
             resourceInputs["groupId"] = state ? state.groupId : undefined;
+            resourceInputs["isFavorite"] = state ? state.isFavorite : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["streamName"] = state ? state.streamName : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
@@ -72,6 +77,7 @@ export class LtsStream extends pulumi.CustomResource {
             }
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
             resourceInputs["groupId"] = args ? args.groupId : undefined;
+            resourceInputs["isFavorite"] = args ? args.isFavorite : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["streamName"] = args ? args.streamName : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
@@ -92,6 +98,10 @@ export interface LtsStreamState {
     enterpriseProjectId?: pulumi.Input<string>;
     filterCount?: pulumi.Input<number>;
     groupId?: pulumi.Input<string>;
+    /**
+     * Whether to favorite the log stream.
+     */
+    isFavorite?: pulumi.Input<boolean>;
     region?: pulumi.Input<string>;
     streamName?: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
@@ -104,6 +114,10 @@ export interface LtsStreamState {
 export interface LtsStreamArgs {
     enterpriseProjectId?: pulumi.Input<string>;
     groupId: pulumi.Input<string>;
+    /**
+     * Whether to favorite the log stream.
+     */
+    isFavorite?: pulumi.Input<boolean>;
     region?: pulumi.Input<string>;
     streamName: pulumi.Input<string>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;

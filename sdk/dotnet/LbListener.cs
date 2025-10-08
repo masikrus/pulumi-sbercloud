@@ -15,14 +15,20 @@ namespace Pulumi.Sbercloud
         [Output("adminStateUp")]
         public Output<bool?> AdminStateUp { get; private set; } = null!;
 
+        [Output("clientCaTlsContainerRef")]
+        public Output<string> ClientCaTlsContainerRef { get; private set; } = null!;
+
         [Output("connectionLimit")]
         public Output<int> ConnectionLimit { get; private set; } = null!;
+
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
 
         [Output("defaultPoolId")]
         public Output<string> DefaultPoolId { get; private set; } = null!;
 
         [Output("defaultTlsContainerRef")]
-        public Output<string?> DefaultTlsContainerRef { get; private set; } = null!;
+        public Output<string> DefaultTlsContainerRef { get; private set; } = null!;
 
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
@@ -30,11 +36,20 @@ namespace Pulumi.Sbercloud
         [Output("http2Enable")]
         public Output<bool?> Http2Enable { get; private set; } = null!;
 
+        [Output("insertHeaders")]
+        public Output<Outputs.LbListenerInsertHeaders> InsertHeaders { get; private set; } = null!;
+
         [Output("loadbalancerId")]
         public Output<string> LoadbalancerId { get; private set; } = null!;
 
         [Output("name")]
         public Output<string> Name { get; private set; } = null!;
+
+        [Output("protectionReason")]
+        public Output<string?> ProtectionReason { get; private set; } = null!;
+
+        [Output("protectionStatus")]
+        public Output<string> ProtectionStatus { get; private set; } = null!;
 
         [Output("protocol")]
         public Output<string> Protocol { get; private set; } = null!;
@@ -53,6 +68,12 @@ namespace Pulumi.Sbercloud
 
         [Output("tenantId")]
         public Output<string> TenantId { get; private set; } = null!;
+
+        [Output("tlsCiphersPolicy")]
+        public Output<string> TlsCiphersPolicy { get; private set; } = null!;
+
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
 
         /// <summary>
@@ -103,6 +124,9 @@ namespace Pulumi.Sbercloud
         [Input("adminStateUp")]
         public Input<bool>? AdminStateUp { get; set; }
 
+        [Input("clientCaTlsContainerRef")]
+        public Input<string>? ClientCaTlsContainerRef { get; set; }
+
         [Input("connectionLimit")]
         public Input<int>? ConnectionLimit { get; set; }
 
@@ -118,11 +142,20 @@ namespace Pulumi.Sbercloud
         [Input("http2Enable")]
         public Input<bool>? Http2Enable { get; set; }
 
+        [Input("insertHeaders")]
+        public Input<Inputs.LbListenerInsertHeadersArgs>? InsertHeaders { get; set; }
+
         [Input("loadbalancerId", required: true)]
         public Input<string> LoadbalancerId { get; set; } = null!;
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("protectionReason")]
+        public Input<string>? ProtectionReason { get; set; }
+
+        [Input("protectionStatus")]
+        public Input<string>? ProtectionStatus { get; set; }
 
         [Input("protocol", required: true)]
         public Input<string> Protocol { get; set; } = null!;
@@ -152,6 +185,9 @@ namespace Pulumi.Sbercloud
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
 
+        [Input("tlsCiphersPolicy")]
+        public Input<string>? TlsCiphersPolicy { get; set; }
+
         public LbListenerArgs()
         {
         }
@@ -163,8 +199,14 @@ namespace Pulumi.Sbercloud
         [Input("adminStateUp")]
         public Input<bool>? AdminStateUp { get; set; }
 
+        [Input("clientCaTlsContainerRef")]
+        public Input<string>? ClientCaTlsContainerRef { get; set; }
+
         [Input("connectionLimit")]
         public Input<int>? ConnectionLimit { get; set; }
+
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
 
         [Input("defaultPoolId")]
         public Input<string>? DefaultPoolId { get; set; }
@@ -178,11 +220,20 @@ namespace Pulumi.Sbercloud
         [Input("http2Enable")]
         public Input<bool>? Http2Enable { get; set; }
 
+        [Input("insertHeaders")]
+        public Input<Inputs.LbListenerInsertHeadersGetArgs>? InsertHeaders { get; set; }
+
         [Input("loadbalancerId")]
         public Input<string>? LoadbalancerId { get; set; }
 
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        [Input("protectionReason")]
+        public Input<string>? ProtectionReason { get; set; }
+
+        [Input("protectionStatus")]
+        public Input<string>? ProtectionStatus { get; set; }
 
         [Input("protocol")]
         public Input<string>? Protocol { get; set; }
@@ -211,6 +262,12 @@ namespace Pulumi.Sbercloud
 
         [Input("tenantId")]
         public Input<string>? TenantId { get; set; }
+
+        [Input("tlsCiphersPolicy")]
+        public Input<string>? TlsCiphersPolicy { get; set; }
+
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
 
         public LbListenerState()
         {

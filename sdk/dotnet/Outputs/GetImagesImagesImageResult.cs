@@ -13,6 +13,7 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class GetImagesImagesImageResult
     {
+        public readonly string __supportAgentList;
         public readonly string ActiveAt;
         public readonly string Architecture;
         public readonly string BackupId;
@@ -41,6 +42,8 @@ namespace Pulumi.Sbercloud.Outputs
 
         [OutputConstructor]
         private GetImagesImagesImageResult(
+            string __supportAgentList,
+
             string activeAt,
 
             string architecture,
@@ -91,6 +94,7 @@ namespace Pulumi.Sbercloud.Outputs
 
             string visibility)
         {
+            this.__supportAgentList = __supportAgentList;
             ActiveAt = activeAt;
             Architecture = architecture;
             BackupId = backupId;

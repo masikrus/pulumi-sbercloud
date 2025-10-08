@@ -96,6 +96,12 @@ namespace Pulumi.Sbercloud
         [Output("isLogicalVolume")]
         public Output<bool> IsLogicalVolume { get; private set; } = null!;
 
+        /// <summary>
+        /// schema: Internal
+        /// </summary>
+        [Output("kmsEncryptedPassword")]
+        public Output<string?> KmsEncryptedPassword { get; private set; } = null!;
+
         [Output("maintainBegin")]
         public Output<string> MaintainBegin { get; private set; } = null!;
 
@@ -247,6 +253,7 @@ namespace Pulumi.Sbercloud
                 Version = Utilities.Version,
                 AdditionalSecretOutputs =
                 {
+                    "kmsEncryptedPassword",
                     "managerPassword",
                     "password",
                 },
@@ -348,6 +355,22 @@ namespace Pulumi.Sbercloud
 
         [Input("ipv6Enable")]
         public Input<bool>? Ipv6Enable { get; set; }
+
+        [Input("kmsEncryptedPassword")]
+        private Input<string>? _kmsEncryptedPassword;
+
+        /// <summary>
+        /// schema: Internal
+        /// </summary>
+        public Input<string>? KmsEncryptedPassword
+        {
+            get => _kmsEncryptedPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kmsEncryptedPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("maintainBegin")]
         public Input<string>? MaintainBegin { get; set; }
@@ -575,6 +598,22 @@ namespace Pulumi.Sbercloud
 
         [Input("isLogicalVolume")]
         public Input<bool>? IsLogicalVolume { get; set; }
+
+        [Input("kmsEncryptedPassword")]
+        private Input<string>? _kmsEncryptedPassword;
+
+        /// <summary>
+        /// schema: Internal
+        /// </summary>
+        public Input<string>? KmsEncryptedPassword
+        {
+            get => _kmsEncryptedPassword;
+            set
+            {
+                var emptySecret = Output.CreateSecret(0);
+                _kmsEncryptedPassword = Output.Tuple<Input<string>?, int>(value, emptySecret).Apply(t => t.Item1);
+            }
+        }
 
         [Input("maintainBegin")]
         public Input<string>? MaintainBegin { get; set; }

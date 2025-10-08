@@ -51,6 +51,7 @@ class CceClusterArgs:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  eip: Optional[pulumi.Input[builtins.str]] = None,
                  enable_distribute_management: Optional[pulumi.Input[builtins.bool]] = None,
+                 encryption_config: Optional[pulumi.Input['CceClusterEncryptionConfigArgs']] = None,
                  eni_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  eni_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -71,13 +72,13 @@ class CceClusterArgs:
                  security_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  service_network_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  support_istio: Optional[pulumi.Input[builtins.bool]] = None,
-                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None):
+                 tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 timezone: Optional[pulumi.Input[builtins.str]] = None):
         """
         The set of arguments for constructing a CceCluster resource.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] annotations: schema: Internal
         :param pulumi.Input[builtins.str] delete_eni: schema: Internal
         :param pulumi.Input[builtins.str] delete_net: schema: Internal
-        :param pulumi.Input[builtins.bool] enable_distribute_management: schema: Internal
         :param pulumi.Input[builtins.str] eni_subnet_cidr: schema: Computed
         :param pulumi.Input[builtins.str] eni_subnet_id: the IPv4 subnet ID of the subnet where the ENI resides
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] extend_param: schema: Internal
@@ -144,6 +145,8 @@ class CceClusterArgs:
             pulumi.set(__self__, "eip", eip)
         if enable_distribute_management is not None:
             pulumi.set(__self__, "enable_distribute_management", enable_distribute_management)
+        if encryption_config is not None:
+            pulumi.set(__self__, "encryption_config", encryption_config)
         if eni_subnet_cidr is not None:
             pulumi.set(__self__, "eni_subnet_cidr", eni_subnet_cidr)
         if eni_subnet_id is not None:
@@ -186,6 +189,8 @@ class CceClusterArgs:
             pulumi.set(__self__, "support_istio", support_istio)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
 
     @property
     @pulumi.getter(name="containerNetworkType")
@@ -453,14 +458,20 @@ class CceClusterArgs:
     @property
     @pulumi.getter(name="enableDistributeManagement")
     def enable_distribute_management(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        schema: Internal
-        """
         return pulumi.get(self, "enable_distribute_management")
 
     @enable_distribute_management.setter
     def enable_distribute_management(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_distribute_management", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> Optional[pulumi.Input['CceClusterEncryptionConfigArgs']]:
+        return pulumi.get(self, "encryption_config")
+
+    @encryption_config.setter
+    def encryption_config(self, value: Optional[pulumi.Input['CceClusterEncryptionConfigArgs']]):
+        pulumi.set(self, "encryption_config", value)
 
     @property
     @pulumi.getter(name="eniSubnetCidr")
@@ -666,6 +677,15 @@ class CceClusterArgs:
     def tags(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
         pulumi.set(self, "tags", value)
 
+    @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "timezone", value)
+
 
 @pulumi.input_type
 class _CceClusterState:
@@ -699,6 +719,7 @@ class _CceClusterState:
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  eip: Optional[pulumi.Input[builtins.str]] = None,
                  enable_distribute_management: Optional[pulumi.Input[builtins.bool]] = None,
+                 encryption_config: Optional[pulumi.Input['CceClusterEncryptionConfigArgs']] = None,
                  eni_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  eni_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -724,13 +745,13 @@ class _CceClusterState:
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  support_istio: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 timezone: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering CceCluster resources.
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] annotations: schema: Internal
         :param pulumi.Input[builtins.str] delete_eni: schema: Internal
         :param pulumi.Input[builtins.str] delete_net: schema: Internal
-        :param pulumi.Input[builtins.bool] enable_distribute_management: schema: Internal
         :param pulumi.Input[builtins.str] eni_subnet_cidr: schema: Computed
         :param pulumi.Input[builtins.str] eni_subnet_id: the IPv4 subnet ID of the subnet where the ENI resides
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] extend_param: schema: Internal
@@ -801,6 +822,8 @@ class _CceClusterState:
             pulumi.set(__self__, "eip", eip)
         if enable_distribute_management is not None:
             pulumi.set(__self__, "enable_distribute_management", enable_distribute_management)
+        if encryption_config is not None:
+            pulumi.set(__self__, "encryption_config", encryption_config)
         if eni_subnet_cidr is not None:
             pulumi.set(__self__, "eni_subnet_cidr", eni_subnet_cidr)
         if eni_subnet_id is not None:
@@ -851,6 +874,8 @@ class _CceClusterState:
             pulumi.set(__self__, "support_istio", support_istio)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+        if timezone is not None:
+            pulumi.set(__self__, "timezone", timezone)
         if vpc_id is not None:
             pulumi.set(__self__, "vpc_id", vpc_id)
 
@@ -1120,14 +1145,20 @@ class _CceClusterState:
     @property
     @pulumi.getter(name="enableDistributeManagement")
     def enable_distribute_management(self) -> Optional[pulumi.Input[builtins.bool]]:
-        """
-        schema: Internal
-        """
         return pulumi.get(self, "enable_distribute_management")
 
     @enable_distribute_management.setter
     def enable_distribute_management(self, value: Optional[pulumi.Input[builtins.bool]]):
         pulumi.set(self, "enable_distribute_management", value)
+
+    @property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> Optional[pulumi.Input['CceClusterEncryptionConfigArgs']]:
+        return pulumi.get(self, "encryption_config")
+
+    @encryption_config.setter
+    def encryption_config(self, value: Optional[pulumi.Input['CceClusterEncryptionConfigArgs']]):
+        pulumi.set(self, "encryption_config", value)
 
     @property
     @pulumi.getter(name="eniSubnetCidr")
@@ -1370,6 +1401,15 @@ class _CceClusterState:
         pulumi.set(self, "tags", value)
 
     @property
+    @pulumi.getter
+    def timezone(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "timezone")
+
+    @timezone.setter
+    def timezone(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "timezone", value)
+
+    @property
     @pulumi.getter(name="vpcId")
     def vpc_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "vpc_id")
@@ -1410,6 +1450,7 @@ class CceCluster(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  eip: Optional[pulumi.Input[builtins.str]] = None,
                  enable_distribute_management: Optional[pulumi.Input[builtins.bool]] = None,
+                 encryption_config: Optional[pulumi.Input[Union['CceClusterEncryptionConfigArgs', 'CceClusterEncryptionConfigArgsDict']]] = None,
                  eni_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  eni_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1433,6 +1474,7 @@ class CceCluster(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  support_istio: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 timezone: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         """
@@ -1442,7 +1484,6 @@ class CceCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] annotations: schema: Internal
         :param pulumi.Input[builtins.str] delete_eni: schema: Internal
         :param pulumi.Input[builtins.str] delete_net: schema: Internal
-        :param pulumi.Input[builtins.bool] enable_distribute_management: schema: Internal
         :param pulumi.Input[builtins.str] eni_subnet_cidr: schema: Computed
         :param pulumi.Input[builtins.str] eni_subnet_id: the IPv4 subnet ID of the subnet where the ENI resides
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] extend_param: schema: Internal
@@ -1498,6 +1539,7 @@ class CceCluster(pulumi.CustomResource):
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  eip: Optional[pulumi.Input[builtins.str]] = None,
                  enable_distribute_management: Optional[pulumi.Input[builtins.bool]] = None,
+                 encryption_config: Optional[pulumi.Input[Union['CceClusterEncryptionConfigArgs', 'CceClusterEncryptionConfigArgsDict']]] = None,
                  eni_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
                  eni_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1521,6 +1563,7 @@ class CceCluster(pulumi.CustomResource):
                  subnet_id: Optional[pulumi.Input[builtins.str]] = None,
                  support_istio: Optional[pulumi.Input[builtins.bool]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 timezone: Optional[pulumi.Input[builtins.str]] = None,
                  vpc_id: Optional[pulumi.Input[builtins.str]] = None,
                  __props__=None):
         opts = pulumi.ResourceOptions.merge(_utilities.get_resource_opts_defaults(), opts)
@@ -1559,6 +1602,7 @@ class CceCluster(pulumi.CustomResource):
             __props__.__dict__["description"] = description
             __props__.__dict__["eip"] = eip
             __props__.__dict__["enable_distribute_management"] = enable_distribute_management
+            __props__.__dict__["encryption_config"] = encryption_config
             __props__.__dict__["eni_subnet_cidr"] = eni_subnet_cidr
             __props__.__dict__["eni_subnet_id"] = eni_subnet_id
             __props__.__dict__["enterprise_project_id"] = enterprise_project_id
@@ -1586,6 +1630,7 @@ class CceCluster(pulumi.CustomResource):
             __props__.__dict__["subnet_id"] = subnet_id
             __props__.__dict__["support_istio"] = support_istio
             __props__.__dict__["tags"] = tags
+            __props__.__dict__["timezone"] = timezone
             if vpc_id is None and not opts.urn:
                 raise TypeError("Missing required property 'vpc_id'")
             __props__.__dict__["vpc_id"] = vpc_id
@@ -1633,6 +1678,7 @@ class CceCluster(pulumi.CustomResource):
             description: Optional[pulumi.Input[builtins.str]] = None,
             eip: Optional[pulumi.Input[builtins.str]] = None,
             enable_distribute_management: Optional[pulumi.Input[builtins.bool]] = None,
+            encryption_config: Optional[pulumi.Input[Union['CceClusterEncryptionConfigArgs', 'CceClusterEncryptionConfigArgsDict']]] = None,
             eni_subnet_cidr: Optional[pulumi.Input[builtins.str]] = None,
             eni_subnet_id: Optional[pulumi.Input[builtins.str]] = None,
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -1658,6 +1704,7 @@ class CceCluster(pulumi.CustomResource):
             subnet_id: Optional[pulumi.Input[builtins.str]] = None,
             support_istio: Optional[pulumi.Input[builtins.bool]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            timezone: Optional[pulumi.Input[builtins.str]] = None,
             vpc_id: Optional[pulumi.Input[builtins.str]] = None) -> 'CceCluster':
         """
         Get an existing CceCluster resource's state with the given name, id, and optional extra
@@ -1669,7 +1716,6 @@ class CceCluster(pulumi.CustomResource):
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] annotations: schema: Internal
         :param pulumi.Input[builtins.str] delete_eni: schema: Internal
         :param pulumi.Input[builtins.str] delete_net: schema: Internal
-        :param pulumi.Input[builtins.bool] enable_distribute_management: schema: Internal
         :param pulumi.Input[builtins.str] eni_subnet_cidr: schema: Computed
         :param pulumi.Input[builtins.str] eni_subnet_id: the IPv4 subnet ID of the subnet where the ENI resides
         :param pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]] extend_param: schema: Internal
@@ -1709,6 +1755,7 @@ class CceCluster(pulumi.CustomResource):
         __props__.__dict__["description"] = description
         __props__.__dict__["eip"] = eip
         __props__.__dict__["enable_distribute_management"] = enable_distribute_management
+        __props__.__dict__["encryption_config"] = encryption_config
         __props__.__dict__["eni_subnet_cidr"] = eni_subnet_cidr
         __props__.__dict__["eni_subnet_id"] = eni_subnet_id
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
@@ -1734,6 +1781,7 @@ class CceCluster(pulumi.CustomResource):
         __props__.__dict__["subnet_id"] = subnet_id
         __props__.__dict__["support_istio"] = support_istio
         __props__.__dict__["tags"] = tags
+        __props__.__dict__["timezone"] = timezone
         __props__.__dict__["vpc_id"] = vpc_id
         return CceCluster(resource_name, opts=opts, __props__=__props__)
 
@@ -1890,11 +1938,13 @@ class CceCluster(pulumi.CustomResource):
 
     @property
     @pulumi.getter(name="enableDistributeManagement")
-    def enable_distribute_management(self) -> pulumi.Output[Optional[builtins.bool]]:
-        """
-        schema: Internal
-        """
+    def enable_distribute_management(self) -> pulumi.Output[builtins.bool]:
         return pulumi.get(self, "enable_distribute_management")
+
+    @property
+    @pulumi.getter(name="encryptionConfig")
+    def encryption_config(self) -> pulumi.Output['outputs.CceClusterEncryptionConfig']:
+        return pulumi.get(self, "encryption_config")
 
     @property
     @pulumi.getter(name="eniSubnetCidr")
@@ -2035,6 +2085,11 @@ class CceCluster(pulumi.CustomResource):
     @pulumi.getter
     def tags(self) -> pulumi.Output[Optional[Mapping[str, builtins.str]]]:
         return pulumi.get(self, "tags")
+
+    @property
+    @pulumi.getter
+    def timezone(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "timezone")
 
     @property
     @pulumi.getter(name="vpcId")

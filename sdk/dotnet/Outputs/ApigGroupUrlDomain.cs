@@ -13,8 +13,17 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class ApigGroupUrlDomain
     {
+        /// <summary>
+        /// Whether to enable redirection from HTTP to HTTPS.
+        /// </summary>
         public readonly bool? IsHttpRedirectToHttps;
+        /// <summary>
+        /// The minimum SSL protocol version.
+        /// </summary>
         public readonly string? MinSslVersion;
+        /// <summary>
+        /// The associated domain name.
+        /// </summary>
         public readonly string Name;
 
         [OutputConstructor]

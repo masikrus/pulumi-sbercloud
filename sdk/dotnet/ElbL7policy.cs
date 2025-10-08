@@ -21,6 +21,9 @@ namespace Pulumi.Sbercloud
         [Output("description")]
         public Output<string?> Description { get; private set; } = null!;
 
+        [Output("enterpriseProjectId")]
+        public Output<string> EnterpriseProjectId { get; private set; } = null!;
+
         [Output("fixedResponseConfig")]
         public Output<Outputs.ElbL7policyFixedResponseConfig> FixedResponseConfig { get; private set; } = null!;
 
@@ -166,6 +169,9 @@ namespace Pulumi.Sbercloud
 
         [Input("description")]
         public Input<string>? Description { get; set; }
+
+        [Input("enterpriseProjectId")]
+        public Input<string>? EnterpriseProjectId { get; set; }
 
         [Input("fixedResponseConfig")]
         public Input<Inputs.ElbL7policyFixedResponseConfigGetArgs>? FixedResponseConfig { get; set; }

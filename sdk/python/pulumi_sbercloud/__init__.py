@@ -58,6 +58,21 @@ from .cce_node_pool import *
 from .cce_pvc import *
 from .cdm_cluster import *
 from .ces_alarmrule import *
+from .cfw_acl_rule import *
+from .cfw_address_group import *
+from .cfw_address_group_member import *
+from .cfw_alarm_config import *
+from .cfw_anti_virus import *
+from .cfw_black_white_list import *
+from .cfw_capture_task import *
+from .cfw_dns_resolution import *
+from .cfw_domain_name_group import *
+from .cfw_eip_protection import *
+from .cfw_firewall import *
+from .cfw_ips_rule_mode_change import *
+from .cfw_lts_log import *
+from .cfw_service_group import *
+from .cfw_service_group_member import *
 from .compute_eip_associate import *
 from .compute_instance import *
 from .compute_interface_attach import *
@@ -75,18 +90,32 @@ from .dcs_instance import *
 from .dcs_parameters import *
 from .dcs_restore import *
 from .dds_instance import *
+from .dds_parameter_template import *
+from .dds_parameter_template_apply import *
+from .dds_parameter_template_compare import *
+from .dds_parameter_template_copy import *
+from .dds_parameter_template_reset import *
 from .dis_stream import *
 from .dli_database import *
 from .dli_package import *
 from .dli_queue import *
 from .dli_spark_job import *
 from .dms_instance import *
+from .dms_kafka_consumer_group import *
 from .dms_kafka_instance import *
 from .dms_kafka_message_produce import *
 from .dms_kafka_permissions import *
 from .dms_kafka_topic import *
 from .dms_kafka_user import *
 from .dms_rabbitmq_instance import *
+from .dms_rocketmq_consumer_group import *
+from .dms_rocketmq_consumption_verify import *
+from .dms_rocketmq_dead_letter_resend import *
+from .dms_rocketmq_instance import *
+from .dms_rocketmq_message_offset_reset import *
+from .dms_rocketmq_migration_task import *
+from .dms_rocketmq_topic import *
+from .dms_rocketmq_user import *
 from .dns_recordset import *
 from .dns_zone import *
 from .drs_job import *
@@ -102,9 +131,26 @@ from .elb_monitor import *
 from .elb_pool import *
 from .elb_security_policy import *
 from .enterprise_project import *
+from .er_association import *
+from .er_attachment_accepter import *
+from .er_flow_log import *
+from .er_instance import *
+from .er_propagation import *
+from .er_route_table import *
+from .er_static_route import *
+from .er_vpc_attachment import *
 from .evs_snapshot import *
 from .evs_volume import *
+from .fgs_application import *
+from .fgs_async_invoke_configuration import *
+from .fgs_dependency import *
+from .fgs_dependency_version import *
 from .fgs_function import *
+from .fgs_function_event import *
+from .fgs_function_topping import *
+from .fgs_function_trigger import *
+from .fgs_function_trigger_status_action import *
+from .fgs_lts_log_enable import *
 from .ges_graph import *
 from .get_apig_acl_policies import *
 from .get_apig_api import *
@@ -144,6 +190,26 @@ from .get_cce_node import *
 from .get_cce_node_pool import *
 from .get_cce_nodes import *
 from .get_cdm_flavors import *
+from .get_cfw_access_control_logs import *
+from .get_cfw_address_group_members import *
+from .get_cfw_address_groups import *
+from .get_cfw_attack_logs import *
+from .get_cfw_black_white_lists import *
+from .get_cfw_capture_task_results import *
+from .get_cfw_capture_tasks import *
+from .get_cfw_domain_name_groups import *
+from .get_cfw_domain_name_parse_ip_list import *
+from .get_cfw_firewalls import *
+from .get_cfw_flow_logs import *
+from .get_cfw_ips_custom_rules import *
+from .get_cfw_ips_rule_details import *
+from .get_cfw_ips_rules import *
+from .get_cfw_protection_rules import *
+from .get_cfw_regions import *
+from .get_cfw_resource_tags import *
+from .get_cfw_service_group_members import *
+from .get_cfw_service_groups import *
+from .get_cfw_tags import *
 from .get_compute_flavors import *
 from .get_compute_instance import *
 from .get_compute_instances import *
@@ -156,6 +222,7 @@ from .get_dcs_maintainwindow import *
 from .get_dcs_product import *
 from .get_dds_flavors import *
 from .get_dms_az import *
+from .get_dms_kafka_consumer_groups import *
 from .get_dms_kafka_flavors import *
 from .get_dms_kafka_instances import *
 from .get_dms_kafka_messages import *
@@ -163,12 +230,45 @@ from .get_dms_kafka_users import *
 from .get_dms_maintainwindow import *
 from .get_dms_product import *
 from .get_dms_rabbitmq_flavors import *
+from .get_dms_rocketmq_broker import *
+from .get_dms_rocketmq_consumer_group_access_users import *
+from .get_dms_rocketmq_consumer_groups import *
+from .get_dms_rocketmq_consumers import *
+from .get_dms_rocketmq_extend_flavors import *
+from .get_dms_rocketmq_flavors import *
+from .get_dms_rocketmq_instances import *
+from .get_dms_rocketmq_message_traces import *
+from .get_dms_rocketmq_messages import *
+from .get_dms_rocketmq_migration_tasks import *
+from .get_dms_rocketmq_topic_access_users import *
+from .get_dms_rocketmq_topic_consumer_groups import *
+from .get_dms_rocketmq_topics import *
+from .get_dms_rocketmq_users import *
 from .get_dws_flavors import *
 from .get_elb_certificate import *
 from .get_elb_flavors import *
 from .get_elb_pools import *
 from .get_enterprise_project import *
+from .get_er_associations import *
+from .get_er_attachments import *
+from .get_er_availability_zones import *
+from .get_er_available_routes import *
+from .get_er_flow_logs import *
+from .get_er_instances import *
+from .get_er_propagations import *
+from .get_er_quotas import *
+from .get_er_resource_tags import *
+from .get_er_route_tables import *
+from .get_er_tags import *
 from .get_evs_volumes import *
+from .get_fgs_application_templates import *
+from .get_fgs_applications import *
+from .get_fgs_dependencies import *
+from .get_fgs_dependency_versions import *
+from .get_fgs_function_events import *
+from .get_fgs_function_triggers import *
+from .get_fgs_functions import *
+from .get_fgs_quotas import *
 from .get_identity_custom_role import *
 from .get_identity_group import *
 from .get_identity_projects import *
@@ -280,6 +380,7 @@ from .obs_bucket_policy import *
 from .provider import *
 from .rds_backup import *
 from .rds_instance import *
+from .rds_instance_eip_associate import *
 from .rds_mysql_account import *
 from .rds_mysql_binlog import *
 from .rds_mysql_database import *
@@ -308,6 +409,7 @@ from .sfs_turbo_dir_quota import *
 from .sfs_turbo_du_task import *
 from .sfs_turbo_obs_target import *
 from .sfs_turbo_perm_rule import *
+from .smn_message_detection import *
 from .smn_subscription import *
 from .smn_topic import *
 from .swr_organization import *
@@ -759,6 +861,126 @@ _utilities.register(
  },
  {
   "pkg": "sbercloud",
+  "mod": "index/cfwAclRule",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwAclRule:CfwAclRule": "CfwAclRule"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwAddressGroup",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwAddressGroup:CfwAddressGroup": "CfwAddressGroup"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwAddressGroupMember",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwAddressGroupMember:CfwAddressGroupMember": "CfwAddressGroupMember"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwAlarmConfig",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwAlarmConfig:CfwAlarmConfig": "CfwAlarmConfig"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwAntiVirus",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwAntiVirus:CfwAntiVirus": "CfwAntiVirus"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwBlackWhiteList",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwBlackWhiteList:CfwBlackWhiteList": "CfwBlackWhiteList"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwCaptureTask",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwCaptureTask:CfwCaptureTask": "CfwCaptureTask"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwDnsResolution",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwDnsResolution:CfwDnsResolution": "CfwDnsResolution"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwDomainNameGroup",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwDomainNameGroup:CfwDomainNameGroup": "CfwDomainNameGroup"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwEipProtection",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwEipProtection:CfwEipProtection": "CfwEipProtection"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwFirewall",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwFirewall:CfwFirewall": "CfwFirewall"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwIpsRuleModeChange",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwIpsRuleModeChange:CfwIpsRuleModeChange": "CfwIpsRuleModeChange"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwLtsLog",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwLtsLog:CfwLtsLog": "CfwLtsLog"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwServiceGroup",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwServiceGroup:CfwServiceGroup": "CfwServiceGroup"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/cfwServiceGroupMember",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/cfwServiceGroupMember:CfwServiceGroupMember": "CfwServiceGroupMember"
+  }
+ },
+ {
+  "pkg": "sbercloud",
   "mod": "index/computeEipAssociate",
   "fqn": "pulumi_sbercloud",
   "classes": {
@@ -895,6 +1117,46 @@ _utilities.register(
  },
  {
   "pkg": "sbercloud",
+  "mod": "index/ddsParameterTemplate",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/ddsParameterTemplate:DdsParameterTemplate": "DdsParameterTemplate"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/ddsParameterTemplateApply",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/ddsParameterTemplateApply:DdsParameterTemplateApply": "DdsParameterTemplateApply"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/ddsParameterTemplateCompare",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/ddsParameterTemplateCompare:DdsParameterTemplateCompare": "DdsParameterTemplateCompare"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/ddsParameterTemplateCopy",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/ddsParameterTemplateCopy:DdsParameterTemplateCopy": "DdsParameterTemplateCopy"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/ddsParameterTemplateReset",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/ddsParameterTemplateReset:DdsParameterTemplateReset": "DdsParameterTemplateReset"
+  }
+ },
+ {
+  "pkg": "sbercloud",
   "mod": "index/disStream",
   "fqn": "pulumi_sbercloud",
   "classes": {
@@ -943,6 +1205,14 @@ _utilities.register(
  },
  {
   "pkg": "sbercloud",
+  "mod": "index/dmsKafkaConsumerGroup",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/dmsKafkaConsumerGroup:DmsKafkaConsumerGroup": "DmsKafkaConsumerGroup"
+  }
+ },
+ {
+  "pkg": "sbercloud",
   "mod": "index/dmsKafkaInstance",
   "fqn": "pulumi_sbercloud",
   "classes": {
@@ -987,6 +1257,70 @@ _utilities.register(
   "fqn": "pulumi_sbercloud",
   "classes": {
    "sbercloud:index/dmsRabbitmqInstance:DmsRabbitmqInstance": "DmsRabbitmqInstance"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/dmsRocketmqConsumerGroup",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/dmsRocketmqConsumerGroup:DmsRocketmqConsumerGroup": "DmsRocketmqConsumerGroup"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/dmsRocketmqConsumptionVerify",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/dmsRocketmqConsumptionVerify:DmsRocketmqConsumptionVerify": "DmsRocketmqConsumptionVerify"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/dmsRocketmqDeadLetterResend",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/dmsRocketmqDeadLetterResend:DmsRocketmqDeadLetterResend": "DmsRocketmqDeadLetterResend"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/dmsRocketmqInstance",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/dmsRocketmqInstance:DmsRocketmqInstance": "DmsRocketmqInstance"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/dmsRocketmqMessageOffsetReset",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/dmsRocketmqMessageOffsetReset:DmsRocketmqMessageOffsetReset": "DmsRocketmqMessageOffsetReset"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/dmsRocketmqMigrationTask",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/dmsRocketmqMigrationTask:DmsRocketmqMigrationTask": "DmsRocketmqMigrationTask"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/dmsRocketmqTopic",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/dmsRocketmqTopic:DmsRocketmqTopic": "DmsRocketmqTopic"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/dmsRocketmqUser",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/dmsRocketmqUser:DmsRocketmqUser": "DmsRocketmqUser"
   }
  },
  {
@@ -1111,6 +1445,70 @@ _utilities.register(
  },
  {
   "pkg": "sbercloud",
+  "mod": "index/erAssociation",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/erAssociation:ErAssociation": "ErAssociation"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/erAttachmentAccepter",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/erAttachmentAccepter:ErAttachmentAccepter": "ErAttachmentAccepter"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/erFlowLog",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/erFlowLog:ErFlowLog": "ErFlowLog"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/erInstance",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/erInstance:ErInstance": "ErInstance"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/erPropagation",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/erPropagation:ErPropagation": "ErPropagation"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/erRouteTable",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/erRouteTable:ErRouteTable": "ErRouteTable"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/erStaticRoute",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/erStaticRoute:ErStaticRoute": "ErStaticRoute"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/erVpcAttachment",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/erVpcAttachment:ErVpcAttachment": "ErVpcAttachment"
+  }
+ },
+ {
+  "pkg": "sbercloud",
   "mod": "index/evsSnapshot",
   "fqn": "pulumi_sbercloud",
   "classes": {
@@ -1127,10 +1525,82 @@ _utilities.register(
  },
  {
   "pkg": "sbercloud",
+  "mod": "index/fgsApplication",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/fgsApplication:FgsApplication": "FgsApplication"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/fgsAsyncInvokeConfiguration",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/fgsAsyncInvokeConfiguration:FgsAsyncInvokeConfiguration": "FgsAsyncInvokeConfiguration"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/fgsDependency",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/fgsDependency:FgsDependency": "FgsDependency"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/fgsDependencyVersion",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/fgsDependencyVersion:FgsDependencyVersion": "FgsDependencyVersion"
+  }
+ },
+ {
+  "pkg": "sbercloud",
   "mod": "index/fgsFunction",
   "fqn": "pulumi_sbercloud",
   "classes": {
    "sbercloud:index/fgsFunction:FgsFunction": "FgsFunction"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/fgsFunctionEvent",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/fgsFunctionEvent:FgsFunctionEvent": "FgsFunctionEvent"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/fgsFunctionTopping",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/fgsFunctionTopping:FgsFunctionTopping": "FgsFunctionTopping"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/fgsFunctionTrigger",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/fgsFunctionTrigger:FgsFunctionTrigger": "FgsFunctionTrigger"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/fgsFunctionTriggerStatusAction",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/fgsFunctionTriggerStatusAction:FgsFunctionTriggerStatusAction": "FgsFunctionTriggerStatusAction"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/fgsLtsLogEnable",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/fgsLtsLogEnable:FgsLtsLogEnable": "FgsLtsLogEnable"
   }
  },
  {
@@ -1527,6 +1997,14 @@ _utilities.register(
  },
  {
   "pkg": "sbercloud",
+  "mod": "index/rdsInstanceEipAssociate",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/rdsInstanceEipAssociate:RdsInstanceEipAssociate": "RdsInstanceEipAssociate"
+  }
+ },
+ {
+  "pkg": "sbercloud",
   "mod": "index/rdsMysqlAccount",
   "fqn": "pulumi_sbercloud",
   "classes": {
@@ -1747,6 +2225,14 @@ _utilities.register(
   "fqn": "pulumi_sbercloud",
   "classes": {
    "sbercloud:index/sfsTurboPermRule:SfsTurboPermRule": "SfsTurboPermRule"
+  }
+ },
+ {
+  "pkg": "sbercloud",
+  "mod": "index/smnMessageDetection",
+  "fqn": "pulumi_sbercloud",
+  "classes": {
+   "sbercloud:index/smnMessageDetection:SmnMessageDetection": "SmnMessageDetection"
   }
  },
  {

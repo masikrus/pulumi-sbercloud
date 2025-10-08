@@ -40,7 +40,7 @@ namespace Pulumi.Sbercloud
         public Output<string> Region { get; private set; } = null!;
 
         [Output("type")]
-        public Output<string?> Type { get; private set; } = null!;
+        public Output<string> Type { get; private set; } = null!;
 
         [Output("updateTime")]
         public Output<string> UpdateTime { get; private set; } = null!;

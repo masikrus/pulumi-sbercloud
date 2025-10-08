@@ -23,28 +23,40 @@ func GetElbFlavors(ctx *pulumi.Context, args *GetElbFlavorsArgs, opts ...pulumi.
 
 // A collection of arguments for invoking getElbFlavors.
 type GetElbFlavorsArgs struct {
-	Bandwidth      *int    `pulumi:"bandwidth"`
-	Cps            *int    `pulumi:"cps"`
-	MaxConnections *int    `pulumi:"maxConnections"`
-	Name           *string `pulumi:"name"`
-	Qps            *int    `pulumi:"qps"`
-	Region         *string `pulumi:"region"`
-	Type           *string `pulumi:"type"`
+	Bandwidth         *int    `pulumi:"bandwidth"`
+	Category          *int    `pulumi:"category"`
+	Cps               *int    `pulumi:"cps"`
+	FlavorId          *string `pulumi:"flavorId"`
+	FlavorSoldOut     *string `pulumi:"flavorSoldOut"`
+	ListAll           *string `pulumi:"listAll"`
+	MaxConnections    *int    `pulumi:"maxConnections"`
+	Name              *string `pulumi:"name"`
+	PublicBorderGroup *string `pulumi:"publicBorderGroup"`
+	Qps               *int    `pulumi:"qps"`
+	Region            *string `pulumi:"region"`
+	Shared            *string `pulumi:"shared"`
+	Type              *string `pulumi:"type"`
 }
 
 // A collection of values returned by getElbFlavors.
 type GetElbFlavorsResult struct {
-	Bandwidth *int                  `pulumi:"bandwidth"`
-	Cps       *int                  `pulumi:"cps"`
-	Flavors   []GetElbFlavorsFlavor `pulumi:"flavors"`
+	Bandwidth     *int                  `pulumi:"bandwidth"`
+	Category      *int                  `pulumi:"category"`
+	Cps           *int                  `pulumi:"cps"`
+	FlavorId      *string               `pulumi:"flavorId"`
+	FlavorSoldOut *string               `pulumi:"flavorSoldOut"`
+	Flavors       []GetElbFlavorsFlavor `pulumi:"flavors"`
 	// The provider-assigned unique ID for this managed resource.
-	Id             string   `pulumi:"id"`
-	Ids            []string `pulumi:"ids"`
-	MaxConnections *int     `pulumi:"maxConnections"`
-	Name           *string  `pulumi:"name"`
-	Qps            *int     `pulumi:"qps"`
-	Region         string   `pulumi:"region"`
-	Type           *string  `pulumi:"type"`
+	Id                string   `pulumi:"id"`
+	Ids               []string `pulumi:"ids"`
+	ListAll           *string  `pulumi:"listAll"`
+	MaxConnections    *int     `pulumi:"maxConnections"`
+	Name              *string  `pulumi:"name"`
+	PublicBorderGroup *string  `pulumi:"publicBorderGroup"`
+	Qps               *int     `pulumi:"qps"`
+	Region            string   `pulumi:"region"`
+	Shared            *string  `pulumi:"shared"`
+	Type              *string  `pulumi:"type"`
 }
 
 func GetElbFlavorsOutput(ctx *pulumi.Context, args GetElbFlavorsOutputArgs, opts ...pulumi.InvokeOption) GetElbFlavorsResultOutput {
@@ -58,13 +70,19 @@ func GetElbFlavorsOutput(ctx *pulumi.Context, args GetElbFlavorsOutputArgs, opts
 
 // A collection of arguments for invoking getElbFlavors.
 type GetElbFlavorsOutputArgs struct {
-	Bandwidth      pulumi.IntPtrInput    `pulumi:"bandwidth"`
-	Cps            pulumi.IntPtrInput    `pulumi:"cps"`
-	MaxConnections pulumi.IntPtrInput    `pulumi:"maxConnections"`
-	Name           pulumi.StringPtrInput `pulumi:"name"`
-	Qps            pulumi.IntPtrInput    `pulumi:"qps"`
-	Region         pulumi.StringPtrInput `pulumi:"region"`
-	Type           pulumi.StringPtrInput `pulumi:"type"`
+	Bandwidth         pulumi.IntPtrInput    `pulumi:"bandwidth"`
+	Category          pulumi.IntPtrInput    `pulumi:"category"`
+	Cps               pulumi.IntPtrInput    `pulumi:"cps"`
+	FlavorId          pulumi.StringPtrInput `pulumi:"flavorId"`
+	FlavorSoldOut     pulumi.StringPtrInput `pulumi:"flavorSoldOut"`
+	ListAll           pulumi.StringPtrInput `pulumi:"listAll"`
+	MaxConnections    pulumi.IntPtrInput    `pulumi:"maxConnections"`
+	Name              pulumi.StringPtrInput `pulumi:"name"`
+	PublicBorderGroup pulumi.StringPtrInput `pulumi:"publicBorderGroup"`
+	Qps               pulumi.IntPtrInput    `pulumi:"qps"`
+	Region            pulumi.StringPtrInput `pulumi:"region"`
+	Shared            pulumi.StringPtrInput `pulumi:"shared"`
+	Type              pulumi.StringPtrInput `pulumi:"type"`
 }
 
 func (GetElbFlavorsOutputArgs) ElementType() reflect.Type {
@@ -90,8 +108,20 @@ func (o GetElbFlavorsResultOutput) Bandwidth() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetElbFlavorsResult) *int { return v.Bandwidth }).(pulumi.IntPtrOutput)
 }
 
+func (o GetElbFlavorsResultOutput) Category() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v GetElbFlavorsResult) *int { return v.Category }).(pulumi.IntPtrOutput)
+}
+
 func (o GetElbFlavorsResultOutput) Cps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetElbFlavorsResult) *int { return v.Cps }).(pulumi.IntPtrOutput)
+}
+
+func (o GetElbFlavorsResultOutput) FlavorId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbFlavorsResult) *string { return v.FlavorId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetElbFlavorsResultOutput) FlavorSoldOut() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbFlavorsResult) *string { return v.FlavorSoldOut }).(pulumi.StringPtrOutput)
 }
 
 func (o GetElbFlavorsResultOutput) Flavors() GetElbFlavorsFlavorArrayOutput {
@@ -107,6 +137,10 @@ func (o GetElbFlavorsResultOutput) Ids() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v GetElbFlavorsResult) []string { return v.Ids }).(pulumi.StringArrayOutput)
 }
 
+func (o GetElbFlavorsResultOutput) ListAll() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbFlavorsResult) *string { return v.ListAll }).(pulumi.StringPtrOutput)
+}
+
 func (o GetElbFlavorsResultOutput) MaxConnections() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetElbFlavorsResult) *int { return v.MaxConnections }).(pulumi.IntPtrOutput)
 }
@@ -115,12 +149,20 @@ func (o GetElbFlavorsResultOutput) Name() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v GetElbFlavorsResult) *string { return v.Name }).(pulumi.StringPtrOutput)
 }
 
+func (o GetElbFlavorsResultOutput) PublicBorderGroup() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbFlavorsResult) *string { return v.PublicBorderGroup }).(pulumi.StringPtrOutput)
+}
+
 func (o GetElbFlavorsResultOutput) Qps() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v GetElbFlavorsResult) *int { return v.Qps }).(pulumi.IntPtrOutput)
 }
 
 func (o GetElbFlavorsResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetElbFlavorsResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+func (o GetElbFlavorsResultOutput) Shared() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetElbFlavorsResult) *string { return v.Shared }).(pulumi.StringPtrOutput)
 }
 
 func (o GetElbFlavorsResultOutput) Type() pulumi.StringPtrOutput {

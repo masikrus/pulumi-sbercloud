@@ -36,6 +36,7 @@ export class MapreduceCluster extends pulumi.CustomResource {
 
     public readonly analysisCoreNodes!: pulumi.Output<outputs.MapreduceClusterAnalysisCoreNodes | undefined>;
     public readonly analysisTaskNodes!: pulumi.Output<outputs.MapreduceClusterAnalysisTaskNodes | undefined>;
+    public readonly autoRenew!: pulumi.Output<string | undefined>;
     public readonly availabilityZone!: pulumi.Output<string>;
     public readonly bootstrapScripts!: pulumi.Output<outputs.MapreduceClusterBootstrapScript[] | undefined>;
     public readonly chargingMode!: pulumi.Output<string>;
@@ -89,6 +90,7 @@ export class MapreduceCluster extends pulumi.CustomResource {
             const state = argsOrState as MapreduceClusterState | undefined;
             resourceInputs["analysisCoreNodes"] = state ? state.analysisCoreNodes : undefined;
             resourceInputs["analysisTaskNodes"] = state ? state.analysisTaskNodes : undefined;
+            resourceInputs["autoRenew"] = state ? state.autoRenew : undefined;
             resourceInputs["availabilityZone"] = state ? state.availabilityZone : undefined;
             resourceInputs["bootstrapScripts"] = state ? state.bootstrapScripts : undefined;
             resourceInputs["chargingMode"] = state ? state.chargingMode : undefined;
@@ -151,6 +153,7 @@ export class MapreduceCluster extends pulumi.CustomResource {
             }
             resourceInputs["analysisCoreNodes"] = args ? args.analysisCoreNodes : undefined;
             resourceInputs["analysisTaskNodes"] = args ? args.analysisTaskNodes : undefined;
+            resourceInputs["autoRenew"] = args ? args.autoRenew : undefined;
             resourceInputs["availabilityZone"] = args ? args.availabilityZone : undefined;
             resourceInputs["bootstrapScripts"] = args ? args.bootstrapScripts : undefined;
             resourceInputs["chargingMode"] = args ? args.chargingMode : undefined;
@@ -202,6 +205,7 @@ export class MapreduceCluster extends pulumi.CustomResource {
 export interface MapreduceClusterState {
     analysisCoreNodes?: pulumi.Input<inputs.MapreduceClusterAnalysisCoreNodes>;
     analysisTaskNodes?: pulumi.Input<inputs.MapreduceClusterAnalysisTaskNodes>;
+    autoRenew?: pulumi.Input<string>;
     availabilityZone?: pulumi.Input<string>;
     bootstrapScripts?: pulumi.Input<pulumi.Input<inputs.MapreduceClusterBootstrapScript>[]>;
     chargingMode?: pulumi.Input<string>;
@@ -247,6 +251,7 @@ export interface MapreduceClusterState {
 export interface MapreduceClusterArgs {
     analysisCoreNodes?: pulumi.Input<inputs.MapreduceClusterAnalysisCoreNodes>;
     analysisTaskNodes?: pulumi.Input<inputs.MapreduceClusterAnalysisTaskNodes>;
+    autoRenew?: pulumi.Input<string>;
     availabilityZone: pulumi.Input<string>;
     bootstrapScripts?: pulumi.Input<pulumi.Input<inputs.MapreduceClusterBootstrapScript>[]>;
     chargingMode?: pulumi.Input<string>;

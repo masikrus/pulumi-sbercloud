@@ -29,6 +29,7 @@ class ElbPoolArgs:
                  connection_drain_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  deletion_protection_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  ip_version: Optional[pulumi.Input[builtins.str]] = None,
                  listener_id: Optional[pulumi.Input[builtins.str]] = None,
                  loadbalancer_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -37,6 +38,7 @@ class ElbPoolArgs:
                  persistence: Optional[pulumi.Input['ElbPoolPersistenceArgs']] = None,
                  protection_reason: Optional[pulumi.Input[builtins.str]] = None,
                  protection_status: Optional[pulumi.Input[builtins.str]] = None,
+                 public_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  slow_start_duration: Optional[pulumi.Input[builtins.int]] = None,
                  slow_start_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -57,6 +59,8 @@ class ElbPoolArgs:
             pulumi.set(__self__, "deletion_protection_enable", deletion_protection_enable)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_force_new is not None:
+            pulumi.set(__self__, "enable_force_new", enable_force_new)
         if ip_version is not None:
             pulumi.set(__self__, "ip_version", ip_version)
         if listener_id is not None:
@@ -73,6 +77,8 @@ class ElbPoolArgs:
             pulumi.set(__self__, "protection_reason", protection_reason)
         if protection_status is not None:
             pulumi.set(__self__, "protection_status", protection_status)
+        if public_border_group is not None:
+            pulumi.set(__self__, "public_border_group", public_border_group)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if slow_start_duration is not None:
@@ -148,6 +154,15 @@ class ElbPoolArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @enable_force_new.setter
+    def enable_force_new(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_force_new", value)
+
+    @property
     @pulumi.getter(name="ipVersion")
     def ip_version(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "ip_version")
@@ -220,6 +235,15 @@ class ElbPoolArgs:
         pulumi.set(self, "protection_status", value)
 
     @property
+    @pulumi.getter(name="publicBorderGroup")
+    def public_border_group(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "public_border_group")
+
+    @public_border_group.setter
+    def public_border_group(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "public_border_group", value)
+
+    @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "region")
@@ -274,6 +298,8 @@ class _ElbPoolState:
                  created_at: Optional[pulumi.Input[builtins.str]] = None,
                  deletion_protection_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
+                 enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  ip_version: Optional[pulumi.Input[builtins.str]] = None,
                  lb_method: Optional[pulumi.Input[builtins.str]] = None,
                  listener_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -285,6 +311,7 @@ class _ElbPoolState:
                  protection_reason: Optional[pulumi.Input[builtins.str]] = None,
                  protection_status: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 public_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  slow_start_duration: Optional[pulumi.Input[builtins.int]] = None,
                  slow_start_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -306,6 +333,10 @@ class _ElbPoolState:
             pulumi.set(__self__, "deletion_protection_enable", deletion_protection_enable)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if enable_force_new is not None:
+            pulumi.set(__self__, "enable_force_new", enable_force_new)
+        if enterprise_project_id is not None:
+            pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
         if ip_version is not None:
             pulumi.set(__self__, "ip_version", ip_version)
         if lb_method is not None:
@@ -328,6 +359,8 @@ class _ElbPoolState:
             pulumi.set(__self__, "protection_status", protection_status)
         if protocol is not None:
             pulumi.set(__self__, "protocol", protocol)
+        if public_border_group is not None:
+            pulumi.set(__self__, "public_border_group", public_border_group)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if slow_start_duration is not None:
@@ -394,6 +427,24 @@ class _ElbPoolState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @enable_force_new.setter
+    def enable_force_new(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enable_force_new", value)
+
+    @property
+    @pulumi.getter(name="enterpriseProjectId")
+    def enterprise_project_id(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "enterprise_project_id")
+
+    @enterprise_project_id.setter
+    def enterprise_project_id(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "enterprise_project_id", value)
 
     @property
     @pulumi.getter(name="ipVersion")
@@ -495,6 +546,15 @@ class _ElbPoolState:
         pulumi.set(self, "protocol", value)
 
     @property
+    @pulumi.getter(name="publicBorderGroup")
+    def public_border_group(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "public_border_group")
+
+    @public_border_group.setter
+    def public_border_group(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "public_border_group", value)
+
+    @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "region")
@@ -559,6 +619,7 @@ class ElbPool(pulumi.CustomResource):
                  connection_drain_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  deletion_protection_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  ip_version: Optional[pulumi.Input[builtins.str]] = None,
                  lb_method: Optional[pulumi.Input[builtins.str]] = None,
                  listener_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -569,6 +630,7 @@ class ElbPool(pulumi.CustomResource):
                  protection_reason: Optional[pulumi.Input[builtins.str]] = None,
                  protection_status: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 public_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  slow_start_duration: Optional[pulumi.Input[builtins.int]] = None,
                  slow_start_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -608,6 +670,7 @@ class ElbPool(pulumi.CustomResource):
                  connection_drain_timeout: Optional[pulumi.Input[builtins.int]] = None,
                  deletion_protection_enable: Optional[pulumi.Input[builtins.bool]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
                  ip_version: Optional[pulumi.Input[builtins.str]] = None,
                  lb_method: Optional[pulumi.Input[builtins.str]] = None,
                  listener_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -618,6 +681,7 @@ class ElbPool(pulumi.CustomResource):
                  protection_reason: Optional[pulumi.Input[builtins.str]] = None,
                  protection_status: Optional[pulumi.Input[builtins.str]] = None,
                  protocol: Optional[pulumi.Input[builtins.str]] = None,
+                 public_border_group: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  slow_start_duration: Optional[pulumi.Input[builtins.int]] = None,
                  slow_start_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -637,6 +701,7 @@ class ElbPool(pulumi.CustomResource):
             __props__.__dict__["connection_drain_timeout"] = connection_drain_timeout
             __props__.__dict__["deletion_protection_enable"] = deletion_protection_enable
             __props__.__dict__["description"] = description
+            __props__.__dict__["enable_force_new"] = enable_force_new
             __props__.__dict__["ip_version"] = ip_version
             if lb_method is None and not opts.urn:
                 raise TypeError("Missing required property 'lb_method'")
@@ -651,12 +716,14 @@ class ElbPool(pulumi.CustomResource):
             if protocol is None and not opts.urn:
                 raise TypeError("Missing required property 'protocol'")
             __props__.__dict__["protocol"] = protocol
+            __props__.__dict__["public_border_group"] = public_border_group
             __props__.__dict__["region"] = region
             __props__.__dict__["slow_start_duration"] = slow_start_duration
             __props__.__dict__["slow_start_enabled"] = slow_start_enabled
             __props__.__dict__["type"] = type
             __props__.__dict__["vpc_id"] = vpc_id
             __props__.__dict__["created_at"] = None
+            __props__.__dict__["enterprise_project_id"] = None
             __props__.__dict__["monitor_id"] = None
             __props__.__dict__["updated_at"] = None
         super(ElbPool, __self__).__init__(
@@ -675,6 +742,8 @@ class ElbPool(pulumi.CustomResource):
             created_at: Optional[pulumi.Input[builtins.str]] = None,
             deletion_protection_enable: Optional[pulumi.Input[builtins.bool]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            enable_force_new: Optional[pulumi.Input[builtins.str]] = None,
+            enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             ip_version: Optional[pulumi.Input[builtins.str]] = None,
             lb_method: Optional[pulumi.Input[builtins.str]] = None,
             listener_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -686,6 +755,7 @@ class ElbPool(pulumi.CustomResource):
             protection_reason: Optional[pulumi.Input[builtins.str]] = None,
             protection_status: Optional[pulumi.Input[builtins.str]] = None,
             protocol: Optional[pulumi.Input[builtins.str]] = None,
+            public_border_group: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             slow_start_duration: Optional[pulumi.Input[builtins.int]] = None,
             slow_start_enabled: Optional[pulumi.Input[builtins.bool]] = None,
@@ -710,6 +780,8 @@ class ElbPool(pulumi.CustomResource):
         __props__.__dict__["created_at"] = created_at
         __props__.__dict__["deletion_protection_enable"] = deletion_protection_enable
         __props__.__dict__["description"] = description
+        __props__.__dict__["enable_force_new"] = enable_force_new
+        __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["ip_version"] = ip_version
         __props__.__dict__["lb_method"] = lb_method
         __props__.__dict__["listener_id"] = listener_id
@@ -721,6 +793,7 @@ class ElbPool(pulumi.CustomResource):
         __props__.__dict__["protection_reason"] = protection_reason
         __props__.__dict__["protection_status"] = protection_status
         __props__.__dict__["protocol"] = protocol
+        __props__.__dict__["public_border_group"] = public_border_group
         __props__.__dict__["region"] = region
         __props__.__dict__["slow_start_duration"] = slow_start_duration
         __props__.__dict__["slow_start_enabled"] = slow_start_enabled
@@ -758,6 +831,16 @@ class ElbPool(pulumi.CustomResource):
     @pulumi.getter
     def description(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="enableForceNew")
+    def enable_force_new(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "enable_force_new")
+
+    @property
+    @pulumi.getter(name="enterpriseProjectId")
+    def enterprise_project_id(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "enterprise_project_id")
 
     @property
     @pulumi.getter(name="ipVersion")
@@ -813,6 +896,11 @@ class ElbPool(pulumi.CustomResource):
     @pulumi.getter
     def protocol(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "protocol")
+
+    @property
+    @pulumi.getter(name="publicBorderGroup")
+    def public_border_group(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "public_border_group")
 
     @property
     @pulumi.getter

@@ -13,54 +13,33 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class GetLbListenersListenerResult
     {
-        /// <summary>
-        /// The maximum number of connections allowed for the listener.
-        /// </summary>
+        public readonly string ClientCaTlsContainerRef;
         public readonly int ConnectionLimit;
-        /// <summary>
-        /// The ID of the default pool with which the ELB listener is associated.
-        /// </summary>
+        public readonly string CreatedAt;
         public readonly string DefaultPoolId;
-        /// <summary>
-        /// The ID of the server certificate used by the listener.
-        /// </summary>
         public readonly string DefaultTlsContainerRef;
-        /// <summary>
-        /// The description of the ELB listener.
-        /// </summary>
         public readonly string Description;
-        /// <summary>
-        /// Whether the ELB listener uses HTTP/2.
-        /// </summary>
         public readonly bool Http2Enable;
-        /// <summary>
-        /// The ELB listener ID.
-        /// </summary>
         public readonly string Id;
-        /// <summary>
-        /// Loadbalancer list. For details, see Data structure of the loadbalancer field.
-        /// </summary>
+        public readonly ImmutableArray<Outputs.GetLbListenersListenerInsertHeaderResult> InsertHeaders;
         public readonly ImmutableArray<Outputs.GetLbListenersListenerLoadbalancerResult> Loadbalancers;
-        /// <summary>
-        /// The listener name.
-        /// </summary>
         public readonly string Name;
-        /// <summary>
-        /// The listener protocol.
-        /// </summary>
+        public readonly string ProtectionReason;
+        public readonly string ProtectionStatus;
         public readonly string Protocol;
-        /// <summary>
-        /// The front-end listening port of the listener.
-        /// </summary>
         public readonly int ProtocolPort;
-        /// <summary>
-        /// List of the SNI certificate (server certificates with a domain name) IDs used by the listener.
-        /// </summary>
         public readonly ImmutableArray<string> SniContainerRefs;
+        public readonly ImmutableDictionary<string, string> Tags;
+        public readonly string TlsCiphersPolicy;
+        public readonly string UpdatedAt;
 
         [OutputConstructor]
         private GetLbListenersListenerResult(
+            string clientCaTlsContainerRef,
+
             int connectionLimit,
+
+            string createdAt,
 
             string defaultPoolId,
 
@@ -72,27 +51,47 @@ namespace Pulumi.Sbercloud.Outputs
 
             string id,
 
+            ImmutableArray<Outputs.GetLbListenersListenerInsertHeaderResult> insertHeaders,
+
             ImmutableArray<Outputs.GetLbListenersListenerLoadbalancerResult> loadbalancers,
 
             string name,
+
+            string protectionReason,
+
+            string protectionStatus,
 
             string protocol,
 
             int protocolPort,
 
-            ImmutableArray<string> sniContainerRefs)
+            ImmutableArray<string> sniContainerRefs,
+
+            ImmutableDictionary<string, string> tags,
+
+            string tlsCiphersPolicy,
+
+            string updatedAt)
         {
+            ClientCaTlsContainerRef = clientCaTlsContainerRef;
             ConnectionLimit = connectionLimit;
+            CreatedAt = createdAt;
             DefaultPoolId = defaultPoolId;
             DefaultTlsContainerRef = defaultTlsContainerRef;
             Description = description;
             Http2Enable = http2Enable;
             Id = id;
+            InsertHeaders = insertHeaders;
             Loadbalancers = loadbalancers;
             Name = name;
+            ProtectionReason = protectionReason;
+            ProtectionStatus = protectionStatus;
             Protocol = protocol;
             ProtocolPort = protocolPort;
             SniContainerRefs = sniContainerRefs;
+            Tags = tags;
+            TlsCiphersPolicy = tlsCiphersPolicy;
+            UpdatedAt = updatedAt;
         }
     }
 }

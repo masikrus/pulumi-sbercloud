@@ -13,17 +13,25 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class SfsTurboObsTargetObs
     {
+        public readonly Outputs.SfsTurboObsTargetObsAttributes? Attributes;
         public readonly string Bucket;
         public readonly string Endpoint;
+        public readonly Outputs.SfsTurboObsTargetObsPolicy? Policy;
 
         [OutputConstructor]
         private SfsTurboObsTargetObs(
+            Outputs.SfsTurboObsTargetObsAttributes? attributes,
+
             string bucket,
 
-            string endpoint)
+            string endpoint,
+
+            Outputs.SfsTurboObsTargetObsPolicy? policy)
         {
+            Attributes = attributes;
             Bucket = bucket;
             Endpoint = endpoint;
+            Policy = policy;
         }
     }
 }

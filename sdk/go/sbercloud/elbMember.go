@@ -15,14 +15,21 @@ import (
 type ElbMember struct {
 	pulumi.CustomResourceState
 
-	Address      pulumi.StringOutput `pulumi:"address"`
-	Name         pulumi.StringOutput `pulumi:"name"`
-	PoolId       pulumi.StringOutput `pulumi:"poolId"`
-	ProtocolPort pulumi.IntOutput    `pulumi:"protocolPort"`
-	Region       pulumi.StringOutput `pulumi:"region"`
-	// The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-	SubnetId pulumi.StringPtrOutput `pulumi:"subnetId"`
-	Weight   pulumi.IntOutput       `pulumi:"weight"`
+	Address         pulumi.StringOutput        `pulumi:"address"`
+	CreatedAt       pulumi.StringOutput        `pulumi:"createdAt"`
+	InstanceId      pulumi.StringOutput        `pulumi:"instanceId"`
+	IpVersion       pulumi.StringOutput        `pulumi:"ipVersion"`
+	MemberType      pulumi.StringOutput        `pulumi:"memberType"`
+	Name            pulumi.StringOutput        `pulumi:"name"`
+	OperatingStatus pulumi.StringOutput        `pulumi:"operatingStatus"`
+	PoolId          pulumi.StringOutput        `pulumi:"poolId"`
+	ProtocolPort    pulumi.IntOutput           `pulumi:"protocolPort"`
+	Reasons         ElbMemberReasonArrayOutput `pulumi:"reasons"`
+	Region          pulumi.StringOutput        `pulumi:"region"`
+	Statuses        ElbMemberStatusArrayOutput `pulumi:"statuses"`
+	SubnetId        pulumi.StringPtrOutput     `pulumi:"subnetId"`
+	UpdatedAt       pulumi.StringOutput        `pulumi:"updatedAt"`
+	Weight          pulumi.IntOutput           `pulumi:"weight"`
 }
 
 // NewElbMember registers a new resource with the given unique name, arguments, and options.
@@ -61,25 +68,39 @@ func GetElbMember(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering ElbMember resources.
 type elbMemberState struct {
-	Address      *string `pulumi:"address"`
-	Name         *string `pulumi:"name"`
-	PoolId       *string `pulumi:"poolId"`
-	ProtocolPort *int    `pulumi:"protocolPort"`
-	Region       *string `pulumi:"region"`
-	// The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-	SubnetId *string `pulumi:"subnetId"`
-	Weight   *int    `pulumi:"weight"`
+	Address         *string           `pulumi:"address"`
+	CreatedAt       *string           `pulumi:"createdAt"`
+	InstanceId      *string           `pulumi:"instanceId"`
+	IpVersion       *string           `pulumi:"ipVersion"`
+	MemberType      *string           `pulumi:"memberType"`
+	Name            *string           `pulumi:"name"`
+	OperatingStatus *string           `pulumi:"operatingStatus"`
+	PoolId          *string           `pulumi:"poolId"`
+	ProtocolPort    *int              `pulumi:"protocolPort"`
+	Reasons         []ElbMemberReason `pulumi:"reasons"`
+	Region          *string           `pulumi:"region"`
+	Statuses        []ElbMemberStatus `pulumi:"statuses"`
+	SubnetId        *string           `pulumi:"subnetId"`
+	UpdatedAt       *string           `pulumi:"updatedAt"`
+	Weight          *int              `pulumi:"weight"`
 }
 
 type ElbMemberState struct {
-	Address      pulumi.StringPtrInput
-	Name         pulumi.StringPtrInput
-	PoolId       pulumi.StringPtrInput
-	ProtocolPort pulumi.IntPtrInput
-	Region       pulumi.StringPtrInput
-	// The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-	SubnetId pulumi.StringPtrInput
-	Weight   pulumi.IntPtrInput
+	Address         pulumi.StringPtrInput
+	CreatedAt       pulumi.StringPtrInput
+	InstanceId      pulumi.StringPtrInput
+	IpVersion       pulumi.StringPtrInput
+	MemberType      pulumi.StringPtrInput
+	Name            pulumi.StringPtrInput
+	OperatingStatus pulumi.StringPtrInput
+	PoolId          pulumi.StringPtrInput
+	ProtocolPort    pulumi.IntPtrInput
+	Reasons         ElbMemberReasonArrayInput
+	Region          pulumi.StringPtrInput
+	Statuses        ElbMemberStatusArrayInput
+	SubnetId        pulumi.StringPtrInput
+	UpdatedAt       pulumi.StringPtrInput
+	Weight          pulumi.IntPtrInput
 }
 
 func (ElbMemberState) ElementType() reflect.Type {
@@ -92,9 +113,8 @@ type elbMemberArgs struct {
 	PoolId       string  `pulumi:"poolId"`
 	ProtocolPort *int    `pulumi:"protocolPort"`
 	Region       *string `pulumi:"region"`
-	// The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-	SubnetId *string `pulumi:"subnetId"`
-	Weight   *int    `pulumi:"weight"`
+	SubnetId     *string `pulumi:"subnetId"`
+	Weight       *int    `pulumi:"weight"`
 }
 
 // The set of arguments for constructing a ElbMember resource.
@@ -104,9 +124,8 @@ type ElbMemberArgs struct {
 	PoolId       pulumi.StringInput
 	ProtocolPort pulumi.IntPtrInput
 	Region       pulumi.StringPtrInput
-	// The IPv4 or IPv6 subnet ID of the subnet in which to access the member
-	SubnetId pulumi.StringPtrInput
-	Weight   pulumi.IntPtrInput
+	SubnetId     pulumi.StringPtrInput
+	Weight       pulumi.IntPtrInput
 }
 
 func (ElbMemberArgs) ElementType() reflect.Type {
@@ -200,8 +219,28 @@ func (o ElbMemberOutput) Address() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbMember) pulumi.StringOutput { return v.Address }).(pulumi.StringOutput)
 }
 
+func (o ElbMemberOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbMember) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
+}
+
+func (o ElbMemberOutput) InstanceId() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbMember) pulumi.StringOutput { return v.InstanceId }).(pulumi.StringOutput)
+}
+
+func (o ElbMemberOutput) IpVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbMember) pulumi.StringOutput { return v.IpVersion }).(pulumi.StringOutput)
+}
+
+func (o ElbMemberOutput) MemberType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbMember) pulumi.StringOutput { return v.MemberType }).(pulumi.StringOutput)
+}
+
 func (o ElbMemberOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbMember) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+func (o ElbMemberOutput) OperatingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbMember) pulumi.StringOutput { return v.OperatingStatus }).(pulumi.StringOutput)
 }
 
 func (o ElbMemberOutput) PoolId() pulumi.StringOutput {
@@ -212,13 +251,24 @@ func (o ElbMemberOutput) ProtocolPort() pulumi.IntOutput {
 	return o.ApplyT(func(v *ElbMember) pulumi.IntOutput { return v.ProtocolPort }).(pulumi.IntOutput)
 }
 
+func (o ElbMemberOutput) Reasons() ElbMemberReasonArrayOutput {
+	return o.ApplyT(func(v *ElbMember) ElbMemberReasonArrayOutput { return v.Reasons }).(ElbMemberReasonArrayOutput)
+}
+
 func (o ElbMemberOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbMember) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
-// The IPv4 or IPv6 subnet ID of the subnet in which to access the member
+func (o ElbMemberOutput) Statuses() ElbMemberStatusArrayOutput {
+	return o.ApplyT(func(v *ElbMember) ElbMemberStatusArrayOutput { return v.Statuses }).(ElbMemberStatusArrayOutput)
+}
+
 func (o ElbMemberOutput) SubnetId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElbMember) pulumi.StringPtrOutput { return v.SubnetId }).(pulumi.StringPtrOutput)
+}
+
+func (o ElbMemberOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbMember) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 func (o ElbMemberOutput) Weight() pulumi.IntOutput {

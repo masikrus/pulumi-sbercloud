@@ -30,8 +30,10 @@ type ElbLoadbalancer struct {
 	CrossVpcBackend          pulumi.BoolOutput        `pulumi:"crossVpcBackend"`
 	DeletionProtectionEnable pulumi.BoolPtrOutput     `pulumi:"deletionProtectionEnable"`
 	Description              pulumi.StringPtrOutput   `pulumi:"description"`
+	ElbVirsubnetType         pulumi.StringOutput      `pulumi:"elbVirsubnetType"`
 	EnterpriseProjectId      pulumi.StringOutput      `pulumi:"enterpriseProjectId"`
 	ForceDelete              pulumi.BoolPtrOutput     `pulumi:"forceDelete"`
+	FrozenScene              pulumi.StringOutput      `pulumi:"frozenScene"`
 	Guaranteed               pulumi.BoolOutput        `pulumi:"guaranteed"`
 	GwFlavorId               pulumi.StringOutput      `pulumi:"gwFlavorId"`
 	Iptype                   pulumi.StringOutput      `pulumi:"iptype"`
@@ -46,22 +48,24 @@ type ElbLoadbalancer struct {
 	Ipv6Eip         pulumi.StringOutput    `pulumi:"ipv6Eip"`
 	Ipv6EipId       pulumi.StringOutput    `pulumi:"ipv6EipId"`
 	// the ID of the subnet where the load balancer resides
-	Ipv6NetworkId    pulumi.StringPtrOutput `pulumi:"ipv6NetworkId"`
-	L4FlavorId       pulumi.StringOutput    `pulumi:"l4FlavorId"`
-	L7FlavorId       pulumi.StringOutput    `pulumi:"l7FlavorId"`
-	LoadbalancerType pulumi.StringOutput    `pulumi:"loadbalancerType"`
-	MinL7FlavorId    pulumi.StringOutput    `pulumi:"minL7FlavorId"`
-	Name             pulumi.StringOutput    `pulumi:"name"`
-	Period           pulumi.IntPtrOutput    `pulumi:"period"`
-	PeriodUnit       pulumi.StringPtrOutput `pulumi:"periodUnit"`
-	ProtectionReason pulumi.StringPtrOutput `pulumi:"protectionReason"`
-	ProtectionStatus pulumi.StringOutput    `pulumi:"protectionStatus"`
-	Region           pulumi.StringOutput    `pulumi:"region"`
-	Sharetype        pulumi.StringOutput    `pulumi:"sharetype"`
-	Tags             pulumi.StringMapOutput `pulumi:"tags"`
-	UpdatedAt        pulumi.StringOutput    `pulumi:"updatedAt"`
-	VpcId            pulumi.StringOutput    `pulumi:"vpcId"`
-	WafFailureAction pulumi.StringOutput    `pulumi:"wafFailureAction"`
+	Ipv6NetworkId     pulumi.StringPtrOutput `pulumi:"ipv6NetworkId"`
+	L4FlavorId        pulumi.StringOutput    `pulumi:"l4FlavorId"`
+	L7FlavorId        pulumi.StringOutput    `pulumi:"l7FlavorId"`
+	LoadbalancerType  pulumi.StringOutput    `pulumi:"loadbalancerType"`
+	MinL7FlavorId     pulumi.StringOutput    `pulumi:"minL7FlavorId"`
+	Name              pulumi.StringOutput    `pulumi:"name"`
+	OperatingStatus   pulumi.StringOutput    `pulumi:"operatingStatus"`
+	Period            pulumi.IntPtrOutput    `pulumi:"period"`
+	PeriodUnit        pulumi.StringPtrOutput `pulumi:"periodUnit"`
+	ProtectionReason  pulumi.StringPtrOutput `pulumi:"protectionReason"`
+	ProtectionStatus  pulumi.StringOutput    `pulumi:"protectionStatus"`
+	PublicBorderGroup pulumi.StringOutput    `pulumi:"publicBorderGroup"`
+	Region            pulumi.StringOutput    `pulumi:"region"`
+	Sharetype         pulumi.StringOutput    `pulumi:"sharetype"`
+	Tags              pulumi.StringMapOutput `pulumi:"tags"`
+	UpdatedAt         pulumi.StringOutput    `pulumi:"updatedAt"`
+	VpcId             pulumi.StringOutput    `pulumi:"vpcId"`
+	WafFailureAction  pulumi.StringOutput    `pulumi:"wafFailureAction"`
 }
 
 // NewElbLoadbalancer registers a new resource with the given unique name, arguments, and options.
@@ -112,8 +116,10 @@ type elbLoadbalancerState struct {
 	CrossVpcBackend          *bool    `pulumi:"crossVpcBackend"`
 	DeletionProtectionEnable *bool    `pulumi:"deletionProtectionEnable"`
 	Description              *string  `pulumi:"description"`
+	ElbVirsubnetType         *string  `pulumi:"elbVirsubnetType"`
 	EnterpriseProjectId      *string  `pulumi:"enterpriseProjectId"`
 	ForceDelete              *bool    `pulumi:"forceDelete"`
+	FrozenScene              *string  `pulumi:"frozenScene"`
 	Guaranteed               *bool    `pulumi:"guaranteed"`
 	GwFlavorId               *string  `pulumi:"gwFlavorId"`
 	Iptype                   *string  `pulumi:"iptype"`
@@ -128,22 +134,24 @@ type elbLoadbalancerState struct {
 	Ipv6Eip         *string `pulumi:"ipv6Eip"`
 	Ipv6EipId       *string `pulumi:"ipv6EipId"`
 	// the ID of the subnet where the load balancer resides
-	Ipv6NetworkId    *string           `pulumi:"ipv6NetworkId"`
-	L4FlavorId       *string           `pulumi:"l4FlavorId"`
-	L7FlavorId       *string           `pulumi:"l7FlavorId"`
-	LoadbalancerType *string           `pulumi:"loadbalancerType"`
-	MinL7FlavorId    *string           `pulumi:"minL7FlavorId"`
-	Name             *string           `pulumi:"name"`
-	Period           *int              `pulumi:"period"`
-	PeriodUnit       *string           `pulumi:"periodUnit"`
-	ProtectionReason *string           `pulumi:"protectionReason"`
-	ProtectionStatus *string           `pulumi:"protectionStatus"`
-	Region           *string           `pulumi:"region"`
-	Sharetype        *string           `pulumi:"sharetype"`
-	Tags             map[string]string `pulumi:"tags"`
-	UpdatedAt        *string           `pulumi:"updatedAt"`
-	VpcId            *string           `pulumi:"vpcId"`
-	WafFailureAction *string           `pulumi:"wafFailureAction"`
+	Ipv6NetworkId     *string           `pulumi:"ipv6NetworkId"`
+	L4FlavorId        *string           `pulumi:"l4FlavorId"`
+	L7FlavorId        *string           `pulumi:"l7FlavorId"`
+	LoadbalancerType  *string           `pulumi:"loadbalancerType"`
+	MinL7FlavorId     *string           `pulumi:"minL7FlavorId"`
+	Name              *string           `pulumi:"name"`
+	OperatingStatus   *string           `pulumi:"operatingStatus"`
+	Period            *int              `pulumi:"period"`
+	PeriodUnit        *string           `pulumi:"periodUnit"`
+	ProtectionReason  *string           `pulumi:"protectionReason"`
+	ProtectionStatus  *string           `pulumi:"protectionStatus"`
+	PublicBorderGroup *string           `pulumi:"publicBorderGroup"`
+	Region            *string           `pulumi:"region"`
+	Sharetype         *string           `pulumi:"sharetype"`
+	Tags              map[string]string `pulumi:"tags"`
+	UpdatedAt         *string           `pulumi:"updatedAt"`
+	VpcId             *string           `pulumi:"vpcId"`
+	WafFailureAction  *string           `pulumi:"wafFailureAction"`
 }
 
 type ElbLoadbalancerState struct {
@@ -162,8 +170,10 @@ type ElbLoadbalancerState struct {
 	CrossVpcBackend          pulumi.BoolPtrInput
 	DeletionProtectionEnable pulumi.BoolPtrInput
 	Description              pulumi.StringPtrInput
+	ElbVirsubnetType         pulumi.StringPtrInput
 	EnterpriseProjectId      pulumi.StringPtrInput
 	ForceDelete              pulumi.BoolPtrInput
+	FrozenScene              pulumi.StringPtrInput
 	Guaranteed               pulumi.BoolPtrInput
 	GwFlavorId               pulumi.StringPtrInput
 	Iptype                   pulumi.StringPtrInput
@@ -178,22 +188,24 @@ type ElbLoadbalancerState struct {
 	Ipv6Eip         pulumi.StringPtrInput
 	Ipv6EipId       pulumi.StringPtrInput
 	// the ID of the subnet where the load balancer resides
-	Ipv6NetworkId    pulumi.StringPtrInput
-	L4FlavorId       pulumi.StringPtrInput
-	L7FlavorId       pulumi.StringPtrInput
-	LoadbalancerType pulumi.StringPtrInput
-	MinL7FlavorId    pulumi.StringPtrInput
-	Name             pulumi.StringPtrInput
-	Period           pulumi.IntPtrInput
-	PeriodUnit       pulumi.StringPtrInput
-	ProtectionReason pulumi.StringPtrInput
-	ProtectionStatus pulumi.StringPtrInput
-	Region           pulumi.StringPtrInput
-	Sharetype        pulumi.StringPtrInput
-	Tags             pulumi.StringMapInput
-	UpdatedAt        pulumi.StringPtrInput
-	VpcId            pulumi.StringPtrInput
-	WafFailureAction pulumi.StringPtrInput
+	Ipv6NetworkId     pulumi.StringPtrInput
+	L4FlavorId        pulumi.StringPtrInput
+	L7FlavorId        pulumi.StringPtrInput
+	LoadbalancerType  pulumi.StringPtrInput
+	MinL7FlavorId     pulumi.StringPtrInput
+	Name              pulumi.StringPtrInput
+	OperatingStatus   pulumi.StringPtrInput
+	Period            pulumi.IntPtrInput
+	PeriodUnit        pulumi.StringPtrInput
+	ProtectionReason  pulumi.StringPtrInput
+	ProtectionStatus  pulumi.StringPtrInput
+	PublicBorderGroup pulumi.StringPtrInput
+	Region            pulumi.StringPtrInput
+	Sharetype         pulumi.StringPtrInput
+	Tags              pulumi.StringMapInput
+	UpdatedAt         pulumi.StringPtrInput
+	VpcId             pulumi.StringPtrInput
+	WafFailureAction  pulumi.StringPtrInput
 }
 
 func (ElbLoadbalancerState) ElementType() reflect.Type {
@@ -427,12 +439,20 @@ func (o ElbLoadbalancerOutput) Description() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.StringPtrOutput { return v.Description }).(pulumi.StringPtrOutput)
 }
 
+func (o ElbLoadbalancerOutput) ElbVirsubnetType() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.StringOutput { return v.ElbVirsubnetType }).(pulumi.StringOutput)
+}
+
 func (o ElbLoadbalancerOutput) EnterpriseProjectId() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.StringOutput { return v.EnterpriseProjectId }).(pulumi.StringOutput)
 }
 
 func (o ElbLoadbalancerOutput) ForceDelete() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.BoolPtrOutput { return v.ForceDelete }).(pulumi.BoolPtrOutput)
+}
+
+func (o ElbLoadbalancerOutput) FrozenScene() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.StringOutput { return v.FrozenScene }).(pulumi.StringOutput)
 }
 
 func (o ElbLoadbalancerOutput) Guaranteed() pulumi.BoolOutput {
@@ -509,6 +529,10 @@ func (o ElbLoadbalancerOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
 }
 
+func (o ElbLoadbalancerOutput) OperatingStatus() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.StringOutput { return v.OperatingStatus }).(pulumi.StringOutput)
+}
+
 func (o ElbLoadbalancerOutput) Period() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.IntPtrOutput { return v.Period }).(pulumi.IntPtrOutput)
 }
@@ -523,6 +547,10 @@ func (o ElbLoadbalancerOutput) ProtectionReason() pulumi.StringPtrOutput {
 
 func (o ElbLoadbalancerOutput) ProtectionStatus() pulumi.StringOutput {
 	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.StringOutput { return v.ProtectionStatus }).(pulumi.StringOutput)
+}
+
+func (o ElbLoadbalancerOutput) PublicBorderGroup() pulumi.StringOutput {
+	return o.ApplyT(func(v *ElbLoadbalancer) pulumi.StringOutput { return v.PublicBorderGroup }).(pulumi.StringOutput)
 }
 
 func (o ElbLoadbalancerOutput) Region() pulumi.StringOutput {

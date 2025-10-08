@@ -23,16 +23,20 @@ class LtsStreamArgs:
                  group_id: pulumi.Input[builtins.str],
                  stream_name: pulumi.Input[builtins.str],
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
+                 is_favorite: Optional[pulumi.Input[builtins.bool]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl_in_days: Optional[pulumi.Input[builtins.int]] = None):
         """
         The set of arguments for constructing a LtsStream resource.
+        :param pulumi.Input[builtins.bool] is_favorite: Whether to favorite the log stream.
         """
         pulumi.set(__self__, "group_id", group_id)
         pulumi.set(__self__, "stream_name", stream_name)
         if enterprise_project_id is not None:
             pulumi.set(__self__, "enterprise_project_id", enterprise_project_id)
+        if is_favorite is not None:
+            pulumi.set(__self__, "is_favorite", is_favorite)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if tags is not None:
@@ -66,6 +70,18 @@ class LtsStreamArgs:
     @enterprise_project_id.setter
     def enterprise_project_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "enterprise_project_id", value)
+
+    @property
+    @pulumi.getter(name="isFavorite")
+    def is_favorite(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to favorite the log stream.
+        """
+        return pulumi.get(self, "is_favorite")
+
+    @is_favorite.setter
+    def is_favorite(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_favorite", value)
 
     @property
     @pulumi.getter
@@ -102,12 +118,14 @@ class _LtsStreamState:
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  filter_count: Optional[pulumi.Input[builtins.int]] = None,
                  group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 is_favorite: Optional[pulumi.Input[builtins.bool]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  ttl_in_days: Optional[pulumi.Input[builtins.int]] = None):
         """
         Input properties used for looking up and filtering LtsStream resources.
+        :param pulumi.Input[builtins.bool] is_favorite: Whether to favorite the log stream.
         """
         if created_at is not None:
             pulumi.set(__self__, "created_at", created_at)
@@ -117,6 +135,8 @@ class _LtsStreamState:
             pulumi.set(__self__, "filter_count", filter_count)
         if group_id is not None:
             pulumi.set(__self__, "group_id", group_id)
+        if is_favorite is not None:
+            pulumi.set(__self__, "is_favorite", is_favorite)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if stream_name is not None:
@@ -163,6 +183,18 @@ class _LtsStreamState:
         pulumi.set(self, "group_id", value)
 
     @property
+    @pulumi.getter(name="isFavorite")
+    def is_favorite(self) -> Optional[pulumi.Input[builtins.bool]]:
+        """
+        Whether to favorite the log stream.
+        """
+        return pulumi.get(self, "is_favorite")
+
+    @is_favorite.setter
+    def is_favorite(self, value: Optional[pulumi.Input[builtins.bool]]):
+        pulumi.set(self, "is_favorite", value)
+
+    @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "region")
@@ -206,6 +238,7 @@ class LtsStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 is_favorite: Optional[pulumi.Input[builtins.bool]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -215,6 +248,7 @@ class LtsStream(pulumi.CustomResource):
         Create a LtsStream resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.bool] is_favorite: Whether to favorite the log stream.
         """
         ...
     @overload
@@ -241,6 +275,7 @@ class LtsStream(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  group_id: Optional[pulumi.Input[builtins.str]] = None,
+                 is_favorite: Optional[pulumi.Input[builtins.bool]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  stream_name: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -258,6 +293,7 @@ class LtsStream(pulumi.CustomResource):
             if group_id is None and not opts.urn:
                 raise TypeError("Missing required property 'group_id'")
             __props__.__dict__["group_id"] = group_id
+            __props__.__dict__["is_favorite"] = is_favorite
             __props__.__dict__["region"] = region
             if stream_name is None and not opts.urn:
                 raise TypeError("Missing required property 'stream_name'")
@@ -280,6 +316,7 @@ class LtsStream(pulumi.CustomResource):
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             filter_count: Optional[pulumi.Input[builtins.int]] = None,
             group_id: Optional[pulumi.Input[builtins.str]] = None,
+            is_favorite: Optional[pulumi.Input[builtins.bool]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             stream_name: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
@@ -291,6 +328,7 @@ class LtsStream(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.bool] is_favorite: Whether to favorite the log stream.
         """
         opts = pulumi.ResourceOptions.merge(opts, pulumi.ResourceOptions(id=id))
 
@@ -300,6 +338,7 @@ class LtsStream(pulumi.CustomResource):
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["filter_count"] = filter_count
         __props__.__dict__["group_id"] = group_id
+        __props__.__dict__["is_favorite"] = is_favorite
         __props__.__dict__["region"] = region
         __props__.__dict__["stream_name"] = stream_name
         __props__.__dict__["tags"] = tags
@@ -325,6 +364,14 @@ class LtsStream(pulumi.CustomResource):
     @pulumi.getter(name="groupId")
     def group_id(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "group_id")
+
+    @property
+    @pulumi.getter(name="isFavorite")
+    def is_favorite(self) -> pulumi.Output[Optional[builtins.bool]]:
+        """
+        Whether to favorite the log stream.
+        """
+        return pulumi.get(self, "is_favorite")
 
     @property
     @pulumi.getter

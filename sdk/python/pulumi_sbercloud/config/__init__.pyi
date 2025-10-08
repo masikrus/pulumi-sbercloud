@@ -37,6 +37,11 @@ domainId: Optional[str]
 
 domainName: Optional[str]
 
+endpoints: Optional[str]
+"""
+The custom endpoints used to override the default endpoint URL.
+"""
+
 enterpriseProjectId: Optional[str]
 
 insecure: Optional[bool]

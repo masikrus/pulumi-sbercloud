@@ -320,13 +320,17 @@ class EvsVolumeArgs:
 @pulumi.input_type
 class _EvsVolumeState:
     def __init__(__self__, *,
+                 all_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+                 all_volume_image_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  attachments: Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeAttachmentArgs']]]] = None,
                  auto_pay: Optional[pulumi.Input[builtins.str]] = None,
                  auto_renew: Optional[pulumi.Input[builtins.str]] = None,
                  availability_zone: Optional[pulumi.Input[builtins.str]] = None,
                  backup_id: Optional[pulumi.Input[builtins.str]] = None,
+                 bootable: Optional[pulumi.Input[builtins.str]] = None,
                  cascade: Optional[pulumi.Input[builtins.bool]] = None,
                  charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+                 created_at: Optional[pulumi.Input[builtins.str]] = None,
                  dedicated_storage_id: Optional[pulumi.Input[builtins.str]] = None,
                  dedicated_storage_name: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
@@ -334,23 +338,33 @@ class _EvsVolumeState:
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
                  image_id: Optional[pulumi.Input[builtins.str]] = None,
                  iops: Optional[pulumi.Input[builtins.int]] = None,
+                 iops_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeIopsAttributeArgs']]]] = None,
                  kms_id: Optional[pulumi.Input[builtins.str]] = None,
+                 links: Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeLinkArgs']]]] = None,
                  multiattach: Optional[pulumi.Input[builtins.bool]] = None,
                  name: Optional[pulumi.Input[builtins.str]] = None,
                  period: Optional[pulumi.Input[builtins.int]] = None,
                  period_unit: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
+                 serial_number: Optional[pulumi.Input[builtins.str]] = None,
                  server_id: Optional[pulumi.Input[builtins.str]] = None,
+                 service_type: Optional[pulumi.Input[builtins.str]] = None,
                  size: Optional[pulumi.Input[builtins.int]] = None,
                  snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
                  status: Optional[pulumi.Input[builtins.str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
                  throughput: Optional[pulumi.Input[builtins.int]] = None,
+                 throughput_attributes: Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeThroughputAttributeArgs']]]] = None,
+                 updated_at: Optional[pulumi.Input[builtins.str]] = None,
                  volume_type: Optional[pulumi.Input[builtins.str]] = None,
                  wwn: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering EvsVolume resources.
         """
+        if all_metadata is not None:
+            pulumi.set(__self__, "all_metadata", all_metadata)
+        if all_volume_image_metadata is not None:
+            pulumi.set(__self__, "all_volume_image_metadata", all_volume_image_metadata)
         if attachments is not None:
             pulumi.set(__self__, "attachments", attachments)
         if auto_pay is not None:
@@ -364,10 +378,14 @@ class _EvsVolumeState:
             pulumi.set(__self__, "availability_zone", availability_zone)
         if backup_id is not None:
             pulumi.set(__self__, "backup_id", backup_id)
+        if bootable is not None:
+            pulumi.set(__self__, "bootable", bootable)
         if cascade is not None:
             pulumi.set(__self__, "cascade", cascade)
         if charging_mode is not None:
             pulumi.set(__self__, "charging_mode", charging_mode)
+        if created_at is not None:
+            pulumi.set(__self__, "created_at", created_at)
         if dedicated_storage_id is not None:
             pulumi.set(__self__, "dedicated_storage_id", dedicated_storage_id)
         if dedicated_storage_name is not None:
@@ -382,8 +400,12 @@ class _EvsVolumeState:
             pulumi.set(__self__, "image_id", image_id)
         if iops is not None:
             pulumi.set(__self__, "iops", iops)
+        if iops_attributes is not None:
+            pulumi.set(__self__, "iops_attributes", iops_attributes)
         if kms_id is not None:
             pulumi.set(__self__, "kms_id", kms_id)
+        if links is not None:
+            pulumi.set(__self__, "links", links)
         if multiattach is not None:
             pulumi.set(__self__, "multiattach", multiattach)
         if name is not None:
@@ -394,8 +416,12 @@ class _EvsVolumeState:
             pulumi.set(__self__, "period_unit", period_unit)
         if region is not None:
             pulumi.set(__self__, "region", region)
+        if serial_number is not None:
+            pulumi.set(__self__, "serial_number", serial_number)
         if server_id is not None:
             pulumi.set(__self__, "server_id", server_id)
+        if service_type is not None:
+            pulumi.set(__self__, "service_type", service_type)
         if size is not None:
             pulumi.set(__self__, "size", size)
         if snapshot_id is not None:
@@ -406,10 +432,32 @@ class _EvsVolumeState:
             pulumi.set(__self__, "tags", tags)
         if throughput is not None:
             pulumi.set(__self__, "throughput", throughput)
+        if throughput_attributes is not None:
+            pulumi.set(__self__, "throughput_attributes", throughput_attributes)
+        if updated_at is not None:
+            pulumi.set(__self__, "updated_at", updated_at)
         if volume_type is not None:
             pulumi.set(__self__, "volume_type", volume_type)
         if wwn is not None:
             pulumi.set(__self__, "wwn", wwn)
+
+    @property
+    @pulumi.getter(name="allMetadata")
+    def all_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "all_metadata")
+
+    @all_metadata.setter
+    def all_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "all_metadata", value)
+
+    @property
+    @pulumi.getter(name="allVolumeImageMetadata")
+    def all_volume_image_metadata(self) -> Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]:
+        return pulumi.get(self, "all_volume_image_metadata")
+
+    @all_volume_image_metadata.setter
+    def all_volume_image_metadata(self, value: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]]):
+        pulumi.set(self, "all_volume_image_metadata", value)
 
     @property
     @pulumi.getter
@@ -459,6 +507,15 @@ class _EvsVolumeState:
 
     @property
     @pulumi.getter
+    def bootable(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "bootable")
+
+    @bootable.setter
+    def bootable(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "bootable", value)
+
+    @property
+    @pulumi.getter
     def cascade(self) -> Optional[pulumi.Input[builtins.bool]]:
         return pulumi.get(self, "cascade")
 
@@ -474,6 +531,15 @@ class _EvsVolumeState:
     @charging_mode.setter
     def charging_mode(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "charging_mode", value)
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "created_at")
+
+    @created_at.setter
+    def created_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "created_at", value)
 
     @property
     @pulumi.getter(name="dedicatedStorageId")
@@ -539,6 +605,15 @@ class _EvsVolumeState:
         pulumi.set(self, "iops", value)
 
     @property
+    @pulumi.getter(name="iopsAttributes")
+    def iops_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeIopsAttributeArgs']]]]:
+        return pulumi.get(self, "iops_attributes")
+
+    @iops_attributes.setter
+    def iops_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeIopsAttributeArgs']]]]):
+        pulumi.set(self, "iops_attributes", value)
+
+    @property
     @pulumi.getter(name="kmsId")
     def kms_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "kms_id")
@@ -546,6 +621,15 @@ class _EvsVolumeState:
     @kms_id.setter
     def kms_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "kms_id", value)
+
+    @property
+    @pulumi.getter
+    def links(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeLinkArgs']]]]:
+        return pulumi.get(self, "links")
+
+    @links.setter
+    def links(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeLinkArgs']]]]):
+        pulumi.set(self, "links", value)
 
     @property
     @pulumi.getter
@@ -593,6 +677,15 @@ class _EvsVolumeState:
         pulumi.set(self, "region", value)
 
     @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "serial_number")
+
+    @serial_number.setter
+    def serial_number(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "serial_number", value)
+
+    @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "server_id")
@@ -600,6 +693,15 @@ class _EvsVolumeState:
     @server_id.setter
     def server_id(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "server_id", value)
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "service_type")
+
+    @service_type.setter
+    def service_type(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "service_type", value)
 
     @property
     @pulumi.getter
@@ -645,6 +747,24 @@ class _EvsVolumeState:
     @throughput.setter
     def throughput(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "throughput", value)
+
+    @property
+    @pulumi.getter(name="throughputAttributes")
+    def throughput_attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeThroughputAttributeArgs']]]]:
+        return pulumi.get(self, "throughput_attributes")
+
+    @throughput_attributes.setter
+    def throughput_attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['EvsVolumeThroughputAttributeArgs']]]]):
+        pulumi.set(self, "throughput_attributes", value)
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "updated_at")
+
+    @updated_at.setter
+    def updated_at(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "updated_at", value)
 
     @property
     @pulumi.getter(name="volumeType")
@@ -784,9 +904,19 @@ class EvsVolume(pulumi.CustomResource):
             if volume_type is None and not opts.urn:
                 raise TypeError("Missing required property 'volume_type'")
             __props__.__dict__["volume_type"] = volume_type
+            __props__.__dict__["all_metadata"] = None
+            __props__.__dict__["all_volume_image_metadata"] = None
             __props__.__dict__["attachments"] = None
+            __props__.__dict__["bootable"] = None
+            __props__.__dict__["created_at"] = None
             __props__.__dict__["dedicated_storage_name"] = None
+            __props__.__dict__["iops_attributes"] = None
+            __props__.__dict__["links"] = None
+            __props__.__dict__["serial_number"] = None
+            __props__.__dict__["service_type"] = None
             __props__.__dict__["status"] = None
+            __props__.__dict__["throughput_attributes"] = None
+            __props__.__dict__["updated_at"] = None
             __props__.__dict__["wwn"] = None
         super(EvsVolume, __self__).__init__(
             'sbercloud:index/evsVolume:EvsVolume',
@@ -798,13 +928,17 @@ class EvsVolume(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            all_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
+            all_volume_image_metadata: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             attachments: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EvsVolumeAttachmentArgs', 'EvsVolumeAttachmentArgsDict']]]]] = None,
             auto_pay: Optional[pulumi.Input[builtins.str]] = None,
             auto_renew: Optional[pulumi.Input[builtins.str]] = None,
             availability_zone: Optional[pulumi.Input[builtins.str]] = None,
             backup_id: Optional[pulumi.Input[builtins.str]] = None,
+            bootable: Optional[pulumi.Input[builtins.str]] = None,
             cascade: Optional[pulumi.Input[builtins.bool]] = None,
             charging_mode: Optional[pulumi.Input[builtins.str]] = None,
+            created_at: Optional[pulumi.Input[builtins.str]] = None,
             dedicated_storage_id: Optional[pulumi.Input[builtins.str]] = None,
             dedicated_storage_name: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
@@ -812,18 +946,24 @@ class EvsVolume(pulumi.CustomResource):
             enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
             image_id: Optional[pulumi.Input[builtins.str]] = None,
             iops: Optional[pulumi.Input[builtins.int]] = None,
+            iops_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EvsVolumeIopsAttributeArgs', 'EvsVolumeIopsAttributeArgsDict']]]]] = None,
             kms_id: Optional[pulumi.Input[builtins.str]] = None,
+            links: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EvsVolumeLinkArgs', 'EvsVolumeLinkArgsDict']]]]] = None,
             multiattach: Optional[pulumi.Input[builtins.bool]] = None,
             name: Optional[pulumi.Input[builtins.str]] = None,
             period: Optional[pulumi.Input[builtins.int]] = None,
             period_unit: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
+            serial_number: Optional[pulumi.Input[builtins.str]] = None,
             server_id: Optional[pulumi.Input[builtins.str]] = None,
+            service_type: Optional[pulumi.Input[builtins.str]] = None,
             size: Optional[pulumi.Input[builtins.int]] = None,
             snapshot_id: Optional[pulumi.Input[builtins.str]] = None,
             status: Optional[pulumi.Input[builtins.str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[builtins.str]]]] = None,
             throughput: Optional[pulumi.Input[builtins.int]] = None,
+            throughput_attributes: Optional[pulumi.Input[Sequence[pulumi.Input[Union['EvsVolumeThroughputAttributeArgs', 'EvsVolumeThroughputAttributeArgsDict']]]]] = None,
+            updated_at: Optional[pulumi.Input[builtins.str]] = None,
             volume_type: Optional[pulumi.Input[builtins.str]] = None,
             wwn: Optional[pulumi.Input[builtins.str]] = None) -> 'EvsVolume':
         """
@@ -838,13 +978,17 @@ class EvsVolume(pulumi.CustomResource):
 
         __props__ = _EvsVolumeState.__new__(_EvsVolumeState)
 
+        __props__.__dict__["all_metadata"] = all_metadata
+        __props__.__dict__["all_volume_image_metadata"] = all_volume_image_metadata
         __props__.__dict__["attachments"] = attachments
         __props__.__dict__["auto_pay"] = auto_pay
         __props__.__dict__["auto_renew"] = auto_renew
         __props__.__dict__["availability_zone"] = availability_zone
         __props__.__dict__["backup_id"] = backup_id
+        __props__.__dict__["bootable"] = bootable
         __props__.__dict__["cascade"] = cascade
         __props__.__dict__["charging_mode"] = charging_mode
+        __props__.__dict__["created_at"] = created_at
         __props__.__dict__["dedicated_storage_id"] = dedicated_storage_id
         __props__.__dict__["dedicated_storage_name"] = dedicated_storage_name
         __props__.__dict__["description"] = description
@@ -852,21 +996,37 @@ class EvsVolume(pulumi.CustomResource):
         __props__.__dict__["enterprise_project_id"] = enterprise_project_id
         __props__.__dict__["image_id"] = image_id
         __props__.__dict__["iops"] = iops
+        __props__.__dict__["iops_attributes"] = iops_attributes
         __props__.__dict__["kms_id"] = kms_id
+        __props__.__dict__["links"] = links
         __props__.__dict__["multiattach"] = multiattach
         __props__.__dict__["name"] = name
         __props__.__dict__["period"] = period
         __props__.__dict__["period_unit"] = period_unit
         __props__.__dict__["region"] = region
+        __props__.__dict__["serial_number"] = serial_number
         __props__.__dict__["server_id"] = server_id
+        __props__.__dict__["service_type"] = service_type
         __props__.__dict__["size"] = size
         __props__.__dict__["snapshot_id"] = snapshot_id
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         __props__.__dict__["throughput"] = throughput
+        __props__.__dict__["throughput_attributes"] = throughput_attributes
+        __props__.__dict__["updated_at"] = updated_at
         __props__.__dict__["volume_type"] = volume_type
         __props__.__dict__["wwn"] = wwn
         return EvsVolume(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="allMetadata")
+    def all_metadata(self) -> pulumi.Output[Mapping[str, builtins.str]]:
+        return pulumi.get(self, "all_metadata")
+
+    @property
+    @pulumi.getter(name="allVolumeImageMetadata")
+    def all_volume_image_metadata(self) -> pulumi.Output[Mapping[str, builtins.str]]:
+        return pulumi.get(self, "all_volume_image_metadata")
 
     @property
     @pulumi.getter
@@ -896,6 +1056,11 @@ class EvsVolume(pulumi.CustomResource):
 
     @property
     @pulumi.getter
+    def bootable(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "bootable")
+
+    @property
+    @pulumi.getter
     def cascade(self) -> pulumi.Output[Optional[builtins.bool]]:
         return pulumi.get(self, "cascade")
 
@@ -903,6 +1068,11 @@ class EvsVolume(pulumi.CustomResource):
     @pulumi.getter(name="chargingMode")
     def charging_mode(self) -> pulumi.Output[builtins.str]:
         return pulumi.get(self, "charging_mode")
+
+    @property
+    @pulumi.getter(name="createdAt")
+    def created_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "created_at")
 
     @property
     @pulumi.getter(name="dedicatedStorageId")
@@ -940,9 +1110,19 @@ class EvsVolume(pulumi.CustomResource):
         return pulumi.get(self, "iops")
 
     @property
+    @pulumi.getter(name="iopsAttributes")
+    def iops_attributes(self) -> pulumi.Output[Sequence['outputs.EvsVolumeIopsAttribute']]:
+        return pulumi.get(self, "iops_attributes")
+
+    @property
     @pulumi.getter(name="kmsId")
     def kms_id(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "kms_id")
+
+    @property
+    @pulumi.getter
+    def links(self) -> pulumi.Output[Sequence['outputs.EvsVolumeLink']]:
+        return pulumi.get(self, "links")
 
     @property
     @pulumi.getter
@@ -970,9 +1150,19 @@ class EvsVolume(pulumi.CustomResource):
         return pulumi.get(self, "region")
 
     @property
+    @pulumi.getter(name="serialNumber")
+    def serial_number(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "serial_number")
+
+    @property
     @pulumi.getter(name="serverId")
     def server_id(self) -> pulumi.Output[Optional[builtins.str]]:
         return pulumi.get(self, "server_id")
+
+    @property
+    @pulumi.getter(name="serviceType")
+    def service_type(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "service_type")
 
     @property
     @pulumi.getter
@@ -998,6 +1188,16 @@ class EvsVolume(pulumi.CustomResource):
     @pulumi.getter
     def throughput(self) -> pulumi.Output[builtins.int]:
         return pulumi.get(self, "throughput")
+
+    @property
+    @pulumi.getter(name="throughputAttributes")
+    def throughput_attributes(self) -> pulumi.Output[Sequence['outputs.EvsVolumeThroughputAttribute']]:
+        return pulumi.get(self, "throughput_attributes")
+
+    @property
+    @pulumi.getter(name="updatedAt")
+    def updated_at(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "updated_at")
 
     @property
     @pulumi.getter(name="volumeType")

@@ -20,6 +20,12 @@ namespace Pulumi.Sbercloud.Inputs
             set => _assignedRoles = value;
         }
 
+        [Input("autoRenew")]
+        public Input<string>? AutoRenew { get; set; }
+
+        [Input("chargingMode")]
+        public Input<string>? ChargingMode { get; set; }
+
         [Input("dataVolumeCount", required: true)]
         public Input<int> DataVolumeCount { get; set; } = null!;
 
@@ -45,6 +51,12 @@ namespace Pulumi.Sbercloud.Inputs
 
         [Input("nodeNumber", required: true)]
         public Input<int> NodeNumber { get; set; } = null!;
+
+        [Input("period")]
+        public Input<int>? Period { get; set; }
+
+        [Input("periodUnit")]
+        public Input<string>? PeriodUnit { get; set; }
 
         [Input("rootVolumeSize", required: true)]
         public Input<int> RootVolumeSize { get; set; } = null!;

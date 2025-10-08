@@ -21,6 +21,8 @@ type FgsFunction struct {
 	App pulumi.StringPtrOutput `pulumi:"app"`
 	// The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
 	AppAgency pulumi.StringOutput `pulumi:"appAgency"`
+	// The KMS key ID for encrypting the function code.
+	CodeEncryptKmsKeyId pulumi.StringPtrOutput `pulumi:"codeEncryptKmsKeyId"`
 	// The name of the function file.
 	CodeFilename pulumi.StringOutput `pulumi:"codeFilename"`
 	// The code type of the function.
@@ -43,6 +45,8 @@ type FgsFunction struct {
 	EnableClassIsolation pulumi.BoolPtrOutput `pulumi:"enableClassIsolation"`
 	// Whether the dynamic memory configuration is enabled.
 	EnableDynamicMemory pulumi.BoolPtrOutput `pulumi:"enableDynamicMemory"`
+	// Whether to enable the LTS log.
+	EnableLtsLog pulumi.BoolPtrOutput `pulumi:"enableLtsLog"`
 	// The key/value information defined to be encrypted for the function.
 	EncryptedUserData pulumi.StringPtrOutput `pulumi:"encryptedUserData"`
 	// The ID of the enterprise project to which the function belongs.
@@ -77,6 +81,11 @@ type FgsFunction struct {
 	LogStreamId pulumi.StringOutput `pulumi:"logStreamId"`
 	// The LTS stream name for collecting logs.
 	LogStreamName pulumi.StringOutput `pulumi:"logStreamName"`
+	// The custom tags configuration that used to filter the LTS logs.
+	LtsCustomTag pulumi.StringMapOutput `pulumi:"ltsCustomTag"`
+	// The script configuration value of this change is also the original value used for comparison with the new value next
+	// time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+	LtsCustomTagOrigin pulumi.StringMapOutput `pulumi:"ltsCustomTagOrigin"`
 	// The maximum number of instances of the function.
 	MaxInstanceNum pulumi.StringOutput `pulumi:"maxInstanceNum"`
 	// The memory size allocated to the function, in MByte (MB).
@@ -118,6 +127,8 @@ type FgsFunction struct {
 	Urn pulumi.StringOutput `pulumi:"urn"`
 	// The key/value information defined for the function.
 	UserData pulumi.StringPtrOutput `pulumi:"userData"`
+	// The KMS key ID for encrypting the user data.
+	UserDataEncryptKmsKeyId pulumi.StringPtrOutput `pulumi:"userDataEncryptKmsKeyId"`
 	// The version of the function.
 	Version pulumi.StringOutput `pulumi:"version"`
 	// The versions management of the function.
@@ -180,6 +191,8 @@ type fgsFunctionState struct {
 	App *string `pulumi:"app"`
 	// The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
 	AppAgency *string `pulumi:"appAgency"`
+	// The KMS key ID for encrypting the function code.
+	CodeEncryptKmsKeyId *string `pulumi:"codeEncryptKmsKeyId"`
 	// The name of the function file.
 	CodeFilename *string `pulumi:"codeFilename"`
 	// The code type of the function.
@@ -202,6 +215,8 @@ type fgsFunctionState struct {
 	EnableClassIsolation *bool `pulumi:"enableClassIsolation"`
 	// Whether the dynamic memory configuration is enabled.
 	EnableDynamicMemory *bool `pulumi:"enableDynamicMemory"`
+	// Whether to enable the LTS log.
+	EnableLtsLog *bool `pulumi:"enableLtsLog"`
 	// The key/value information defined to be encrypted for the function.
 	EncryptedUserData *string `pulumi:"encryptedUserData"`
 	// The ID of the enterprise project to which the function belongs.
@@ -236,6 +251,11 @@ type fgsFunctionState struct {
 	LogStreamId *string `pulumi:"logStreamId"`
 	// The LTS stream name for collecting logs.
 	LogStreamName *string `pulumi:"logStreamName"`
+	// The custom tags configuration that used to filter the LTS logs.
+	LtsCustomTag map[string]string `pulumi:"ltsCustomTag"`
+	// The script configuration value of this change is also the original value used for comparison with the new value next
+	// time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+	LtsCustomTagOrigin map[string]string `pulumi:"ltsCustomTagOrigin"`
 	// The maximum number of instances of the function.
 	MaxInstanceNum *string `pulumi:"maxInstanceNum"`
 	// The memory size allocated to the function, in MByte (MB).
@@ -277,6 +297,8 @@ type fgsFunctionState struct {
 	Urn *string `pulumi:"urn"`
 	// The key/value information defined for the function.
 	UserData *string `pulumi:"userData"`
+	// The KMS key ID for encrypting the user data.
+	UserDataEncryptKmsKeyId *string `pulumi:"userDataEncryptKmsKeyId"`
 	// The version of the function.
 	Version *string `pulumi:"version"`
 	// The versions management of the function.
@@ -294,6 +316,8 @@ type FgsFunctionState struct {
 	App pulumi.StringPtrInput
 	// The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
 	AppAgency pulumi.StringPtrInput
+	// The KMS key ID for encrypting the function code.
+	CodeEncryptKmsKeyId pulumi.StringPtrInput
 	// The name of the function file.
 	CodeFilename pulumi.StringPtrInput
 	// The code type of the function.
@@ -316,6 +340,8 @@ type FgsFunctionState struct {
 	EnableClassIsolation pulumi.BoolPtrInput
 	// Whether the dynamic memory configuration is enabled.
 	EnableDynamicMemory pulumi.BoolPtrInput
+	// Whether to enable the LTS log.
+	EnableLtsLog pulumi.BoolPtrInput
 	// The key/value information defined to be encrypted for the function.
 	EncryptedUserData pulumi.StringPtrInput
 	// The ID of the enterprise project to which the function belongs.
@@ -350,6 +376,11 @@ type FgsFunctionState struct {
 	LogStreamId pulumi.StringPtrInput
 	// The LTS stream name for collecting logs.
 	LogStreamName pulumi.StringPtrInput
+	// The custom tags configuration that used to filter the LTS logs.
+	LtsCustomTag pulumi.StringMapInput
+	// The script configuration value of this change is also the original value used for comparison with the new value next
+	// time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+	LtsCustomTagOrigin pulumi.StringMapInput
 	// The maximum number of instances of the function.
 	MaxInstanceNum pulumi.StringPtrInput
 	// The memory size allocated to the function, in MByte (MB).
@@ -391,6 +422,8 @@ type FgsFunctionState struct {
 	Urn pulumi.StringPtrInput
 	// The key/value information defined for the function.
 	UserData pulumi.StringPtrInput
+	// The KMS key ID for encrypting the user data.
+	UserDataEncryptKmsKeyId pulumi.StringPtrInput
 	// The version of the function.
 	Version pulumi.StringPtrInput
 	// The versions management of the function.
@@ -412,6 +445,8 @@ type fgsFunctionArgs struct {
 	App *string `pulumi:"app"`
 	// The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
 	AppAgency *string `pulumi:"appAgency"`
+	// The KMS key ID for encrypting the function code.
+	CodeEncryptKmsKeyId *string `pulumi:"codeEncryptKmsKeyId"`
 	// The name of the function file.
 	CodeFilename *string `pulumi:"codeFilename"`
 	// The code type of the function.
@@ -434,6 +469,8 @@ type fgsFunctionArgs struct {
 	EnableClassIsolation *bool `pulumi:"enableClassIsolation"`
 	// Whether the dynamic memory configuration is enabled.
 	EnableDynamicMemory *bool `pulumi:"enableDynamicMemory"`
+	// Whether to enable the LTS log.
+	EnableLtsLog *bool `pulumi:"enableLtsLog"`
 	// The key/value information defined to be encrypted for the function.
 	EncryptedUserData *string `pulumi:"encryptedUserData"`
 	// The ID of the enterprise project to which the function belongs.
@@ -468,6 +505,8 @@ type fgsFunctionArgs struct {
 	LogStreamId *string `pulumi:"logStreamId"`
 	// The LTS stream name for collecting logs.
 	LogStreamName *string `pulumi:"logStreamName"`
+	// The custom tags configuration that used to filter the LTS logs.
+	LtsCustomTag map[string]string `pulumi:"ltsCustomTag"`
 	// The maximum number of instances of the function.
 	MaxInstanceNum *string `pulumi:"maxInstanceNum"`
 	// The memory size allocated to the function, in MByte (MB).
@@ -507,6 +546,8 @@ type fgsFunctionArgs struct {
 	Timeout int `pulumi:"timeout"`
 	// The key/value information defined for the function.
 	UserData *string `pulumi:"userData"`
+	// The KMS key ID for encrypting the user data.
+	UserDataEncryptKmsKeyId *string `pulumi:"userDataEncryptKmsKeyId"`
 	// The versions management of the function.
 	Versions []FgsFunctionVersion `pulumi:"versions"`
 	// The ID of the VPC to which the function belongs.
@@ -523,6 +564,8 @@ type FgsFunctionArgs struct {
 	App pulumi.StringPtrInput
 	// The execution agency enables you to obtain a token or an AK/SK for accessing other cloud services.
 	AppAgency pulumi.StringPtrInput
+	// The KMS key ID for encrypting the function code.
+	CodeEncryptKmsKeyId pulumi.StringPtrInput
 	// The name of the function file.
 	CodeFilename pulumi.StringPtrInput
 	// The code type of the function.
@@ -545,6 +588,8 @@ type FgsFunctionArgs struct {
 	EnableClassIsolation pulumi.BoolPtrInput
 	// Whether the dynamic memory configuration is enabled.
 	EnableDynamicMemory pulumi.BoolPtrInput
+	// Whether to enable the LTS log.
+	EnableLtsLog pulumi.BoolPtrInput
 	// The key/value information defined to be encrypted for the function.
 	EncryptedUserData pulumi.StringPtrInput
 	// The ID of the enterprise project to which the function belongs.
@@ -579,6 +624,8 @@ type FgsFunctionArgs struct {
 	LogStreamId pulumi.StringPtrInput
 	// The LTS stream name for collecting logs.
 	LogStreamName pulumi.StringPtrInput
+	// The custom tags configuration that used to filter the LTS logs.
+	LtsCustomTag pulumi.StringMapInput
 	// The maximum number of instances of the function.
 	MaxInstanceNum pulumi.StringPtrInput
 	// The memory size allocated to the function, in MByte (MB).
@@ -618,6 +665,8 @@ type FgsFunctionArgs struct {
 	Timeout pulumi.IntInput
 	// The key/value information defined for the function.
 	UserData pulumi.StringPtrInput
+	// The KMS key ID for encrypting the user data.
+	UserDataEncryptKmsKeyId pulumi.StringPtrInput
 	// The versions management of the function.
 	Versions FgsFunctionVersionArrayInput
 	// The ID of the VPC to which the function belongs.
@@ -728,6 +777,11 @@ func (o FgsFunctionOutput) AppAgency() pulumi.StringOutput {
 	return o.ApplyT(func(v *FgsFunction) pulumi.StringOutput { return v.AppAgency }).(pulumi.StringOutput)
 }
 
+// The KMS key ID for encrypting the function code.
+func (o FgsFunctionOutput) CodeEncryptKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FgsFunction) pulumi.StringPtrOutput { return v.CodeEncryptKmsKeyId }).(pulumi.StringPtrOutput)
+}
+
 // The name of the function file.
 func (o FgsFunctionOutput) CodeFilename() pulumi.StringOutput {
 	return o.ApplyT(func(v *FgsFunction) pulumi.StringOutput { return v.CodeFilename }).(pulumi.StringOutput)
@@ -781,6 +835,11 @@ func (o FgsFunctionOutput) EnableClassIsolation() pulumi.BoolPtrOutput {
 // Whether the dynamic memory configuration is enabled.
 func (o FgsFunctionOutput) EnableDynamicMemory() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *FgsFunction) pulumi.BoolPtrOutput { return v.EnableDynamicMemory }).(pulumi.BoolPtrOutput)
+}
+
+// Whether to enable the LTS log.
+func (o FgsFunctionOutput) EnableLtsLog() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *FgsFunction) pulumi.BoolPtrOutput { return v.EnableLtsLog }).(pulumi.BoolPtrOutput)
 }
 
 // The key/value information defined to be encrypted for the function.
@@ -866,6 +925,17 @@ func (o FgsFunctionOutput) LogStreamId() pulumi.StringOutput {
 // The LTS stream name for collecting logs.
 func (o FgsFunctionOutput) LogStreamName() pulumi.StringOutput {
 	return o.ApplyT(func(v *FgsFunction) pulumi.StringOutput { return v.LogStreamName }).(pulumi.StringOutput)
+}
+
+// The custom tags configuration that used to filter the LTS logs.
+func (o FgsFunctionOutput) LtsCustomTag() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FgsFunction) pulumi.StringMapOutput { return v.LtsCustomTag }).(pulumi.StringMapOutput)
+}
+
+// The script configuration value of this change is also the original value used for comparison with the new value next
+// time the change is made. The corresponding parameter name is 'lts_custom_tag'.
+func (o FgsFunctionOutput) LtsCustomTagOrigin() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *FgsFunction) pulumi.StringMapOutput { return v.LtsCustomTagOrigin }).(pulumi.StringMapOutput)
 }
 
 // The maximum number of instances of the function.
@@ -967,6 +1037,11 @@ func (o FgsFunctionOutput) Urn() pulumi.StringOutput {
 // The key/value information defined for the function.
 func (o FgsFunctionOutput) UserData() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *FgsFunction) pulumi.StringPtrOutput { return v.UserData }).(pulumi.StringPtrOutput)
+}
+
+// The KMS key ID for encrypting the user data.
+func (o FgsFunctionOutput) UserDataEncryptKmsKeyId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *FgsFunction) pulumi.StringPtrOutput { return v.UserDataEncryptKmsKeyId }).(pulumi.StringPtrOutput)
 }
 
 // The version of the function.

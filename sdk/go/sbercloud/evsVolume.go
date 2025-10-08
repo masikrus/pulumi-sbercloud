@@ -15,35 +15,45 @@ import (
 type EvsVolume struct {
 	pulumi.CustomResourceState
 
-	Attachments EvsVolumeAttachmentArrayOutput `pulumi:"attachments"`
+	AllMetadata            pulumi.StringMapOutput         `pulumi:"allMetadata"`
+	AllVolumeImageMetadata pulumi.StringMapOutput         `pulumi:"allVolumeImageMetadata"`
+	Attachments            EvsVolumeAttachmentArrayOutput `pulumi:"attachments"`
 	// Deprecated: Deprecated
-	AutoPay              pulumi.StringPtrOutput `pulumi:"autoPay"`
-	AutoRenew            pulumi.StringPtrOutput `pulumi:"autoRenew"`
-	AvailabilityZone     pulumi.StringOutput    `pulumi:"availabilityZone"`
-	BackupId             pulumi.StringPtrOutput `pulumi:"backupId"`
-	Cascade              pulumi.BoolPtrOutput   `pulumi:"cascade"`
-	ChargingMode         pulumi.StringOutput    `pulumi:"chargingMode"`
-	DedicatedStorageId   pulumi.StringPtrOutput `pulumi:"dedicatedStorageId"`
-	DedicatedStorageName pulumi.StringOutput    `pulumi:"dedicatedStorageName"`
-	Description          pulumi.StringPtrOutput `pulumi:"description"`
-	DeviceType           pulumi.StringPtrOutput `pulumi:"deviceType"`
-	EnterpriseProjectId  pulumi.StringOutput    `pulumi:"enterpriseProjectId"`
-	ImageId              pulumi.StringPtrOutput `pulumi:"imageId"`
-	Iops                 pulumi.IntOutput       `pulumi:"iops"`
-	KmsId                pulumi.StringPtrOutput `pulumi:"kmsId"`
-	Multiattach          pulumi.BoolPtrOutput   `pulumi:"multiattach"`
-	Name                 pulumi.StringOutput    `pulumi:"name"`
-	Period               pulumi.IntPtrOutput    `pulumi:"period"`
-	PeriodUnit           pulumi.StringPtrOutput `pulumi:"periodUnit"`
-	Region               pulumi.StringOutput    `pulumi:"region"`
-	ServerId             pulumi.StringPtrOutput `pulumi:"serverId"`
-	Size                 pulumi.IntOutput       `pulumi:"size"`
-	SnapshotId           pulumi.StringPtrOutput `pulumi:"snapshotId"`
-	Status               pulumi.StringOutput    `pulumi:"status"`
-	Tags                 pulumi.StringMapOutput `pulumi:"tags"`
-	Throughput           pulumi.IntOutput       `pulumi:"throughput"`
-	VolumeType           pulumi.StringOutput    `pulumi:"volumeType"`
-	Wwn                  pulumi.StringOutput    `pulumi:"wwn"`
+	AutoPay              pulumi.StringPtrOutput                  `pulumi:"autoPay"`
+	AutoRenew            pulumi.StringPtrOutput                  `pulumi:"autoRenew"`
+	AvailabilityZone     pulumi.StringOutput                     `pulumi:"availabilityZone"`
+	BackupId             pulumi.StringPtrOutput                  `pulumi:"backupId"`
+	Bootable             pulumi.StringOutput                     `pulumi:"bootable"`
+	Cascade              pulumi.BoolPtrOutput                    `pulumi:"cascade"`
+	ChargingMode         pulumi.StringOutput                     `pulumi:"chargingMode"`
+	CreatedAt            pulumi.StringOutput                     `pulumi:"createdAt"`
+	DedicatedStorageId   pulumi.StringPtrOutput                  `pulumi:"dedicatedStorageId"`
+	DedicatedStorageName pulumi.StringOutput                     `pulumi:"dedicatedStorageName"`
+	Description          pulumi.StringPtrOutput                  `pulumi:"description"`
+	DeviceType           pulumi.StringPtrOutput                  `pulumi:"deviceType"`
+	EnterpriseProjectId  pulumi.StringOutput                     `pulumi:"enterpriseProjectId"`
+	ImageId              pulumi.StringPtrOutput                  `pulumi:"imageId"`
+	Iops                 pulumi.IntOutput                        `pulumi:"iops"`
+	IopsAttributes       EvsVolumeIopsAttributeArrayOutput       `pulumi:"iopsAttributes"`
+	KmsId                pulumi.StringPtrOutput                  `pulumi:"kmsId"`
+	Links                EvsVolumeLinkArrayOutput                `pulumi:"links"`
+	Multiattach          pulumi.BoolPtrOutput                    `pulumi:"multiattach"`
+	Name                 pulumi.StringOutput                     `pulumi:"name"`
+	Period               pulumi.IntPtrOutput                     `pulumi:"period"`
+	PeriodUnit           pulumi.StringPtrOutput                  `pulumi:"periodUnit"`
+	Region               pulumi.StringOutput                     `pulumi:"region"`
+	SerialNumber         pulumi.StringOutput                     `pulumi:"serialNumber"`
+	ServerId             pulumi.StringPtrOutput                  `pulumi:"serverId"`
+	ServiceType          pulumi.StringOutput                     `pulumi:"serviceType"`
+	Size                 pulumi.IntOutput                        `pulumi:"size"`
+	SnapshotId           pulumi.StringPtrOutput                  `pulumi:"snapshotId"`
+	Status               pulumi.StringOutput                     `pulumi:"status"`
+	Tags                 pulumi.StringMapOutput                  `pulumi:"tags"`
+	Throughput           pulumi.IntOutput                        `pulumi:"throughput"`
+	ThroughputAttributes EvsVolumeThroughputAttributeArrayOutput `pulumi:"throughputAttributes"`
+	UpdatedAt            pulumi.StringOutput                     `pulumi:"updatedAt"`
+	VolumeType           pulumi.StringOutput                     `pulumi:"volumeType"`
+	Wwn                  pulumi.StringOutput                     `pulumi:"wwn"`
 }
 
 // NewEvsVolume registers a new resource with the given unique name, arguments, and options.
@@ -82,46 +92,60 @@ func GetEvsVolume(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering EvsVolume resources.
 type evsVolumeState struct {
-	Attachments []EvsVolumeAttachment `pulumi:"attachments"`
+	AllMetadata            map[string]string     `pulumi:"allMetadata"`
+	AllVolumeImageMetadata map[string]string     `pulumi:"allVolumeImageMetadata"`
+	Attachments            []EvsVolumeAttachment `pulumi:"attachments"`
 	// Deprecated: Deprecated
-	AutoPay              *string           `pulumi:"autoPay"`
-	AutoRenew            *string           `pulumi:"autoRenew"`
-	AvailabilityZone     *string           `pulumi:"availabilityZone"`
-	BackupId             *string           `pulumi:"backupId"`
-	Cascade              *bool             `pulumi:"cascade"`
-	ChargingMode         *string           `pulumi:"chargingMode"`
-	DedicatedStorageId   *string           `pulumi:"dedicatedStorageId"`
-	DedicatedStorageName *string           `pulumi:"dedicatedStorageName"`
-	Description          *string           `pulumi:"description"`
-	DeviceType           *string           `pulumi:"deviceType"`
-	EnterpriseProjectId  *string           `pulumi:"enterpriseProjectId"`
-	ImageId              *string           `pulumi:"imageId"`
-	Iops                 *int              `pulumi:"iops"`
-	KmsId                *string           `pulumi:"kmsId"`
-	Multiattach          *bool             `pulumi:"multiattach"`
-	Name                 *string           `pulumi:"name"`
-	Period               *int              `pulumi:"period"`
-	PeriodUnit           *string           `pulumi:"periodUnit"`
-	Region               *string           `pulumi:"region"`
-	ServerId             *string           `pulumi:"serverId"`
-	Size                 *int              `pulumi:"size"`
-	SnapshotId           *string           `pulumi:"snapshotId"`
-	Status               *string           `pulumi:"status"`
-	Tags                 map[string]string `pulumi:"tags"`
-	Throughput           *int              `pulumi:"throughput"`
-	VolumeType           *string           `pulumi:"volumeType"`
-	Wwn                  *string           `pulumi:"wwn"`
+	AutoPay              *string                        `pulumi:"autoPay"`
+	AutoRenew            *string                        `pulumi:"autoRenew"`
+	AvailabilityZone     *string                        `pulumi:"availabilityZone"`
+	BackupId             *string                        `pulumi:"backupId"`
+	Bootable             *string                        `pulumi:"bootable"`
+	Cascade              *bool                          `pulumi:"cascade"`
+	ChargingMode         *string                        `pulumi:"chargingMode"`
+	CreatedAt            *string                        `pulumi:"createdAt"`
+	DedicatedStorageId   *string                        `pulumi:"dedicatedStorageId"`
+	DedicatedStorageName *string                        `pulumi:"dedicatedStorageName"`
+	Description          *string                        `pulumi:"description"`
+	DeviceType           *string                        `pulumi:"deviceType"`
+	EnterpriseProjectId  *string                        `pulumi:"enterpriseProjectId"`
+	ImageId              *string                        `pulumi:"imageId"`
+	Iops                 *int                           `pulumi:"iops"`
+	IopsAttributes       []EvsVolumeIopsAttribute       `pulumi:"iopsAttributes"`
+	KmsId                *string                        `pulumi:"kmsId"`
+	Links                []EvsVolumeLink                `pulumi:"links"`
+	Multiattach          *bool                          `pulumi:"multiattach"`
+	Name                 *string                        `pulumi:"name"`
+	Period               *int                           `pulumi:"period"`
+	PeriodUnit           *string                        `pulumi:"periodUnit"`
+	Region               *string                        `pulumi:"region"`
+	SerialNumber         *string                        `pulumi:"serialNumber"`
+	ServerId             *string                        `pulumi:"serverId"`
+	ServiceType          *string                        `pulumi:"serviceType"`
+	Size                 *int                           `pulumi:"size"`
+	SnapshotId           *string                        `pulumi:"snapshotId"`
+	Status               *string                        `pulumi:"status"`
+	Tags                 map[string]string              `pulumi:"tags"`
+	Throughput           *int                           `pulumi:"throughput"`
+	ThroughputAttributes []EvsVolumeThroughputAttribute `pulumi:"throughputAttributes"`
+	UpdatedAt            *string                        `pulumi:"updatedAt"`
+	VolumeType           *string                        `pulumi:"volumeType"`
+	Wwn                  *string                        `pulumi:"wwn"`
 }
 
 type EvsVolumeState struct {
-	Attachments EvsVolumeAttachmentArrayInput
+	AllMetadata            pulumi.StringMapInput
+	AllVolumeImageMetadata pulumi.StringMapInput
+	Attachments            EvsVolumeAttachmentArrayInput
 	// Deprecated: Deprecated
 	AutoPay              pulumi.StringPtrInput
 	AutoRenew            pulumi.StringPtrInput
 	AvailabilityZone     pulumi.StringPtrInput
 	BackupId             pulumi.StringPtrInput
+	Bootable             pulumi.StringPtrInput
 	Cascade              pulumi.BoolPtrInput
 	ChargingMode         pulumi.StringPtrInput
+	CreatedAt            pulumi.StringPtrInput
 	DedicatedStorageId   pulumi.StringPtrInput
 	DedicatedStorageName pulumi.StringPtrInput
 	Description          pulumi.StringPtrInput
@@ -129,18 +153,24 @@ type EvsVolumeState struct {
 	EnterpriseProjectId  pulumi.StringPtrInput
 	ImageId              pulumi.StringPtrInput
 	Iops                 pulumi.IntPtrInput
+	IopsAttributes       EvsVolumeIopsAttributeArrayInput
 	KmsId                pulumi.StringPtrInput
+	Links                EvsVolumeLinkArrayInput
 	Multiattach          pulumi.BoolPtrInput
 	Name                 pulumi.StringPtrInput
 	Period               pulumi.IntPtrInput
 	PeriodUnit           pulumi.StringPtrInput
 	Region               pulumi.StringPtrInput
+	SerialNumber         pulumi.StringPtrInput
 	ServerId             pulumi.StringPtrInput
+	ServiceType          pulumi.StringPtrInput
 	Size                 pulumi.IntPtrInput
 	SnapshotId           pulumi.StringPtrInput
 	Status               pulumi.StringPtrInput
 	Tags                 pulumi.StringMapInput
 	Throughput           pulumi.IntPtrInput
+	ThroughputAttributes EvsVolumeThroughputAttributeArrayInput
+	UpdatedAt            pulumi.StringPtrInput
 	VolumeType           pulumi.StringPtrInput
 	Wwn                  pulumi.StringPtrInput
 }
@@ -293,6 +323,14 @@ func (o EvsVolumeOutput) ToEvsVolumeOutputWithContext(ctx context.Context) EvsVo
 	return o
 }
 
+func (o EvsVolumeOutput) AllMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EvsVolume) pulumi.StringMapOutput { return v.AllMetadata }).(pulumi.StringMapOutput)
+}
+
+func (o EvsVolumeOutput) AllVolumeImageMetadata() pulumi.StringMapOutput {
+	return o.ApplyT(func(v *EvsVolume) pulumi.StringMapOutput { return v.AllVolumeImageMetadata }).(pulumi.StringMapOutput)
+}
+
 func (o EvsVolumeOutput) Attachments() EvsVolumeAttachmentArrayOutput {
 	return o.ApplyT(func(v *EvsVolume) EvsVolumeAttachmentArrayOutput { return v.Attachments }).(EvsVolumeAttachmentArrayOutput)
 }
@@ -314,12 +352,20 @@ func (o EvsVolumeOutput) BackupId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvsVolume) pulumi.StringPtrOutput { return v.BackupId }).(pulumi.StringPtrOutput)
 }
 
+func (o EvsVolumeOutput) Bootable() pulumi.StringOutput {
+	return o.ApplyT(func(v *EvsVolume) pulumi.StringOutput { return v.Bootable }).(pulumi.StringOutput)
+}
+
 func (o EvsVolumeOutput) Cascade() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *EvsVolume) pulumi.BoolPtrOutput { return v.Cascade }).(pulumi.BoolPtrOutput)
 }
 
 func (o EvsVolumeOutput) ChargingMode() pulumi.StringOutput {
 	return o.ApplyT(func(v *EvsVolume) pulumi.StringOutput { return v.ChargingMode }).(pulumi.StringOutput)
+}
+
+func (o EvsVolumeOutput) CreatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *EvsVolume) pulumi.StringOutput { return v.CreatedAt }).(pulumi.StringOutput)
 }
 
 func (o EvsVolumeOutput) DedicatedStorageId() pulumi.StringPtrOutput {
@@ -350,8 +396,16 @@ func (o EvsVolumeOutput) Iops() pulumi.IntOutput {
 	return o.ApplyT(func(v *EvsVolume) pulumi.IntOutput { return v.Iops }).(pulumi.IntOutput)
 }
 
+func (o EvsVolumeOutput) IopsAttributes() EvsVolumeIopsAttributeArrayOutput {
+	return o.ApplyT(func(v *EvsVolume) EvsVolumeIopsAttributeArrayOutput { return v.IopsAttributes }).(EvsVolumeIopsAttributeArrayOutput)
+}
+
 func (o EvsVolumeOutput) KmsId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvsVolume) pulumi.StringPtrOutput { return v.KmsId }).(pulumi.StringPtrOutput)
+}
+
+func (o EvsVolumeOutput) Links() EvsVolumeLinkArrayOutput {
+	return o.ApplyT(func(v *EvsVolume) EvsVolumeLinkArrayOutput { return v.Links }).(EvsVolumeLinkArrayOutput)
 }
 
 func (o EvsVolumeOutput) Multiattach() pulumi.BoolPtrOutput {
@@ -374,8 +428,16 @@ func (o EvsVolumeOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v *EvsVolume) pulumi.StringOutput { return v.Region }).(pulumi.StringOutput)
 }
 
+func (o EvsVolumeOutput) SerialNumber() pulumi.StringOutput {
+	return o.ApplyT(func(v *EvsVolume) pulumi.StringOutput { return v.SerialNumber }).(pulumi.StringOutput)
+}
+
 func (o EvsVolumeOutput) ServerId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *EvsVolume) pulumi.StringPtrOutput { return v.ServerId }).(pulumi.StringPtrOutput)
+}
+
+func (o EvsVolumeOutput) ServiceType() pulumi.StringOutput {
+	return o.ApplyT(func(v *EvsVolume) pulumi.StringOutput { return v.ServiceType }).(pulumi.StringOutput)
 }
 
 func (o EvsVolumeOutput) Size() pulumi.IntOutput {
@@ -396,6 +458,14 @@ func (o EvsVolumeOutput) Tags() pulumi.StringMapOutput {
 
 func (o EvsVolumeOutput) Throughput() pulumi.IntOutput {
 	return o.ApplyT(func(v *EvsVolume) pulumi.IntOutput { return v.Throughput }).(pulumi.IntOutput)
+}
+
+func (o EvsVolumeOutput) ThroughputAttributes() EvsVolumeThroughputAttributeArrayOutput {
+	return o.ApplyT(func(v *EvsVolume) EvsVolumeThroughputAttributeArrayOutput { return v.ThroughputAttributes }).(EvsVolumeThroughputAttributeArrayOutput)
+}
+
+func (o EvsVolumeOutput) UpdatedAt() pulumi.StringOutput {
+	return o.ApplyT(func(v *EvsVolume) pulumi.StringOutput { return v.UpdatedAt }).(pulumi.StringOutput)
 }
 
 func (o EvsVolumeOutput) VolumeType() pulumi.StringOutput {

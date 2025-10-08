@@ -34,7 +34,7 @@ export class CceNodePool extends pulumi.CustomResource {
         return obj['__pulumiType'] === CceNodePool.__pulumiType;
     }
 
-    public readonly autoRenew!: pulumi.Output<string | undefined>;
+    public readonly autoRenew!: pulumi.Output<string>;
     public readonly availabilityZone!: pulumi.Output<string | undefined>;
     public /*out*/ readonly billingMode!: pulumi.Output<number>;
     public readonly chargingMode!: pulumi.Output<string>;
@@ -42,12 +42,13 @@ export class CceNodePool extends pulumi.CustomResource {
     public /*out*/ readonly currentNodeCount!: pulumi.Output<number>;
     public readonly dataVolumes!: pulumi.Output<outputs.CceNodePoolDataVolume[]>;
     public readonly ecsGroupId!: pulumi.Output<string | undefined>;
+    public readonly enableForceNew!: pulumi.Output<string | undefined>;
     public readonly enterpriseProjectId!: pulumi.Output<string>;
     /**
      * schema: Deprecated; This parameter has been replaced by the 'extend_params' parameter.
      */
     public readonly extendParam!: pulumi.Output<{[key: string]: string} | undefined>;
-    public readonly extendParams!: pulumi.Output<outputs.CceNodePoolExtendParams | undefined>;
+    public readonly extendParams!: pulumi.Output<outputs.CceNodePoolExtendParams>;
     public readonly extensionScaleGroups!: pulumi.Output<outputs.CceNodePoolExtensionScaleGroup[] | undefined>;
     public readonly flavorId!: pulumi.Output<string>;
     public readonly hostnameConfig!: pulumi.Output<outputs.CceNodePoolHostnameConfig>;
@@ -64,6 +65,7 @@ export class CceNodePool extends pulumi.CustomResource {
     public readonly minNodeCount!: pulumi.Output<number | undefined>;
     public readonly name!: pulumi.Output<string>;
     public readonly os!: pulumi.Output<string>;
+    public readonly partition!: pulumi.Output<string | undefined>;
     public readonly password!: pulumi.Output<string | undefined>;
     public readonly period!: pulumi.Output<number | undefined>;
     public readonly periodUnit!: pulumi.Output<string | undefined>;
@@ -114,6 +116,7 @@ export class CceNodePool extends pulumi.CustomResource {
             resourceInputs["currentNodeCount"] = state ? state.currentNodeCount : undefined;
             resourceInputs["dataVolumes"] = state ? state.dataVolumes : undefined;
             resourceInputs["ecsGroupId"] = state ? state.ecsGroupId : undefined;
+            resourceInputs["enableForceNew"] = state ? state.enableForceNew : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["extendParam"] = state ? state.extendParam : undefined;
             resourceInputs["extendParams"] = state ? state.extendParams : undefined;
@@ -130,6 +133,7 @@ export class CceNodePool extends pulumi.CustomResource {
             resourceInputs["minNodeCount"] = state ? state.minNodeCount : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["os"] = state ? state.os : undefined;
+            resourceInputs["partition"] = state ? state.partition : undefined;
             resourceInputs["password"] = state ? state.password : undefined;
             resourceInputs["period"] = state ? state.period : undefined;
             resourceInputs["periodUnit"] = state ? state.periodUnit : undefined;
@@ -172,6 +176,7 @@ export class CceNodePool extends pulumi.CustomResource {
             resourceInputs["clusterId"] = args ? args.clusterId : undefined;
             resourceInputs["dataVolumes"] = args ? args.dataVolumes : undefined;
             resourceInputs["ecsGroupId"] = args ? args.ecsGroupId : undefined;
+            resourceInputs["enableForceNew"] = args ? args.enableForceNew : undefined;
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
             resourceInputs["extendParam"] = args ? args.extendParam : undefined;
             resourceInputs["extendParams"] = args ? args.extendParams : undefined;
@@ -188,6 +193,7 @@ export class CceNodePool extends pulumi.CustomResource {
             resourceInputs["minNodeCount"] = args ? args.minNodeCount : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["os"] = args ? args.os : undefined;
+            resourceInputs["partition"] = args ? args.partition : undefined;
             resourceInputs["password"] = args?.password ? pulumi.secret(args.password) : undefined;
             resourceInputs["period"] = args ? args.period : undefined;
             resourceInputs["periodUnit"] = args ? args.periodUnit : undefined;
@@ -232,6 +238,7 @@ export interface CceNodePoolState {
     currentNodeCount?: pulumi.Input<number>;
     dataVolumes?: pulumi.Input<pulumi.Input<inputs.CceNodePoolDataVolume>[]>;
     ecsGroupId?: pulumi.Input<string>;
+    enableForceNew?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
     /**
      * schema: Deprecated; This parameter has been replaced by the 'extend_params' parameter.
@@ -254,6 +261,7 @@ export interface CceNodePoolState {
     minNodeCount?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     os?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
     period?: pulumi.Input<number>;
     periodUnit?: pulumi.Input<string>;
@@ -294,6 +302,7 @@ export interface CceNodePoolArgs {
     clusterId: pulumi.Input<string>;
     dataVolumes?: pulumi.Input<pulumi.Input<inputs.CceNodePoolDataVolume>[]>;
     ecsGroupId?: pulumi.Input<string>;
+    enableForceNew?: pulumi.Input<string>;
     enterpriseProjectId?: pulumi.Input<string>;
     /**
      * schema: Deprecated; This parameter has been replaced by the 'extend_params' parameter.
@@ -316,6 +325,7 @@ export interface CceNodePoolArgs {
     minNodeCount?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     os?: pulumi.Input<string>;
+    partition?: pulumi.Input<string>;
     password?: pulumi.Input<string>;
     period?: pulumi.Input<number>;
     periodUnit?: pulumi.Input<string>;

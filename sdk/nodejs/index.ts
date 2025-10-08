@@ -265,6 +265,81 @@ export type CesAlarmrule = import("./cesAlarmrule").CesAlarmrule;
 export const CesAlarmrule: typeof import("./cesAlarmrule").CesAlarmrule = null as any;
 utilities.lazyLoad(exports, ["CesAlarmrule"], () => require("./cesAlarmrule"));
 
+export { CfwAclRuleArgs, CfwAclRuleState } from "./cfwAclRule";
+export type CfwAclRule = import("./cfwAclRule").CfwAclRule;
+export const CfwAclRule: typeof import("./cfwAclRule").CfwAclRule = null as any;
+utilities.lazyLoad(exports, ["CfwAclRule"], () => require("./cfwAclRule"));
+
+export { CfwAddressGroupArgs, CfwAddressGroupState } from "./cfwAddressGroup";
+export type CfwAddressGroup = import("./cfwAddressGroup").CfwAddressGroup;
+export const CfwAddressGroup: typeof import("./cfwAddressGroup").CfwAddressGroup = null as any;
+utilities.lazyLoad(exports, ["CfwAddressGroup"], () => require("./cfwAddressGroup"));
+
+export { CfwAddressGroupMemberArgs, CfwAddressGroupMemberState } from "./cfwAddressGroupMember";
+export type CfwAddressGroupMember = import("./cfwAddressGroupMember").CfwAddressGroupMember;
+export const CfwAddressGroupMember: typeof import("./cfwAddressGroupMember").CfwAddressGroupMember = null as any;
+utilities.lazyLoad(exports, ["CfwAddressGroupMember"], () => require("./cfwAddressGroupMember"));
+
+export { CfwAlarmConfigArgs, CfwAlarmConfigState } from "./cfwAlarmConfig";
+export type CfwAlarmConfig = import("./cfwAlarmConfig").CfwAlarmConfig;
+export const CfwAlarmConfig: typeof import("./cfwAlarmConfig").CfwAlarmConfig = null as any;
+utilities.lazyLoad(exports, ["CfwAlarmConfig"], () => require("./cfwAlarmConfig"));
+
+export { CfwAntiVirusArgs, CfwAntiVirusState } from "./cfwAntiVirus";
+export type CfwAntiVirus = import("./cfwAntiVirus").CfwAntiVirus;
+export const CfwAntiVirus: typeof import("./cfwAntiVirus").CfwAntiVirus = null as any;
+utilities.lazyLoad(exports, ["CfwAntiVirus"], () => require("./cfwAntiVirus"));
+
+export { CfwBlackWhiteListArgs, CfwBlackWhiteListState } from "./cfwBlackWhiteList";
+export type CfwBlackWhiteList = import("./cfwBlackWhiteList").CfwBlackWhiteList;
+export const CfwBlackWhiteList: typeof import("./cfwBlackWhiteList").CfwBlackWhiteList = null as any;
+utilities.lazyLoad(exports, ["CfwBlackWhiteList"], () => require("./cfwBlackWhiteList"));
+
+export { CfwCaptureTaskArgs, CfwCaptureTaskState } from "./cfwCaptureTask";
+export type CfwCaptureTask = import("./cfwCaptureTask").CfwCaptureTask;
+export const CfwCaptureTask: typeof import("./cfwCaptureTask").CfwCaptureTask = null as any;
+utilities.lazyLoad(exports, ["CfwCaptureTask"], () => require("./cfwCaptureTask"));
+
+export { CfwDnsResolutionArgs, CfwDnsResolutionState } from "./cfwDnsResolution";
+export type CfwDnsResolution = import("./cfwDnsResolution").CfwDnsResolution;
+export const CfwDnsResolution: typeof import("./cfwDnsResolution").CfwDnsResolution = null as any;
+utilities.lazyLoad(exports, ["CfwDnsResolution"], () => require("./cfwDnsResolution"));
+
+export { CfwDomainNameGroupArgs, CfwDomainNameGroupState } from "./cfwDomainNameGroup";
+export type CfwDomainNameGroup = import("./cfwDomainNameGroup").CfwDomainNameGroup;
+export const CfwDomainNameGroup: typeof import("./cfwDomainNameGroup").CfwDomainNameGroup = null as any;
+utilities.lazyLoad(exports, ["CfwDomainNameGroup"], () => require("./cfwDomainNameGroup"));
+
+export { CfwEipProtectionArgs, CfwEipProtectionState } from "./cfwEipProtection";
+export type CfwEipProtection = import("./cfwEipProtection").CfwEipProtection;
+export const CfwEipProtection: typeof import("./cfwEipProtection").CfwEipProtection = null as any;
+utilities.lazyLoad(exports, ["CfwEipProtection"], () => require("./cfwEipProtection"));
+
+export { CfwFirewallArgs, CfwFirewallState } from "./cfwFirewall";
+export type CfwFirewall = import("./cfwFirewall").CfwFirewall;
+export const CfwFirewall: typeof import("./cfwFirewall").CfwFirewall = null as any;
+utilities.lazyLoad(exports, ["CfwFirewall"], () => require("./cfwFirewall"));
+
+export { CfwIpsRuleModeChangeArgs, CfwIpsRuleModeChangeState } from "./cfwIpsRuleModeChange";
+export type CfwIpsRuleModeChange = import("./cfwIpsRuleModeChange").CfwIpsRuleModeChange;
+export const CfwIpsRuleModeChange: typeof import("./cfwIpsRuleModeChange").CfwIpsRuleModeChange = null as any;
+utilities.lazyLoad(exports, ["CfwIpsRuleModeChange"], () => require("./cfwIpsRuleModeChange"));
+
+export { CfwLtsLogArgs, CfwLtsLogState } from "./cfwLtsLog";
+export type CfwLtsLog = import("./cfwLtsLog").CfwLtsLog;
+export const CfwLtsLog: typeof import("./cfwLtsLog").CfwLtsLog = null as any;
+utilities.lazyLoad(exports, ["CfwLtsLog"], () => require("./cfwLtsLog"));
+
+export { CfwServiceGroupArgs, CfwServiceGroupState } from "./cfwServiceGroup";
+export type CfwServiceGroup = import("./cfwServiceGroup").CfwServiceGroup;
+export const CfwServiceGroup: typeof import("./cfwServiceGroup").CfwServiceGroup = null as any;
+utilities.lazyLoad(exports, ["CfwServiceGroup"], () => require("./cfwServiceGroup"));
+
+export { CfwServiceGroupMemberArgs, CfwServiceGroupMemberState } from "./cfwServiceGroupMember";
+export type CfwServiceGroupMember = import("./cfwServiceGroupMember").CfwServiceGroupMember;
+export const CfwServiceGroupMember: typeof import("./cfwServiceGroupMember").CfwServiceGroupMember = null as any;
+utilities.lazyLoad(exports, ["CfwServiceGroupMember"], () => require("./cfwServiceGroupMember"));
+
 export { ComputeEipAssociateArgs, ComputeEipAssociateState } from "./computeEipAssociate";
 export type ComputeEipAssociate = import("./computeEipAssociate").ComputeEipAssociate;
 export const ComputeEipAssociate: typeof import("./computeEipAssociate").ComputeEipAssociate = null as any;
@@ -350,6 +425,31 @@ export type DdsInstance = import("./ddsInstance").DdsInstance;
 export const DdsInstance: typeof import("./ddsInstance").DdsInstance = null as any;
 utilities.lazyLoad(exports, ["DdsInstance"], () => require("./ddsInstance"));
 
+export { DdsParameterTemplateArgs, DdsParameterTemplateState } from "./ddsParameterTemplate";
+export type DdsParameterTemplate = import("./ddsParameterTemplate").DdsParameterTemplate;
+export const DdsParameterTemplate: typeof import("./ddsParameterTemplate").DdsParameterTemplate = null as any;
+utilities.lazyLoad(exports, ["DdsParameterTemplate"], () => require("./ddsParameterTemplate"));
+
+export { DdsParameterTemplateApplyArgs, DdsParameterTemplateApplyState } from "./ddsParameterTemplateApply";
+export type DdsParameterTemplateApply = import("./ddsParameterTemplateApply").DdsParameterTemplateApply;
+export const DdsParameterTemplateApply: typeof import("./ddsParameterTemplateApply").DdsParameterTemplateApply = null as any;
+utilities.lazyLoad(exports, ["DdsParameterTemplateApply"], () => require("./ddsParameterTemplateApply"));
+
+export { DdsParameterTemplateCompareArgs, DdsParameterTemplateCompareState } from "./ddsParameterTemplateCompare";
+export type DdsParameterTemplateCompare = import("./ddsParameterTemplateCompare").DdsParameterTemplateCompare;
+export const DdsParameterTemplateCompare: typeof import("./ddsParameterTemplateCompare").DdsParameterTemplateCompare = null as any;
+utilities.lazyLoad(exports, ["DdsParameterTemplateCompare"], () => require("./ddsParameterTemplateCompare"));
+
+export { DdsParameterTemplateCopyArgs, DdsParameterTemplateCopyState } from "./ddsParameterTemplateCopy";
+export type DdsParameterTemplateCopy = import("./ddsParameterTemplateCopy").DdsParameterTemplateCopy;
+export const DdsParameterTemplateCopy: typeof import("./ddsParameterTemplateCopy").DdsParameterTemplateCopy = null as any;
+utilities.lazyLoad(exports, ["DdsParameterTemplateCopy"], () => require("./ddsParameterTemplateCopy"));
+
+export { DdsParameterTemplateResetArgs, DdsParameterTemplateResetState } from "./ddsParameterTemplateReset";
+export type DdsParameterTemplateReset = import("./ddsParameterTemplateReset").DdsParameterTemplateReset;
+export const DdsParameterTemplateReset: typeof import("./ddsParameterTemplateReset").DdsParameterTemplateReset = null as any;
+utilities.lazyLoad(exports, ["DdsParameterTemplateReset"], () => require("./ddsParameterTemplateReset"));
+
 export { DisStreamArgs, DisStreamState } from "./disStream";
 export type DisStream = import("./disStream").DisStream;
 export const DisStream: typeof import("./disStream").DisStream = null as any;
@@ -380,6 +480,11 @@ export type DmsInstance = import("./dmsInstance").DmsInstance;
 export const DmsInstance: typeof import("./dmsInstance").DmsInstance = null as any;
 utilities.lazyLoad(exports, ["DmsInstance"], () => require("./dmsInstance"));
 
+export { DmsKafkaConsumerGroupArgs, DmsKafkaConsumerGroupState } from "./dmsKafkaConsumerGroup";
+export type DmsKafkaConsumerGroup = import("./dmsKafkaConsumerGroup").DmsKafkaConsumerGroup;
+export const DmsKafkaConsumerGroup: typeof import("./dmsKafkaConsumerGroup").DmsKafkaConsumerGroup = null as any;
+utilities.lazyLoad(exports, ["DmsKafkaConsumerGroup"], () => require("./dmsKafkaConsumerGroup"));
+
 export { DmsKafkaInstanceArgs, DmsKafkaInstanceState } from "./dmsKafkaInstance";
 export type DmsKafkaInstance = import("./dmsKafkaInstance").DmsKafkaInstance;
 export const DmsKafkaInstance: typeof import("./dmsKafkaInstance").DmsKafkaInstance = null as any;
@@ -409,6 +514,46 @@ export { DmsRabbitmqInstanceArgs, DmsRabbitmqInstanceState } from "./dmsRabbitmq
 export type DmsRabbitmqInstance = import("./dmsRabbitmqInstance").DmsRabbitmqInstance;
 export const DmsRabbitmqInstance: typeof import("./dmsRabbitmqInstance").DmsRabbitmqInstance = null as any;
 utilities.lazyLoad(exports, ["DmsRabbitmqInstance"], () => require("./dmsRabbitmqInstance"));
+
+export { DmsRocketmqConsumerGroupArgs, DmsRocketmqConsumerGroupState } from "./dmsRocketmqConsumerGroup";
+export type DmsRocketmqConsumerGroup = import("./dmsRocketmqConsumerGroup").DmsRocketmqConsumerGroup;
+export const DmsRocketmqConsumerGroup: typeof import("./dmsRocketmqConsumerGroup").DmsRocketmqConsumerGroup = null as any;
+utilities.lazyLoad(exports, ["DmsRocketmqConsumerGroup"], () => require("./dmsRocketmqConsumerGroup"));
+
+export { DmsRocketmqConsumptionVerifyArgs, DmsRocketmqConsumptionVerifyState } from "./dmsRocketmqConsumptionVerify";
+export type DmsRocketmqConsumptionVerify = import("./dmsRocketmqConsumptionVerify").DmsRocketmqConsumptionVerify;
+export const DmsRocketmqConsumptionVerify: typeof import("./dmsRocketmqConsumptionVerify").DmsRocketmqConsumptionVerify = null as any;
+utilities.lazyLoad(exports, ["DmsRocketmqConsumptionVerify"], () => require("./dmsRocketmqConsumptionVerify"));
+
+export { DmsRocketmqDeadLetterResendArgs, DmsRocketmqDeadLetterResendState } from "./dmsRocketmqDeadLetterResend";
+export type DmsRocketmqDeadLetterResend = import("./dmsRocketmqDeadLetterResend").DmsRocketmqDeadLetterResend;
+export const DmsRocketmqDeadLetterResend: typeof import("./dmsRocketmqDeadLetterResend").DmsRocketmqDeadLetterResend = null as any;
+utilities.lazyLoad(exports, ["DmsRocketmqDeadLetterResend"], () => require("./dmsRocketmqDeadLetterResend"));
+
+export { DmsRocketmqInstanceArgs, DmsRocketmqInstanceState } from "./dmsRocketmqInstance";
+export type DmsRocketmqInstance = import("./dmsRocketmqInstance").DmsRocketmqInstance;
+export const DmsRocketmqInstance: typeof import("./dmsRocketmqInstance").DmsRocketmqInstance = null as any;
+utilities.lazyLoad(exports, ["DmsRocketmqInstance"], () => require("./dmsRocketmqInstance"));
+
+export { DmsRocketmqMessageOffsetResetArgs, DmsRocketmqMessageOffsetResetState } from "./dmsRocketmqMessageOffsetReset";
+export type DmsRocketmqMessageOffsetReset = import("./dmsRocketmqMessageOffsetReset").DmsRocketmqMessageOffsetReset;
+export const DmsRocketmqMessageOffsetReset: typeof import("./dmsRocketmqMessageOffsetReset").DmsRocketmqMessageOffsetReset = null as any;
+utilities.lazyLoad(exports, ["DmsRocketmqMessageOffsetReset"], () => require("./dmsRocketmqMessageOffsetReset"));
+
+export { DmsRocketmqMigrationTaskArgs, DmsRocketmqMigrationTaskState } from "./dmsRocketmqMigrationTask";
+export type DmsRocketmqMigrationTask = import("./dmsRocketmqMigrationTask").DmsRocketmqMigrationTask;
+export const DmsRocketmqMigrationTask: typeof import("./dmsRocketmqMigrationTask").DmsRocketmqMigrationTask = null as any;
+utilities.lazyLoad(exports, ["DmsRocketmqMigrationTask"], () => require("./dmsRocketmqMigrationTask"));
+
+export { DmsRocketmqTopicArgs, DmsRocketmqTopicState } from "./dmsRocketmqTopic";
+export type DmsRocketmqTopic = import("./dmsRocketmqTopic").DmsRocketmqTopic;
+export const DmsRocketmqTopic: typeof import("./dmsRocketmqTopic").DmsRocketmqTopic = null as any;
+utilities.lazyLoad(exports, ["DmsRocketmqTopic"], () => require("./dmsRocketmqTopic"));
+
+export { DmsRocketmqUserArgs, DmsRocketmqUserState } from "./dmsRocketmqUser";
+export type DmsRocketmqUser = import("./dmsRocketmqUser").DmsRocketmqUser;
+export const DmsRocketmqUser: typeof import("./dmsRocketmqUser").DmsRocketmqUser = null as any;
+utilities.lazyLoad(exports, ["DmsRocketmqUser"], () => require("./dmsRocketmqUser"));
 
 export { DnsRecordsetArgs, DnsRecordsetState } from "./dnsRecordset";
 export type DnsRecordset = import("./dnsRecordset").DnsRecordset;
@@ -485,6 +630,46 @@ export type EnterpriseProject = import("./enterpriseProject").EnterpriseProject;
 export const EnterpriseProject: typeof import("./enterpriseProject").EnterpriseProject = null as any;
 utilities.lazyLoad(exports, ["EnterpriseProject"], () => require("./enterpriseProject"));
 
+export { ErAssociationArgs, ErAssociationState } from "./erAssociation";
+export type ErAssociation = import("./erAssociation").ErAssociation;
+export const ErAssociation: typeof import("./erAssociation").ErAssociation = null as any;
+utilities.lazyLoad(exports, ["ErAssociation"], () => require("./erAssociation"));
+
+export { ErAttachmentAccepterArgs, ErAttachmentAccepterState } from "./erAttachmentAccepter";
+export type ErAttachmentAccepter = import("./erAttachmentAccepter").ErAttachmentAccepter;
+export const ErAttachmentAccepter: typeof import("./erAttachmentAccepter").ErAttachmentAccepter = null as any;
+utilities.lazyLoad(exports, ["ErAttachmentAccepter"], () => require("./erAttachmentAccepter"));
+
+export { ErFlowLogArgs, ErFlowLogState } from "./erFlowLog";
+export type ErFlowLog = import("./erFlowLog").ErFlowLog;
+export const ErFlowLog: typeof import("./erFlowLog").ErFlowLog = null as any;
+utilities.lazyLoad(exports, ["ErFlowLog"], () => require("./erFlowLog"));
+
+export { ErInstanceArgs, ErInstanceState } from "./erInstance";
+export type ErInstance = import("./erInstance").ErInstance;
+export const ErInstance: typeof import("./erInstance").ErInstance = null as any;
+utilities.lazyLoad(exports, ["ErInstance"], () => require("./erInstance"));
+
+export { ErPropagationArgs, ErPropagationState } from "./erPropagation";
+export type ErPropagation = import("./erPropagation").ErPropagation;
+export const ErPropagation: typeof import("./erPropagation").ErPropagation = null as any;
+utilities.lazyLoad(exports, ["ErPropagation"], () => require("./erPropagation"));
+
+export { ErRouteTableArgs, ErRouteTableState } from "./erRouteTable";
+export type ErRouteTable = import("./erRouteTable").ErRouteTable;
+export const ErRouteTable: typeof import("./erRouteTable").ErRouteTable = null as any;
+utilities.lazyLoad(exports, ["ErRouteTable"], () => require("./erRouteTable"));
+
+export { ErStaticRouteArgs, ErStaticRouteState } from "./erStaticRoute";
+export type ErStaticRoute = import("./erStaticRoute").ErStaticRoute;
+export const ErStaticRoute: typeof import("./erStaticRoute").ErStaticRoute = null as any;
+utilities.lazyLoad(exports, ["ErStaticRoute"], () => require("./erStaticRoute"));
+
+export { ErVpcAttachmentArgs, ErVpcAttachmentState } from "./erVpcAttachment";
+export type ErVpcAttachment = import("./erVpcAttachment").ErVpcAttachment;
+export const ErVpcAttachment: typeof import("./erVpcAttachment").ErVpcAttachment = null as any;
+utilities.lazyLoad(exports, ["ErVpcAttachment"], () => require("./erVpcAttachment"));
+
 export { EvsSnapshotArgs, EvsSnapshotState } from "./evsSnapshot";
 export type EvsSnapshot = import("./evsSnapshot").EvsSnapshot;
 export const EvsSnapshot: typeof import("./evsSnapshot").EvsSnapshot = null as any;
@@ -495,10 +680,55 @@ export type EvsVolume = import("./evsVolume").EvsVolume;
 export const EvsVolume: typeof import("./evsVolume").EvsVolume = null as any;
 utilities.lazyLoad(exports, ["EvsVolume"], () => require("./evsVolume"));
 
+export { FgsApplicationArgs, FgsApplicationState } from "./fgsApplication";
+export type FgsApplication = import("./fgsApplication").FgsApplication;
+export const FgsApplication: typeof import("./fgsApplication").FgsApplication = null as any;
+utilities.lazyLoad(exports, ["FgsApplication"], () => require("./fgsApplication"));
+
+export { FgsAsyncInvokeConfigurationArgs, FgsAsyncInvokeConfigurationState } from "./fgsAsyncInvokeConfiguration";
+export type FgsAsyncInvokeConfiguration = import("./fgsAsyncInvokeConfiguration").FgsAsyncInvokeConfiguration;
+export const FgsAsyncInvokeConfiguration: typeof import("./fgsAsyncInvokeConfiguration").FgsAsyncInvokeConfiguration = null as any;
+utilities.lazyLoad(exports, ["FgsAsyncInvokeConfiguration"], () => require("./fgsAsyncInvokeConfiguration"));
+
+export { FgsDependencyArgs, FgsDependencyState } from "./fgsDependency";
+export type FgsDependency = import("./fgsDependency").FgsDependency;
+export const FgsDependency: typeof import("./fgsDependency").FgsDependency = null as any;
+utilities.lazyLoad(exports, ["FgsDependency"], () => require("./fgsDependency"));
+
+export { FgsDependencyVersionArgs, FgsDependencyVersionState } from "./fgsDependencyVersion";
+export type FgsDependencyVersion = import("./fgsDependencyVersion").FgsDependencyVersion;
+export const FgsDependencyVersion: typeof import("./fgsDependencyVersion").FgsDependencyVersion = null as any;
+utilities.lazyLoad(exports, ["FgsDependencyVersion"], () => require("./fgsDependencyVersion"));
+
 export { FgsFunctionArgs, FgsFunctionState } from "./fgsFunction";
 export type FgsFunction = import("./fgsFunction").FgsFunction;
 export const FgsFunction: typeof import("./fgsFunction").FgsFunction = null as any;
 utilities.lazyLoad(exports, ["FgsFunction"], () => require("./fgsFunction"));
+
+export { FgsFunctionEventArgs, FgsFunctionEventState } from "./fgsFunctionEvent";
+export type FgsFunctionEvent = import("./fgsFunctionEvent").FgsFunctionEvent;
+export const FgsFunctionEvent: typeof import("./fgsFunctionEvent").FgsFunctionEvent = null as any;
+utilities.lazyLoad(exports, ["FgsFunctionEvent"], () => require("./fgsFunctionEvent"));
+
+export { FgsFunctionToppingArgs, FgsFunctionToppingState } from "./fgsFunctionTopping";
+export type FgsFunctionTopping = import("./fgsFunctionTopping").FgsFunctionTopping;
+export const FgsFunctionTopping: typeof import("./fgsFunctionTopping").FgsFunctionTopping = null as any;
+utilities.lazyLoad(exports, ["FgsFunctionTopping"], () => require("./fgsFunctionTopping"));
+
+export { FgsFunctionTriggerArgs, FgsFunctionTriggerState } from "./fgsFunctionTrigger";
+export type FgsFunctionTrigger = import("./fgsFunctionTrigger").FgsFunctionTrigger;
+export const FgsFunctionTrigger: typeof import("./fgsFunctionTrigger").FgsFunctionTrigger = null as any;
+utilities.lazyLoad(exports, ["FgsFunctionTrigger"], () => require("./fgsFunctionTrigger"));
+
+export { FgsFunctionTriggerStatusActionArgs, FgsFunctionTriggerStatusActionState } from "./fgsFunctionTriggerStatusAction";
+export type FgsFunctionTriggerStatusAction = import("./fgsFunctionTriggerStatusAction").FgsFunctionTriggerStatusAction;
+export const FgsFunctionTriggerStatusAction: typeof import("./fgsFunctionTriggerStatusAction").FgsFunctionTriggerStatusAction = null as any;
+utilities.lazyLoad(exports, ["FgsFunctionTriggerStatusAction"], () => require("./fgsFunctionTriggerStatusAction"));
+
+export { FgsLtsLogEnableArgs, FgsLtsLogEnableState } from "./fgsLtsLogEnable";
+export type FgsLtsLogEnable = import("./fgsLtsLogEnable").FgsLtsLogEnable;
+export const FgsLtsLogEnable: typeof import("./fgsLtsLogEnable").FgsLtsLogEnable = null as any;
+utilities.lazyLoad(exports, ["FgsLtsLogEnable"], () => require("./fgsLtsLogEnable"));
 
 export { GesGraphArgs, GesGraphState } from "./gesGraph";
 export type GesGraph = import("./gesGraph").GesGraph;
@@ -695,6 +925,106 @@ export const getCdmFlavors: typeof import("./getCdmFlavors").getCdmFlavors = nul
 export const getCdmFlavorsOutput: typeof import("./getCdmFlavors").getCdmFlavorsOutput = null as any;
 utilities.lazyLoad(exports, ["getCdmFlavors","getCdmFlavorsOutput"], () => require("./getCdmFlavors"));
 
+export { GetCfwAccessControlLogsArgs, GetCfwAccessControlLogsResult, GetCfwAccessControlLogsOutputArgs } from "./getCfwAccessControlLogs";
+export const getCfwAccessControlLogs: typeof import("./getCfwAccessControlLogs").getCfwAccessControlLogs = null as any;
+export const getCfwAccessControlLogsOutput: typeof import("./getCfwAccessControlLogs").getCfwAccessControlLogsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwAccessControlLogs","getCfwAccessControlLogsOutput"], () => require("./getCfwAccessControlLogs"));
+
+export { GetCfwAddressGroupMembersArgs, GetCfwAddressGroupMembersResult, GetCfwAddressGroupMembersOutputArgs } from "./getCfwAddressGroupMembers";
+export const getCfwAddressGroupMembers: typeof import("./getCfwAddressGroupMembers").getCfwAddressGroupMembers = null as any;
+export const getCfwAddressGroupMembersOutput: typeof import("./getCfwAddressGroupMembers").getCfwAddressGroupMembersOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwAddressGroupMembers","getCfwAddressGroupMembersOutput"], () => require("./getCfwAddressGroupMembers"));
+
+export { GetCfwAddressGroupsArgs, GetCfwAddressGroupsResult, GetCfwAddressGroupsOutputArgs } from "./getCfwAddressGroups";
+export const getCfwAddressGroups: typeof import("./getCfwAddressGroups").getCfwAddressGroups = null as any;
+export const getCfwAddressGroupsOutput: typeof import("./getCfwAddressGroups").getCfwAddressGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwAddressGroups","getCfwAddressGroupsOutput"], () => require("./getCfwAddressGroups"));
+
+export { GetCfwAttackLogsArgs, GetCfwAttackLogsResult, GetCfwAttackLogsOutputArgs } from "./getCfwAttackLogs";
+export const getCfwAttackLogs: typeof import("./getCfwAttackLogs").getCfwAttackLogs = null as any;
+export const getCfwAttackLogsOutput: typeof import("./getCfwAttackLogs").getCfwAttackLogsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwAttackLogs","getCfwAttackLogsOutput"], () => require("./getCfwAttackLogs"));
+
+export { GetCfwBlackWhiteListsArgs, GetCfwBlackWhiteListsResult, GetCfwBlackWhiteListsOutputArgs } from "./getCfwBlackWhiteLists";
+export const getCfwBlackWhiteLists: typeof import("./getCfwBlackWhiteLists").getCfwBlackWhiteLists = null as any;
+export const getCfwBlackWhiteListsOutput: typeof import("./getCfwBlackWhiteLists").getCfwBlackWhiteListsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwBlackWhiteLists","getCfwBlackWhiteListsOutput"], () => require("./getCfwBlackWhiteLists"));
+
+export { GetCfwCaptureTaskResultsArgs, GetCfwCaptureTaskResultsResult, GetCfwCaptureTaskResultsOutputArgs } from "./getCfwCaptureTaskResults";
+export const getCfwCaptureTaskResults: typeof import("./getCfwCaptureTaskResults").getCfwCaptureTaskResults = null as any;
+export const getCfwCaptureTaskResultsOutput: typeof import("./getCfwCaptureTaskResults").getCfwCaptureTaskResultsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwCaptureTaskResults","getCfwCaptureTaskResultsOutput"], () => require("./getCfwCaptureTaskResults"));
+
+export { GetCfwCaptureTasksArgs, GetCfwCaptureTasksResult, GetCfwCaptureTasksOutputArgs } from "./getCfwCaptureTasks";
+export const getCfwCaptureTasks: typeof import("./getCfwCaptureTasks").getCfwCaptureTasks = null as any;
+export const getCfwCaptureTasksOutput: typeof import("./getCfwCaptureTasks").getCfwCaptureTasksOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwCaptureTasks","getCfwCaptureTasksOutput"], () => require("./getCfwCaptureTasks"));
+
+export { GetCfwDomainNameGroupsArgs, GetCfwDomainNameGroupsResult, GetCfwDomainNameGroupsOutputArgs } from "./getCfwDomainNameGroups";
+export const getCfwDomainNameGroups: typeof import("./getCfwDomainNameGroups").getCfwDomainNameGroups = null as any;
+export const getCfwDomainNameGroupsOutput: typeof import("./getCfwDomainNameGroups").getCfwDomainNameGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwDomainNameGroups","getCfwDomainNameGroupsOutput"], () => require("./getCfwDomainNameGroups"));
+
+export { GetCfwDomainNameParseIpListArgs, GetCfwDomainNameParseIpListResult, GetCfwDomainNameParseIpListOutputArgs } from "./getCfwDomainNameParseIpList";
+export const getCfwDomainNameParseIpList: typeof import("./getCfwDomainNameParseIpList").getCfwDomainNameParseIpList = null as any;
+export const getCfwDomainNameParseIpListOutput: typeof import("./getCfwDomainNameParseIpList").getCfwDomainNameParseIpListOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwDomainNameParseIpList","getCfwDomainNameParseIpListOutput"], () => require("./getCfwDomainNameParseIpList"));
+
+export { GetCfwFirewallsArgs, GetCfwFirewallsResult, GetCfwFirewallsOutputArgs } from "./getCfwFirewalls";
+export const getCfwFirewalls: typeof import("./getCfwFirewalls").getCfwFirewalls = null as any;
+export const getCfwFirewallsOutput: typeof import("./getCfwFirewalls").getCfwFirewallsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwFirewalls","getCfwFirewallsOutput"], () => require("./getCfwFirewalls"));
+
+export { GetCfwFlowLogsArgs, GetCfwFlowLogsResult, GetCfwFlowLogsOutputArgs } from "./getCfwFlowLogs";
+export const getCfwFlowLogs: typeof import("./getCfwFlowLogs").getCfwFlowLogs = null as any;
+export const getCfwFlowLogsOutput: typeof import("./getCfwFlowLogs").getCfwFlowLogsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwFlowLogs","getCfwFlowLogsOutput"], () => require("./getCfwFlowLogs"));
+
+export { GetCfwIpsCustomRulesArgs, GetCfwIpsCustomRulesResult, GetCfwIpsCustomRulesOutputArgs } from "./getCfwIpsCustomRules";
+export const getCfwIpsCustomRules: typeof import("./getCfwIpsCustomRules").getCfwIpsCustomRules = null as any;
+export const getCfwIpsCustomRulesOutput: typeof import("./getCfwIpsCustomRules").getCfwIpsCustomRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwIpsCustomRules","getCfwIpsCustomRulesOutput"], () => require("./getCfwIpsCustomRules"));
+
+export { GetCfwIpsRuleDetailsArgs, GetCfwIpsRuleDetailsResult, GetCfwIpsRuleDetailsOutputArgs } from "./getCfwIpsRuleDetails";
+export const getCfwIpsRuleDetails: typeof import("./getCfwIpsRuleDetails").getCfwIpsRuleDetails = null as any;
+export const getCfwIpsRuleDetailsOutput: typeof import("./getCfwIpsRuleDetails").getCfwIpsRuleDetailsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwIpsRuleDetails","getCfwIpsRuleDetailsOutput"], () => require("./getCfwIpsRuleDetails"));
+
+export { GetCfwIpsRulesArgs, GetCfwIpsRulesResult, GetCfwIpsRulesOutputArgs } from "./getCfwIpsRules";
+export const getCfwIpsRules: typeof import("./getCfwIpsRules").getCfwIpsRules = null as any;
+export const getCfwIpsRulesOutput: typeof import("./getCfwIpsRules").getCfwIpsRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwIpsRules","getCfwIpsRulesOutput"], () => require("./getCfwIpsRules"));
+
+export { GetCfwProtectionRulesArgs, GetCfwProtectionRulesResult, GetCfwProtectionRulesOutputArgs } from "./getCfwProtectionRules";
+export const getCfwProtectionRules: typeof import("./getCfwProtectionRules").getCfwProtectionRules = null as any;
+export const getCfwProtectionRulesOutput: typeof import("./getCfwProtectionRules").getCfwProtectionRulesOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwProtectionRules","getCfwProtectionRulesOutput"], () => require("./getCfwProtectionRules"));
+
+export { GetCfwRegionsArgs, GetCfwRegionsResult, GetCfwRegionsOutputArgs } from "./getCfwRegions";
+export const getCfwRegions: typeof import("./getCfwRegions").getCfwRegions = null as any;
+export const getCfwRegionsOutput: typeof import("./getCfwRegions").getCfwRegionsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwRegions","getCfwRegionsOutput"], () => require("./getCfwRegions"));
+
+export { GetCfwResourceTagsArgs, GetCfwResourceTagsResult, GetCfwResourceTagsOutputArgs } from "./getCfwResourceTags";
+export const getCfwResourceTags: typeof import("./getCfwResourceTags").getCfwResourceTags = null as any;
+export const getCfwResourceTagsOutput: typeof import("./getCfwResourceTags").getCfwResourceTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwResourceTags","getCfwResourceTagsOutput"], () => require("./getCfwResourceTags"));
+
+export { GetCfwServiceGroupMembersArgs, GetCfwServiceGroupMembersResult, GetCfwServiceGroupMembersOutputArgs } from "./getCfwServiceGroupMembers";
+export const getCfwServiceGroupMembers: typeof import("./getCfwServiceGroupMembers").getCfwServiceGroupMembers = null as any;
+export const getCfwServiceGroupMembersOutput: typeof import("./getCfwServiceGroupMembers").getCfwServiceGroupMembersOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwServiceGroupMembers","getCfwServiceGroupMembersOutput"], () => require("./getCfwServiceGroupMembers"));
+
+export { GetCfwServiceGroupsArgs, GetCfwServiceGroupsResult, GetCfwServiceGroupsOutputArgs } from "./getCfwServiceGroups";
+export const getCfwServiceGroups: typeof import("./getCfwServiceGroups").getCfwServiceGroups = null as any;
+export const getCfwServiceGroupsOutput: typeof import("./getCfwServiceGroups").getCfwServiceGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwServiceGroups","getCfwServiceGroupsOutput"], () => require("./getCfwServiceGroups"));
+
+export { GetCfwTagsArgs, GetCfwTagsResult, GetCfwTagsOutputArgs } from "./getCfwTags";
+export const getCfwTags: typeof import("./getCfwTags").getCfwTags = null as any;
+export const getCfwTagsOutput: typeof import("./getCfwTags").getCfwTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getCfwTags","getCfwTagsOutput"], () => require("./getCfwTags"));
+
 export { GetComputeFlavorsArgs, GetComputeFlavorsResult, GetComputeFlavorsOutputArgs } from "./getComputeFlavors";
 export const getComputeFlavors: typeof import("./getComputeFlavors").getComputeFlavors = null as any;
 export const getComputeFlavorsOutput: typeof import("./getComputeFlavors").getComputeFlavorsOutput = null as any;
@@ -755,6 +1085,11 @@ export const getDmsAz: typeof import("./getDmsAz").getDmsAz = null as any;
 export const getDmsAzOutput: typeof import("./getDmsAz").getDmsAzOutput = null as any;
 utilities.lazyLoad(exports, ["getDmsAz","getDmsAzOutput"], () => require("./getDmsAz"));
 
+export { GetDmsKafkaConsumerGroupsArgs, GetDmsKafkaConsumerGroupsResult, GetDmsKafkaConsumerGroupsOutputArgs } from "./getDmsKafkaConsumerGroups";
+export const getDmsKafkaConsumerGroups: typeof import("./getDmsKafkaConsumerGroups").getDmsKafkaConsumerGroups = null as any;
+export const getDmsKafkaConsumerGroupsOutput: typeof import("./getDmsKafkaConsumerGroups").getDmsKafkaConsumerGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsKafkaConsumerGroups","getDmsKafkaConsumerGroupsOutput"], () => require("./getDmsKafkaConsumerGroups"));
+
 export { GetDmsKafkaFlavorsArgs, GetDmsKafkaFlavorsResult, GetDmsKafkaFlavorsOutputArgs } from "./getDmsKafkaFlavors";
 export const getDmsKafkaFlavors: typeof import("./getDmsKafkaFlavors").getDmsKafkaFlavors = null as any;
 export const getDmsKafkaFlavorsOutput: typeof import("./getDmsKafkaFlavors").getDmsKafkaFlavorsOutput = null as any;
@@ -790,6 +1125,76 @@ export const getDmsRabbitmqFlavors: typeof import("./getDmsRabbitmqFlavors").get
 export const getDmsRabbitmqFlavorsOutput: typeof import("./getDmsRabbitmqFlavors").getDmsRabbitmqFlavorsOutput = null as any;
 utilities.lazyLoad(exports, ["getDmsRabbitmqFlavors","getDmsRabbitmqFlavorsOutput"], () => require("./getDmsRabbitmqFlavors"));
 
+export { GetDmsRocketmqBrokerArgs, GetDmsRocketmqBrokerResult, GetDmsRocketmqBrokerOutputArgs } from "./getDmsRocketmqBroker";
+export const getDmsRocketmqBroker: typeof import("./getDmsRocketmqBroker").getDmsRocketmqBroker = null as any;
+export const getDmsRocketmqBrokerOutput: typeof import("./getDmsRocketmqBroker").getDmsRocketmqBrokerOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqBroker","getDmsRocketmqBrokerOutput"], () => require("./getDmsRocketmqBroker"));
+
+export { GetDmsRocketmqConsumerGroupAccessUsersArgs, GetDmsRocketmqConsumerGroupAccessUsersResult, GetDmsRocketmqConsumerGroupAccessUsersOutputArgs } from "./getDmsRocketmqConsumerGroupAccessUsers";
+export const getDmsRocketmqConsumerGroupAccessUsers: typeof import("./getDmsRocketmqConsumerGroupAccessUsers").getDmsRocketmqConsumerGroupAccessUsers = null as any;
+export const getDmsRocketmqConsumerGroupAccessUsersOutput: typeof import("./getDmsRocketmqConsumerGroupAccessUsers").getDmsRocketmqConsumerGroupAccessUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqConsumerGroupAccessUsers","getDmsRocketmqConsumerGroupAccessUsersOutput"], () => require("./getDmsRocketmqConsumerGroupAccessUsers"));
+
+export { GetDmsRocketmqConsumerGroupsArgs, GetDmsRocketmqConsumerGroupsResult, GetDmsRocketmqConsumerGroupsOutputArgs } from "./getDmsRocketmqConsumerGroups";
+export const getDmsRocketmqConsumerGroups: typeof import("./getDmsRocketmqConsumerGroups").getDmsRocketmqConsumerGroups = null as any;
+export const getDmsRocketmqConsumerGroupsOutput: typeof import("./getDmsRocketmqConsumerGroups").getDmsRocketmqConsumerGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqConsumerGroups","getDmsRocketmqConsumerGroupsOutput"], () => require("./getDmsRocketmqConsumerGroups"));
+
+export { GetDmsRocketmqConsumersArgs, GetDmsRocketmqConsumersResult, GetDmsRocketmqConsumersOutputArgs } from "./getDmsRocketmqConsumers";
+export const getDmsRocketmqConsumers: typeof import("./getDmsRocketmqConsumers").getDmsRocketmqConsumers = null as any;
+export const getDmsRocketmqConsumersOutput: typeof import("./getDmsRocketmqConsumers").getDmsRocketmqConsumersOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqConsumers","getDmsRocketmqConsumersOutput"], () => require("./getDmsRocketmqConsumers"));
+
+export { GetDmsRocketmqExtendFlavorsArgs, GetDmsRocketmqExtendFlavorsResult, GetDmsRocketmqExtendFlavorsOutputArgs } from "./getDmsRocketmqExtendFlavors";
+export const getDmsRocketmqExtendFlavors: typeof import("./getDmsRocketmqExtendFlavors").getDmsRocketmqExtendFlavors = null as any;
+export const getDmsRocketmqExtendFlavorsOutput: typeof import("./getDmsRocketmqExtendFlavors").getDmsRocketmqExtendFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqExtendFlavors","getDmsRocketmqExtendFlavorsOutput"], () => require("./getDmsRocketmqExtendFlavors"));
+
+export { GetDmsRocketmqFlavorsArgs, GetDmsRocketmqFlavorsResult, GetDmsRocketmqFlavorsOutputArgs } from "./getDmsRocketmqFlavors";
+export const getDmsRocketmqFlavors: typeof import("./getDmsRocketmqFlavors").getDmsRocketmqFlavors = null as any;
+export const getDmsRocketmqFlavorsOutput: typeof import("./getDmsRocketmqFlavors").getDmsRocketmqFlavorsOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqFlavors","getDmsRocketmqFlavorsOutput"], () => require("./getDmsRocketmqFlavors"));
+
+export { GetDmsRocketmqInstancesArgs, GetDmsRocketmqInstancesResult, GetDmsRocketmqInstancesOutputArgs } from "./getDmsRocketmqInstances";
+export const getDmsRocketmqInstances: typeof import("./getDmsRocketmqInstances").getDmsRocketmqInstances = null as any;
+export const getDmsRocketmqInstancesOutput: typeof import("./getDmsRocketmqInstances").getDmsRocketmqInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqInstances","getDmsRocketmqInstancesOutput"], () => require("./getDmsRocketmqInstances"));
+
+export { GetDmsRocketmqMessageTracesArgs, GetDmsRocketmqMessageTracesResult, GetDmsRocketmqMessageTracesOutputArgs } from "./getDmsRocketmqMessageTraces";
+export const getDmsRocketmqMessageTraces: typeof import("./getDmsRocketmqMessageTraces").getDmsRocketmqMessageTraces = null as any;
+export const getDmsRocketmqMessageTracesOutput: typeof import("./getDmsRocketmqMessageTraces").getDmsRocketmqMessageTracesOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqMessageTraces","getDmsRocketmqMessageTracesOutput"], () => require("./getDmsRocketmqMessageTraces"));
+
+export { GetDmsRocketmqMessagesArgs, GetDmsRocketmqMessagesResult, GetDmsRocketmqMessagesOutputArgs } from "./getDmsRocketmqMessages";
+export const getDmsRocketmqMessages: typeof import("./getDmsRocketmqMessages").getDmsRocketmqMessages = null as any;
+export const getDmsRocketmqMessagesOutput: typeof import("./getDmsRocketmqMessages").getDmsRocketmqMessagesOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqMessages","getDmsRocketmqMessagesOutput"], () => require("./getDmsRocketmqMessages"));
+
+export { GetDmsRocketmqMigrationTasksArgs, GetDmsRocketmqMigrationTasksResult, GetDmsRocketmqMigrationTasksOutputArgs } from "./getDmsRocketmqMigrationTasks";
+export const getDmsRocketmqMigrationTasks: typeof import("./getDmsRocketmqMigrationTasks").getDmsRocketmqMigrationTasks = null as any;
+export const getDmsRocketmqMigrationTasksOutput: typeof import("./getDmsRocketmqMigrationTasks").getDmsRocketmqMigrationTasksOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqMigrationTasks","getDmsRocketmqMigrationTasksOutput"], () => require("./getDmsRocketmqMigrationTasks"));
+
+export { GetDmsRocketmqTopicAccessUsersArgs, GetDmsRocketmqTopicAccessUsersResult, GetDmsRocketmqTopicAccessUsersOutputArgs } from "./getDmsRocketmqTopicAccessUsers";
+export const getDmsRocketmqTopicAccessUsers: typeof import("./getDmsRocketmqTopicAccessUsers").getDmsRocketmqTopicAccessUsers = null as any;
+export const getDmsRocketmqTopicAccessUsersOutput: typeof import("./getDmsRocketmqTopicAccessUsers").getDmsRocketmqTopicAccessUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqTopicAccessUsers","getDmsRocketmqTopicAccessUsersOutput"], () => require("./getDmsRocketmqTopicAccessUsers"));
+
+export { GetDmsRocketmqTopicConsumerGroupsArgs, GetDmsRocketmqTopicConsumerGroupsResult, GetDmsRocketmqTopicConsumerGroupsOutputArgs } from "./getDmsRocketmqTopicConsumerGroups";
+export const getDmsRocketmqTopicConsumerGroups: typeof import("./getDmsRocketmqTopicConsumerGroups").getDmsRocketmqTopicConsumerGroups = null as any;
+export const getDmsRocketmqTopicConsumerGroupsOutput: typeof import("./getDmsRocketmqTopicConsumerGroups").getDmsRocketmqTopicConsumerGroupsOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqTopicConsumerGroups","getDmsRocketmqTopicConsumerGroupsOutput"], () => require("./getDmsRocketmqTopicConsumerGroups"));
+
+export { GetDmsRocketmqTopicsArgs, GetDmsRocketmqTopicsResult, GetDmsRocketmqTopicsOutputArgs } from "./getDmsRocketmqTopics";
+export const getDmsRocketmqTopics: typeof import("./getDmsRocketmqTopics").getDmsRocketmqTopics = null as any;
+export const getDmsRocketmqTopicsOutput: typeof import("./getDmsRocketmqTopics").getDmsRocketmqTopicsOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqTopics","getDmsRocketmqTopicsOutput"], () => require("./getDmsRocketmqTopics"));
+
+export { GetDmsRocketmqUsersArgs, GetDmsRocketmqUsersResult, GetDmsRocketmqUsersOutputArgs } from "./getDmsRocketmqUsers";
+export const getDmsRocketmqUsers: typeof import("./getDmsRocketmqUsers").getDmsRocketmqUsers = null as any;
+export const getDmsRocketmqUsersOutput: typeof import("./getDmsRocketmqUsers").getDmsRocketmqUsersOutput = null as any;
+utilities.lazyLoad(exports, ["getDmsRocketmqUsers","getDmsRocketmqUsersOutput"], () => require("./getDmsRocketmqUsers"));
+
 export { GetDwsFlavorsArgs, GetDwsFlavorsResult, GetDwsFlavorsOutputArgs } from "./getDwsFlavors";
 export const getDwsFlavors: typeof import("./getDwsFlavors").getDwsFlavors = null as any;
 export const getDwsFlavorsOutput: typeof import("./getDwsFlavors").getDwsFlavorsOutput = null as any;
@@ -815,10 +1220,105 @@ export const getEnterpriseProject: typeof import("./getEnterpriseProject").getEn
 export const getEnterpriseProjectOutput: typeof import("./getEnterpriseProject").getEnterpriseProjectOutput = null as any;
 utilities.lazyLoad(exports, ["getEnterpriseProject","getEnterpriseProjectOutput"], () => require("./getEnterpriseProject"));
 
+export { GetErAssociationsArgs, GetErAssociationsResult, GetErAssociationsOutputArgs } from "./getErAssociations";
+export const getErAssociations: typeof import("./getErAssociations").getErAssociations = null as any;
+export const getErAssociationsOutput: typeof import("./getErAssociations").getErAssociationsOutput = null as any;
+utilities.lazyLoad(exports, ["getErAssociations","getErAssociationsOutput"], () => require("./getErAssociations"));
+
+export { GetErAttachmentsArgs, GetErAttachmentsResult, GetErAttachmentsOutputArgs } from "./getErAttachments";
+export const getErAttachments: typeof import("./getErAttachments").getErAttachments = null as any;
+export const getErAttachmentsOutput: typeof import("./getErAttachments").getErAttachmentsOutput = null as any;
+utilities.lazyLoad(exports, ["getErAttachments","getErAttachmentsOutput"], () => require("./getErAttachments"));
+
+export { GetErAvailabilityZonesArgs, GetErAvailabilityZonesResult, GetErAvailabilityZonesOutputArgs } from "./getErAvailabilityZones";
+export const getErAvailabilityZones: typeof import("./getErAvailabilityZones").getErAvailabilityZones = null as any;
+export const getErAvailabilityZonesOutput: typeof import("./getErAvailabilityZones").getErAvailabilityZonesOutput = null as any;
+utilities.lazyLoad(exports, ["getErAvailabilityZones","getErAvailabilityZonesOutput"], () => require("./getErAvailabilityZones"));
+
+export { GetErAvailableRoutesArgs, GetErAvailableRoutesResult, GetErAvailableRoutesOutputArgs } from "./getErAvailableRoutes";
+export const getErAvailableRoutes: typeof import("./getErAvailableRoutes").getErAvailableRoutes = null as any;
+export const getErAvailableRoutesOutput: typeof import("./getErAvailableRoutes").getErAvailableRoutesOutput = null as any;
+utilities.lazyLoad(exports, ["getErAvailableRoutes","getErAvailableRoutesOutput"], () => require("./getErAvailableRoutes"));
+
+export { GetErFlowLogsArgs, GetErFlowLogsResult, GetErFlowLogsOutputArgs } from "./getErFlowLogs";
+export const getErFlowLogs: typeof import("./getErFlowLogs").getErFlowLogs = null as any;
+export const getErFlowLogsOutput: typeof import("./getErFlowLogs").getErFlowLogsOutput = null as any;
+utilities.lazyLoad(exports, ["getErFlowLogs","getErFlowLogsOutput"], () => require("./getErFlowLogs"));
+
+export { GetErInstancesArgs, GetErInstancesResult, GetErInstancesOutputArgs } from "./getErInstances";
+export const getErInstances: typeof import("./getErInstances").getErInstances = null as any;
+export const getErInstancesOutput: typeof import("./getErInstances").getErInstancesOutput = null as any;
+utilities.lazyLoad(exports, ["getErInstances","getErInstancesOutput"], () => require("./getErInstances"));
+
+export { GetErPropagationsArgs, GetErPropagationsResult, GetErPropagationsOutputArgs } from "./getErPropagations";
+export const getErPropagations: typeof import("./getErPropagations").getErPropagations = null as any;
+export const getErPropagationsOutput: typeof import("./getErPropagations").getErPropagationsOutput = null as any;
+utilities.lazyLoad(exports, ["getErPropagations","getErPropagationsOutput"], () => require("./getErPropagations"));
+
+export { GetErQuotasArgs, GetErQuotasResult, GetErQuotasOutputArgs } from "./getErQuotas";
+export const getErQuotas: typeof import("./getErQuotas").getErQuotas = null as any;
+export const getErQuotasOutput: typeof import("./getErQuotas").getErQuotasOutput = null as any;
+utilities.lazyLoad(exports, ["getErQuotas","getErQuotasOutput"], () => require("./getErQuotas"));
+
+export { GetErResourceTagsArgs, GetErResourceTagsResult, GetErResourceTagsOutputArgs } from "./getErResourceTags";
+export const getErResourceTags: typeof import("./getErResourceTags").getErResourceTags = null as any;
+export const getErResourceTagsOutput: typeof import("./getErResourceTags").getErResourceTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getErResourceTags","getErResourceTagsOutput"], () => require("./getErResourceTags"));
+
+export { GetErRouteTablesArgs, GetErRouteTablesResult, GetErRouteTablesOutputArgs } from "./getErRouteTables";
+export const getErRouteTables: typeof import("./getErRouteTables").getErRouteTables = null as any;
+export const getErRouteTablesOutput: typeof import("./getErRouteTables").getErRouteTablesOutput = null as any;
+utilities.lazyLoad(exports, ["getErRouteTables","getErRouteTablesOutput"], () => require("./getErRouteTables"));
+
+export { GetErTagsArgs, GetErTagsResult, GetErTagsOutputArgs } from "./getErTags";
+export const getErTags: typeof import("./getErTags").getErTags = null as any;
+export const getErTagsOutput: typeof import("./getErTags").getErTagsOutput = null as any;
+utilities.lazyLoad(exports, ["getErTags","getErTagsOutput"], () => require("./getErTags"));
+
 export { GetEvsVolumesArgs, GetEvsVolumesResult, GetEvsVolumesOutputArgs } from "./getEvsVolumes";
 export const getEvsVolumes: typeof import("./getEvsVolumes").getEvsVolumes = null as any;
 export const getEvsVolumesOutput: typeof import("./getEvsVolumes").getEvsVolumesOutput = null as any;
 utilities.lazyLoad(exports, ["getEvsVolumes","getEvsVolumesOutput"], () => require("./getEvsVolumes"));
+
+export { GetFgsApplicationTemplatesArgs, GetFgsApplicationTemplatesResult, GetFgsApplicationTemplatesOutputArgs } from "./getFgsApplicationTemplates";
+export const getFgsApplicationTemplates: typeof import("./getFgsApplicationTemplates").getFgsApplicationTemplates = null as any;
+export const getFgsApplicationTemplatesOutput: typeof import("./getFgsApplicationTemplates").getFgsApplicationTemplatesOutput = null as any;
+utilities.lazyLoad(exports, ["getFgsApplicationTemplates","getFgsApplicationTemplatesOutput"], () => require("./getFgsApplicationTemplates"));
+
+export { GetFgsApplicationsArgs, GetFgsApplicationsResult, GetFgsApplicationsOutputArgs } from "./getFgsApplications";
+export const getFgsApplications: typeof import("./getFgsApplications").getFgsApplications = null as any;
+export const getFgsApplicationsOutput: typeof import("./getFgsApplications").getFgsApplicationsOutput = null as any;
+utilities.lazyLoad(exports, ["getFgsApplications","getFgsApplicationsOutput"], () => require("./getFgsApplications"));
+
+export { GetFgsDependenciesArgs, GetFgsDependenciesResult, GetFgsDependenciesOutputArgs } from "./getFgsDependencies";
+export const getFgsDependencies: typeof import("./getFgsDependencies").getFgsDependencies = null as any;
+export const getFgsDependenciesOutput: typeof import("./getFgsDependencies").getFgsDependenciesOutput = null as any;
+utilities.lazyLoad(exports, ["getFgsDependencies","getFgsDependenciesOutput"], () => require("./getFgsDependencies"));
+
+export { GetFgsDependencyVersionsArgs, GetFgsDependencyVersionsResult, GetFgsDependencyVersionsOutputArgs } from "./getFgsDependencyVersions";
+export const getFgsDependencyVersions: typeof import("./getFgsDependencyVersions").getFgsDependencyVersions = null as any;
+export const getFgsDependencyVersionsOutput: typeof import("./getFgsDependencyVersions").getFgsDependencyVersionsOutput = null as any;
+utilities.lazyLoad(exports, ["getFgsDependencyVersions","getFgsDependencyVersionsOutput"], () => require("./getFgsDependencyVersions"));
+
+export { GetFgsFunctionEventsArgs, GetFgsFunctionEventsResult, GetFgsFunctionEventsOutputArgs } from "./getFgsFunctionEvents";
+export const getFgsFunctionEvents: typeof import("./getFgsFunctionEvents").getFgsFunctionEvents = null as any;
+export const getFgsFunctionEventsOutput: typeof import("./getFgsFunctionEvents").getFgsFunctionEventsOutput = null as any;
+utilities.lazyLoad(exports, ["getFgsFunctionEvents","getFgsFunctionEventsOutput"], () => require("./getFgsFunctionEvents"));
+
+export { GetFgsFunctionTriggersArgs, GetFgsFunctionTriggersResult, GetFgsFunctionTriggersOutputArgs } from "./getFgsFunctionTriggers";
+export const getFgsFunctionTriggers: typeof import("./getFgsFunctionTriggers").getFgsFunctionTriggers = null as any;
+export const getFgsFunctionTriggersOutput: typeof import("./getFgsFunctionTriggers").getFgsFunctionTriggersOutput = null as any;
+utilities.lazyLoad(exports, ["getFgsFunctionTriggers","getFgsFunctionTriggersOutput"], () => require("./getFgsFunctionTriggers"));
+
+export { GetFgsFunctionsArgs, GetFgsFunctionsResult, GetFgsFunctionsOutputArgs } from "./getFgsFunctions";
+export const getFgsFunctions: typeof import("./getFgsFunctions").getFgsFunctions = null as any;
+export const getFgsFunctionsOutput: typeof import("./getFgsFunctions").getFgsFunctionsOutput = null as any;
+utilities.lazyLoad(exports, ["getFgsFunctions","getFgsFunctionsOutput"], () => require("./getFgsFunctions"));
+
+export { GetFgsQuotasArgs, GetFgsQuotasResult, GetFgsQuotasOutputArgs } from "./getFgsQuotas";
+export const getFgsQuotas: typeof import("./getFgsQuotas").getFgsQuotas = null as any;
+export const getFgsQuotasOutput: typeof import("./getFgsQuotas").getFgsQuotasOutput = null as any;
+utilities.lazyLoad(exports, ["getFgsQuotas","getFgsQuotasOutput"], () => require("./getFgsQuotas"));
 
 export { GetIdentityCustomRoleArgs, GetIdentityCustomRoleResult, GetIdentityCustomRoleOutputArgs } from "./getIdentityCustomRole";
 export const getIdentityCustomRole: typeof import("./getIdentityCustomRole").getIdentityCustomRole = null as any;
@@ -1375,6 +1875,11 @@ export type RdsInstance = import("./rdsInstance").RdsInstance;
 export const RdsInstance: typeof import("./rdsInstance").RdsInstance = null as any;
 utilities.lazyLoad(exports, ["RdsInstance"], () => require("./rdsInstance"));
 
+export { RdsInstanceEipAssociateArgs, RdsInstanceEipAssociateState } from "./rdsInstanceEipAssociate";
+export type RdsInstanceEipAssociate = import("./rdsInstanceEipAssociate").RdsInstanceEipAssociate;
+export const RdsInstanceEipAssociate: typeof import("./rdsInstanceEipAssociate").RdsInstanceEipAssociate = null as any;
+utilities.lazyLoad(exports, ["RdsInstanceEipAssociate"], () => require("./rdsInstanceEipAssociate"));
+
 export { RdsMysqlAccountArgs, RdsMysqlAccountState } from "./rdsMysqlAccount";
 export type RdsMysqlAccount = import("./rdsMysqlAccount").RdsMysqlAccount;
 export const RdsMysqlAccount: typeof import("./rdsMysqlAccount").RdsMysqlAccount = null as any;
@@ -1514,6 +2019,11 @@ export { SfsTurboPermRuleArgs, SfsTurboPermRuleState } from "./sfsTurboPermRule"
 export type SfsTurboPermRule = import("./sfsTurboPermRule").SfsTurboPermRule;
 export const SfsTurboPermRule: typeof import("./sfsTurboPermRule").SfsTurboPermRule = null as any;
 utilities.lazyLoad(exports, ["SfsTurboPermRule"], () => require("./sfsTurboPermRule"));
+
+export { SmnMessageDetectionArgs, SmnMessageDetectionState } from "./smnMessageDetection";
+export type SmnMessageDetection = import("./smnMessageDetection").SmnMessageDetection;
+export const SmnMessageDetection: typeof import("./smnMessageDetection").SmnMessageDetection = null as any;
+utilities.lazyLoad(exports, ["SmnMessageDetection"], () => require("./smnMessageDetection"));
 
 export { SmnSubscriptionArgs, SmnSubscriptionState } from "./smnSubscription";
 export type SmnSubscription = import("./smnSubscription").SmnSubscription;
@@ -1733,6 +2243,36 @@ const _module = {
                 return new CdmCluster(name, <any>undefined, { urn })
             case "sbercloud:index/cesAlarmrule:CesAlarmrule":
                 return new CesAlarmrule(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwAclRule:CfwAclRule":
+                return new CfwAclRule(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwAddressGroup:CfwAddressGroup":
+                return new CfwAddressGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwAddressGroupMember:CfwAddressGroupMember":
+                return new CfwAddressGroupMember(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwAlarmConfig:CfwAlarmConfig":
+                return new CfwAlarmConfig(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwAntiVirus:CfwAntiVirus":
+                return new CfwAntiVirus(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwBlackWhiteList:CfwBlackWhiteList":
+                return new CfwBlackWhiteList(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwCaptureTask:CfwCaptureTask":
+                return new CfwCaptureTask(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwDnsResolution:CfwDnsResolution":
+                return new CfwDnsResolution(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwDomainNameGroup:CfwDomainNameGroup":
+                return new CfwDomainNameGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwEipProtection:CfwEipProtection":
+                return new CfwEipProtection(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwFirewall:CfwFirewall":
+                return new CfwFirewall(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwIpsRuleModeChange:CfwIpsRuleModeChange":
+                return new CfwIpsRuleModeChange(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwLtsLog:CfwLtsLog":
+                return new CfwLtsLog(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwServiceGroup:CfwServiceGroup":
+                return new CfwServiceGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/cfwServiceGroupMember:CfwServiceGroupMember":
+                return new CfwServiceGroupMember(name, <any>undefined, { urn })
             case "sbercloud:index/computeEipAssociate:ComputeEipAssociate":
                 return new ComputeEipAssociate(name, <any>undefined, { urn })
             case "sbercloud:index/computeInstance:ComputeInstance":
@@ -1767,6 +2307,16 @@ const _module = {
                 return new DcsRestore(name, <any>undefined, { urn })
             case "sbercloud:index/ddsInstance:DdsInstance":
                 return new DdsInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/ddsParameterTemplate:DdsParameterTemplate":
+                return new DdsParameterTemplate(name, <any>undefined, { urn })
+            case "sbercloud:index/ddsParameterTemplateApply:DdsParameterTemplateApply":
+                return new DdsParameterTemplateApply(name, <any>undefined, { urn })
+            case "sbercloud:index/ddsParameterTemplateCompare:DdsParameterTemplateCompare":
+                return new DdsParameterTemplateCompare(name, <any>undefined, { urn })
+            case "sbercloud:index/ddsParameterTemplateCopy:DdsParameterTemplateCopy":
+                return new DdsParameterTemplateCopy(name, <any>undefined, { urn })
+            case "sbercloud:index/ddsParameterTemplateReset:DdsParameterTemplateReset":
+                return new DdsParameterTemplateReset(name, <any>undefined, { urn })
             case "sbercloud:index/disStream:DisStream":
                 return new DisStream(name, <any>undefined, { urn })
             case "sbercloud:index/dliDatabase:DliDatabase":
@@ -1779,6 +2329,8 @@ const _module = {
                 return new DliSparkJob(name, <any>undefined, { urn })
             case "sbercloud:index/dmsInstance:DmsInstance":
                 return new DmsInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsKafkaConsumerGroup:DmsKafkaConsumerGroup":
+                return new DmsKafkaConsumerGroup(name, <any>undefined, { urn })
             case "sbercloud:index/dmsKafkaInstance:DmsKafkaInstance":
                 return new DmsKafkaInstance(name, <any>undefined, { urn })
             case "sbercloud:index/dmsKafkaMessageProduce:DmsKafkaMessageProduce":
@@ -1791,6 +2343,22 @@ const _module = {
                 return new DmsKafkaUser(name, <any>undefined, { urn })
             case "sbercloud:index/dmsRabbitmqInstance:DmsRabbitmqInstance":
                 return new DmsRabbitmqInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsRocketmqConsumerGroup:DmsRocketmqConsumerGroup":
+                return new DmsRocketmqConsumerGroup(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsRocketmqConsumptionVerify:DmsRocketmqConsumptionVerify":
+                return new DmsRocketmqConsumptionVerify(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsRocketmqDeadLetterResend:DmsRocketmqDeadLetterResend":
+                return new DmsRocketmqDeadLetterResend(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsRocketmqInstance:DmsRocketmqInstance":
+                return new DmsRocketmqInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsRocketmqMessageOffsetReset:DmsRocketmqMessageOffsetReset":
+                return new DmsRocketmqMessageOffsetReset(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsRocketmqMigrationTask:DmsRocketmqMigrationTask":
+                return new DmsRocketmqMigrationTask(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsRocketmqTopic:DmsRocketmqTopic":
+                return new DmsRocketmqTopic(name, <any>undefined, { urn })
+            case "sbercloud:index/dmsRocketmqUser:DmsRocketmqUser":
+                return new DmsRocketmqUser(name, <any>undefined, { urn })
             case "sbercloud:index/dnsRecordset:DnsRecordset":
                 return new DnsRecordset(name, <any>undefined, { urn })
             case "sbercloud:index/dnsZone:DnsZone":
@@ -1821,12 +2389,46 @@ const _module = {
                 return new ElbSecurityPolicy(name, <any>undefined, { urn })
             case "sbercloud:index/enterpriseProject:EnterpriseProject":
                 return new EnterpriseProject(name, <any>undefined, { urn })
+            case "sbercloud:index/erAssociation:ErAssociation":
+                return new ErAssociation(name, <any>undefined, { urn })
+            case "sbercloud:index/erAttachmentAccepter:ErAttachmentAccepter":
+                return new ErAttachmentAccepter(name, <any>undefined, { urn })
+            case "sbercloud:index/erFlowLog:ErFlowLog":
+                return new ErFlowLog(name, <any>undefined, { urn })
+            case "sbercloud:index/erInstance:ErInstance":
+                return new ErInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/erPropagation:ErPropagation":
+                return new ErPropagation(name, <any>undefined, { urn })
+            case "sbercloud:index/erRouteTable:ErRouteTable":
+                return new ErRouteTable(name, <any>undefined, { urn })
+            case "sbercloud:index/erStaticRoute:ErStaticRoute":
+                return new ErStaticRoute(name, <any>undefined, { urn })
+            case "sbercloud:index/erVpcAttachment:ErVpcAttachment":
+                return new ErVpcAttachment(name, <any>undefined, { urn })
             case "sbercloud:index/evsSnapshot:EvsSnapshot":
                 return new EvsSnapshot(name, <any>undefined, { urn })
             case "sbercloud:index/evsVolume:EvsVolume":
                 return new EvsVolume(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsApplication:FgsApplication":
+                return new FgsApplication(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsAsyncInvokeConfiguration:FgsAsyncInvokeConfiguration":
+                return new FgsAsyncInvokeConfiguration(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsDependency:FgsDependency":
+                return new FgsDependency(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsDependencyVersion:FgsDependencyVersion":
+                return new FgsDependencyVersion(name, <any>undefined, { urn })
             case "sbercloud:index/fgsFunction:FgsFunction":
                 return new FgsFunction(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsFunctionEvent:FgsFunctionEvent":
+                return new FgsFunctionEvent(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsFunctionTopping:FgsFunctionTopping":
+                return new FgsFunctionTopping(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsFunctionTrigger:FgsFunctionTrigger":
+                return new FgsFunctionTrigger(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsFunctionTriggerStatusAction:FgsFunctionTriggerStatusAction":
+                return new FgsFunctionTriggerStatusAction(name, <any>undefined, { urn })
+            case "sbercloud:index/fgsLtsLogEnable:FgsLtsLogEnable":
+                return new FgsLtsLogEnable(name, <any>undefined, { urn })
             case "sbercloud:index/gesGraph:GesGraph":
                 return new GesGraph(name, <any>undefined, { urn })
             case "sbercloud:index/identityAccessKey:IdentityAccessKey":
@@ -1925,6 +2527,8 @@ const _module = {
                 return new RdsBackup(name, <any>undefined, { urn })
             case "sbercloud:index/rdsInstance:RdsInstance":
                 return new RdsInstance(name, <any>undefined, { urn })
+            case "sbercloud:index/rdsInstanceEipAssociate:RdsInstanceEipAssociate":
+                return new RdsInstanceEipAssociate(name, <any>undefined, { urn })
             case "sbercloud:index/rdsMysqlAccount:RdsMysqlAccount":
                 return new RdsMysqlAccount(name, <any>undefined, { urn })
             case "sbercloud:index/rdsMysqlBinlog:RdsMysqlBinlog":
@@ -1981,6 +2585,8 @@ const _module = {
                 return new SfsTurboObsTarget(name, <any>undefined, { urn })
             case "sbercloud:index/sfsTurboPermRule:SfsTurboPermRule":
                 return new SfsTurboPermRule(name, <any>undefined, { urn })
+            case "sbercloud:index/smnMessageDetection:SmnMessageDetection":
+                return new SmnMessageDetection(name, <any>undefined, { urn })
             case "sbercloud:index/smnSubscription:SmnSubscription":
                 return new SmnSubscription(name, <any>undefined, { urn })
             case "sbercloud:index/smnTopic:SmnTopic":
@@ -2078,6 +2684,21 @@ pulumi.runtime.registerResourceModule("sbercloud", "index/cceNodePool", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/ccePvc", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/cdmCluster", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/cesAlarmrule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwAclRule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwAddressGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwAddressGroupMember", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwAlarmConfig", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwAntiVirus", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwBlackWhiteList", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwCaptureTask", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwDnsResolution", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwDomainNameGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwEipProtection", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwFirewall", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwIpsRuleModeChange", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwLtsLog", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwServiceGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/cfwServiceGroupMember", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/computeEipAssociate", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/computeInstance", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/computeInterfaceAttach", _module)
@@ -2095,18 +2716,32 @@ pulumi.runtime.registerResourceModule("sbercloud", "index/dcsInstance", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dcsParameters", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dcsRestore", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/ddsInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ddsParameterTemplate", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ddsParameterTemplateApply", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ddsParameterTemplateCompare", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ddsParameterTemplateCopy", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/ddsParameterTemplateReset", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/disStream", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dliDatabase", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dliPackage", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dliQueue", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dliSparkJob", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dmsInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaConsumerGroup", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaInstance", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaMessageProduce", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaPermissions", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaTopic", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dmsKafkaUser", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRabbitmqInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRocketmqConsumerGroup", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRocketmqConsumptionVerify", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRocketmqDeadLetterResend", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRocketmqInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRocketmqMessageOffsetReset", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRocketmqMigrationTask", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRocketmqTopic", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/dmsRocketmqUser", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dnsRecordset", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/dnsZone", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/drsJob", _module)
@@ -2122,9 +2757,26 @@ pulumi.runtime.registerResourceModule("sbercloud", "index/elbMonitor", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/elbPool", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/elbSecurityPolicy", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/enterpriseProject", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/erAssociation", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/erAttachmentAccepter", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/erFlowLog", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/erInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/erPropagation", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/erRouteTable", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/erStaticRoute", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/erVpcAttachment", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/evsSnapshot", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/evsVolume", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsApplication", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsAsyncInvokeConfiguration", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsDependency", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsDependencyVersion", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/fgsFunction", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsFunctionEvent", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsFunctionTopping", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsFunctionTrigger", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsFunctionTriggerStatusAction", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/fgsLtsLogEnable", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/gesGraph", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/identityAccessKey", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/identityAcl", _module)
@@ -2174,6 +2826,7 @@ pulumi.runtime.registerResourceModule("sbercloud", "index/obsBucketObject", _mod
 pulumi.runtime.registerResourceModule("sbercloud", "index/obsBucketPolicy", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/rdsBackup", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/rdsInstance", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/rdsInstanceEipAssociate", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/rdsMysqlAccount", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/rdsMysqlBinlog", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/rdsMysqlDatabase", _module)
@@ -2202,6 +2855,7 @@ pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboDirQuota", _mo
 pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboDuTask", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboObsTarget", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/sfsTurboPermRule", _module)
+pulumi.runtime.registerResourceModule("sbercloud", "index/smnMessageDetection", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/smnSubscription", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/smnTopic", _module)
 pulumi.runtime.registerResourceModule("sbercloud", "index/swrOrganization", _module)

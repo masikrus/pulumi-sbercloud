@@ -37,10 +37,13 @@ export class ElbListener extends pulumi.CustomResource {
     public readonly accessPolicy!: pulumi.Output<string | undefined>;
     public readonly advancedForwardingEnabled!: pulumi.Output<boolean>;
     public readonly caCertificate!: pulumi.Output<string | undefined>;
+    public readonly cps!: pulumi.Output<number>;
     public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly defaultPoolId!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly enableMemberRetry!: pulumi.Output<boolean>;
+    public readonly enableQuicUpgrade!: pulumi.Output<string | undefined>;
+    public /*out*/ readonly enterpriseProjectId!: pulumi.Output<string>;
     public readonly forceDelete!: pulumi.Output<boolean | undefined>;
     public readonly forwardEip!: pulumi.Output<boolean>;
     public readonly forwardElb!: pulumi.Output<boolean>;
@@ -55,7 +58,9 @@ export class ElbListener extends pulumi.CustomResource {
     public readonly http2Enable!: pulumi.Output<boolean>;
     public readonly idleTimeout!: pulumi.Output<number>;
     public readonly ipGroup!: pulumi.Output<string | undefined>;
+    public readonly ipGroupEnable!: pulumi.Output<string>;
     public readonly loadbalancerId!: pulumi.Output<string>;
+    public readonly maxConnection!: pulumi.Output<number>;
     public readonly name!: pulumi.Output<string>;
     public readonly portRanges!: pulumi.Output<outputs.ElbListenerPortRange[] | undefined>;
     public readonly protectionReason!: pulumi.Output<string | undefined>;
@@ -93,10 +98,13 @@ export class ElbListener extends pulumi.CustomResource {
             resourceInputs["accessPolicy"] = state ? state.accessPolicy : undefined;
             resourceInputs["advancedForwardingEnabled"] = state ? state.advancedForwardingEnabled : undefined;
             resourceInputs["caCertificate"] = state ? state.caCertificate : undefined;
+            resourceInputs["cps"] = state ? state.cps : undefined;
             resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["defaultPoolId"] = state ? state.defaultPoolId : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["enableMemberRetry"] = state ? state.enableMemberRetry : undefined;
+            resourceInputs["enableQuicUpgrade"] = state ? state.enableQuicUpgrade : undefined;
+            resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
             resourceInputs["forceDelete"] = state ? state.forceDelete : undefined;
             resourceInputs["forwardEip"] = state ? state.forwardEip : undefined;
             resourceInputs["forwardElb"] = state ? state.forwardElb : undefined;
@@ -111,7 +119,9 @@ export class ElbListener extends pulumi.CustomResource {
             resourceInputs["http2Enable"] = state ? state.http2Enable : undefined;
             resourceInputs["idleTimeout"] = state ? state.idleTimeout : undefined;
             resourceInputs["ipGroup"] = state ? state.ipGroup : undefined;
+            resourceInputs["ipGroupEnable"] = state ? state.ipGroupEnable : undefined;
             resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
+            resourceInputs["maxConnection"] = state ? state.maxConnection : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
             resourceInputs["portRanges"] = state ? state.portRanges : undefined;
             resourceInputs["protectionReason"] = state ? state.protectionReason : undefined;
@@ -143,9 +153,11 @@ export class ElbListener extends pulumi.CustomResource {
             resourceInputs["accessPolicy"] = args ? args.accessPolicy : undefined;
             resourceInputs["advancedForwardingEnabled"] = args ? args.advancedForwardingEnabled : undefined;
             resourceInputs["caCertificate"] = args ? args.caCertificate : undefined;
+            resourceInputs["cps"] = args ? args.cps : undefined;
             resourceInputs["defaultPoolId"] = args ? args.defaultPoolId : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["enableMemberRetry"] = args ? args.enableMemberRetry : undefined;
+            resourceInputs["enableQuicUpgrade"] = args ? args.enableQuicUpgrade : undefined;
             resourceInputs["forceDelete"] = args ? args.forceDelete : undefined;
             resourceInputs["forwardEip"] = args ? args.forwardEip : undefined;
             resourceInputs["forwardElb"] = args ? args.forwardElb : undefined;
@@ -160,7 +172,9 @@ export class ElbListener extends pulumi.CustomResource {
             resourceInputs["http2Enable"] = args ? args.http2Enable : undefined;
             resourceInputs["idleTimeout"] = args ? args.idleTimeout : undefined;
             resourceInputs["ipGroup"] = args ? args.ipGroup : undefined;
+            resourceInputs["ipGroupEnable"] = args ? args.ipGroupEnable : undefined;
             resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
+            resourceInputs["maxConnection"] = args ? args.maxConnection : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
             resourceInputs["portRanges"] = args ? args.portRanges : undefined;
             resourceInputs["protectionReason"] = args ? args.protectionReason : undefined;
@@ -181,6 +195,7 @@ export class ElbListener extends pulumi.CustomResource {
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tlsCiphersPolicy"] = args ? args.tlsCiphersPolicy : undefined;
             resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["enterpriseProjectId"] = undefined /*out*/;
             resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -195,10 +210,13 @@ export interface ElbListenerState {
     accessPolicy?: pulumi.Input<string>;
     advancedForwardingEnabled?: pulumi.Input<boolean>;
     caCertificate?: pulumi.Input<string>;
+    cps?: pulumi.Input<number>;
     createdAt?: pulumi.Input<string>;
     defaultPoolId?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     enableMemberRetry?: pulumi.Input<boolean>;
+    enableQuicUpgrade?: pulumi.Input<string>;
+    enterpriseProjectId?: pulumi.Input<string>;
     forceDelete?: pulumi.Input<boolean>;
     forwardEip?: pulumi.Input<boolean>;
     forwardElb?: pulumi.Input<boolean>;
@@ -213,7 +231,9 @@ export interface ElbListenerState {
     http2Enable?: pulumi.Input<boolean>;
     idleTimeout?: pulumi.Input<number>;
     ipGroup?: pulumi.Input<string>;
+    ipGroupEnable?: pulumi.Input<string>;
     loadbalancerId?: pulumi.Input<string>;
+    maxConnection?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     portRanges?: pulumi.Input<pulumi.Input<inputs.ElbListenerPortRange>[]>;
     protectionReason?: pulumi.Input<string>;
@@ -243,9 +263,11 @@ export interface ElbListenerArgs {
     accessPolicy?: pulumi.Input<string>;
     advancedForwardingEnabled?: pulumi.Input<boolean>;
     caCertificate?: pulumi.Input<string>;
+    cps?: pulumi.Input<number>;
     defaultPoolId?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     enableMemberRetry?: pulumi.Input<boolean>;
+    enableQuicUpgrade?: pulumi.Input<string>;
     forceDelete?: pulumi.Input<boolean>;
     forwardEip?: pulumi.Input<boolean>;
     forwardElb?: pulumi.Input<boolean>;
@@ -260,7 +282,9 @@ export interface ElbListenerArgs {
     http2Enable?: pulumi.Input<boolean>;
     idleTimeout?: pulumi.Input<number>;
     ipGroup?: pulumi.Input<string>;
+    ipGroupEnable?: pulumi.Input<string>;
     loadbalancerId: pulumi.Input<string>;
+    maxConnection?: pulumi.Input<number>;
     name?: pulumi.Input<string>;
     portRanges?: pulumi.Input<pulumi.Input<inputs.ElbListenerPortRange>[]>;
     protectionReason?: pulumi.Input<string>;

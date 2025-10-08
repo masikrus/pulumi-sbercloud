@@ -64,6 +64,7 @@ class AsConfigurationArgs:
 @pulumi.input_type
 class _AsConfigurationState:
     def __init__(__self__, *,
+                 create_time: Optional[pulumi.Input[builtins.str]] = None,
                  instance_config: Optional[pulumi.Input['AsConfigurationInstanceConfigArgs']] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_configuration_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -71,6 +72,8 @@ class _AsConfigurationState:
         """
         Input properties used for looking up and filtering AsConfiguration resources.
         """
+        if create_time is not None:
+            pulumi.set(__self__, "create_time", create_time)
         if instance_config is not None:
             pulumi.set(__self__, "instance_config", instance_config)
         if region is not None:
@@ -79,6 +82,15 @@ class _AsConfigurationState:
             pulumi.set(__self__, "scaling_configuration_name", scaling_configuration_name)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "create_time")
+
+    @create_time.setter
+    def create_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "create_time", value)
 
     @property
     @pulumi.getter(name="instanceConfig")
@@ -173,6 +185,7 @@ class AsConfiguration(pulumi.CustomResource):
             if scaling_configuration_name is None and not opts.urn:
                 raise TypeError("Missing required property 'scaling_configuration_name'")
             __props__.__dict__["scaling_configuration_name"] = scaling_configuration_name
+            __props__.__dict__["create_time"] = None
             __props__.__dict__["status"] = None
         super(AsConfiguration, __self__).__init__(
             'sbercloud:index/asConfiguration:AsConfiguration',
@@ -184,6 +197,7 @@ class AsConfiguration(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            create_time: Optional[pulumi.Input[builtins.str]] = None,
             instance_config: Optional[pulumi.Input[Union['AsConfigurationInstanceConfigArgs', 'AsConfigurationInstanceConfigArgsDict']]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             scaling_configuration_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -200,11 +214,17 @@ class AsConfiguration(pulumi.CustomResource):
 
         __props__ = _AsConfigurationState.__new__(_AsConfigurationState)
 
+        __props__.__dict__["create_time"] = create_time
         __props__.__dict__["instance_config"] = instance_config
         __props__.__dict__["region"] = region
         __props__.__dict__["scaling_configuration_name"] = scaling_configuration_name
         __props__.__dict__["status"] = status
         return AsConfiguration(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter(name="instanceConfig")

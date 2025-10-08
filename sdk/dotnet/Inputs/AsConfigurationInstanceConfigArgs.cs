@@ -53,6 +53,9 @@ namespace Pulumi.Sbercloud.Inputs
         [Input("instanceId")]
         public Input<string>? InstanceId { get; set; }
 
+        [Input("keyFingerprint")]
+        public Input<string>? KeyFingerprint { get; set; }
+
         [Input("keyName")]
         public Input<string>? KeyName { get; set; }
 

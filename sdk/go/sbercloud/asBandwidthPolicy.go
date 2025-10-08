@@ -15,14 +15,22 @@ import (
 type AsBandwidthPolicy struct {
 	pulumi.CustomResourceState
 
+	// Specifies identification of operation the AS bandwidth policy.
+	Action pulumi.StringPtrOutput `pulumi:"action"`
 	// Specifies the alarm rule ID.
 	AlarmId pulumi.StringOutput `pulumi:"alarmId"`
 	// Specifies the scaling bandwidth ID.
 	BandwidthId pulumi.StringOutput `pulumi:"bandwidthId"`
 	// Specifies the cooldown period (in seconds).
 	CoolDownTime pulumi.IntOutput `pulumi:"coolDownTime"`
+	// The creation time of the bandwidth policy.
+	CreateTime pulumi.StringOutput `pulumi:"createTime"`
 	// Specifies the description of the AS policy.
-	Description         pulumi.StringOutput                        `pulumi:"description"`
+	Description pulumi.StringOutput `pulumi:"description"`
+	// Specifies the alarm interval of the bandwidth policy.
+	IntervalAlarmActions AsBandwidthPolicyIntervalAlarmActionArrayOutput `pulumi:"intervalAlarmActions"`
+	// The bandwidth policy additional information.
+	MetaDatas           AsBandwidthPolicyMetaDataArrayOutput       `pulumi:"metaDatas"`
 	Region              pulumi.StringOutput                        `pulumi:"region"`
 	ScalingPolicyAction AsBandwidthPolicyScalingPolicyActionOutput `pulumi:"scalingPolicyAction"`
 	// Specifies the AS policy name.
@@ -75,14 +83,22 @@ func GetAsBandwidthPolicy(ctx *pulumi.Context,
 
 // Input properties used for looking up and filtering AsBandwidthPolicy resources.
 type asBandwidthPolicyState struct {
+	// Specifies identification of operation the AS bandwidth policy.
+	Action *string `pulumi:"action"`
 	// Specifies the alarm rule ID.
 	AlarmId *string `pulumi:"alarmId"`
 	// Specifies the scaling bandwidth ID.
 	BandwidthId *string `pulumi:"bandwidthId"`
 	// Specifies the cooldown period (in seconds).
 	CoolDownTime *int `pulumi:"coolDownTime"`
+	// The creation time of the bandwidth policy.
+	CreateTime *string `pulumi:"createTime"`
 	// Specifies the description of the AS policy.
-	Description         *string                               `pulumi:"description"`
+	Description *string `pulumi:"description"`
+	// Specifies the alarm interval of the bandwidth policy.
+	IntervalAlarmActions []AsBandwidthPolicyIntervalAlarmAction `pulumi:"intervalAlarmActions"`
+	// The bandwidth policy additional information.
+	MetaDatas           []AsBandwidthPolicyMetaData           `pulumi:"metaDatas"`
 	Region              *string                               `pulumi:"region"`
 	ScalingPolicyAction *AsBandwidthPolicyScalingPolicyAction `pulumi:"scalingPolicyAction"`
 	// Specifies the AS policy name.
@@ -97,14 +113,22 @@ type asBandwidthPolicyState struct {
 }
 
 type AsBandwidthPolicyState struct {
+	// Specifies identification of operation the AS bandwidth policy.
+	Action pulumi.StringPtrInput
 	// Specifies the alarm rule ID.
 	AlarmId pulumi.StringPtrInput
 	// Specifies the scaling bandwidth ID.
 	BandwidthId pulumi.StringPtrInput
 	// Specifies the cooldown period (in seconds).
 	CoolDownTime pulumi.IntPtrInput
+	// The creation time of the bandwidth policy.
+	CreateTime pulumi.StringPtrInput
 	// Specifies the description of the AS policy.
-	Description         pulumi.StringPtrInput
+	Description pulumi.StringPtrInput
+	// Specifies the alarm interval of the bandwidth policy.
+	IntervalAlarmActions AsBandwidthPolicyIntervalAlarmActionArrayInput
+	// The bandwidth policy additional information.
+	MetaDatas           AsBandwidthPolicyMetaDataArrayInput
 	Region              pulumi.StringPtrInput
 	ScalingPolicyAction AsBandwidthPolicyScalingPolicyActionPtrInput
 	// Specifies the AS policy name.
@@ -123,6 +147,8 @@ func (AsBandwidthPolicyState) ElementType() reflect.Type {
 }
 
 type asBandwidthPolicyArgs struct {
+	// Specifies identification of operation the AS bandwidth policy.
+	Action *string `pulumi:"action"`
 	// Specifies the alarm rule ID.
 	AlarmId *string `pulumi:"alarmId"`
 	// Specifies the scaling bandwidth ID.
@@ -130,9 +156,11 @@ type asBandwidthPolicyArgs struct {
 	// Specifies the cooldown period (in seconds).
 	CoolDownTime *int `pulumi:"coolDownTime"`
 	// Specifies the description of the AS policy.
-	Description         *string                               `pulumi:"description"`
-	Region              *string                               `pulumi:"region"`
-	ScalingPolicyAction *AsBandwidthPolicyScalingPolicyAction `pulumi:"scalingPolicyAction"`
+	Description *string `pulumi:"description"`
+	// Specifies the alarm interval of the bandwidth policy.
+	IntervalAlarmActions []AsBandwidthPolicyIntervalAlarmAction `pulumi:"intervalAlarmActions"`
+	Region               *string                                `pulumi:"region"`
+	ScalingPolicyAction  *AsBandwidthPolicyScalingPolicyAction  `pulumi:"scalingPolicyAction"`
 	// Specifies the AS policy name.
 	ScalingPolicyName string `pulumi:"scalingPolicyName"`
 	// Specifies the AS policy type.
@@ -142,6 +170,8 @@ type asBandwidthPolicyArgs struct {
 
 // The set of arguments for constructing a AsBandwidthPolicy resource.
 type AsBandwidthPolicyArgs struct {
+	// Specifies identification of operation the AS bandwidth policy.
+	Action pulumi.StringPtrInput
 	// Specifies the alarm rule ID.
 	AlarmId pulumi.StringPtrInput
 	// Specifies the scaling bandwidth ID.
@@ -149,9 +179,11 @@ type AsBandwidthPolicyArgs struct {
 	// Specifies the cooldown period (in seconds).
 	CoolDownTime pulumi.IntPtrInput
 	// Specifies the description of the AS policy.
-	Description         pulumi.StringPtrInput
-	Region              pulumi.StringPtrInput
-	ScalingPolicyAction AsBandwidthPolicyScalingPolicyActionPtrInput
+	Description pulumi.StringPtrInput
+	// Specifies the alarm interval of the bandwidth policy.
+	IntervalAlarmActions AsBandwidthPolicyIntervalAlarmActionArrayInput
+	Region               pulumi.StringPtrInput
+	ScalingPolicyAction  AsBandwidthPolicyScalingPolicyActionPtrInput
 	// Specifies the AS policy name.
 	ScalingPolicyName pulumi.StringInput
 	// Specifies the AS policy type.
@@ -246,6 +278,11 @@ func (o AsBandwidthPolicyOutput) ToAsBandwidthPolicyOutputWithContext(ctx contex
 	return o
 }
 
+// Specifies identification of operation the AS bandwidth policy.
+func (o AsBandwidthPolicyOutput) Action() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *AsBandwidthPolicy) pulumi.StringPtrOutput { return v.Action }).(pulumi.StringPtrOutput)
+}
+
 // Specifies the alarm rule ID.
 func (o AsBandwidthPolicyOutput) AlarmId() pulumi.StringOutput {
 	return o.ApplyT(func(v *AsBandwidthPolicy) pulumi.StringOutput { return v.AlarmId }).(pulumi.StringOutput)
@@ -261,9 +298,26 @@ func (o AsBandwidthPolicyOutput) CoolDownTime() pulumi.IntOutput {
 	return o.ApplyT(func(v *AsBandwidthPolicy) pulumi.IntOutput { return v.CoolDownTime }).(pulumi.IntOutput)
 }
 
+// The creation time of the bandwidth policy.
+func (o AsBandwidthPolicyOutput) CreateTime() pulumi.StringOutput {
+	return o.ApplyT(func(v *AsBandwidthPolicy) pulumi.StringOutput { return v.CreateTime }).(pulumi.StringOutput)
+}
+
 // Specifies the description of the AS policy.
 func (o AsBandwidthPolicyOutput) Description() pulumi.StringOutput {
 	return o.ApplyT(func(v *AsBandwidthPolicy) pulumi.StringOutput { return v.Description }).(pulumi.StringOutput)
+}
+
+// Specifies the alarm interval of the bandwidth policy.
+func (o AsBandwidthPolicyOutput) IntervalAlarmActions() AsBandwidthPolicyIntervalAlarmActionArrayOutput {
+	return o.ApplyT(func(v *AsBandwidthPolicy) AsBandwidthPolicyIntervalAlarmActionArrayOutput {
+		return v.IntervalAlarmActions
+	}).(AsBandwidthPolicyIntervalAlarmActionArrayOutput)
+}
+
+// The bandwidth policy additional information.
+func (o AsBandwidthPolicyOutput) MetaDatas() AsBandwidthPolicyMetaDataArrayOutput {
+	return o.ApplyT(func(v *AsBandwidthPolicy) AsBandwidthPolicyMetaDataArrayOutput { return v.MetaDatas }).(AsBandwidthPolicyMetaDataArrayOutput)
 }
 
 func (o AsBandwidthPolicyOutput) Region() pulumi.StringOutput {

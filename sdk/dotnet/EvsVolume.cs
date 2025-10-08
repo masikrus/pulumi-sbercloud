@@ -12,6 +12,12 @@ namespace Pulumi.Sbercloud
     [SbercloudResourceType("sbercloud:index/evsVolume:EvsVolume")]
     public partial class EvsVolume : global::Pulumi.CustomResource
     {
+        [Output("allMetadata")]
+        public Output<ImmutableDictionary<string, string>> AllMetadata { get; private set; } = null!;
+
+        [Output("allVolumeImageMetadata")]
+        public Output<ImmutableDictionary<string, string>> AllVolumeImageMetadata { get; private set; } = null!;
+
         [Output("attachments")]
         public Output<ImmutableArray<Outputs.EvsVolumeAttachment>> Attachments { get; private set; } = null!;
 
@@ -27,11 +33,17 @@ namespace Pulumi.Sbercloud
         [Output("backupId")]
         public Output<string?> BackupId { get; private set; } = null!;
 
+        [Output("bootable")]
+        public Output<string> Bootable { get; private set; } = null!;
+
         [Output("cascade")]
         public Output<bool?> Cascade { get; private set; } = null!;
 
         [Output("chargingMode")]
         public Output<string> ChargingMode { get; private set; } = null!;
+
+        [Output("createdAt")]
+        public Output<string> CreatedAt { get; private set; } = null!;
 
         [Output("dedicatedStorageId")]
         public Output<string?> DedicatedStorageId { get; private set; } = null!;
@@ -54,8 +66,14 @@ namespace Pulumi.Sbercloud
         [Output("iops")]
         public Output<int> Iops { get; private set; } = null!;
 
+        [Output("iopsAttributes")]
+        public Output<ImmutableArray<Outputs.EvsVolumeIopsAttribute>> IopsAttributes { get; private set; } = null!;
+
         [Output("kmsId")]
         public Output<string?> KmsId { get; private set; } = null!;
+
+        [Output("links")]
+        public Output<ImmutableArray<Outputs.EvsVolumeLink>> Links { get; private set; } = null!;
 
         [Output("multiattach")]
         public Output<bool?> Multiattach { get; private set; } = null!;
@@ -72,8 +90,14 @@ namespace Pulumi.Sbercloud
         [Output("region")]
         public Output<string> Region { get; private set; } = null!;
 
+        [Output("serialNumber")]
+        public Output<string> SerialNumber { get; private set; } = null!;
+
         [Output("serverId")]
         public Output<string?> ServerId { get; private set; } = null!;
+
+        [Output("serviceType")]
+        public Output<string> ServiceType { get; private set; } = null!;
 
         [Output("size")]
         public Output<int> Size { get; private set; } = null!;
@@ -89,6 +113,12 @@ namespace Pulumi.Sbercloud
 
         [Output("throughput")]
         public Output<int> Throughput { get; private set; } = null!;
+
+        [Output("throughputAttributes")]
+        public Output<ImmutableArray<Outputs.EvsVolumeThroughputAttribute>> ThroughputAttributes { get; private set; } = null!;
+
+        [Output("updatedAt")]
+        public Output<string> UpdatedAt { get; private set; } = null!;
 
         [Output("volumeType")]
         public Output<string> VolumeType { get; private set; } = null!;
@@ -227,6 +257,22 @@ namespace Pulumi.Sbercloud
 
     public sealed class EvsVolumeState : global::Pulumi.ResourceArgs
     {
+        [Input("allMetadata")]
+        private InputMap<string>? _allMetadata;
+        public InputMap<string> AllMetadata
+        {
+            get => _allMetadata ?? (_allMetadata = new InputMap<string>());
+            set => _allMetadata = value;
+        }
+
+        [Input("allVolumeImageMetadata")]
+        private InputMap<string>? _allVolumeImageMetadata;
+        public InputMap<string> AllVolumeImageMetadata
+        {
+            get => _allVolumeImageMetadata ?? (_allVolumeImageMetadata = new InputMap<string>());
+            set => _allVolumeImageMetadata = value;
+        }
+
         [Input("attachments")]
         private InputList<Inputs.EvsVolumeAttachmentGetArgs>? _attachments;
         public InputList<Inputs.EvsVolumeAttachmentGetArgs> Attachments
@@ -247,11 +293,17 @@ namespace Pulumi.Sbercloud
         [Input("backupId")]
         public Input<string>? BackupId { get; set; }
 
+        [Input("bootable")]
+        public Input<string>? Bootable { get; set; }
+
         [Input("cascade")]
         public Input<bool>? Cascade { get; set; }
 
         [Input("chargingMode")]
         public Input<string>? ChargingMode { get; set; }
+
+        [Input("createdAt")]
+        public Input<string>? CreatedAt { get; set; }
 
         [Input("dedicatedStorageId")]
         public Input<string>? DedicatedStorageId { get; set; }
@@ -274,8 +326,24 @@ namespace Pulumi.Sbercloud
         [Input("iops")]
         public Input<int>? Iops { get; set; }
 
+        [Input("iopsAttributes")]
+        private InputList<Inputs.EvsVolumeIopsAttributeGetArgs>? _iopsAttributes;
+        public InputList<Inputs.EvsVolumeIopsAttributeGetArgs> IopsAttributes
+        {
+            get => _iopsAttributes ?? (_iopsAttributes = new InputList<Inputs.EvsVolumeIopsAttributeGetArgs>());
+            set => _iopsAttributes = value;
+        }
+
         [Input("kmsId")]
         public Input<string>? KmsId { get; set; }
+
+        [Input("links")]
+        private InputList<Inputs.EvsVolumeLinkGetArgs>? _links;
+        public InputList<Inputs.EvsVolumeLinkGetArgs> Links
+        {
+            get => _links ?? (_links = new InputList<Inputs.EvsVolumeLinkGetArgs>());
+            set => _links = value;
+        }
 
         [Input("multiattach")]
         public Input<bool>? Multiattach { get; set; }
@@ -292,8 +360,14 @@ namespace Pulumi.Sbercloud
         [Input("region")]
         public Input<string>? Region { get; set; }
 
+        [Input("serialNumber")]
+        public Input<string>? SerialNumber { get; set; }
+
         [Input("serverId")]
         public Input<string>? ServerId { get; set; }
+
+        [Input("serviceType")]
+        public Input<string>? ServiceType { get; set; }
 
         [Input("size")]
         public Input<int>? Size { get; set; }
@@ -314,6 +388,17 @@ namespace Pulumi.Sbercloud
 
         [Input("throughput")]
         public Input<int>? Throughput { get; set; }
+
+        [Input("throughputAttributes")]
+        private InputList<Inputs.EvsVolumeThroughputAttributeGetArgs>? _throughputAttributes;
+        public InputList<Inputs.EvsVolumeThroughputAttributeGetArgs> ThroughputAttributes
+        {
+            get => _throughputAttributes ?? (_throughputAttributes = new InputList<Inputs.EvsVolumeThroughputAttributeGetArgs>());
+            set => _throughputAttributes = value;
+        }
+
+        [Input("updatedAt")]
+        public Input<string>? UpdatedAt { get; set; }
 
         [Input("volumeType")]
         public Input<string>? VolumeType { get; set; }

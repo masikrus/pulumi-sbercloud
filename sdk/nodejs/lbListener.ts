@@ -2,6 +2,8 @@
 // *** Do not edit by hand unless you're certain you know what you are doing! ***
 
 import * as pulumi from "@pulumi/pulumi";
+import * as inputs from "./types/input";
+import * as outputs from "./types/output";
 import * as utilities from "./utilities";
 
 export class LbListener extends pulumi.CustomResource {
@@ -32,23 +34,36 @@ export class LbListener extends pulumi.CustomResource {
         return obj['__pulumiType'] === LbListener.__pulumiType;
     }
 
+    /**
+     * @deprecated admin_state_up is deprecated
+     */
     public readonly adminStateUp!: pulumi.Output<boolean | undefined>;
+    public readonly clientCaTlsContainerRef!: pulumi.Output<string>;
+    /**
+     * @deprecated connection_limit is deprecated
+     */
     public readonly connectionLimit!: pulumi.Output<number>;
+    public /*out*/ readonly createdAt!: pulumi.Output<string>;
     public readonly defaultPoolId!: pulumi.Output<string>;
-    public readonly defaultTlsContainerRef!: pulumi.Output<string | undefined>;
+    public readonly defaultTlsContainerRef!: pulumi.Output<string>;
     public readonly description!: pulumi.Output<string | undefined>;
     public readonly http2Enable!: pulumi.Output<boolean | undefined>;
+    public readonly insertHeaders!: pulumi.Output<outputs.LbListenerInsertHeaders>;
     public readonly loadbalancerId!: pulumi.Output<string>;
     public readonly name!: pulumi.Output<string>;
+    public readonly protectionReason!: pulumi.Output<string | undefined>;
+    public readonly protectionStatus!: pulumi.Output<string>;
     public readonly protocol!: pulumi.Output<string>;
     public readonly protocolPort!: pulumi.Output<number>;
     public readonly region!: pulumi.Output<string>;
-    public readonly sniContainerRefs!: pulumi.Output<string[] | undefined>;
+    public readonly sniContainerRefs!: pulumi.Output<string[]>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
      * @deprecated tenant_id is deprecated
      */
     public readonly tenantId!: pulumi.Output<string>;
+    public readonly tlsCiphersPolicy!: pulumi.Output<string>;
+    public /*out*/ readonly updatedAt!: pulumi.Output<string>;
 
     /**
      * Create a LbListener resource with the given unique name, arguments, and options.
@@ -64,19 +79,26 @@ export class LbListener extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as LbListenerState | undefined;
             resourceInputs["adminStateUp"] = state ? state.adminStateUp : undefined;
+            resourceInputs["clientCaTlsContainerRef"] = state ? state.clientCaTlsContainerRef : undefined;
             resourceInputs["connectionLimit"] = state ? state.connectionLimit : undefined;
+            resourceInputs["createdAt"] = state ? state.createdAt : undefined;
             resourceInputs["defaultPoolId"] = state ? state.defaultPoolId : undefined;
             resourceInputs["defaultTlsContainerRef"] = state ? state.defaultTlsContainerRef : undefined;
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["http2Enable"] = state ? state.http2Enable : undefined;
+            resourceInputs["insertHeaders"] = state ? state.insertHeaders : undefined;
             resourceInputs["loadbalancerId"] = state ? state.loadbalancerId : undefined;
             resourceInputs["name"] = state ? state.name : undefined;
+            resourceInputs["protectionReason"] = state ? state.protectionReason : undefined;
+            resourceInputs["protectionStatus"] = state ? state.protectionStatus : undefined;
             resourceInputs["protocol"] = state ? state.protocol : undefined;
             resourceInputs["protocolPort"] = state ? state.protocolPort : undefined;
             resourceInputs["region"] = state ? state.region : undefined;
             resourceInputs["sniContainerRefs"] = state ? state.sniContainerRefs : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tenantId"] = state ? state.tenantId : undefined;
+            resourceInputs["tlsCiphersPolicy"] = state ? state.tlsCiphersPolicy : undefined;
+            resourceInputs["updatedAt"] = state ? state.updatedAt : undefined;
         } else {
             const args = argsOrState as LbListenerArgs | undefined;
             if ((!args || args.loadbalancerId === undefined) && !opts.urn) {
@@ -89,19 +111,26 @@ export class LbListener extends pulumi.CustomResource {
                 throw new Error("Missing required property 'protocolPort'");
             }
             resourceInputs["adminStateUp"] = args ? args.adminStateUp : undefined;
+            resourceInputs["clientCaTlsContainerRef"] = args ? args.clientCaTlsContainerRef : undefined;
             resourceInputs["connectionLimit"] = args ? args.connectionLimit : undefined;
             resourceInputs["defaultPoolId"] = args ? args.defaultPoolId : undefined;
             resourceInputs["defaultTlsContainerRef"] = args ? args.defaultTlsContainerRef : undefined;
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["http2Enable"] = args ? args.http2Enable : undefined;
+            resourceInputs["insertHeaders"] = args ? args.insertHeaders : undefined;
             resourceInputs["loadbalancerId"] = args ? args.loadbalancerId : undefined;
             resourceInputs["name"] = args ? args.name : undefined;
+            resourceInputs["protectionReason"] = args ? args.protectionReason : undefined;
+            resourceInputs["protectionStatus"] = args ? args.protectionStatus : undefined;
             resourceInputs["protocol"] = args ? args.protocol : undefined;
             resourceInputs["protocolPort"] = args ? args.protocolPort : undefined;
             resourceInputs["region"] = args ? args.region : undefined;
             resourceInputs["sniContainerRefs"] = args ? args.sniContainerRefs : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["tenantId"] = args ? args.tenantId : undefined;
+            resourceInputs["tlsCiphersPolicy"] = args ? args.tlsCiphersPolicy : undefined;
+            resourceInputs["createdAt"] = undefined /*out*/;
+            resourceInputs["updatedAt"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(LbListener.__pulumiType, name, resourceInputs, opts);
@@ -112,14 +141,25 @@ export class LbListener extends pulumi.CustomResource {
  * Input properties used for looking up and filtering LbListener resources.
  */
 export interface LbListenerState {
+    /**
+     * @deprecated admin_state_up is deprecated
+     */
     adminStateUp?: pulumi.Input<boolean>;
+    clientCaTlsContainerRef?: pulumi.Input<string>;
+    /**
+     * @deprecated connection_limit is deprecated
+     */
     connectionLimit?: pulumi.Input<number>;
+    createdAt?: pulumi.Input<string>;
     defaultPoolId?: pulumi.Input<string>;
     defaultTlsContainerRef?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     http2Enable?: pulumi.Input<boolean>;
+    insertHeaders?: pulumi.Input<inputs.LbListenerInsertHeaders>;
     loadbalancerId?: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    protectionReason?: pulumi.Input<string>;
+    protectionStatus?: pulumi.Input<string>;
     protocol?: pulumi.Input<string>;
     protocolPort?: pulumi.Input<number>;
     region?: pulumi.Input<string>;
@@ -129,20 +169,32 @@ export interface LbListenerState {
      * @deprecated tenant_id is deprecated
      */
     tenantId?: pulumi.Input<string>;
+    tlsCiphersPolicy?: pulumi.Input<string>;
+    updatedAt?: pulumi.Input<string>;
 }
 
 /**
  * The set of arguments for constructing a LbListener resource.
  */
 export interface LbListenerArgs {
+    /**
+     * @deprecated admin_state_up is deprecated
+     */
     adminStateUp?: pulumi.Input<boolean>;
+    clientCaTlsContainerRef?: pulumi.Input<string>;
+    /**
+     * @deprecated connection_limit is deprecated
+     */
     connectionLimit?: pulumi.Input<number>;
     defaultPoolId?: pulumi.Input<string>;
     defaultTlsContainerRef?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     http2Enable?: pulumi.Input<boolean>;
+    insertHeaders?: pulumi.Input<inputs.LbListenerInsertHeaders>;
     loadbalancerId: pulumi.Input<string>;
     name?: pulumi.Input<string>;
+    protectionReason?: pulumi.Input<string>;
+    protectionStatus?: pulumi.Input<string>;
     protocol: pulumi.Input<string>;
     protocolPort: pulumi.Input<number>;
     region?: pulumi.Input<string>;
@@ -152,4 +204,5 @@ export interface LbListenerArgs {
      * @deprecated tenant_id is deprecated
      */
     tenantId?: pulumi.Input<string>;
+    tlsCiphersPolicy?: pulumi.Input<string>;
 }

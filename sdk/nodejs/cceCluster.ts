@@ -77,10 +77,8 @@ export class CceCluster extends pulumi.CustomResource {
     public readonly deleteSfs!: pulumi.Output<string | undefined>;
     public readonly description!: pulumi.Output<string>;
     public readonly eip!: pulumi.Output<string | undefined>;
-    /**
-     * schema: Internal
-     */
-    public readonly enableDistributeManagement!: pulumi.Output<boolean | undefined>;
+    public readonly enableDistributeManagement!: pulumi.Output<boolean>;
+    public readonly encryptionConfig!: pulumi.Output<outputs.CceClusterEncryptionConfig>;
     /**
      * schema: Computed
      */
@@ -121,6 +119,7 @@ export class CceCluster extends pulumi.CustomResource {
     public readonly subnetId!: pulumi.Output<string>;
     public readonly supportIstio!: pulumi.Output<boolean>;
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    public readonly timezone!: pulumi.Output<string>;
     public readonly vpcId!: pulumi.Output<string>;
 
     /**
@@ -165,6 +164,7 @@ export class CceCluster extends pulumi.CustomResource {
             resourceInputs["description"] = state ? state.description : undefined;
             resourceInputs["eip"] = state ? state.eip : undefined;
             resourceInputs["enableDistributeManagement"] = state ? state.enableDistributeManagement : undefined;
+            resourceInputs["encryptionConfig"] = state ? state.encryptionConfig : undefined;
             resourceInputs["eniSubnetCidr"] = state ? state.eniSubnetCidr : undefined;
             resourceInputs["eniSubnetId"] = state ? state.eniSubnetId : undefined;
             resourceInputs["enterpriseProjectId"] = state ? state.enterpriseProjectId : undefined;
@@ -190,6 +190,7 @@ export class CceCluster extends pulumi.CustomResource {
             resourceInputs["subnetId"] = state ? state.subnetId : undefined;
             resourceInputs["supportIstio"] = state ? state.supportIstio : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["timezone"] = state ? state.timezone : undefined;
             resourceInputs["vpcId"] = state ? state.vpcId : undefined;
         } else {
             const args = argsOrState as CceClusterArgs | undefined;
@@ -231,6 +232,7 @@ export class CceCluster extends pulumi.CustomResource {
             resourceInputs["description"] = args ? args.description : undefined;
             resourceInputs["eip"] = args ? args.eip : undefined;
             resourceInputs["enableDistributeManagement"] = args ? args.enableDistributeManagement : undefined;
+            resourceInputs["encryptionConfig"] = args ? args.encryptionConfig : undefined;
             resourceInputs["eniSubnetCidr"] = args ? args.eniSubnetCidr : undefined;
             resourceInputs["eniSubnetId"] = args ? args.eniSubnetId : undefined;
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
@@ -254,6 +256,7 @@ export class CceCluster extends pulumi.CustomResource {
             resourceInputs["subnetId"] = args ? args.subnetId : undefined;
             resourceInputs["supportIstio"] = args ? args.supportIstio : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
+            resourceInputs["timezone"] = args ? args.timezone : undefined;
             resourceInputs["vpcId"] = args ? args.vpcId : undefined;
             resourceInputs["category"] = undefined /*out*/;
             resourceInputs["certificateClusters"] = undefined /*out*/;
@@ -313,10 +316,8 @@ export interface CceClusterState {
     deleteSfs?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     eip?: pulumi.Input<string>;
-    /**
-     * schema: Internal
-     */
     enableDistributeManagement?: pulumi.Input<boolean>;
+    encryptionConfig?: pulumi.Input<inputs.CceClusterEncryptionConfig>;
     /**
      * schema: Computed
      */
@@ -357,6 +358,7 @@ export interface CceClusterState {
     subnetId?: pulumi.Input<string>;
     supportIstio?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    timezone?: pulumi.Input<string>;
     vpcId?: pulumi.Input<string>;
 }
 
@@ -404,10 +406,8 @@ export interface CceClusterArgs {
     deleteSfs?: pulumi.Input<string>;
     description?: pulumi.Input<string>;
     eip?: pulumi.Input<string>;
-    /**
-     * schema: Internal
-     */
     enableDistributeManagement?: pulumi.Input<boolean>;
+    encryptionConfig?: pulumi.Input<inputs.CceClusterEncryptionConfig>;
     /**
      * schema: Computed
      */
@@ -446,5 +446,6 @@ export interface CceClusterArgs {
     subnetId: pulumi.Input<string>;
     supportIstio?: pulumi.Input<boolean>;
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    timezone?: pulumi.Input<string>;
     vpcId: pulumi.Input<string>;
 }

@@ -23,6 +23,7 @@ __all__ = ['VpcArgs', 'Vpc']
 class VpcArgs:
     def __init__(__self__, *,
                  cidr: pulumi.Input[builtins.str],
+                 block_service_endpoint_states: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_local_route: Optional[pulumi.Input[builtins.str]] = None,
                  enterprise_project_id: Optional[pulumi.Input[builtins.str]] = None,
@@ -36,6 +37,8 @@ class VpcArgs:
         :param pulumi.Input[builtins.str] secondary_cidr: schema: Deprecated; use secondary_cidrs instead
         """
         pulumi.set(__self__, "cidr", cidr)
+        if block_service_endpoint_states is not None:
+            pulumi.set(__self__, "block_service_endpoint_states", block_service_endpoint_states)
         if description is not None:
             pulumi.set(__self__, "description", description)
         if enhanced_local_route is not None:
@@ -61,6 +64,15 @@ class VpcArgs:
     @cidr.setter
     def cidr(self, value: pulumi.Input[builtins.str]):
         pulumi.set(self, "cidr", value)
+
+    @property
+    @pulumi.getter(name="blockServiceEndpointStates")
+    def block_service_endpoint_states(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "block_service_endpoint_states")
+
+    @block_service_endpoint_states.setter
+    def block_service_endpoint_states(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "block_service_endpoint_states", value)
 
     @property
     @pulumi.getter
@@ -141,6 +153,7 @@ class VpcArgs:
 @pulumi.input_type
 class _VpcState:
     def __init__(__self__, *,
+                 block_service_endpoint_states: Optional[pulumi.Input[builtins.str]] = None,
                  cidr: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_local_route: Optional[pulumi.Input[builtins.str]] = None,
@@ -156,6 +169,8 @@ class _VpcState:
         Input properties used for looking up and filtering Vpc resources.
         :param pulumi.Input[builtins.str] secondary_cidr: schema: Deprecated; use secondary_cidrs instead
         """
+        if block_service_endpoint_states is not None:
+            pulumi.set(__self__, "block_service_endpoint_states", block_service_endpoint_states)
         if cidr is not None:
             pulumi.set(__self__, "cidr", cidr)
         if description is not None:
@@ -181,6 +196,15 @@ class _VpcState:
             pulumi.set(__self__, "status", status)
         if tags is not None:
             pulumi.set(__self__, "tags", tags)
+
+    @property
+    @pulumi.getter(name="blockServiceEndpointStates")
+    def block_service_endpoint_states(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "block_service_endpoint_states")
+
+    @block_service_endpoint_states.setter
+    def block_service_endpoint_states(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "block_service_endpoint_states", value)
 
     @property
     @pulumi.getter
@@ -291,6 +315,7 @@ class Vpc(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 block_service_endpoint_states: Optional[pulumi.Input[builtins.str]] = None,
                  cidr: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_local_route: Optional[pulumi.Input[builtins.str]] = None,
@@ -330,6 +355,7 @@ class Vpc(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 block_service_endpoint_states: Optional[pulumi.Input[builtins.str]] = None,
                  cidr: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
                  enhanced_local_route: Optional[pulumi.Input[builtins.str]] = None,
@@ -348,6 +374,7 @@ class Vpc(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = VpcArgs.__new__(VpcArgs)
 
+            __props__.__dict__["block_service_endpoint_states"] = block_service_endpoint_states
             if cidr is None and not opts.urn:
                 raise TypeError("Missing required property 'cidr'")
             __props__.__dict__["cidr"] = cidr
@@ -371,6 +398,7 @@ class Vpc(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            block_service_endpoint_states: Optional[pulumi.Input[builtins.str]] = None,
             cidr: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
             enhanced_local_route: Optional[pulumi.Input[builtins.str]] = None,
@@ -395,6 +423,7 @@ class Vpc(pulumi.CustomResource):
 
         __props__ = _VpcState.__new__(_VpcState)
 
+        __props__.__dict__["block_service_endpoint_states"] = block_service_endpoint_states
         __props__.__dict__["cidr"] = cidr
         __props__.__dict__["description"] = description
         __props__.__dict__["enhanced_local_route"] = enhanced_local_route
@@ -407,6 +436,11 @@ class Vpc(pulumi.CustomResource):
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
         return Vpc(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter(name="blockServiceEndpointStates")
+    def block_service_endpoint_states(self) -> pulumi.Output[Optional[builtins.str]]:
+        return pulumi.get(self, "block_service_endpoint_states")
 
     @property
     @pulumi.getter

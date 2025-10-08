@@ -25,9 +25,11 @@ class AsBandwidthPolicyArgs:
                  bandwidth_id: pulumi.Input[builtins.str],
                  scaling_policy_name: pulumi.Input[builtins.str],
                  scaling_policy_type: pulumi.Input[builtins.str],
+                 action: Optional[pulumi.Input[builtins.str]] = None,
                  alarm_id: Optional[pulumi.Input[builtins.str]] = None,
                  cool_down_time: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 interval_alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyIntervalAlarmActionArgs']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_policy_action: Optional[pulumi.Input['AsBandwidthPolicyScalingPolicyActionArgs']] = None,
                  scheduled_policy: Optional[pulumi.Input['AsBandwidthPolicyScheduledPolicyArgs']] = None):
@@ -36,19 +38,25 @@ class AsBandwidthPolicyArgs:
         :param pulumi.Input[builtins.str] bandwidth_id: Specifies the scaling bandwidth ID.
         :param pulumi.Input[builtins.str] scaling_policy_name: Specifies the AS policy name.
         :param pulumi.Input[builtins.str] scaling_policy_type: Specifies the AS policy type.
+        :param pulumi.Input[builtins.str] action: Specifies identification of operation the AS bandwidth policy.
         :param pulumi.Input[builtins.str] alarm_id: Specifies the alarm rule ID.
         :param pulumi.Input[builtins.int] cool_down_time: Specifies the cooldown period (in seconds).
         :param pulumi.Input[builtins.str] description: Specifies the description of the AS policy.
+        :param pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyIntervalAlarmActionArgs']]] interval_alarm_actions: Specifies the alarm interval of the bandwidth policy.
         """
         pulumi.set(__self__, "bandwidth_id", bandwidth_id)
         pulumi.set(__self__, "scaling_policy_name", scaling_policy_name)
         pulumi.set(__self__, "scaling_policy_type", scaling_policy_type)
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if alarm_id is not None:
             pulumi.set(__self__, "alarm_id", alarm_id)
         if cool_down_time is not None:
             pulumi.set(__self__, "cool_down_time", cool_down_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if interval_alarm_actions is not None:
+            pulumi.set(__self__, "interval_alarm_actions", interval_alarm_actions)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if scaling_policy_action is not None:
@@ -93,6 +101,18 @@ class AsBandwidthPolicyArgs:
         pulumi.set(self, "scaling_policy_type", value)
 
     @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies identification of operation the AS bandwidth policy.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "action", value)
+
+    @property
     @pulumi.getter(name="alarmId")
     def alarm_id(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -129,6 +149,18 @@ class AsBandwidthPolicyArgs:
         pulumi.set(self, "description", value)
 
     @property
+    @pulumi.getter(name="intervalAlarmActions")
+    def interval_alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyIntervalAlarmActionArgs']]]]:
+        """
+        Specifies the alarm interval of the bandwidth policy.
+        """
+        return pulumi.get(self, "interval_alarm_actions")
+
+    @interval_alarm_actions.setter
+    def interval_alarm_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyIntervalAlarmActionArgs']]]]):
+        pulumi.set(self, "interval_alarm_actions", value)
+
+    @property
     @pulumi.getter
     def region(self) -> Optional[pulumi.Input[builtins.str]]:
         return pulumi.get(self, "region")
@@ -159,10 +191,14 @@ class AsBandwidthPolicyArgs:
 @pulumi.input_type
 class _AsBandwidthPolicyState:
     def __init__(__self__, *,
+                 action: Optional[pulumi.Input[builtins.str]] = None,
                  alarm_id: Optional[pulumi.Input[builtins.str]] = None,
                  bandwidth_id: Optional[pulumi.Input[builtins.str]] = None,
                  cool_down_time: Optional[pulumi.Input[builtins.int]] = None,
+                 create_time: Optional[pulumi.Input[builtins.str]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 interval_alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyIntervalAlarmActionArgs']]]] = None,
+                 meta_datas: Optional[pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyMetaDataArgs']]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_policy_action: Optional[pulumi.Input['AsBandwidthPolicyScalingPolicyActionArgs']] = None,
                  scaling_policy_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -172,23 +208,35 @@ class _AsBandwidthPolicyState:
                  status: Optional[pulumi.Input[builtins.str]] = None):
         """
         Input properties used for looking up and filtering AsBandwidthPolicy resources.
+        :param pulumi.Input[builtins.str] action: Specifies identification of operation the AS bandwidth policy.
         :param pulumi.Input[builtins.str] alarm_id: Specifies the alarm rule ID.
         :param pulumi.Input[builtins.str] bandwidth_id: Specifies the scaling bandwidth ID.
         :param pulumi.Input[builtins.int] cool_down_time: Specifies the cooldown period (in seconds).
+        :param pulumi.Input[builtins.str] create_time: The creation time of the bandwidth policy.
         :param pulumi.Input[builtins.str] description: Specifies the description of the AS policy.
+        :param pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyIntervalAlarmActionArgs']]] interval_alarm_actions: Specifies the alarm interval of the bandwidth policy.
+        :param pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyMetaDataArgs']]] meta_datas: The bandwidth policy additional information.
         :param pulumi.Input[builtins.str] scaling_policy_name: Specifies the AS policy name.
         :param pulumi.Input[builtins.str] scaling_policy_type: Specifies the AS policy type.
         :param pulumi.Input[builtins.str] scaling_resource_type: the scaling resource type.
         :param pulumi.Input[builtins.str] status: the AS policy status.
         """
+        if action is not None:
+            pulumi.set(__self__, "action", action)
         if alarm_id is not None:
             pulumi.set(__self__, "alarm_id", alarm_id)
         if bandwidth_id is not None:
             pulumi.set(__self__, "bandwidth_id", bandwidth_id)
         if cool_down_time is not None:
             pulumi.set(__self__, "cool_down_time", cool_down_time)
+        if create_time is not None:
+            pulumi.set(__self__, "create_time", create_time)
         if description is not None:
             pulumi.set(__self__, "description", description)
+        if interval_alarm_actions is not None:
+            pulumi.set(__self__, "interval_alarm_actions", interval_alarm_actions)
+        if meta_datas is not None:
+            pulumi.set(__self__, "meta_datas", meta_datas)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if scaling_policy_action is not None:
@@ -203,6 +251,18 @@ class _AsBandwidthPolicyState:
             pulumi.set(__self__, "scheduled_policy", scheduled_policy)
         if status is not None:
             pulumi.set(__self__, "status", status)
+
+    @property
+    @pulumi.getter
+    def action(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        Specifies identification of operation the AS bandwidth policy.
+        """
+        return pulumi.get(self, "action")
+
+    @action.setter
+    def action(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "action", value)
 
     @property
     @pulumi.getter(name="alarmId")
@@ -241,6 +301,18 @@ class _AsBandwidthPolicyState:
         pulumi.set(self, "cool_down_time", value)
 
     @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> Optional[pulumi.Input[builtins.str]]:
+        """
+        The creation time of the bandwidth policy.
+        """
+        return pulumi.get(self, "create_time")
+
+    @create_time.setter
+    def create_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "create_time", value)
+
+    @property
     @pulumi.getter
     def description(self) -> Optional[pulumi.Input[builtins.str]]:
         """
@@ -251,6 +323,30 @@ class _AsBandwidthPolicyState:
     @description.setter
     def description(self, value: Optional[pulumi.Input[builtins.str]]):
         pulumi.set(self, "description", value)
+
+    @property
+    @pulumi.getter(name="intervalAlarmActions")
+    def interval_alarm_actions(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyIntervalAlarmActionArgs']]]]:
+        """
+        Specifies the alarm interval of the bandwidth policy.
+        """
+        return pulumi.get(self, "interval_alarm_actions")
+
+    @interval_alarm_actions.setter
+    def interval_alarm_actions(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyIntervalAlarmActionArgs']]]]):
+        pulumi.set(self, "interval_alarm_actions", value)
+
+    @property
+    @pulumi.getter(name="metaDatas")
+    def meta_datas(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyMetaDataArgs']]]]:
+        """
+        The bandwidth policy additional information.
+        """
+        return pulumi.get(self, "meta_datas")
+
+    @meta_datas.setter
+    def meta_datas(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['AsBandwidthPolicyMetaDataArgs']]]]):
+        pulumi.set(self, "meta_datas", value)
 
     @property
     @pulumi.getter
@@ -333,10 +429,12 @@ class AsBandwidthPolicy(pulumi.CustomResource):
     def __init__(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action: Optional[pulumi.Input[builtins.str]] = None,
                  alarm_id: Optional[pulumi.Input[builtins.str]] = None,
                  bandwidth_id: Optional[pulumi.Input[builtins.str]] = None,
                  cool_down_time: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 interval_alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AsBandwidthPolicyIntervalAlarmActionArgs', 'AsBandwidthPolicyIntervalAlarmActionArgsDict']]]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_policy_action: Optional[pulumi.Input[Union['AsBandwidthPolicyScalingPolicyActionArgs', 'AsBandwidthPolicyScalingPolicyActionArgsDict']]] = None,
                  scaling_policy_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -347,10 +445,12 @@ class AsBandwidthPolicy(pulumi.CustomResource):
         Create a AsBandwidthPolicy resource with the given unique name, props, and options.
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] action: Specifies identification of operation the AS bandwidth policy.
         :param pulumi.Input[builtins.str] alarm_id: Specifies the alarm rule ID.
         :param pulumi.Input[builtins.str] bandwidth_id: Specifies the scaling bandwidth ID.
         :param pulumi.Input[builtins.int] cool_down_time: Specifies the cooldown period (in seconds).
         :param pulumi.Input[builtins.str] description: Specifies the description of the AS policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AsBandwidthPolicyIntervalAlarmActionArgs', 'AsBandwidthPolicyIntervalAlarmActionArgsDict']]]] interval_alarm_actions: Specifies the alarm interval of the bandwidth policy.
         :param pulumi.Input[builtins.str] scaling_policy_name: Specifies the AS policy name.
         :param pulumi.Input[builtins.str] scaling_policy_type: Specifies the AS policy type.
         """
@@ -377,10 +477,12 @@ class AsBandwidthPolicy(pulumi.CustomResource):
     def _internal_init(__self__,
                  resource_name: str,
                  opts: Optional[pulumi.ResourceOptions] = None,
+                 action: Optional[pulumi.Input[builtins.str]] = None,
                  alarm_id: Optional[pulumi.Input[builtins.str]] = None,
                  bandwidth_id: Optional[pulumi.Input[builtins.str]] = None,
                  cool_down_time: Optional[pulumi.Input[builtins.int]] = None,
                  description: Optional[pulumi.Input[builtins.str]] = None,
+                 interval_alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AsBandwidthPolicyIntervalAlarmActionArgs', 'AsBandwidthPolicyIntervalAlarmActionArgsDict']]]]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_policy_action: Optional[pulumi.Input[Union['AsBandwidthPolicyScalingPolicyActionArgs', 'AsBandwidthPolicyScalingPolicyActionArgsDict']]] = None,
                  scaling_policy_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -395,12 +497,14 @@ class AsBandwidthPolicy(pulumi.CustomResource):
                 raise TypeError('__props__ is only valid when passed in combination with a valid opts.id to get an existing resource')
             __props__ = AsBandwidthPolicyArgs.__new__(AsBandwidthPolicyArgs)
 
+            __props__.__dict__["action"] = action
             __props__.__dict__["alarm_id"] = alarm_id
             if bandwidth_id is None and not opts.urn:
                 raise TypeError("Missing required property 'bandwidth_id'")
             __props__.__dict__["bandwidth_id"] = bandwidth_id
             __props__.__dict__["cool_down_time"] = cool_down_time
             __props__.__dict__["description"] = description
+            __props__.__dict__["interval_alarm_actions"] = interval_alarm_actions
             __props__.__dict__["region"] = region
             __props__.__dict__["scaling_policy_action"] = scaling_policy_action
             if scaling_policy_name is None and not opts.urn:
@@ -410,6 +514,8 @@ class AsBandwidthPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scaling_policy_type'")
             __props__.__dict__["scaling_policy_type"] = scaling_policy_type
             __props__.__dict__["scheduled_policy"] = scheduled_policy
+            __props__.__dict__["create_time"] = None
+            __props__.__dict__["meta_datas"] = None
             __props__.__dict__["scaling_resource_type"] = None
             __props__.__dict__["status"] = None
         super(AsBandwidthPolicy, __self__).__init__(
@@ -422,10 +528,14 @@ class AsBandwidthPolicy(pulumi.CustomResource):
     def get(resource_name: str,
             id: pulumi.Input[str],
             opts: Optional[pulumi.ResourceOptions] = None,
+            action: Optional[pulumi.Input[builtins.str]] = None,
             alarm_id: Optional[pulumi.Input[builtins.str]] = None,
             bandwidth_id: Optional[pulumi.Input[builtins.str]] = None,
             cool_down_time: Optional[pulumi.Input[builtins.int]] = None,
+            create_time: Optional[pulumi.Input[builtins.str]] = None,
             description: Optional[pulumi.Input[builtins.str]] = None,
+            interval_alarm_actions: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AsBandwidthPolicyIntervalAlarmActionArgs', 'AsBandwidthPolicyIntervalAlarmActionArgsDict']]]]] = None,
+            meta_datas: Optional[pulumi.Input[Sequence[pulumi.Input[Union['AsBandwidthPolicyMetaDataArgs', 'AsBandwidthPolicyMetaDataArgsDict']]]]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             scaling_policy_action: Optional[pulumi.Input[Union['AsBandwidthPolicyScalingPolicyActionArgs', 'AsBandwidthPolicyScalingPolicyActionArgsDict']]] = None,
             scaling_policy_name: Optional[pulumi.Input[builtins.str]] = None,
@@ -440,10 +550,14 @@ class AsBandwidthPolicy(pulumi.CustomResource):
         :param str resource_name: The unique name of the resulting resource.
         :param pulumi.Input[str] id: The unique provider ID of the resource to lookup.
         :param pulumi.ResourceOptions opts: Options for the resource.
+        :param pulumi.Input[builtins.str] action: Specifies identification of operation the AS bandwidth policy.
         :param pulumi.Input[builtins.str] alarm_id: Specifies the alarm rule ID.
         :param pulumi.Input[builtins.str] bandwidth_id: Specifies the scaling bandwidth ID.
         :param pulumi.Input[builtins.int] cool_down_time: Specifies the cooldown period (in seconds).
+        :param pulumi.Input[builtins.str] create_time: The creation time of the bandwidth policy.
         :param pulumi.Input[builtins.str] description: Specifies the description of the AS policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AsBandwidthPolicyIntervalAlarmActionArgs', 'AsBandwidthPolicyIntervalAlarmActionArgsDict']]]] interval_alarm_actions: Specifies the alarm interval of the bandwidth policy.
+        :param pulumi.Input[Sequence[pulumi.Input[Union['AsBandwidthPolicyMetaDataArgs', 'AsBandwidthPolicyMetaDataArgsDict']]]] meta_datas: The bandwidth policy additional information.
         :param pulumi.Input[builtins.str] scaling_policy_name: Specifies the AS policy name.
         :param pulumi.Input[builtins.str] scaling_policy_type: Specifies the AS policy type.
         :param pulumi.Input[builtins.str] scaling_resource_type: the scaling resource type.
@@ -453,10 +567,14 @@ class AsBandwidthPolicy(pulumi.CustomResource):
 
         __props__ = _AsBandwidthPolicyState.__new__(_AsBandwidthPolicyState)
 
+        __props__.__dict__["action"] = action
         __props__.__dict__["alarm_id"] = alarm_id
         __props__.__dict__["bandwidth_id"] = bandwidth_id
         __props__.__dict__["cool_down_time"] = cool_down_time
+        __props__.__dict__["create_time"] = create_time
         __props__.__dict__["description"] = description
+        __props__.__dict__["interval_alarm_actions"] = interval_alarm_actions
+        __props__.__dict__["meta_datas"] = meta_datas
         __props__.__dict__["region"] = region
         __props__.__dict__["scaling_policy_action"] = scaling_policy_action
         __props__.__dict__["scaling_policy_name"] = scaling_policy_name
@@ -465,6 +583,14 @@ class AsBandwidthPolicy(pulumi.CustomResource):
         __props__.__dict__["scheduled_policy"] = scheduled_policy
         __props__.__dict__["status"] = status
         return AsBandwidthPolicy(resource_name, opts=opts, __props__=__props__)
+
+    @property
+    @pulumi.getter
+    def action(self) -> pulumi.Output[Optional[builtins.str]]:
+        """
+        Specifies identification of operation the AS bandwidth policy.
+        """
+        return pulumi.get(self, "action")
 
     @property
     @pulumi.getter(name="alarmId")
@@ -491,12 +617,36 @@ class AsBandwidthPolicy(pulumi.CustomResource):
         return pulumi.get(self, "cool_down_time")
 
     @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> pulumi.Output[builtins.str]:
+        """
+        The creation time of the bandwidth policy.
+        """
+        return pulumi.get(self, "create_time")
+
+    @property
     @pulumi.getter
     def description(self) -> pulumi.Output[builtins.str]:
         """
         Specifies the description of the AS policy.
         """
         return pulumi.get(self, "description")
+
+    @property
+    @pulumi.getter(name="intervalAlarmActions")
+    def interval_alarm_actions(self) -> pulumi.Output[Sequence['outputs.AsBandwidthPolicyIntervalAlarmAction']]:
+        """
+        Specifies the alarm interval of the bandwidth policy.
+        """
+        return pulumi.get(self, "interval_alarm_actions")
+
+    @property
+    @pulumi.getter(name="metaDatas")
+    def meta_datas(self) -> pulumi.Output[Sequence['outputs.AsBandwidthPolicyMetaData']]:
+        """
+        The bandwidth policy additional information.
+        """
+        return pulumi.get(self, "meta_datas")
 
     @property
     @pulumi.getter

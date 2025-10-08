@@ -13,22 +13,20 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class GetLbPoolsPoolPersistenceResult
     {
-        /// <summary>
-        /// The name of the cookie if persistence mode is set appropriately.
-        /// </summary>
         public readonly string CookieName;
-        /// <summary>
-        /// The type of persistence mode.
-        /// </summary>
+        public readonly int Timeout;
         public readonly string Type;
 
         [OutputConstructor]
         private GetLbPoolsPoolPersistenceResult(
             string cookieName,
 
+            int timeout,
+
             string type)
         {
             CookieName = cookieName;
+            Timeout = timeout;
             Type = type;
         }
     }

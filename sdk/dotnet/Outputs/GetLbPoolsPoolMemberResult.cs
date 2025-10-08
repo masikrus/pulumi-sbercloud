@@ -13,9 +13,6 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class GetLbPoolsPoolMemberResult
     {
-        /// <summary>
-        /// The member ID.
-        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

@@ -138,6 +138,7 @@ class _AsPolicyState:
                  action: Optional[pulumi.Input[builtins.str]] = None,
                  alarm_id: Optional[pulumi.Input[builtins.str]] = None,
                  cool_down_time: Optional[pulumi.Input[builtins.int]] = None,
+                 create_time: Optional[pulumi.Input[builtins.str]] = None,
                  region: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_group_id: Optional[pulumi.Input[builtins.str]] = None,
                  scaling_policy_action: Optional[pulumi.Input['AsPolicyScalingPolicyActionArgs']] = None,
@@ -154,6 +155,8 @@ class _AsPolicyState:
             pulumi.set(__self__, "alarm_id", alarm_id)
         if cool_down_time is not None:
             pulumi.set(__self__, "cool_down_time", cool_down_time)
+        if create_time is not None:
+            pulumi.set(__self__, "create_time", create_time)
         if region is not None:
             pulumi.set(__self__, "region", region)
         if scaling_group_id is not None:
@@ -195,6 +198,15 @@ class _AsPolicyState:
     @cool_down_time.setter
     def cool_down_time(self, value: Optional[pulumi.Input[builtins.int]]):
         pulumi.set(self, "cool_down_time", value)
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> Optional[pulumi.Input[builtins.str]]:
+        return pulumi.get(self, "create_time")
+
+    @create_time.setter
+    def create_time(self, value: Optional[pulumi.Input[builtins.str]]):
+        pulumi.set(self, "create_time", value)
 
     @property
     @pulumi.getter
@@ -336,6 +348,7 @@ class AsPolicy(pulumi.CustomResource):
                 raise TypeError("Missing required property 'scaling_policy_type'")
             __props__.__dict__["scaling_policy_type"] = scaling_policy_type
             __props__.__dict__["scheduled_policy"] = scheduled_policy
+            __props__.__dict__["create_time"] = None
             __props__.__dict__["status"] = None
         super(AsPolicy, __self__).__init__(
             'sbercloud:index/asPolicy:AsPolicy',
@@ -350,6 +363,7 @@ class AsPolicy(pulumi.CustomResource):
             action: Optional[pulumi.Input[builtins.str]] = None,
             alarm_id: Optional[pulumi.Input[builtins.str]] = None,
             cool_down_time: Optional[pulumi.Input[builtins.int]] = None,
+            create_time: Optional[pulumi.Input[builtins.str]] = None,
             region: Optional[pulumi.Input[builtins.str]] = None,
             scaling_group_id: Optional[pulumi.Input[builtins.str]] = None,
             scaling_policy_action: Optional[pulumi.Input[Union['AsPolicyScalingPolicyActionArgs', 'AsPolicyScalingPolicyActionArgsDict']]] = None,
@@ -372,6 +386,7 @@ class AsPolicy(pulumi.CustomResource):
         __props__.__dict__["action"] = action
         __props__.__dict__["alarm_id"] = alarm_id
         __props__.__dict__["cool_down_time"] = cool_down_time
+        __props__.__dict__["create_time"] = create_time
         __props__.__dict__["region"] = region
         __props__.__dict__["scaling_group_id"] = scaling_group_id
         __props__.__dict__["scaling_policy_action"] = scaling_policy_action
@@ -395,6 +410,11 @@ class AsPolicy(pulumi.CustomResource):
     @pulumi.getter(name="coolDownTime")
     def cool_down_time(self) -> pulumi.Output[builtins.int]:
         return pulumi.get(self, "cool_down_time")
+
+    @property
+    @pulumi.getter(name="createTime")
+    def create_time(self) -> pulumi.Output[builtins.str]:
+        return pulumi.get(self, "create_time")
 
     @property
     @pulumi.getter

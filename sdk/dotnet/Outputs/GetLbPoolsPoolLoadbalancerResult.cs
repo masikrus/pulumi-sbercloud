@@ -13,9 +13,6 @@ namespace Pulumi.Sbercloud.Outputs
     [OutputType]
     public sealed class GetLbPoolsPoolLoadbalancerResult
     {
-        /// <summary>
-        /// The loadbalancer ID.
-        /// </summary>
         public readonly string Id;
 
         [OutputConstructor]

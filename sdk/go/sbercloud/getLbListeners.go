@@ -23,21 +23,39 @@ func GetLbListeners(ctx *pulumi.Context, args *GetLbListenersArgs, opts ...pulum
 
 // A collection of arguments for invoking getLbListeners.
 type GetLbListenersArgs struct {
-	Name         *string `pulumi:"name"`
-	Protocol     *string `pulumi:"protocol"`
-	ProtocolPort *string `pulumi:"protocolPort"`
-	Region       *string `pulumi:"region"`
+	ClientCaTlsContainerRef *string `pulumi:"clientCaTlsContainerRef"`
+	DefaultPoolId           *string `pulumi:"defaultPoolId"`
+	DefaultTlsContainerRef  *string `pulumi:"defaultTlsContainerRef"`
+	Description             *string `pulumi:"description"`
+	EnterpriseProjectId     *string `pulumi:"enterpriseProjectId"`
+	Http2Enable             *string `pulumi:"http2Enable"`
+	ListenerId              *string `pulumi:"listenerId"`
+	LoadbalancerId          *string `pulumi:"loadbalancerId"`
+	Name                    *string `pulumi:"name"`
+	Protocol                *string `pulumi:"protocol"`
+	ProtocolPort            *string `pulumi:"protocolPort"`
+	Region                  *string `pulumi:"region"`
+	TlsCiphersPolicy        *string `pulumi:"tlsCiphersPolicy"`
 }
 
 // A collection of values returned by getLbListeners.
 type GetLbListenersResult struct {
+	ClientCaTlsContainerRef *string `pulumi:"clientCaTlsContainerRef"`
+	DefaultPoolId           *string `pulumi:"defaultPoolId"`
+	DefaultTlsContainerRef  *string `pulumi:"defaultTlsContainerRef"`
+	Description             *string `pulumi:"description"`
+	EnterpriseProjectId     *string `pulumi:"enterpriseProjectId"`
+	Http2Enable             *string `pulumi:"http2Enable"`
 	// The provider-assigned unique ID for this managed resource.
-	Id           string                   `pulumi:"id"`
-	Listeners    []GetLbListenersListener `pulumi:"listeners"`
-	Name         *string                  `pulumi:"name"`
-	Protocol     *string                  `pulumi:"protocol"`
-	ProtocolPort *string                  `pulumi:"protocolPort"`
-	Region       string                   `pulumi:"region"`
+	Id               string                   `pulumi:"id"`
+	ListenerId       *string                  `pulumi:"listenerId"`
+	Listeners        []GetLbListenersListener `pulumi:"listeners"`
+	LoadbalancerId   *string                  `pulumi:"loadbalancerId"`
+	Name             *string                  `pulumi:"name"`
+	Protocol         *string                  `pulumi:"protocol"`
+	ProtocolPort     *string                  `pulumi:"protocolPort"`
+	Region           string                   `pulumi:"region"`
+	TlsCiphersPolicy *string                  `pulumi:"tlsCiphersPolicy"`
 }
 
 func GetLbListenersOutput(ctx *pulumi.Context, args GetLbListenersOutputArgs, opts ...pulumi.InvokeOption) GetLbListenersResultOutput {
@@ -51,10 +69,19 @@ func GetLbListenersOutput(ctx *pulumi.Context, args GetLbListenersOutputArgs, op
 
 // A collection of arguments for invoking getLbListeners.
 type GetLbListenersOutputArgs struct {
-	Name         pulumi.StringPtrInput `pulumi:"name"`
-	Protocol     pulumi.StringPtrInput `pulumi:"protocol"`
-	ProtocolPort pulumi.StringPtrInput `pulumi:"protocolPort"`
-	Region       pulumi.StringPtrInput `pulumi:"region"`
+	ClientCaTlsContainerRef pulumi.StringPtrInput `pulumi:"clientCaTlsContainerRef"`
+	DefaultPoolId           pulumi.StringPtrInput `pulumi:"defaultPoolId"`
+	DefaultTlsContainerRef  pulumi.StringPtrInput `pulumi:"defaultTlsContainerRef"`
+	Description             pulumi.StringPtrInput `pulumi:"description"`
+	EnterpriseProjectId     pulumi.StringPtrInput `pulumi:"enterpriseProjectId"`
+	Http2Enable             pulumi.StringPtrInput `pulumi:"http2Enable"`
+	ListenerId              pulumi.StringPtrInput `pulumi:"listenerId"`
+	LoadbalancerId          pulumi.StringPtrInput `pulumi:"loadbalancerId"`
+	Name                    pulumi.StringPtrInput `pulumi:"name"`
+	Protocol                pulumi.StringPtrInput `pulumi:"protocol"`
+	ProtocolPort            pulumi.StringPtrInput `pulumi:"protocolPort"`
+	Region                  pulumi.StringPtrInput `pulumi:"region"`
+	TlsCiphersPolicy        pulumi.StringPtrInput `pulumi:"tlsCiphersPolicy"`
 }
 
 func (GetLbListenersOutputArgs) ElementType() reflect.Type {
@@ -76,13 +103,45 @@ func (o GetLbListenersResultOutput) ToGetLbListenersResultOutputWithContext(ctx 
 	return o
 }
 
+func (o GetLbListenersResultOutput) ClientCaTlsContainerRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbListenersResult) *string { return v.ClientCaTlsContainerRef }).(pulumi.StringPtrOutput)
+}
+
+func (o GetLbListenersResultOutput) DefaultPoolId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbListenersResult) *string { return v.DefaultPoolId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetLbListenersResultOutput) DefaultTlsContainerRef() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbListenersResult) *string { return v.DefaultTlsContainerRef }).(pulumi.StringPtrOutput)
+}
+
+func (o GetLbListenersResultOutput) Description() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbListenersResult) *string { return v.Description }).(pulumi.StringPtrOutput)
+}
+
+func (o GetLbListenersResultOutput) EnterpriseProjectId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbListenersResult) *string { return v.EnterpriseProjectId }).(pulumi.StringPtrOutput)
+}
+
+func (o GetLbListenersResultOutput) Http2Enable() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbListenersResult) *string { return v.Http2Enable }).(pulumi.StringPtrOutput)
+}
+
 // The provider-assigned unique ID for this managed resource.
 func (o GetLbListenersResultOutput) Id() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLbListenersResult) string { return v.Id }).(pulumi.StringOutput)
 }
 
+func (o GetLbListenersResultOutput) ListenerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbListenersResult) *string { return v.ListenerId }).(pulumi.StringPtrOutput)
+}
+
 func (o GetLbListenersResultOutput) Listeners() GetLbListenersListenerArrayOutput {
 	return o.ApplyT(func(v GetLbListenersResult) []GetLbListenersListener { return v.Listeners }).(GetLbListenersListenerArrayOutput)
+}
+
+func (o GetLbListenersResultOutput) LoadbalancerId() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbListenersResult) *string { return v.LoadbalancerId }).(pulumi.StringPtrOutput)
 }
 
 func (o GetLbListenersResultOutput) Name() pulumi.StringPtrOutput {
@@ -99,6 +158,10 @@ func (o GetLbListenersResultOutput) ProtocolPort() pulumi.StringPtrOutput {
 
 func (o GetLbListenersResultOutput) Region() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLbListenersResult) string { return v.Region }).(pulumi.StringOutput)
+}
+
+func (o GetLbListenersResultOutput) TlsCiphersPolicy() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v GetLbListenersResult) *string { return v.TlsCiphersPolicy }).(pulumi.StringPtrOutput)
 }
 
 func init() {

@@ -87,6 +87,7 @@ export class Provider extends pulumi.ProviderResource {
             resourceInputs["authUrl"] = args ? args.authUrl : undefined;
             resourceInputs["domainId"] = args ? args.domainId : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
+            resourceInputs["endpoints"] = pulumi.output(args ? args.endpoints : undefined).apply(JSON.stringify);
             resourceInputs["enterpriseProjectId"] = args ? args.enterpriseProjectId : undefined;
             resourceInputs["insecure"] = pulumi.output(args ? args.insecure : undefined).apply(JSON.stringify);
             resourceInputs["maxRetries"] = pulumi.output(args ? args.maxRetries : undefined).apply(JSON.stringify);
@@ -123,6 +124,10 @@ export interface ProviderArgs {
     authUrl?: pulumi.Input<string>;
     domainId?: pulumi.Input<string>;
     domainName?: pulumi.Input<string>;
+    /**
+     * The custom endpoints used to override the default endpoint URL.
+     */
+    endpoints?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     enterpriseProjectId?: pulumi.Input<string>;
     /**
      * Trust self-signed certificates.
